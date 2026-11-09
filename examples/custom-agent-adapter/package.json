@@ -1,0 +1,21 @@
+{
+  "name": "@acmi/example-custom-agent-adapter",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@acmi/contracts": "workspace:*",
+    "@acmi/core": "workspace:*",
+    "@acmi/sdk": "workspace:*",
+    "@acmi/conformance": "workspace:*"
+  }
+}

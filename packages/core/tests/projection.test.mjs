@@ -51,4 +51,23 @@ describe('normalized ACMI projection', () => {
     expect(() => project([msg('one', 1), msg('one', 1)], tasks)).toThrow('sequence')
     expect(() => project([bind('one', 1, 'unknown')], tasks)).toThrow('task')
   })
+
+  it('keeps native user inputs unresolved without a completed turn and accepts only one result per call', () => {
+    const mark = (seq, kind, turnId) => ({ ref: ref('one', seq), kind, turnId })
+    const events = [
+      bind('one', 1, a),
+      msg('one', 2),
+      mark(3, 'turn-open', 'done'), msg('one', 4, 'done'),
+      edge('one', 5, 'tool-call', 'done'),
+      { ...edge('one', 6, 'tool-result', 'done'), originalCall: ref('one', 5) },
+      { ...edge('one', 7, 'tool-result', 'done'), originalCall: ref('one', 5) },
+      mark(8, 'turn-complete', 'done'),
+      mark(9, 'turn-open', 'pending'), msg('one', 10, 'pending'),
+    ]
+    const rows = project(events, tasks, { requireTurnEvidence: true })
+    expect(rows.map(row => [row.ref.localSeq, row.attribution.kind, row.attribution.reason])).toEqual([
+      [2, 'unresolved', 'no-turn'], [4, 'bound', undefined], [5, 'bound', undefined],
+      [6, 'bound', undefined], [7, 'unresolved', 'missing-or-invalid-call'], [10, 'unresolved', 'turn-open'],
+    ])
+  })
 })

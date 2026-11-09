@@ -7,7 +7,7 @@ interface SessionState {
   readonly cut: string
   seq: number
   binding?: BindingRecord
-  readonly calls: Map<number, { event: ToolCall; attribution: Attribution }>
+  readonly calls: Map<number, { event: ToolCall; attribution: Attribution; consumed: boolean }>
   readonly switches: Set<string>
   readonly turns: Map<string, 'open' | 'complete' | 'interrupted'>
   activeTurn: string | undefined
@@ -18,7 +18,11 @@ const forward = (binding: BindingRecord | undefined): Attribution =>
   binding === undefined ? unresolved('unbound') : { kind: 'bound', binding, method: 'forward' }
 
 /** Fold already-authorized, normalized facts. Output order is input/display order, never cross-Session causality. */
-export function project(events: readonly ProjectionInput[], seedTasks: readonly TaskRecord[]): readonly HistoryRow[] {
+export function project(
+  events: readonly ProjectionInput[],
+  seedTasks: readonly TaskRecord[],
+  options: { readonly requireTurnEvidence?: boolean } = {},
+): readonly HistoryRow[] {
   const workspace = seedTasks[0]?.workspaceId
   const inventory = new Set<TaskId>()
   for (const task of seedTasks) {
@@ -57,21 +61,28 @@ export function project(events: readonly ProjectionInput[], seedTasks: readonly 
     }
     if (event.kind !== 'user' && event.kind !== 'assistant' && event.kind !== 'tool-call' && event.kind !== 'tool-result') continue
     let attribution = forward(state.binding)
-    if (event.kind === 'tool-call') state.calls.set(state.seq, { event, attribution })
+    const admissibleUserTurn = event.kind !== 'user' || options.requireTurnEvidence !== true
+      || (turn !== undefined && state.activeTurn === turn && state.turns.get(turn) === 'open')
+    if (!admissibleUserTurn) attribution = unresolved('no-turn')
+    if (event.kind === 'tool-call') state.calls.set(state.seq, { event, attribution, consumed: false })
     if (event.kind === 'tool-result') {
       const source = event.originalCall === null ? undefined : state.calls.get(event.originalCall.localSeq)
-      if (source === undefined || resolveToolResult(event, source.event) === null) attribution = unresolved('missing-or-invalid-call')
-      else if (source.attribution.kind === 'unresolved') attribution = source.attribution
-      else attribution = { ...source.attribution, method: 'original-call' }
+      if (source === undefined || source.consumed || resolveToolResult(event, source.event) === null) {
+        attribution = unresolved('missing-or-invalid-call')
+      } else {
+        source.consumed = true
+        attribution = source.attribution.kind === 'unresolved' ? source.attribution : { ...source.attribution, method: 'original-call' }
+      }
     }
     const row = { ref: cleanRef(event.ref), attribution }
-    rows.push(event.kind === 'user' && turn !== undefined ? { row, state, turn } : { row, state })
+    rows.push(event.kind === 'user' && admissibleUserTurn && turn !== undefined ? { row, state, turn } : { row, state })
   }
   return rows.map(({ row, state, turn }) => {
     if (turn === undefined) return row
     const status = state.turns.get(turn)
+    if (status === 'open') return { ...row, attribution: unresolved('turn-open') }
+    if (status === 'interrupted') return { ...row, attribution: unresolved('turn-incomplete') }
     if (state.switches.has(turn)) return { ...row, attribution: unresolved('binding-changed') }
-    if (status === 'open' || status === 'interrupted') return { ...row, attribution: unresolved('turn-incomplete') }
     return row
   })
 }
