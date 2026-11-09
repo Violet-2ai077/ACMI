@@ -20,6 +20,15 @@
 
 ## Operational boundaries
 
+Phase 0.8.1 exposes host-only, default-off continuity experiments separately
+from the normal plugin. A marked graph root and separate read/write grants
+are required. `registerDshRuntimeIngestion` observes only explicitly attached
+Sessions; the host drives `drain` and `reconcile`.
+`registerPersistentDshRecovery` prepares a scoped graph package for the
+public Level B dynamic context hook. It does not replace native Compact or
+remove persisted historical snapshots on revocation. See the
+[Phase 0.8.1 report](../../docs/experiments/phase-0.8.1-final-report.md).
+
 Workspace and journal roots must be absolute, canonical and on a trusted local filesystem. The journal root must be outside the Workspace and outside all dsh homes, start empty, and be explicitly provisioned for one Workspace/encoding. Point the stock writer at exactly that root. The native readable partition label is not an authority; the marker and header must match. No share with other Workspaces, processes that can replace local files, or users outside the host trust boundary. In particular, Windows pathname opens cannot provide a kernel-enforced adversarial namespace guarantee; checked identities and read-only opens are not a general-purpose sandbox.
 
 The reader caps a cut at 16 MiB compressed or 32 MiB plaintext, 50× expansion, 4,096 events, 1 MiB per line, depth 48, six seconds per file/discovery, and 128 directory entries per inventory; history has a ten-second deadline and 16,384 aggregate events. The plugin serializes operations; concurrent independent decoders may return `ACMI_JOURNAL_BUSY`. Scope/format/change/limit errors fail closed. A cursor is bound to one authorized Session and one set of source revisions, the projection version and query; restart after a source append or reload. No implicit fallback or unverified compatibility.

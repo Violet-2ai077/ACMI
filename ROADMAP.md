@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.8.1: explicitly scoped dsh fact ingestion, local persistent Graph
+  Event Store, Host-reviewed semantic proposals, and fresh-Session recovery.
+  Dynamic recovery remains synthetic-only: native history may retain an old
+  snapshot even after revocation. See the [report](docs/experiments/phase-0.8.1-final-report.md).
 - Phase 0.8: scoped Task Graph, deterministic budgeted Context Packages and
   provider-free cross-Session recovery. Stock dsh dynamic context is qualified
   only in an opt-in synthetic experiment; the default Compact backend is not
@@ -25,8 +29,8 @@
 - Evaluate additional runtimes, including Claude Code and Codex, as official or
   community adapters. Each runtime must pass relevant conformance checks before
   support is claimed.
-- Qualify trusted graph ingestion, durable graph storage and portable
-  handoffs before deploying recovery. Design Project/Knowledge Memory
+- Qualify operator-driven ingestion, restart/backup and effective snapshot
+  revocation before deploying recovery. Design Project/Knowledge Memory
   separately from Task Memory; no global Memory Engine is promised.
 - Evaluate more storage formats, migration strategies, and compatibility with
   newer dsh versions after validating the first pinned baseline.

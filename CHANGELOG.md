@@ -3,7 +3,15 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.8
+## Unreleased - Phase 0.8.1
+
+- Added strict runtime fact normalization and scoped dsh append observation.
+- Persisted append-only graph streams, source cursors and host review receipts
+  in an isolated SQLite adapter with checkpoint and crash recovery.
+- Added proposal-only Task Understanding and a default-off persistent dsh
+  context experiment. No native Compact replacement or retroactive erasure.
+
+## Phase 0.8 (local)
 
 - Added scoped Task Graph projection, execution/attempt state, result review,
   explicit joins, and checkpoint plus suffix replay.
