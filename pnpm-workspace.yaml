@@ -1,0 +1,7 @@
+packages:
+  - packages/*
+  - integrations/dsh
+  - apps/*
+  - examples/*
+allowBuilds:
+  koffi: false

@@ -1,0 +1,22 @@
+{
+  "name": "acmi-workspace",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.28.5",
+  "engines": { "node": ">=24.16.0 <25" },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm run build",
+    "lint": "node scripts/check-source.mjs",
+    "test": "pnpm run build && vitest run",
+    "demo": "node examples/synthetic-demo/dist/index.js",
+    "demo:adapter": "node examples/custom-agent-adapter/dist/index.js",
+    "check": "pnpm run lint && pnpm test && pnpm demo && pnpm demo:adapter"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.4",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  }
+}
