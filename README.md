@@ -1,5 +1,7 @@
 # ACMI
 
+![ACMI wordmark with branching paths of different lengths](docs/assets/acmi-banner.png)
+
 [简体中文](README.zh-CN.md)
 
 ACMI (Agent Context & Memory Infrastructure) gives agent runtimes a way to
@@ -15,6 +17,8 @@ for setup and compatibility. To connect another runtime, start with the
 [Adapter Authoring Guide](docs/adapter-authoring.md) and the
 [custom adapter example](examples/custom-agent-adapter/README.md).
 
+## Quick start
+
 ```sh
 pnpm install --frozen-lockfile
 pnpm build
@@ -24,6 +28,31 @@ pnpm demo
 The demo shows Task switching and resumption, a causal Tool Call/Result pair,
 an unresolved event, and read-only cross-session history. Use the
 [Getting Started guide](docs/getting-started.md) to open the Observer timeline.
+
+## Architecture
+
+![ACMI data flow: the dsh integration and Synthetic Demo supply normalized events; Core combines them with explicit Task Binding and exposes scoped history to the read-only Observer](docs/assets/acmi-architecture.png)
+
+The diagram shows data flow, not package dependencies. Core is independent of
+dsh and keeps ambiguous events unresolved rather than guessing their Task.
+See the [architecture guide](docs/architecture.md) for the component boundaries.
+
+## What the Alpha tests verify
+
+Release baseline: [v0.1.0-alpha.1](https://github.com/Violet-2ai077/ACMI/releases/tag/v0.1.0-alpha.1)
+(`0531dbf`).
+
+| Check | Verified result |
+| --- | --- |
+| [GitHub Actions run](https://github.com/Violet-2ai077/ACMI/actions/runs/42630365718) | Windows and Ubuntu jobs passed, including frozen dependency installation, dependency audit, and `pnpm check`. |
+| Independent clean clones | **28/28 tests passed on each** of Windows x64 and Ubuntu 24.04 (WSL), across 9 test files. Both runs built the workspace and ran the Synthetic Demo, custom adapter, and dsh Quick Start. |
+| [dsh integration tests](integrations/dsh/tests/dsh.test.ts) | With dsh `0.2.2-rc.1`, the dedicated v4 journal fixture passed [Level 4 conformance](packages/conformance/README.md): an independently reopened adapter recovered Task history across two Sessions. Reads left both plaintext and Zstandard journal files byte-for-byte unchanged in their respective fixtures. |
+| [Observer HTTP test](examples/dsh-quickstart/tests/observer-http.test.mjs) | The local synthetic Observer served its read-only timeline and rejected write requests. |
+
+To reproduce the build, tests, and demos, install the pinned versions from
+[`package.json`](package.json), run `pnpm install --frozen-lockfile`, then run
+`pnpm check`. These are controlled fixture and integration checks; they do not
+validate live model traffic or establish production security guarantees.
 
 **Safety:** automatic persistent Binding is disabled; attribution heuristics
 are offline research only. dsh history requires a trusted local host and an
@@ -42,9 +71,7 @@ See [Security](SECURITY.md) and [Security Limitations](docs/security-limitations
 | [dsh integration](integrations/dsh/README.md) | dsh Plugin, Harness Adapter, and Storage Adapter |
 | [Observer](apps/observer/README.md) | Read-only companion view, not a native dsh-context tab |
 
-The workspace pins Node and pnpm in [`package.json`](package.json). Run
-`pnpm test` for the test suite. See [Architecture](docs/architecture.md),
-[Roadmap](ROADMAP.md), [Alpha release notes](docs/releases/v0.1.0-alpha.1.md),
+See [Roadmap](ROADMAP.md), [Alpha release notes](docs/releases/v0.1.0-alpha.1.md),
 [Contributing](CONTRIBUTING.md), and [Support](SUPPORT.md).
 
 ACMI-original material is [MIT licensed](LICENSE). See
