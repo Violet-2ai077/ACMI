@@ -1,4 +1,6 @@
 /** Neutral, read-only ACMI adapter contract. No runtime, storage or browser imports. */
+export type * from './task-graph.ts'
+
 declare const scopeBrand: unique symbol
 export type WorkspaceScope = { readonly [scopeBrand]: never }
 
