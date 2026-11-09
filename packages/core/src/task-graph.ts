@@ -102,6 +102,10 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
     return this.#options.authority.permits(scope, this.#options.workspaceId)
   }
 
+  isScopedTo(scope: WorkspaceScope, workspaceId: string): boolean {
+    return this.#options.workspaceId === workspaceId && this.#permits(scope)
+  }
+
   append(scope: WorkspaceScope, input: TaskGraphEvent): GraphAppend {
     if (!this.#permits(scope)) return 'scope-denied'
     if (this.#invalid) return 'conflict'

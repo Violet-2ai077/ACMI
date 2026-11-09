@@ -7,3 +7,4 @@ export { ScopedJournalError, type DshJournalInspection, type JsonlCompression, t
 export { openDshJournal, type DshJournal, type DshJournalSnapshot } from './scoped-read.ts'
 export { createDshStorageAdapter, type DshStorageSource } from './storage.ts'
 export { createStorageIsolationMarker } from './storage-isolation.ts'
+export { registerSyntheticTaskRecovery, type SyntheticTaskRecoveryOptions, type SyntheticTaskRecoveryRegistration } from './recovery-context.ts'
