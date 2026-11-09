@@ -1,0 +1,16 @@
+- id: session-title-llm
+  disabled: true
+- id: session-persistence-jsonl
+  config:
+    root: '/absolute/disposable/acmi-journals'
+    compression: none
+- id: storage-json
+  config:
+    root: '/absolute/disposable/acmi-registry'
+- insert:
+    - id: acmi-alpha
+      name: 'file:///absolute/acmi/integrations/dsh/dist/index.js'
+      config:
+        workspaceRoot: '/absolute/disposable/workspace'
+        journalRoot: '/absolute/disposable/acmi-journals'
+        compression: none

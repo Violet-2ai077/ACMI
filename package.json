@@ -2,6 +2,7 @@
   "name": "acmi-workspace",
   "version": "0.1.0-alpha.1",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@11.28.5",
   "engines": { "node": ">=24.16.0 <25" },
@@ -12,11 +13,11 @@
     "test": "pnpm run build && vitest run",
     "demo": "node examples/synthetic-demo/dist/index.js",
     "demo:adapter": "node examples/custom-agent-adapter/dist/index.js",
-    "check": "pnpm run lint && pnpm test && pnpm demo && pnpm demo:adapter"
+    "check": "pnpm run lint && pnpm test && pnpm demo && pnpm demo:adapter && pnpm --filter @acmi/dsh-quickstart demo"
   },
   "devDependencies": {
     "@types/node": "24.12.4",
     "typescript": "6.0.3",
-    "vitest": "4.1.11"
+    "vitest": "4.1.12"
   }
 }

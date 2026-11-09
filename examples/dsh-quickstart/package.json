@@ -1,0 +1,22 @@
+{
+  "name": "@acmi/dsh-quickstart",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "node run.mjs",
+    "prepare-root": "node prepare-root.mjs"
+  },
+  "dependencies": {
+    "@acmi/dsh-integration": "workspace:*",
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/dsh-agent-loop-testkit": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-storage": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-storage-domain": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-storage-json": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-testkit": "0.2.2-rc.1"
+  }
+}

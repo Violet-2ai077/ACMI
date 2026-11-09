@@ -5,3 +5,5 @@ packages:
   - examples/*
 allowBuilds:
   koffi: false
+overrides:
+  "zod@<4.6.6": "4.6.6"

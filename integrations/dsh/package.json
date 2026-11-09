@@ -1,0 +1,46 @@
+{
+  "name": "@acmi/dsh-integration",
+  "version": "0.1.0-alpha.1",
+  "description": "Official read-only continuity and explicit task binding integration for DeepSeek Harness",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=24.16.0 <25", "dsh": "0.2.2-rc.1" },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" }
+  },
+  "files": ["dist", "README.md", "DSH-LICENSE"],
+  "scripts": { "build": "tsc -p tsconfig.json" },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-app-boot": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-persistence": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-projection": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-storage-domain": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1"
+  },
+  "dependencies": {
+    "@acmi/contracts": "workspace:*",
+    "@acmi/core": "workspace:*",
+    "@acmi/observer": "workspace:*",
+    "@deepseek-ai/dsh-brand": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-format": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-format-catalog": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-format-v3-to-v4": "0.2.2-rc.1",
+    "@deepseek-ai/schemastery": "3.19.0",
+    "zod": "4.6.6"
+  },
+  "devDependencies": {
+    "@acmi/conformance": "workspace:*",
+    "@deepseek-ai/dsh-agent-loop-testkit": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-storage": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-storage-json": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-testkit": "0.2.2-rc.1"
+  }
+}

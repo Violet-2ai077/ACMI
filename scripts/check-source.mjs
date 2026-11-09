@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, relative, resolve, sep } from 'node:path'
 import ts from 'typescript'
 
@@ -24,6 +24,16 @@ for (const { path, name } of source) {
   const data = readFileSync(path, 'utf8')
   if (!data.endsWith('\n')) issues.push(`${name}: missing final newline`)
   if (/\0|[\t ]+\r?$/mu.test(data)) issues.push(`${name}: NUL or trailing whitespace`)
+  if (name.endsWith('.md')) {
+    for (const [, link] of data.matchAll(/\[[^\]\n]+\]\(([^\s)]+)\)/gu)) {
+      if (/^(?:[a-z][a-z0-9+.-]*:|#|\/)/iu.test(link)) continue
+      const destination = resolve(dirname(path), decodeURIComponent(link.split('#', 1)[0]))
+      const local = relative(root, destination)
+      if (local === '..' || local.startsWith('..' + sep) || !existsSync(destination)) {
+        issues.push(`${name}: unresolved relative link ${link}`)
+      }
+    }
+  }
   const match = /^packages\/(core|contracts)\/src\//u.exec(name)
   if (!match || !name.endsWith('.ts')) continue
   const sourceRoot = resolve(root, 'packages', match[1], 'src')
@@ -59,4 +69,4 @@ for (const [name, deps] of [['contracts', []], ['core', ['@acmi/contracts']]]) {
 if (issues.length) {
   process.stderr.write(issues.join('\n') + '\n')
   process.exitCode = 1
-} else console.log(`Source checks passed (${source.length} files): formatting and Core/Contracts dependency boundary.`)
+} else console.log(`Source checks passed (${source.length} files): formatting, local links and Core/Contracts dependency boundary.`)
