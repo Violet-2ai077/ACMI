@@ -224,7 +224,14 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
       return
     }
     if (!this.#task) return 'unknown-task'
+    if (e.kind === 'runtime-observed') return /^[a-f0-9]{64}$/u.test(e.factId) ? undefined : 'invalid-runtime-fact'
     if (this.#task.closed) return 'task-closed'
+    if (e.kind === 'task-reframed') {
+      if (!text(e.objective, 4096) || !Array.isArray(e.criteria) || e.criteria.length < 1
+        || e.criteria.length > 16 || !e.criteria.every(x => text(x, 1024))) return 'invalid-task'
+      this.#task = { ...this.#task, objective: e.objective, criteria: e.criteria, reframed: ref }
+      return
+    }
     if (e.kind === 'task-closed') {
       if (!this.#activeNodeId || this.#nodes.get(this.#activeNodeId)?.state !== 'completed'
         || [...this.#executions.values()].some(x => !terminal(x.state))) return 'task-not-complete'

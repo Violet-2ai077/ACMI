@@ -34,7 +34,7 @@ export function collectCandidates(
   }
   add({ id: 'task:objective', kind: 'objective', status: 'active', tier: 0, reason: 'required_state',
     text: [task!.objective, ...task!.criteria.map((x, i) => `Acceptance ${i + 1}: ${x}`)].join('\n'),
-    refs: task!.closed ? [task!.opened, task!.closed] : [task!.opened] })
+    refs: [task!.opened, ...(task!.reframed ? [task!.reframed] : []), ...(task!.closed ? [task!.closed] : [])] })
   add({ id: `work:${activeId}`, kind: 'active-work', nodeId: activeId, status: 'active', tier: 0, reason: 'required_state',
     text: `${active.title} [${active.state}; attempt ${active.attempt}${active.joinSatisfied ? '; join satisfied' : ''}]`,
     refs: [position!, active.declared, active.changed, ...(active.joinSatisfied ? [active.joinSatisfied] : [])] })

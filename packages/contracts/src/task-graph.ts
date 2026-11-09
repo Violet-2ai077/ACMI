@@ -82,7 +82,9 @@ export interface GraphEvidence {
 
 export type GraphChange =
   | { readonly kind: 'task-opened'; readonly objective: string; readonly criteria: readonly string[] }
+  | { readonly kind: 'task-reframed'; readonly objective: string; readonly criteria: readonly string[] }
   | { readonly kind: 'task-closed' }
+  | { readonly kind: 'runtime-observed'; readonly factId: string }
   | { readonly kind: 'node-added'; readonly nodeId: WorkNodeId; readonly title: string; readonly role: WorkNode['role'] }
   | { readonly kind: 'edge-added'; readonly from: WorkNodeId; readonly to: WorkNodeId; readonly relation: WorkRelation }
   | { readonly kind: 'work-transitioned'; readonly nodeId: WorkNodeId; readonly state: WorkState }
@@ -110,7 +112,7 @@ export interface TaskGraphSnapshot {
   readonly sourceRevision: string
   readonly through: number
   readonly pending: number
-  readonly task?: { readonly objective: string; readonly criteria: readonly string[]; readonly opened: GraphRef; readonly closed?: GraphRef }
+  readonly task?: { readonly objective: string; readonly criteria: readonly string[]; readonly opened: GraphRef; readonly reframed?: GraphRef; readonly closed?: GraphRef }
   readonly activeNodeId?: WorkNodeId
   readonly position?: GraphRef
   readonly nodes: readonly WorkNode[]
