@@ -80,7 +80,7 @@ $allowed = @($sorted + $innerName | ForEach-Object { "$bundle/$_" })
 if ($entries.Count -ne $allowed.Count -or (Compare-Object -CaseSensitive $allowed $entries)) {
   throw 'ZIP entries differ from the allowlist'
 }
-$tempRoot = (Resolve-Path -LiteralPath ([IO.Path]::GetTempPath())).Path
+$tempRoot = [IO.Path]::TrimEndingDirectorySeparator((Resolve-Path -LiteralPath ([IO.Path]::GetTempPath())).Path)
 $temp = Join-Path $tempRoot ('acmi-phase08-verify-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $temp | Out-Null
 try {
