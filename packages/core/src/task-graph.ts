@@ -347,10 +347,11 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
     const id = reviewKey(node, e.resultId)
     const previous = this.#reviews.get(id)
     const index = previous === undefined ? 0 : stages.indexOf(previous.stage) + 1
-    if (stages[index] !== e.stage || (e.stage === 'accepted' && !(local?.verified ?? required?.receipt.result.verified))) {
+    if (index >= stages.length || stages[index] !== e.stage || (e.stage === 'accepted' && !(local?.verified ?? required?.receipt.result.verified))) {
       return 'invalid-review-transition'
     }
-    this.#reviews.set(id, { resultId: e.resultId, nodeId: node.id, attempt: node.attempt, stage: e.stage, ref })
+    this.#reviews.set(id, { resultId: e.resultId, nodeId: node.id, attempt: node.attempt, stage: e.stage, ref,
+      history: [...(previous?.history ?? []), ref] })
     return
   }
 

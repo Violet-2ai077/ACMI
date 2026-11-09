@@ -2,3 +2,4 @@ export { authorizeScope, createScopeAuthority, isEventRef, isTaskId, negotiate, 
 export { project, taskHistory } from './projection.ts'
 export { graphEventLimit, TaskGraph } from './task-graph.ts'
 export type { TaskGraphCheckpoint, TaskGraphOptions } from './task-graph.ts'
+export { assembleTaskContext, estimateContextTokens, loadTaskContext, serializeTaskContext } from './context-assembly.ts'

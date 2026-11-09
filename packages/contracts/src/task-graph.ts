@@ -64,6 +64,7 @@ export interface ResultReview {
   readonly attempt: number
   readonly stage: ReviewStage
   readonly ref: GraphRef
+  readonly history: readonly GraphRef[]
 }
 export type EvidenceContent =
   | { readonly kind: 'constraint' | 'blocker' | 'next-action' | 'unresolved' | 'runtime-state'; readonly text: string }
