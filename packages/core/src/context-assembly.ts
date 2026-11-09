@@ -12,7 +12,10 @@ const reserve = 192
 const maxBudget = 262_144
 const placeholder = '0'.repeat(64)
 const estimator = 'utf8-byte-upper-estimate-v1' as const
-const byId = (a: ContextItem, b: ContextItem) => a.tier - b.tier || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
+const rank = (item: ContextItem) => item.kind === 'next-action' ? 0 : item.kind === 'decision' ? 1
+  : item.kind === 'dependency-result' ? 2 : item.kind === 'unreviewed_dependency_output' ? 3 : 4
+const byId = (a: ContextItem, b: ContextItem) =>
+  a.tier - b.tier || rank(a) - rank(b) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
 
 /** One unit per UTF-8 byte, not an exact model token count. */
 export function estimateContextTokens(input: string): number {

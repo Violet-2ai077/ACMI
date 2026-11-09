@@ -174,7 +174,7 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
     const result = producer.#results.get(resultId)
     if (!result?.verified || producer.#nodes.get(result.nodeId)?.attempt !== result.attempt
       || producer.#nodes.get(result.nodeId)?.state !== 'completed') return null
-    return freeze({ taskId: producer.#options.taskId, sourceRevision: producer.#revision, result })
+    return freeze({ workspaceId: producer.#options.workspaceId, taskId: producer.#options.taskId, sourceRevision: producer.#revision, result })
   }
 
   checkpoint(scope: WorkspaceScope): TaskGraphCheckpoint | null {
@@ -281,14 +281,14 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
         const receipt = e.receipt
         const r = receipt?.result
         if (node.joinSatisfied || !key(e.resultId) || this.#dependencies.has(e.resultId) || this.#results.has(e.resultId)
-          || !isTaskId(receipt?.taskId) || receipt.taskId === this.#options.taskId
+          || receipt?.workspaceId !== this.#options.workspaceId || !isTaskId(receipt.taskId) || receipt.taskId === this.#options.taskId
           || !/^[a-f0-9]{64}$/u.test(receipt.sourceRevision) || !r || r.verified !== true || !text(r.summary)
           || !key(r.id) || !key(r.nodeId) || !key(r.executionId) || !natural(r.attempt) || r.attempt === 0
           || !key(r.produced?.eventId) || !natural(r.produced.seq) || !isEventRef(r.produced.source)) return 'invalid-dependency'
         const result: WorkResult = { id: r.id, nodeId: r.nodeId, executionId: r.executionId, attempt: r.attempt, verified: true,
           summary: r.summary, produced: { eventId: r.produced.eventId, seq: r.produced.seq, source: cleanRef(r.produced.source) } }
         this.#dependencies.set(e.resultId, { id: e.resultId, nodeId: node.id, ref,
-          receipt: { taskId: receipt.taskId, sourceRevision: receipt.sourceRevision, result } })
+          receipt: { workspaceId: receipt.workspaceId, taskId: receipt.taskId, sourceRevision: receipt.sourceRevision, result } })
         return
       }
       case 'result-reviewed': return this.#review(node, e, ref)

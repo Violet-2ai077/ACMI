@@ -48,6 +48,7 @@ export interface WorkResult {
 }
 /** An explicit point-in-time result receipt, not permission to read another Task. */
 export interface DependencyReceipt {
+  readonly workspaceId: string
   readonly taskId: TaskId
   readonly sourceRevision: string
   readonly result: WorkResult

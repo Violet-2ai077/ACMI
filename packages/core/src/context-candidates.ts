@@ -115,6 +115,13 @@ export function collectCandidates(
   }
 
   const reviews = new Map(graph.reviews.map(r => [canonical([r.nodeId, r.attempt, r.resultId]), r]))
+  const acceptedAtNextJoin = new Map<string, string[]>()
+  for (const r of graph.reviews) {
+    if (r.stage !== 'accepted' || !nextJoins.has(r.nodeId) || nodes.get(r.nodeId)?.attempt !== r.attempt) continue
+    const list = acceptedAtNextJoin.get(r.resultId) ?? []
+    list.push(r.nodeId)
+    acceptedAtNextJoin.set(r.resultId, list)
+  }
   function dependency(id: string, node: WorkNode, result: WorkResult, producer: string, revision?: string, required?: GraphRef) {
     const review = reviews.get(canonical([node.id, node.attempt, id]))
     const accepted = review?.stage === 'accepted'
@@ -149,7 +156,16 @@ export function collectCandidates(
     if (producer.attempt !== r.attempt || ['failed', 'cancelled', 'superseded'].includes(producer.state)) { omit(id, 'stale'); continue }
     const related = consumers.get(r.nodeId)
     if (related) {
-      for (const consumer of related) dependency(r.id, nodes.get(consumer)!, r, taskId)
+      const direct = related.has(activeId)
+      if (direct) dependency(r.id, active, r, taskId)
+      let accepted = false
+      for (const consumer of acceptedAtNextJoin.get(r.id) ?? []) {
+        if (consumer === activeId || !related.has(consumer)) continue
+        accepted = true
+        dependency(r.id, nodes.get(consumer)!, r, taskId)
+      }
+      // Report the unreviewed source once, not one speculative candidate per future join.
+      if (!direct && !accepted) omit(id, includeDependencies ? 'not_consumed' : 'policy_disabled')
     } else if ((r.nodeId === activeId || predecessors.has(r.nodeId)) && r.verified && producer.state === 'completed') {
       add({ id, kind: 'completed-result', nodeId: r.nodeId, status: 'verified', tier: 1, reason: 'related_work',
         text: r.summary, refs: [r.produced, producer.changed] })

@@ -62,6 +62,11 @@ See [Security](SECURITY.md) and [Security Limitations](docs/security-limitations
 
 ## Workspace
 
+Phase 0.8 experiments are separate from the published Alpha baseline. After
+building, run `node scripts/phase-0.8/benchmark.mjs <output-directory>` for
+the deterministic Task Graph and recovery benchmark. See the
+[Phase 0.8 report](docs/experiments/phase-0.8-final-report.md) for results and limits.
+
 | Area | Responsibility |
 | --- | --- |
 | [`@acmi/contracts`](packages/contracts/README.md) | Task, Session, Binding, provenance, and adapter contracts |

@@ -69,6 +69,20 @@ test('assembles interleaved work from task evidence and pins only the exact expl
   expect(run({ includeDependencyResults: false }).package.omissions.policy_disabled).toBe(1)
 })
 
+test('a genuine producer receipt cannot be replayed into a different Workspace', () => {
+  const { main, scope } = fixture()
+  const receipt = main.graph.read(scope).dependencies[0].receipt
+  const authority = createScopeAuthority()
+  const foreignScope = authority.grant('other')
+  const foreignGraph = new TaskGraph({ taskId: a, workspaceId: 'other', authority, digest })
+  const source = main.graph.read(scope).task.opened.source
+  const append = (seq, change) => foreignGraph.append(foreignScope, { ...change, id: `f${seq}`, seq, source })
+  expect(append(1, { kind: 'task-opened', objective: 'Other workspace', criteria: ['Isolated'] })).toBe('applied')
+  expect(append(2, { kind: 'node-added', nodeId: 'impl', title: 'Local node', role: 'work' })).toBe('applied')
+  expect(append(3, { kind: 'dependency-required', resultId: 'copy', nodeId: 'impl', receipt })).toBe('unresolved')
+  expect(foreignGraph.read(foreignScope).dependencies).toHaveLength(0)
+})
+
 test('preserves conflicting decision refs and drops duplicate, stale and unsupported content', () => {
   const { main, evidence, run } = fixture()
   main.add(evidence({ kind: 'decision', topic: 'strategy', state: 'accepted', text: 'competing-strategy' }))
@@ -112,6 +126,26 @@ test('a fresh consumer verifies the bounded wire package against a trusted hando
   expect(loadTaskContext(wire.replace('Ship A', 'Ship X'), expected, digest)).toBeNull()
   expect(loadTaskContext(wire, { ...expected, taskId: b }, digest)).toBeNull()
   expect(pkg.omissions.budget_exceeded).toBeGreaterThan(150)
+})
+
+test('a pressure budget favors the next action and reports unreviewed fan-out once per result', () => {
+  const { main, evidence, run } = fixture()
+  for (let i = 0; i < 18; i++) {
+    const nodeId = `join-${i}`
+    expect(main.add({ kind: 'node-added', nodeId, title: 'Future integration', role: 'join' })).toBe('applied')
+    expect(main.add({ kind: 'edge-added', from: 'impl', to: nodeId, relation: 'continues_as' })).toBe('applied')
+    expect(main.add({ kind: 'edge-added', from: 'impl', to: nodeId, relation: 'joins_into' })).toBe('applied')
+  }
+  for (let i = 0; i < 50; i++) {
+    expect(main.add({ kind: 'result-produced', resultId: `result-${i}`, nodeId: 'impl', executionId: 'lead',
+      summary: 'Unreviewed branch output', verified: true })).toBe('applied')
+    main.add(evidence({ kind: 'artifact', state: 'verified', text: 'Large optional evidence ' + 'x'.repeat(2000) + i }))
+  }
+  const outcome = run({ tokenBudget: 5000 })
+  expect(outcome.status).toBe('ok')
+  expect(outcome.package.omissions.not_consumed).toBe(50)
+  expect(outcome.package.items.some(item => item.kind === 'next-action')).toBe(true)
+  expect(serializeTaskContext(outcome.package)).not.toContain('Unreviewed branch output')
 })
 
 test('fails closed for revoked scope, wrong Task or node, and sequence gaps', () => {

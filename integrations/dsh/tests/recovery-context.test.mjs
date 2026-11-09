@@ -92,7 +92,7 @@ async function boot(t, { auto = false } = {}) {
   return { ctx, adapter, fresh, send, journalRoot, workspaceRoot, partitionId: marker.partitionId }
 }
 
-function graphFixture(host, oldSession) {
+function graphFixture(host, oldSession, accepted = true) {
   const authority = createScopeAuthority()
   const scope = authority.grant(host.partitionId)
   const graph = new TaskGraph({ workspaceId: host.partitionId, taskId, authority, digest: hash })
@@ -128,7 +128,7 @@ function graphFixture(host, oldSession) {
       { kind: 'next-action', text: 'NEXT-A' },
     ].map(content => ({ kind: 'evidence-recorded', content })),
     { kind: 'dependency-required', nodeId: 'recover', resultId: 'required', receipt },
-    ...['available', 'inspected', 'consumed', 'accepted'].map(stage => ({
+    ...(accepted ? ['available', 'inspected', 'consumed', 'accepted'] : []).map(stage => ({
       kind: 'result-reviewed', nodeId: 'recover', resultId: 'required', stage,
     })),
   ]
@@ -144,14 +144,14 @@ const contexts = agent => agent.session.snapshotEvents()
   .filter(e => textOf([e.data]).includes('ACMI task recovery data'))
 const compactEvents = agent => agent.session.snapshotEvents().filter(e => e.type.startsWith('compaction/'))
 
-test('runs unmodified Compact, then recovers the explicit Task in a genuinely fresh Session', async t => {
+test.for([true, false])('runs stock Compact and fresh Session recovery (accepted=%s)', async (accepted, t) => {
   const host = await boot(t)
   const { ctx, adapter, fresh, send, journalRoot, workspaceRoot } = host
   const old = await fresh('acmi-shadow-source')
   await send(old, fixtureText + ' Old details. '.repeat(420))
   await send(old, foreign + ' Foreign details. '.repeat(420))
   await send(old, 'Return to A: NEXT-A')
-  const { graph, scope } = graphFixture(host, old)
+  const { graph, scope } = graphFixture(host, old, accepted)
   const prior = old.session.snapshotEvents()
   const journalBucket = (await readdir(journalRoot, { withFileTypes: true })).find(row => row.isDirectory()).name
   const journalPath = join(journalRoot, journalBucket, old.session.id, 'session.v4.jsonl')
@@ -193,7 +193,9 @@ test('runs unmodified Compact, then recovers the explicit Task in a genuinely fr
   expect(observed?.taskId).toBe(taskId)
   expect(observed?.activeNodeId).toBe('recover')
   expect(observed?.currentState.work).toBe('running')
-  expect(observed.items.find(x => x.kind === 'dependency-result')?.dependency.stage).toBe('accepted')
+  expect(observed.items.find(x => x.kind === (accepted ? 'dependency-result' : 'unreviewed_dependency_output'))
+    ?.dependency.stage).toBe(accepted ? 'accepted' : 'produced')
+  expect(observed.items.some(x => x.kind === 'dependency-result')).toBe(accepted)
   const firstHash = observed.assembly.deterministicHash
   await send(next, 'Same recovery projection. ' + 'Repeatable synthetic work. '.repeat(460))
   expect(contexts(next)).toHaveLength(1)
@@ -209,7 +211,7 @@ test('runs unmodified Compact, then recovers the explicit Task in a genuinely fr
   expect(next.session.snapshotEvents().some(e => e.type.startsWith('plugin:acmi-probe/'))).toBe(false)
   registration.dispose()
   console.log('ACMI_DSH_WITNESS ' + JSON.stringify({
-    mode, compactMs, recoveryMs, nativeCompactPreservedJournalPrefix: true, sourceJournalUnchangedByRecovery: true,
+    mode, accepted, compactMs, recoveryMs, nativeCompactPreservedJournalPrefix: true, sourceJournalUnchangedByRecovery: true,
     runtime: DSH_VERSION, taskId, activeNodeId: observed.activeNodeId, firstHash, repeatedRecoveryChecks: 2,
     baselineFactRetention: markers.filter(m => summary.includes(m)).length, requiredFacts: markers.length,
     recoveredFactRetention: markers.filter(m => newRequest.includes(m)).length, baselineForeign: summary.includes(foreign),

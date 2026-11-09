@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.8: scoped Task Graph, deterministic budgeted Context Packages and
+  provider-free cross-Session recovery. Stock dsh dynamic context is qualified
+  only in an opt-in synthetic experiment; the default Compact backend is not
+  replaced. See the [Phase 0.8 report](docs/experiments/phase-0.8-final-report.md).
 - dsh v4 Zstandard reading and Storage Root v2: trusted local host and isolated
   single-Workspace Storage Root only; no migration from legacy stores.
 - Heuristic Task attribution: prior offline benchmark research only, not a
@@ -21,8 +25,9 @@
 - Evaluate additional runtimes, including Claude Code and Codex, as official or
   community adapters. Each runtime must pass relevant conformance checks before
   support is claimed.
-- Design a long-term Memory Engine and controlled context injection separately
-  from task continuity. Neither is promised by this Alpha.
+- Qualify trusted graph ingestion, durable graph storage and portable
+  handoffs before deploying recovery. Design Project/Knowledge Memory
+  separately from Task Memory; no global Memory Engine is promised.
 - Evaluate more storage formats, migration strategies, and compatibility with
   newer dsh versions after validating the first pinned baseline.
 
