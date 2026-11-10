@@ -5,11 +5,12 @@ import { literalMention, normalizedMention } from './layered-candidates.ts'
 import { readUnderstandingSpan } from './layered-context.ts'
 
 const limit = 8
-const quoted = /"[^"]*(?:"|$)|“[^”]*(?:”|$)|「[^」]*(?:」|$)|『[^』]*(?:』|$)|`[^`]*(?:`|$)/gu
+const quoted = /"[^"]*(?:"|$)|“[^”]*(?:”|$)|‘[^’]*(?:’|$)|(?<![\p{L}\p{N}])'(?:[^']|'(?=[\p{L}\p{N}]))*(?:'(?![\p{L}\p{N}])|$)|「[^」]*(?:」|$)|『[^』]*(?:』|$)|`[^`]*(?:`|$)/gu
 const negative = /\b(?:don't|do not|never|not yet|not approve|not accept|no longer|won't|not switching)\b|不要|别切|别用|不接受|不采用|不同意|先别|不能|尚未|不切/u
-const conditional = /\b(?:if|unless|only after|provided that|as long as)\b|如果|若是|要是|除非|通过后|之后再|才采用|才考虑|仅当/u
+const conditional = /\b(?:if|unless|only after|provided that|as long as|except|pending|subject to|until)\b|\bbut\b[^.!?]{0,160}\bfirst\b|如果|若是|要是|除非|通过后|之后再|才采用|才考虑|仅当|(?:但|不过)[^。！？]{0,80}先/u
 const hypothetical = /\b(?:suppose|hypothetically|what if|imagine)\b|假设|假如|设想/u
-const modalRequest = /\b(?:could you|can you|would you|please)\b|请你|麻烦你/u
+const directRequest = /^(?:(?:could|can|would|will) you (?:please )?|please )(?:switch|go back|return|resume|reopen|continue|pause|close|start|open|revise)\b|^(?:请你?|麻烦你)(?:切换|切到|恢复|重开|回到|继续|暂停|关闭|新建)/u
+const reported = /^(?:the (?:note|record|report|message|document) says|(?:he|she|they|the assistant) said)\b|^(?:备注|记录|助手)(?:说|写道|提到)/u
 const questions = /[?？]|\b(?:what|how|why|status of|how about)\b|怎么样|如何|什么情况|吗[。！]?$/u
 const social = /^(?:(?:thanks(?: a lot)?|thank you|hello|good morning|good evening|hi|bye|nice|收到|好的|谢谢|辛苦了|你好|早上好|晚安|再见)[!.。！\s]*)+$/u
 const newWork = /\b(?:new task|separate task|new workstream|separate project|start a new|a different deliverable)\b|新任务|另开|单独建|开一个新|新项目/u
@@ -53,23 +54,25 @@ function ranges(text: string): UnderstandingSpan[] {
   return result
 }
 
-function inspect(text: string, span: UnderstandingSpan, actor: UnderstandingActSpan['actor']): UnderstandingActSpan {
+function inspect(text: string, span: UnderstandingSpan, actor: UnderstandingActSpan['actor'], tail: string): UnderstandingActSpan {
   const raw = normalizedMention(text)
   const visible = raw.replace(quoted, ' ').trim()
   const acts = new Set<UnderstandingAct>()
   const negated = negative.test(visible)
   const condition = conditional.test(visible)
+    || /^(?:but\b|however\b|但|不过)/u.test(normalizedMention(tail)) && conditional.test(normalizedMention(tail))
   const hypothesis = hypothetical.test(visible)
+  const indirect = reported.test(visible)
   if (questions.test(visible)) acts.add('question')
-  if (report.test(visible) || actor === 'tool' || actor === 'subagent') acts.add('report')
+  if (report.test(visible) || indirect || actor === 'tool' || actor === 'subagent') acts.add('report')
   if (suggestion.test(visible)) acts.add('suggestion')
   if (reject.test(visible) || negated) acts.add('rejection')
-  if (accept.test(visible) && !negated && !condition && !hypothesis && !acts.has('question') && actor === 'user') acts.add('acceptance')
+  if (accept.test(visible) && !indirect && !negated && !condition && !hypothesis && !acts.has('question') && actor === 'user') acts.add('acceptance')
   if (correction.test(visible)) acts.add('correction')
-  if ((switched.test(visible) || returned.test(visible) || resumed.test(visible)) && !negated && !condition && !hypothesis
-    && (!acts.has('question') || modalRequest.test(visible))) acts.add('selection')
+  if ((switched.test(visible) || returned.test(visible) || resumed.test(visible)) && !indirect && !negated && !condition && !hypothesis
+    && (!acts.has('question') || directRequest.test(visible))) acts.add('selection')
   if ((newWork.test(visible) || continued.test(visible) || paused.test(visible) || closed.test(visible) || objective.test(visible))
-    && !negated && !condition && !hypothesis && (!acts.has('question') || modalRequest.test(visible))) acts.add('authorization_request')
+    && !indirect && !negated && !condition && !hypothesis && (!acts.has('question') || directRequest.test(visible))) acts.add('authorization_request')
   if (social.test(visible)) acts.add(/收到|好的|thanks|thank you/u.test(visible) ? 'acknowledgement' : 'social')
   if (!acts.size) acts.add('unknown')
   return { span, acts: [...acts], actor, quoted: raw !== raw.replace(quoted, ' '), negated, conditional: condition, hypothetical: hypothesis,
@@ -84,7 +87,7 @@ function intent(text: string, act: UnderstandingActSpan): UnderstandingIntentSpa
   if (act.actor !== 'user') return result('none', 'unknown')
   if (social.test(visible)) return result('none', 'unknown')
   if (!visible.replace(/[\s.!?。！？;；]/gu, '')) return result(act.quoted ? 'discussion' : 'unknown', act.quoted ? 'discuss' : 'unknown')
-  if (act.negated || act.conditional || act.hypothetical || act.acts.includes('question') && !modalRequest.test(visible)) {
+  if (reported.test(visible) || act.negated || act.conditional || act.hypothetical || act.acts.includes('question') && !directRequest.test(visible)) {
     return result('discussion', 'discuss')
   }
   if (newWork.test(visible)) return result('new', 'continue', 'objective')
@@ -152,7 +155,7 @@ export function understandLayered(packet: UnderstandingContextPackage, options: 
   const spans = ranges(packet.current.text)
   const selected = options.singlePass && spans.length ? [{ start: spans[0]!.start, end: spans.at(-1)!.end }] : spans
   const evidence = selected.map(span => readUnderstandingSpan(packet.current, span)!)
-  const utterance = selected.map((span, i) => inspect(evidence[i]!, span, packet.current.actor))
+  const utterance = selected.map((span, i) => inspect(evidence[i]!, span, packet.current.actor, packet.current.text.slice(span.end)))
   const intents = utterance.map((act, i) => intent(evidence[i]!, act))
   const identities = intents.map((value, i) => resolveLayeredIdentity(packet, evidence[i]!, value))
   const lifecycle = intents.flatMap((value, i) => {

@@ -10,6 +10,6 @@
 | 端到端语义资格 | **INCONCLUSIVE / 不通过自动化门槛** | 人工、独立 custodian、正式 Holdout 未具备；L3 覆盖 3/14，低于 65%；未达 ≥60 eligible protected cases |
 | 生产路由与持久操作 | **NO-GO** | 本阶段没有生产 Context Injection、自动 Binding/Apply/接受结果/满足 Join/关闭 |
 
-D 在 Validation 的 L2 可回答覆盖 13/20；按 20 个场景簇、seed 9302301、2000 次 bootstrap 的区间为 [0.45, 0.85]。L3 可解析覆盖 3/14，区间 [0, 0.462]。验证集中仅 7 个有标注的 protected-claim 焦点、4 个输出的 precision 4/4；bootstrap 的 1931 个有效重复落在 [1, 1]，其余因无输出分母无效。不能拿这个退化区间证明精度下界达标，更不是人标或真实模型结果。
+D 在 Validation 的 L2 可回答覆盖 13/20；按 20 个场景簇、seed 9302301、2000 次 bootstrap 的区间为 [0.45, 0.85]。L3 可解析覆盖 3/14，区间 [0, 0.462]。验证集中有 7 个标注了 protected claim 的焦点，但不是 7 个已证明具备完整受信证据的 eligible 焦点。四项已验证草案与 provisional kind 匹配（4/4）；1931 次有输出的 bootstrap 区间退化为 [1, 1]，不能证明资格精度下界。语料未提供完整 Graph 决策/拓扑快照，部分参考 Claim 本来就不能通过 Guard；不能将未通过都归因为推理失败。
 
 参考 [预注册](phase-0.9.3-preregistration.md)、[评测结果](phase-0.9.3-offline-comparison.md)、[Shadow witness](phase-0.9.3-runtime-shadow.md)、[人工状态](../annotation/phase-0.9.3-human-review-status.md)。

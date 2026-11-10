@@ -22,6 +22,8 @@ L1 多 span + actor/引用/条件/否定，L2 relation/posture/change，L3 身�
 
 ## F. 证据约束 Graph 草案
 
+Open corpus 的保护 Claim 是端到端 kind 匹配指标；缺少完整 Host 决策和拓扑快照，不提供已审核的 eligible 分母。不能把没有前提证据的拒绝解释成模型理解失败。
+
 支持对 WorkNode、约束、下一步、Decision、Result、Dependency、Branch/Join 等生成/校验有界草案，逐 Claim 校验引用、actor、全句范围、内容蕴含的保守边界、因果与版本，拒绝反向依赖、环、冲突及缺乏确认的结果接受/Join/Task 完成。候选或 Task 正在执行不代表可接受 Subagent 产物。完整正向结构句式可审阅；其他语言的语用可能弃权，不能把规则当作自然语言证明。验证集输出受支持 kind 4/4、召回 4/8，只有 7 个 eligible 焦点，不能达标。证据坐标独立攻击被拒，错误坐标被离线忽略时才产生只读草案。见[逐 Claim 协议](../architecture/evidence-grounded-graph-proposals-v0.2.md)。
 
 ## G. 增量运行与性能
@@ -29,6 +31,8 @@ L1 多 span + actor/引用/条件/否定，L2 relation/posture/change，L3 身�
 状态是有 TTL 的会话解释缓存，不是 Graph；每个 Session 单飞、全局实例限制、重复/碰撞/乱序、权限/版本失效、取消和最多两次尝试。用户完整正文和必需因果不走关键词门，D 只跳过确认为 metadata 的事件，按游标模 8 抽样。D 的 Dev/Validation 必需触发 41/41 和 22/22；只跳过 1 个非必需 Dev metadata。512 Task、500 样本的本机探针独立计量 packet+validator p50/p95，以及 300 会话的缓存峰值与 heap 样本，见交付中的 `benchmark/performance-probe.json`；不是模型延时或生产 SLA。见[增量状态](../architecture/incremental-understanding-state-v0.2.md)。
 
 ## H. Benchmark、盲包与未消费 reserve
+
+当前 A/B 开放流程演练对标签、预测和彼此答案盲，不隐藏 D/V 案例 ID 的 split 前缀；未来正式资格批次由 custodian 分配不泄漏 split 的 opaque ID。
 
 60 个新案例：40 Dev/20 Validation，65 焦点、162 事件，21 英文/19 中文/20 混合；3 个 10–30 轮长对话。不是 800 案目标的完成，不用模板填满。跨 split 检查 1280 对（含内部 reserve），未触发同簇/近重复阈值。Open SHA `1270ca0b508cd505babbcbd4cce18010c94ff273e9c9db51dc1aaffa2fe2aa02`。另外 8 个内部独立输入仅在工作树外同操作者 custody SHA 封存，无标签/未消费，不是独立 custodian 的正式 Holdout；封存收据 SHA `676b84edd22d77a87f3edad2586f89da621394a6e361c3569d788abadcfa50b5`。A/B 盲标包各 60 案、顺序不同、无答案；仅单独分发，不把完整交付发给 reviewer。人工 **BLOCKED**：`human_review_status: pending`、实际真人审阅与仲裁各 0，没有 Kappa 或假协议通过。见[语料与 custodian](phase-0.9.3-benchmark-design.md)及[人工状态](../annotation/phase-0.9.3-human-review-status.md)。
 

@@ -47,6 +47,15 @@ describe('layered interpretation and identity', () => {
     expect(run('If the tests pass, switch to Badge kiosk.').intents[0].posture).toBe('discuss')
   })
 
+  it('does not authorize embedded questions, single quotes or qualified approval', () => {
+    const quoted = run("The note says 'Switch to Badge kiosk'.")
+    expect(quoted.utterance[0].quoted).toBe(true)
+    expect(quoted.lifecycle).toEqual([])
+    expect(run('Can you tell me whether to switch to Badge kiosk?').lifecycle).toEqual([])
+    expect(run('I approve the queue, but compare costs first.').utterance[0].acts).not.toContain('acceptance')
+    expect(run('Can you switch to Badge kiosk?').intents[0].posture).toBe('switch')
+  })
+
   it('returns ambiguity for colliding names and resolves the previous live hypothesis without changing binding', () => {
     const same = [task('a', 'Badge kiosk'), task('b', 'Badge kiosk')]
     expect(run('Switch to Badge kiosk.', same).identities[0].status).toBe('ambiguous')
