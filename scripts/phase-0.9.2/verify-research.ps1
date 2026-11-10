@@ -7,20 +7,17 @@ param(
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $repo = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
-$reference = (Resolve-Path -LiteralPath $OriginalArchiveExtract).Path
 $root = [IO.Path]::GetFullPath($Evidence)
 if (Test-Path -LiteralPath $root) { throw 'Evidence directory must not exist' }
+$parent = [IO.Path]::GetDirectoryName($root)
+$paths = node -e "const fs = require('node:fs'); console.log(JSON.stringify(process.argv.slice(1).map(p => fs.realpathSync.native(p))))" $parent $OriginalArchiveExtract |
+  ConvertFrom-Json
+$reference = $paths[1]
+$root = Join-Path $paths[0] ([IO.Path]::GetFileName($root))
 $relative = [IO.Path]::GetRelativePath($reference,$root)
 if ($relative -eq '.' -or ($relative -ne '..' -and
     !$relative.StartsWith('..' + [IO.Path]::DirectorySeparatorChar) -and ![IO.Path]::IsPathRooted($relative))) {
   throw 'Evidence directory must be outside the original archive'
-}
-foreach ($dir in (Split-Path $root -Parent),$reference) {
-  for ($item = Get-Item -LiteralPath $dir; $null -ne $item; $item = $item.Parent) {
-    if (!$item.PSIsContainer -or ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
-      throw "Evidence paths require ordinary directories: $($item.FullName)"
-    }
-  }
 }
 [void][IO.Directory]::CreateDirectory($root)
 Push-Location -LiteralPath $repo
