@@ -1,10 +1,10 @@
 import { spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { mkdir, mkdtemp, readFile, realpath, rm } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, readdir, realpath, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createScopeAuthority, runtimeFactId } from '@acmi/core'
+import { createScopeAuthority, runtimeFactId, TaskCandidateIndex } from '@acmi/core'
 import { Context } from '@deepseek-ai/cordis'
 import { mountAgentLoopTestDependencies, mountAgentLoopTestHarness } from '@deepseek-ai/dsh-agent-loop-testkit'
 import BasicCompaction from '@deepseek-ai/dsh-compaction-basic'
@@ -56,7 +56,9 @@ class FixtureAdapter extends LlmAdapter {
       return
     }
     yield { type: 'block-start', index: 0, blockType: 'text' }
-    yield { type: 'block-end', index: 0, block: { type: 'text', text: 'Synthetic adapter response.' } }
+    const response = last.includes('PHASE091-SUGGESTION')
+      ? 'I suggest SQLite for storage; the user has not decided.' : 'Synthetic adapter response.'
+    yield { type: 'block-end', index: 0, block: { type: 'text', text: response } }
     yield { type: 'finish', reason: { kind: 'stop' } }
   }
 }
@@ -543,6 +545,91 @@ test('Phase 0.9 only analyzes selected durable deltas and requires explicit Host
     expect(agent.session.snapshotEvents().some(e => e.type === 'plugin:acmi-probe/task-binding')).toBe(false)
   } finally { await supervisor?.stop(1000); store.close() }
 }, 10000)
+
+test('Phase 0.9.1 stock dsh shadow uses bounded authorized native deltas without graph or Journal writes', async t => {
+  const h = await boot(t)
+  const store = h.open(undefined, true)
+  let supervisor
+  const runs = []
+  try {
+    const main = await h.fresh('091-main')
+    const resumed = await h.fresh('091-resumed')
+    const child = await h.child('091-child', main)
+    const unauthorized = await h.fresh('091-denied')
+    for (const id of [taskA, taskB]) seed(store, h, main.session, id)
+    const authorized = new Set([main.session, resumed.session, child.session])
+    const opts = h.options(store)
+    supervisor = await acmi.startDshIngestionSupervisor(h.ctx, { ...opts,
+      authorize: s => authorized.has(s) ? { assignment: { taskId: taskA, nodeId: 'main' } } : null, pollMs: 20,
+    })
+    const index = new TaskCandidateIndex({ workspaceId: h.workspaceId, authority: h.read, digest: checksum })
+    const modes = ['rules', 'scripted', 'structured', 'abstention-first']
+    const stamps = new Map()
+    const journal = async () => {
+      const files = (await readdir(opts.journalRoot, { recursive: true })).filter(name => /\.(jsonl|zst)$/u.test(name)).sort()
+      expect(files.length).toBeGreaterThan(0)
+      return Promise.all(files.map(async name => checksum(await readFile(join(opts.journalRoot, name)))))
+    }
+    const execute = async (name, agent, taskId, text, { missing = false, isChild = false } = {}) => {
+      const ref = acmi.dshRuntimeIdentity(agent.session.header, h.workspaceId)
+      await h.send(agent, text)
+      await vi.waitFor(() => expect(store.cursor(h.scope, ref).next).toBe(agent.session.seq), { timeout: 5000 })
+      const excerpts = new Map(agent.session.snapshotEvents().filter(e => (e.type === 'user/message' && e.data.source.kind === 'user'
+        || e.type === 'assistant/message') && Array.isArray(e.data.content))
+        .map(e => [runtimeFactId(ref, e.seq, checksum), textOf([e.data])]))
+      for (const [i, [id, title]] of [[taskA, 'Cache warmup'], [taskB, 'Startup diagnostic']].entries()) {
+        if (missing && id === taskB) index.remove(h.scope, id)
+        else index.upsert(h.scope, { taskId: id, workspaceId: h.workspaceId, title, objective: title + ' for stock fixture',
+          status: 'open', lastActive: 100 - i, revision: state(store, h, id).revision, session: ref })
+      }
+      const before = [state(store, h, taskA), state(store, h, taskB)]
+      const bytes = await journal()
+      const from = stamps.get(agent) ?? 0
+      const result = await acmi.runDshQualificationShadow({ enabled: true, synthetic: true, store, scope: h.scope, session: ref,
+        taskId, from, catalog: index, authorize: s => s.sessionId === agent.session.id && s.incarnation === ref.incarnation,
+        excerpt: id => isChild ? undefined : excerpts.get(id), modes })
+      expect(result.status).toBe('evaluated')
+      expect(result.facts).toBeLessThanOrEqual(32)
+      expect(result.evaluations).toHaveLength(4)
+      expect(result.evaluations.every(e => e.realProviderRequests === 0)).toBe(true)
+      expect(await journal()).toEqual(bytes)
+      expect([state(store, h, taskA), state(store, h, taskB)]).toEqual(before)
+      expect(store.listUnderstanding(h.scope, taskA)).toEqual([])
+      stamps.set(agent, result.next)
+      runs.push({ name, facts: result.facts, sourceRevision: result.sourceRevision, ranks: result.candidates.map(x => x.rank),
+        intents: result.evaluations.map(e => e.prediction?.intent ?? 'invalid'),
+        proposed: result.evaluations.map(e => e.guard.changes.length), journalUnchanged: true, graphUnchanged: true })
+      return result
+    }
+    h.bind(main.session, taskA, 1)
+    await execute('aba-a', main, taskA, 'continue')
+    h.bind(main.session, taskB, 2)
+    await execute('aba-b-and-interruption', main, taskB, 'switch to Startup diagnostic')
+    h.bind(main.session, taskA, 3)
+    await execute('aba-return-and-correction', main, taskA, 'No, return to Cache warmup.')
+    await execute('multi-session-resume', resumed, taskA, 'Resume Cache warmup.')
+    await execute('child-complete-not-accepted', child, taskA, 'Synthetic child analysis')
+    const suggestion = await execute('assistant-not-user-decision', main, taskA, 'What would you recommend? PHASE091-SUGGESTION')
+    expect(suggestion.evaluations.every(x => x.guard.changes.length === 0)).toBe(true)
+    const ack = await execute('acknowledgement-no-task', main, taskA, 'Thanks')
+    expect(ack.evaluations.some(x => x.prediction?.intent === 'no_task')).toBe(true)
+    const positive = await execute('grounded-decision-proposal-not-applied', main, taskA, 'Approve storage: SQLite.')
+    expect(positive.evaluations.some(x => x.guard.changes.some(c => c.kind === 'evidence-recorded'
+      && c.content.kind === 'decision' && c.content.state === 'accepted'))).toBe(true)
+    await execute('objective-changed', main, taskA, 'Keep the warmup work but replace the smoke check.')
+    await execute('similar-collision', main, taskA, 'Maybe the startup cache, which one?')
+    const missing = await execute('candidate-missing', main, taskA, 'Switch to Startup diagnostic.', { missing: true })
+    expect(missing.candidates.map(x => x.taskId)).not.toContain(taskB)
+    const foreign = { ...acmi.dshRuntimeIdentity(unauthorized.session.header, h.workspaceId), instanceId: 'foreign' }
+    const denied = await acmi.runDshQualificationShadow({ enabled: true, synthetic: true, store, scope: h.scope, session: foreign,
+      taskId: taskA, from: 0, catalog: index, authorize: () => true, modes })
+    expect(denied.status).toBe('unavailable')
+    expect(store.read(h.scope, taskA).snapshot.nodes.every(n => !n.joinSatisfied)).toBe(true)
+    expect(store.read(h.scope, taskA).snapshot.reviews.every(r => r.stage !== 'accepted')).toBe(true)
+    expect(checkpointEvents(main)).toEqual([])
+    console.log('ACMI091_SHADOW ' + JSON.stringify({ mode: built ? 'Built' : 'Source', runs, denied: denied.status, providerRequests: 0 }))
+  } finally { await supervisor?.stop(1000); store.close() }
+}, 20000)
 
 test.for(['before-drain', 'after-flush-before-commit', 'after-commit-before-ack'])('restarts native writer and Store at %s', async (mode, t) => {
   const h = await boot(t)

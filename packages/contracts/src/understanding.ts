@@ -1,4 +1,5 @@
 import type { EventRef, GraphChange, GraphStreamCut, StoredRuntimeFact, TaskId } from './index.ts'
+import type { GroundingAudit, QualificationEvidenceLink } from './qualification.ts'
 
 export type UnderstandingIntent =
   | { readonly kind: 'continue_current' | 'switch_existing'; readonly taskId: TaskId }
@@ -61,6 +62,7 @@ export interface UnderstandingProposal {
   readonly createdAt: number
   readonly expiresAt: number
   readonly supersessionKey: string
+  readonly grounding?: { readonly policy: 'qualification-evidence-v1'; readonly link: QualificationEvidenceLink | null }
 }
 export interface UnderstandingPacket {
   readonly anchorId: string
@@ -94,4 +96,5 @@ export interface UnderstandingReviewReceipt {
   readonly reason: string
   readonly timestamp: number
   readonly evidence: readonly UnderstandingEvidence[]
+  readonly grounding?: readonly GroundingAudit[]
 }

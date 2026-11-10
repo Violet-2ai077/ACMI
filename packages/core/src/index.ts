@@ -12,3 +12,10 @@ export {
 } from './incremental-understanding.ts'
 export { parseUnderstandingOutput, understandingOutputLimit, understandingOutputSchema } from './understanding-schema.ts'
 export { understandingTopologyRisk } from './understanding-graph.ts'
+export { explicitDecisionBasis, makeQualificationEvidence, qualificationEvidenceLink, qualificationEvidencePolicy, qualificationExcerptLimit,
+  qualificationHex, validateGroundedChange, wellFormedQualificationText } from './qualification-evidence.ts'
+export type { QualificationAttachment } from './qualification-evidence.ts'
+export { TaskCandidateIndex, candidateLexemes } from './task-candidate-retrieval.ts'
+export { classifyUnderstandingIntent } from './understanding-intent.ts'
+export { compileUnderstandingOperations } from './understanding-graph.ts'
+export type { UnderstandingOperation } from './understanding-schema.ts'

@@ -21,3 +21,11 @@ export { registerDshSnapshotGuard, type DshSnapshotGuard, type SnapshotReservati
 export type { UnderstandingInboxItem, UnderstandingRequest, UnderstandingReviewCommand, UnderstandingTarget } from './understanding-host.ts'
 export { createScriptedUnderstandingMock, startUnderstandingRuntime,
   type DshUnderstandingOptions, type UnderstandingRuntimeOptions } from './understanding-runtime.ts'
+export type { QualificationSourceCommand } from './qualification-store.ts'
+export { qualificationOutputSchema, RetryableQualificationError, runQualificationEvaluation } from './qualification-evaluation.ts'
+export type { QualificationAdapter, QualificationEvaluation, QualificationEvalOptions, QualificationHostInput,
+  QualificationMode, QualificationPacket, QualificationTurn, QualificationUsage } from './qualification-evaluation.ts'
+export { offlineQualificationAdapter } from './qualification-mocks.ts'
+export { runDshQualificationShadow, type DshQualificationShadowOptions } from './qualification-shadow.ts'
+export type { TaskLifecycleHostOptions, TaskLifecycleHost, TaskLifecycleCommand, TaskLifecycleConfirmation, TaskLifecycleReceipt,
+  TaskLifecycleState } from './task-lifecycle.ts'

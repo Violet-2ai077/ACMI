@@ -1,8 +1,9 @@
 import type {
-  StoredRuntimeFact, SyntheticUserExcerpt, UnderstandingMode, UnderstandingProposal, UnderstandingReviewReceipt,
+  GroundingAudit, QualificationEvidenceLink, StoredRuntimeFact, SyntheticUserExcerpt, UnderstandingMode, UnderstandingProposal, UnderstandingReviewReceipt,
 } from '@acmi/contracts'
 import { boundedText, exactFields, isTaskId, understandingCandidateLimit, understandingFactLimit } from '@acmi/core'
 import type { DatabaseSync } from 'node:sqlite'
+import { validQualificationLink } from './qualification-store.ts'
 
 export interface UnderstandingTarget {
   readonly taskId: string
@@ -18,6 +19,7 @@ export interface UnderstandingRequest extends UnderstandingTarget {
   readonly anchorId: string
   readonly user?: SyntheticUserExcerpt
   readonly pending?: readonly string[]
+  readonly grounding?: QualificationEvidenceLink
 }
 export interface UnderstandingPage {
   readonly after: number
@@ -32,6 +34,7 @@ export interface UnderstandingCursorMove {
 export interface UnderstandingInboxItem {
   readonly proposal: UnderstandingProposal
   readonly risks: readonly string[]
+  readonly grounding?: readonly GroundingAudit[]
   readonly review?: UnderstandingReviewReceipt
 }
 export interface UnderstandingReviewCommand {
@@ -52,7 +55,7 @@ export const digestId = (v: unknown): v is string => typeof v === 'string' && /^
 const boundedInt = (v: unknown, min: number, max: number) => typeof v === 'number' && Number.isSafeInteger(v) && v >= min && v <= max
 export function validUnderstandingRequest(r: UnderstandingRequest): boolean {
   return exactFields(r, ['synthetic', 'taskId', 'currentTaskId', 'candidates', 'evidenceIds', 'anchorId', 'user',
-    'budget', 'ttlMs', 'mode', 'pending'])
+    'budget', 'ttlMs', 'mode', 'pending', 'grounding'])
     && r.synthetic === true && isTaskId(r.taskId) && (r.currentTaskId === undefined || isTaskId(r.currentTaskId))
     && Array.isArray(r.candidates) && r.candidates.length <= understandingCandidateLimit
     && r.candidates.every(c => exactFields(c, ['taskId', 'alias']) && isTaskId(c.taskId)
@@ -65,6 +68,7 @@ export function validUnderstandingRequest(r: UnderstandingRequest): boolean {
     && (r.user === undefined || exactFields(r.user, ['evidenceId', 'text', 'provenance'])
       && r.user.evidenceId === r.anchorId && r.user.provenance === 'synthetic_host_excerpt' && boundedText(r.user.text, 1024))
     && (r.pending === undefined || Array.isArray(r.pending) && r.pending.length <= 8 && r.pending.every(digestId))
+    && (r.grounding === undefined || validQualificationLink(r.grounding) && r.grounding.factId === r.anchorId)
     && (r.budget === undefined || boundedInt(r.budget, 1, 32_768))
     && (r.ttlMs === undefined || boundedInt(r.ttlMs, 1, 3_600_000))
     && (r.mode === undefined || ['rules', 'rules-scripted', 'structured-mock', 'abstention-first'].includes(r.mode))

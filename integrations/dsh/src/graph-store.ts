@@ -1,17 +1,22 @@
 import type { DatabaseSync, SQLInputValue } from 'node:sqlite'
 import type {
-  EventRef, GraphAppendReceipt, GraphEventDraft, GraphEventRecord, GraphProposal, GraphStreamCut, GraphStreamReader, GraphStreamWriter,
-  RuntimeAttribution, RuntimeCursor, RuntimeFact, RuntimeSessionRef, ScopeAuthority, StoredGraphEvent, StoredRuntimeFact,
+  EventRef, GraphAppendReceipt, GraphChange, GraphEventDraft, GraphEventRecord, GraphProposal, GraphStreamCut, GraphStreamReader, GraphStreamWriter,
+  GroundingAudit, QualificationEvidence, QualificationEvidenceLink, RuntimeAttribution, RuntimeCursor, RuntimeFact,
+  RuntimeSessionRef, ScopeAuthority, StoredGraphEvent, StoredRuntimeFact,
   TaskGraphEvent, UnderstandingInput, UnderstandingProposal, UnderstandingReviewReceipt, WorkspaceScope,
 } from '@acmi/contracts'
 import {
   boundedText, canonical, createScopeAuthority, exactFields, graphEventLimit, isEventRef, isTaskId, runtimeIdentity,
   analyzeUnderstanding, isUnderstandingTrigger, proposeGraphChanges, TaskGraph, type TaskGraphCheckpoint, understandingDefaultBudget,
   understandingFactLimit, understandingOutputLimit, understandingTopologyRisk, validateRuntimeFact,
+  makeQualificationEvidence, qualificationEvidenceLink, qualificationEvidencePolicy, validateGroundedChange,
 } from '@acmi/core'
 import { connectGraphRoot, GraphStoreError, pathsOverlap, translateGraphError } from './graph-store-db.ts'
 import { continuityDigest as sha } from './local-digest.ts'
 import { isSnapshotReservation, type SnapshotReservation } from './snapshot-guard.ts'
+import { createTaskLifecycle, enableTaskLifecycle, hasTaskLifecycleLedger, taskLifecycleBindingAt,
+  type TaskLifecycleHost, type TaskLifecycleHostOptions } from './task-lifecycle.ts'
+import { enableQualification, validQualificationSource, type QualificationSourceCommand } from './qualification-store.ts'
 import { digestId, enableUnderstanding, validUnderstandingRequest, type SavedUnderstanding, type SavedUnderstandingReview,
   type UnderstandingCursorMove, type UnderstandingInboxItem, type UnderstandingPage, type UnderstandingRequest,
   type UnderstandingReviewCommand } from './understanding-host.ts'
@@ -30,6 +35,8 @@ export interface GraphStoreOptions {
   readonly write: Permits
   readonly maxPages?: number
   readonly understanding?: true
+  readonly qualification?: true
+  readonly taskLifecycle?: TaskLifecycleHostOptions
 }
 export interface RuntimeWorkAssignment {
   readonly taskId: string
@@ -69,12 +76,23 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
   readonly #scope: WorkspaceScope
   readonly #states = new Map<string, State>()
   readonly #brokenTasks = new Set<string>()
+  readonly #qualified: boolean
+  readonly #hasTaskLifecycleLedger: boolean
+  readonly #lifecycleConfig: TaskLifecycleHostOptions | undefined
   #closed = false
   #replayed = 0
   #factCount: number
   #sessionCount: number
 
   constructor(options: GraphStoreOptions) {
+    const lifecycle = options.taskLifecycle
+    if (lifecycle !== undefined && (!lifecycle || typeof lifecycle.currentSession !== 'function'
+      || typeof lifecycle.operatorAuthority?.permits !== 'function' || lifecycle.operatorAuthority === options.read
+      || lifecycle.operatorAuthority === options.write)) fail('invalid')
+    this.#lifecycleConfig = lifecycle && {
+      operatorAuthority: { permits: lifecycle.operatorAuthority.permits.bind(lifecycle.operatorAuthority) },
+      currentSession: lifecycle.currentSession.bind(lifecycle),
+    }
     this.#options = { ...options }
     this.#scope = this.#authority.grant(options.workspaceId)
     try {
@@ -83,7 +101,13 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
         this.#factCount = Number(this.#db.prepare('SELECT count(*) AS n FROM runtime_fact').get()?.n)
         this.#sessionCount = Number(this.#db.prepare('SELECT count(*) AS n FROM runtime_cursor').get()?.n)
         if (this.#factCount > capFacts || this.#sessionCount > capSessions) fail('limit')
-        if (options.understanding === true) enableUnderstanding(this.#db)
+        const previouslyQualified = this.#db.prepare("SELECT 1 FROM sqlite_schema WHERE name='qualification_source' AND type='table'").get()
+        this.#qualified = options.qualification === true || previouslyQualified !== undefined
+        if (options.understanding === true || this.#qualified) enableUnderstanding(this.#db)
+        if (this.#qualified && !previouslyQualified) enableQualification(this.#db)
+        const existingLifecycle = hasTaskLifecycleLedger(this.#db)
+        if (lifecycle && !existingLifecycle) enableTaskLifecycle(this.#db)
+        this.#hasTaskLifecycleLedger = existingLifecycle || lifecycle !== undefined
       } catch (error) {
         this.#db.close()
         throw error
@@ -358,18 +382,23 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       let attribution: RuntimeAttribution = { kind: 'unassigned', reason: 'non-task' }
       let causal: string | null = null
       let validTurn = detail.kind === 'turn-open'
+      const hostBinding = this.#hasTaskLifecycleLedger && fact.source.session.adapterId === 'dsh'
+        ? taskLifecycleBindingAt(this.#db, this.workspaceId, key, detail.kind === 'binding' ? undefined : seq) : undefined
+      const openedTurn = (turn: string) => this.#one('SELECT f.body,f.hash FROM runtime_turn t JOIN runtime_fact f ON t.session=f.session AND t.source_seq=f.seq WHERE t.session=? AND t.turn=?',
+        key, turn)
+      const originalTurn = (turn: string): RuntimeAttribution => {
+        const opened = openedTurn(turn)
+        if (!opened) return { kind: 'unassigned', reason: 'missing-cause' }
+        validTurn = detail.kind === 'turn-complete' || detail.kind === 'turn-failed' || detail.kind === 'turn-interrupted'
+        const prior = readChecked<StoredRuntimeFact>(opened, 8192).attribution
+        return prior.kind === 'assigned' ? { ...prior, via: 'original-turn' } : prior
+      }
       if (detail.kind === 'binding') {
+        if (hostBinding) return fail('conflict')
         if (detail.revision !== cursor.bindingRevision + 1) return fail('revision')
         next = { ...next, taskId: detail.taskId, bindingRevision: detail.revision }
       } else if (detail.kind === 'turn-complete' || detail.kind === 'turn-failed' || detail.kind === 'turn-interrupted') {
-        const opened = this.#one('SELECT f.body,f.hash FROM runtime_turn t JOIN runtime_fact f ON t.session=f.session AND t.source_seq=f.seq WHERE t.session=? AND t.turn=?',
-          key, detail.turn)
-        if (!opened) attribution = { kind: 'unassigned', reason: 'missing-cause' }
-        else {
-          validTurn = true
-          const prior = readChecked<StoredRuntimeFact>(opened, 8192)
-          attribution = prior.attribution.kind === 'assigned' ? { ...prior.attribution, via: 'original-turn' } : prior.attribution
-        }
+        attribution = originalTurn(detail.turn)
       } else if (detail.kind === 'tool-result') {
         attribution = { kind: 'unassigned', reason: 'missing-cause' }
         const callRow = detail.callSeq === undefined ? undefined
@@ -384,14 +413,17 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
             attribution = call.attribution.kind === 'assigned' ? { ...call.attribution, via: 'original-call' } : call.attribution
           }
         }
-      } else if (detail.kind === 'user' && (!assignment || (cursor.taskId && assignment.taskId !== cursor.taskId))) {
+      } else if (hostBinding && (detail.kind === 'step-open' || detail.kind === 'step-close' || detail.kind === 'assistant' || detail.kind === 'tool-call')) {
+        attribution = originalTurn(detail.turn)
+      } else if (detail.kind === 'user' && !hostBinding && (!assignment || (cursor.taskId && assignment.taskId !== cursor.taskId))) {
         attribution = { kind: 'unassigned', reason: 'ambiguous-user' }
       } else if (['turn-open', 'turn-complete', 'turn-failed', 'turn-interrupted', 'step-open', 'step-close',
         'assistant', 'tool-call', 'user', 'session-seed-boundary', 'session-end'].includes(detail.kind)) {
-        const taskId = cursor.taskId ?? assignment?.taskId
-        attribution = !taskId ? { kind: 'unassigned', reason: 'unbound' } : !isTaskId(taskId) || !this.#knownTask(taskId)
+        const taskId = hostBinding ? hostBinding.taskId : cursor.taskId ?? assignment?.taskId
+        attribution = !taskId ? { kind: 'unassigned', reason: 'unbound' } : !isTaskId(taskId)
+          || !(hostBinding ? this.#activeLifecycleTask(taskId) : this.#knownTask(taskId))
           ? { kind: 'unassigned', reason: 'unregistered-task' }
-          : { kind: 'assigned', taskId, via: cursor.taskId ? 'explicit-binding' : 'host-source' }
+          : { kind: 'assigned', taskId, via: hostBinding || cursor.taskId ? 'explicit-binding' : 'host-source' }
       }
       const observedAt = time()
       const data = encode({ fact, attribution, observedAt } satisfies StoredRuntimeFact, 8192)
@@ -426,6 +458,22 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     }
     return { status: status.status, attribution: status.attribution }
   }
+  #activeLifecycleTask(taskId: string): boolean {
+    const task = this.#state(taskId).graph.read(this.#scope)?.task
+    return task !== undefined && task.closed === undefined
+  }
+  /** Enable only from a trusted Host surface, never as an LLM-callable tool. */
+  taskLifecycle(writer: WorkspaceScope, operator: WorkspaceScope): TaskLifecycleHost {
+    const config = this.#lifecycleConfig ?? fail('unavailable')
+    const authorize = () => {
+      this.#writable(writer)
+      if (writer === operator || config.operatorAuthority.permits(operator, this.workspaceId) !== true) fail('unavailable')
+    }
+    authorize()
+    return createTaskLifecycle({ db: this.#db, workspaceId: this.workspaceId, authorize, currentSession: config.currentSession,
+      tx: fn => this.#tx(fn), nativeCursor: session => this.#cursor(session, 0), activeTask: taskId => this.#activeLifecycleTask(taskId),
+      append: (taskId, draft) => this.#append(taskId, draft, 'host_confirmed', zero) })
+  }
   #execution(fact: RuntimeFact, taskId: string, assignment?: RuntimeWorkAssignment): void {
     const d = fact.detail
     if (!['turn-open', 'turn-complete', 'turn-failed', 'turn-interrupted'].includes(d.kind) || !('turn' in d)) return
@@ -449,7 +497,83 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     }
   }
   permitsUnderstanding(scope: WorkspaceScope): boolean {
-    return this.#options.understanding === true && this.permits(scope)
+    return (this.#options.understanding === true || this.#qualified) && this.permits(scope)
+  }
+  previewQualification(scope: WorkspaceScope, taskId: string, expected: string,
+    changes: readonly GraphChange[], source: EventRef): string | null {
+    if (!this.permitsUnderstanding(scope) || !isTaskId(taskId) || !isEventRef(source) || source.session.instanceId !== this.workspaceId
+      || changes.length > 24) return 'unavailable'
+    const state = this.#state(taskId)
+    if (state.revision !== expected) return 'stale-revision'
+    const checkpoint = state.graph.checkpoint(this.#scope)
+    const preview = checkpoint && state.graph.restore(this.#scope, checkpoint)
+    if (!preview) return 'unavailable'
+    for (const [i, change] of changes.entries()) {
+      const id = sha(canonical(['qualification-preview', expected, i, change]))
+      const result = preview.append(this.#scope, { ...change, id, seq: state.through + i + 1, source })
+      if (result !== 'applied') return result === 'unresolved' ? preview.read(this.#scope)?.unresolved.at(-1)?.reason ?? result : result
+    }
+    return null
+  }
+  #qualificationSource(factId: string): QualificationEvidence | null {
+    const row = this.#one('SELECT body,hash FROM qualification_source WHERE fact=? ORDER BY generation DESC LIMIT 1', factId)
+    return row ? readChecked<QualificationEvidence>(row, 8192) : null
+  }
+  /** Synthetic trusted-host attestation, separate from model output and from ordinary Review. */
+  recordQualificationSource(writer: WorkspaceScope, command: QualificationSourceCommand): QualificationEvidenceLink {
+    this.#writable(writer)
+    if (!this.#qualified) return fail('unavailable')
+    if (!validQualificationSource(command)) return fail('invalid')
+    return this.#tx(() => {
+      const prior = this.#qualificationSource(command.factId)
+      if ((prior?.revision ?? null) !== command.expectedRevision) return fail('revision')
+      const row = this.#one('SELECT body,hash FROM runtime_fact WHERE id=? AND task=?', command.factId, command.taskId) ?? fail('unavailable')
+      const fact = readChecked<StoredRuntimeFact>(row, 8192)
+      if (fact.fact.eventId !== command.factId || fact.fact.workspaceId !== this.workspaceId) return fail('corrupt')
+      if (Number(this.#one('SELECT count(*) AS n FROM qualification_source')?.n) >= 8192 && !command.revoke) return fail('limit')
+      if (prior?.revoked && command.revoke) return fail('conflict')
+      const record = makeQualificationEvidence(fact, command.taskId, sha,
+        { ...command, generation: (prior?.generation ?? 0) + 1, revoked: command.revoke === true }) ?? fail('invalid')
+      const body = encode(record, 8192)
+      this.#sql('INSERT INTO qualification_source VALUES (?,?,?,?)', record.factId, record.generation, body, sha(body))
+      return qualificationEvidenceLink(record)
+    })
+  }
+  #qualifyProposal(proposal: UnderstandingProposal, request: UnderstandingRequest): UnderstandingProposal {
+    if (!this.#qualified) return proposal
+    const grounding = { policy: qualificationEvidencePolicy, link: request.grounding ?? null }
+    return { ...proposal, id: sha(canonical([proposal.id, grounding])), grounding }
+  }
+  #userEvidenceCurrent(evidence: QualificationEvidence): boolean {
+    if (evidence.actor !== 'user') return true
+    const key = runtimeIdentity(evidence.source.session)
+    const newerSession = this.#all('SELECT body,hash FROM runtime_fact WHERE session=? AND seq>? ORDER BY seq LIMIT 33',
+      key, evidence.source.localSeq)
+    const newerTask = this.#all(`SELECT body,hash FROM runtime_fact WHERE task=? AND
+      rowid>(SELECT rowid FROM runtime_fact WHERE id=?) ORDER BY rowid LIMIT 33`, evidence.taskId, evidence.factId)
+    return [newerSession, newerTask].every(rows => rows.length <= 32
+      && rows.every(row => readChecked<StoredRuntimeFact>(row, 8192).fact.detail.kind !== 'user'))
+  }
+  #groundingAudit(proposal: UnderstandingProposal): readonly GroundingAudit[] {
+    const link = proposal.grounding?.link ?? null
+    const evidence = link ? this.#qualificationSource(link.factId) : null
+    const staleUser = evidence && !evidence.revoked && !this.#userEvidenceCurrent(evidence)
+    const batch = proposal.changes.map(c => c.change)
+    const activeNodeId = this.#cut(this.#state(proposal.taskId))?.snapshot.activeNodeId
+    return proposal.changes.map(({ change, id, evidenceId }) => {
+      const ref = proposal.evidence.find(e => e.eventId === evidenceId)
+      const source = ref && evidence && evidenceId === link?.factId && canonical(ref.source) === canonical(evidence.source) ? evidence : null
+      const verified = validateGroundedChange({ workspaceId: this.workspaceId, taskId: proposal.taskId, change, batch, evidence: source, link,
+        ...(activeNodeId ? { activeNodeId } : {}) }, sha)
+      const verdict = staleUser && verified.status === 'supported'
+        ? { claimHash: verified.claimHash, status: 'stale' as const, reason: 'newer-user-evidence-or-bounded-cut' } : verified
+      const range = source?.excerpt
+      return { ...verdict, changeId: id, ...(source && link ? { evidence: {
+        link, source: source.source, actor: source.actor, detailKind: source.detailKind, provenance: source.provenance,
+        ...(source.turn ? { turn: source.turn } : {}), ...(source.step ? { step: source.step } : {}),
+        ...(range ? { range: { start: range.start, end: range.end, totalLength: range.totalLength, truncated: range.truncated } } : {}),
+      } } : {}) }
+    })
   }
   #understandingInput(request: UnderstandingRequest, now: number): UnderstandingInput {
     if (!validUnderstandingRequest(request)) return fail('invalid')
@@ -525,9 +649,11 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     if (modelJson !== undefined && (typeof modelJson !== 'string' || modelJson.length > understandingOutputLimit)) return fail('invalid')
     return this.#tx(() => {
       const input = this.#understandingInput(request, Date.now())
-      const proposal = analyzeUnderstanding(input, sha, modelJson, request.mode)
-      if (expected && (proposal.id !== expected.id || proposal.graphRevision !== expected.graphRevision
-        || proposal.candidateRevision !== expected.candidateRevision)) return fail('revision')
+      if (request.grounding && !this.#qualified) return fail('unavailable')
+      const analysis = analyzeUnderstanding(input, sha, modelJson, request.mode)
+      if (expected && (analysis.id !== expected.id || analysis.graphRevision !== expected.graphRevision
+        || analysis.candidateRevision !== expected.candidateRevision)) return fail('revision')
+      const proposal = this.#qualifyProposal(analysis, request)
       if (move) this.#moveUnderstandingCursor(request.taskId, move, request.evidenceIds)
       const applied = this.#one(`SELECT p.body,p.hash,r.body AS receipt,r.hash AS review_hash
         FROM understanding_applied a JOIN understanding_proposal p ON p.id=a.id JOIN understanding_review r ON r.id=a.id
@@ -541,8 +667,10 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
         return prior ? { ...item, review: readChecked<SavedUnderstandingReview>(prior).receipt } : item
       }
       if (Number(this.#one('SELECT count(*) AS n FROM understanding_proposal')?.n) >= 4096) return fail('limit')
-      const risks = this.#understandingRisks(this.#state(request.taskId), proposal)
-      const item = { proposal, risks }
+      const grounding = this.#qualified ? this.#groundingAudit(proposal) : undefined
+      const risks = [...this.#understandingRisks(this.#state(request.taskId), proposal),
+        ...new Set((grounding ?? []).filter(a => a.status !== 'supported').map(a => 'grounding:' + a.reason))]
+      const item = { proposal, risks, ...(grounding ? { grounding } : {}) }
       const body = encode({ request, ...(modelJson !== undefined ? { modelJson } : {}), item } satisfies SavedUnderstanding)
       this.#sql('INSERT INTO understanding_proposal VALUES (?,?,?,?,?)',
         proposal.id, proposal.taskId, proposal.supersessionKey, body, sha(body))
@@ -567,7 +695,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
   }
   reviewUnderstanding(writer: WorkspaceScope, proposalId: string, command: UnderstandingReviewCommand): UnderstandingReviewReceipt {
     this.#writable(writer)
-    if (this.#options.understanding !== true || !digestId(proposalId)
+    if (this.#options.understanding !== true && !this.#qualified || !digestId(proposalId)
       || !exactFields(command, ['decision', 'reviewerId', 'reason']) || !['accept', 'reject'].includes(command.decision)
       || !boundedText(command.reviewerId, 96) || !boundedText(command.reason, 512)
       || !command.reviewerId.trim() || !command.reason.trim()) return fail('invalid')
@@ -585,6 +713,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       const now = Date.now()
       let status: UnderstandingReviewReceipt['status'] = command.decision === 'accept' ? 'accepted' : 'rejected'
       let invalidation: string | undefined
+      const grounding = this.#qualified ? this.#groundingAudit(p) : undefined
       if (this.#one('SELECT 1 FROM understanding_proposal WHERE supersession=? AND rowid>? LIMIT 1',
         p.supersessionKey, Number(row.rowid))) { status = 'superseded'; invalidation = 'newer-source-proposal' }
       else if (now >= p.expiresAt) { status = 'expired'; invalidation = 'ttl-expired' }
@@ -593,8 +722,10 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
         else {
           try {
             const input = this.#understandingInput(request, p.createdAt)
-            const regenerated = analyzeUnderstanding(input, sha, modelJson, request.mode)
-            if (canonical(regenerated) !== canonical(p)) invalidation = 'stale-candidates-or-evidence'
+            const regenerated = this.#qualifyProposal(analyzeUnderstanding(input, sha, modelJson, request.mode), request)
+            const unsupported = grounding?.find(a => a.status !== 'supported')
+            if (unsupported) invalidation = 'grounding:' + unsupported.reason
+            else if (canonical(regenerated) !== canonical(p)) invalidation = 'stale-candidates-or-evidence'
             else invalidation = this.#understandingRisks(state, regenerated)[0]
               ?? (!p.changes.length && (p.intent.kind === 'uncertain'
                 || p.unresolved.some(reason => reason !== 'routing-requires-separate-host-action')) ? 'unresolved-no-change' : undefined)
@@ -613,7 +744,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       const receipt: UnderstandingReviewReceipt = { proposalId, status, reviewer: { type: 'trusted_host', id: command.reviewerId },
         acceptedChangeIds: status === 'accepted' ? ids : [], rejectedChangeIds: status === 'accepted' ? [] : ids,
         expectedRevision: p.graphRevision, resultingRevision: state.revision, reason: invalidation ?? command.reason,
-        timestamp: now, evidence: p.evidence }
+        timestamp: now, evidence: p.evidence, ...(grounding ? { grounding } : {}) }
       const body = encode({ command, receipt } satisfies SavedUnderstandingReview)
       this.#sql('INSERT INTO understanding_review VALUES (?,?,?)', p.id, body, sha(body))
       if (status === 'accepted') this.#sql('INSERT INTO understanding_applied VALUES (?,?)', p.supersessionKey, p.id)
@@ -622,6 +753,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
   }
   review(scope: WorkspaceScope, proposal: GraphProposal, decision: 'accept' | 'reject'): ReviewReceipt {
     this.#writable(scope)
+    if (this.#qualified) return fail('unavailable')
     return this.#tx(() => {
       if (!proposal || proposal.workspaceId !== this.workspaceId || !isTaskId(proposal.taskId)
         || !/^[a-f0-9]{64}$/u.test(proposal.id) || !['accept', 'reject'].includes(decision)) return fail('unavailable')
