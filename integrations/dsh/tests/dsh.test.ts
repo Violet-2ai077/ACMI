@@ -96,8 +96,11 @@ it('loads with stock Cordis/dsh tools, preserves explicit revisions and serves s
   expect(await bind(taskId)).toMatchObject({ value: { binding_revision: 1 } })
   agent.session.append('turn/start', { turn: 1 })
   await appendExchange(agent.session, 1, true, async () => {
+    await ctx.sessions.flush(agent.session)
     expect(await bind(another)).toMatchObject({ value: { binding_revision: 2 } })
   })
+  // The read-side guard rejects a journal changing during its snapshot.
+  await ctx.sessions.flush(agent.session)
   expect(await bind(taskId)).toMatchObject({ value: { binding_revision: 3 } })
   agent.session.append('turn/end', { turn: 1, reason: { kind: 'completed' } })
   const next = await harness.create(SessionId('alpha-two'), {}, { cwd: workspaceRoot })
