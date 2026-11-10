@@ -1,0 +1,10 @@
+{
+  "protocol": "phase-0.9.2-annotation-pilot-v1",
+  "usage": "open_unscored_annotation_dry_run",
+  "human_review_status": "pending",
+  "verified_human_reviewers": 0,
+  "human_submissions": 0,
+  "human_adjudications": 0,
+  "labels_present": false,
+  "qualification_holdout": false
+}

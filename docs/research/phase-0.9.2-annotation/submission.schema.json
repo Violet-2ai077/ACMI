@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ACMI Phase 0.9.2 reviewer submission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["packetId", "reviewLane", "distributionId", "reviewerId", "submittedAtUtc", "guideVersion", "provenance", "status", "annotations"],
+  "properties": {
+    "packetId": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "reviewLane": {"enum": ["A", "B"]},
+    "distributionId": {"type": "string", "minLength": 1, "maxLength": 64},
+    "reviewerId": {"type": "string", "minLength": 1, "maxLength": 64},
+    "submittedAtUtc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "guideVersion": {"const": "0.9.2-pilot-v1"},
+    "provenance": {"const": "human_attested_annotation"},
+    "status": {"const": "submitted_unverified_identity"},
+    "annotations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/annotation"}}
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 80},
+    "annotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caseId", "turnAct", "intent", "targetTaskId", "targetAbsent", "taskStateAction", "graphChanges", "evidenceSpans", "ambiguity", "confidenceRationale", "abstain", "riskLevel"],
+      "properties": {
+        "caseId": {"$ref": "#/$defs/id"},
+        "turnAct": {"enum": ["request", "correction", "confirmation", "discussion", "inform", "chitchat", "other", "uncertain"]},
+        "intent": {"enum": ["continue_current", "switch_existing", "new_objective", "change_scope", "lifecycle_only", "discussion_only", "no_task", "uncertain"]},
+        "targetTaskId": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]},
+        "targetAbsent": {"enum": ["absent", "present", "not_applicable", "unknown"]},
+        "taskStateAction": {"enum": ["none", "propose_pause", "propose_resume", "propose_cancel", "propose_close", "propose_reopen", "unknown"]},
+        "graphChanges": {"type": "array", "maxItems": 16, "uniqueItems": true, "items": {"$ref": "#/$defs/graphChange"}},
+        "evidenceSpans": {"type": "array", "minItems": 1, "maxItems": 24, "uniqueItems": true, "items": {"$ref": "#/$defs/evidenceSpan"}},
+        "ambiguity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reasons", "rationale"],
+          "properties": {
+            "reasons": {"type": "array", "maxItems": 7, "uniqueItems": true, "items": {"enum": ["missing_context", "target_not_visible", "competing_targets", "mixed_intents", "conditional_or_revoked", "authority_unclear", "other"]}},
+            "rationale": {"type": "string", "minLength": 1, "maxLength": 600}
+          }
+        },
+        "confidenceRationale": {"type": "string", "minLength": 1, "maxLength": 600},
+        "abstain": {"enum": ["not_indicated", "acceptable", "required"]},
+        "riskLevel": {"enum": ["low", "medium", "high", "critical"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"targetAbsent": {"const": "present"}}},
+          "then": {"properties": {"targetTaskId": {"$ref": "#/$defs/id"}}},
+          "else": {"properties": {"targetTaskId": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"intent": {"enum": ["new_objective", "no_task"]}}},
+          "then": {"properties": {"targetAbsent": {"const": "not_applicable"}}}
+        },
+        {
+          "if": {"properties": {"intent": {"enum": ["no_task", "discussion_only"]}}},
+          "then": {"properties": {"taskStateAction": {"const": "none"}, "graphChanges": {"maxItems": 0}}}
+        },
+        {
+          "if": {"properties": {"intent": {"const": "no_task"}}},
+          "then": {"properties": {"abstain": {"const": "not_indicated"}}}
+        }
+      ]
+    },
+    "graphChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "subjectId", "objectId"],
+      "properties": {
+        "operation": {"enum": ["create_task", "update_scope", "propose_binding", "add_branch", "add_dependency", "remove_dependency", "propose_join", "accept_result", "reject_result", "satisfy_join"]},
+        "subjectId": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]},
+        "objectId": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]}
+      }
+    },
+    "evidenceSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceKind", "sourceId", "start", "end", "quote"],
+      "properties": {
+        "sourceKind": {"enum": ["event", "candidate_objective"]},
+        "sourceId": {"$ref": "#/$defs/id"},
+        "start": {"type": "integer", "minimum": 0},
+        "end": {"type": "integer", "minimum": 1},
+        "quote": {"type": "string", "minLength": 1, "maxLength": 1000}
+      }
+    }
+  }
+}
