@@ -1,0 +1,13 @@
+{
+  "version": "phase-0.9.3-provider-neutral-v1",
+  "enabled": false,
+  "status": "BLOCKED: explicit authorization required",
+  "requests": 0,
+  "networkAdapter": null,
+  "approvedModelAndRoute": null,
+  "approvedDataAndRetention": null,
+  "approvedRequestTokenMoneyBudget": null,
+  "verifiedHumanLabels": false,
+  "independentHoldoutCustodian": false,
+  "graphWriteAccess": false
+}
