@@ -1,0 +1,19 @@
+flowchart LR
+  subgraph F["Authoritative runtime facts (read-only to understanding)"]
+    A["Host / Adapter"] --> R["Scoped facts, journal cursor, binding and graph revision"]
+  end
+  subgraph U["Untrusted semantic hypotheses"]
+    T["Event trigger + scoped state"] --> P["Bounded Understanding Context Package"]
+    P --> L["Intent → Identity → Work structure"]
+    L --> H["Draft / Clarify / Abstain"]
+    T <-->|"retained hypotheses only"| E["Bounded ephemeral state"]
+  end
+  R --> T
+  R --> P
+  H --> G["Deterministic evidence, authorization and revision fence"]
+  R --> G
+  G --> S["Shadow receipt (no write)"]
+  G --> V["Proposed review inbox"]
+  V --> C["Explicit user confirmation in trusted Host"]
+  C --> X["Existing transactional apply / reject"]
+  X --> R

@@ -1,0 +1,17 @@
+stateDiagram-v2
+  [*] --> Cold
+  Cold --> Observing: fresh scope / valid checkpoint
+  Observing --> Observing: duplicate / proved metadata skip
+  Observing --> Building: relevant authoritative event
+  Building --> Observing: gap or incomplete input / record and rebase
+  Building --> Analyzing: complete bounded packet
+  Analyzing --> Observing: rejected, abstained, timed out or clarify
+  Analyzing --> Draft: validated hypotheses and current revision
+  Draft --> Observing: shadow receipt / revoke / stale / expire
+  Draft --> Review: separately approved review path
+  Review --> Observing: explicit Host confirms with CAS or rejects
+  Observing --> Cold: session closes / epoch changes
+  Building --> Cold: scope revoked
+  Analyzing --> Cold: scope revoked
+  Draft --> Cold: scope revoked
+  Review --> Cold: scope revoked

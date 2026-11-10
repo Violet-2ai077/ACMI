@@ -1,0 +1,26 @@
+sequenceDiagram
+  participant A as Host / Adapter
+  participant O as Shadow observer
+  participant R as Scoped read view
+  participant S as Offline analyzer
+  participant V as Deterministic validator
+  participant H as Trusted review Host
+  A->>O: Authoritative event + cursor + scope
+  O->>R: Read authorized snapshot / revisions
+  alt Proved metadata-only
+    O->>O: Record skip reason, sample for audit
+  else Relevant event
+    O->>S: Bounded packet with scoped handles
+    S-->>O: Layered draft, clarification or abstention
+    O->>V: Validate packet and response
+    V->>R: Re-check epoch / revision / evidence
+    alt Stale, unauthorized or invalid
+      V-->>O: Reject and record; no write
+    else Valid
+      V-->>O: Shadow receipt; no write
+      opt Separately approved Host review path
+        O-->>H: Draft only
+        H->>H: Explicit confirm + transactional CAS / reject
+      end
+    end
+  end
