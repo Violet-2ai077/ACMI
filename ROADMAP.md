@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.1: offline natural-language qualification, bounded candidate
+  retrieval, protected evidence, explicit Host lifecycle and stock dsh Shadow.
+  Independent human and real Provider evaluation remain pending.
+  See the [Phase 0.9.1 report](docs/experiments/phase-0.9.1-final-report.md).
 - Phase 0.9: synthetic-only incremental intent and work-structure proposals,
   bounded opt-in dsh analysis, and explicit trusted Host atomic review.
   See the [Phase 0.9 report](docs/experiments/phase-0.9-final-report.md).

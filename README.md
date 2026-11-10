@@ -73,6 +73,11 @@ transactional Host review. The 350-case benchmark uses only synthetic evidence
 and scripted mocks. See the [Phase 0.9 report](docs/experiments/phase-0.9-final-report.md).
 It does not bind Tasks, accept Subagent results or satisfy joins automatically.
 
+Phase 0.9.1 adds an offline natural-language qualification corpus, a bounded
+candidate catalog, protected evidence checks and explicit local Host task
+lifecycle operations. The [qualification report](docs/experiments/phase-0.9.1-final-report.md)
+separates provisional/scripted results from pending human and real-model evaluation.
+
 | Area | Responsibility |
 | --- | --- |
 | [`@acmi/contracts`](packages/contracts/README.md) | Task, Session, Binding, provenance, and adapter contracts |

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "q91-future-provider-authorization-v1",
+  "enabled": false,
+  "status": "pending_explicit_user_authorization",
+  "provider": null,
+  "model": null,
+  "approvedPacketCorpusSha256": null,
+  "approvedDataScope": [],
+  "maxRequests": 0,
+  "maxInputTokens": 0,
+  "maxOutputTokens": 0,
+  "maxSpend": 0,
+  "currency": null,
+  "retentionApproval": null,
+  "systemPromptVersion": "q91-offline-task-intent-v1",
+  "developerPromptVersion": "q91-closed-evidence-json-v1"
+}

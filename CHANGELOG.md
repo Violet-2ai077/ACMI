@@ -3,7 +3,16 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9
+## Unreleased - Phase 0.9.1
+
+- Add provisional natural-language qualification, reserved holdout and offline
+  double-annotation tooling.
+- Add protected Decision/Result/Dependency evidence, bounded candidates, and
+  an offline evaluator plus isolated stock dsh Shadow.
+- Add trusted explicit Task create, select, bind and unbind with append-only
+  revisioned receipts; no automatic lifecycle changes.
+
+## Phase 0.9 local milestone
 
 - Add scoped incremental intent, WorkNode, dependency, Join, decision,
   constraint and result proposals with bounded synthetic model input.
