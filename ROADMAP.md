@@ -11,6 +11,11 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.3: bounded layered understanding, read-only dsh Shadow and offline
+  architecture comparison. Human review, independent qualification Holdout
+  and real Provider evaluation remain blocked; no production automation.
+  See the [Phase 0.9.3 report](docs/experiments/phase-0.9.3-final-report.md).
+
 - Phase 0.9.2: archival failure forensics, layered understanding contracts,
   and new offline architecture controls. No production behavior change.
   See the [research report](docs/experiments/phase-0.9.2-final-report.md) and

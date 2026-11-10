@@ -26,6 +26,8 @@ pnpm demo
 
 Phase 0.9.2 仅新增[离线研究与可复现合成原型](docs/experiments/phase-0.9.2-final-report.md)，未改变运行时行为，不能据此启用自动任务路由。
 
+Phase 0.9.3 新增[默认关闭的分层理解和合成 dsh 只读 Shadow](docs/experiments/phase-0.9.3-final-report.md)。不应用提案，未通过自动路由资格。
+
 ## Alpha 验证结果
 
 验证基线：[v0.1.0-alpha.1](https://github.com/Violet-2ai077/ACMI/releases/tag/v0.1.0-alpha.1)（`0531dbf`）。

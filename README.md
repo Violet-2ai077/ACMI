@@ -41,6 +41,9 @@ Phase 0.9.2 adds [offline research artifacts](docs/experiments/phase-0.9.2-final
 and reproducible synthetic prototypes only. It does not change runtime
 behavior or qualify task routing for automatic use.
 
+Phase 0.9.3 adds [default-off layered understanding and a read-only synthetic dsh Shadow](docs/experiments/phase-0.9.3-final-report.md).
+The path does not apply proposals or qualify automated routing.
+
 ## What the Alpha tests verify
 
 Release baseline: [v0.1.0-alpha.1](https://github.com/Violet-2ai077/ACMI/releases/tag/v0.1.0-alpha.1)

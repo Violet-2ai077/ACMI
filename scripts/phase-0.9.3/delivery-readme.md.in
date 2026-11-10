@@ -1,0 +1,12 @@
+# ACMI Phase 0.9.3 交付索引
+
+- [完整中文报告](docs/experiments/phase-0.9.3-final-report.md) · [资格结论](docs/experiments/phase-0.9.3-qualification-report.md) · [预注册](docs/experiments/phase-0.9.3-preregistration.md)
+- [分层架构图](docs/architecture/layered-understanding-pipeline-v0.1.md) · [理解上下文](docs/architecture/understanding-context-package-v0.1.md) · [身份解析](docs/architecture/task-identity-resolution-v0.2.md) · [增量状态](docs/architecture/incremental-understanding-state-v0.2.md)
+- [语料设计](docs/experiments/phase-0.9.3-benchmark-design.md) · [Open corpus](scripts/phase-0.9.3/data/open-corpus.json) · [四臂结果](benchmark/results.json) · [消融](benchmark/ablations.json) · [性能](benchmark/performance-probe.json)
+- [人工流程和当前状态](docs/annotation/phase-0.9.3-human-review-status.md) · [A 包](docs/annotation/phase-0.9.3-reviewer-a-packet.json) · [B 包](docs/annotation/phase-0.9.3-reviewer-b-packet.json) · [独立内部 reserve 收据](scripts/phase-0.9.3/data/internal-reserve-manifest.json)
+- [Runtime Shadow](docs/experiments/phase-0.9.3-runtime-shadow.md) · [Source/Built 原始验证回执](experiments/runtime-shadow-results.json) · [测试摘要](environment/test-results-summary.txt)
+- [提交清单](source/commits.txt) · [源 patch](source/phase-0.9.3-changes.patch) · [载荷 SHA-256](integrity/SHA256SUMS.txt) · [复现手册](docs/runbooks/phase-0.9.3-evaluation-reproduction.md)
+
+离线、default-off，无 Graph 或 Binding 写能力。Open 语料与预期是 AI provisional，仅交付协调员；**不得把整包发给标注者**。只独立分发相应 A 或 B 文件及空模板/指南。没有真人标签或 Provider 结果。旧 Holdout、内部未消费 reserve 内容、原始 Journal、凭据和依赖不在 ZIP。
+
+本包不是完整可运行的 repo；要复现，先在指定基点应用源 patch，再按手册用锁定依赖和合成 fixture 运行。

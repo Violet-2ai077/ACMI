@@ -3,7 +3,14 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.2
+## Unreleased - Phase 0.9.3
+
+- Add a bounded, revisioned Understanding Context, scoped identity resolution,
+  historical hints, and evidence-grounded review drafts.
+- Add a default-off dsh Shadow path, an open synthetic comparison, and human
+  review preparation. No graph apply, auto binding, or real Provider calls.
+
+## Phase 0.9.2 local milestone
 
 - Analyze archived Task Understanding failures without rescoring the consumed
   Holdout; add offline architecture prototypes, benchmark and review designs,
