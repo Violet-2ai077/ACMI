@@ -27,5 +27,6 @@ export type { QualificationAdapter, QualificationEvaluation, QualificationEvalOp
   QualificationMode, QualificationPacket, QualificationTurn, QualificationUsage } from './qualification-evaluation.ts'
 export { offlineQualificationAdapter } from './qualification-mocks.ts'
 export { runDshQualificationShadow, type DshQualificationShadowOptions } from './qualification-shadow.ts'
+export { createDshLayeredShadow, type DshLayeredShadowInput, type DshLayeredShadowOptions, type DshLayeredShadowResult } from './layered-shadow.ts'
 export type { TaskLifecycleHostOptions, TaskLifecycleHost, TaskLifecycleCommand, TaskLifecycleConfirmation, TaskLifecycleReceipt,
   TaskLifecycleState } from './task-lifecycle.ts'
