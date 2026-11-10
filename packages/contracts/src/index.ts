@@ -142,3 +142,4 @@ export interface AttributionEngine {
 }
 export type * from './understanding.ts'
 export type * from './qualification.ts'
+export type * from './layered-understanding.ts'

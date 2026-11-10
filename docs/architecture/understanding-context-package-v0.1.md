@@ -1,4 +1,6 @@
-# Understanding Context Package v0.1（设计，不是现行 API）
+# Understanding Context Package v0.1
+
+Phase 0.9.3 实现了 `buildLayeredContext`、`UnderstandingContextPackage` 和 `readUnderstandingSpan`；本阶段调用限于离线与 default-off Shadow。Host 注入 SHA-256 和 ACL，Core 不依赖 Node、Provider 或 dsh。候选的稳定 UUID 只用于本地、受权读视图；提案选包内 handle。未来外发需另经清洗授权，此包不是自动安全的远端 payload。
 
 这是专为本轮理解构建的读视图，不是既有执行/恢复 Context Package 的替代品，也不是 Scope 令牌。身份决议、证据验证、提案审核各有独立边界。构造器仅接收 Host 认可的当前事件、授权候选索引、有限 Graph 读视图和当前理解状态；调用端不接触 writer。
 
@@ -14,23 +16,20 @@
 
 **打包与故障规则。** 先授权、去敏，再按 slot 分预算；不可绕过 mandatory 区段：当前 actor + 有效 turn/事实引用 + 必要 scope + 明确缺失标记。序列按稳定 key 排序，UTF-8 规范化/原样策略固定，digest 覆盖 Host 封套与 canonical model view；证据定位记录原文 hash、半开区间、单位（UTF-8 bytes 或 Unicode code points，版本固定）以及清洗后的投影映射，不能把模型伪造的 quote 当来源。对 Tool/Subagent/历史消息内的指令只标数据，不能当系统指令；过滤路径、密钥、提示注入样本中的敏感字段，撤权时立即失效。若截断破坏否定/条件或无法放入必须字段，返回结构化 `input_incomplete`，无副作用；“摘要未提及”不等于不存在。
 
-**起始预算（0.9.3 待实测）。** 可见 active 候选 ≤8，授权内只读 closed hints ≤2，retain ≤8 项，事实 refs ≤12；全部请求 ≤12 KiB UTF-8 且 ≤3,000 provider-neutral 估算输入 token，保留额外输出预算；预算取两者较紧，分段计量。溢出先剔除低相关历史与摘要，再排候选；不能用更多输入掩盖未检索问题。测试相同信息位置扰动及剪裁原因。长上下文并不能保证用上中部关键信息，见 [Lost in the Middle](https://aclanthology.org/2024.tacl-1.9/)；这是保留基准，不是 ACMI 实测结论。
+**冻结预算。** active 候选 ≤8，授权内只读 closed hints ≤2，retained ≤8，typed facts ≤12。整个序列化包 ≤12 KiB UTF-8 且 ≤3,000 估算输入 tokens：ASCII 字节数除 4 向上取整，加非 ASCII Unicode 标量数。溢出先移除 retained，再移除历史提示、末位 active 和可省略事实；必须的当前正文仍不 fit 时返回 `insufficient_context`。所有省略仅统计经授权项。实际 spans 为 UTF-16 半开区间，禁止切开代理对。长上下文并不能保证用上中部关键信息，见 [Lost in the Middle](https://aclanthology.org/2024.tacl-1.9/)；这是外部参考，不是 ACMI 实测结论。
 
-示例（不对应任何历史样本）：
+概念示例（为突出视图差异省略 revision、认证封套和摘要字段，不能当完整 wire fixture）：
 
 ```json
 {
   "schemaVersion": "understanding-context/v0.1",
-  "packet": "p1",
-  "current": { "ref": "t8", "actor": "user", "text": "看看归档，先别切换" },
-  "focus": { "bound": "c1", "tentative": null },
-  "candidates": [
-    { "handle": "c1", "summary": "导入修复", "availability": "active" },
-    { "handle": "c2", "summary": "归档整理", "availability": "active" }
-  ],
-  "facts": [{ "ref": "f7", "kind": "tool_succeeded", "causal": "call7" }],
+  "current": { "id": "t8", "actor": "user", "kind": "message", "text": "看看归档，先别切换" },
+  "binding": { "taskId": "import" },
+  "active": [{ "handle": "a1", "taskId": "import", "objective": "导入修复", "status": "open", "bindable": true }],
+  "historical": [{ "handle": "h1", "taskId": "archive", "objective": "归档整理", "status": "closed", "bindable": false }],
+  "facts": [{ "id": "f7", "kind": "tool-result", "cause": "call7" }],
   "retained": [],
-  "coverage": { "mandatoryComplete": true, "clippingReasons": [] }
+  "omissions": []
 }
 ```
 
