@@ -1,0 +1,11 @@
+{
+  "schema": "acmi-093-split-policy-v1",
+  "generatorVersion": "acmi-093-authored-v1",
+  "targets": { "development": 400, "validation": 200, "holdout": 200 },
+  "clusterAxes": ["family", "fixture", "linguistic-construction", "paraphrase", "storyline"],
+  "bootstrap": { "seed": 9302301, "iterations": 2000, "confidence": 0.95, "unit": "cluster" },
+  "budget": { "active": 8, "historical": 2, "facts": 12, "retained": 8, "bytes": 12288, "estimatedTokens": 3000, "passes": 2 },
+  "trigger": { "userKeywordGate": false, "metadataSampleModulo": 8 },
+  "labelProvenance": "ai_provisional_not_human_reviewed",
+  "holdout": { "oldHoldoutAllowed": false, "qualificationRequiresHumanReview": true, "consumption": "explicit-one-shot-after-freeze" }
+}
