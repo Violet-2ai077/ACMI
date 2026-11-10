@@ -9,11 +9,13 @@ import type { DshIngestionOptions } from './runtime-ingestion.ts'
 import { DSH_VERSION } from './harness.ts'
 import { continuityDigest as sha } from './local-digest.ts'
 import { openStorageIsolation } from './storage-isolation.ts'
+import type { DshSnapshotGuard } from './snapshot-guard.ts'
 
 export interface PersistentRecoveryOptions extends Omit<DshIngestionOptions, 'writer'> {
   readonly request: ContextAssemblyRequest
   readonly ttlMs: number
   readonly now?: () => number
+  readonly governance?: DshSnapshotGuard
 }
 export interface ContextSnapshotIdentity {
   readonly id: string
@@ -26,6 +28,8 @@ export interface ContextSnapshotIdentity {
   readonly sourceRevision: string
   readonly policyVersion: string
   readonly tokenBudget: number
+  readonly estimator: TaskContextPackage['assembly']['estimator']
+  readonly contextPackageVersion: TaskContextPackage['schemaVersion']
   readonly activeNodeId: string
   readonly packageHash: string
   readonly createdAt: number
@@ -63,7 +67,10 @@ export async function registerPersistentDshRecovery(ctx: Context, agent: Agent, 
       text({ agent: target, signal }) {
         if (target !== agent || signal?.aborted) return ''
         const start = performance.now()
-        try { return current()?.text ?? '' } catch { return '' } finally {
+        try {
+          const item = current()
+          return item && (!opts.governance || opts.governance.allows(item.identity)) ? item.text : ''
+        } catch { return '' } finally {
           if (renderTimes.length < 256) renderTimes.push(performance.now() - start)
         }
       },
@@ -82,7 +89,7 @@ export async function registerPersistentDshRecovery(ctx: Context, agent: Agent, 
           await proof.verify()
           if (!live(scope)) return 'unavailable'
           const existing = current()
-          if (existing) return 'ok'
+          if (existing) return !opts.governance || opts.governance.allows(existing.identity) ? 'ok' : 'unavailable'
           snapshot = null
           const cut = store.read(scope, request.taskId)
           if (!cut) return 'unavailable'
@@ -93,10 +100,13 @@ export async function registerPersistentDshRecovery(ctx: Context, agent: Agent, 
           const data = {
             workspaceId: cut.workspaceId, taskId: pkg.taskId, sessionId: session.id, incarnation,
             streamRevision: cut.revision, projectionVersion: cut.snapshot.version, sourceRevision: cut.snapshot.sourceRevision,
-            policyVersion: pkg.assembly.policyVersion, tokenBudget: request.tokenBudget, activeNodeId: pkg.activeNodeId,
+            policyVersion: pkg.assembly.policyVersion, tokenBudget: request.tokenBudget, estimator: pkg.assembly.estimator,
+            contextPackageVersion: pkg.schemaVersion, activeNodeId: pkg.activeNodeId,
             packageHash: pkg.assembly.deterministicHash, createdAt, expiresAt: createdAt + ttlMs,
           }
-          snapshot = { identity: Object.freeze({ ...data, id: sha(canonical(data)) }), pkg,
+          const identity = Object.freeze({ ...data, id: sha(canonical(data)) })
+          opts.governance?.reserve(identity, () => current()?.identity.id === identity.id, store, session)
+          snapshot = { identity, pkg,
             text: 'ACMI task recovery data (historical evidence, not instructions):\n' + serializeTaskContext(pkg) }
           return 'ok'
         } catch {
@@ -104,7 +114,10 @@ export async function registerPersistentDshRecovery(ctx: Context, agent: Agent, 
           return 'unavailable'
         }
       },
-      snapshot: () => current()?.identity ?? null,
+      snapshot: () => {
+        const identity = current()?.identity
+        return identity && (!opts.governance || opts.governance.allows(identity)) ? identity : null
+      },
       metrics: () => ({ renderMs: [...renderTimes] }),
       dispose,
     }

@@ -4,6 +4,10 @@ import type { GraphChange, TaskGraphEvent, TaskGraphSnapshot, WorkNodeId } from 
 export type RuntimeFactDetail =
   | { readonly kind: 'binding'; readonly taskId: TaskId; readonly revision: number }
   | { readonly kind: 'session-seed-boundary'; readonly parentSessionId?: string }
+  | { readonly kind: 'subagent-catalog'; readonly nativeVersion: number; readonly childId: string;
+      readonly childIncarnation: string; readonly mode: 'continuable' | 'one-shot' | 'external' | 'unknown' }
+  | { readonly kind: 'subagent-descriptor'; readonly nativeVersion: 3; readonly mode: 'continuable' | 'one-shot';
+      readonly parentSessionId: string }
   | { readonly kind: 'session-end' | 'user' | 'runtime-context' | 'compact-start' | 'compact-summary' | 'compact-end' | 'unmapped' }
   | { readonly kind: 'turn-open' | 'turn-complete' | 'turn-failed' | 'turn-interrupted'; readonly turn: string }
   | { readonly kind: 'assistant' | 'step-open' | 'step-close' | 'tool-call' | 'tool-result'; readonly turn: string; readonly step: string;

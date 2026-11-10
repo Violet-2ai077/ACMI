@@ -97,6 +97,18 @@ export function connectGraphRoot(root: string, workspaceId: string, maxPages = 6
       || db.prepare('SELECT root_id FROM graph_meta WHERE partition=?').get(workspaceId)?.root_id !== rootId
       || db.prepare('PRAGMA quick_check(1)').get()?.quick_check !== 'ok') throw new GraphStoreError('corrupt')
     if (Number(db.prepare(`PRAGMA max_page_count=${maxPages}`).get()?.max_page_count) !== maxPages) throw new GraphStoreError('limit')
+    db.exec(`BEGIN IMMEDIATE;
+    CREATE TABLE IF NOT EXISTS snapshot_reservation (
+      session TEXT PRIMARY KEY, body TEXT NOT NULL, hash TEXT NOT NULL, retired INTEGER NOT NULL CHECK(retired IN (0,1))
+    ) STRICT, WITHOUT ROWID;
+    CREATE TABLE IF NOT EXISTS runtime_child_link (
+      session TEXT NOT NULL, child TEXT NOT NULL, incarnation TEXT NOT NULL, seq INTEGER NOT NULL,
+      PRIMARY KEY(session, child, incarnation)
+    ) STRICT, WITHOUT ROWID;
+    CREATE TABLE IF NOT EXISTS runtime_lifecycle_latest (
+      session TEXT NOT NULL, category TEXT NOT NULL, seq INTEGER NOT NULL, PRIMARY KEY(session,category)
+    ) STRICT, WITHOUT ROWID;
+    COMMIT;`)
     return db
   } catch (error) {
     db.close()

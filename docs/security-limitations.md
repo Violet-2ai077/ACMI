@@ -12,3 +12,10 @@
 
 Keep all reproduction data synthetic when reporting a bug. Follow the
 [security policy](../SECURITY.md) for private reporting guidance.
+## Phase 0.8.2 experimental controls
+
+The Host snapshot guard quarantines covered ordinary and Compact adapter
+requests; it does not erase native history, control third-party routes,
+cancel in-flight requests, or recall disclosed data. Do not mount legacy
+unguarded recovery in a production Host. Keep writer and policy authority
+out of model tools. See the [retirement runbook](runbooks/phase-0.8.2-snapshot-revocation.md).

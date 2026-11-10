@@ -20,6 +20,15 @@
 
 ## Operational boundaries
 
+Phase 0.8.2 adds explicit Host composition: `startDshIngestionSupervisor`
+tracks only allowlisted live Sessions; `reconcileKnownDshSession` recovers an
+explicit offline reference; `registerDshSnapshotGuard` quarantines the entire
+reserved Session before the adapter through public `llm/stream`. Mount the
+guard before processing requests and pass it as `governance` to
+`registerPersistentDshRecovery`. These are not enabled by the default plugin.
+See the [operations runbook](../../docs/runbooks/phase-0.8.2-runtime-operations.md)
+and the [Phase 0.8.2 report](../../docs/experiments/phase-0.8.2-final-report.md).
+
 Phase 0.8.1 exposes host-only, default-off continuity experiments separately
 from the normal plugin. A marked graph root and separate read/write grants
 are required. `registerDshRuntimeIngestion` observes only explicitly attached

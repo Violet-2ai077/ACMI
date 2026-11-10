@@ -20,12 +20,24 @@ export function validateRuntimeFact(input: unknown, workspaceId: string, digest:
     || !exactFields(input.source.session, ['adapterId', 'instanceId', 'sessionId', 'incarnation'])
     || input.eventId !== runtimeFactId(input.source.session, input.source.localSeq, digest)) return false
   const d = input.detail
-  if (!exactFields(d, ['kind', 'taskId', 'revision', 'turn', 'step', 'callId', 'callSeq', 'parentSessionId'])) return false
+  if (!exactFields(d, ['kind', 'taskId', 'revision', 'turn', 'step', 'callId', 'callSeq', 'parentSessionId',
+    'nativeVersion', 'childId', 'childIncarnation', 'mode'])) return false
   switch (d.kind) {
     case 'binding':
       return exactFields(d, ['kind', 'taskId', 'revision']) && isTaskId(d.taskId) && natural(d.revision) && d.revision > 0
     case 'session-seed-boundary':
       return exactFields(d, ['kind', 'parentSessionId']) && (d.parentSessionId === undefined || boundedText(d.parentSessionId))
+    case 'subagent-catalog':
+      return exactFields(d, ['kind', 'nativeVersion', 'childId', 'childIncarnation', 'mode'])
+        && boundedText(d.childId) && typeof d.childIncarnation === 'string' && /^(?:0|[1-9][0-9]{0,15})$/u.test(d.childIncarnation)
+        && natural(Number(d.childIncarnation))
+        && (d.nativeVersion === 0 && (d.mode === 'continuable' || d.mode === 'one-shot')
+          || d.nativeVersion === 1 && (d.mode === 'continuable' || d.mode === 'one-shot' || d.mode === 'unknown')
+          || d.nativeVersion === 2 && d.mode === 'external'
+          || d.nativeVersion === 3 && (d.mode === 'continuable' || d.mode === 'external'))
+    case 'subagent-descriptor':
+      return exactFields(d, ['kind', 'nativeVersion', 'mode', 'parentSessionId'])
+        && d.nativeVersion === 3 && (d.mode === 'continuable' || d.mode === 'one-shot') && boundedText(d.parentSessionId)
     case 'turn-open': case 'turn-complete': case 'turn-failed': case 'turn-interrupted':
       return exactFields(d, ['kind', 'turn']) && boundedText(d.turn)
     case 'assistant': case 'step-open': case 'step-close':

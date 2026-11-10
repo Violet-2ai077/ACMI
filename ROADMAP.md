@@ -11,6 +11,9 @@
 
 ## Conditional or experimental
 
+- Phase 0.8.2: default-off Host supervisor and bounded reconciliation,
+  native Subagent evidence, and guarded retirement on stock dsh. See the
+  [Phase 0.8.2 report](docs/experiments/phase-0.8.2-final-report.md).
 - Phase 0.8.1: explicitly scoped dsh fact ingestion, local persistent Graph
   Event Store, Host-reviewed semantic proposals, and fresh-Session recovery.
   Dynamic recovery remains synthetic-only: native history may retain an old
@@ -29,8 +32,8 @@
 - Evaluate additional runtimes, including Claude Code and Codex, as official or
   community adapters. Each runtime must pass relevant conformance checks before
   support is claimed.
-- Qualify operator-driven ingestion, restart/backup and effective snapshot
-  revocation before deploying recovery. Design Project/Knowledge Memory
+- Qualify multi-process ingestion, backup/restore, and provider-independent
+  request isolation before deploying recovery. Design Project/Knowledge Memory
   separately from Task Memory; no global Memory Engine is promised.
 - Evaluate more storage formats, migration strategies, and compatibility with
   newer dsh versions after validating the first pinned baseline.

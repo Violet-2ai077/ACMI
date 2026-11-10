@@ -3,7 +3,16 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.8.1
+## Unreleased - Phase 0.8.2
+
+- Add a default-off Host ingestion supervisor, bounded cursor reconciliation
+  and explicit offline recovery of known Sessions.
+- Preserve native Subagent catalog, descriptor and turn evidence without
+  inferring Scheduler settlement, acceptance, waiting, or join.
+- Add a metadata-only snapshot ledger and public LLM request quarantine in
+  the isolated Host; no Journal erasure or replacement of Compact.
+
+## Phase 0.8.1 local milestone
 
 - Added strict runtime fact normalization and scoped dsh append observation.
 - Persisted append-only graph streams, source cursors and host review receipts

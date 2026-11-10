@@ -10,6 +10,7 @@ import {
 } from '@acmi/core'
 import { connectGraphRoot, GraphStoreError, pathsOverlap, translateGraphError } from './graph-store-db.ts'
 import { continuityDigest as sha } from './local-digest.ts'
+import { isSnapshotReservation, type SnapshotReservation } from './snapshot-guard.ts'
 
 const zero = '0'.repeat(64)
 const capTasks = 64
@@ -99,6 +100,38 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     this.#db.close()
   }
   metrics() { return { replayed: this.#replayed } }
+  snapshotReservations(writer: WorkspaceScope): SnapshotReservation[] {
+    this.#writable(writer)
+    const rows = this.#all('SELECT * FROM snapshot_reservation ORDER BY session LIMIT 257')
+    if (rows.length > capSessions) fail('limit')
+    return rows.map(row => {
+      const record = readChecked<SnapshotReservation>(row, 4096)
+      if (!isSnapshotReservation(record, this.workspaceId) || record.identity.sessionId !== row.session
+        || Number(record.retired) !== row.retired) fail('corrupt')
+      return record
+    })
+  }
+  reserveSnapshot(writer: WorkspaceScope, record: SnapshotReservation): void {
+    this.#writable(writer)
+    if (!isSnapshotReservation(record, this.workspaceId) || record.retired) fail('invalid')
+    this.#tx(() => {
+      if (this.#one('SELECT session FROM snapshot_reservation WHERE session=?', record.identity.sessionId)) fail('conflict')
+      if (Number(this.#one('SELECT count(*) AS n FROM snapshot_reservation')?.n) >= capSessions) fail('limit')
+      const body = encode(record, 4096)
+      this.#sql('INSERT INTO snapshot_reservation VALUES (?, ?, ?, 0)', record.identity.sessionId, body, sha(body))
+    })
+  }
+  retireSnapshot(writer: WorkspaceScope, sessionId: string): void {
+    this.#writable(writer)
+    this.#tx(() => {
+      const row = this.#one('SELECT * FROM snapshot_reservation WHERE session=?', sessionId) ?? fail('unavailable')
+      const record = readChecked<SnapshotReservation>(row, 4096)
+      if (!isSnapshotReservation(record, this.workspaceId) || record.identity.sessionId !== sessionId
+        || Number(record.retired) !== row.retired) fail('corrupt')
+      const body = encode({ ...record, retired: true }, 4096)
+      this.#sql('UPDATE snapshot_reservation SET body=?,hash=?,retired=1 WHERE session=?', body, sha(body), sessionId)
+    })
+  }
   #one(sql: string, ...args: SQLInputValue[]) { return this.#db.prepare(sql).get(...args) }
   #all(sql: string, ...args: SQLInputValue[]) { return this.#db.prepare(sql).all(...args) }
   #sql(sql: string, ...args: SQLInputValue[]) { this.#db.prepare(sql).run(...args) }
@@ -260,6 +293,28 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     const row = this.#one('SELECT body,hash FROM runtime_fact WHERE session=? AND seq=?', runtimeIdentity(session), seq)
     return row ? readChecked<StoredRuntimeFact>(row, 8192) : null
   }
+  childEvidence(scope: WorkspaceScope, parent: RuntimeSessionRef, child: RuntimeSessionRef) {
+    if (!this.permits(scope) || [parent, child].some(ref => ref.adapterId !== 'dsh' || ref.instanceId !== this.workspaceId
+      || !boundedText(ref.sessionId) || !boundedText(ref.incarnation))) return null
+    const key = runtimeIdentity(child)
+    const coordinate = (category: string) => this.#one('SELECT seq FROM runtime_lifecycle_latest WHERE session=? AND category=?', key, category)?.seq
+    const catalogSeq = this.#one('SELECT seq FROM runtime_child_link WHERE session=? AND child=? AND incarnation=?',
+      runtimeIdentity(parent), child.sessionId, child.incarnation)?.seq
+    const link = typeof catalogSeq === 'number' ? this.factAt(scope, parent, catalogSeq)?.fact : undefined
+    const descriptorSeq = coordinate('descriptor')
+    const descriptor = typeof descriptorSeq === 'number' ? this.factAt(scope, child, descriptorSeq)?.fact : undefined
+    const catalog = link?.detail
+    const local = catalog?.kind === 'subagent-catalog' && (catalog.mode === 'continuable' || catalog.mode === 'one-shot')
+      && descriptor?.detail.kind === 'subagent-descriptor' && descriptor.detail.mode === catalog.mode
+      && descriptor.detail.parentSessionId === parent.sessionId
+    const turnSeq = local ? coordinate('turn') : undefined
+    const turn = typeof turnSeq === 'number' ? this.factAt(scope, child, turnSeq)?.fact : undefined
+    return { membership: local ? 'confirmed_local' : catalog?.kind === 'subagent-catalog' && catalog.mode === 'external'
+      ? 'catalog_external_only' : 'unconfirmed',
+    catalog: link?.source ?? null, descriptor: local ? descriptor?.source : null,
+    turn: turn ? { kind: turn.detail.kind, source: turn.source } : null,
+    scheduler: 'execution_state_unknown_after_restart' as const, acceptance: 'not_inferred' as const }
+  }
   #knownTask(taskId: string): boolean {
     return this.#states.has(taskId) || this.#one('SELECT 1 FROM graph_event WHERE task=? AND seq=1', taskId) !== undefined
   }
@@ -296,6 +351,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       let next: RuntimeCursor = { ...cursor, next: seq + 1, sourceRevision: fact.source.sourceRevision }
       let attribution: RuntimeAttribution = { kind: 'unassigned', reason: 'non-task' }
       let causal: string | null = null
+      let validTurn = detail.kind === 'turn-open'
       if (detail.kind === 'binding') {
         if (detail.revision !== cursor.bindingRevision + 1) return fail('revision')
         next = { ...next, taskId: detail.taskId, bindingRevision: detail.revision }
@@ -304,6 +360,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
           key, detail.turn)
         if (!opened) attribution = { kind: 'unassigned', reason: 'missing-cause' }
         else {
+          validTurn = true
           const prior = readChecked<StoredRuntimeFact>(opened, 8192)
           attribution = prior.attribution.kind === 'assigned' ? { ...prior.attribution, via: 'original-turn' } : prior.attribution
         }
@@ -338,6 +395,14 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
         if (this.#one('SELECT 1 FROM runtime_turn WHERE session=? AND turn=?', key, detail.turn)) return fail('conflict')
         this.#sql('INSERT INTO runtime_turn VALUES (?,?,?)', key, detail.turn, seq)
       }
+      if (detail.kind === 'subagent-catalog') {
+        this.#sql('INSERT OR IGNORE INTO runtime_child_link VALUES (?,?,?,?)',
+          key, detail.childId, detail.childIncarnation, seq)
+      }
+      const category = detail.kind === 'subagent-descriptor' ? 'descriptor'
+        : validTurn ? 'turn' : null
+      if (category) this.#sql('INSERT INTO runtime_lifecycle_latest VALUES (?,?,?) ON CONFLICT(session,category) DO UPDATE SET seq=excluded.seq',
+        key, category, seq)
       if (attribution.kind === 'assigned') {
         const taskId = attribution.taskId
         this.#append(taskId, { key: 'runtime:' + fact.eventId, source: fact.source,
