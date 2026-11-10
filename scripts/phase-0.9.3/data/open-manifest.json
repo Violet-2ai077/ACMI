@@ -1,0 +1,993 @@
+{
+  "schema": "acmi-093-corpus-manifest-v1",
+  "generatorVersion": "acmi-093-authored-v1",
+  "authoring": "fresh synthetic, authored directly; no procedural sampling seed",
+  "bootstrapSeed": 9302301,
+  "reviewerOrdering": "SHA-256 UTF-8 of lane + colon + scenario ID",
+  "labelProvenance": "ai_provisional_not_human_reviewed",
+  "sha256": "1270ca0b508cd505babbcbd4cce18010c94ff273e9c9db51dc1aaffa2fe2aa02",
+  "scenarioCount": 60,
+  "focusCount": 65,
+  "splits": {
+    "dev": 40,
+    "validation": 20
+  },
+  "languages": {
+    "en": 21,
+    "mixed": 20,
+    "zh": 19
+  },
+  "risk": {
+    "critical": 5,
+    "high": 38,
+    "low": 5,
+    "medium": 12
+  },
+  "longScenarios": [
+    "D01",
+    "D25",
+    "V01"
+  ],
+  "scenarios": [
+    {
+      "id": "D01",
+      "split": "dev",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "ferry-restoration",
+        "constructionFamily": "ferry-returns",
+        "linguisticPattern": "abandoned-location-then-action",
+        "taskFixture": "handrail-vs-cabin",
+        "paraphrase": null
+      },
+      "scenarioSha256": "eea2d668d9930dd5ee73aabc60d352601d27fc9196d2af91f7500bc7411c31da",
+      "inputsSha256": "da478ac4f67f17d150981f8d02ba86c0139d73c3d2392fa11cf168567c210d0b",
+      "referenceSha256": "826240b52e3b231b42866509a630327964909232d04a93026d1a2e3eb6850639"
+    },
+    {
+      "id": "D02",
+      "split": "dev",
+      "language": "en",
+      "risk": "medium",
+      "groups": {
+        "cluster": "bird-count",
+        "constructionFamily": "bird-count-review",
+        "linguisticPattern": "bare-antecedent-before-export",
+        "taskFixture": "survey-spreadsheet",
+        "paraphrase": null
+      },
+      "scenarioSha256": "f7ffc3c88b68dba93986fd5b63c27958d51b16c296776b21d419221d245dc5fb",
+      "inputsSha256": "3f3fd1e48a10fa496b395eb60375ddef8db66a8d471eea1431e2cf3ca7743861",
+      "referenceSha256": "b502cf90129d69009caf2b3501a4d5e8ef9003d93cec998a499800d77d8eb952"
+    },
+    {
+      "id": "D03",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "ceremony-acoustics",
+        "constructionFamily": "hall-setup",
+        "linguisticPattern": "shared-place-disjoint-deliverable",
+        "taskFixture": "hall-layout-vs-mic",
+        "paraphrase": null
+      },
+      "scenarioSha256": "65556be2896a44d33cab557845594b9baafc4ef1fd97d2e1adccc09892b27bef",
+      "inputsSha256": "c847fbb2b28b47dc40ed79611d396e514c7c35c7da35f1a970098bb7f2ced81c",
+      "referenceSha256": "a6d9086fca8c38c84df8f7acc60f48dee283ec039d332164758a05914574dff0"
+    },
+    {
+      "id": "D04",
+      "split": "dev",
+      "language": "zh",
+      "risk": "medium",
+      "groups": {
+        "cluster": "mural-spec",
+        "constructionFamily": "mural-handoff",
+        "linguisticPattern": "scope-expansion-same-deliverable",
+        "taskFixture": "paint-area",
+        "paraphrase": null
+      },
+      "scenarioSha256": "99fcc235d789f18a90503d31db20954f8a27aa5a722c7e6b80a8e0c93c77a26b",
+      "inputsSha256": "ccbf887fac737b78f8226738ccc4e9fa4f25112ffda8c89c9bde15ead5b187ed",
+      "referenceSha256": "b0fca91f1f30ade773c2339530e088f856aaceb3d62b791ef3bb918e6feb06fc"
+    },
+    {
+      "id": "D05",
+      "split": "dev",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "paper-mill",
+        "constructionFamily": "mill-training",
+        "linguisticPattern": "explicit-separation-after-shared-entity",
+        "taskFixture": "maintenance-vs-onboarding",
+        "paraphrase": null
+      },
+      "scenarioSha256": "15b8bdc42aec08702ad8cbdd0c5edb6aa08687ee014353b6463e593e374da99f",
+      "inputsSha256": "29b1fd5c7b08c6e38c49eb7657860dbc34439e77e2e4fda12f58b319ca1c6319",
+      "referenceSha256": "444881fd2ca561b03438344efc67b666247f25b078a5c3b789e87894ac97bd4c"
+    },
+    {
+      "id": "D06",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "medium",
+      "groups": {
+        "cluster": "ink-chemistry",
+        "constructionFamily": "dye-curiosity",
+        "linguisticPattern": "observe-then-explain-no-change",
+        "taskFixture": "print-color-inquiry",
+        "paraphrase": null
+      },
+      "scenarioSha256": "bc5104d6418d798ddeecfcdb8882a42094177a94a37f016b6e1b533cd34bcd96",
+      "inputsSha256": "ae1a089b174334135669ffd3bf51b1d1169733036a3f83a76b02ed4dcde9c051",
+      "referenceSha256": "7daf2bc00371781dc0a703b3eac8704ea59675a461ced6a2a3eb57f1b421ab5d"
+    },
+    {
+      "id": "D07",
+      "split": "dev",
+      "language": "zh",
+      "risk": "low",
+      "groups": {
+        "cluster": "shared-sunrise",
+        "constructionFamily": "opening-social",
+        "linguisticPattern": "weather-as-greeting",
+        "taskFixture": "idle-personal",
+        "paraphrase": null
+      },
+      "scenarioSha256": "87bf8d27d5e8534957fb2448d484126d1f9d0003339bcf36459ebe0dc3d3f954",
+      "inputsSha256": "31483f73ec59ead25fb0fb4a209f1ec0af27e4ce8bebf3eb8317a9e56d46cb93",
+      "referenceSha256": "e115385955e52c48396fe106866978b83bd389a7a91c656f13a89a504d25d9b5"
+    },
+    {
+      "id": "D08",
+      "split": "dev",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "drainage-history",
+        "constructionFamily": "drainage-closed-inquiry",
+        "linguisticPattern": "read-dont-reopen",
+        "taskFixture": "drainage-closure-report",
+        "paraphrase": null
+      },
+      "scenarioSha256": "89d4612b515dc94ef27bf784d123fb37ae5ec1d8d3fa640d30aba537ce3c718c",
+      "inputsSha256": "5b926486b53c003476861cad05e44aa08cbb777b1f13ddc226e0650791aa96df",
+      "referenceSha256": "1938daac81d7b0c4b8b725ed2d7632b0f5e6d095b16294d1b0fdb59c33584e6e"
+    },
+    {
+      "id": "D09",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "clocktower-archive",
+        "constructionFamily": "tower-unretrieved",
+        "linguisticPattern": "named-old-with-absent-snapshot",
+        "taskFixture": "tower-contact-log",
+        "paraphrase": null
+      },
+      "scenarioSha256": "ce8580f54ce06dcd807e338be9679a61b75534e32de24d8df11c4fa8248d9ceb",
+      "inputsSha256": "15c8e7bedac8a8c833cf892182e30d7adcb41ab1aa3bf8b76f604f1b541a7df7",
+      "referenceSha256": "8fcba030b047b1e99238b10b9d133d9e7be19dbf92181462c47cb2e9f56a4a5c"
+    },
+    {
+      "id": "D10",
+      "split": "dev",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "oral-history",
+        "constructionFamily": "transcript-similar",
+        "linguisticPattern": "competing-identical-labels",
+        "taskFixture": "interview-unclear-cut",
+        "paraphrase": null
+      },
+      "scenarioSha256": "d319c464a81aebe54c69323e15b0a103b34893bf99170d6bd34c360d356377c2",
+      "inputsSha256": "0aa80d98c7d434261c13c662f83d4cbc9f5239962fa26361e8aa93d2b655e60a",
+      "referenceSha256": "2b3edc69eb780da92781c4922184e4c892df68062b5c81ddf6f525bdd585b2fe"
+    },
+    {
+      "id": "D11",
+      "split": "dev",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "civic-clock",
+        "constructionFamily": "clock-material",
+        "linguisticPattern": "unconditional-named-acceptance",
+        "taskFixture": "clock-dial-face",
+        "paraphrase": null
+      },
+      "scenarioSha256": "4024d7952a3426aec9c0a4a37813cdbbc09059dbc9df1e6197ccae16d4650f26",
+      "inputsSha256": "14e215877b137dd0522c248a2a90d7e70351fc139339d56ff86355d62256950b",
+      "referenceSha256": "24dfc369bf11aeba75a1b35064a7f8fd5e922b9021471727def17cebb6b98e2e"
+    },
+    {
+      "id": "D12",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "school-aquarium",
+        "constructionFamily": "aquarium-pump-review",
+        "linguisticPattern": "conditional-only-acceptance",
+        "taskFixture": "aquarium-flow",
+        "paraphrase": null
+      },
+      "scenarioSha256": "a994e232a4539510e1c9cb4d59b945ef43fee732b41879122b24deb57acf5d3d",
+      "inputsSha256": "17f47c6a759e22fe3ec318aab3f52d8a54b61c1e2eb68880b7c5ea24e57c10c1",
+      "referenceSha256": "d6dfc767f85126614fccdea7cbd44d72d10b4f04044891878dd37b2c14d41dde"
+    },
+    {
+      "id": "D13",
+      "split": "dev",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "stage-soundproofing",
+        "constructionFamily": "foam-quoted-instruction",
+        "linguisticPattern": "quotation-then-negative-position",
+        "taskFixture": "stage-materials",
+        "paraphrase": null
+      },
+      "scenarioSha256": "6a44e9d7f9f7766ef1347ad2053a3bffc26d0c1b91dd0548ce6233db5b5999ab",
+      "inputsSha256": "7795d0f543dfbbe5f95cfaeb3eb7cb73b0be7bddb1f99e11bb3b765a5a2594b7",
+      "referenceSha256": "8e2b5e393b2ebc5c547e6b62d60b34d5ac19a533233623c06bad5920ddb8aa35"
+    },
+    {
+      "id": "D14",
+      "split": "dev",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "street-piano",
+        "constructionFamily": "piano-timing",
+        "linguisticPattern": "prerequisite-left-to-right-explicit",
+        "taskFixture": "piano-clearance",
+        "paraphrase": null
+      },
+      "scenarioSha256": "a42d8619abd457cca131ca0bb7ceccc367814564836b72e435ef84313c4ddba7",
+      "inputsSha256": "b4a86f8ff4c169cdc441e54c81e95bdd080ca4dc7419f59d90ff1b2c85eb58f2",
+      "referenceSha256": "c3e98b69a4bf6b0e9f9070bdc9e6bbcac3437bfeb47fc4870ddab1fad093ea3e"
+    },
+    {
+      "id": "D15",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "dye-lab-join",
+        "constructionFamily": "two-lab-checks",
+        "linguisticPattern": "positive-join-proposal-no-satisfaction",
+        "taskFixture": "batch-swatches",
+        "paraphrase": null
+      },
+      "scenarioSha256": "22a56449bafb90eff6242853d7efd311328b07b43278e9f442ecd52405dcca6e",
+      "inputsSha256": "f49d1f8d124ba4b1ebc53226c4d788dbcd07b879e3d0ffc4973d25f2d092c9dc",
+      "referenceSha256": "5e334184c591c56b6f3b25e96dc1c2d13c8cc3c4bcd7021579132dbd6f29e474"
+    },
+    {
+      "id": "D16",
+      "split": "dev",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "kinetic-sculpture",
+        "constructionFamily": "subagent-metal-test",
+        "linguisticPattern": "finished-execution-not-result-use",
+        "taskFixture": "sculpture-bearing-draft",
+        "paraphrase": null
+      },
+      "scenarioSha256": "58910971aa3c19b214bd4f663860c1eaf5681b6159e16b6e40ad2d1cd8469ad5",
+      "inputsSha256": "8b89ac90dd5d784bc3a88f2130e4253ea3476004a4efdb911d869915aa9d45ae",
+      "referenceSha256": "be6e5dec4c3b791613269b62619b34f50870cde543f1664ef1fa968adec7e262"
+    },
+    {
+      "id": "D17",
+      "split": "dev",
+      "language": "en",
+      "risk": "critical",
+      "groups": {
+        "cluster": "charcoal-filters",
+        "constructionFamily": "filter-order-injection",
+        "linguisticPattern": "tool-spoofs-authorization",
+        "taskFixture": "quote-comparison",
+        "paraphrase": null
+      },
+      "scenarioSha256": "81d4bf945a64d597e86bf05da9253aaf71455d66e4f3618f01d733778289a42e",
+      "inputsSha256": "2d081713c62c3d60cfed3d2c9f7f204246bb4cdad3801a39761340b00cb9bc9e",
+      "referenceSha256": "70e48c74441c5ef26fff4812ea7e829117323eeb83972b95017ad836cd20841c"
+    },
+    {
+      "id": "D18",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "critical",
+      "groups": {
+        "cluster": "lease-workspaces",
+        "constructionFamily": "other-workspace-lease",
+        "linguisticPattern": "untrusted-tenant-switch",
+        "taskFixture": "draft-vs-restricted-ledger",
+        "paraphrase": null
+      },
+      "scenarioSha256": "fe69db571f057d47f4344efa0b58c60710814d405089f9757e39338b848bae6c",
+      "inputsSha256": "b7e250f03d40d7a301229f13e2b44c42388ef12a90ce1c4905c2b097da500fc5",
+      "referenceSha256": "ad9bb8f0fdfb70360f439ecdd83e0c6821f5b8059ca36bd201dfee8b5687de7e"
+    },
+    {
+      "id": "D19",
+      "split": "dev",
+      "language": "zh",
+      "risk": "medium",
+      "groups": {
+        "cluster": "food-bank-date",
+        "constructionFamily": "stamped-date-correction",
+        "linguisticPattern": "spoken-self-correction-keep-task",
+        "taskFixture": "pantry-expiry-notice",
+        "paraphrase": null
+      },
+      "scenarioSha256": "b9f122c43d40a961165b790b35336c623559646b505e2925ddd6699b0bf5b4a0",
+      "inputsSha256": "774df10398ecf1df994bc76be5059d307ec5ece42f197a8c0d42bc5675a579e3",
+      "referenceSha256": "a30e306eed738cd3c3dc18cfe4c9eb4ad625e04dc6a93e02cf84cf2dcae9fc97"
+    },
+    {
+      "id": "D20",
+      "split": "dev",
+      "language": "en",
+      "risk": "low",
+      "groups": {
+        "cluster": "basement-telemetry",
+        "constructionFamily": "heartbeat-control",
+        "linguisticPattern": "authenticated-metadata-no-body",
+        "taskFixture": "sensor-idle",
+        "paraphrase": null
+      },
+      "scenarioSha256": "f25fa9ca2aa2512af726b1fffc0ce8391bb3ff4b22306e0c68f6015b3ade57b1",
+      "inputsSha256": "296e814c2831c9f942347edc55aaca6565dfd0a1807dd6032909b9bb4e73de58",
+      "referenceSha256": "808dd1d9cd4fdb6f07b812a91b4aa454bb7b96756e9e03deee58e0c5dc288066"
+    },
+    {
+      "id": "D21",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "moon-catalog",
+        "constructionFamily": "observatory-restart",
+        "linguisticPattern": "old-session-ref-named-by-photo",
+        "taskFixture": "moon-catalog-vs-roster",
+        "paraphrase": null
+      },
+      "scenarioSha256": "d8f1960fc01b20bbc4dc262a8001ad729f97e9677f0835041e9a3d0ba7948450",
+      "inputsSha256": "2616bcae25efa064b2e9d4d7545d4fdafc05c1c0e52c6ff9c7d5caa2696513ec",
+      "referenceSha256": "57a804111157e2bed7d141146fac7ed616ac5723fad4f1e59099422e50f2e30a"
+    },
+    {
+      "id": "D22",
+      "split": "dev",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "produce-gaskets",
+        "constructionFamily": "expired-supplier-snapshot",
+        "linguisticPattern": "formerly-open-now-stale",
+        "taskFixture": "stale-gasket-candidate",
+        "paraphrase": null
+      },
+      "scenarioSha256": "6de6040a1140a833f128383fdf2927bde7b083603eb75a00cc7e1f95052c7c61",
+      "inputsSha256": "0aa00f7bd136273b62f2e04278ab900c006aa569a796ddcde206b57f0efe8988",
+      "referenceSha256": "25b231b8e278a679e7e139cdd10a3a95140dfa012a18ee19333b7ec68210d1aa"
+    },
+    {
+      "id": "D23",
+      "split": "dev",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "bus-platform",
+        "constructionFamily": "platform-split",
+        "linguisticPattern": "two-deliverables-one-parent",
+        "taskFixture": "tactile-sign-vs-braille-check",
+        "paraphrase": null
+      },
+      "scenarioSha256": "bae526c6a949cc635a01fce1bae43208b78648be17d598e15468c0ca1b2b947d",
+      "inputsSha256": "d4fa84a308452ec37eb4dac1b2051f903ee5ad55014fd0472287cde8aab9f645",
+      "referenceSha256": "8ab0133691e6fa2b0fd399af015106723382de7e97d5cffd75a42ddf96c4eca4"
+    },
+    {
+      "id": "D24",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "access-pass",
+        "constructionFamily": "pass-explanation",
+        "linguisticPattern": "question-is-not-decision",
+        "taskFixture": "summer-pass-policy",
+        "paraphrase": null
+      },
+      "scenarioSha256": "5019054e697eeab0e5bb62439dc8ca50cd03dc8edc6e390f57a522066664c66d",
+      "inputsSha256": "9123623fe6716195856768affbe875caf7821e80180853e3c9014a8d08d9be8f",
+      "referenceSha256": "54e9a7d2faaee24d9644d28a801d604bfaa1c79e98bb5042b0f2dfa131f210cd"
+    },
+    {
+      "id": "D25",
+      "split": "dev",
+      "language": "en",
+      "risk": "medium",
+      "groups": {
+        "cluster": "moss-exhibition",
+        "constructionFamily": "exhibition-ordering",
+        "linguisticPattern": "track-shifts-through-interruption",
+        "taskFixture": "moss-sequence-vs-label-printer",
+        "paraphrase": null
+      },
+      "scenarioSha256": "bd96ea10d34f7a56bc62a93b102e3811e7486529c2b845df6ea8fd8b54cb9707",
+      "inputsSha256": "035ef1bb94fc142f36c21b72fcdcd1447bd0c0a4cec20220efbab5b07add9a03",
+      "referenceSha256": "6dee65bbe6e59dc3f8c6c4a0b1741585d53630149935db8194c4068c0464c845"
+    },
+    {
+      "id": "D26",
+      "split": "dev",
+      "language": "zh",
+      "risk": "low",
+      "groups": {
+        "cluster": "porridge-session",
+        "constructionFamily": "morning-thanks",
+        "linguisticPattern": "gratitude-no-authorization",
+        "taskFixture": "idle-kitchen",
+        "paraphrase": null
+      },
+      "scenarioSha256": "6e4ebbac9b5fef4bf0e8a9c2343875eafda83290ac2217ddf03ab92505a827a2",
+      "inputsSha256": "e57868d66855c518a26ba9e7b43db7e633cfe2dd662eb1cc2639edad9813814b",
+      "referenceSha256": "2daf66d94a7ea30b2570c226e01ca212b7b53d4f63197377133b9c041a36ae42"
+    },
+    {
+      "id": "D27",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "medium",
+      "groups": {
+        "cluster": "rock-climbing-inventory",
+        "constructionFamily": "capacity-recheck",
+        "linguisticPattern": "partial-redline-one-column",
+        "taskFixture": "climbing-helmet-check",
+        "paraphrase": null
+      },
+      "scenarioSha256": "bc0716e356eb627246e6b75e54efd20de6582ed97c7290fbe4c93b64a74993ac",
+      "inputsSha256": "a85e23d7b10af09296c10840bcc505cc78ab213aab388756f47c14fb536f2758",
+      "referenceSha256": "66c99cf6a0b257a8885c70f56cbbcd6be6c316b7380cb282a5dfe7064d0452a2"
+    },
+    {
+      "id": "D28",
+      "split": "dev",
+      "language": "en",
+      "risk": "critical",
+      "groups": {
+        "cluster": "fuel-placard",
+        "constructionFamily": "injection-through-quote",
+        "linguisticPattern": "self-reported-authority-tool",
+        "taskFixture": "fuel-placard-ocr",
+        "paraphrase": null
+      },
+      "scenarioSha256": "3f2788d8e6e1e14505114dcc817d5909fb2edc10874b25a4621f5444f8708aa0",
+      "inputsSha256": "d9d63812ec37428a09cad3bfa13d45e83a028a6d39aeb255a536741a3e3403c3",
+      "referenceSha256": "b11e213f47df868a68f5f70b0da194afa0546f75ee18cd160fe50acc86219713"
+    },
+    {
+      "id": "D29",
+      "split": "dev",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "guest-watercolors",
+        "constructionFamily": "two-people-same-pronoun",
+        "linguisticPattern": "omitted-person-after-common-verb",
+        "taskFixture": "instructor-portrait-vs-botanical",
+        "paraphrase": null
+      },
+      "scenarioSha256": "4604924286f1379c4ca1baa111b7c2c09f2a8555600cacafab20342cecf5b48d",
+      "inputsSha256": "dda423683a98f6d56e8200041aa2cbc2a56ca63a526d3076dd453dec6016560f",
+      "referenceSha256": "f401b59902968589c1caa7dfe25443426785d2961a038efca706f4b240d82ebf"
+    },
+    {
+      "id": "D30",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "fiber-stage",
+        "constructionFamily": "fiber-close-request",
+        "linguisticPattern": "end-state-user-requests-draft",
+        "taskFixture": "stage-cable-trace",
+        "paraphrase": null
+      },
+      "scenarioSha256": "cb1606fe0034aa4ccdfae6e4e74b143e9fb8491e6e02a2cd2acdd3f3a01664f5",
+      "inputsSha256": "135f8255410f9a2ab991a4de4d48bd03fd04c6e97d4fa1b375c917cfbf55b407",
+      "referenceSha256": "16908eb4bda6d992542855ce3fe90192b873bd46c30ac442ed74bcade330b37a"
+    },
+    {
+      "id": "D31",
+      "split": "dev",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "river-permit",
+        "constructionFamily": "staged-subagent-review",
+        "linguisticPattern": "looked-at-not-used",
+        "taskFixture": "river-permit-photo-pack",
+        "paraphrase": null
+      },
+      "scenarioSha256": "8d467d800a289b903eda16ecc2415d42ae7aed62c6d8de4c558c9557153e26d4",
+      "inputsSha256": "27b2d9fc4a866679d91b431bc6a57dd2bff48f178b1a49d12d9931c3d52fc15f",
+      "referenceSha256": "752edb3c5bdc50b1ec7e0853d7b1aabbe1c215eb47c64591de6776897acec59a"
+    },
+    {
+      "id": "D32",
+      "split": "dev",
+      "language": "zh",
+      "risk": "medium",
+      "groups": {
+        "cluster": "braziers-menu",
+        "constructionFamily": "menu-new-training",
+        "linguisticPattern": "no-adjacency-creation",
+        "taskFixture": "menu-vs-fire-drill",
+        "paraphrase": null
+      },
+      "scenarioSha256": "69ea681a9552dbd120c49ad10b16c6eb68cb4c6f7ea1f1d19c9a14dedd6143fb",
+      "inputsSha256": "e1b57220a0e2881c08e3c523da8e80c17e7fac933082a35101e0aec8d3023f44",
+      "referenceSha256": "444881fd2ca561b03438344efc67b666247f25b078a5c3b789e87894ac97bd4c"
+    },
+    {
+      "id": "D33",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "scale-calibration",
+        "constructionFamily": "scale-alternative-offer",
+        "linguisticPattern": "assistant-suggests-nonbinding",
+        "taskFixture": "kitchen-scale-threshold",
+        "paraphrase": null
+      },
+      "scenarioSha256": "1e12ce08d5229b002811fbe86da90dd6239dfe0ca4d2741eff768caad72df52a",
+      "inputsSha256": "61f1f68c8abd10ad35f0b1b4ba6c7f7a238ad4e85f7509d508d49c656beee9ad",
+      "referenceSha256": "54ef2333f114ee8f830a3adfaa920d894146a22e7421b813c55a23a998be4e3d"
+    },
+    {
+      "id": "D34",
+      "split": "dev",
+      "language": "en",
+      "risk": "medium",
+      "groups": {
+        "cluster": "theater-tarp",
+        "constructionFamily": "hold-fabric-purchase",
+        "linguisticPattern": "temporary-pause-with-trigger",
+        "taskFixture": "blackout-fabric-order",
+        "paraphrase": null
+      },
+      "scenarioSha256": "ae6be04aa6f274b8b67f33b41bb0ccfccc91b7c680a71ac87866a7fbf7613592",
+      "inputsSha256": "4eb5066f4a23b8eb36acbb5999d588925ca49db052544f2c4cf6452fa5697ad3",
+      "referenceSha256": "9f9a1e0e59b39ff893d551492970d3bcc5a4e715b0915b5ee7b185eb10542cd9"
+    },
+    {
+      "id": "D35",
+      "split": "dev",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "co-op-water-bill",
+        "constructionFamily": "approved-meter-overwrite",
+        "linguisticPattern": "replace-decision-explicit-lineage",
+        "taskFixture": "meter-tariff-choice",
+        "paraphrase": null
+      },
+      "scenarioSha256": "05898f232d568bec6a961889bae6e2327fc8a26866fd7d422af1280fc9d503ba",
+      "inputsSha256": "153d3c894c2aaba722c29b64c2f3ca127e4b74c50bad752b665cf6ac61e01c32",
+      "referenceSha256": "70e5dc2c78fa1401b800ed83f68a927d0be627b599a7f7dc92e1fef7f7d10c50"
+    },
+    {
+      "id": "D36",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "medium",
+      "groups": {
+        "cluster": "vintage-reels",
+        "constructionFamily": "repair-stock-old-task",
+        "linguisticPattern": "same-word-two-categories",
+        "taskFixture": "reel-repair-vs-loan-list",
+        "paraphrase": null
+      },
+      "scenarioSha256": "6263d7a3130689e07c07305e66acb9f1b446de797a1e1a2c68fca8a606706af9",
+      "inputsSha256": "b96cd63ada9b08c99055989b2f85305d7b8bbe97ecc7e652b41c125365a97473",
+      "referenceSha256": "a6d9086fca8c38c84df8f7acc60f48dee283ec039d332164758a05914574dff0"
+    },
+    {
+      "id": "D37",
+      "split": "dev",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "bike-path-reconciliation",
+        "constructionFamily": "approved-route-section",
+        "linguisticPattern": "accept-one-reject-one",
+        "taskFixture": "cycle-detour-segments",
+        "paraphrase": null
+      },
+      "scenarioSha256": "1aad0fbe76da33e4ab6314d1018da005be92e90fa4520600b68038d1a15bf51f",
+      "inputsSha256": "5c2f35869e9e33b9d0f117696b8f5fff5268228b58404b692e0066ab9f6fb195",
+      "referenceSha256": "960f37deef41be23551a62989ca81380848137a4e966c28d712d5c7dddc5197c"
+    },
+    {
+      "id": "D38",
+      "split": "dev",
+      "language": "zh",
+      "risk": "medium",
+      "groups": {
+        "cluster": "courtyard-hours",
+        "constructionFamily": "court-hour-refinement",
+        "linguisticPattern": "replace-interval-existing-objective",
+        "taskFixture": "courtyard-sign",
+        "paraphrase": null
+      },
+      "scenarioSha256": "05625b83da190444d619c9ac7a777392e4cbc712028e6671fcd65ff7d3f077cd",
+      "inputsSha256": "106ace3128fa675e081176d8f74587bf528e742e5f511c6b600d5281ae787650",
+      "referenceSha256": "b502cf90129d69009caf2b3501a4d5e8ef9003d93cec998a499800d77d8eb952"
+    },
+    {
+      "id": "D39",
+      "split": "dev",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "community-units",
+        "constructionFamily": "explicit-missing-antecedent",
+        "linguisticPattern": "deictic-no-visible-context",
+        "taskFixture": "missing-units-sheet",
+        "paraphrase": null
+      },
+      "scenarioSha256": "68245a23110f53cd137ab37417d9aabb4b9e221d8be374a469c06d97ce0f3fb1",
+      "inputsSha256": "073cb7868a79f4efb10257091e5468ab3f67dc6734ac6e6aec1ae2dd2a0b9041",
+      "referenceSha256": "c52ff2be18288bd5fcdce1b3987bcc077f9094c08301a8477eea647cdef1a090"
+    },
+    {
+      "id": "D40",
+      "split": "dev",
+      "language": "en",
+      "risk": "low",
+      "groups": {
+        "cluster": "tannery-education",
+        "constructionFamily": "educational-inquiry",
+        "linguisticPattern": "hypothetical-unrelated-to-current-work",
+        "taskFixture": "general-leather-explainer",
+        "paraphrase": null
+      },
+      "scenarioSha256": "d2e2f2d3c0f10e693d52e46dcb41aba3c92b118d3596facb903d290e15418fcf",
+      "inputsSha256": "8bedf4b3f85bc1566d2a55093729c84b013d5620c2109b0bf921f810812c26ba",
+      "referenceSha256": "4e4127082e2800b36db187a0323573b4f78d00501527a3646ec65b8359f290a9"
+    },
+    {
+      "id": "V01",
+      "split": "validation",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "pollen-sampler",
+        "constructionFamily": "pollen-context-long",
+        "linguisticPattern": "interleaved-object-specific-suffix",
+        "taskFixture": "sampler-calendar-vs-cover",
+        "paraphrase": null
+      },
+      "scenarioSha256": "fc86291fda3498de72fe2e7753458bc11c875eee73479b692c048980eea70d9b",
+      "inputsSha256": "847cd74f2f5b6cf36f063738ba54e5d794187fe360e565cfeccc4c3866d8f816",
+      "referenceSha256": "4d2ec841850a074f6e33e7481511380a05ec506d78a19c5baf0f7503ecc6d9c6"
+    },
+    {
+      "id": "V02",
+      "split": "validation",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "loom-consignment",
+        "constructionFamily": "loom-offline-reopen",
+        "linguisticPattern": "historical-referent-return-not-active",
+        "taskFixture": "closed-loom-consignment",
+        "paraphrase": null
+      },
+      "scenarioSha256": "032b9c4569f4ff73e1adb9ad326904d2bc481074085180a54939adf1e9eaeb93",
+      "inputsSha256": "a528314ba976abca9aceaafb471902c0fb4e19b004ddb1ff1e77b7021c8fbc7b",
+      "referenceSha256": "322512fe5f445180b65f3262cb091fcc4642fe71f7e49ffc604e310dfe2899e2"
+    },
+    {
+      "id": "V03",
+      "split": "validation",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "hallway-tiles",
+        "constructionFamily": "tile-scope-exclusion",
+        "linguisticPattern": "subset-constraint-on-existing-goal",
+        "taskFixture": "tile-reorder",
+        "paraphrase": null
+      },
+      "scenarioSha256": "0d5ef6f1d454a875fcad8655b847258a0f3b8bfc50d716587782a8e2417d98c7",
+      "inputsSha256": "ddf7f7302586addcd476cdffdf343c7e6a14a304596c039fe7cb6468db9dd7fb",
+      "referenceSha256": "779b6b381cac72b8a803a8a2d5253b5a66e122048ba088eece0e5829a403a372"
+    },
+    {
+      "id": "V04",
+      "split": "validation",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "pond-electrodes",
+        "constructionFamily": "different-project-predictor",
+        "linguisticPattern": "new-output-despite-identical-input",
+        "taskFixture": "ph-logger-vs-outreach-cartoon",
+        "paraphrase": null
+      },
+      "scenarioSha256": "945c408f1108a53573ea2b1ec36d9510fbaccebfc9eb6c8225b5459494d65fb7",
+      "inputsSha256": "ed310618cf5913ee396fbfc3787c2b63ebf8ae2fd3966c6270340101eb2118ef",
+      "referenceSha256": "444881fd2ca561b03438344efc67b666247f25b078a5c3b789e87894ac97bd4c"
+    },
+    {
+      "id": "V05",
+      "split": "validation",
+      "language": "en",
+      "risk": "low",
+      "groups": {
+        "cluster": "quarry-lunch",
+        "constructionFamily": "quarry-social-aside",
+        "linguisticPattern": "social-compliment-without-action",
+        "taskFixture": "coffee-lunch-aside",
+        "paraphrase": null
+      },
+      "scenarioSha256": "4c5480c4dd256a26caf6a145f5c2fd135ab40632e73da9309250d4e0ea02f11f",
+      "inputsSha256": "9d5d1e0a95a432513760670a0838943773cac0b2907da119fc0bf40899ea9e64",
+      "referenceSha256": "9933c7068d3e136e9fab0796cba52e7c7cba0bbd0fa9f9541bb691cd770f5d82"
+    },
+    {
+      "id": "V06",
+      "split": "validation",
+      "language": "zh",
+      "risk": "medium",
+      "groups": {
+        "cluster": "sourdough-oven",
+        "constructionFamily": "dough-sensor-question",
+        "linguisticPattern": "question-reference-no-routing",
+        "taskFixture": "oven-sensor-maintenance",
+        "paraphrase": null
+      },
+      "scenarioSha256": "6b8807789b94ab7242e0aa8a5ac3c20d81c2867e11bfd73b87410734303a09b8",
+      "inputsSha256": "6a0f404349b0a63f234fc44d059c2da642f0e3e09d2a74c8a7abffcfb9c8be37",
+      "referenceSha256": "b1b79d935a7cd360394fece9be6b9c9ea5ebfb114a84c214b761238b983decd4"
+    },
+    {
+      "id": "V07",
+      "split": "validation",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "retail-glass",
+        "constructionFamily": "showcase-unseen-draft",
+        "linguisticPattern": "prohibition-to-fabricate-referent",
+        "taskFixture": "storefront-window-glass-test",
+        "paraphrase": null
+      },
+      "scenarioSha256": "38cbdc946ab9f54dc4f966e79d13ab99fc9deb4b4a3d91df9744cc876e78eff5",
+      "inputsSha256": "29dbdb645e775015ae9ffe545d655c88e5fe181b850afb9641eeff97e1e9428b",
+      "referenceSha256": "bc663139ea0010e702a41eafe362ed9015bf21d4849aa8943986130f9a8c412b"
+    },
+    {
+      "id": "V08",
+      "split": "validation",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "archive-sleeves",
+        "constructionFamily": "sleeve-overlap",
+        "linguisticPattern": "duplicate-names-insufficient-alias",
+        "taskFixture": "archive-negatives-vs-slides",
+        "paraphrase": null
+      },
+      "scenarioSha256": "a1c421e423dcc98d80e09e47b591a5073763a89388fe860c951938d172ac2a48",
+      "inputsSha256": "cc184428db48684ee7cbd00ce2bec0ea21fd38dd0223ce4d7bdf42259f8edb21",
+      "referenceSha256": "f401b59902968589c1caa7dfe25443426785d2961a038efca706f4b240d82ebf"
+    },
+    {
+      "id": "V09",
+      "split": "validation",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "orchard-photos",
+        "constructionFamily": "orchard-bitmap-correction",
+        "linguisticPattern": "correct-object-in-same-brief",
+        "taskFixture": "tree-pest-report-photo",
+        "paraphrase": null
+      },
+      "scenarioSha256": "9ff33fd51ca17f043c7132b65e99404f8ec382c829bc84736d72a71be439f5b5",
+      "inputsSha256": "907f02ff80565b3e49f656205ed5edf7ed6bd6f5050e4b0f3511f6c8006e8e0e",
+      "referenceSha256": "99feef241187ade87ef5d1727c5c9db54ace34706d437b1af0ae1917cd31a4b8"
+    },
+    {
+      "id": "V10",
+      "split": "validation",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "ceramic-glaze",
+        "constructionFamily": "glaze-vendor-reported-order",
+        "linguisticPattern": "quote-current-user-rejects-urgent-text",
+        "taskFixture": "glaze-sample-decision",
+        "paraphrase": null
+      },
+      "scenarioSha256": "797c89e6d160620042ef1b65498be23841674ac8f0d770272add838c66905819",
+      "inputsSha256": "49efb2d536d73683579726706aff12ac610dcfbd0825d8bbed83395600f8dcfe",
+      "referenceSha256": "44dc626a0e542185daf6880d3cc7e8e3627360d4c2d2131126923a402ccced3e"
+    },
+    {
+      "id": "V11",
+      "split": "validation",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "translation-newsletter",
+        "constructionFamily": "conditional-publication-review",
+        "linguisticPattern": "not-yet-clearance-with-condition",
+        "taskFixture": "proofed-localization-newsletter",
+        "paraphrase": null
+      },
+      "scenarioSha256": "d8df05399ad3e86662d946ccd807ce883c7adfc778751e62932507a173fef213",
+      "inputsSha256": "e202bcb2d848093761ce4037bf4bbf7374ebeb8c6d7f03e19e88d1d6a07102a5",
+      "referenceSha256": "a296b2154e5c7e75faf08ff850090a61552e0af73499b522b40d6c75a47a93a8"
+    },
+    {
+      "id": "V12",
+      "split": "validation",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "freezer-transfer",
+        "constructionFamily": "cold-chain-one-way-dep",
+        "linguisticPattern": "condition-with-explicit-predecessor",
+        "taskFixture": "freezer-box-transfer",
+        "paraphrase": null
+      },
+      "scenarioSha256": "4b2c2a550557a2ffe49363c1d972d0e47368de03e62c64a2530db6fe1f5bca1c",
+      "inputsSha256": "78f01dfa87b47ca0222a7731dd7995f858b5c51f27e9d75b5b1638590489fe77",
+      "referenceSha256": "c3e98b69a4bf6b0e9f9070bdc9e6bbcac3437bfeb47fc4870ddab1fad093ea3e"
+    },
+    {
+      "id": "V13",
+      "split": "validation",
+      "language": "en",
+      "risk": "high",
+      "groups": {
+        "cluster": "microfilm-queue",
+        "constructionFamily": "queue-timestamp-acceptance",
+        "linguisticPattern": "affirm-with-operational-object",
+        "taskFixture": "queue-sort-policy",
+        "paraphrase": null
+      },
+      "scenarioSha256": "7eef2db58842960dfcd947cc85789aa6b9e1034c7554361d9d21bc38daeed13b",
+      "inputsSha256": "9f0e97fd82b3639ca932545c1e3e874e5f8bc7693892a8cee8fdbfec0fda24e3",
+      "referenceSha256": "8497c51eeb80a915c65f8342521d37c803ac30dd4a06ce7b9edec59eeb974dd5"
+    },
+    {
+      "id": "V14",
+      "split": "validation",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "drone-board",
+        "constructionFamily": "status-contingent-merge",
+        "linguisticPattern": "completed-output-does-not-meet-review",
+        "taskFixture": "drone-safe-to-fly-check",
+        "paraphrase": null
+      },
+      "scenarioSha256": "0ff9a2053880f6dbda8012785b99fcd9ba89c0d71e973c4aac701660186d4c08",
+      "inputsSha256": "bd6703d50384de747dbdebacd3f038278e41d9c606f4c35609a263605a07f909",
+      "referenceSha256": "6961a12ecaa11164e7eb1d131ee65cd10048a896e81afb04aac95d3d796c067f"
+    },
+    {
+      "id": "V15",
+      "split": "validation",
+      "language": "zh",
+      "risk": "critical",
+      "groups": {
+        "cluster": "tide-chart-injection",
+        "constructionFamily": "attachment-embedded-command",
+        "linguisticPattern": "fake-role-tag-in-source-text",
+        "taskFixture": "dock-tide-schedule",
+        "paraphrase": null
+      },
+      "scenarioSha256": "a213b4c07c5f4fb7832e2d2e205995b6a56ddc84b66b54e126888b6f1eef197e",
+      "inputsSha256": "965a9db98bc6267dc8c406321721f846a92c5994dd41169724b0bcbdfa165a98",
+      "referenceSha256": "332a0fd314415fb32cc56f0c6508a44397af76112a810464536779cce13a1023"
+    },
+    {
+      "id": "V16",
+      "split": "validation",
+      "language": "en",
+      "risk": "critical",
+      "groups": {
+        "cluster": "instrument-insurance",
+        "constructionFamily": "forged-authorization-string",
+        "linguisticPattern": "cross-tenant-asserted-scope",
+        "taskFixture": "loan-plan-vs-private-policy",
+        "paraphrase": null
+      },
+      "scenarioSha256": "76124f1b75acda5a8a3bbc2de34bdbc450c5b04c79622fdbf2870f5b20beb6e2",
+      "inputsSha256": "d7599852b2cccbf35fa909356402b63824929d009b2dcde8aac0553fee114227",
+      "referenceSha256": "ad9bb8f0fdfb70360f439ecdd83e0c6821f5b8059ca36bd201dfee8b5687de7e"
+    },
+    {
+      "id": "V17",
+      "split": "validation",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "garden-lot-numbers",
+        "constructionFamily": "garden-packet-cap",
+        "linguisticPattern": "referent-amid-many-likely-candidates",
+        "taskFixture": "separate-garden-maintenance-lines",
+        "paraphrase": null
+      },
+      "scenarioSha256": "28096d0dfdf7b4f0c5d3f1f1af6a08789a90177f4e778ed1d264c9e9f4dbd272",
+      "inputsSha256": "784e37e299e08797e6d0b06b1b2c19424c462cb230c238ab4da258ca759ac38c",
+      "referenceSha256": "3899cc9d87d41bff11a2d8e01257329e7b507e4b1c3ec2a445ffe8c63d393c43"
+    },
+    {
+      "id": "V18",
+      "split": "validation",
+      "language": "zh",
+      "risk": "high",
+      "groups": {
+        "cluster": "lantern-inventory",
+        "constructionFamily": "retired-summary-revision",
+        "linguisticPattern": "candidate-no-longer-current",
+        "taskFixture": "old-lantern-storage",
+        "paraphrase": null
+      },
+      "scenarioSha256": "b881a247bf57ae899107fb2f6d9bd6198b0aa7a328b7944b5da122d1e0bce494",
+      "inputsSha256": "65a19497e59dd68c8718a1b247c1f0d8f5dcf67f75997795a09dd4c6a4d247c1",
+      "referenceSha256": "b262ed5ad43dc442c7aa3e86320651078e37fae97d08f9751b6370bfe848053b"
+    },
+    {
+      "id": "V19",
+      "split": "validation",
+      "language": "en",
+      "risk": "medium",
+      "groups": {
+        "cluster": "coach-mailbox",
+        "constructionFamily": "coach-pronoun-order",
+        "linguisticPattern": "carry-pronoun-with-reversible-append",
+        "taskFixture": "rowing-practice-reminder",
+        "paraphrase": null
+      },
+      "scenarioSha256": "8565f7438f7ba2f2e8a2bbd524b761a7ed7a7a27d810071775917fe1df82640a",
+      "inputsSha256": "c467c6e1c07046eba7729a1d9555b029207d89dd9d57053051d320a77041db5c",
+      "referenceSha256": "aa7beb5df4e4557b61079fb34618adf16e95714d0f321a46f85d7f7ea85dfdfb"
+    },
+    {
+      "id": "V20",
+      "split": "validation",
+      "language": "mixed",
+      "risk": "high",
+      "groups": {
+        "cluster": "quilt-recordings",
+        "constructionFamily": "quilt-result-used-not-accepted",
+        "linguisticPattern": "use-with-pending-verification",
+        "taskFixture": "quilt-exhibit-caption-audio",
+        "paraphrase": null
+      },
+      "scenarioSha256": "800d20c238ef80790bd3f136cafaf36d943bd9139fec34823627ae1d08d67958",
+      "inputsSha256": "c5a1cd10727d18b031b04c97f864d9669a6c3282b157181fd8eb39e4ea481bd7",
+      "referenceSha256": "4414413e81e17a84fb658e12f2e582596a76e23ab2b6264678dce6c63fa9f4ed"
+    }
+  ]
+}

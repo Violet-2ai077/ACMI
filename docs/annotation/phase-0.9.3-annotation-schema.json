@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ACMI 0.9.3 independent reviewer submission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["packetId", "lane", "distributionId", "reviewerId", "submittedAtUtc", "guideVersion", "provenance", "annotations"],
+  "properties": {
+    "packetId": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "lane": {"enum": ["A", "B"]},
+    "distributionId": {"$ref": "#/$defs/id"},
+    "reviewerId": {"$ref": "#/$defs/id"},
+    "submittedAtUtc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "guideVersion": {"const": "acmi-093-blind-review-v1"},
+    "provenance": {"const": "human_attested_unverified_identity"},
+    "annotations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/focus"}}
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 96},
+    "nullableId": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]},
+    "note": {"type": "string", "minLength": 1, "maxLength": 1200},
+    "actor": {"enum": ["user", "assistant", "tool", "subagent", "host"]},
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["turnId", "actor", "start", "end", "quote"],
+      "properties": {
+        "turnId": {"$ref": "#/$defs/id"},
+        "actor": {"$ref": "#/$defs/actor"},
+        "start": {"type": "integer", "minimum": 0},
+        "end": {"type": "integer", "minimum": 1},
+        "quote": {"$ref": "#/$defs/note"}
+      }
+    },
+    "act": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spanId", "source", "acts", "quoted", "negated", "conditional"],
+      "properties": {
+        "spanId": {"$ref": "#/$defs/id"},
+        "source": {"$ref": "#/$defs/span"},
+        "acts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["question", "report", "suggestion", "rejection", "selection", "acceptance", "correction", "request", "acknowledgement", "social", "unknown"]}},
+        "quoted": {"type": "boolean"},
+        "negated": {"type": "boolean"},
+        "conditional": {"type": "boolean"}
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spanId", "relation", "posture", "change", "status", "targetId", "targetAbsent"],
+      "properties": {
+        "spanId": {"$ref": "#/$defs/id"},
+        "relation": {"enum": ["none", "discussion", "existing", "new", "unknown"]},
+        "posture": {"enum": ["discuss", "continue", "switch", "return", "pause", "wait", "resume", "close", "unknown"]},
+        "change": {"enum": ["preserve", "refine", "scope", "objective", "state", "unknown"]},
+        "status": {"enum": ["active", "historical", "ambiguous", "missing", "unavailable", "stale", "unassigned", "unknown"]},
+        "targetId": {"$ref": "#/$defs/nullableId"},
+        "targetAbsent": {"enum": ["yes", "no", "unknown", "not_applicable"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"enum": ["active", "historical"]}}},
+          "then": {"properties": {"targetId": {"$ref": "#/$defs/id"}, "targetAbsent": {"const": "no"}}},
+          "else": {"properties": {"targetId": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "missing"}}},
+          "then": {"properties": {"targetAbsent": {"const": "yes"}}}
+        }
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "subjectId", "objectId", "support", "evidence", "factRefs", "rationale"],
+      "properties": {
+        "kind": {"enum": ["decision-proposed", "decision-accepted", "decision-rejected", "decision-superseded", "objective-refined", "work-transition", "worknode-proposed", "worknode-refined", "constraint-proposed", "next-action-proposed", "branch-proposed", "dependency-proposed", "join-proposed", "execution-completed", "result-observed", "result-produced", "result-summary-proposed", "result-inspected", "result-consumed", "result-accepted", "join-satisfied", "mainline-advanced", "clarification"]},
+        "subjectId": {"$ref": "#/$defs/nullableId"},
+        "objectId": {"$ref": "#/$defs/nullableId"},
+        "support": {"enum": ["supported", "context_only", "contradicted", "insufficient"]},
+        "evidence": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/span"}},
+        "factRefs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^.+#fact:[0-9]+$"}},
+        "rationale": {"$ref": "#/$defs/note"}
+      },
+      "anyOf": [
+        {"properties": {"evidence": {"minItems": 1}}},
+        {"properties": {"factRefs": {"minItems": 1}}}
+      ]
+    },
+    "focus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scenarioId", "turnId", "acts", "intents", "claims", "abstention", "risk", "rationale"],
+      "properties": {
+        "scenarioId": {"$ref": "#/$defs/id"},
+        "turnId": {"$ref": "#/$defs/id"},
+        "acts": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/act"}},
+        "intents": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/intent"}},
+        "claims": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/claim"}},
+        "abstention": {"enum": ["not_indicated", "acceptable", "required"]},
+        "risk": {"enum": ["low", "medium", "high", "critical"]},
+        "rationale": {"$ref": "#/$defs/note"}
+      }
+    }
+  }
+}

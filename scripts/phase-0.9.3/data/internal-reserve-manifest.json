@@ -1,0 +1,47 @@
+{
+  "schema": "acmi-093-internal-reserve-manifest-v1",
+  "sha256": "676b84edd22d77a87f3edad2586f89da621394a6e361c3569d788abadcfa50b5",
+  "bytes": 6043,
+  "scenarioCount": 8,
+  "scenarioHashes": [
+    {
+      "id": "R01",
+      "sha256": "0448e69f5d457578fe2b6007002de17bdf83a0ac6aebe2a8e6f9eee624cf17c2"
+    },
+    {
+      "id": "R02",
+      "sha256": "07174272e104e41f669d2b524afb401a6e04a1e497db89ecc57d4f656d137ec1"
+    },
+    {
+      "id": "R03",
+      "sha256": "ccb67f26deb107ac0dc7092dcec3e7a08c0a3764f6cb727581b54d45a3848b35"
+    },
+    {
+      "id": "R04",
+      "sha256": "6ddda897befaec61913192a9233b610494f1ab5cf0d26b358c21e93720c9d6f8"
+    },
+    {
+      "id": "R05",
+      "sha256": "db0c8bbda5a49f297ed3e7219e2864b8a420ab3cc5291fc7cec72fee72d775d6"
+    },
+    {
+      "id": "R06",
+      "sha256": "dc0c2dc2b93c008433c2753f77892feed96d272c1197f73afe044cc408e6a3d7"
+    },
+    {
+      "id": "R07",
+      "sha256": "c16a4d973a94bc5cd596cec336b7e9a67864cb5b90ee7aecdf06c2b80cf50d74"
+    },
+    {
+      "id": "R08",
+      "sha256": "2262ff4ce6da34a5479c37a2928a42b43dd81c25bcea7887fa496c435c097bdd"
+    }
+  ],
+  "custody": "same-operator-external-directory-hash-seal-only",
+  "state": "unconsumed",
+  "labelStatus": "input-only",
+  "humanReviewStatus": "pending",
+  "evaluationRuns": 0,
+  "independentCustodian": false,
+  "qualificationHoldout": false
+}

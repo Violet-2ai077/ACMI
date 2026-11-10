@@ -1,0 +1,12 @@
+{
+  "protocol": "acmi-093-annotation-audit-v1",
+  "batchId": null,
+  "packetId": null,
+  "status": "pending",
+  "distribution": [],
+  "identityVerifications": [],
+  "submissions": [],
+  "disagreements": [],
+  "adjudications": [],
+  "accessEvents": []
+}

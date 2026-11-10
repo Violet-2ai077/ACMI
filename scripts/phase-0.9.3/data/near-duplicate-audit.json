@@ -1,0 +1,18 @@
+{
+  "normalization": "NFKC lowercase, Unicode letters and digits only",
+  "threshold": 0.45,
+  "openOnly": {
+    "splitPairs": 800,
+    "sharedGroupPairs": 0,
+    "duplicateTurnPairs": 0,
+    "nearPairs": 0,
+    "maximumJaccard": 0.156522
+  },
+  "includingReserve": {
+    "splitPairs": 1280,
+    "sharedGroupPairs": 0,
+    "duplicateTurnPairs": 0,
+    "nearPairs": 0,
+    "maximumJaccard": 0.156522
+  }
+}
