@@ -24,6 +24,8 @@ pnpm demo
 
 图中展示的是数据流，不是包依赖。Core 不依赖 dsh；遇到证据不足的事件时，它会保留未归属状态，而不是猜测所属任务。组件边界详见[架构指南](docs/architecture.md)。
 
+Phase 0.9.2 仅新增[离线研究与可复现合成原型](docs/experiments/phase-0.9.2-final-report.md)，未改变运行时行为，不能据此启用自动任务路由。
+
 ## Alpha 验证结果
 
 验证基线：[v0.1.0-alpha.1](https://github.com/Violet-2ai077/ACMI/releases/tag/v0.1.0-alpha.1)（`0531dbf`）。

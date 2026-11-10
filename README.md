@@ -37,6 +37,10 @@ The diagram shows data flow, not package dependencies. Core is independent of
 dsh and keeps ambiguous events unresolved rather than guessing their Task.
 See the [architecture guide](docs/architecture.md) for the component boundaries.
 
+Phase 0.9.2 adds [offline research artifacts](docs/experiments/phase-0.9.2-final-report.md)
+and reproducible synthetic prototypes only. It does not change runtime
+behavior or qualify task routing for automatic use.
+
 ## What the Alpha tests verify
 
 Release baseline: [v0.1.0-alpha.1](https://github.com/Violet-2ai077/ACMI/releases/tag/v0.1.0-alpha.1)

@@ -3,7 +3,14 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.1
+## Unreleased - Phase 0.9.2
+
+- Analyze archived Task Understanding failures without rescoring the consumed
+  Holdout; add offline architecture prototypes, benchmark and review designs,
+  and the Phase 0.9.3 research-to-implementation plan.
+- No production code, provider, or persistence changes.
+
+## Phase 0.9.1 local milestone
 
 - Add provisional natural-language qualification, reserved holdout and offline
   double-annotation tooling.

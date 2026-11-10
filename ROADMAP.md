@@ -11,6 +11,11 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.2: archival failure forensics, layered understanding contracts,
+  and new offline architecture controls. No production behavior change.
+  See the [research report](docs/experiments/phase-0.9.2-final-report.md) and
+  [proposed Phase 0.9.3 gates](docs/roadmap/phase-0.9.3-implementation-plan.md).
+
 - Phase 0.9.1: offline natural-language qualification, bounded candidate
   retrieval, protected evidence, explicit Host lifecycle and stock dsh Shadow.
   Independent human and real Provider evaluation remain pending.
