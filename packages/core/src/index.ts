@@ -6,3 +6,9 @@ export { assembleTaskContext, estimateContextTokens, loadTaskContext, serializeT
 export { boundedText, exactFields, runtimeFactId, runtimeIdentity, validateRuntimeFact } from './runtime-facts.ts'
 export { canonical } from './canonical.ts'
 export { proposeGraphChanges } from './task-understanding.ts'
+export {
+  analyzeUnderstanding, buildUnderstandingPacket, isUnderstandingTrigger, understandingCandidateLimit,
+  understandingDefaultBudget, understandingFactLimit, understandingPolicy,
+} from './incremental-understanding.ts'
+export { parseUnderstandingOutput, understandingOutputLimit, understandingOutputSchema } from './understanding-schema.ts'
+export { understandingTopologyRisk } from './understanding-graph.ts'

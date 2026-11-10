@@ -140,3 +140,4 @@ export interface ProposalGuardInput {
 export interface AttributionEngine {
   decide(input: Pick<ProposalGuardInput, 'currentTaskId' | 'candidates' | 'evidenceRefs'>): Promise<unknown>
 }
+export type * from './understanding.ts'

@@ -67,6 +67,12 @@ building, run `node scripts/phase-0.8/benchmark.mjs <output-directory>` for
 the deterministic Task Graph and recovery benchmark. See the
 [Phase 0.8 report](docs/experiments/phase-0.8-final-report.md) for results and limits.
 
+Phase 0.9 adds an isolated, default-off Task Understanding experiment:
+bounded persisted deltas, five intent classes, graph proposal diffs and explicit
+transactional Host review. The 350-case benchmark uses only synthetic evidence
+and scripted mocks. See the [Phase 0.9 report](docs/experiments/phase-0.9-final-report.md).
+It does not bind Tasks, accept Subagent results or satisfy joins automatically.
+
 | Area | Responsibility |
 | --- | --- |
 | [`@acmi/contracts`](packages/contracts/README.md) | Task, Session, Binding, provenance, and adapter contracts |

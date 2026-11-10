@@ -18,3 +18,6 @@ export { reconcileKnownDshSession, registerDshRuntimeIngestion, type DshIngestio
 export { startDshIngestionSupervisor, type DshSupervisorOptions } from './ingestion-supervisor.ts'
 export { registerPersistentDshRecovery, type PersistentRecoveryOptions, type ContextSnapshotIdentity } from './persistent-context.ts'
 export { registerDshSnapshotGuard, type DshSnapshotGuard, type SnapshotReservation } from './snapshot-guard.ts'
+export type { UnderstandingInboxItem, UnderstandingRequest, UnderstandingReviewCommand, UnderstandingTarget } from './understanding-host.ts'
+export { createScriptedUnderstandingMock, startUnderstandingRuntime,
+  type DshUnderstandingOptions, type UnderstandingRuntimeOptions } from './understanding-runtime.ts'

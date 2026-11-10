@@ -1,0 +1,7 @@
+# Task Understanding evidence model v0.1
+
+`RuntimeFact` describes observed native metadata and has an exact adapter/Workspace/Session-incarnation/local-seq coordinate. A fact ID is not a claim that any proposed prose appeared in a message. A `synthetic_host_excerpt` is a separate bounded attestation linked to a stored user fact; the proposal retains a digest and the Host inbox retains the isolated synthetic excerpt for deterministic revalidation. A Tool/Assistant record cannot supply this attestation.
+
+Proposals pin the graph and projection revisions, hash the candidate set and bounded source refs, and carry policy, provenance, stable IDs, expiry and a supersession key. A rule that preserves an explicit command reports `explicit_user_instruction`; a scripted output can never confer that provenance. There is no model confidence escalation. The JSON Schema plus semantic allowlist reject arbitrary IDs, unknown fields, invalid types and forbidden writes.
+
+A decision carries topic, status, rationale and alternatives. Acceptance needs explicit Host review; an existing accepted decision cannot be replaced by last-write-wins. Constraints have a Task or WorkNode scope, category, task/temporary validity and an explicit/inferred marker. Temporary constraints remain auditable but are not propagated by recovery Context Assembly or lifted into Global Memory. No raw transcript, Provider configuration, Tool body or runtime path enters the model packet.

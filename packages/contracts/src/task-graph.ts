@@ -14,6 +14,8 @@ export interface WorkNode {
   readonly id: WorkNodeId
   readonly title: string
   readonly role: 'work' | 'join'
+  readonly description?: string
+  readonly criteria?: readonly string[]
   readonly state: WorkState
   readonly attempt: number
   readonly declared: GraphRef
@@ -64,12 +66,19 @@ export interface ResultReview {
   readonly nodeId: WorkNodeId
   readonly attempt: number
   readonly stage: ReviewStage
+  readonly disposition?: 'rejected' | 'superseded'
+  readonly dispositionRef?: GraphRef
   readonly ref: GraphRef
   readonly history: readonly GraphRef[]
 }
+export type ConstraintCategory = 'technical' | 'performance' | 'security' | 'compatibility' | 'scope' | 'acceptance'
 export type EvidenceContent =
-  | { readonly kind: 'constraint' | 'blocker' | 'next-action' | 'unresolved' | 'runtime-state'; readonly text: string }
-  | { readonly kind: 'decision'; readonly text: string; readonly topic: string; readonly state: DecisionState; readonly rationale?: string }
+  | { readonly kind: 'blocker' | 'next-action' | 'unresolved' | 'runtime-state'; readonly text: string }
+  | { readonly kind: 'constraint'; readonly text: string; readonly category?: ConstraintCategory;
+      readonly validity?: 'task' | 'temporary'; readonly explicit?: boolean }
+  | { readonly kind: 'decision'; readonly text: string; readonly topic: string; readonly state: DecisionState;
+      readonly rationale?: string; readonly alternatives?: readonly string[] }
+  | { readonly kind: 'result-assessment'; readonly text: string; readonly resultId: ResultId; readonly state: 'rejected' | 'superseded' }
   | { readonly kind: 'artifact'; readonly text: string; readonly state: 'verified' | 'unverified' | 'stale' }
   | { readonly kind: 'tool-outcome'; readonly text: string; readonly call: EventRef }
 export interface GraphEvidence {
@@ -86,12 +95,14 @@ export type GraphChange =
   | { readonly kind: 'task-closed' }
   | { readonly kind: 'runtime-observed'; readonly factId: string }
   | { readonly kind: 'node-added'; readonly nodeId: WorkNodeId; readonly title: string; readonly role: WorkNode['role'] }
+  | { readonly kind: 'node-refined'; readonly nodeId: WorkNodeId; readonly description: string; readonly criteria: readonly string[] }
   | { readonly kind: 'edge-added'; readonly from: WorkNodeId; readonly to: WorkNodeId; readonly relation: WorkRelation }
   | { readonly kind: 'work-transitioned'; readonly nodeId: WorkNodeId; readonly state: WorkState }
   | { readonly kind: 'work-progressed'; readonly nodeId: WorkNodeId; readonly summary: string }
   | { readonly kind: 'execution-started'; readonly executionId: ExecutionId; readonly nodeId: WorkNodeId; readonly agentId: string; readonly parentId?: ExecutionId }
   | { readonly kind: 'execution-transitioned'; readonly executionId: ExecutionId; readonly state: ExecutionState; readonly waitingFor?: readonly ExecutionId[] }
   | { readonly kind: 'result-produced'; readonly resultId: ResultId; readonly nodeId: WorkNodeId; readonly executionId: ExecutionId; readonly summary: string; readonly verified: boolean }
+  | { readonly kind: 'result-observed'; readonly resultId: ResultId; readonly nodeId: WorkNodeId; readonly executionId: ExecutionId; readonly summary: string }
   | { readonly kind: 'dependency-required'; readonly resultId: ResultId; readonly nodeId: WorkNodeId; readonly receipt: DependencyReceipt }
   | { readonly kind: 'result-reviewed'; readonly resultId: ResultId; readonly nodeId: WorkNodeId; readonly stage: ReviewStage }
   | { readonly kind: 'join-satisfied'; readonly nodeId: WorkNodeId }

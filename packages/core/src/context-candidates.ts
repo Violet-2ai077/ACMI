@@ -36,7 +36,8 @@ export function collectCandidates(
     text: [task!.objective, ...task!.criteria.map((x, i) => `Acceptance ${i + 1}: ${x}`)].join('\n'),
     refs: [task!.opened, ...(task!.reframed ? [task!.reframed] : []), ...(task!.closed ? [task!.closed] : [])] })
   add({ id: `work:${activeId}`, kind: 'active-work', nodeId: activeId, status: 'active', tier: 0, reason: 'required_state',
-    text: `${active.title} [${active.state}; attempt ${active.attempt}${active.joinSatisfied ? '; join satisfied' : ''}]`,
+    text: [`${active.title} [${active.state}; attempt ${active.attempt}${active.joinSatisfied ? '; join satisfied' : ''}]`,
+      ...(active.description ? [active.description] : []), ...(active.criteria ?? []).map((x, i) => `Acceptance ${i + 1}: ${x}`)].join('\n'),
     refs: [position!, active.declared, active.changed, ...(active.joinSatisfied ? [active.joinSatisfied] : [])] })
   for (const n of graph.nodes) {
     if (n.id === activeId) continue
@@ -72,6 +73,10 @@ export function collectCandidates(
     const { content: c, nodeId, ref } = row
     const id = `evidence:${row.id}`
     if (row.superseded) { omit(id, 'superseded'); continue }
+    if (c.kind === 'result-assessment' || c.kind === 'constraint' && c.validity === 'temporary') {
+      omit(id, 'low_relevance')
+      continue
+    }
     if (nodeId !== undefined && nodeId !== activeId && c.kind !== 'blocker' && c.kind !== 'unresolved') {
       omit(id, 'low_relevance')
       continue
@@ -117,7 +122,7 @@ export function collectCandidates(
   const reviews = new Map(graph.reviews.map(r => [canonical([r.nodeId, r.attempt, r.resultId]), r]))
   const acceptedAtNextJoin = new Map<string, string[]>()
   for (const r of graph.reviews) {
-    if (r.stage !== 'accepted' || !nextJoins.has(r.nodeId) || nodes.get(r.nodeId)?.attempt !== r.attempt) continue
+    if (r.stage !== 'accepted' || r.disposition || !nextJoins.has(r.nodeId) || nodes.get(r.nodeId)?.attempt !== r.attempt) continue
     const list = acceptedAtNextJoin.get(r.resultId) ?? []
     list.push(r.nodeId)
     acceptedAtNextJoin.set(r.resultId, list)
@@ -127,6 +132,7 @@ export function collectCandidates(
     const accepted = review?.stage === 'accepted'
     const itemId = 'dependency:' + canonical([node.id, id])
     if (!includeDependencies) { omit(itemId, 'policy_disabled'); return }
+    if (review?.disposition) { omit(itemId, review.disposition === 'superseded' ? 'superseded' : 'low_relevance'); return }
     if (!accepted && node.id !== activeId) { omit(itemId, 'not_consumed'); return }
     add({ id: itemId, kind: accepted ? 'dependency-result' : 'unreviewed_dependency_output',
       nodeId: node.id, status: accepted ? 'verified' : 'unverified', tier: accepted ? 1 : 2,

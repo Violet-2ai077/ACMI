@@ -2,15 +2,19 @@ import type { DatabaseSync, SQLInputValue } from 'node:sqlite'
 import type {
   EventRef, GraphAppendReceipt, GraphEventDraft, GraphEventRecord, GraphProposal, GraphStreamCut, GraphStreamReader, GraphStreamWriter,
   RuntimeAttribution, RuntimeCursor, RuntimeFact, RuntimeSessionRef, ScopeAuthority, StoredGraphEvent, StoredRuntimeFact,
-  TaskGraphEvent, WorkspaceScope,
+  TaskGraphEvent, UnderstandingInput, UnderstandingProposal, UnderstandingReviewReceipt, WorkspaceScope,
 } from '@acmi/contracts'
 import {
   boundedText, canonical, createScopeAuthority, exactFields, graphEventLimit, isEventRef, isTaskId, runtimeIdentity,
-  proposeGraphChanges, TaskGraph, type TaskGraphCheckpoint, validateRuntimeFact,
+  analyzeUnderstanding, isUnderstandingTrigger, proposeGraphChanges, TaskGraph, type TaskGraphCheckpoint, understandingDefaultBudget,
+  understandingFactLimit, understandingOutputLimit, understandingTopologyRisk, validateRuntimeFact,
 } from '@acmi/core'
 import { connectGraphRoot, GraphStoreError, pathsOverlap, translateGraphError } from './graph-store-db.ts'
 import { continuityDigest as sha } from './local-digest.ts'
 import { isSnapshotReservation, type SnapshotReservation } from './snapshot-guard.ts'
+import { digestId, enableUnderstanding, validUnderstandingRequest, type SavedUnderstanding, type SavedUnderstandingReview,
+  type UnderstandingCursorMove, type UnderstandingInboxItem, type UnderstandingPage, type UnderstandingRequest,
+  type UnderstandingReviewCommand } from './understanding-host.ts'
 
 const zero = '0'.repeat(64)
 const capTasks = 64
@@ -25,6 +29,7 @@ export interface GraphStoreOptions {
   readonly read: Permits
   readonly write: Permits
   readonly maxPages?: number
+  readonly understanding?: true
 }
 export interface RuntimeWorkAssignment {
   readonly taskId: string
@@ -78,6 +83,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
         this.#factCount = Number(this.#db.prepare('SELECT count(*) AS n FROM runtime_fact').get()?.n)
         this.#sessionCount = Number(this.#db.prepare('SELECT count(*) AS n FROM runtime_cursor').get()?.n)
         if (this.#factCount > capFacts || this.#sessionCount > capSessions) fail('limit')
+        if (options.understanding === true) enableUnderstanding(this.#db)
       } catch (error) {
         this.#db.close()
         throw error
@@ -441,6 +447,178 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       this.#append(taskId, { key, source, change: { kind: 'execution-transitioned', executionId,
         state: d.kind === 'turn-complete' ? 'completed' : d.kind === 'turn-failed' ? 'failed' : 'cancelled' } }, 'deterministically_derived')
     }
+  }
+  permitsUnderstanding(scope: WorkspaceScope): boolean {
+    return this.#options.understanding === true && this.permits(scope)
+  }
+  #understandingInput(request: UnderstandingRequest, now: number): UnderstandingInput {
+    if (!validUnderstandingRequest(request)) return fail('invalid')
+    const cut = this.#cut(this.#state(request.taskId)) ?? fail('unavailable')
+    const candidates = request.candidates.flatMap(({ taskId, alias }) => {
+      const candidate = this.#cut(this.#state(taskId)) ?? fail('unavailable')
+      const objective = candidate.snapshot.task?.objective ?? ''
+      if (candidate.snapshot.task?.closed) return []
+      return [{ taskId, alias, objective: objective.replace(/[\x00-\x1f\x7f]/gu, ' ').slice(0, 512),
+        workspaceId: this.workspaceId, revision: candidate.revision }]
+    })
+    const facts = request.evidenceIds.map(id => {
+      const row = this.#one('SELECT body,hash FROM runtime_fact WHERE id=?', id) ?? fail('invalid')
+      const stored = readChecked<StoredRuntimeFact>(row, 8192)
+      const { fact, attribution } = stored
+      if (fact.eventId !== id || !validateRuntimeFact(fact, this.workspaceId, sha)
+        || fact.source.session.instanceId !== this.workspaceId
+        || !(attribution.kind === 'assigned' && attribution.taskId === request.taskId
+          || attribution.kind === 'unassigned' && id === request.anchorId && fact.detail.kind === 'user')
+        || id === request.anchorId && request.user && fact.detail.kind !== 'user') return fail('invalid')
+      return stored
+    })
+    return { cut, candidates, facts, anchorId: request.anchorId, now, ttlMs: request.ttlMs ?? 300_000,
+      budget: request.budget ?? understandingDefaultBudget,
+      ...(request.pending ? { pending: request.pending } : {}), ...(request.user ? { user: request.user } : {}),
+      ...(request.currentTaskId ? { currentTaskId: request.currentTaskId } : {}) }
+  }
+  prepareUnderstanding(scope: WorkspaceScope, request: UnderstandingRequest): UnderstandingInput {
+    if (!this.permitsUnderstanding(scope)) return fail('unavailable')
+    return this.#understandingInput(request, Date.now())
+  }
+  #analysisPage(taskId: string, limit: number): UnderstandingPage {
+    if (!isTaskId(taskId) || !expectNumber(limit) || limit === 0 || limit > understandingFactLimit) return fail('invalid')
+    const after = Number(this.#one('SELECT through FROM understanding_cursor WHERE task=?', taskId)?.through ?? 0)
+    const rows = this.#all('SELECT rowid,body,hash FROM runtime_fact WHERE task=? AND rowid>? ORDER BY rowid LIMIT ?', taskId, after, limit)
+    return { after, through: Number(rows.at(-1)?.rowid ?? after), facts: rows.map(row => readChecked<StoredRuntimeFact>(row, 8192)) }
+  }
+  understandingPage(scope: WorkspaceScope, taskId: string, limit = understandingFactLimit): UnderstandingPage {
+    if (!this.permitsUnderstanding(scope)) return fail('unavailable')
+    return this.#analysisPage(taskId, limit)
+  }
+  #moveUnderstandingCursor(taskId: string, move: UnderstandingCursorMove, evidenceIds?: readonly string[]): void {
+    const page = this.#analysisPage(taskId, move.limit)
+    if (page.after !== move.after || page.through !== move.through || page.after === page.through) return fail('revision')
+    if (evidenceIds ? canonical(page.facts.map(r => r.fact.eventId)) !== canonical(evidenceIds)
+      : page.facts.some(r => isUnderstandingTrigger(r.fact.detail.kind))) return fail('invalid')
+    this.#sql('INSERT INTO understanding_cursor VALUES (?,?) ON CONFLICT(task) DO UPDATE SET through=excluded.through', taskId, move.through)
+  }
+  skipUnderstandingNoise(scope: WorkspaceScope, writer: WorkspaceScope, taskId: string, move: UnderstandingCursorMove): void {
+    this.#writable(writer)
+    if (!this.permitsUnderstanding(scope)) return fail('unavailable')
+    this.#tx(() => this.#moveUnderstandingCursor(taskId, move))
+  }
+  #proposalSource(proposal: UnderstandingProposal, evidenceId: string): EventRef {
+    return proposal.evidence.find(ref => ref.eventId === evidenceId)?.source ?? fail('invalid')
+  }
+  #understandingRisks(state: State, proposal: UnderstandingProposal): readonly string[] {
+    if (!proposal.changes.length) return []
+    const checkpoint = state.graph.checkpoint(this.#scope) ?? fail('invalid')
+    const preview = state.graph.restore(this.#scope, checkpoint) ?? fail('invalid')
+    for (const [i, { change, evidenceId, id }] of proposal.changes.entries()) {
+      const result = preview.append(this.#scope, { ...change, seq: state.through + i + 1, id,
+        source: this.#proposalSource(proposal, evidenceId) })
+      if (result !== 'applied') return [result === 'unresolved' ? preview.read(this.#scope)?.unresolved.at(-1)?.reason ?? result : result]
+    }
+    const topology = understandingTopologyRisk(checkpoint.projection, proposal.changes.map(c => c.change))
+    return topology ? [topology] : []
+  }
+  stageUnderstanding(scope: WorkspaceScope, writer: WorkspaceScope, request: UnderstandingRequest, modelJson?: string,
+    expected?: Pick<UnderstandingProposal, 'id' | 'graphRevision' | 'candidateRevision'>, move?: UnderstandingCursorMove): UnderstandingInboxItem {
+    this.#writable(writer)
+    if (!this.permitsUnderstanding(scope)) return fail('unavailable')
+    if (modelJson !== undefined && (typeof modelJson !== 'string' || modelJson.length > understandingOutputLimit)) return fail('invalid')
+    return this.#tx(() => {
+      const input = this.#understandingInput(request, Date.now())
+      const proposal = analyzeUnderstanding(input, sha, modelJson, request.mode)
+      if (expected && (proposal.id !== expected.id || proposal.graphRevision !== expected.graphRevision
+        || proposal.candidateRevision !== expected.candidateRevision)) return fail('revision')
+      if (move) this.#moveUnderstandingCursor(request.taskId, move, request.evidenceIds)
+      const applied = this.#one(`SELECT p.body,p.hash,r.body AS receipt,r.hash AS review_hash
+        FROM understanding_applied a JOIN understanding_proposal p ON p.id=a.id JOIN understanding_review r ON r.id=a.id
+        WHERE a.supersession=?`, proposal.supersessionKey)
+      if (applied) return { ...readChecked<SavedUnderstanding>(applied).item,
+        review: readChecked<SavedUnderstandingReview>({ body: applied.receipt, hash: applied.review_hash }).receipt }
+      const existing = this.#one('SELECT body,hash FROM understanding_proposal WHERE id=?', proposal.id)
+      if (existing) {
+        const { item } = readChecked<SavedUnderstanding>(existing)
+        const prior = this.#one('SELECT body,hash FROM understanding_review WHERE id=?', proposal.id)
+        return prior ? { ...item, review: readChecked<SavedUnderstandingReview>(prior).receipt } : item
+      }
+      if (Number(this.#one('SELECT count(*) AS n FROM understanding_proposal')?.n) >= 4096) return fail('limit')
+      const risks = this.#understandingRisks(this.#state(request.taskId), proposal)
+      const item = { proposal, risks }
+      const body = encode({ request, ...(modelJson !== undefined ? { modelJson } : {}), item } satisfies SavedUnderstanding)
+      this.#sql('INSERT INTO understanding_proposal VALUES (?,?,?,?,?)',
+        proposal.id, proposal.taskId, proposal.supersessionKey, body, sha(body))
+      return item
+    })
+  }
+  listUnderstanding(scope: WorkspaceScope, taskId: string, limit = 16): readonly UnderstandingInboxItem[] {
+    if (!this.permitsUnderstanding(scope) || !isTaskId(taskId)) return []
+    if (!expectNumber(limit) || limit < 1 || limit > 32) return fail('invalid')
+    const revision = this.#state(taskId).revision
+    return this.#all(`SELECT p.body,p.hash,r.body AS receipt,r.hash AS review_hash,
+        EXISTS(SELECT 1 FROM understanding_proposal n WHERE n.supersession=p.supersession AND n.rowid>p.rowid) AS newer
+      FROM understanding_proposal p LEFT JOIN understanding_review r ON r.id=p.id
+      WHERE p.task=? ORDER BY p.rowid DESC LIMIT ?`, taskId, limit).map(row => {
+      const { item } = readChecked<SavedUnderstanding>(row)
+      if (row.receipt !== null) return { ...item,
+        review: readChecked<SavedUnderstandingReview>({ body: row.receipt, hash: row.review_hash }).receipt }
+      const state = row.newer ? 'superseded' : Date.now() >= item.proposal.expiresAt ? 'expired'
+        : revision !== item.proposal.graphRevision ? 'stale-revision' : undefined
+      return state ? { ...item, risks: [...item.risks, state] } : item
+    })
+  }
+  reviewUnderstanding(writer: WorkspaceScope, proposalId: string, command: UnderstandingReviewCommand): UnderstandingReviewReceipt {
+    this.#writable(writer)
+    if (this.#options.understanding !== true || !digestId(proposalId)
+      || !exactFields(command, ['decision', 'reviewerId', 'reason']) || !['accept', 'reject'].includes(command.decision)
+      || !boundedText(command.reviewerId, 96) || !boundedText(command.reason, 512)
+      || !command.reviewerId.trim() || !command.reason.trim()) return fail('invalid')
+    return this.#tx(() => {
+      const existing = this.#one('SELECT body,hash FROM understanding_review WHERE id=?', proposalId)
+      if (existing) {
+        const { command: original, receipt } = readChecked<SavedUnderstandingReview>(existing)
+        if (canonical(original) !== canonical(command)) return fail('conflict')
+        return receipt
+      }
+      const row = this.#one('SELECT rowid,body,hash FROM understanding_proposal WHERE id=?', proposalId) ?? fail('unavailable')
+      const { request, modelJson, item } = readChecked<SavedUnderstanding>(row)
+      const p = item.proposal
+      const state = this.#state(p.taskId)
+      const now = Date.now()
+      let status: UnderstandingReviewReceipt['status'] = command.decision === 'accept' ? 'accepted' : 'rejected'
+      let invalidation: string | undefined
+      if (this.#one('SELECT 1 FROM understanding_proposal WHERE supersession=? AND rowid>? LIMIT 1',
+        p.supersessionKey, Number(row.rowid))) { status = 'superseded'; invalidation = 'newer-source-proposal' }
+      else if (now >= p.expiresAt) { status = 'expired'; invalidation = 'ttl-expired' }
+      else if (status === 'accepted') {
+        if (state.revision !== p.graphRevision) invalidation = 'stale-revision'
+        else {
+          try {
+            const input = this.#understandingInput(request, p.createdAt)
+            const regenerated = analyzeUnderstanding(input, sha, modelJson, request.mode)
+            if (canonical(regenerated) !== canonical(p)) invalidation = 'stale-candidates-or-evidence'
+            else invalidation = this.#understandingRisks(state, regenerated)[0]
+              ?? (!p.changes.length && (p.intent.kind === 'uncertain'
+                || p.unresolved.some(reason => reason !== 'routing-requires-separate-host-action')) ? 'unresolved-no-change' : undefined)
+          } catch (error) {
+            if (!(error instanceof GraphStoreError) || !['invalid', 'unavailable'].includes(error.code)) throw error
+            invalidation = 'evidence-unavailable'
+          }
+        }
+        if (invalidation) status = 'conflicted'
+      }
+      if (status === 'accepted') {
+        for (const { id, change, evidenceId } of p.changes) this.#append(p.taskId,
+          { key: 'understanding:' + id, change, source: this.#proposalSource(p, evidenceId) }, 'host_confirmed', undefined, p.id)
+      }
+      const ids = p.changes.map(c => c.id)
+      const receipt: UnderstandingReviewReceipt = { proposalId, status, reviewer: { type: 'trusted_host', id: command.reviewerId },
+        acceptedChangeIds: status === 'accepted' ? ids : [], rejectedChangeIds: status === 'accepted' ? [] : ids,
+        expectedRevision: p.graphRevision, resultingRevision: state.revision, reason: invalidation ?? command.reason,
+        timestamp: now, evidence: p.evidence }
+      const body = encode({ command, receipt } satisfies SavedUnderstandingReview)
+      this.#sql('INSERT INTO understanding_review VALUES (?,?,?)', p.id, body, sha(body))
+      if (status === 'accepted') this.#sql('INSERT INTO understanding_applied VALUES (?,?)', p.supersessionKey, p.id)
+      return receipt
+    })
   }
   review(scope: WorkspaceScope, proposal: GraphProposal, decision: 'accept' | 'reject'): ReviewReceipt {
     this.#writable(scope)

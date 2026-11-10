@@ -3,7 +3,14 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.8.2
+## Unreleased - Phase 0.9
+
+- Add scoped incremental intent, WorkNode, dependency, Join, decision,
+  constraint and result proposals with bounded synthetic model input.
+- Add a durable proposal inbox and Host-only transactional review and apply.
+- Add a default-off dsh delta analysis worker and a 350-case offline benchmark.
+
+## Phase 0.8.2 local milestone
 
 - Add a default-off Host ingestion supervisor, bounded cursor reconciliation
   and explicit offline recovery of known Sessions.

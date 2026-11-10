@@ -1,0 +1,7 @@
+# WorkNode proposal model v0.1
+
+A WorkNode is a logical stage, not a chat row or execution. Explicit decomposition and parallel work propose up to six staged nodes with deterministic Host-derived IDs, each linked to an existing parent. Refinement preserves the node ID and updates description and acceptance criteria. Dependency and successor references must be visible in the authorized graph cut. Existing Runtime Fact ingestion preserves native execution links; a model cannot move an execution to another attempt or start one. A suggested reassociation is unresolved.
+
+Join creation declares `all-required-accepted`. Required producer branches use `joins_into`; optional evidence uses non-gating `references`. The optional next WorkNode is an explicit successor, not advancement. The Host previews the reducer and checks both relation-local cycles and mixed gating cycles, mainline cardinality, duplicates and complete policies. The Phase 0.9 schema cannot emit Join satisfaction, mainline advancement, Result acceptance or Task closure.
+
+Late Tool result observation can create an unverified result for a known current-attempt execution when its source lies within the observed execution interval; for dsh the turn ID must also match. Availability, inspection and consumption remain separate. An explicit rejection/supersession is a negative disposition on a consumer attempt's existing review. It preserves historical stage and removes current eligibility for Context Assembly/Join; an already satisfied Join cannot be rewritten through this proposal path.

@@ -7,6 +7,7 @@ import type { RuntimeWorkAssignment } from './graph-store.ts'
 import { GraphStoreError } from './graph-store-db.ts'
 import { ScopedJournalError } from './journal-format.ts'
 import { registerDshRuntimeIngestion, type DshIngestionOptions } from './runtime-ingestion.ts'
+import { startUnderstandingRuntime, type DshUnderstandingOptions } from './understanding-runtime.ts'
 
 export interface DshSupervisorOptions extends DshIngestionOptions {
   readonly authorize: (session: Session) => { readonly assignment?: RuntimeWorkAssignment } | null
@@ -21,6 +22,7 @@ export interface DshSupervisorOptions extends DshIngestionOptions {
   readonly attemptMs?: number
   readonly retries?: number
   readonly retryBaseMs?: number
+  readonly understanding?: DshUnderstandingOptions
 }
 
 interface Work {
@@ -89,6 +91,17 @@ export async function startDshIngestionSupervisor(ctx: Context, opts: DshSupervi
   })
   if (!ingestion) return null
   const feed = ingestion
+  let understanding: ReturnType<typeof startUnderstandingRuntime> = null
+  if (opts.understanding) {
+    try {
+      understanding = startUnderstandingRuntime({ ...opts.understanding, enabled: opts.enabled === true, synthetic: opts.synthetic === true,
+        store: opts.store, scope: opts.scope, writer: opts.writer })
+      if (!understanding) throw new GraphStoreError('unavailable')
+    } catch (error) {
+      feed.dispose()
+      throw error
+    }
+  }
   function authorized(session: Session) {
     if (!opts.store.permits(opts.scope) || !opts.store.permitsWrite(opts.writer)) return null
     try {
@@ -181,7 +194,8 @@ export async function startDshIngestionSupervisor(ctx: Context, opts: DshSupervi
         if (cut.next < cut.head) {
           row.oldest = Math.min(row.oldest, now)
           const signal = AbortSignal.any([abort.signal, AbortSignal.timeout(attemptMs)])
-          await (cut.gap ? feed.reconcile(session, signal) : feed.drain(session, signal))
+          try { await (cut.gap ? feed.reconcile(session, signal) : feed.drain(session, signal)) }
+          finally { if (authorized(session)) understanding?.wake() }
           if (cut.gap) row.lastReconcileAt = Date.now()
           else row.lastDrainAt = Date.now()
           batches++
@@ -202,6 +216,7 @@ export async function startDshIngestionSupervisor(ctx: Context, opts: DshSupervi
     phase = 'stopping'
     stopCreated()
     feed.seal()
+    const analysisStopped = understanding?.stop()
     const deadline = performance.now() + deadlineMs
     clearTimeout(timer)
     wakeAt = Infinity
@@ -231,6 +246,7 @@ export async function startDshIngestionSupervisor(ctx: Context, opts: DshSupervi
     }
     feed.dispose()
     work.clear()
+    await analysisStopped
     return { pending, timedOut: pending > 0 && (deadlineExpired || performance.now() >= deadline), appendedAfterSeal }
   }
   const stop = (deadlineMs = 500) => shutdown ??= stopWithin(option(deadlineMs, 500, 1, 5000))
@@ -257,6 +273,7 @@ export async function startDshIngestionSupervisor(ctx: Context, opts: DshSupervi
       return true
     },
     metrics: () => ({ phase, tracked: work.size, probes, batches, retryCount, failures, attachRejected, authorityDetached, ...feed.metrics() }),
+    understanding,
     stop,
   }
 }

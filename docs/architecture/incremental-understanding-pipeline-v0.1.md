@@ -1,0 +1,9 @@
+# Incremental Understanding Pipeline v0.1
+
+Stock dsh notification -> authorized native flush and ingestion -> SQLite Runtime Facts -> indexed Task delta -> bounded Context cut -> rules / offline scripted mock -> validated proposal -> explicit Host review -> transactional Graph Events -> Context Assembly.
+
+The worker is not installed by the plugin. The dedicated Graph Store and Supervisor each require explicit opt-in, and the worker requires synthetic mode plus read/write grants. It watches at most eight explicitly configured Tasks. One dirty lane per Task coalesces notifications without retaining event bodies, with debounce/max-wait, round-robin quanta, a bounded page, single flight per Task, global concurrency, attempt deadlines and bounded retries. Periodic polling recovers a missed notification. Task lanes read committed assigned facts only; an unassigned user cue can be submitted explicitly by a trusted Host. Native Binding remains a separate control path.
+
+User, durable Tool result and meaningful completed/failed turn boundaries are processed separately. Streaming and other non-trigger metadata do not request analysis. The cursor advances with proposal insertion in the same SQLite transaction. Noise-only pages advance via a dedicated checked operation; failures retain the unread cursor. Explicit Host reanalysis uses exact evidence IDs. Proposal invalidation is checked on inbox read/review, not an automatic write or Provider call.
+
+The packet is a bounded projection cut: objective/criteria, active and recent work, scoped summaries, decision/review metadata, pending IDs and the delta. It is not a Session replay or recursively assembled prompt. UTF-8 bytes plus 192 reserve are estimated units, not a provider tokenizer. Budget failure emits no model packet. Existing cold Graph Store checkpoint/suffix behavior remains; warm analysis does not read Session Journals.

@@ -4,7 +4,7 @@ import { mkdir, mkdtemp, readFile, realpath, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createScopeAuthority } from '@acmi/core'
+import { createScopeAuthority, runtimeFactId } from '@acmi/core'
 import { Context } from '@deepseek-ai/cordis'
 import { mountAgentLoopTestDependencies, mountAgentLoopTestHarness } from '@deepseek-ai/dsh-agent-loop-testkit'
 import BasicCompaction from '@deepseek-ai/dsh-compaction-basic'
@@ -77,7 +77,7 @@ async function boot(t, workingDirectory = false) {
   const write = createScopeAuthority()
   const scope = read.grant(workspaceId)
   const writer = write.grant(workspaceId)
-  const open = maxPages => acmi.openGraphStore({ root, workspaceId, read, write, maxPages })
+  const open = (maxPages, understanding) => acmi.openGraphStore({ root, workspaceId, read, write, maxPages, understanding })
   const ctx = new Context()
   t.onTestFinished(async () => {
     try { await ctx.fiber.dispose() } finally { await rm(base, { recursive: true, force: true }) }
@@ -503,6 +503,46 @@ test('authorized live feed drains automatically, reconciles overflow and reload 
     console.log('ACMI082_SUPERVISOR ' + JSON.stringify({ ...supervisor.metrics(), unownedCursor: cursor(denied), idleDecodes: 0 }))
   } finally { await supervisor?.stop(1000); store.close() }
 }, 15000)
+
+test('Phase 0.9 only analyzes selected durable deltas and requires explicit Host apply', async t => {
+  const h = await boot(t)
+  const store = h.open(undefined, true)
+  let supervisor
+  try {
+    const agent = await h.fresh('09-intent')
+    const denied = await h.fresh('09-unrelated')
+    seed(store, h, agent.session, taskA)
+    const identity = acmi.dshRuntimeIdentity(agent.session.header, h.workspaceId)
+    supervisor = await acmi.startDshIngestionSupervisor(h.ctx, { ...h.options(store),
+      authorize: s => s === agent.session ? { assignment: { taskId: taskA, nodeId: 'main' } } : null,
+      pollMs: 20, understanding: {
+        targets: [{ taskId: taskA, currentTaskId: taskA, candidates: [{ taskId: taskA, alias: 'a' }] }],
+        excerpt: id => agent.session.snapshotEvents().some(e => e.type === 'user/message' && e.data.source.kind === 'user'
+          && runtimeFactId(identity, e.seq, checksum) === id) ? 'split into: audit; verify' : undefined,
+      },
+    })
+    const cursor = () => store.cursor(h.scope, identity).next
+    await vi.waitFor(() => expect(cursor()).toBe(agent.session.seq))
+    const cold = supervisor.metrics().coldDecodedRows
+    await Promise.all([h.send(agent, 'PHASE-09-SYNTHETIC-INTENT'), h.send(denied, 'UNRELATED-FIXTURE')])
+    await vi.waitFor(() => expect(cursor()).toBe(agent.session.seq))
+    const item = await vi.waitFor(() => {
+      const item = store.listUnderstanding(h.scope, taskA).find(x => x.proposal.changes.length === 4)
+      expect(item?.risks).toEqual([])
+      return item
+    })
+    expect(state(store, h).snapshot.nodes).toHaveLength(1)
+    expect(supervisor.understanding.metrics()).toMatchObject({ providerRequests: 0 })
+    expect(supervisor.metrics().coldDecodedRows).toBe(cold)
+    expect(store.cursor(h.scope, acmi.dshRuntimeIdentity(denied.session.header, h.workspaceId)).next).toBe(0)
+    const seq = agent.session.seq
+    expect(store.reviewUnderstanding(h.writer, item.proposal.id,
+      { decision: 'accept', reviewerId: 'fixture-host', reason: 'Validated explicit stages' }).status).toBe('accepted')
+    expect(state(store, h).snapshot.nodes.map(n => n.title)).toEqual(['main', 'audit', 'verify'])
+    expect(agent.session.seq).toBe(seq)
+    expect(agent.session.snapshotEvents().some(e => e.type === 'plugin:acmi-probe/task-binding')).toBe(false)
+  } finally { await supervisor?.stop(1000); store.close() }
+}, 10000)
 
 test.for(['before-drain', 'after-flush-before-commit', 'after-commit-before-ack'])('restarts native writer and Store at %s', async (mode, t) => {
   const h = await boot(t)

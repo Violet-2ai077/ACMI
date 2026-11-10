@@ -28,6 +28,8 @@ const executionStates: Record<ExecutionState, readonly ExecutionState[]> = {
 }
 const stages = ['available', 'inspected', 'consumed', 'accepted'] as const
 const terminal = (state: ExecutionState) => executionStates[state].length === 0
+const criteria = (value: unknown, cap = 8): value is readonly string[] =>
+  Array.isArray(value) && value.length > 0 && value.length <= cap && value.every(x => text(x, 256))
 const reviewKey = (node: WorkNode, resultId: string) => JSON.stringify([node.id, node.attempt, resultId])
 
 function validEvidence(content: EvidenceContent, source: GraphRef['source']): boolean {
@@ -36,9 +38,20 @@ function validEvidence(content: EvidenceContent, source: GraphRef['source']): bo
   let valid = false
   switch (content.kind) {
     case 'decision':
-      fields = [...fields, 'topic', 'state', 'rationale']
+      fields = [...fields, 'topic', 'state', 'rationale', 'alternatives']
       valid = key(content.topic) && inList(content.state, ['proposed', 'accepted', 'superseded', 'rejected', 'disputed', 'unresolved'])
         && (content.rationale === undefined || text(content.rationale, 4096))
+        && (content.alternatives === undefined || criteria(content.alternatives, 6))
+      break
+    case 'constraint':
+      fields.push('category', 'validity', 'explicit')
+      valid = (content.category === undefined || inList(content.category, ['technical', 'performance', 'security', 'compatibility', 'scope', 'acceptance']))
+        && (content.validity === undefined || inList(content.validity, ['task', 'temporary']))
+        && (content.explicit === undefined || typeof content.explicit === 'boolean')
+      break
+    case 'result-assessment':
+      fields.push('resultId', 'state')
+      valid = key(content.resultId) && inList(content.state, ['rejected', 'superseded'])
       break
     case 'artifact':
       fields.push('state')
@@ -49,7 +62,7 @@ function validEvidence(content: EvidenceContent, source: GraphRef['source']): bo
       valid = isEventRef(content.call) && sessionKey(content.call.session) === sessionKey(source.session)
         && content.call.sourceRevision === source.sourceRevision && content.call.localSeq < source.localSeq
       break
-    default: valid = inList(content.kind, ['constraint', 'blocker', 'next-action', 'unresolved', 'runtime-state'])
+    default: valid = inList(content.kind, ['blocker', 'next-action', 'unresolved', 'runtime-state'])
   }
   return valid && Object.keys(content).every(k => fields.includes(k))
 }
@@ -250,6 +263,10 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
     if (e.kind === 'evidence-recorded') return this.#recordEvidence(e, ref)
     if (!node) return 'unknown-node'
     switch (e.kind) {
+      case 'node-refined':
+        if (!text(e.description, 1024) || !criteria(e.criteria) || workStates[node.state].length === 0) return 'invalid-refinement'
+        this.#nodes.set(node.id, { ...node, description: e.description, criteria: e.criteria, changed: ref })
+        return
       case 'work-transitioned': {
         if (!inList(e.state, workStates[node.state])) return 'invalid-work-transition'
         if (e.state === 'running' && this.#edges.some(edge => edge.from === node.id && edge.relation === 'depends_on'
@@ -275,13 +292,23 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
           ...(parent ? { parentId: parent.id } : {}), state: 'running', started: ref, changed: ref })
         return
       }
+      case 'result-observed':
       case 'result-produced': {
         const execution = this.#executions.get(e.executionId)
-        if (node.state !== 'running' || execution?.nodeId !== node.id || execution.attempt !== node.attempt
-          || execution.state !== 'running' || !key(e.resultId) || this.#results.has(e.resultId)
-          || this.#dependencies.has(e.resultId) || !text(e.summary) || typeof e.verified !== 'boolean') return 'invalid-result'
+        if (execution?.nodeId !== node.id || execution.attempt !== node.attempt || !key(e.resultId) || this.#results.has(e.resultId)
+          || this.#dependencies.has(e.resultId) || !text(e.summary)) return 'invalid-result'
+        if (e.kind === 'result-produced' && (node.state !== 'running' || execution.state !== 'running'
+          || typeof e.verified !== 'boolean')) return 'invalid-result'
+        if (e.kind === 'result-observed') {
+          const start = execution.started.source
+          const end = execution.changed.source
+          const same = (source: typeof start) => sessionKey(source.session) === sessionKey(e.source.session)
+            && source.sourceRevision === e.source.sourceRevision
+          if (!same(start) || e.source.localSeq <= start.localSeq
+            || (execution.state !== 'running' && (!same(end) || e.source.localSeq >= end.localSeq))) return 'invalid-result-observation'
+        }
         this.#results.set(e.resultId, { id: e.resultId, nodeId: node.id, executionId: execution.id,
-          attempt: node.attempt, summary: e.summary, verified: e.verified, produced: ref })
+          attempt: node.attempt, summary: e.summary, verified: e.kind === 'result-produced' && e.verified, produced: ref })
         return
       }
       case 'dependency-required': {
@@ -333,6 +360,14 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
 
   #recordEvidence(e: Extract<TaskGraphEvent, { kind: 'evidence-recorded' }>, ref: GraphRef): string | undefined {
     if (!validEvidence(e.content, ref.source)) return 'invalid-evidence'
+    const content = e.content
+    if (content.kind === 'result-assessment') {
+      const node = e.nodeId ? this.#nodes.get(e.nodeId) : undefined
+      const key = node ? reviewKey(node, content.resultId) : ''
+      const prior = this.#reviews.get(key)
+      if (!node || !prior || prior.disposition || node.joinSatisfied || e.supersedes !== undefined) return 'invalid-result-disposition'
+      this.#reviews.set(key, { ...prior, disposition: content.state, dispositionRef: ref })
+    }
     if (e.supersedes !== undefined) {
       const prior = this.#evidence.get(e.supersedes)
       if (!prior || prior.superseded || prior.nodeId !== e.nodeId || prior.content.kind !== e.content.kind
@@ -342,8 +377,8 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
       }
       this.#evidence.set(prior.id, { ...prior, superseded: ref })
     }
-    const content = e.content.kind === 'tool-outcome' ? { ...e.content, call: cleanRef(e.content.call) } : e.content
-    this.#evidence.set(e.id, { id: e.id, ...(e.nodeId ? { nodeId: e.nodeId } : {}), content, ref })
+    const cleanContent = content.kind === 'tool-outcome' ? { ...content, call: cleanRef(content.call) } : content
+    this.#evidence.set(e.id, { id: e.id, ...(e.nodeId ? { nodeId: e.nodeId } : {}), content: cleanContent, ref })
     return
   }
 
@@ -358,7 +393,8 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
     const id = reviewKey(node, e.resultId)
     const previous = this.#reviews.get(id)
     const index = previous === undefined ? 0 : stages.indexOf(previous.stage) + 1
-    if (index >= stages.length || stages[index] !== e.stage || (e.stage === 'accepted' && !(local?.verified ?? required?.receipt.result.verified))) {
+    if (previous?.disposition || index >= stages.length || stages[index] !== e.stage
+      || (e.stage === 'accepted' && !(local?.verified ?? required?.receipt.result.verified))) {
       return 'invalid-review-transition'
     }
     this.#reviews.set(id, { resultId: e.resultId, nodeId: node.id, attempt: node.attempt, stage: e.stage, ref,
@@ -371,9 +407,13 @@ export class TaskGraph implements TaskGraphReader, TaskGraphEventWriter {
     const required = [...this.#dependencies.values()].filter(d => d.nodeId === node.id)
     if (branches.size === 0 && required.length === 0) return false
     for (const branch of branches) if (this.#nodes.get(branch)?.state !== 'completed') return false
+    const accepted = (id: string) => {
+      const review = this.#reviews.get(reviewKey(node, id))
+      return review?.stage === 'accepted' && !review.disposition
+    }
     for (const r of this.#results.values()) if (branches.has(r.nodeId) && this.#nodes.get(r.nodeId)?.attempt === r.attempt
-      && this.#reviews.get(reviewKey(node, r.id))?.stage === 'accepted') branches.delete(r.nodeId)
-    return branches.size === 0 && required.every(r => this.#reviews.get(reviewKey(node, r.id))?.stage === 'accepted')
+      && accepted(r.id)) branches.delete(r.nodeId)
+    return branches.size === 0 && required.every(r => accepted(r.id))
   }
 
   #addEdge(e: Extract<TaskGraphEvent, { kind: 'edge-added' }>, ref: GraphRef): string | undefined {

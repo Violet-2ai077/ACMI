@@ -1,0 +1,7 @@
+# Graph proposal review and apply v0.1
+
+The trusted local Host API is the review interface. Read-granted `listUnderstanding` returns the exact changes and IDs, evidence refs, expected revisions, unresolved reasons and preview risks. `reviewUnderstanding` requires a distinct Workspace writer grant and an explicit operator ID and reason. To defer, do not review. This milestone uses all-or-nothing review, not partial acceptance.
+
+Staging reconstructs input from durable evidence, revalidates shape and checks candidate scope. A transient projection preview applies the complete batch with the graph reducer without replaying raw Session history. The inbox is append-only, with accepted/rejected/expired/superseded/conflicted dispositions recorded separately. Expiry and supersession do not mutate the graph; an outdated graph or candidate revision is never silently rebased.
+
+Review rereads every fact, rebuilds the canonical proposal and checks expected revisions, reducer invariants and topology. The same SQLite transaction appends Graph Events, the audit receipt and the accepted-source replay index. A receipt insert failure rolls back all earlier appends in that transaction. Repeating the exact review returns its original receipt, even after reopen. A source already accepted cannot mint a second diff simply by rerunning against a new graph revision. History is not overwritten. Neither the model packet nor the default dsh plugin exposes this API.

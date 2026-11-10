@@ -1,0 +1,5 @@
+# Phase 0.9 incremental performance
+
+Reproduce with `pnpm build`, then `node scripts/phase-0.9/benchmark.mjs <output-directory>`. The benchmark emits nearest-rank p50/p95/max for Core analysis (1,400 calls), graph validation (1,400), SQLite stage and review/apply (70 each), and 210 paired full versus incremental runs. The paired run uses the same warm projected graph and exact scoped suffix; the full baseline opens and parses a synthetic 2,048-line prefix plus suffix. It does not benchmark model calls or recreate the entire graph.
+
+The incremental input uses 1-3 scoped events and at most two eligible candidates per fixture; no historical Journal bytes are read. The full baseline reads approximately 659 kB per case. Serialized delta bytes and packet estimator units are reported separately. This is a local synthetic comparison, not a production throughput target, physical I/O trace or SLA. Stock dsh coverage independently checks zero added historical Journal decodes on the no-gap path and tests bounded timeout/retry.

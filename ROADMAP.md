@@ -11,6 +11,9 @@
 
 ## Conditional or experimental
 
+- Phase 0.9: synthetic-only incremental intent and work-structure proposals,
+  bounded opt-in dsh analysis, and explicit trusted Host atomic review.
+  See the [Phase 0.9 report](docs/experiments/phase-0.9-final-report.md).
 - Phase 0.8.2: default-off Host supervisor and bounded reconciliation,
   native Subagent evidence, and guarded retirement on stock dsh. See the
   [Phase 0.8.2 report](docs/experiments/phase-0.8.2-final-report.md).
