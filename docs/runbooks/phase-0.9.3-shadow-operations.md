@@ -1,5 +1,7 @@
 # Phase 0.9.3 Shadow operations
 
+The caller is the trusted native Host: hand over original captured Session events, never a reconstructed or untrusted message. Legacy committed user facts authenticate actor/cursor, not a digest of the message body; metadata type is also attested by the Host. The observer is not a stand-alone Journal payload authenticator.
+
 The layered dsh Shadow is an explicit read-only call for isolated synthetic fixtures. It is **default-off**: absent `enabled: true`, absent `synthetic: true`, or a nonmatching stock runtime version returns `disabled`. No normal `dsh` plugin path invokes it. Do not point it at the installed user's Session root, enable production Context Injection, or supply a real Provider.
 
 1. Use the reproducible [Source/Built fixture](../experiments/phase-0.9.3-runtime-shadow.md). It creates an isolated Journal and Graph root and a local scripted loop; no `dsh` installation or user profile change is needed.

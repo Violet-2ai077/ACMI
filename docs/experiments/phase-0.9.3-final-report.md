@@ -38,6 +38,8 @@ L1 多 span + actor/引用/条件/否定，L2 relation/posture/change，L3 身�
 
 ## J. 隔离 dsh Runtime Shadow
 
+信任边界：正文来自受信 Host 捕获的原生事件；旧 durable fact 只核对 actor/cursor，未认证正文哈希。metadata 类型也由 Host 认证，不是独立 Journal 内容认证服务。
+
 锁定 stock dsh 0.2.2-rc.1，使用真实隔离 native Session 事件和进程内 scripted LLM Adapter，不是 Provider。Source/Built 各 3 个专用 Shadow 测试；两个运行中均生成 1 项待审阅 objective 草案，否定轮 0 项。每个观察窗口 Journal 与 Graph 文件清单/哈希、逻辑 Graph Cut、Binding revision 与 Proposal 状态前后相同；零 socket/fetch、零 Provider/LLM 调用进入 Shadow。没有修改安装 dsh、原 Journal 或生产 Profile。见[独立 witness](phase-0.9.3-runtime-shadow.md)。
 
 ## K–M. 回归、Git 与交付

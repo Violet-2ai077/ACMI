@@ -4,6 +4,8 @@
 
 ## What ran
 
+The witness uses the original native events from the trusted test Host. The legacy durable user fact binds actor/cursor but has no payload digest; this test does not establish independent Journal-body authentication. Metadata skipping depends on trusted Host event classification.
+
 - Node 24.16.0, Windows x64, stock dsh packages `0.2.2-rc.1`. Source means the dsh integration loaded from TypeScript; Built means its emitted JavaScript. Both used the same pinned stock dsh runtime dependencies.
 - Fresh synthetic Work, Journal, SQLite Graph, `DSH_HOME` and `DSH_AGENTS_HOME` directories. The stock agent loop emitted real accepted `turn/start`, `user/message`, tool and `turn/end` events using an in-process scripted `LlmAdapter` and local tool. The test Host drained native events to committed facts and flushed the Journal **before** each shadow snapshot. These are setup writes in the disposable fixture, not writes by the shadow.
 - The shadow validated source identity, completion and stored fact coordinates, read the prepared Graph cut and scoped candidate window, ran layered interpretation and claim validation, and compared all filesystem and logical snapshots before and after. No installed dsh, real user Session or production Context Injection was touched.
