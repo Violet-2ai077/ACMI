@@ -3,7 +3,12 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.4
+## Unreleased - Phase 0.9.5
+
+- Add a default-off, read-only task reference advice API and deterministic
+  counterfactual identity tests. No runtime wiring, real models, or write permissions.
+
+## Phase 0.9.4 local milestone
 
 - Add a new open synthetic corpus, local A/B reviewer and adjudication workflow,
   and offline identity/retrieval/intent diagnostics. No production behavior

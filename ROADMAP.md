@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.5: paired synthetic trace tests and a default-off, read-only Task
+  Reference Advice API. This is not general intent understanding or approval
+  for automatic routing. See the [Phase 0.9.5 report](docs/experiments/phase-0.9.5-final-report.md).
+
 - Phase 0.9.4: open synthetic qualification corpus, blinded annotation
   rehearsal, and separate retrieval/identity/intent diagnostics. Production
   automatic routing is NO-GO. See the [qualification decision](docs/qualification/phase-0.9.4-qualification-decision.md).
