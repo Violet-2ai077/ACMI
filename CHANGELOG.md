@@ -3,7 +3,13 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.7
+## Unreleased - Phase 0.9.8
+
+- Run the frozen identity benchmark once with a pinned local Qwen3 model.
+  The evaluated configuration did not meet the response contract or beat the
+  rule baseline. No cloud calls or production changes.
+
+## Phase 0.9.7 local milestone
 
 - Freeze matched identity evaluation inputs, local rule baseline, bounded
   response validation and offline replay. Real model runs remain disabled.

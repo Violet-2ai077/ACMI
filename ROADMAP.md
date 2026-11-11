@@ -11,6 +11,9 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.8: first real on-device evaluation. The tested configuration
+  did not qualify; see the [Phase 0.9.8 report](docs/experiments/phase-0.9.8-final-report.md).
+
 - Phase 0.9.7: matched rule/model evaluation contract and offline response
   replay. No real model calls or production qualification; see the
   [Phase 0.9.7 report](docs/experiments/phase-0.9.7-final-report.md).
