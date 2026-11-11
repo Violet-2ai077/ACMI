@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.13: verified literal mention evidence and omission of binding
+  did not improve same-generation user attribution in the frozen triples.
+  See the [Phase 0.9.13 report](docs/experiments/phase-0.9.13-evidence-triples-report.md).
+
 - Phase 0.9.12: paired role-aware attribution improved independent intent
   and secondary-task observability but missed the primary identity gate.
   See the [Phase 0.9.12 report](docs/experiments/phase-0.9.12-role-paired-report.md).
