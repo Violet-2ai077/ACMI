@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.6: compare the effect of one authorized preceding user turn at
+  fixed candidates and compare resolvers at fixed evidence. Offline only;
+  see the [Phase 0.9.6 report](docs/experiments/phase-0.9.6-final-report.md).
+
 - Phase 0.9.5: paired synthetic trace tests and a default-off, read-only Task
   Reference Advice API. This is not general intent understanding or approval
   for automatic routing. See the [Phase 0.9.5 report](docs/experiments/phase-0.9.5-final-report.md).

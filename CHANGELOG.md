@@ -3,7 +3,12 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.5
+## Unreleased - Phase 0.9.6
+
+- Add an offline paired experiment separating authorized antecedent evidence
+  from deterministic resolver behavior. No production-path changes.
+
+## Phase 0.9.5 local milestone
 
 - Add a default-off, read-only task reference advice API and deterministic
   counterfactual identity tests. No runtime wiring, real models, or write permissions.
