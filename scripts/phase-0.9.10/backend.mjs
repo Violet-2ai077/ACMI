@@ -37,7 +37,8 @@ export async function startBackend(exe, weights, out, runStarted) {
   }
   const gpu = () => {
     const raw = execFileSync(join(win, 'System32', 'nvidia-smi.exe'), ['--query-gpu=name,temperature.gpu,memory.used',
-      '--format=csv,noheader,nounits'], { encoding: 'utf8', timeout: 6000, windowsHide: true, env })
+      '--format=csv,noheader,nounits'], { encoding: 'utf8', timeout: 6000, windowsHide: true,
+      env: { ...env, ProgramFiles: process.env.ProgramFiles ?? 'C:\\Program Files' } })
     const row = raw.trim().split(/\r?\n/u).map(s => s.split(',').map(v => v.trim())).find(x => x[0] === 'NVIDIA GeForce RTX 3060')
     assert(row && /^\d+$/u.test(row[1]) && /^\d+$/u.test(row[2]) && Number(row[1]) < cfg.nativeTemperatureStopC, 'GPU safety fence')
     return { temperatureC: Number(row[1]), usedMiB: Number(row[2]) }
