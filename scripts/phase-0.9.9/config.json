@@ -1,0 +1,19 @@
+{
+  "dshVersion": "0.2.2-rc.1",
+  "model": "Qwen3-14B-Q4_K_M",
+  "upstream": "https://huggingface.co/Qwen/Qwen3-14B-GGUF",
+  "modelRevision": "530227a7d994db8eca5ab5ced2fb692b614357fd",
+  "modelBytes": 9001752960,
+  "modelSha256": "500a8806e85ee9c83f3ae08420295592451379b4f8cf2d0f41c15dffeb6b81f0",
+  "runtimeRelease": "https://github.com/ggml-org/llama.cpp/releases/tag/b12283",
+  "runtimeExeSha256": "f9c45c8880180d6e6dd9f2e6077b5e4cabb8af6ae5e013d710712543cdc3cdc5",
+  "caseDigest": "2a2d1c02a7fea3b4b298c88809b42052e56c00be3101d68596f248091becce72",
+  "maxCalls": 16,
+  "maxInputTokens": 1024,
+  "maxOutputTokens": 160,
+  "maxReservedTokens": 18944,
+  "timeoutMs": 120000,
+  "contextWindow": 2048,
+  "gpuLayers": 27,
+  "seed": 9901
+}

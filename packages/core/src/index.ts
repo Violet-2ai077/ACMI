@@ -27,6 +27,8 @@ export { resolveLayeredIdentity, understandLayered } from './layered-pipeline.ts
 export type { LayeredInterpretation } from './layered-pipeline.ts'
 export { adviseTaskReference } from './task-reference-advice.ts'
 export type { ConfirmedTaskPredecessor, TaskReferenceAdvice, TaskReferenceAdviceAccess, TaskReferenceAdviceInput } from './task-reference-advice.ts'
+export { identityAdvicePrompt, identityAdviceSchema, prepareIdentityAdvice, validateIdentityAdvice,
+  type IdentityAdvice, type IdentityAdviceModelView, type PreparedIdentityAdvice } from './identity-advice.ts'
 export { LayeredState, selectLayeredShadowWork } from './layered-state.ts'
 export type { LayeredStateOptions, LayeredStateResult, LayeredMemory } from './layered-state.ts'
 export { analyzeLayered, scriptedLayeredProposalAnalyzer } from './layered-analysis.ts'
