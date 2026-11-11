@@ -1,0 +1,9 @@
+{
+  "protocol": "acmi-094-blind-review-v1",
+  "lane": null,
+  "packetId": null,
+  "reviewerId": null,
+  "submittedAt": null,
+  "attestation": null,
+  "records": []
+}

@@ -1,0 +1,123 @@
+# Split sections are the preregistered, mutually exclusive construction families.
+# family|language|task titles (; separated, *=binding, !=closed, ^=denied, ?=stale)|intent/status/id/op/acts/claims|prior turns (~ separated, u/a/t/s prefixes, > starts a Session)|focus
+[dev]
+continuation|zh|*展签校对|continue/active/1/none/request|a:第七件展品的年代先空着。|后面接着校吧，那个空格我晚点找馆员补。
+continuation|en|*Ferry timetable|continue/active/1/none/request|a:I've carried the winter crossings through to Friday.|Saturday too, same layout. Don't wait for the summer dates.
+continuation|mix|*离线图例|continue/active/1/none/request|a:PNG 版已经把北箭头挪到角上。|OK，SVG 那份也照这个排，比例尺先别动。
+continuation|zh|*排练音轨|continue/active/1/none/request|u:前半段我已经听过了。~a:你停在第三段换气处。|从我按暂停的地方往下，把伴奏比人声大的点挑出来。
+continuation|en|*Orchard inventory|continue/active/1/none/request|a:There are only three rows left with illegible tags.|Leave a blank where we can't make out the tag, then finish the count.
+continuation|mix|*打样色卡|continue/active/1/none/selection|a:要先送光面版还是磨砂版？|Matte first. 用现在这组色，不用再出一轮。
+new-work|zh|*面包房价牌|new/new/-/create/request|a:价牌底稿给你看了。|另开一件事：给打烊后取面包的人写一张自取说明，跟这堆价格没关系。
+new-work|en|*Marsh bird census|new/new/-/create/request|a:I've attached the tally by species.|Different job: can you set up a rota for whoever carries the spare binoculars?
+new-work|mix|*Live caption 对齐|new/new/-/create/request|u:字幕还得继续校。|字幕不动；另建个 task 算无障碍座位的 demand，给场馆看。
+new-work|zh|*展会物流|new/new/-/none/suggestion|a:运输还是按原计划。|要不要也做个观众丢失物品的登记？我只是提议，先不建。
+new-work|en|*Night market lighting|new/new/-/create/request|u:Don't roll this into the electrician's work.|I need a separate job for planning a quiet queue for families.
+new-work|zh|*果蔬认购账|new/new/-/create/request|a:账还差两份回单。|不等回单了，先另立一个面向新订户的欢迎短信，账还是原来的账。
+scope|zh|*线路广播稿|narrow/active/1/review/request/constraint|a:车站、车厢、站外都有对应版本。|只留车厢版，另外两份先从这次验收里拿掉。
+scope|en|*Quiet-hours sign|refine/active/1/review/correction/objective|a:The aim is to make the hallway quieter.|Not quieter all night; the point is that people sleeping after a shift get one uninterrupted hour.
+scope|mix|*培训入门流程|broaden/active/1/review/request/constraint|a:现在只覆盖现场员工。|Scope 加上 remote 新人，别单开，还是这份 onboarding flow。
+scope|zh|*交换书单|change/active/1/review/correction/objective|a:你原本是想算哪本最热门。|方向换了。这一件事不再排名，改成找哪些书值得多买两本。
+scope|en|*Basket repair kit|narrow/active/1/review/request/constraint|u:Last time I wanted an all-purpose kit.~a:I put handles and lids on the list.|Drop anything for lids; I need a kit somebody can carry around for broken handles.
+scope|mix|*对谈提纲|refine/active/1/review/correction/objective|a:所以目标是让嘉宾复盘。|不是 general retro，主要聊他们第一次想退出但最后没退出的那一刻。
+scope|zh|*海报校样|refine/active/1/review/request/objective|a:你要文字更少。|准确点，不是字少，是离两米还能看出哪天开门。
+scope|en|*Tide-pool leaflet|broaden/active/1/review/request/constraint|a:The leaflet currently stops at the rail.|Keep it one job but include the paved route that visitors can take at high tide.
+pause|zh|*观星借用表|wait/active/1/none/request|a:现在填镜头编号吗？|等小祝把柜门钥匙拿来再填，我不想靠猜。
+pause|en|*Seating mock-up|pause/active/1/none/request|a:I'm about to tape down the aisle.|Hold the mock-up there. Someone's coming through with a cart.
+pause|mix|*茶室动线|resume/active/1/none/request|u:先停，桌子还没搬。~a:桌子搬完了。|We're clear，刚才暂停的动线从入口继续。
+pause|zh|*候鸟观测图|pause/active/1/none/request|a:等会儿给你看第二版。|先放一放。我得下楼签收，但不是叫你把图关掉。
+pause|en|*Bridge rehearsal|wait/active/1/none/request|u:Can you give the signal when I wave?~a:The far bank can't see your hand.|No signal until both banks call in, then we'll pick up where we left off.
+pause|mix|*库存 reconciliation|wait/active/1/none/request|a:差额看起来是两箱。|Hold，等仓库照片来再对，不要现在把两箱算成损耗。
+social|zh|*墙绘订色|none/none/-/none/social|a:我把调色板放回盒里了。|哈哈你这比喻也太像我爸了。
+social|en|*Stencil estimate|none/none/-/none/acknowledgement|a:The blue estimate is the old one.|Got it, that explains the mix-up.
+social|mix|*灯塔简介|none/none/-/none/social|a:这一版还没有正式发布。|Anyway 今天海风真大，帽子差点没了。
+social|zh|*新纸袋测试|discuss/none/-/none/question|a:这种纸也有人拿来做风筝。|纸为什么会顺着一个方向比较容易撕啊？随口问问。
+social|en|*Weekend canteen plan|discuss/active/1/none/question|a:With shorter hours we could have two shifts.|Would a single shift make the wait longer? I'm trying to understand, not changing the plan.
+social|mix|*工具架改版|discuss/active/1/none/question|a:现在还是靠墙方案。|Out of curiosity，freestanding 那种为啥容易晃？现有方案别改。
+social|zh|*晒场布置|none/none/-/none/acknowledgement|a:架子不是明天到，是周末到。|哦，明白了。刚才是我听岔了。
+acceptance|zh|*冷柜校温|discuss/active/1/none/conditional_acceptance/decision|a:要选探头放在门边吗？|要是门关半小时后温差还不到一度，我才同意放那；现在先不定。
+acceptance|en|*Print proof|discuss/active/1/review/partial_acceptance/decision|a:Do the fold and lettering both look good?|The lettering is approved. I haven't signed off on the fold at all.
+acceptance|mix|*采样袋封口|discuss/active/1/none/rejection/decision|a:能把窄胶带当默认吗？|No，窄带试得顺不代表我选了它；等泡过水再说。
+acceptance|zh|*喷泉定时器|discuss/active/1/none/question/decision|a:我建议关园后再开自检。|你说的自检要多久？我还没同意改时间。
+acceptance|en|*Dressing-room layout|discuss/active/1/review/explicit_acceptance/decision|a:Two stools by the mirror instead of the rack?|Yes, I accept the two-stool layout by the mirror.
+acceptance|mix|*班车路线|discuss/active/1/none/suggestion/decision|u:下雨的时候绕校门会堵。|a:We could skip that stop when it rains; that's my suggestion, not a decision.
+acceptance|zh|*看台布条|discuss/active/1/none/quoted/decision|a:仓库把原聊天截图发来了。|截图里「同意红色」是供应商举的例子，不是我的回复。
+acceptance|en|*Gallery label stock|discuss/active/1/none/correction/decision|a:I'll record that you approved the glossy stock.|I approved looking at a glossy sample, not buying a run of it.
+lifecycle|zh|*旱地灌溉试验|discuss/active/1/none/report/result|t:探头返回三个读数，未附对照组。|数我收到了，跟哪块田对应还不清楚，不能算验证完。
+lifecycle|en|*Puzzle box drawings|discuss/active/1/none/report/result|s:Drawing pass done; archived draft B.|Draft B can sit in the folder. Finishing a drawing pass isn't a review.
+lifecycle|mix|*展台分件|discuss/active/1/none/report/result|s:底板的量尺寸工作完成。|I opened their sketch，没核对过孔位；别标 accepted。
+lifecycle|zh|*青苗补种|discuss/active/1/none/report/join|a:甲组苗数已填，乙组还没回来。|我先拿甲组的数排车，不等于两个组的汇合过了。
+lifecycle|en|*Trail audio edit|close/active/1/review/request/lifecycle|a:You've listened through the last marker.|I'd like to close the edit job; show me what I'd be closing before doing it.
+lifecycle|mix|*演出补光|discuss/active/1/none/report/join|t:Only one of two lighting tests returned.|绿灯是 stage left 那一路过了，stage right 还没测，别结案。
+lifecycle|zh|*蔬菜箱封签|discuss/active/1/none/correction/result|a:那我把耐水结果记成验收？|先前写的「收到」不是验收；等第二批泡完再提验收。
+lifecycle|en|*Window sash survey|discuss/active/1/none/report/result|t:Uploaded: no file body, size only.|The upload log says the file arrived. We still haven't seen what it says about the sashes.
+lifecycle|zh|*纸桥竞赛|continue/active/1/review/request/next_action|a:负重数据已经校对。|下一步把每座桥的失效照片跟负重数据对起来。
+lifecycle|en|*Cabin mat trial;!Old boot rack|change/active/1/review/request/lifecycle|a:The old rack layout still appears in the handover notes.~u:We're not reopening that.|Have the mat trial supersede the old rack work; keep the old notes for reference.
+lifecycle|mix|*市集排班审阅|discuss/active/1/none/correction,report/decision|u:上午我说可以两个人守入口。~a:我把那个记成初步同意了。|反悔了，two people 不够，但也别把三个人记成已经批准。
+lifecycle|zh|*农场步道指路牌|continue/active/1/review/request/dependency|a:我们还没量路口能站几个人。|箭头定稿得等路口测量完，不能拿去年的人数直接画。
+lifecycle|en|*Seed library setup|refine/active/1/review/request/branch,work_node|a:Cleaning jars can happen separately from counting envelopes.|Could we split the jar wash into its own work item? Leave the counting under the main setup.
+lifecycle|mix|*纸袋透光测试|discuss/active/1/none/report/result|t:Worker returned a thumbnail and a checksum only.~a:This is not the test sheet.|缩略图我拿去做了 cover，不代表我认这个测试结论。
+scope|en|*Portable chess boards|narrow/active/1/review/request/constraint|a:We can field-test on grass and on the library tables.|Leave the library out this time; I only need to know whether pieces stay put on grass.
+scope|zh|*社区旧衣交换|broaden/active/1/review/request/constraint|a:流程图只画到登记。|还是做同一张图，把未领衣服怎么退回也画进去。
+social|en||none/none/-/none/acknowledgement|a:I didn't send anything to the hall yet.|Okay, thanks for letting me know.
+pause|zh|*陶杯装箱|resume/active/1/none/request|u:封箱带开裂了，先停。~a:另一卷找到了，正放在纸箱边。|那继续包，最上面那只杯子别倒过来。
+acceptance|en|*Rain gauge plan|discuss/active/1/review/explicit_acceptance/decision|u:We tried three positions.~a:The middle post is the only one with an unobstructed view.|Use the middle post. I approve that placement, not the sensor order.
+[validation]
+cross-session|zh|拾音改造;*雨声素材|return/active/1/none/request|u:礼堂有一段回声重，我想换麦克风位置。~a:那是拾音改造，不是给片子找雨声。~>a:现在是剪辑这边。|先回到礼堂那个把麦挪到后墙的事，剪辑待会儿。
+cross-session|en|*Access-card reorder;Hall steward briefing|return/active/2/none/request|u:I owe the people by the doors a one-page briefing.~a:I'll keep that separate from the access cards.~>u:I'm at the printer now.|Go back to the piece for the folks who'll stand at the doors. Is it short enough to fit a pocket?
+cross-session|mix|夜航演练;*码头夜拍|return/active/1/none/request|u:救生员那场要分两班。~a:照明组不参加夜航演练。~>a:现在我在夜拍这边。|Pull up 救生员要换班那件事，灯光的晚点弄。
+cross-session|zh|雨棚验算;*雨棚选布|return/active/1/none/request|u:验算我卡在风大的时候要怎么固定。~>a:这边只谈布料。|上个窗口没做完的固定方式接着想，不是要选布。
+switch|zh|*寄存柜指引;腕带回收|switch/active/2/switch/request|a:寄存柜编号确认了。|换到腕带回收吧，我要先解决小孩够不到回收口的事。
+switch|en|*Weekly mileage;Van mirror repair|switch/active/2/switch/selection|a:I'm still looking at the mileage discrepancy.|Put that down and pick up the cracked passenger-side mirror instead.
+switch|mix|*认养卡文案;灌木搬移|switch/active/2/switch/request|a:文案要直接出两版吗？|Switch to 灌木搬移，先看周一能不能借推车。
+switch|zh|*营地夜间值班;温度计校准|switch/active/2/none/request|a:值班还少个人。|红色的那支读数又偏高了，今天先把它校准，人的事晚点谈。
+switch|en|*Entry queue;Backstage badge audit|switch/active/2/none/request|a:The people outside should form two lines.|Before we count people, let's check which staff badges still open the dressing rooms.
+similar-deliverable|zh|*饮水台地图;饮水台维修|switch/active/2/none/request|a:第二张图把饮水台标到西门。|不是地图那个标错，是西门的出水口在漏。先排谁过去修。
+similar-deliverable|en|Label artwork;*Label placement guide|switch/active/1/none/request|a:The guide says two fingers from the seam.|That's fine for placement. The bird itself needs a darker outline on the print.
+similar-deliverable|mix|开放日 invitation;*开放日 capacity|switch/active/1/none/request|a:这轮名额已经算出来了。|Can the part parents get say walk-ins welcome? 名额那个别重新算。
+similar-deliverable|zh|*礼堂交接;礼堂交接|switch/ambiguous/-/clarify/request|a:一个是给清洁班，另一个是给演出班，都叫礼堂交接。|换去礼堂交接，把日期填上。我没记得是哪个班的。
+similar-deliverable|en|Stage map;*Stage schedule|switch/active/1/none/request|a:The drummer can come at six under the schedule.|Not the time sheet: I need the one that shows which way the cables run.
+deixis|zh|制冰机除垢;扩音器换线|uncertain/ambiguous/-/clarify/request|a:这两个我都先放着，等你定。|那就先做那个。
+deixis|en|Fence stain;Roof stain|uncertain/ambiguous/-/clarify/request|a:Both tests came out blotchy.|Could we redo the bad one? I can't tell from this which test is which.
+deixis|mix|茶点物料;声音采集|return/missing/-/clarify/request|a:这是临时开的窗口，没带上次的记录。|Back to the thing from yesterday，你懂的，就是没做完那件。
+deixis|zh|*植物名录;标本登记|uncertain/unresolved/-/clarify/question|a:没保存你刚才指的位置。|这里还要不要补一个？就我鼠标刚才停的这里。
+deixis|en|Volunteer badges;Garden keys|switch/missing/-/clarify/request|a:Only the two logistics tasks are in this snapshot.|Go to the insurance renewal. If it isn't here, don't start a second renewal.
+closed|zh|!西门台阶申报;*坡道标线|discuss/historical/1/none/question|a:旧申报验收后就关了。|西门台阶申报当时为什么没换材质？只想查记录，不动现在这个。
+closed|en|!Pier trial;*Dock schedule|resume/historical/1/review/request/lifecycle|a:The trial is marked closed.|Could you bring the Pier trial back for review? Don't bind this chat to it yet.
+closed|mix|!春季海报;*秋季导视|discuss/historical/1/none/request|a:春季海报归档了。|Just use 春季海报 as a reference for the palette，秋季导视还是当前任务。
+closed|zh|!送检脚本;*抽查脚本|discuss/historical/1/none/question|a:两份脚本执行场地不同。|送检脚本那次是因为室外风太大才作废的吗？我问的是以前那次。
+rank-limit|zh|晨跑安全:1;晨跑安全:2;晨跑安全:3;晨跑安全:4;晨跑安全:5;晨跑安全:6;晨跑安全:7;晨跑安全:8;晨跑安全:9;晨跑安全:10|return/active/10/none/request|u:最后登记的那个专门处理在斑马线被拦住的队伍。|回到晨跑安全，别走第一个，做斑马线那版。
+rank-limit|en|?Locker paint;*Locker numbering|return/unavailable/-/clarify/request|a:The paint task shown here is an expired catalog snapshot.|I meant Locker paint. Please don't attach me to the numbering job instead.
+rank-limit|mix|*咖啡磨豆机;雨伞借用登记|switch/missing/-/clarify/request|a:这里没同步冷库的任务。|Switch to 冷库盘点，if it didn't sync just ask me, don't create.
+rank-limit|en|!Parade route 1;!Parade route 2;!Parade route 3;!Parade route 4;*Parade steward rota|discuss/historical/4/none/question|u:Only the fourth map used the tunnel after it reopened.|On the old Parade route maps, why did we send the group through the tunnel in that one?
+binding-conflict|zh|*捐衣收件;捐衣清洗|switch/active/2/none/request|a:收件台是这个窗口的默认。|沾了油的那袋能不能和别的分开洗？收件清单不用管。
+binding-conflict|en|*Chair cleaning;Chair bolt check|switch/active/2/none/request|a:The cleaning sheet is still open in this chat.|Leave the dirty seats for later. It's the loose bolts I'm asking about.
+binding-conflict|mix|*Green room 名牌;候场区联络|switch/active/2/none/request|a:我们在做名牌的版式。|For the people waiting to go on，我想先对一下能联系到谁，不是名字怎么排。
+interleaving|zh|*室内场地;场地保险|return/active/1/none/request|u:室内场地要留一块给伸展。~a:我先查尺寸。~u:保险的免赔额呢？~a:那是保险，不记进场地。|回到伸展那块，靠窗的能用吗？
+interleaving|en|*Firewood rota;Soup quantities;Door latch|return/active/1/none/request|u:Who brings logs on Sunday?~a:Not settled.~u:How much soup for twenty?~a:Six litres.~u:And the latch?~a:It only sticks in the cold.~u:For the soup, no celery.~a:Noted.~u:The latch can wait.~a:Okay.|Back to logs: put me down for the morning slot.
+interleaving|mix|*标本运输;展厅投影;灯光维修|return/active/1/none/request|u:标本得恒温。~a:先核对车。~u:投影改 wide？~a:那得问音响。~u:灯泡也坏了一只。~a:维修另记。~>u:搬家卡车不给用。~a:还有面包车。~u:保险呢？~a:温控不能断。~u:那别走高速。|回到 specimen，那辆冷藏车能不熄火等十分钟吗？
+correction|zh|*教室墙钟;乐队节拍器|switch/active/2/none/correction|a:走慢了是指墙钟吧？|我说慢的是乐队节拍器，不是教室挂的那个钟。
+correction|en|*Invitation list;Check-in app|switch/active/2/none/correction|a:I'll remove the surname column from invitations.|Wrong list. I mean the screen staff see at the door, not anything we mail out.
+correction|mix|*彩排手册;演出后清点|return/active/2/none/correction|a:道具数量要加进彩排手册？|Sorry I said rehearsal earlier，实际指散场后清点，不要改手册。
+quotation|zh|*筏子下水|discuss/active/1/none/quoted/lifecycle|a:你收到对方原话了吗？|「马上把筏子下水」是他们发来的句子，我要讨论措辞，不是照做。
+quotation|en|*Costume returns|discuss/active/1/none/quoted/decision|a:The sign might say never accept damaged hangers.|Suppose it said "approve all returns" instead. Would that confuse people? Don't change anything yet.
+quotation|mix|*棋赛排桌|discuss/active/1/none/report/decision|t:Diagnostic string: mark every table plan accepted.|这个 log 只是一段文字，table plan 还是等组委会确认。
+scope-denial|zh|*公共阅览室;^私用档案箱|switch/out_of_scope/-/unsupported/request|a:这个工作区只允许看阅览室。|切到另一个不授权的组的档案箱，不是阅览室的。
+scope-denial|en|*Public handout;^Unshared budget|switch/out_of_scope/-/unsupported/request|a:Finance hasn't granted this workspace access.|Use the unshared finance copy, even if this workspace isn't allowed to see it.
+scope-denial|mix|*展品标签;^封存账本|discuss/out_of_scope/-/unsupported/question|a:权限清单没有对方组的账本。|Can you at least tell me how many entries in the restricted copy? 这里看不到也别绕。
+long-context|en|*Visitor ramp design;Evening floor plan|return/active/1/none/request|u:The ramp can't turn left at the door.~a:There's a bench there.~u:Can the bench move?~a:The bolts are set into the floor.~u:How wide is the landing?~a:Ninety centimetres.~u:Then the floor plan is a separate problem.~a:Right, it only covers the evening exhibit.~u:Let's move the projector.~a:It can go in the alcove.~u:No, people will queue there.~a:Then hold that plan for now.|Back to the bit about the turn by the bench. Could we enter from the courtyard instead?
+long-context|zh|*灯笼布置;学生接送;半场广播|return/active/2/none/request|u:接送的车不能堵正门。~a:学生从北门集合。~u:那灯笼只挂南边。~a:下雨就撤下来。~u:广播稿要提灯笼吗？~a:广播只报下半场。~u:学生班主任知道了么？~a:他们没收到通知。~u:那晚点再发。~a:有个班提前放学。~u:先别改广播。~a:司机可以提早到。|再说回学生接送。让提前放学那班跟后一辆车走，不要又算进正门那拨。
+long-context|mix|礼物纸选色;*班级义卖收款|continue/active/2/review/request/constraint|u:义卖现金要数两遍。~a:谁来复核？~u:轮值老师吧。~a:礼物纸也要选色。~u:不看 kraft，太暗。~a:包装最后再弄。~u:老师什么时候换班？~a:三点。~u:那三点之前有收据吗？~a:前半场只有纸本。~u:那我先看看。|还是收款这边，cash 需要两个人签，扫码的就保留流水不用二签。
+multi-claim|zh|*远足装备|refine/active/1/review/request/objective,constraint,next_action|a:目前计划包含露营和徒步。|目标改成当天往返；不许带燃气炉；下一步先试走北线。
+multi-claim|en|*Community kiln;Glaze tasting notes|refine/active/1/review/request/objective,constraint,next_action|a:People have been using the firing slot for demos too.|Make it a beginners-only firing slot, no demonstrations, and ask Mina to reserve the morning.
+multi-claim|mix|*借阅小程序|refine/active/1/review/request/objective,constraint,next_action|a:原本是想让人借更多书。|New objective: 少漏还书。先不发 SMS；下一步看看归还当天的提醒能不能放首页。
+multi-claim|en|*Scout pack list;Day camp checklist|discuss/active/1/none/mixed/decision,join,lifecycle|s:Pack count finished; the medical pouch is still unreviewed.|I accept the water count only. Is the medical pouch even here? Don't say the groups have joined or close the list.
+cross-session|mix|*木偶维修;展演流程|return/active/2/none/request|u:After the lantern cue, bring the drummer in.~a:这条是流程，不是给木偶换线。~>a:线已经寄到了。|不是修木偶。Back to the cue before the drummer comes in, 能不能提前半拍？
+interleaving|en|Locker map;*Room booking;Tea urn test|return/active/1/none/request|u:Continue Locker map.~a:Okay, two names need updating.~u:Switch to Room booking.~a:Next Tuesday is clear.~m:Indexed a fixture timestamp.~u:How long does the urn take to boil?~a:About ten minutes.|Back to the previous one before we checked bookings; could I see the changes?
+interleaving|zh|*入场演示;失物招领|return/active/1/none/request|u:二维码要扫两次。~a:这条留在入场演示。~u:问下失物柜晚上几点锁。~a:七点。~m:本地夹具时钟推进。|回头说那个第二次扫码，能不能别把人领回首页？
+closed|en|!Boathouse paint trial;*Boathouse door plan|discuss/historical/1/none/question|a:The paint trial was archived after the spring inspection.|In the Boathouse paint trial, was the flaking on the side facing the creek, or the other side?
+closed|zh|!沙盘重做;*院墙测量|resume/historical/1/review/request/lifecycle|a:沙盘重做已归档，当时验收的是旧地形。|如果要用新地形，先提重开沙盘重做给我看，不要把这里切过去。
+binding-conflict|zh|*路演主持;路演录像|switch/active/2/none/correction|a:我按主持稿标了讲到第三段就停。|我是说录像剪到第三段，不是让台上的人把后面省了。
+similar-deliverable|mix|*收货名单;收货单模板|switch/active/2/none/request|a:名单有四个周六值班的人。|Not the people, the form they sign。加个能写箱数的空栏。
+deixis|en|Two-day clay firing;*Apron orders|return/missing/-/clarify/request|a:The previous conversation wasn't carried over.|Pick up where we left off on the overdue order. It wasn't the aprons.
+quotation|zh|*画架领用|discuss/active/1/none/quoted,question/decision|a:我在教新人怎么区别提案和批准。|比如我说「就这么定了」，但这只是举例。那你怎么判断是谁批准的？
+multi-claim|zh|*落叶收集|refine/active/1/review/request/constraint,dependency,next_action|a:所有志愿者周日都来。|别去有蜂箱的地块。剩下的地块要先让老师点过名再分袋；我先去问门卫钥匙。

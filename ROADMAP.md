@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.4: open synthetic qualification corpus, blinded annotation
+  rehearsal, and separate retrieval/identity/intent diagnostics. Production
+  automatic routing is NO-GO. See the [qualification decision](docs/qualification/phase-0.9.4-qualification-decision.md).
+
 - Phase 0.9.3: bounded layered understanding, read-only dsh Shadow and offline
   architecture comparison. Human review, independent qualification Holdout
   and real Provider evaluation remain blocked; no production automation.

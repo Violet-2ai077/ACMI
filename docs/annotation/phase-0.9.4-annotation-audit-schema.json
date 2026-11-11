@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["protocol", "submissionHashes", "identityVerified"],
+  "properties": {
+    "protocol": {"const": "acmi-094-blind-review-v1"},
+    "submissionHashes": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+    "packets": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+    "paired": {"type": "integer", "minimum": 0},
+    "disagreements": {"type": "array"},
+    "identityVerified": {"const": false},
+    "imports": {"type": "array", "minItems": 2, "maxItems": 2}
+  }
+}

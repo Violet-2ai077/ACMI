@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["protocol", "lane", "packetId", "reviewerId", "submittedAt", "attestation", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "protocol": {"const": "acmi-094-blind-review-v1"},
+    "lane": {"enum": ["A", "B"]},
+    "packetId": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reviewerId": {"type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{2,63}$"},
+    "submittedAt": {"type": "string", "format": "date-time"},
+    "attestation": {"const": "human_attested_identity_requires_custodian_verification"},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-f0-9]{24}$"},
+    "reason": {"type": "string", "minLength": 8, "maxLength": 4000},
+    "span": {
+      "type": "object",
+      "required": ["turn", "actor", "start", "end", "quote"],
+      "properties": {
+        "turn": {"$ref": "#/$defs/id"}, "actor": {"enum": ["user", "assistant", "tool", "subagent", "host"]},
+        "start": {"type": "integer", "minimum": 0}, "end": {"type": "integer", "minimum": 1},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    },
+    "fact": {"type": "object", "required": ["turn", "fact"], "additionalProperties": false,
+      "properties": {"turn": {"$ref": "#/$defs/id"}, "fact": {"type": "string"}}},
+    "record": {
+      "type": "object",
+      "required": ["case", "intent", "identity", "taskId", "targetAbsent", "operation", "reason", "acts", "claims"],
+      "additionalProperties": false,
+      "properties": {
+        "case": {"$ref": "#/$defs/id"},
+        "intent": {"enum": ["continue", "return", "switch", "new", "refine", "change", "narrow", "broaden", "discuss", "pause", "wait", "resume", "close", "none", "uncertain"]},
+        "identity": {"enum": ["active", "historical", "ambiguous", "missing", "unavailable", "out_of_scope", "none", "new", "unresolved"]},
+        "taskId": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]},
+        "targetAbsent": {"enum": ["yes", "no", "unknown", "not_applicable"]},
+        "operation": {"enum": ["none", "clarify", "review", "create", "switch", "bind", "apply", "unsupported"]},
+        "reason": {"$ref": "#/$defs/reason"},
+        "acts": {"type": "array", "maxItems": 32, "items": {"allOf": [{"$ref": "#/$defs/span"},
+          {"required": ["act"], "properties": {"act": {"enum": ["question", "report", "suggestion", "rejection", "selection", "explicit_acceptance", "conditional_acceptance", "partial_acceptance", "correction", "authorization", "acknowledgement", "social", "quoted", "mixed", "request"]}}}]}},
+        "claims": {"type": "array", "maxItems": 24, "items": {
+          "type": "object", "required": ["kind", "support", "mode", "taskId", "reason", "evidence"],
+          "properties": {
+            "kind": {"enum": ["objective", "work_node", "decision", "constraint", "result", "dependency", "branch", "join", "next_action", "lifecycle"]},
+            "support": {"enum": ["supported", "contradicted", "insufficient", "context_only"]},
+            "mode": {"enum": ["explicit", "inferred"]},
+            "taskId": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]},
+            "reason": {"$ref": "#/$defs/reason"},
+            "evidence": {"type": "array", "maxItems": 8, "items": {"oneOf": [{"$ref": "#/$defs/span"}, {"$ref": "#/$defs/fact"}]}}
+          }
+        }}
+      }
+    }
+  }
+}

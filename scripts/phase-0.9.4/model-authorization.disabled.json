@@ -1,0 +1,20 @@
+{
+  "status": "BLOCKED: explicit authorization required",
+  "enabled": false,
+  "realProviderRequests": 0,
+  "provider": null,
+  "modelVersion": null,
+  "route": null,
+  "dataLocation": null,
+  "dataScope": "synthetic-only, requires approval",
+  "privacyAndRetentionApproval": null,
+  "inputOutputStorage": null,
+  "tokenBudget": null,
+  "costCap": null,
+  "concurrency": null,
+  "timeoutAndRetry": null,
+  "promptPolicyAndSchemaHashes": null,
+  "redactionPolicy": null,
+  "stopConditionsApproval": null,
+  "userApprovalRecord": null
+}

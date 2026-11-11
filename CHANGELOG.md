@@ -3,7 +3,13 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.3
+## Unreleased - Phase 0.9.4
+
+- Add a new open synthetic corpus, local A/B reviewer and adjudication workflow,
+  and offline identity/retrieval/intent diagnostics. No production behavior
+  change; independent blind qualification, human review and real models remain blocked.
+
+## Phase 0.9.3 local milestone
 
 - Add a bounded, revisioned Understanding Context, scoped identity resolution,
   historical hints, and evidence-grounded review drafts.
