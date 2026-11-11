@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.11: scoped assignment refs and independent answer validation
+  preserved the native answer and tool paths. The frozen semantic gate did
+  not pass. See the [Phase 0.9.11 report](docs/experiments/phase-0.9.11-assignment-pilot-report.md).
+
 - Phase 0.9.10: same-completion answer and attribution fields were observed
   with the pinned local model. No envelope passed the native delivery gate;
   paired evaluation stayed gated and the tested configuration is NO-GO.
