@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.12: paired role-aware attribution improved independent intent
+  and secondary-task observability but missed the primary identity gate.
+  See the [Phase 0.9.12 report](docs/experiments/phase-0.9.12-role-paired-report.md).
+
 - Phase 0.9.11: scoped assignment refs and independent answer validation
   preserved the native answer and tool paths. The frozen semantic gate did
   not pass. See the [Phase 0.9.11 report](docs/experiments/phase-0.9.11-assignment-pilot-report.md).
