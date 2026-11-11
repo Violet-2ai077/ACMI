@@ -11,6 +11,11 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.10: same-completion answer and attribution fields were observed
+  with the pinned local model. No envelope passed the native delivery gate;
+  paired evaluation stayed gated and the tested configuration is NO-GO.
+  See the [Phase 0.9.10 report](docs/experiments/phase-0.9.10-final-report.md).
+
 - Phase 0.9.9: real local model through the stock isolated dsh Agent Loop.
   Native read-only integration passed; the cross-session semantic gate failed.
   See the [Phase 0.9.9 report](docs/experiments/phase-0.9.9-final-report.md).

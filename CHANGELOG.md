@@ -3,7 +3,13 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.9
+## Unreleased - Phase 0.9.10
+
+- Run the frozen same-completion attribution Pilot with the pinned local
+  Qwen3-14B and stock isolated dsh. Raw envelopes were emitted; none passed
+  Host validation. Paired evaluation was not started. No production wiring.
+
+## Phase 0.9.9 local milestone
 
 - Verify default-off, read-only identity advice through a stock isolated dsh
   Agent Loop and a real local model. Native integration passed; cross-session
