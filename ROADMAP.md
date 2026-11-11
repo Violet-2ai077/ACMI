@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.9: real local model through the stock isolated dsh Agent Loop.
+  Native read-only integration passed; the cross-session semantic gate failed.
+  See the [Phase 0.9.9 report](docs/experiments/phase-0.9.9-final-report.md).
+
 - Phase 0.9.8: first real on-device evaluation. The tested configuration
   did not qualify; see the [Phase 0.9.8 report](docs/experiments/phase-0.9.8-final-report.md).
 

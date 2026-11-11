@@ -3,7 +3,13 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.8
+## Unreleased - Phase 0.9.9
+
+- Verify default-off, read-only identity advice through a stock isolated dsh
+  Agent Loop and a real local model. Native integration passed; cross-session
+  semantic coverage did not qualify. No production automatic routing.
+
+## Phase 0.9.8 local milestone
 
 - Run the frozen identity benchmark once with a pinned local Qwen3 model.
   The evaluated configuration did not meet the response contract or beat the
