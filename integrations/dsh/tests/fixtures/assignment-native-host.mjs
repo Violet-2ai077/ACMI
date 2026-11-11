@@ -121,7 +121,9 @@ export async function assignmentHost(acmi, splitAssignment, CausalAttribution, r
   }, { global: true })
 
   async function run(entry, catalog) {
-    const id = SessionId(entry.variant === 'base' ? entry.story : entry.id.replace(':', '-'))
+    const key = entry.variant === 'base' ? entry.story : entry.id.replaceAll(':', '-')
+    assert(/^[a-z][a-z0-9-]{0,63}$/iu.test(key), 'Invalid synthetic session ID')
+    const id = SessionId(key)
     if (!sessions.has(id)) sessions.set(id, await harness.create(id, { provider, model }, { cwd: work }))
     const agent = sessions.get(id)
     const route = { entry, catalog, agent, steps: [], user: null, error: null, arrivals: [], adapterCalls: 0, gate: new EventEmitter() }
