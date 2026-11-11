@@ -20,7 +20,7 @@ const snapshot = async root => {
   return Promise.all(files.map(async f => [f, hash(await readFile(f))]))
 }
 
-export async function assignmentHost(acmi, splitAssignment, CausalAttribution, root, infer, model, { buildPacket = wire } = {}) {
+export async function assignmentHost(acmi, splitAssignment, CausalAttribution, root, infer, model, { buildPacket = wire, gateOperations } = {}) {
   const [work, journal, graph, home, agents] = ['workspace', 'journal', 'graph', 'home', 'agents'].map(p => join(root, p))
   for (const dir of [work, journal, graph, home, agents]) await mkdir(dir)
   const keys = ['DSH_HOME', 'DSH_AGENTS_HOME']
@@ -49,7 +49,8 @@ export async function assignmentHost(acmi, splitAssignment, CausalAttribution, r
         if (n) assert(toolResults.length === route.steps[0].actions.length, 'Native tool result context mismatch')
         const toolAvailable = entry.toolAvailable && !n
         if (toolAvailable) assert(options.tools?.some(x => x.name === 'lookup'), 'Native tool not admitted')
-        const packet = buildPacket(entry, toolResults)
+        const source = { sessionId: options.sessionId, nativeUserId: user.id, sourceUserSeq: logged.seq }
+        const packet = buildPacket(entry, toolResults, source)
         const packetText = JSON.stringify(packet)
         assert(!packetText.includes(catalog.workspace) && Object.values(catalog.links).every(l =>
           !packetText.includes(l.taskId) && (!l.workId || !packetText.includes(l.workId))), 'Host UUID in model packet')
@@ -60,7 +61,11 @@ export async function assignmentHost(acmi, splitAssignment, CausalAttribution, r
         route.steps.push(step)
         try { step.decoded = splitAssignment(received.raw, received.stop, { links: catalog.links, toolAvailable, arm: entry.arm }) }
         catch (e) { step.withheld = e.message; throw new Error('ASSIGNMENT_FRAME_WITHHELD') }
-        step.actions = step.decoded.operations.map(a => ({ ...a, callId: ticketId('call') }))
+        const all = step.decoded.operations
+        const admitted = gateOperations ? gateOperations(all, { ...source, entry, catalog, generation }) : all
+        assert(Array.isArray(admitted) && new Set(admitted).size === admitted.length
+          && admitted.every(action => all.includes(action)), 'Invalid operation gate')
+        step.actions = admitted.map(a => ({ ...a, callId: ticketId('call') }))
         yield { type: 'block-start', index: 0, blockType: 'text' }
         yield { type: 'text-delta', index: 0, text: step.decoded.answer }
         yield { type: 'block-end', index: 0, block: { type: 'text', text: step.decoded.answer } }
