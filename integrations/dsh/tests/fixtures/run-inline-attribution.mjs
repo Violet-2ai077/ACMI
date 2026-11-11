@@ -60,7 +60,7 @@ try {
   for (const entry of input.filter(e => e.split === 'main' && e.variant === 'base')) {
     for (const arm of entry.arms) {
       if (arm === 'C') {
-        const answer = await host.run(entry, 'A', 'control')
+        const answer = await host.run(entry, 'A', 'control', true)
         append({ ...answer, arm: 'C', stage: 'answer' })
         if (answer.native.end !== 'completed') throw new Error('CONTROL_NATIVE_TURN')
         const attribution = await host.control(entry, answer)
