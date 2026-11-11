@@ -1,0 +1,17 @@
+{
+  "status": "BLOCKED: explicit authorization required",
+  "enabled": false,
+  "actualRuns": 0,
+  "dataScope": "the frozen 28 synthetic stories only; requires explicit approval",
+  "provider": null,
+  "modelVersion": null,
+  "apiRoute": null,
+  "dataRegion": null,
+  "retentionTrainingAndStorage": null,
+  "requestAndTokenHardCaps": null,
+  "costHardCapAndCurrency": null,
+  "concurrencyTimeoutAndRetries": null,
+  "redactionPolicy": null,
+  "approvedFrozenDigests": null,
+  "approvalRecord": null
+}

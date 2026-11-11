@@ -3,7 +3,12 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.6
+## Unreleased - Phase 0.9.7
+
+- Freeze matched identity evaluation inputs, local rule baseline, bounded
+  response validation and offline replay. Real model runs remain disabled.
+
+## Phase 0.9.6 local milestone
 
 - Add an offline paired experiment separating authorized antecedent evidence
   from deterministic resolver behavior. No production-path changes.

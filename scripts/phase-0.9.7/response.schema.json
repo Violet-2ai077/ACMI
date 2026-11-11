@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision", "handle", "evidence"],
+  "properties": {
+    "decision": {"enum": ["suggest_active", "reference_history", "clarify", "no_suggestion"]},
+    "handle": {"type": ["string", "null"], "maxLength": 16},
+    "evidence": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "start", "end", "quote"],
+        "properties": {
+          "ref": {"enum": ["current", "antecedent"]},
+          "start": {"type": "integer", "minimum": 0},
+          "end": {"type": "integer", "minimum": 1},
+          "quote": {"type": "string", "minLength": 1, "maxLength": 160}
+        }
+      }
+    }
+  }
+}

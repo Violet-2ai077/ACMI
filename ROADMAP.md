@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.7: matched rule/model evaluation contract and offline response
+  replay. No real model calls or production qualification; see the
+  [Phase 0.9.7 report](docs/experiments/phase-0.9.7-final-report.md).
+
 - Phase 0.9.6: compare the effect of one authorized preceding user turn at
   fixed candidates and compare resolvers at fixed evidence. Offline only;
   see the [Phase 0.9.6 report](docs/experiments/phase-0.9.6-final-report.md).
