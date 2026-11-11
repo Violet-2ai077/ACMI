@@ -11,6 +11,10 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.14: request-scoped work anchors improved explicit continuation
+  without authorizing tool execution. The model identity gate still did
+  not pass. See the [Phase 0.9.14 report](docs/experiments/phase-0.9.14-work-anchor-report.md).
+
 - Phase 0.9.13: verified literal mention evidence and omission of binding
   did not improve same-generation user attribution in the frozen triples.
   See the [Phase 0.9.13 report](docs/experiments/phase-0.9.13-evidence-triples-report.md).
