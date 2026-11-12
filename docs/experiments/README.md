@@ -43,6 +43,11 @@ Each row describes what was actually tested and what was not established.
 - Earlier offline work is documented in the tracked scripts, fixtures, and
   phase-specific reports. The replay archive does not import private holdouts,
   original session journals, installed profiles, weights, or runtime binaries.
+- The [first main-branch CI run](https://github.com/Violet-2ai077/ACMI/actions/runs/43249177088)
+  exposed a fixture assumption: POSIX dsh keeps an empty `session.lock`
+  beside the journal, while Windows uses a semaphore. The follow-up fixes
+  journal selection in the test fixtures only; it does not edit prior scores
+  or change runtime storage behavior.
 
 ## Current decision / 当前判断
 

@@ -8,6 +8,7 @@ import { mountAgentLoopTestDependencies, mountAgentLoopTestHarness } from '@deep
 import { createUserMessage, LlmAdapter } from '@deepseek-ai/dsh-llm'
 import { appendPluginRecord, pluginRecordOf, SessionId } from '@deepseek-ai/dsh-session'
 import * as Jsonl from '@deepseek-ai/dsh-session-persistence-jsonl'
+import { selectPlaintextJournal } from './plaintext-journal.mjs'
 
 const digest = s => createHash('sha256').update(s).digest('hex')
 const provider = 'acmi-dsh-identity-loopback'
@@ -91,7 +92,7 @@ export async function createNativeIdentityHost(acmi, base, transport, { runtimeM
   async function files(dir, sessionId) {
     const names = (await readdir(dir, { recursive: true, withFileTypes: true })).filter(e => e.isFile())
       .map(e => relative(dir, join(e.parentPath, e.name))).filter(n => !sessionId || n.split(sep).includes(sessionId)).sort()
-    return Promise.all(names.map(async n => digest(await readFile(join(dir, n)))))
+    return Promise.all(names.map(async n => [n, digest(await readFile(join(dir, n)))]))
   }
   const bindings = session => session.snapshotEvents().map(pluginRecordOf).filter(e => e?.type === 'plugin:acmi-probe/task-binding')
   async function runCase(story, mode, overrides = {}) {
@@ -110,7 +111,8 @@ export async function createNativeIdentityHost(acmi, base, transport, { runtimeM
     const bridge = await acmi.registerDshIdentityAdvice(ctx, { ...baseOptions, session: agent.session,
       readCatalog: catalog, permitsTask: (_, id) => state.taskIds.includes(id),
       prior: mode === 'off' ? undefined : state.prior, permitsPrior: () => !story.denied, ...overrides })
-    const capture = async () => ({ graph: await files(graphRoot), historical: await files(journalRoot, state.prior.session.id),
+    const capture = async () => ({ graph: (await files(graphRoot)).map(([, sha]) => sha),
+      historical: (await files(journalRoot, state.prior.session.id)).map(([, sha]) => sha),
       bindings: digest(JSON.stringify(bindings(agent.session))),
       proposals: state.taskIds.map(id => store.listUnderstanding(scope, id).length) })
     const before = await capture()
@@ -128,7 +130,7 @@ export async function createNativeIdentityHost(acmi, base, transport, { runtimeM
       const native = events.filter(e => e.type === 'assistant/message')
       const end = events.findLast(e => e.type === 'turn/end')
       const user = events.filter(e => e.type === 'user/message' && e.data.source.kind === 'user')
-      const journal = await files(journalRoot, agent.session.id)
+      const [, journalDigest] = selectPlaintextJournal(await files(journalRoot, agent.session.id))
       const after = await capture()
       assert.equal(user.length, 1)
       assert.equal(events.filter(e => e.type === 'user/message').length, 1, 'identity sidecar leaked into Journal user context')
@@ -136,13 +138,12 @@ export async function createNativeIdentityHost(acmi, base, transport, { runtimeM
       assert.equal(end?.data.reason.kind, route.finish === 'max-tokens' ? 'max-tokens' : 'completed')
       assert.equal(native[0].data.message.content.filter(b => b.type === 'text').map(b => b.text).join('\n'), route.reply)
       assert.equal(events.filter(e => e.type === 'tool/call' || e.type === 'tool/result').length, 0)
-      assert.equal(journal.length, 1)
       assert(state.taskIds.every(id => !JSON.stringify(route.request.model).includes(id)), 'private task ID in model view')
       assert.deepEqual(after, before, 'read-only advice changed Graph, historical Journal, Binding or proposal inventory')
       return { status: review.status, review, calls: route.calls, priorVisible: route.request.model.prior !== null,
         focusDigest: digest(story.focus), candidateDigest: digest(JSON.stringify([route.request.model.candidates, route.request.model.binding])),
         requestDigest: route.request.requestDigest, reply: route.reply,
-        native: { userSeq: user[0].seq, assistantSeq: native[0].seq, endSeq: end.seq, endKind: end.data.reason.kind, journalDigest: journal[0] },
+        native: { userSeq: user[0].seq, assistantSeq: native[0].seq, endSeq: end.seq, endKind: end.data.reason.kind, journalDigest },
         unchanged: { graph: digest(JSON.stringify(before.graph)), historical: digest(JSON.stringify(before.historical)),
           binding: before.bindings, proposals: before.proposals }, taskIds: state.taskIds }
     } finally { bridge.dispose(); routes.delete(agent.session.id) }

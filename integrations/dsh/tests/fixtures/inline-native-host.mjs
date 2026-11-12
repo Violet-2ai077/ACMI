@@ -9,6 +9,7 @@ import { SessionId } from '@deepseek-ai/dsh-session'
 import * as Jsonl from '@deepseek-ai/dsh-session-persistence-jsonl'
 import { defineContentToolFixture } from '@deepseek-ai/dsh-tool-testkit'
 import { packet } from '../../../../scripts/phase-0.9.10/wire.mjs'
+import { selectPlaintextJournal } from './plaintext-journal.mjs'
 
 const digest = s => createHash('sha256').update(s).digest('hex')
 const token = p => p + '_' + randomBytes(8).toString('hex')
@@ -162,20 +163,21 @@ export async function createInlineNativeHost(acmi, protocol, base, infer, { mode
       }
       const after = await files(journal)
       const owned = after.filter(([path]) => path.split(/[\\/]/u).includes(id))
-      const journalText = (await Promise.all(owned.map(([p]) => readFile(join(journal, p), 'utf8')))).join('\n')
+      const [journalPath, journalDigest] = selectPlaintextJournal(owned)
+      const journalText = await readFile(join(journal, journalPath), 'utf8')
       const leak = armSidecarPattern.test(JSON.stringify(events.filter(e => e.type !== 'user/message')))
         || armSidecarPattern.test(journalText.replaceAll('using handle h_deadbeef', 'synthetic user reference'))
       const unchanged = { graph: JSON.stringify(graphBefore) === JSON.stringify(await files(graph)),
         otherJournals: JSON.stringify(before) === JSON.stringify(after.filter(([path]) => !path.split(/[\\/]/u).includes(id))),
         binding: !events.some(e => e.type.startsWith('plugin:acmi') || JSON.stringify(e.data).includes('plugin:acmi-probe/task-binding')) }
-      assert(owned.length === 1 && !leak && Object.values(unchanged).every(Boolean), 'Native journal or authority fence')
+      assert(!leak && Object.values(unchanged).every(Boolean), 'Native journal or authority fence')
       assert(output.length === route.steps.filter(s => !s.error).length, 'Unexpected native assistant count')
       for (const [i, e] of native.assistant.entries()) {
         const s = route.steps.filter(s => !s.error)[i]
         assert.deepEqual([e.text, e.usage, e.calls], [s.answer, s.usage, s.actions.map(a => a.callId)])
       }
       return { id: entry.id, group, arm, calls: route.calls, steps: route.steps, native, unchanged,
-        journalDigest: owned[0][1], metadataLeak: leak, error: route.error, latencyMs: Math.round(performance.now() - started) }
+        journalDigest, metadataLeak: leak, error: route.error, latencyMs: Math.round(performance.now() - started) }
     } finally { routes.delete(id) }
   }
   async function control(entry, record, signal) {

@@ -10,6 +10,7 @@ import { SessionId } from '@deepseek-ai/dsh-session'
 import * as Jsonl from '@deepseek-ai/dsh-session-persistence-jsonl'
 import { defineContentToolFixture } from '@deepseek-ai/dsh-tool-testkit'
 import { hash, wire } from '../../../../scripts/phase-0.9.11/design.mjs'
+import { selectPlaintextJournal } from './plaintext-journal.mjs'
 
 const provider = 'acmi-phase0911-loopback'
 const ticketId = p => p + '_' + randomBytes(8).toString('hex')
@@ -154,8 +155,8 @@ export async function assignmentHost(acmi, splitAssignment, CausalAttribution, r
           inherited: origins.result({ workspace: catalog.workspace, session: id, callId: e.data.message.toolCallId }) })),
       }
       const after = await snapshot(journal), owned = after.filter(owns)
-      assert.equal(owned.length, 1, 'Isolated journal missing')
-      const state = await readFile(owned[0][0], 'utf8')
+      const [journalPath, journalDigest] = selectPlaintextJournal(owned)
+      const state = await readFile(journalPath, 'utf8')
       const leaked = /\bq-[0-9a-f]{5}\b|"assignment_ref"|"generation_ref"|"user_turn"|"replayState"/iu.test(state)
         || route.steps.some(s => state.includes(s.generation))
         || Object.values(catalog.links).some(x => state.includes(x.taskId) || (x.workId && state.includes(x.workId)))
@@ -166,7 +167,7 @@ export async function assignmentHost(acmi, splitAssignment, CausalAttribution, r
       assert.deepEqual(native.assistant.map(x => [x.text, x.usage, x.ids]),
         eligible.map(s => [s.decoded.answer, s.usage, s.actions.map(a => a.callId)]), 'Unexpected native assistant projection')
       return { id: entry.id, native, steps: route.steps, arrivals: route.arrivals, adapterCalls: route.adapterCalls,
-        error: route.error, leaked, unchanged, journalDigest: owned[0][1], latencyMs: Math.round(performance.now() - started) }
+        error: route.error, leaked, unchanged, journalDigest, latencyMs: Math.round(performance.now() - started) }
     } finally { routes.delete(id) }
   }
   return { run, async close() { try { off(); await ctx.fiber.dispose() } finally { restore() } } }
