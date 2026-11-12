@@ -510,17 +510,21 @@ test('Phase 0.9 only analyzes selected durable deltas and requires explicit Host
   const h = await boot(t)
   const store = h.open(undefined, true)
   let supervisor
+  let ingestion
   try {
     const agent = await h.fresh('09-intent')
     const denied = await h.fresh('09-unrelated')
     seed(store, h, agent.session, taskA)
     const identity = acmi.dshRuntimeIdentity(agent.session.header, h.workspaceId)
-    // Stage a complete native turn so the proposal and its review use the same durable cut.
+    // Reconcile before starting analysis; a flushed Journal alone does not fix the Graph revision.
     await Promise.all([h.send(agent, 'PHASE-09-SYNTHETIC-INTENT'), h.send(denied, 'UNRELATED-FIXTURE')])
-    expect(await h.ctx.sessions.flush(agent.session)).toBe(true)
+    ingestion = await acmi.registerDshRuntimeIngestion(h.ctx, h.options(store))
+    ingestion.attach(agent.session, { taskId: taskA, nodeId: 'main' })
+    expect(await ingestion.reconcile(agent.session, AbortSignal.timeout(12000))).toBe(agent.session.seq)
+    ingestion.dispose()
     supervisor = await acmi.startDshIngestionSupervisor(h.ctx, { ...h.options(store),
       authorize: s => s === agent.session ? { assignment: { taskId: taskA, nodeId: 'main' } } : null,
-      pollMs: 20, batchRows: 128, batchMs: 250, understanding: {
+      pollMs: 20, understanding: {
         targets: [{ taskId: taskA, currentTaskId: taskA, candidates: [{ taskId: taskA, alias: 'a' }] }],
         excerpt: id => agent.session.snapshotEvents().some(e => e.type === 'user/message' && e.data.source.kind === 'user'
           && runtimeFactId(identity, e.seq, checksum) === id) ? 'split into: audit; verify' : undefined,
@@ -542,8 +546,8 @@ test('Phase 0.9 only analyzes selected durable deltas and requires explicit Host
     expect(state(store, h).snapshot.nodes.map(n => n.title)).toEqual(['main', 'audit', 'verify'])
     expect(agent.session.seq).toBe(seq)
     expect(agent.session.snapshotEvents().some(e => e.type === 'plugin:acmi-probe/task-binding')).toBe(false)
-  } finally { await supervisor?.stop(1000); store.close() }
-}, 16000)
+  } finally { ingestion?.dispose(); await supervisor?.stop(1000); store.close() }
+}, 22000)
 
 test('Phase 0.9.1 stock dsh shadow uses bounded authorized native deltas without graph or Journal writes', async t => {
   const h = await boot(t)
@@ -727,8 +731,14 @@ test('shutdown seals the cut, reports uncommitted work and permits safe restart 
   try {
     const agent = await h.fresh('082-full')
     const ref = acmi.dshRuntimeIdentity(agent.session.header, h.workspaceId)
-    const start = () => acmi.startDshIngestionSupervisor(h.ctx, { ...h.options(store), authorize: s => s === agent.session ? {} : null,
-      pollMs: 20, queueLimit: 16, batchRows: 3 })
+    const start = (recovering = false) => acmi.startDshIngestionSupervisor(h.ctx, {
+      ...h.options(store), authorize: s => s === agent.session ? {} : null, pollMs: 20, queueLimit: 16,
+      ...(recovering ? { batchRows: 32, batchMs: 250, attemptMs: 15000 } : { batchRows: 3 }),
+    })
+    const caughtUp = timeout => vi.waitFor(() => {
+      const status = supervisor.status(agent.session)
+      expect(store.cursor(h.scope, ref).next, JSON.stringify(status)).toBe(agent.session.seq)
+    }, { timeout })
     supervisor = await start()
     for (let i = 0; i < 150; i++) appendPluginRecord(agent.session, 'plugin:acmi-probe/full', { i })
     await vi.waitFor(() => expect(supervisor.status(agent.session)).toMatchObject({ phase: 'degraded', error: 'limit' }), { timeout: 5000 })
@@ -739,8 +749,8 @@ test('shutdown seals the cut, reports uncommitted work and permits safe restart 
     store.close()
     store = h.open()
     expect(store.cursor(h.scope, ref).next).toBe(before)
-    supervisor = await start()
-    await vi.waitFor(() => expect(store.cursor(h.scope, ref).next).toBe(agent.session.seq), { timeout: 30000 })
+    supervisor = await start(true)
+    await caughtUp(30000)
     const saved = store.cursor(h.scope, ref).next
     for (let i = 0; i < 12; i++) appendPluginRecord(agent.session, 'plugin:acmi-probe/shutdown', {})
     const sealed = agent.session.seq
@@ -751,11 +761,12 @@ test('shutdown seals the cut, reports uncommitted work and permits safe restart 
     expect(store.cursor(h.scope, ref).next).toBeLessThan(sealed)
     const stopped = supervisor.metrics()
     expect(stopped.phase).toBe('stopped')
-    supervisor = await start()
-    await vi.waitFor(() => expect(store.cursor(h.scope, ref).next).toBe(agent.session.seq), { timeout: 10000 })
+    expect(await h.ctx.sessions.flush(agent.session)).toBe(true)
+    supervisor = await start(true)
+    await caughtUp(15000)
     console.log('ACMI082_FULL ' + JSON.stringify({ lastBeforeFull: before, restoredHead: agent.session.seq, shutdownDeadline: true }))
   } finally { await supervisor?.stop(1000); store.close() }
-}, 55000)
+}, 60000)
 
 test('max-wait forces a native drain during continuous notifications and leaves room for a quiet Session', async t => {
   const h = await boot(t)

@@ -53,6 +53,11 @@ Each row describes what was actually tested and what was not established.
   fixtures. Follow-up checks wait for the durable state, keep the debounce
   test ahead of its first fallback poll, and stage one complete turn before
   reviewing its proposal. These are fixture changes, not model reruns.
+- A [Windows retry](https://github.com/Violet-2ai077/ACMI/actions/runs/43251415026/attempts/2)
+  still exposed two failures. The proposal fixture now completes Graph
+  reconciliation before analysis, not just the Journal flush. The shutdown
+  fixture flushes after checking the seal and replays with a larger, still
+  bounded recovery batch. The seal and authorization assertions remain in place.
 
 ## Current decision / 当前判断
 
