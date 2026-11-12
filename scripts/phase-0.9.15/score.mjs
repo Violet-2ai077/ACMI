@@ -74,7 +74,8 @@ function reconcile(inputs, ledger, raw, receipts, run) {
   return { a, c, attempts, completions, bodies, reserved }
 }
 
-export function score({ inputs, truth, catalog, launches, packets, anchors, native, ledger, raw, run, runtime }) {
+export function score({ inputs, truth, catalog, launches, packets, anchors, native, ledger, raw, run, runtime },
+  { recompose = packetFor, readRaw = readProposals, expectedExposed = 6 } = {}) {
   const byId = index(inputs), gold = index(truth), cuts = index(catalog), fixtures = index(launches), wire = index(packets)
   const receipts = index(anchors)
   index(native)
@@ -85,7 +86,7 @@ export function score({ inputs, truth, catalog, launches, packets, anchors, nati
     assert(item && expected && h && cut && f && r.steps.length <= 1)
     const s = r.steps[0], user = r.native.user
     assert.deepEqual(h.request, f.request)
-    const planned = packetFor(item, h.source)
+    const planned = recompose(item, h.source)
     const { id, ...packet } = wire.get(r.id)
     assert.equal(id, item.id)
     assert.deepEqual(planned.packet, packet)
@@ -101,7 +102,7 @@ export function score({ inputs, truth, catalog, launches, packets, anchors, nati
       assert.deepEqual(s.usage, body.usage)
       used.add(s.ticket)
     }
-    const proposals = readProposals(s?.raw ?? '', s?.stop, item.arm, { links: cut.links, anchorRef: h.modelAnchorRef },
+    const proposals = readRaw(s?.raw ?? '', s?.stop, item.arm, { links: cut.links, anchorRef: h.modelAnchorRef },
       readAssignmentFrame, safeAssignmentText)
     const d = s?.decoded, exact = compareRoles(proposals, d, expected)
     const identities = [rawIdentity(proposals.user), rawIdentity(proposals.assistant)]
@@ -154,25 +155,23 @@ export function score({ inputs, truth, catalog, launches, packets, anchors, nati
     && run.records === 24 && run.requested === 24 && a.length === 24 && c.length === 24 && used.size === 24 && raw.length === 24
     && anchors.length === 24 && runtime.generationStarts === 24 && !runtime.ownedListenerStillOpen && pairs.length === 12
     && pairs.every(x => x.sameContext && x.schemaDiffers && x.anchorEqual) && !leaks && !mutations && !operations
-    && Object.values(arms).every(x => x.anchorOK === 12 && x.exposed === 6 && x.completed === 12 && x.sameGeneration === 12)
+    && Object.values(arms).every(x => x.anchorOK === 12 && x.exposed === expectedExposed && x.completed === 12 && x.sameGeneration === 12)
   return { outcome: decide(hostOK, arms, run.stopped), provenance: run.provenance, stopped: run.stopped, hostOK, arms, pairs,
     leaks, mutations, operations, performance: { attempts: a.length, completions: c.length, reconciled: used.size, reserved,
       inputTokens: sum(c, x => x.usage.inputTokens), outputTokens: sum(c, x => x.usage.outputTokens),
       generationMs: quantiles(c.map(x => x.latencyMs)) }, details }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const [corpus, evaluation, out] = process.argv.slice(2)
-  assert(corpus && evaluation && out, 'Usage: node score.mjs <corpus> <evaluation> <new-result>')
+export function readEvaluation(corpus, evaluation, expected = pin) {
   const get = (dir, file) => readFileSync(join(dir, file), 'utf8')
   const run = JSON.parse(get(evaluation, 'run-summary.json'))
-  assert.deepEqual(run.frozen, pin)
+  assert.deepEqual(run.frozen, expected)
   const runtime = JSON.parse(get(evaluation, 'runtime-observation.json'))
   const data = {}
   for (const [key, name] of Object.entries({ inputs: 'model-inputs', truth: 'ground-truth', catalog: 'host-catalog',
     launches: 'trusted-launch-fixtures', packets: 'model-packets' })) {
     const bytes = get(corpus, name + '.jsonl')
-    assert.equal(hash(bytes), pin[key])
+    assert.equal(hash(bytes), expected[key])
     data[key] = bytes.trimEnd().split('\n').map(JSON.parse)
   }
   for (const [key, name] of Object.entries({ anchors: 'anchor-receipts', native: 'native-results',
@@ -180,5 +179,11 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     const file = name + '.jsonl'
     data[key] = existsSync(join(evaluation, file)) ? get(evaluation, file).trimEnd().split('\n').filter(Boolean).map(JSON.parse) : []
   }
-  writeFileSync(out, JSON.stringify(score({ ...data, run, runtime }), null, 2) + '\n', { flag: 'wx' })
+  return { ...data, run, runtime }
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const [corpus, evaluation, out] = process.argv.slice(2)
+  assert(corpus && evaluation && out, 'Usage: node score.mjs <corpus> <evaluation> <new-result>')
+  writeFileSync(out, JSON.stringify(score(readEvaluation(corpus, evaluation)), null, 2) + '\n', { flag: 'wx' })
 }

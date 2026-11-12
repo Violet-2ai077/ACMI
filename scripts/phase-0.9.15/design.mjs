@@ -69,7 +69,7 @@ const enumOf = (...values) => ({ type: 'string', enum: values })
 const object = properties => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false })
 export const catalogMarker = '\nCatalog data: '
 
-function proposalWire(entry, results, ref) {
+export function proposalWire(entry, results, ref) {
   assert(results === null && !entry.toolAvailable, 'TEXT_ONLY_PROPOSAL_CONTRACT')
   const p = anchorWire(entry, results, ref)
   if (entry.arm === 'A') return p
