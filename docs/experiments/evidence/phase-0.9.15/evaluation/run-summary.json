@@ -1,0 +1,41 @@
+{
+  "provenance": "actual_pinned_local_model_via_stock_dsh",
+  "model": "Qwen3-14B-Q4_K_M",
+  "dshVersion": "0.2.2-rc.1",
+  "frozen": {
+    "inputs": "3545d46ee3f06691b04eb14874cc97dc4aa06673e316b5a56a54dcd61632f875",
+    "truth": "6b0d5fe4985ff70ed74c83cf9949537ed61630f48f2aa2e4e50c6022d206a927",
+    "catalog": "bfa5d89e9cdf80709f57df896470aaf8b309724d9462673c825a9dd1cdefa278",
+    "launches": "fcd2e23cb8993f307cb23c5b66ed9906efcc9c714fdb6c8176f5cb72f8a012f6",
+    "packets": "9be8a0a025cea891fb407f237b50dde77fd43eda149d34283bf4d2d0f04f2c02"
+  },
+  "records": 24,
+  "requested": 24,
+  "stopped": null,
+  "runtimeStopped": true,
+  "backend": {
+    "attempts": 24,
+    "counts": {
+      "pilot": 24,
+      "main": 0,
+      "control": 0
+    },
+    "input": 10852,
+    "output": 1906,
+    "reserved": 18532,
+    "peakInput": 475,
+    "peakSampledGpuMiB": 10036,
+    "peakSampledGpuC": 39,
+    "externalProviderRequests": 0,
+    "externalApiCostCny": 0,
+    "port": 3827,
+    "verified": {
+      "launcher": "f9c45c8880180d6e6dd9f2e6077b5e4cabb8af6ae5e013d710712543cdc3cdc5",
+      "weights": "500a8806e85ee9c83f3ae08420295592451379b4f8cf2d0f41c15dffeb6b81f0",
+      "impl": "41cd7b6001f31f569d8b2891b15de460fc50279033f5f0ca60c22d2248b45168",
+      "vulkan": "30a2bcb9dafede36a1b608b514bb288f2d63440e5e09506ae529acd56f632e14",
+      "llama": "c9ee3e6cee5ce2ddb8e1eaed54df9ed79b0b48f97edadf93fe0ea8b08a48f128"
+    }
+  },
+  "wallMs": 233335
+}

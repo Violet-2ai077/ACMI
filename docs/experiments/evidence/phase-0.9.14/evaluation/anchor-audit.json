@@ -1,0 +1,67 @@
+{
+  "provenance": "offline_host_fixture_and_request_digest_replay",
+  "receipts": 24,
+  "requests": 24,
+  "pairs": [
+    {
+      "probe": "probe-01",
+      "onlyDifferenceIsAnchor": true,
+      "identical": false
+    },
+    {
+      "probe": "probe-02",
+      "onlyDifferenceIsAnchor": true,
+      "identical": false
+    },
+    {
+      "probe": "probe-03",
+      "onlyDifferenceIsAnchor": true,
+      "identical": false
+    },
+    {
+      "probe": "probe-04",
+      "onlyDifferenceIsAnchor": true,
+      "identical": false
+    },
+    {
+      "probe": "probe-05",
+      "onlyDifferenceIsAnchor": true,
+      "identical": false
+    },
+    {
+      "probe": "probe-06",
+      "onlyDifferenceIsAnchor": true,
+      "identical": false
+    },
+    {
+      "probe": "probe-07",
+      "onlyDifferenceIsAnchor": false,
+      "identical": true
+    },
+    {
+      "probe": "probe-08",
+      "onlyDifferenceIsAnchor": false,
+      "identical": true
+    },
+    {
+      "probe": "probe-09",
+      "onlyDifferenceIsAnchor": false,
+      "identical": true
+    },
+    {
+      "probe": "probe-10",
+      "onlyDifferenceIsAnchor": false,
+      "identical": true
+    },
+    {
+      "probe": "probe-11",
+      "onlyDifferenceIsAnchor": true,
+      "identical": false
+    },
+    {
+      "probe": "probe-12",
+      "onlyDifferenceIsAnchor": false,
+      "identical": true
+    }
+  ]
+}

@@ -3,7 +3,17 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
-## Unreleased - Phase 0.9.10
+## Unreleased - Experiment history through Phase 0.9.16
+
+- Preserve the [experiment record](docs/experiments/README.md), including
+  local-model evidence and deterministic replays. This is not a new release.
+- Phases 0.9.11-0.9.13: recover native text and tool propagation in isolation,
+  then test role-aware output and literal evidence. None qualified model routing.
+- Phases 0.9.14-0.9.16: verify request-scoped WorkAnchor and test relative
+  proposals and unresolved references. Explicit continuation improved, but the
+  model gates did not pass. No new default behavior.
+
+## Phase 0.9.10 experiment
 
 - Run the frozen same-completion attribution Pilot with the pinned local
   Qwen3-14B and stock isolated dsh. Raw envelopes were emitted; none passed

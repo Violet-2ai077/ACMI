@@ -1,0 +1,655 @@
+{
+  "protocol": "acmi-097-matched-identity-v1",
+  "promptVersion": "acmi-097-identity-prompt-v1",
+  "promptDigest": "3a7b0b4af348bdb0af347777bf87d51a648658aad635dbdb8c2234c5c9434e18",
+  "schemaDigest": "dcf007bc117bf8cbf6afe5bacabced184bc7b87bc55d27b91745486d2c8c5b8b",
+  "decision": "PASS_OFFLINE_EVAL_READINESS",
+  "stories": 28,
+  "conditions": 56,
+  "denominators": true,
+  "safe": true,
+  "providerRequests": 0,
+  "holdoutRuns": 0,
+  "runtimeWrites": 0,
+  "baseline": {
+    "provenance": "phase-0.9.6 deterministic contrast rules on same scoped packet",
+    "dev": {
+      "off": {
+        "n": 14,
+        "targetResolvable": 1,
+        "noIdentityExpected": 13,
+        "decisionExact": {
+          "n": 14,
+          "d": 14,
+          "rate": 1
+        },
+        "correctCoverage": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "coveredAccuracy": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "on": {
+        "n": 14,
+        "targetResolvable": 8,
+        "noIdentityExpected": 6,
+        "decisionExact": {
+          "n": 9,
+          "d": 14,
+          "rate": 0.6428571428571429
+        },
+        "correctCoverage": {
+          "n": 3,
+          "d": 8,
+          "rate": 0.375
+        },
+        "coveredAccuracy": {
+          "n": 3,
+          "d": 3,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "paired": {
+        "wins": 0,
+        "losses": 5,
+        "bothCorrect": 9,
+        "bothWrong": 0,
+        "expectedSwitch": 7,
+        "resolvedWithEvidence": 2,
+        "correctInBothConditions": 2
+      },
+      "byFamilyOn": {
+        "ambiguous": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "complex_negation": {
+          "n": 2,
+          "targetResolvable": 2,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "history": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "literal_control": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "negation_only": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "nonaction": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "override": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "paraphrase": {
+          "n": 3,
+          "targetResolvable": 3,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "source_denied": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "stale_source": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "unavailable": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        }
+      }
+    },
+    "validation": {
+      "off": {
+        "n": 14,
+        "targetResolvable": 1,
+        "noIdentityExpected": 13,
+        "decisionExact": {
+          "n": 11,
+          "d": 14,
+          "rate": 0.7857142857142857
+        },
+        "correctCoverage": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "coveredAccuracy": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "on": {
+        "n": 14,
+        "targetResolvable": 8,
+        "noIdentityExpected": 6,
+        "decisionExact": {
+          "n": 9,
+          "d": 14,
+          "rate": 0.6428571428571429
+        },
+        "correctCoverage": {
+          "n": 3,
+          "d": 8,
+          "rate": 0.375
+        },
+        "coveredAccuracy": {
+          "n": 3,
+          "d": 3,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "paired": {
+        "wins": 0,
+        "losses": 2,
+        "bothCorrect": 9,
+        "bothWrong": 3,
+        "expectedSwitch": 7,
+        "resolvedWithEvidence": 2,
+        "correctInBothConditions": 2
+      },
+      "byFamilyOn": {
+        "ambiguous": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "complex_negation": {
+          "n": 2,
+          "targetResolvable": 2,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "history": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "literal_control": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "negation_only": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "nonaction": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "override": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "paraphrase": {
+          "n": 3,
+          "targetResolvable": 3,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "source_denied": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "stale_source": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "unavailable": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        }
+      }
+    }
+  },
+  "fixtureRoundTrip": {
+    "provenance": "answer_aware_scripted_fixture_not_model_output",
+    "n": 56,
+    "passed": 56
+  },
+  "controls": {
+    "n": 12,
+    "passed": 12
+  },
+  "modelEvaluation": {
+    "status": "BLOCKED: explicit authorization required",
+    "actualRuns": 0,
+    "pairedResults": null
+  }
+}

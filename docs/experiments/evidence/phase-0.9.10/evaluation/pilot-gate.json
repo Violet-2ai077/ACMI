@@ -1,0 +1,199 @@
+{
+  "passed": false,
+  "completedRecords": 24,
+  "failures": [
+    {
+      "id": "pilot-01-1:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-01-2:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-01-3:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-01-4:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-02-1:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-02-2:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-02-3:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-02-4:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-03-1:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-03-2:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "WORK_TASK_MISMATCH"
+    },
+    {
+      "id": "pilot-03-3:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-03-4:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-04-1:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-04-2:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-04-3:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-04-4:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-05-1:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-05-2:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "WORK_TASK_MISMATCH"
+    },
+    {
+      "id": "pilot-05-3:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-05-4:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-06-1:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-06-2:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "UNKNOWN_TASK_HANDLE"
+    },
+    {
+      "id": "pilot-06-3:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN"
+      ],
+      "adapter": "WORK_TASK_MISMATCH"
+    },
+    {
+      "id": "pilot-06-4:base",
+      "reasons": [
+        "SAME_GENERATION_OR_VALIDATION",
+        "NATIVE_TURN",
+        "NATIVE_TOOL"
+      ],
+      "adapter": "INLINE_SCHEMA"
+    }
+  ]
+}

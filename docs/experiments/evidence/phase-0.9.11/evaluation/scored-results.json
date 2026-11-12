@@ -1,0 +1,813 @@
+{
+  "provenance": "actual_pinned_local_model_via_stock_dsh",
+  "outcome": "PILOT_GATE_NOT_MET",
+  "gates": {
+    "protocol": true,
+    "semantic": false,
+    "tools": true
+  },
+  "base": 12,
+  "variants": 4,
+  "sameGeneration": 16,
+  "complete": 12,
+  "leaks": 0,
+  "mutation": 0,
+  "unexpectedTools": 0,
+  "validTags": 5,
+  "userExact": 9,
+  "assistantExact": 7,
+  "bindingExact": 3,
+  "covered": 6,
+  "eligible": 9,
+  "wrong": 0,
+  "assertionPassed": 11,
+  "asserted": 11,
+  "invariant": 3,
+  "actions": {
+    "cases": 2,
+    "toolExact": 4,
+    "inherited": 4,
+    "arrived": 4,
+    "reversed": 2,
+    "expected": 4
+  },
+  "performance": {
+    "attempted": 18,
+    "completed": 18,
+    "input": 5258,
+    "output": 1305,
+    "p50GenerationMs": 8314,
+    "p95GenerationMs": 16076,
+    "p50TurnMs": 7290,
+    "p95TurnMs": 24792
+  },
+  "positions": [
+    {
+      "position": 1,
+      "targets": 2,
+      "exact": 2,
+      "selected": 2
+    },
+    {
+      "position": 2,
+      "targets": 3,
+      "exact": 2,
+      "selected": 2
+    },
+    {
+      "position": 3,
+      "targets": 2,
+      "exact": 1,
+      "selected": 1
+    },
+    {
+      "position": 4,
+      "targets": 2,
+      "exact": 1,
+      "selected": 1
+    }
+  ],
+  "cases": [
+    {
+      "id": "fresh-1-1:base",
+      "variant": "base",
+      "family": "switch",
+      "expected": {
+        "taskId": "8d442361-676c-47f3-84a1-9cffd0563dbb",
+        "workId": "87dfdbba-2dac-48c7-8956-b76247161bec"
+      },
+      "baseline": {
+        "taskId": "8d442361-676c-47f3-84a1-9cffd0563dbb",
+        "workId": "87dfdbba-2dac-48c7-8956-b76247161bec"
+      },
+      "user": {
+        "taskId": "8d442361-676c-47f3-84a1-9cffd0563dbb",
+        "workId": "87dfdbba-2dac-48c7-8956-b76247161bec"
+      },
+      "assistant": {
+        "taskId": "8d442361-676c-47f3-84a1-9cffd0563dbb",
+        "workId": "87dfdbba-2dac-48c7-8956-b76247161bec"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": true,
+      "targetPosition": 2,
+      "selectedPosition": 2,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 8041
+    },
+    {
+      "id": "fresh-1-2:base",
+      "variant": "base",
+      "family": "switch",
+      "expected": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "baseline": {
+        "taskId": "8d442361-676c-47f3-84a1-9cffd0563dbb",
+        "workId": "87dfdbba-2dac-48c7-8956-b76247161bec"
+      },
+      "user": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "assistant": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": 4,
+      "selectedPosition": 4,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 8338
+    },
+    {
+      "id": "fresh-2-1:base",
+      "variant": "base",
+      "family": "similar",
+      "expected": {
+        "taskId": "0a09090f-1da4-4f2c-882b-ee0edcfcc6d9",
+        "workId": "dfa6e734-8d71-4e42-8df4-f8efdc366b55"
+      },
+      "baseline": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "user": {
+        "taskId": "0a09090f-1da4-4f2c-882b-ee0edcfcc6d9",
+        "workId": "dfa6e734-8d71-4e42-8df4-f8efdc366b55"
+      },
+      "assistant": {
+        "taskId": "0a09090f-1da4-4f2c-882b-ee0edcfcc6d9",
+        "workId": "dfa6e734-8d71-4e42-8df4-f8efdc366b55"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": 1,
+      "selectedPosition": 1,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 7691
+    },
+    {
+      "id": "fresh-2-2:base",
+      "variant": "base",
+      "family": "similar",
+      "expected": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "baseline": {
+        "taskId": "0a09090f-1da4-4f2c-882b-ee0edcfcc6d9",
+        "workId": "dfa6e734-8d71-4e42-8df4-f8efdc366b55"
+      },
+      "user": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "assistant": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": 3,
+      "selectedPosition": 3,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 7290
+    },
+    {
+      "id": "fresh-3-1:base",
+      "variant": "base",
+      "family": "task-level",
+      "expected": {
+        "taskId": "22987351-539d-4f58-8e9b-ac5dcdd0cd63",
+        "workId": null
+      },
+      "baseline": {
+        "taskId": "910d6ce9-0ce9-4117-85a6-4265e14afeb2",
+        "workId": "cd3b04f7-6a65-45b2-8599-0d2e75c319f8"
+      },
+      "user": "unresolved",
+      "assistant": "unresolved",
+      "userExact": false,
+      "assistantExact": false,
+      "bindingExact": false,
+      "targetPosition": 2,
+      "selectedPosition": null,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 8372
+    },
+    {
+      "id": "fresh-3-2:base",
+      "variant": "base",
+      "family": "task-level",
+      "expected": "unresolved",
+      "baseline": {
+        "taskId": "22987351-539d-4f58-8e9b-ac5dcdd0cd63",
+        "workId": null
+      },
+      "user": "unresolved",
+      "assistant": "unresolved",
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": null,
+      "selectedPosition": null,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 6483
+    },
+    {
+      "id": "fresh-4-1:base",
+      "variant": "base",
+      "family": "non-existing",
+      "expected": "no_task",
+      "baseline": {
+        "taskId": "36609732-6560-405d-8881-ef5e2d88f4c1",
+        "workId": "58d64e9a-c190-4932-8447-cf0dc5e9fe46"
+      },
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": null,
+      "selectedPosition": null,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": null,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 6001
+    },
+    {
+      "id": "fresh-4-2:base",
+      "variant": "base",
+      "family": "non-existing",
+      "expected": "new_task_proposal",
+      "baseline": {
+        "taskId": "36609732-6560-405d-8881-ef5e2d88f4c1",
+        "workId": "58d64e9a-c190-4932-8447-cf0dc5e9fe46"
+      },
+      "user": "new_task_proposal",
+      "assistant": "new_task_proposal",
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": null,
+      "selectedPosition": null,
+      "validTag": true,
+      "issues": [],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 7271
+    },
+    {
+      "id": "fresh-5-1:base",
+      "variant": "base",
+      "family": "two-tools",
+      "expected": {
+        "taskId": "c9f01e2f-4014-4c62-8b1e-0cddd12867ca",
+        "workId": "5b7f9671-78e7-4e56-86d3-7500326521a7"
+      },
+      "baseline": {
+        "taskId": "c9f01e2f-4014-4c62-8b1e-0cddd12867ca",
+        "workId": "5b7f9671-78e7-4e56-86d3-7500326521a7"
+      },
+      "user": "new_task_proposal",
+      "assistant": "new_task_proposal",
+      "userExact": false,
+      "assistantExact": false,
+      "bindingExact": true,
+      "targetPosition": 4,
+      "selectedPosition": null,
+      "validTag": true,
+      "issues": [],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 7222
+    },
+    {
+      "id": "fresh-5-2:base",
+      "variant": "base",
+      "family": "two-tools",
+      "expected": {
+        "taskId": "c9f01e2f-4014-4c62-8b1e-0cddd12867ca",
+        "workId": "5b7f9671-78e7-4e56-86d3-7500326521a7"
+      },
+      "baseline": {
+        "taskId": "9ddfa8b7-ccbe-477d-85ed-5d2940835ad2",
+        "workId": "4e92b916-e834-4e89-8f0f-059d815c132c"
+      },
+      "user": {
+        "taskId": "c9f01e2f-4014-4c62-8b1e-0cddd12867ca",
+        "workId": "5b7f9671-78e7-4e56-86d3-7500326521a7"
+      },
+      "assistant": {
+        "taskId": "9ddfa8b7-ccbe-477d-85ed-5d2940835ad2",
+        "workId": "4e92b916-e834-4e89-8f0f-059d815c132c"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "bindingExact": false,
+      "targetPosition": 1,
+      "selectedPosition": 1,
+      "validTag": true,
+      "issues": [],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 2,
+      "modelSteps": 2,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 2,
+      "calls": 2,
+      "results": 2,
+      "toolExact": 2,
+      "causal": 2,
+      "arrived": 2,
+      "reverse": true,
+      "toolOrder": true,
+      "arrivals": [
+        "indigo",
+        "amber"
+      ],
+      "nativeResultOrder": [
+        "amber",
+        "indigo"
+      ],
+      "latencyMs": 24792
+    },
+    {
+      "id": "fresh-6-1:base",
+      "variant": "base",
+      "family": "two-tools",
+      "expected": {
+        "taskId": "c794cfaf-d124-4f4e-8239-2105a1434222",
+        "workId": "962186f8-e38c-4001-8ddf-da8d83cb8ab3"
+      },
+      "baseline": {
+        "taskId": "498a0535-fef6-47bd-82a9-e4a3f9cf3e84",
+        "workId": "0f58770d-dbd1-4080-8bb9-134bc97a8763"
+      },
+      "user": "unresolved",
+      "assistant": "new_task_proposal",
+      "userExact": false,
+      "assistantExact": false,
+      "bindingExact": false,
+      "targetPosition": 3,
+      "selectedPosition": null,
+      "validTag": true,
+      "issues": [],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 7220
+    },
+    {
+      "id": "fresh-6-2:base",
+      "variant": "base",
+      "family": "two-tools",
+      "expected": {
+        "taskId": "c794cfaf-d124-4f4e-8239-2105a1434222",
+        "workId": "962186f8-e38c-4001-8ddf-da8d83cb8ab3"
+      },
+      "baseline": {
+        "taskId": "c794cfaf-d124-4f4e-8239-2105a1434222",
+        "workId": "962186f8-e38c-4001-8ddf-da8d83cb8ab3"
+      },
+      "user": {
+        "taskId": "c794cfaf-d124-4f4e-8239-2105a1434222",
+        "workId": "962186f8-e38c-4001-8ddf-da8d83cb8ab3"
+      },
+      "assistant": {
+        "taskId": "498a0535-fef6-47bd-82a9-e4a3f9cf3e84",
+        "workId": "0f58770d-dbd1-4080-8bb9-134bc97a8763"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "bindingExact": true,
+      "targetPosition": 2,
+      "selectedPosition": 2,
+      "validTag": true,
+      "issues": [],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 2,
+      "modelSteps": 2,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 2,
+      "calls": 2,
+      "results": 2,
+      "toolExact": 2,
+      "causal": 2,
+      "arrived": 2,
+      "reverse": true,
+      "toolOrder": true,
+      "arrivals": [
+        "amber",
+        "indigo"
+      ],
+      "nativeResultOrder": [
+        "indigo",
+        "amber"
+      ],
+      "latencyMs": 24761
+    },
+    {
+      "id": "fresh-1-2:rotate",
+      "variant": "rotate",
+      "family": "switch",
+      "expected": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "baseline": {
+        "taskId": "8d442361-676c-47f3-84a1-9cffd0563dbb",
+        "workId": "87dfdbba-2dac-48c7-8956-b76247161bec"
+      },
+      "user": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "assistant": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": 2,
+      "selectedPosition": 2,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 9373
+    },
+    {
+      "id": "fresh-1-2:rename",
+      "variant": "rename",
+      "family": "switch",
+      "expected": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "baseline": {
+        "taskId": "8d442361-676c-47f3-84a1-9cffd0563dbb",
+        "workId": "87dfdbba-2dac-48c7-8956-b76247161bec"
+      },
+      "user": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "assistant": {
+        "taskId": "7375c727-66c4-475e-88ee-1945b10d4daf",
+        "workId": "0a3b0c97-1d08-4149-8554-4f4d7d518a07"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": 4,
+      "selectedPosition": 4,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 8991
+    },
+    {
+      "id": "fresh-2-2:rotate",
+      "variant": "rotate",
+      "family": "similar",
+      "expected": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "baseline": {
+        "taskId": "0a09090f-1da4-4f2c-882b-ee0edcfcc6d9",
+        "workId": "dfa6e734-8d71-4e42-8df4-f8efdc366b55"
+      },
+      "user": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "assistant": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": 1,
+      "selectedPosition": 1,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 9233
+    },
+    {
+      "id": "fresh-2-2:rename",
+      "variant": "rename",
+      "family": "similar",
+      "expected": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "baseline": {
+        "taskId": "0a09090f-1da4-4f2c-882b-ee0edcfcc6d9",
+        "workId": "dfa6e734-8d71-4e42-8df4-f8efdc366b55"
+      },
+      "user": {
+        "taskId": "0a09090f-1da4-4f2c-882b-ee0edcfcc6d9",
+        "workId": "dfa6e734-8d71-4e42-8df4-f8efdc366b55"
+      },
+      "assistant": {
+        "taskId": "81a1da8a-6f87-4d0c-842a-c1f9f63dac6d",
+        "workId": "8a2f3dc3-f102-4985-81d0-4148a37b16c0"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "bindingExact": false,
+      "targetPosition": 3,
+      "selectedPosition": 4,
+      "validTag": false,
+      "issues": [
+        "NEW_GOAL_REJECTED"
+      ],
+      "visible": true,
+      "nativeCompleted": true,
+      "initialSameGeneration": true,
+      "receipts": 1,
+      "modelSteps": 1,
+      "answerOK": true,
+      "leaked": false,
+      "unexpectedMutation": false,
+      "toolExpected": 0,
+      "calls": 0,
+      "results": 0,
+      "toolExact": 0,
+      "causal": 0,
+      "arrived": 0,
+      "reverse": false,
+      "toolOrder": true,
+      "arrivals": [],
+      "nativeResultOrder": [],
+      "latencyMs": 15439
+    }
+  ]
+}

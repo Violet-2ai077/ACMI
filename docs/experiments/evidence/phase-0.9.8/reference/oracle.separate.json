@@ -1,0 +1,820 @@
+[
+  {
+    "storyId": "d715d1fcfbd02d8e6214d459",
+    "split": "dev",
+    "family": "paraphrase",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "d715d1fcfbd02d8e6214d459",
+    "split": "dev",
+    "family": "paraphrase",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a1",
+      "support": [
+        {
+          "ref": "current",
+          "text": "item from my last note"
+        },
+        {
+          "ref": "antecedent",
+          "text": "bars you hold on the ramp are too far apart"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "71a567f0bb2739edac23fe5c",
+    "split": "dev",
+    "family": "paraphrase",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "71a567f0bb2739edac23fe5c",
+    "split": "dev",
+    "family": "paraphrase",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "上一条提到的任务"
+        },
+        {
+          "ref": "antecedent",
+          "text": "水往墙那头跑"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "16771d8cdae650a7fc8cff44",
+    "split": "dev",
+    "family": "paraphrase",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "16771d8cdae650a7fc8cff44",
+    "split": "dev",
+    "family": "paraphrase",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "刚才说的那件事"
+        },
+        {
+          "ref": "antecedent",
+          "text": "straight into the hearing aids"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "7f7e5c8bc4b64946ca6d5838",
+    "split": "dev",
+    "family": "complex_negation",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "7f7e5c8bc4b64946ca6d5838",
+    "split": "dev",
+    "family": "complex_negation",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a1",
+      "support": [
+        {
+          "ref": "current",
+          "text": "what I just described"
+        },
+        {
+          "ref": "antecedent",
+          "text": "the handle left a bit of wood in my hand"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "2f85c6ee7ad9b1313b33c872",
+    "split": "dev",
+    "family": "complex_negation",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "2f85c6ee7ad9b1313b33c872",
+    "split": "dev",
+    "family": "complex_negation",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "刚才我提的那个"
+        },
+        {
+          "ref": "antecedent",
+          "text": "风把纸下沿掀起来"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "a639528d8272a7ba9021984f",
+    "split": "dev",
+    "family": "history",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "a639528d8272a7ba9021984f",
+    "split": "dev",
+    "family": "history",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "reference_history",
+      "handle": "h1",
+      "support": [
+        {
+          "ref": "current",
+          "text": "item from my last note"
+        },
+        {
+          "ref": "antecedent",
+          "text": "old pond temperatures"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "19e9a3f0fecc763fbf453f44",
+    "split": "dev",
+    "family": "override",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "屋顶门钥匙登记"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "19e9a3f0fecc763fbf453f44",
+    "split": "dev",
+    "family": "override",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "屋顶门钥匙登记"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "380ea438b8aae9a665ab0613",
+    "split": "dev",
+    "family": "literal_control",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "380ea438b8aae9a665ab0613",
+    "split": "dev",
+    "family": "literal_control",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "item from my last note"
+        },
+        {
+          "ref": "antecedent",
+          "text": "bench markers"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "70ae0005f637494be27064b4",
+    "split": "dev",
+    "family": "source_denied",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "70ae0005f637494be27064b4",
+    "split": "dev",
+    "family": "source_denied",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "8fb31d08013eb6f05839534c",
+    "split": "dev",
+    "family": "unavailable",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "8fb31d08013eb6f05839534c",
+    "split": "dev",
+    "family": "unavailable",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "7a3241dcc6c5949ae32480ee",
+    "split": "dev",
+    "family": "ambiguous",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "7a3241dcc6c5949ae32480ee",
+    "split": "dev",
+    "family": "ambiguous",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "3b3c9c50d941107c950e581c",
+    "split": "dev",
+    "family": "nonaction",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "no_suggestion",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "3b3c9c50d941107c950e581c",
+    "split": "dev",
+    "family": "nonaction",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "no_suggestion",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "916c9d873ea83adbee820e21",
+    "split": "dev",
+    "family": "negation_only",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "916c9d873ea83adbee820e21",
+    "split": "dev",
+    "family": "negation_only",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "95f38aad4f172352a2e10018",
+    "split": "dev",
+    "family": "stale_source",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "95f38aad4f172352a2e10018",
+    "split": "dev",
+    "family": "stale_source",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "8d4ca578eebe79afd9213afc",
+    "split": "validation",
+    "family": "paraphrase",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "8d4ca578eebe79afd9213afc",
+    "split": "validation",
+    "family": "paraphrase",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a1",
+      "support": [
+        {
+          "ref": "current",
+          "text": "thing I described in my last message"
+        },
+        {
+          "ref": "antecedent",
+          "text": "a few seconds to shut the freezer lid before it sounds"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "93818d6729495c321423585d",
+    "split": "validation",
+    "family": "paraphrase",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "93818d6729495c321423585d",
+    "split": "validation",
+    "family": "paraphrase",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a1",
+      "support": [
+        {
+          "ref": "current",
+          "text": "上一条讲的那件事"
+        },
+        {
+          "ref": "antecedent",
+          "text": "踩到每级最外沿就往下滑"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "b8bf08ab6bf9e22710f4b3f8",
+    "split": "validation",
+    "family": "paraphrase",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "b8bf08ab6bf9e22710f4b3f8",
+    "split": "validation",
+    "family": "paraphrase",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "我刚刚描述的那个问题"
+        },
+        {
+          "ref": "antecedent",
+          "text": "far end still feels stuffy"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "2a2a61b347f27100df74710b",
+    "split": "validation",
+    "family": "complex_negation",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "2a2a61b347f27100df74710b",
+    "split": "validation",
+    "family": "complex_negation",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "item from my last note"
+        },
+        {
+          "ref": "antecedent",
+          "text": "the bag split where the two pieces of cloth meet"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "683cc6bbe5c2a3e2d54464de",
+    "split": "validation",
+    "family": "complex_negation",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "683cc6bbe5c2a3e2d54464de",
+    "split": "validation",
+    "family": "complex_negation",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "刚才说的任务"
+        },
+        {
+          "ref": "antecedent",
+          "text": "龙头一开表针也一动不动"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "c7d051df30fbf57c8fd2af6a",
+    "split": "validation",
+    "family": "history",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "c7d051df30fbf57c8fd2af6a",
+    "split": "validation",
+    "family": "history",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "reference_history",
+      "handle": "h1",
+      "support": [
+        {
+          "ref": "current",
+          "text": "item in my last note"
+        },
+        {
+          "ref": "antecedent",
+          "text": "archived queue drill"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "89de0f8510786137675fa619",
+    "split": "validation",
+    "family": "override",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "Water tap cap trial"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "89de0f8510786137675fa619",
+    "split": "validation",
+    "family": "override",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a2",
+      "support": [
+        {
+          "ref": "current",
+          "text": "Water tap cap trial"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "8975fa76c602f06b62dfe887",
+    "split": "validation",
+    "family": "source_denied",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "8975fa76c602f06b62dfe887",
+    "split": "validation",
+    "family": "source_denied",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "d68125c36b5d5bd9a6f0486f",
+    "split": "validation",
+    "family": "unavailable",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "d68125c36b5d5bd9a6f0486f",
+    "split": "validation",
+    "family": "unavailable",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "8c1b9da341608223b8ed4ab2",
+    "split": "validation",
+    "family": "ambiguous",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "8c1b9da341608223b8ed4ab2",
+    "split": "validation",
+    "family": "ambiguous",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "6abc3379a10ca72ee5978546",
+    "split": "validation",
+    "family": "nonaction",
+    "language": "zh",
+    "mode": "off",
+    "expected": {
+      "decision": "no_suggestion",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "6abc3379a10ca72ee5978546",
+    "split": "validation",
+    "family": "nonaction",
+    "language": "zh",
+    "mode": "on",
+    "expected": {
+      "decision": "no_suggestion",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "a80406e3e27f4d93687fcca2",
+    "split": "validation",
+    "family": "negation_only",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "a80406e3e27f4d93687fcca2",
+    "split": "validation",
+    "family": "negation_only",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "b3beeaa50ec35f0a6a36e3cb",
+    "split": "validation",
+    "family": "literal_control",
+    "language": "mix",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "b3beeaa50ec35f0a6a36e3cb",
+    "split": "validation",
+    "family": "literal_control",
+    "language": "mix",
+    "mode": "on",
+    "expected": {
+      "decision": "suggest_active",
+      "handle": "a1",
+      "support": [
+        {
+          "ref": "current",
+          "text": "上一条提到的任务"
+        },
+        {
+          "ref": "antecedent",
+          "text": "stage exit sweep"
+        }
+      ]
+    }
+  },
+  {
+    "storyId": "50328ab8e5cc4e4f88d951f7",
+    "split": "validation",
+    "family": "stale_source",
+    "language": "en",
+    "mode": "off",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  },
+  {
+    "storyId": "50328ab8e5cc4e4f88d951f7",
+    "split": "validation",
+    "family": "stale_source",
+    "language": "en",
+    "mode": "on",
+    "expected": {
+      "decision": "clarify",
+      "handle": null,
+      "support": []
+    }
+  }
+]

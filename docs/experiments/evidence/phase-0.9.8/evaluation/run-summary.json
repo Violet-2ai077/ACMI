@@ -1,0 +1,14 @@
+{
+  "provenance": "actual_local_open_weight_inference",
+  "status": "completed",
+  "started": 56,
+  "completed": 56,
+  "stopped": null,
+  "runtimeStopped": true,
+  "externalProviderRequests": 0,
+  "externalApiCostCny": 0,
+  "promptTokens": 14392,
+  "outputTokens": 4852,
+  "totalTokens": 19244,
+  "reservedTokenUpperBound": 28728
+}

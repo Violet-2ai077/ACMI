@@ -1,0 +1,3 @@
+Independent llama.cpp generation starts: 24
+Owned listener 14286 exited
+Zero retries, no native tools in actual model run

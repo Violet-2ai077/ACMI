@@ -10,7 +10,9 @@ tasks or a later session resumes it. ACMI records explicit bindings and serves
 read-only history with provenance. It is not an agent harness, an automatic
 task recognizer, or a long-term memory engine.
 
-**Alpha:** run the deterministic Synthetic Demo without a running dsh host or credentials.
+**Alpha:** run the deterministic Synthetic Demo without a running dsh host,
+credentials, or a model. `main` also carries the research history through
+Phase 0.9.16; it does not enable automatic task routing.
 The first official integration is [DeepSeek Harness (dsh)](integrations/dsh/README.md),
 targeting `0.2.2-rc.1`; see the [dsh Quick Start](examples/dsh-quickstart/README.md)
 for setup and compatibility. To connect another runtime, start with the
@@ -37,15 +39,34 @@ The diagram shows data flow, not package dependencies. Core is independent of
 dsh and keeps ambiguous events unresolved rather than guessing their Task.
 See the [architecture guide](docs/architecture.md) for the component boundaries.
 
-Phase 0.9.2 adds [offline research artifacts](docs/experiments/phase-0.9.2-final-report.md)
-and reproducible synthetic prototypes only. It does not change runtime
-behavior or qualify task routing for automatic use.
+## Experiment record
 
-Phase 0.9.3 adds [default-off layered understanding and a read-only synthetic dsh Shadow](docs/experiments/phase-0.9.3-final-report.md).
+See the [chronological experiment log](docs/experiments/README.md) for the
+questions, results, failures, preregistrations, and replayable synthetic evidence.
+ACMI first tested explicit task continuity and deterministic recovery, then
+offline identity advice, and finally whether one local model generation could
+emit both the user answer and a private attribution proposal.
 
-Phase 0.9.4 adds [open synthetic qualification and local annotation tooling](docs/experiments/phase-0.9.4-final-report.md).
-No runtime change or production automatic routing.
-The path does not apply proposals or qualify automated routing.
+- [0.9.10](docs/experiments/phase-0.9.10-final-report.md): all 24 completions emitted
+  both fields, but strict validation delivered **0/24** native answers. The
+  pilot stopped before the main paired and post-hoc comparisons.
+- [0.9.11](docs/experiments/phase-0.9.11-assignment-pilot-report.md) separated
+  answer validation from attribution. Native answers and tool causality worked
+  in the isolated test; semantic qualification still failed.
+- [0.9.14](docs/experiments/phase-0.9.14-work-anchor-report.md): a verified
+  WorkAnchor improved explicit continuation from **0/4 to 4/4**, not general
+  identity resolution. [0.9.15](docs/experiments/phase-0.9.15-relative-proposals-report.md)
+  improved new-goal proposals but still missed the model gate.
+- [0.9.16](docs/experiments/phase-0.9.16-unresolved-link-report.md): the model
+  never used the new unresolved-subject reference. Assistant accuracy stayed
+  **7/12** and User accuracy fell from **11/12 to 9/12**. This is a NO-GO for the
+  tested contract, not a claim about all models.
+
+Same-generation output is feasible in the tested buffered path; reliable open
+task attribution and production streaming are not qualified. The model proposes;
+the trusted Host validates. An anchor does not authorize tools. A late tool
+result inherits its original call, not the current task. Nothing here enables
+automatic Binding, graph writes, result acceptance, or joins.
 
 ## What the Alpha tests verify
 
@@ -64,29 +85,13 @@ To reproduce the build, tests, and demos, install the pinned versions from
 `pnpm check`. These are controlled fixture and integration checks; they do not
 validate live model traffic or establish production security guarantees.
 
-**Safety:** automatic persistent Binding is disabled; attribution heuristics
-are offline research only. dsh history requires a trusted local host and an
-isolated Storage Root for one Workspace. Windows hostile filesystem races,
+**Safety:** automatic persistent Binding is disabled; heuristic and model-based
+attribution experiments do not authorize runtime actions. dsh history requires
+a trusted local host and an isolated Storage Root for one Workspace. Windows hostile filesystem races,
 multi-tenant service, and the Claude Code and Codex adapters are not supported.
 See [Security](SECURITY.md) and [Security Limitations](docs/security-limitations.md).
 
 ## Workspace
-
-Phase 0.8 experiments are separate from the published Alpha baseline. After
-building, run `node scripts/phase-0.8/benchmark.mjs <output-directory>` for
-the deterministic Task Graph and recovery benchmark. See the
-[Phase 0.8 report](docs/experiments/phase-0.8-final-report.md) for results and limits.
-
-Phase 0.9 adds an isolated, default-off Task Understanding experiment:
-bounded persisted deltas, five intent classes, graph proposal diffs and explicit
-transactional Host review. The 350-case benchmark uses only synthetic evidence
-and scripted mocks. See the [Phase 0.9 report](docs/experiments/phase-0.9-final-report.md).
-It does not bind Tasks, accept Subagent results or satisfy joins automatically.
-
-Phase 0.9.1 adds an offline natural-language qualification corpus, a bounded
-candidate catalog, protected evidence checks and explicit local Host task
-lifecycle operations. The [qualification report](docs/experiments/phase-0.9.1-final-report.md)
-separates provisional/scripted results from pending human and real-model evaluation.
 
 | Area | Responsibility |
 | --- | --- |

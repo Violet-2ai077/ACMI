@@ -1,0 +1,1674 @@
+{
+  "outcome": "PASS_HOST_MODEL_GATE_NOT_MET",
+  "provenance": "actual_pinned_local_model_via_stock_dsh",
+  "stopped": null,
+  "hostOK": true,
+  "arms": {
+    "A": {
+      "rows": 12,
+      "anchorOK": 12,
+      "exposed": 5,
+      "completed": 12,
+      "sameGeneration": 12,
+      "userExact": 11,
+      "assistantExact": 7,
+      "validBoth": 12,
+      "intentExact": 10,
+      "answerPassed": 8,
+      "targetedBoth": 0,
+      "continuedBoth": 1,
+      "relativeContinuedBoth": 0,
+      "wrongExisting": 1,
+      "wrongAnchorInheritance": 0,
+      "existingEligible": 4,
+      "existingCovered": 3,
+      "hostUserExact": 11,
+      "hostAssistantExact": 7,
+      "hostRejected": 0,
+      "withheld": 0,
+      "inputTokens": 5523,
+      "outputTokens": 1014,
+      "generationMs": {
+        "p50": 9338,
+        "p95": 14804
+      },
+      "turnMs": {
+        "p50": 9353,
+        "p95": 14818
+      },
+      "linkedTargeted": 0,
+      "linkControls": 0,
+      "linkRejected": 0,
+      "falseNewTargeted": 0,
+      "trueNewBoth": 2,
+      "clarificationAnswer": 1
+    },
+    "B": {
+      "rows": 12,
+      "anchorOK": 12,
+      "exposed": 5,
+      "completed": 12,
+      "sameGeneration": 12,
+      "userExact": 9,
+      "assistantExact": 7,
+      "validBoth": 12,
+      "intentExact": 9,
+      "answerPassed": 8,
+      "targetedBoth": 0,
+      "continuedBoth": 0,
+      "relativeContinuedBoth": 0,
+      "wrongExisting": 1,
+      "wrongAnchorInheritance": 0,
+      "existingEligible": 4,
+      "existingCovered": 1,
+      "hostUserExact": 9,
+      "hostAssistantExact": 7,
+      "hostRejected": 0,
+      "withheld": 0,
+      "inputTokens": 6255,
+      "outputTokens": 1011,
+      "generationMs": {
+        "p50": 10158,
+        "p95": 13210
+      },
+      "turnMs": {
+        "p50": 10172,
+        "p95": 13225
+      },
+      "linkedTargeted": 0,
+      "linkControls": 0,
+      "linkRejected": 0,
+      "falseNewTargeted": 0,
+      "trueNewBoth": 2,
+      "clarificationAnswer": 1
+    }
+  },
+  "pairs": [
+    {
+      "probe": "r16-01",
+      "family": "homonym",
+      "targeted": true,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "answer": [
+        false,
+        false
+      ]
+    },
+    {
+      "probe": "r16-02",
+      "family": "vague-reference",
+      "targeted": true,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    },
+    {
+      "probe": "r16-03",
+      "family": "revoked",
+      "targeted": true,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "answer": [
+        false,
+        false
+      ]
+    },
+    {
+      "probe": "r16-04",
+      "family": "wrong-session",
+      "targeted": true,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "answer": [
+        false,
+        false
+      ]
+    },
+    {
+      "probe": "r16-05",
+      "family": "anchor-excluded",
+      "targeted": true,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "answer": [
+        false,
+        false
+      ]
+    },
+    {
+      "probe": "r16-06",
+      "family": "new-anchored",
+      "targeted": false,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    },
+    {
+      "probe": "r16-07",
+      "family": "new-unanchored",
+      "targeted": false,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    },
+    {
+      "probe": "r16-08",
+      "family": "known-detail",
+      "targeted": false,
+      "targetPosition": 2,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    },
+    {
+      "probe": "r16-09",
+      "family": "refine",
+      "targeted": false,
+      "targetPosition": 4,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        false,
+        false
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    },
+    {
+      "probe": "r16-10",
+      "family": "quotation",
+      "targeted": false,
+      "targetPosition": null,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    },
+    {
+      "probe": "r16-11",
+      "family": "resume",
+      "targeted": false,
+      "targetPosition": 1,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        false
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    },
+    {
+      "probe": "r16-12",
+      "family": "switch",
+      "targeted": false,
+      "targetPosition": 3,
+      "sameContext": true,
+      "schemaDiffers": true,
+      "anchorEqual": true,
+      "user": [
+        true,
+        false
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "answer": [
+        true,
+        true
+      ]
+    }
+  ],
+  "leaks": 0,
+  "mutations": 0,
+  "operations": 0,
+  "performance": {
+    "attempts": 24,
+    "completions": 24,
+    "reconciled": 24,
+    "reserved": 19458,
+    "inputTokens": 11778,
+    "outputTokens": 2025,
+    "generationMs": {
+      "p50": 10027,
+      "p95": 13473
+    }
+  },
+  "details": [
+    {
+      "id": "r16-01:A",
+      "probe": "r16-01",
+      "arm": "A",
+      "family": "homonym",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "c2e0c98c-ad14-4dfa-876d-6480f6f7b002",
+            "workId": "2fefc0c2-8118-4830-84e5-1bb0bb86be8d"
+          }
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": {
+          "taskId": "c2e0c98c-ad14-4dfa-876d-6480f6f7b002",
+          "workId": "2fefc0c2-8118-4830-84e5-1bb0bb86be8d"
+        },
+        "issues": [],
+        "related": [
+          {
+            "taskId": "dad907fc-abbe-4b28-84eb-b797361b3f4b",
+            "workId": "5c1aad39-126f-473a-86fe-8939276c00de"
+          }
+        ]
+      },
+      "hostWithheld": null,
+      "wrongExisting": true,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 11790
+    },
+    {
+      "id": "r16-01:B",
+      "probe": "r16-01",
+      "arm": "B",
+      "family": "homonym",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "c2e0c98c-ad14-4dfa-876d-6480f6f7b002",
+            "workId": "2fefc0c2-8118-4830-84e5-1bb0bb86be8d"
+          }
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": {
+          "taskId": "c2e0c98c-ad14-4dfa-876d-6480f6f7b002",
+          "workId": "2fefc0c2-8118-4830-84e5-1bb0bb86be8d"
+        },
+        "issues": [],
+        "related": [
+          {
+            "taskId": "dad907fc-abbe-4b28-84eb-b797361b3f4b",
+            "workId": "5c1aad39-126f-473a-86fe-8939276c00de"
+          }
+        ]
+      },
+      "hostWithheld": null,
+      "wrongExisting": true,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 11967
+    },
+    {
+      "id": "r16-02:B",
+      "probe": "r16-02",
+      "arm": "B",
+      "family": "vague-reference",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 8959
+    },
+    {
+      "id": "r16-02:A",
+      "probe": "r16-02",
+      "arm": "A",
+      "family": "vague-reference",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 8849
+    },
+    {
+      "id": "r16-03:A",
+      "probe": "r16-03",
+      "arm": "A",
+      "family": "revoked",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 9163
+    },
+    {
+      "id": "r16-03:B",
+      "probe": "r16-03",
+      "arm": "B",
+      "family": "revoked",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 8961
+    },
+    {
+      "id": "r16-04:B",
+      "probe": "r16-04",
+      "arm": "B",
+      "family": "wrong-session",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 10172
+    },
+    {
+      "id": "r16-04:A",
+      "probe": "r16-04",
+      "arm": "A",
+      "family": "wrong-session",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": true,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 9353
+    },
+    {
+      "id": "r16-05:A",
+      "probe": "r16-05",
+      "arm": "A",
+      "family": "anchor-excluded",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": true,
+      "continuation": false,
+      "conflict": true,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 9394
+    },
+    {
+      "id": "r16-05:B",
+      "probe": "r16-05",
+      "arm": "B",
+      "family": "anchor-excluded",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": true,
+      "continuation": false,
+      "conflict": true,
+      "targetPosition": null,
+      "expectedUser": "unresolved",
+      "expectedAssistant": "unresolved",
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": false,
+      "hostUserExact": true,
+      "hostAssistantExact": false,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": false,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 10093
+    },
+    {
+      "id": "r16-06:B",
+      "probe": "r16-06",
+      "arm": "B",
+      "family": "new-anchored",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": false,
+      "conflict": true,
+      "targetPosition": null,
+      "expectedUser": "new_task_proposal",
+      "expectedAssistant": "new_task_proposal",
+      "expectedGoal": "Birch Weather Bell",
+      "expectedIntent": "propose",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "propose_new",
+          "goal": "Birch Weather Bell"
+        },
+        "assistant": {
+          "kind": "propose_new",
+          "goal": "Birch Weather Bell"
+        },
+        "intent": "propose",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "new_task_proposal",
+        "assistant": "new_task_proposal",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 11858
+    },
+    {
+      "id": "r16-06:A",
+      "probe": "r16-06",
+      "arm": "A",
+      "family": "new-anchored",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": false,
+      "conflict": true,
+      "targetPosition": null,
+      "expectedUser": "new_task_proposal",
+      "expectedAssistant": "new_task_proposal",
+      "expectedGoal": "Birch Weather Bell",
+      "expectedIntent": "propose",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "propose_new",
+          "goal": "suggest an independent new project called Birch Weather Bell"
+        },
+        "assistant": {
+          "kind": "propose_new",
+          "goal": "suggest an independent new project called Birch Weather Bell"
+        },
+        "intent": "propose",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "new_task_proposal",
+        "assistant": "new_task_proposal",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 7897
+    },
+    {
+      "id": "r16-07:A",
+      "probe": "r16-07",
+      "arm": "A",
+      "family": "new-unanchored",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "new_task_proposal",
+      "expectedAssistant": "new_task_proposal",
+      "expectedGoal": "Ivory Window Journal",
+      "expectedIntent": "propose",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "propose_new",
+          "goal": "Ivory Window Journal"
+        },
+        "assistant": {
+          "kind": "propose_new",
+          "goal": "Ivory Window Journal"
+        },
+        "intent": "propose",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "new_task_proposal",
+        "assistant": "new_task_proposal",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 11855
+    },
+    {
+      "id": "r16-07:B",
+      "probe": "r16-07",
+      "arm": "B",
+      "family": "new-unanchored",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "new_task_proposal",
+      "expectedAssistant": "new_task_proposal",
+      "expectedGoal": "Ivory Window Journal",
+      "expectedIntent": "propose",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "propose_new",
+          "goal": "Ivory Window Journal"
+        },
+        "assistant": {
+          "kind": "propose_new",
+          "goal": "Ivory Window Journal"
+        },
+        "intent": "propose",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "new_task_proposal",
+        "assistant": "new_task_proposal",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 13091
+    },
+    {
+      "id": "r16-08:B",
+      "probe": "r16-08",
+      "arm": "B",
+      "family": "known-detail",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": 2,
+      "expectedUser": {
+        "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+        "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+      },
+      "expectedAssistant": {
+        "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+        "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+      },
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+            "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+          }
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+            "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+          }
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": {
+          "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+          "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+        },
+        "assistant": {
+          "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+          "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 13225
+    },
+    {
+      "id": "r16-08:A",
+      "probe": "r16-08",
+      "arm": "A",
+      "family": "known-detail",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": 2,
+      "expectedUser": {
+        "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+        "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+      },
+      "expectedAssistant": {
+        "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+        "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+      },
+      "expectedGoal": null,
+      "expectedIntent": "clarify",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+            "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+          }
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+            "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+          }
+        },
+        "intent": "clarify",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": {
+          "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+          "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+        },
+        "assistant": {
+          "taskId": "45ebfca3-9f6c-412a-844b-844816b9965e",
+          "workId": "ca149af1-f283-4db9-8f53-6bbe148aec55"
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 14818
+    },
+    {
+      "id": "r16-09:A",
+      "probe": "r16-09",
+      "arm": "A",
+      "family": "refine",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": 4,
+      "expectedUser": {
+        "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+        "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+      },
+      "expectedAssistant": {
+        "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+        "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+      },
+      "expectedGoal": null,
+      "expectedIntent": "describe_only",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "propose_new",
+          "goal": "suggest a shorter version of startup steps for the Marble Checklist"
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+            "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+          }
+        },
+        "intent": "propose",
+        "link": "absent"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "hostUserExact": false,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "new_task_proposal",
+        "assistant": {
+          "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+          "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 13489
+    },
+    {
+      "id": "r16-09:B",
+      "probe": "r16-09",
+      "arm": "B",
+      "family": "refine",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": 4,
+      "expectedUser": {
+        "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+        "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+      },
+      "expectedAssistant": {
+        "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+        "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+      },
+      "expectedGoal": null,
+      "expectedIntent": "describe_only",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+            "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+          }
+        },
+        "intent": "propose",
+        "link": "absent"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "hostUserExact": false,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": {
+          "taskId": "c199f3da-88d9-4aa9-8a61-853003b7a303",
+          "workId": "1a2857c6-15c4-4925-83a1-e0f13356a268"
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 12287
+    },
+    {
+      "id": "r16-10:B",
+      "probe": "r16-10",
+      "arm": "B",
+      "family": "quotation",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "no_task",
+      "expectedAssistant": "no_task",
+      "expectedGoal": null,
+      "expectedIntent": "acknowledge",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "no_task"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "describe_only",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "no_task",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 6053
+    },
+    {
+      "id": "r16-10:A",
+      "probe": "r16-10",
+      "arm": "A",
+      "family": "quotation",
+      "anchorOK": true,
+      "exposed": false,
+      "targeted": false,
+      "continuation": false,
+      "conflict": false,
+      "targetPosition": null,
+      "expectedUser": "no_task",
+      "expectedAssistant": "no_task",
+      "expectedGoal": null,
+      "expectedIntent": "acknowledge",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "no_task"
+        },
+        "assistant": {
+          "kind": "no_task"
+        },
+        "intent": "describe_only",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "no_task",
+        "assistant": "no_task",
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 4981
+    },
+    {
+      "id": "r16-11:A",
+      "probe": "r16-11",
+      "arm": "A",
+      "family": "resume",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": true,
+      "conflict": false,
+      "targetPosition": 1,
+      "expectedUser": {
+        "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+        "workId": null
+      },
+      "expectedAssistant": {
+        "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+        "workId": null
+      },
+      "expectedGoal": null,
+      "expectedIntent": "describe_only",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+            "workId": null
+          }
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+            "workId": null
+          }
+        },
+        "intent": "describe_only",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": {
+          "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+          "workId": null
+        },
+        "assistant": {
+          "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+          "workId": null
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 13098
+    },
+    {
+      "id": "r16-11:B",
+      "probe": "r16-11",
+      "arm": "B",
+      "family": "resume",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": true,
+      "conflict": false,
+      "targetPosition": 1,
+      "expectedUser": {
+        "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+        "workId": null
+      },
+      "expectedAssistant": {
+        "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+        "workId": null
+      },
+      "expectedGoal": null,
+      "expectedIntent": "describe_only",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+            "workId": null
+          }
+        },
+        "intent": "describe_only",
+        "link": "absent"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "hostUserExact": false,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": {
+          "taskId": "0c950bd3-4ccc-43dd-827b-3a8c453a0bec",
+          "workId": null
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 11715
+    },
+    {
+      "id": "r16-12:B",
+      "probe": "r16-12",
+      "arm": "B",
+      "family": "switch",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": false,
+      "conflict": true,
+      "targetPosition": 3,
+      "expectedUser": {
+        "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+        "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+      },
+      "expectedAssistant": {
+        "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+        "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+      },
+      "expectedGoal": null,
+      "expectedIntent": "describe_only",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "unresolved"
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+            "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+          }
+        },
+        "intent": "acknowledge",
+        "link": "absent"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "hostUserExact": false,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": "unresolved",
+        "assistant": {
+          "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+          "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 7241
+    },
+    {
+      "id": "r16-12:A",
+      "probe": "r16-12",
+      "arm": "A",
+      "family": "switch",
+      "anchorOK": true,
+      "exposed": true,
+      "targeted": false,
+      "continuation": false,
+      "conflict": true,
+      "targetPosition": 3,
+      "expectedUser": {
+        "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+        "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+      },
+      "expectedAssistant": {
+        "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+        "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+      },
+      "expectedGoal": null,
+      "expectedIntent": "describe_only",
+      "proposals": {
+        "frame": true,
+        "user": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+            "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+          }
+        },
+        "assistant": {
+          "kind": "refer_existing",
+          "assignment": {
+            "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+            "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+          }
+        },
+        "intent": "describe_only",
+        "link": "absent"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "hostUserExact": true,
+      "hostAssistantExact": true,
+      "hostRejected": false,
+      "host": {
+        "user": {
+          "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+          "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+        },
+        "assistant": {
+          "taskId": "46abdd88-961c-4865-89d9-105b925cd2a4",
+          "workId": "9c361b10-294e-4074-8e51-901264cb0b6c"
+        },
+        "issues": [],
+        "related": []
+      },
+      "hostWithheld": null,
+      "wrongExisting": false,
+      "wrongAnchorInheritance": false,
+      "answerPassed": true,
+      "sameGeneration": true,
+      "completed": true,
+      "leak": false,
+      "mutation": false,
+      "operations": 0,
+      "turnMs": 7691
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "protocol": "acmi-097-matched-identity-v1",
+  "records": [
+    {
+      "storyId": "50328ab8e5cc4e4f88d951f7",
+      "mode": "off",
+      "requestDigest": "b3887c58af369994878b50ee0de6885c3e28e070001495a5605c596c48838962",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Go back to the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "2f85c6ee7ad9b1313b33c872",
+      "mode": "off",
+      "requestDigest": "f300e1851d889148d46ba0cffbef1d9346f04bf110cc05687979965bb2e6e8bc",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"切回刚才\"\n    },\n    {\n      \"ref\": \"current\",\n      \"start\": 5,\n      \"end\": 7,\n      \"quote\": \"我提\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "2a2a61b347f27100df74710b",
+      "mode": "off",
+      "requestDigest": "b1153eea1323dfb235eecdb1e3f05998abdb6907ba910d1b65d04b2871beb612",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Go back to the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "19e9a3f0fecc763fbf453f44",
+      "mode": "off",
+      "requestDigest": "7e14604af449f6e541b9de15470f4ebb09a3acc5327e6e64eb8e0b0165cd7f95",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"切到\"\n    },\n    {\n      \"ref\": \"current\",\n      \"start\": 5,\n      \"end\": 7,\n      \"quote\": \"屋顶\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "71a567f0bb2739edac23fe5c",
+      "mode": "on",
+      "requestDigest": "453041b1d84882ee7ef7ffc9e677682b489e7b39b2812120adfd0666d98b8f1f",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"回到我上一条提到的任务。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 22,\n      \"quote\": \"下雨后水往墙那头跑，不是落叶堵住了出口。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "3b3c9c50d941107c950e581c",
+      "mode": "off",
+      "requestDigest": "bc446b95397057161d90920fa8d21990c27a06a8e8198415a7ff4971171e648c",
+      "raw": "{\n  \"decision\": \"no_suggestion\",\n  \"handle\": null,\n  \"evidence\": []\n}"
+    },
+    {
+      "storyId": "95f38aad4f172352a2e10018",
+      "mode": "on",
+      "requestDigest": "f20b4679aa74343a8e5a311433a2bea164c64dbec30ccb221878a015c3175a7b",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"Go back to the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8c1b9da341608223b8ed4ab2",
+      "mode": "off",
+      "requestDigest": "e264cdae82544e8491af4e8cc5acf1cfb95951b0782ebb503910c004e1149aef",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Return to what I just mentioned.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "2a2a61b347f27100df74710b",
+      "mode": "on",
+      "requestDigest": "eba2b5892d28b50ac5a4fe1f1a98adea93c4ba8d624cb4abffd0c30a18e0f45c",
+      "raw": "{\n  \"decision\": \"clarify\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Go back to the item from my last note.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 51,\n      \"quote\": \"I am not asking for stronger hangers: the zipper is fine, but the bag split where the two pieces of cloth meet.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "16771d8cdae650a7fc8cff44",
+      "mode": "on",
+      "requestDigest": "2be29763aec9302978fb28d8e40140d2d6ea8fbf45015b5825fe05139cf316fb",
+      "raw": "{\n  \"decision\": \"clarify\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"继续我刚才说的那件事。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 48,\n      \"quote\": \"The sound has to go straight into the hearing aids, otherwise it is just echo in the room.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "2f85c6ee7ad9b1313b33c872",
+      "mode": "on",
+      "requestDigest": "626a9fdea0bb5470bccd52a66befa1b1306a9576d59c3aa915bcc88a8f8f9dbd",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"切回刚才我提的那个。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"不是字号小，是风把纸下沿掀起来，看起来才缺了一行。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "c7d051df30fbf57c8fd2af6a",
+      "mode": "off",
+      "requestDigest": "634e42adb6410c13e038a65eb6827ce530ab335e225171cd8a273e6841948024",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 17,\n      \"quote\": \"Look up the item in my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "b8bf08ab6bf9e22710f4b3f8",
+      "mode": "on",
+      "requestDigest": "7198d8240e4b1e2c5ef77f2a4f0ea4f67a174e694c7a081f43bf83f68f1ef138",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"Back to 我刚刚描述的那个问题。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 47,\n      \"quote\": \"The far end still feels stuffy even though the screen says the temperature is fine.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8d4ca578eebe79afd9213afc",
+      "mode": "on",
+      "requestDigest": "440d7ac025a70c405daf79a8d0d3ec6e20aaff0ed488df5115a489c08ad7a6fc",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 21,\n      \"end\": 36,\n      \"quote\": \"the thing I described\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 36,\n      \"quote\": \"The buzzer should give staff a few seconds to shut the freezer lid before it sounds.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "b8bf08ab6bf9e22710f4b3f8",
+      "mode": "off",
+      "requestDigest": "5237b980f85cd7fa2ba68a457dce0d99b1cdd016e313f06695366bb5f3f61abf",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 6,\n      \"end\": 12,\n      \"quote\": \"那个问题\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "89de0f8510786137675fa619",
+      "mode": "on",
+      "requestDigest": "84e130cdfa990f21aeb1289494598d749bfc20585059585e834274c9badbdeb4",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"Switch to Water tap cap trial.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "a80406e3e27f4d93687fcca2",
+      "mode": "off",
+      "requestDigest": "e5263a895cf33451dccf68dbe5afb3b193aeb0d36f4b96f4279250eda54573db",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 27,\n      \"quote\": \"Go back to the task from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "380ea438b8aae9a665ab0613",
+      "mode": "on",
+      "requestDigest": "d89da74e926dfa66c715aedbefea49a7bb44a9480b426c30e003e93d1ecc2d6b",
+      "raw": "{\n  \"decision\": \"clarify\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"Continue the item from my last note.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"我说的是 bench markers。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "d68125c36b5d5bd9a6f0486f",
+      "mode": "off",
+      "requestDigest": "1b1b24e7626c6c4213c36f30a1a44131bf67f2410bec0d4f0e0dc11ccbd4de6d",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 25,\n      \"quote\": \"Continue the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "7a3241dcc6c5949ae32480ee",
+      "mode": "off",
+      "requestDigest": "35ce989ed26a56d2224a86b0688e0553778e35278e063b76a0ef05818926a8e0",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"继续我刚说的那个。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "6abc3379a10ca72ee5978546",
+      "mode": "off",
+      "requestDigest": "4641c3ab40730a30efdb5b75613c3c817ac8c37de03621f6c8ae150217e3064b",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 14,\n      \"quote\": \"“回到我刚才说的任务”\"\n    },\n    {\n      \"ref\": \"current\",\n      \"start\": 15,\n      \"end\": 23,\n      \"quote\": \"是培训例句\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "7a3241dcc6c5949ae32480ee",
+      "mode": "on",
+      "requestDigest": "62be42c65761a4c30841fe7e6f8b4f1a7fe7ae55dbec3705179389b01863a327",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"继续我刚说的那个。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 16,\n      \"quote\": \"I meant door camera check.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "a639528d8272a7ba9021984f",
+      "mode": "on",
+      "requestDigest": "1087832f3c2888f4e827f1ab817fed9ac00862b3ce98b881c990c11d74ad1012",
+      "raw": "{\n  \"decision\": \"clarify\",\n  \"handle\": \"h1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Look up the item from my last note.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"I meant old pond temperatures.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "b3beeaa50ec35f0a6a36e3cb",
+      "mode": "off",
+      "requestDigest": "84df4075e0125383b0fcf2edd87687cee483bf26c4faa3612dfd98c9906632fb",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"继续我上一条提到的任务。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8fb31d08013eb6f05839534c",
+      "mode": "off",
+      "requestDigest": "7cadaa0cf59594af2e15164d48b8ea627b2cc5ea15fe0d5ab4863c0ca934c386",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"回到我刚才说的任务。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "93818d6729495c321423585d",
+      "mode": "on",
+      "requestDigest": "30b62a486684b729518805451adcc288932862e66317c9a57b58f71d04d975bb",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"先接着我上一条讲的那件事。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 12,\n      \"quote\": \"鞋底沾水后，踩到每级最外沿就往下滑。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "70ae0005f637494be27064b4",
+      "mode": "off",
+      "requestDigest": "a82cafb6ce6bf1212bedf28fafd38c742cb57ce0d2b2c36169abeba838b04052",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Go back to what I just mentioned.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8c1b9da341608223b8ed4ab2",
+      "mode": "on",
+      "requestDigest": "9c2095c421ac7df96d0ca8aa27b0d8039dfa98b09428fb16ba07eeaf2ae68c77",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"Return to what I just mentioned.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"我说的是 audio patch。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "7f7e5c8bc4b64946ca6d5838",
+      "mode": "off",
+      "requestDigest": "2e9fca43f03e87370d5d439ec1fd6f0fd57bb05c0f4e09c9e63e4117e9d3826b",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Return to what I just described.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "71a567f0bb2739edac23fe5c",
+      "mode": "off",
+      "requestDigest": "d7efc97ac3826c4f56605a805b5ff73bfe40368d2db6d798ad208510ae18d934",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"回到我上一条提到的任务。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "6abc3379a10ca72ee5978546",
+      "mode": "on",
+      "requestDigest": "c5900a5699340b98173ba8b15d77eb8fb1fe88b7148a87e5291dae3e26c379de",
+      "raw": "{\n  \"decision\": \"clarify\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 14,\n      \"quote\": \"“回到我刚才说的任务”是培训例句，不是要你切换。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 10,\n      \"quote\": \"我说的是计时器换电池。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "d715d1fcfbd02d8e6214d459",
+      "mode": "on",
+      "requestDigest": "d5ac3d591b4cae8ab24b34ddebaadf4240bbe52cabf75a09478956921fe62ad9",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Pick up the item from my last note.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 51,\n      \"quote\": \"The bars you hold on the ramp are too far apart for small hands.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8975fa76c602f06b62dfe887",
+      "mode": "on",
+      "requestDigest": "0f81f1c404e7f869e4722dfaad831cbf08c1d2be97349b2eb8cd2083722d9d8c",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"切回刚才\"\n    },\n    {\n      \"ref\": \"current\",\n      \"start\": 5,\n      \"end\": 7,\n      \"quote\": \"我提\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "916c9d873ea83adbee820e21",
+      "mode": "off",
+      "requestDigest": "ca4ac25714e563622d3ebc23fc8d458347905446867a547df8c163392bb1c6ab",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"切回\"\n    },\n    {\n      \"ref\": \"current\",\n      \"start\": 5,\n      \"end\": 7,\n      \"quote\": \"我上\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "95f38aad4f172352a2e10018",
+      "mode": "off",
+      "requestDigest": "f20b4679aa74343a8e5a311433a2bea164c64dbec30ccb221878a015c3175a7b",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"Go back to the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "a639528d8272a7ba9021984f",
+      "mode": "off",
+      "requestDigest": "46e70fbf2fb79b1e68dda0524179d1ceec46964b7fa1c016d94b7fa037fb9dcb",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Look up the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "c7d051df30fbf57c8fd2af6a",
+      "mode": "on",
+      "requestDigest": "e2eb80d8ec760ac374b0f18ed7f0e56441c0dd414957ae695667fe71a056cb8c",
+      "raw": "{\n  \"decision\": \"clarify\",\n  \"handle\": \"h1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"Look up the item in my last note.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 14,\n      \"quote\": \"我说的是 archived queue drill。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "d715d1fcfbd02d8e6214d459",
+      "mode": "off",
+      "requestDigest": "8d7bf5d475d90a935cc82f30955a4a778ba351581cce92cfa8d5203941cea728",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 19,\n      \"end\": 26,\n      \"quote\": \"from my last note\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "50328ab8e5cc4e4f88d951f7",
+      "mode": "on",
+      "requestDigest": "b3887c58af369994878b50ee0de6885c3e28e070001495a5605c596c48838962",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Go back to the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "d68125c36b5d5bd9a6f0486f",
+      "mode": "on",
+      "requestDigest": "7bfcd5c7d1efc716f75f27818189c27902fc133f6082572853114fefd725ea5b",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Continue the item from my last note.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 17,\n      \"quote\": \"I meant spare fan belt.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8975fa76c602f06b62dfe887",
+      "mode": "off",
+      "requestDigest": "0f81f1c404e7f869e4722dfaad831cbf08c1d2be97349b2eb8cd2083722d9d8c",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 5,\n      \"quote\": \"切回刚才\"\n    },\n    {\n      \"ref\": \"current\",\n      \"start\": 5,\n      \"end\": 7,\n      \"quote\": \"我提\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "70ae0005f637494be27064b4",
+      "mode": "on",
+      "requestDigest": "a82cafb6ce6bf1212bedf28fafd38c742cb57ce0d2b2c36169abeba838b04052",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Go back to what I just mentioned.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "7f7e5c8bc4b64946ca6d5838",
+      "mode": "on",
+      "requestDigest": "0d35ddcd48e8a9cb1004ec2e6b3ecc08e7d1d92b88bb19d14ea3d92000de83d4",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Return to what I just described.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 51,\n      \"quote\": \"Not a lesson about how the baskets are stitched; the handle left a bit of wood in my hand.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "380ea438b8aae9a665ab0613",
+      "mode": "off",
+      "requestDigest": "860137c5f4ea1fe7c4850bbe209716299339d913db59c7b7ce8eea554471c6f6",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 23,\n      \"quote\": \"Continue the item from my last note.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "a80406e3e27f4d93687fcca2",
+      "mode": "on",
+      "requestDigest": "748d0703c3996e4a19f90c93ef9700bdfb95c265b8e0172909bfc4b81bcc27b6",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 26,\n      \"quote\": \"Go back to the task from my last note.\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 21,\n      \"quote\": \"I meant not dock post paint.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "916c9d873ea83adbee820e21",
+      "mode": "on",
+      "requestDigest": "a451547df5ba5b0ede87e58235545f64e11626efc6685220e3895b7c9e7b8144",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"切回我上一条提到的任务。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 10,\n      \"quote\": \"我说的肯定不是卡片改色。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "683cc6bbe5c2a3e2d54464de",
+      "mode": "on",
+      "requestDigest": "8ab3fac0607dbe4fdb917f55b6d66e2f335da0007fee3a96f796d94eb4d56ff1",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"回到我刚才说的任务。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 12,\n      \"quote\": \"不是水压真的没变，是龙头一开表针也一动不动。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "89de0f8510786137675fa619",
+      "mode": "off",
+      "requestDigest": "01b1caecbc0fb57b4b232bd08a74cfcde18b44bd5e818ced6554b37939f09d7b",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 17,\n      \"quote\": \"Switch to Water tap cap trial.\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8fb31d08013eb6f05839534c",
+      "mode": "on",
+      "requestDigest": "1efcdd976701c32f19343fb5a82dafdf7281238cc7a3c3ea2ca89135de3ded1e",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"回到我刚才说的任务。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"我说的是梯轮维修。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "93818d6729495c321423585d",
+      "mode": "off",
+      "requestDigest": "c977ee3f2cb40a2ec06a979343a91e1da67a445e60781b7bc32d7751973749b2",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"先接着我上一条讲的那件事。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "16771d8cdae650a7fc8cff44",
+      "mode": "off",
+      "requestDigest": "69d85c92cc3b2f4f17db1d833a442e106ed9591ee325de7c8b8d729c1cf0b9ad",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"继续我刚才说的那件事。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "683cc6bbe5c2a3e2d54464de",
+      "mode": "off",
+      "requestDigest": "bfefcf0a98b024bfaa4bb47da1cb30e8ba147a333f36412c87516578cdf6bf65",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a1\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"回到我刚才说的任务。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "19e9a3f0fecc763fbf453f44",
+      "mode": "on",
+      "requestDigest": "7a25d9a8aee72ae5e71c0551d8e9a093caef9fa3baecc1541add1f9a563a1c92",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 4,\n      \"quote\": \"切到\"\n    },\n    {\n      \"ref\": \"current\",\n      \"start\": 4,\n      \"end\": 6,\n      \"quote\": \"屋顶\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "b3beeaa50ec35f0a6a36e3cb",
+      "mode": "on",
+      "requestDigest": "a8d1a6bcf339d42a0fed2a57cdf34e0242d418c9f6af19a39567e913b2d57dbf",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 0,\n      \"end\": 6,\n      \"quote\": \"继续我上一条提到的任务。\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 10,\n      \"quote\": \"我指的是 stage exit sweep。\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "8d4ca578eebe79afd9213afc",
+      "mode": "off",
+      "requestDigest": "88e94b13a1ade40b44a1c02e4f2ff670fc5cd257097c5c9c0b3b953eeb76ab0e",
+      "raw": "{\n  \"decision\": \"suggest_active\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 25,\n      \"end\": 43,\n      \"quote\": \"the thing I described in my last message\"\n    }\n  ]\n}"
+    },
+    {
+      "storyId": "3b3c9c50d941107c950e581c",
+      "mode": "on",
+      "requestDigest": "8ae7dd942701e1c0f02e529628db1e1bc05e79223893978213e368bb28b46cb2",
+      "raw": "{\n  \"decision\": \"clarify\",\n  \"handle\": \"a2\",\n  \"evidence\": [\n    {\n      \"ref\": \"current\",\n      \"start\": 21,\n      \"end\": 34,\n      \"quote\": \"go back to the task\"\n    },\n    {\n      \"ref\": \"antecedent\",\n      \"start\": 0,\n      \"end\": 13,\n      \"quote\": \"I meant tent invoice\"\n    }\n  ]\n}"
+    }
+  ]
+}

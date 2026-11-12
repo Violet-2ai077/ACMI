@@ -1,0 +1,174 @@
+{
+  "provenance": "offline_frozen_wire_against_actual_request_digest",
+  "count": 24,
+  "observed": [
+    {
+      "id": "probe-01:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "f5ee3302555b17c39f736658e3135b1672fcc295f730630abf60a92c82bd487e"
+    },
+    {
+      "id": "probe-01:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 1,
+      "requestDigest": "1d3722ad28f6bef61b9368d389d3e09827c4263d0a8e6e73fef01671fc4d4c9e"
+    },
+    {
+      "id": "probe-01:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 1,
+      "requestDigest": "069ba29672a5744249bd0af975d893d81ab99b5e236cc838745f196d0b60de5e"
+    },
+    {
+      "id": "probe-02:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 1,
+      "requestDigest": "1d1c5987cb473ef39e42d1671753c722452cf73840b778d13c3988806ed20c0b"
+    },
+    {
+      "id": "probe-02:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 1,
+      "requestDigest": "93ed26fcf048e2c8f87b8a58c582b412b024f5bcf640ab765bc6db0c8f187b96"
+    },
+    {
+      "id": "probe-02:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "b1bccbaeb92891c8afde2fab34c84378ca5a702d4e4e0b397d2e09009f868aa5"
+    },
+    {
+      "id": "probe-03:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 1,
+      "requestDigest": "37aa1771eecccbc9c7ec9482dbba90770a85092098d5179ebcf672311ca98651"
+    },
+    {
+      "id": "probe-03:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "8d24f6c12540d989b8caecbb42bb39d383e0533d5c7e66e620d05c4d85ddf7f8"
+    },
+    {
+      "id": "probe-03:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 1,
+      "requestDigest": "c31dff794c5ce8ca8ced9f13c00a318e0eeaa755c2bb04c78492f02f2ec8ecc3"
+    },
+    {
+      "id": "probe-04:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "6e6c1a2058809107cf75f9c3e8dbf4addf639a11f85904f19bd6aee6d41b08c6"
+    },
+    {
+      "id": "probe-04:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 3,
+      "requestDigest": "cef3026f89107b87edea512277e36431401a40bb7c160bc1e4abacedf5bc2168"
+    },
+    {
+      "id": "probe-04:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 3,
+      "requestDigest": "fdc6ed6aecbabc1dec480f72bc2e269ec866d24852663f9f7525265d688395a5"
+    },
+    {
+      "id": "probe-05:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 1,
+      "requestDigest": "f75614b74d4134858929542ed3f4beebdafe46fafda81ada22bc03a5adc18fbb"
+    },
+    {
+      "id": "probe-05:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 1,
+      "requestDigest": "8fa4e06f2b8db25429fe60ed804e858ba52ad9709e6cf6c1087bc39e2f4516d6"
+    },
+    {
+      "id": "probe-05:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "1e607810c61df41c331f62ebebfa0e697064a026e5ab6ff5bbcd7ce13a3937ea"
+    },
+    {
+      "id": "probe-06:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 1,
+      "requestDigest": "0dbd795064e2b9ff168f559b1be8b1b903e23fe2304ef68b22608dfb48f62760"
+    },
+    {
+      "id": "probe-06:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "e97fca949eeab8b61a3010399610789fdd832a0235952bc81352972822b643bb"
+    },
+    {
+      "id": "probe-06:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 1,
+      "requestDigest": "78a27315ebabe71beb62232a38bb3d017a0700d4542d64f93de5d052ca264aa2"
+    },
+    {
+      "id": "probe-07:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "fd401dd421172577cdbf0b6fe42323f099fcc0d3ec8a6644cfbfe267abf3ba16"
+    },
+    {
+      "id": "probe-07:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 2,
+      "requestDigest": "3b5d619ccb0aed7f529a67234fb9bbae6ff49f01ab046f28dc1126fac898d379"
+    },
+    {
+      "id": "probe-07:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 2,
+      "requestDigest": "6e666088d7ddbe652da9cc1b6df8fe6cf688896c68bdaa9b2a5720418bdead86"
+    },
+    {
+      "id": "probe-08:C",
+      "arm": "C",
+      "hasBinding": false,
+      "mentions": 1,
+      "requestDigest": "0bcd89131e02dfeb56cf82a8037ce04ce92a3b43928f2ab4016da6802eed5621"
+    },
+    {
+      "id": "probe-08:B",
+      "arm": "B",
+      "hasBinding": true,
+      "mentions": 1,
+      "requestDigest": "f9fd892e85b68ea221f80b91b249cd65e1fc47da0dde981169b91890ed1881d7"
+    },
+    {
+      "id": "probe-08:A",
+      "arm": "A",
+      "hasBinding": true,
+      "mentions": null,
+      "requestDigest": "838919231badb6a23975e03c11fa025d088b85caa32eeb49fb3177b931f1aecb"
+    }
+  ]
+}

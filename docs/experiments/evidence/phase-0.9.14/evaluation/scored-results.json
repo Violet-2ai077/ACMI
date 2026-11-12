@@ -1,0 +1,1336 @@
+{
+  "provenance": "actual_pinned_local_model_via_stock_dsh",
+  "stopped": null,
+  "outcome": "PASS_HOST_MODEL_GATE_NOT_MET",
+  "hostMechanism": true,
+  "modelCandidate": false,
+  "arms": {
+    "A": {
+      "rows": 12,
+      "anchorOK": 12,
+      "exposed": 0,
+      "userExact": 4,
+      "assistantExact": 6,
+      "intentExact": 11,
+      "naiveHostExact": 7,
+      "completed": 12,
+      "sameGeneration": 12,
+      "validTag": 12,
+      "continueExact": 0,
+      "continueCases": 4,
+      "conflictExact": 2,
+      "conflictCases": 3,
+      "wrongAnchorInheritance": 0,
+      "unsafeUnanchored": 0,
+      "wrongExisting": 1,
+      "existingCovered": 2,
+      "existingEligible": 6,
+      "neededClarification": 3,
+      "correctClarification": 3,
+      "unnecessaryClarification": 0,
+      "relatedExact": 1,
+      "answerPassed": 6,
+      "answerAsserted": 9,
+      "inputTokens": 5219,
+      "outputTokens": 947,
+      "generationMs": {
+        "p50": 9231,
+        "p95": 11023
+      },
+      "turnMs": {
+        "p50": 9258,
+        "p95": 11036
+      }
+    },
+    "B": {
+      "rows": 12,
+      "anchorOK": 12,
+      "exposed": 7,
+      "userExact": 8,
+      "assistantExact": 8,
+      "intentExact": 10,
+      "naiveHostExact": 7,
+      "completed": 12,
+      "sameGeneration": 12,
+      "validTag": 12,
+      "continueExact": 4,
+      "continueCases": 4,
+      "conflictExact": 2,
+      "conflictCases": 3,
+      "wrongAnchorInheritance": 0,
+      "unsafeUnanchored": 0,
+      "wrongExisting": 0,
+      "existingCovered": 6,
+      "existingEligible": 6,
+      "neededClarification": 3,
+      "correctClarification": 3,
+      "unnecessaryClarification": 0,
+      "relatedExact": 1,
+      "answerPassed": 8,
+      "answerAsserted": 9,
+      "inputTokens": 5381,
+      "outputTokens": 936,
+      "generationMs": {
+        "p50": 10146,
+        "p95": 12120
+      },
+      "turnMs": {
+        "p50": 10163,
+        "p95": 12135
+      }
+    }
+  },
+  "userGain": 4,
+  "controlPairs": 5,
+  "leaks": 0,
+  "mutations": 0,
+  "tools": 0,
+  "pairs": [
+    {
+      "probe": "probe-01",
+      "category": "continue",
+      "user": [
+        false,
+        true
+      ],
+      "assistant": [
+        false,
+        true
+      ],
+      "noEffectiveAnchor": false,
+      "identicalRequests": false
+    },
+    {
+      "probe": "probe-02",
+      "category": "continue",
+      "user": [
+        false,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "noEffectiveAnchor": false,
+      "identicalRequests": false
+    },
+    {
+      "probe": "probe-03",
+      "category": "continue",
+      "user": [
+        false,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "noEffectiveAnchor": false,
+      "identicalRequests": false
+    },
+    {
+      "probe": "probe-04",
+      "category": "conflict",
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "noEffectiveAnchor": false,
+      "identicalRequests": false
+    },
+    {
+      "probe": "probe-05",
+      "category": "conflict",
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "noEffectiveAnchor": false,
+      "identicalRequests": false
+    },
+    {
+      "probe": "probe-06",
+      "category": "continue",
+      "user": [
+        false,
+        true
+      ],
+      "assistant": [
+        false,
+        true
+      ],
+      "noEffectiveAnchor": false,
+      "identicalRequests": false
+    },
+    {
+      "probe": "probe-07",
+      "category": "no_effective_anchor",
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "noEffectiveAnchor": true,
+      "identicalRequests": true
+    },
+    {
+      "probe": "probe-08",
+      "category": "no_effective_anchor",
+      "user": [
+        false,
+        false
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "noEffectiveAnchor": true,
+      "identicalRequests": true
+    },
+    {
+      "probe": "probe-09",
+      "category": "no_effective_anchor",
+      "user": [
+        false,
+        false
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "noEffectiveAnchor": true,
+      "identicalRequests": true
+    },
+    {
+      "probe": "probe-10",
+      "category": "no_effective_anchor",
+      "user": [
+        true,
+        true
+      ],
+      "assistant": [
+        true,
+        true
+      ],
+      "noEffectiveAnchor": true,
+      "identicalRequests": true
+    },
+    {
+      "probe": "probe-11",
+      "category": "conflict",
+      "user": [
+        false,
+        false
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "noEffectiveAnchor": false,
+      "identicalRequests": false
+    },
+    {
+      "probe": "probe-12",
+      "category": "no_effective_anchor",
+      "user": [
+        false,
+        false
+      ],
+      "assistant": [
+        false,
+        false
+      ],
+      "noEffectiveAnchor": true,
+      "identicalRequests": true
+    }
+  ],
+  "performance": {
+    "attempts": 24,
+    "completions": 24,
+    "reconciled": 24,
+    "anchors": 24,
+    "raw": 24,
+    "inputTokens": 10600,
+    "outputTokens": 1883,
+    "generationMs": {
+      "p50": 9524,
+      "p95": 11795
+    }
+  },
+  "details": [
+    {
+      "id": "probe-01:A",
+      "arm": "A",
+      "probe": "probe-01",
+      "family": "resume",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "anchorTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "expected": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "user": "no_task",
+      "assistant": {
+        "taskId": "8a6ec66c-9267-48de-8ba0-e2c7341c78bd",
+        "workId": "2189f0a2-1958-41fe-879c-8846ffec540f"
+      },
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": true,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": false,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 9258
+    },
+    {
+      "id": "probe-01:B",
+      "arm": "B",
+      "probe": "probe-01",
+      "family": "resume",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": true,
+      "launchTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "anchorTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "expected": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "user": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "assistant": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 10416
+    },
+    {
+      "id": "probe-02:B",
+      "arm": "B",
+      "probe": "probe-02",
+      "family": "cross-session",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": true,
+      "launchTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "anchorTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "expected": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "user": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "assistant": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 11412
+    },
+    {
+      "id": "probe-02:A",
+      "arm": "A",
+      "probe": "probe-02",
+      "family": "cross-session",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "anchorTarget": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "expected": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "user": "no_task",
+      "assistant": {
+        "taskId": "9749e2e6-1fde-4023-8ed1-038a7a8cc611",
+        "workId": "7d4041fd-376e-418d-8b5c-6086e0695fa1"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 9537
+    },
+    {
+      "id": "probe-03:A",
+      "arm": "A",
+      "probe": "probe-03",
+      "family": "whole-task",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "anchorTarget": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "expected": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "user": "no_task",
+      "assistant": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 9049
+    },
+    {
+      "id": "probe-03:B",
+      "arm": "B",
+      "probe": "probe-03",
+      "family": "whole-task",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": true,
+      "launchTarget": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "anchorTarget": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "expected": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "user": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "assistant": {
+        "taskId": "bb058b8b-d79d-45ce-873f-7f8e115c6a44",
+        "workId": null
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 10163
+    },
+    {
+      "id": "probe-04:B",
+      "arm": "B",
+      "probe": "probe-04",
+      "family": "switch-conflict",
+      "category": "conflict",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": true,
+      "launchTarget": {
+        "taskId": "cc547ad2-b0ba-4be8-8e1d-66fe02acee38",
+        "workId": "a6be7d2b-7e5e-4480-80c9-47ae37cbabbc"
+      },
+      "anchorTarget": {
+        "taskId": "cc547ad2-b0ba-4be8-8e1d-66fe02acee38",
+        "workId": "a6be7d2b-7e5e-4480-80c9-47ae37cbabbc"
+      },
+      "expected": {
+        "taskId": "d6b0b76f-ac03-4ae5-8c1a-ae7ad3b0b9c2",
+        "workId": "d8bf365a-7650-462b-8741-b3be05d71145"
+      },
+      "user": {
+        "taskId": "d6b0b76f-ac03-4ae5-8c1a-ae7ad3b0b9c2",
+        "workId": "d8bf365a-7650-462b-8741-b3be05d71145"
+      },
+      "assistant": {
+        "taskId": "d6b0b76f-ac03-4ae5-8c1a-ae7ad3b0b9c2",
+        "workId": "d8bf365a-7650-462b-8741-b3be05d71145"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "execute",
+      "intentExact": false,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": false,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 5841
+    },
+    {
+      "id": "probe-04:A",
+      "arm": "A",
+      "probe": "probe-04",
+      "family": "switch-conflict",
+      "category": "conflict",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "cc547ad2-b0ba-4be8-8e1d-66fe02acee38",
+        "workId": "a6be7d2b-7e5e-4480-80c9-47ae37cbabbc"
+      },
+      "anchorTarget": {
+        "taskId": "cc547ad2-b0ba-4be8-8e1d-66fe02acee38",
+        "workId": "a6be7d2b-7e5e-4480-80c9-47ae37cbabbc"
+      },
+      "expected": {
+        "taskId": "d6b0b76f-ac03-4ae5-8c1a-ae7ad3b0b9c2",
+        "workId": "d8bf365a-7650-462b-8741-b3be05d71145"
+      },
+      "user": {
+        "taskId": "d6b0b76f-ac03-4ae5-8c1a-ae7ad3b0b9c2",
+        "workId": "d8bf365a-7650-462b-8741-b3be05d71145"
+      },
+      "assistant": {
+        "taskId": "d6b0b76f-ac03-4ae5-8c1a-ae7ad3b0b9c2",
+        "workId": "d8bf365a-7650-462b-8741-b3be05d71145"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": false,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 9838
+    },
+    {
+      "id": "probe-05:A",
+      "arm": "A",
+      "probe": "probe-05",
+      "family": "cancel",
+      "category": "conflict",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "3dc8c305-392f-4020-85c8-a0803a35de45",
+        "workId": "f327bad7-8d38-4743-8110-1260fdceff4f"
+      },
+      "anchorTarget": {
+        "taskId": "3dc8c305-392f-4020-85c8-a0803a35de45",
+        "workId": "f327bad7-8d38-4743-8110-1260fdceff4f"
+      },
+      "expected": "no_task",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "acknowledge",
+      "intent": "acknowledge",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": null,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 6585
+    },
+    {
+      "id": "probe-05:B",
+      "arm": "B",
+      "probe": "probe-05",
+      "family": "cancel",
+      "category": "conflict",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": true,
+      "launchTarget": {
+        "taskId": "3dc8c305-392f-4020-85c8-a0803a35de45",
+        "workId": "f327bad7-8d38-4743-8110-1260fdceff4f"
+      },
+      "anchorTarget": {
+        "taskId": "3dc8c305-392f-4020-85c8-a0803a35de45",
+        "workId": "f327bad7-8d38-4743-8110-1260fdceff4f"
+      },
+      "expected": "no_task",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "acknowledge",
+      "intent": "acknowledge",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": null,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 6600
+    },
+    {
+      "id": "probe-06:B",
+      "arm": "B",
+      "probe": "probe-06",
+      "family": "primary-plus-related",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": true,
+      "launchTarget": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "anchorTarget": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "expected": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "user": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "assistant": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [
+        {
+          "taskId": "f0cdfdd2-d028-4d62-8a3e-d2d5a534a5d5",
+          "workId": "3f7ddc21-3def-4e72-8c9a-40bbdd62efa5"
+        }
+      ],
+      "relatedExact": true,
+      "relatedExpected": 1,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 12135
+    },
+    {
+      "id": "probe-06:A",
+      "arm": "A",
+      "probe": "probe-06",
+      "family": "primary-plus-related",
+      "category": "continue",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "anchorTarget": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "expected": {
+        "taskId": "8073035a-5822-4357-88d8-8d6f761213df",
+        "workId": "62cf1247-17e6-45b0-8402-172e895adb19"
+      },
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [
+        {
+          "taskId": "f0cdfdd2-d028-4d62-8a3e-d2d5a534a5d5",
+          "workId": "3f7ddc21-3def-4e72-8c9a-40bbdd62efa5"
+        }
+      ],
+      "relatedExact": true,
+      "relatedExpected": 1,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": false,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 10176
+    },
+    {
+      "id": "probe-07:A",
+      "arm": "A",
+      "probe": "probe-07",
+      "family": "free-explicit",
+      "category": "no_effective_anchor",
+      "anchorStatus": "no_anchor",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": null,
+      "anchorTarget": null,
+      "expected": {
+        "taskId": "54d62368-dfde-43d6-8e8a-e4c0d4ba9436",
+        "workId": "603ad61e-4275-4926-89d4-095f5e910587"
+      },
+      "user": {
+        "taskId": "54d62368-dfde-43d6-8e8a-e4c0d4ba9436",
+        "workId": "603ad61e-4275-4926-89d4-095f5e910587"
+      },
+      "assistant": {
+        "taskId": "54d62368-dfde-43d6-8e8a-e4c0d4ba9436",
+        "workId": "603ad61e-4275-4926-89d4-095f5e910587"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 11036
+    },
+    {
+      "id": "probe-07:B",
+      "arm": "B",
+      "probe": "probe-07",
+      "family": "free-explicit",
+      "category": "no_effective_anchor",
+      "anchorStatus": "no_anchor",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": null,
+      "anchorTarget": null,
+      "expected": {
+        "taskId": "54d62368-dfde-43d6-8e8a-e4c0d4ba9436",
+        "workId": "603ad61e-4275-4926-89d4-095f5e910587"
+      },
+      "user": {
+        "taskId": "54d62368-dfde-43d6-8e8a-e4c0d4ba9436",
+        "workId": "603ad61e-4275-4926-89d4-095f5e910587"
+      },
+      "assistant": {
+        "taskId": "54d62368-dfde-43d6-8e8a-e4c0d4ba9436",
+        "workId": "603ad61e-4275-4926-89d4-095f5e910587"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "describe_only",
+      "intent": "describe_only",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 11103
+    },
+    {
+      "id": "probe-08:B",
+      "arm": "B",
+      "probe": "probe-08",
+      "family": "same-title",
+      "category": "no_effective_anchor",
+      "anchorStatus": "no_anchor",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": null,
+      "anchorTarget": null,
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "clarify",
+      "intent": "clarify",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 9031
+    },
+    {
+      "id": "probe-08:A",
+      "arm": "A",
+      "probe": "probe-08",
+      "family": "same-title",
+      "category": "no_effective_anchor",
+      "anchorStatus": "no_anchor",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": null,
+      "anchorTarget": null,
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "clarify",
+      "intent": "clarify",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 9079
+    },
+    {
+      "id": "probe-09:A",
+      "arm": "A",
+      "probe": "probe-09",
+      "family": "revoked",
+      "category": "no_effective_anchor",
+      "anchorStatus": "authorization_changed",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "86b1493c-a98a-41a7-835a-0134321dfdf8",
+        "workId": "cbeb24e6-006b-45d9-8f07-b135b024a335"
+      },
+      "anchorTarget": null,
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "clarify",
+      "intent": "clarify",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": null,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 9929
+    },
+    {
+      "id": "probe-09:B",
+      "arm": "B",
+      "probe": "probe-09",
+      "family": "revoked",
+      "category": "no_effective_anchor",
+      "anchorStatus": "authorization_changed",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "86b1493c-a98a-41a7-835a-0134321dfdf8",
+        "workId": "cbeb24e6-006b-45d9-8f07-b135b024a335"
+      },
+      "anchorTarget": null,
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "clarify",
+      "intent": "clarify",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": null,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 11809
+    },
+    {
+      "id": "probe-10:B",
+      "arm": "B",
+      "probe": "probe-10",
+      "family": "text-is-not-event",
+      "category": "no_effective_anchor",
+      "anchorStatus": "no_anchor",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": null,
+      "anchorTarget": null,
+      "expected": "no_task",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "acknowledge",
+      "intent": "describe_only",
+      "intentExact": false,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 4991
+    },
+    {
+      "id": "probe-10:A",
+      "arm": "A",
+      "probe": "probe-10",
+      "family": "text-is-not-event",
+      "category": "no_effective_anchor",
+      "anchorStatus": "no_anchor",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": null,
+      "anchorTarget": null,
+      "expected": "no_task",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "acknowledge",
+      "intent": "describe_only",
+      "intentExact": false,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 7053
+    },
+    {
+      "id": "probe-11:A",
+      "arm": "A",
+      "probe": "probe-11",
+      "family": "new-despite-anchor",
+      "category": "conflict",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "0f00f56c-8f11-46a4-82c8-4f8cdd4cfcde",
+        "workId": "c98919fd-5f8d-40e2-8b4a-d3899cacc2ee"
+      },
+      "anchorTarget": {
+        "taskId": "0f00f56c-8f11-46a4-82c8-4f8cdd4cfcde",
+        "workId": "c98919fd-5f8d-40e2-8b4a-d3899cacc2ee"
+      },
+      "expected": "new_task_proposal",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "propose",
+      "intent": "propose",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 8968
+    },
+    {
+      "id": "probe-11:B",
+      "arm": "B",
+      "probe": "probe-11",
+      "family": "new-despite-anchor",
+      "category": "conflict",
+      "anchorStatus": "accepted",
+      "anchorOK": true,
+      "exposed": true,
+      "launchTarget": {
+        "taskId": "0f00f56c-8f11-46a4-82c8-4f8cdd4cfcde",
+        "workId": "c98919fd-5f8d-40e2-8b4a-d3899cacc2ee"
+      },
+      "anchorTarget": {
+        "taskId": "0f00f56c-8f11-46a4-82c8-4f8cdd4cfcde",
+        "workId": "c98919fd-5f8d-40e2-8b4a-d3899cacc2ee"
+      },
+      "expected": "new_task_proposal",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": false,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "propose",
+      "intent": "propose",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": true,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 4681
+    },
+    {
+      "id": "probe-12:B",
+      "arm": "B",
+      "probe": "probe-12",
+      "family": "wrong-session",
+      "category": "no_effective_anchor",
+      "anchorStatus": "scope_mismatch",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "dcad259f-566b-42a6-88af-9815aac24a29",
+        "workId": "1d2bac26-3060-4757-87f8-ab314afba90b"
+      },
+      "anchorTarget": null,
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "clarify",
+      "intent": "clarify",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": null,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 10188
+    },
+    {
+      "id": "probe-12:A",
+      "arm": "A",
+      "probe": "probe-12",
+      "family": "wrong-session",
+      "category": "no_effective_anchor",
+      "anchorStatus": "scope_mismatch",
+      "anchorOK": true,
+      "exposed": false,
+      "launchTarget": {
+        "taskId": "dcad259f-566b-42a6-88af-9815aac24a29",
+        "workId": "1d2bac26-3060-4757-87f8-ab314afba90b"
+      },
+      "anchorTarget": null,
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "naiveHostExact": true,
+      "wrongAnchorInheritance": false,
+      "unanchoredUnsafeExisting": false,
+      "wrongExisting": false,
+      "expectedIntent": "clarify",
+      "intent": "clarify",
+      "intentExact": true,
+      "related": [],
+      "relatedExact": true,
+      "relatedExpected": 0,
+      "validTag": true,
+      "issues": [],
+      "completed": true,
+      "sameGeneration": true,
+      "answerOK": null,
+      "tools": 0,
+      "leak": false,
+      "mutation": false,
+      "latencyMs": 10298
+    }
+  ]
+}

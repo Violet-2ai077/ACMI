@@ -1,0 +1,1177 @@
+{
+  "provenance": "actual_pinned_local_model_via_stock_dsh",
+  "stopped": null,
+  "mechanism": false,
+  "evidenceGain": false,
+  "omitBindingGain": false,
+  "eligible": {
+    "B": false,
+    "C": false
+  },
+  "userGain": {
+    "evidence": 0,
+    "omitBinding": 0
+  },
+  "arms": {
+    "A": {
+      "rows": 8,
+      "completed": 8,
+      "answers": 6,
+      "valid": 8,
+      "sameGeneration": 8,
+      "userExact": 4,
+      "assistantExact": 4,
+      "intentExact": 7,
+      "relatedExact": 0,
+      "relatedExpected": 1,
+      "existingExact": 2,
+      "existingCovered": 3,
+      "wrongExisting": 1,
+      "negativeWrongExisting": 0,
+      "negativeExact": 2,
+      "negativeRelatedMismatch": 0,
+      "newExact": false,
+      "userWrongWasBinding": 1,
+      "inputTokens": 3007,
+      "outputTokens": 631,
+      "generationMs": {
+        "p50": 9012,
+        "p95": 12812
+      },
+      "turnMs": {
+        "p50": 9025,
+        "p95": 12842
+      }
+    },
+    "B": {
+      "rows": 8,
+      "completed": 8,
+      "answers": 7,
+      "valid": 8,
+      "sameGeneration": 8,
+      "userExact": 4,
+      "assistantExact": 4,
+      "intentExact": 7,
+      "relatedExact": 0,
+      "relatedExpected": 1,
+      "existingExact": 2,
+      "existingCovered": 2,
+      "wrongExisting": 0,
+      "negativeWrongExisting": 0,
+      "negativeExact": 2,
+      "negativeRelatedMismatch": 1,
+      "newExact": false,
+      "userWrongWasBinding": 0,
+      "inputTokens": 3881,
+      "outputTokens": 707,
+      "generationMs": {
+        "p50": 10889,
+        "p95": 17331
+      },
+      "turnMs": {
+        "p50": 10902,
+        "p95": 17343
+      }
+    },
+    "C": {
+      "rows": 8,
+      "completed": 8,
+      "answers": 7,
+      "valid": 8,
+      "sameGeneration": 8,
+      "userExact": 4,
+      "assistantExact": 4,
+      "intentExact": 7,
+      "relatedExact": 0,
+      "relatedExpected": 1,
+      "existingExact": 2,
+      "existingCovered": 2,
+      "wrongExisting": 0,
+      "negativeWrongExisting": 0,
+      "negativeExact": 2,
+      "negativeRelatedMismatch": 1,
+      "newExact": false,
+      "userWrongWasBinding": 0,
+      "inputTokens": 3789,
+      "outputTokens": 672,
+      "generationMs": {
+        "p50": 10522,
+        "p95": 12665
+      },
+      "turnMs": {
+        "p50": 10533,
+        "p95": 12677
+      }
+    }
+  },
+  "outcome": "GATE_NOT_MET",
+  "leak": 0,
+  "mutation": 0,
+  "unexpectedTools": 0,
+  "paired": [
+    {
+      "probe": "probe-01",
+      "arms": {
+        "A": {
+          "userExact": true,
+          "assistantExact": true
+        },
+        "B": {
+          "userExact": true,
+          "assistantExact": true
+        },
+        "C": {
+          "userExact": true,
+          "assistantExact": true
+        }
+      }
+    },
+    {
+      "probe": "probe-02",
+      "arms": {
+        "B": {
+          "userExact": false,
+          "assistantExact": true
+        },
+        "C": {
+          "userExact": false,
+          "assistantExact": true
+        },
+        "A": {
+          "userExact": false,
+          "assistantExact": false
+        }
+      }
+    },
+    {
+      "probe": "probe-03",
+      "arms": {
+        "C": {
+          "userExact": true,
+          "assistantExact": true
+        },
+        "A": {
+          "userExact": true,
+          "assistantExact": true
+        },
+        "B": {
+          "userExact": true,
+          "assistantExact": true
+        }
+      }
+    },
+    {
+      "probe": "probe-04",
+      "arms": {
+        "A": {
+          "userExact": false,
+          "assistantExact": false
+        },
+        "C": {
+          "userExact": false,
+          "assistantExact": false
+        },
+        "B": {
+          "userExact": false,
+          "assistantExact": false
+        }
+      }
+    },
+    {
+      "probe": "probe-05",
+      "arms": {
+        "C": {
+          "userExact": true,
+          "assistantExact": true
+        },
+        "B": {
+          "userExact": true,
+          "assistantExact": true
+        },
+        "A": {
+          "userExact": true,
+          "assistantExact": true
+        }
+      }
+    },
+    {
+      "probe": "probe-06",
+      "arms": {
+        "B": {
+          "userExact": true,
+          "assistantExact": false
+        },
+        "A": {
+          "userExact": true,
+          "assistantExact": true
+        },
+        "C": {
+          "userExact": true,
+          "assistantExact": false
+        }
+      }
+    },
+    {
+      "probe": "probe-07",
+      "arms": {
+        "A": {
+          "userExact": false,
+          "assistantExact": false
+        },
+        "B": {
+          "userExact": false,
+          "assistantExact": false
+        },
+        "C": {
+          "userExact": false,
+          "assistantExact": false
+        }
+      }
+    },
+    {
+      "probe": "probe-08",
+      "arms": {
+        "C": {
+          "userExact": false,
+          "assistantExact": false
+        },
+        "B": {
+          "userExact": false,
+          "assistantExact": false
+        },
+        "A": {
+          "userExact": false,
+          "assistantExact": false
+        }
+      }
+    }
+  ],
+  "performance": {
+    "attempts": 24,
+    "completions": 24,
+    "raw": 24,
+    "reconciled": 24,
+    "inputTokens": 10677,
+    "outputTokens": 2010,
+    "generationMs": {
+      "p50": 10522,
+      "p95": 13918
+    }
+  },
+  "details": [
+    {
+      "id": "probe-01:A",
+      "probe": "probe-01",
+      "arm": "A",
+      "family": "explicit-conflict",
+      "expected": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "user": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "assistant": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "022ad7e6-1d4a-48a3-8ff3-72500580fed8",
+        "workId": "629ccf71-dfe4-4365-8091-d43dd070d4d1"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 12842
+    },
+    {
+      "id": "probe-01:B",
+      "probe": "probe-01",
+      "arm": "B",
+      "family": "explicit-conflict",
+      "expected": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "user": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "assistant": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "022ad7e6-1d4a-48a3-8ff3-72500580fed8",
+        "workId": "629ccf71-dfe4-4365-8091-d43dd070d4d1"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 12173
+    },
+    {
+      "id": "probe-01:C",
+      "probe": "probe-01",
+      "arm": "C",
+      "family": "explicit-conflict",
+      "expected": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "user": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "assistant": {
+        "taskId": "affe0a4f-369b-439e-8d1e-0134ea255399",
+        "workId": "40943eab-0767-416d-809a-3388d584a237"
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "022ad7e6-1d4a-48a3-8ff3-72500580fed8",
+        "workId": "629ccf71-dfe4-4365-8091-d43dd070d4d1"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 12677
+    },
+    {
+      "id": "probe-02:B",
+      "probe": "probe-02",
+      "arm": "B",
+      "family": "existing-no-execution",
+      "expected": {
+        "taskId": "951683d9-b707-41a3-8fe2-66c0eba4cdaa",
+        "workId": "89295c48-5ed1-4bb3-8d2f-432cb66090a3"
+      },
+      "user": "no_task",
+      "assistant": {
+        "taskId": "951683d9-b707-41a3-8fe2-66c0eba4cdaa",
+        "workId": "89295c48-5ed1-4bb3-8d2f-432cb66090a3"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "e5ed0ebc-5bc3-42f1-8cec-6aaf1ea66da5",
+        "workId": "00716469-bcf1-46c6-8d23-8f2eb49b72c9"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": false,
+      "related": [
+        {
+          "taskId": "a9f73fc3-8ff1-478d-846a-70ea88364817",
+          "workId": "7e63016f-029e-45f4-831e-79b428467bf2"
+        },
+        {
+          "taskId": "e5ed0ebc-5bc3-42f1-8cec-6aaf1ea66da5",
+          "workId": "00716469-bcf1-46c6-8d23-8f2eb49b72c9"
+        }
+      ],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 13936
+    },
+    {
+      "id": "probe-02:C",
+      "probe": "probe-02",
+      "arm": "C",
+      "family": "existing-no-execution",
+      "expected": {
+        "taskId": "951683d9-b707-41a3-8fe2-66c0eba4cdaa",
+        "workId": "89295c48-5ed1-4bb3-8d2f-432cb66090a3"
+      },
+      "user": "no_task",
+      "assistant": {
+        "taskId": "951683d9-b707-41a3-8fe2-66c0eba4cdaa",
+        "workId": "89295c48-5ed1-4bb3-8d2f-432cb66090a3"
+      },
+      "userExact": false,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "e5ed0ebc-5bc3-42f1-8cec-6aaf1ea66da5",
+        "workId": "00716469-bcf1-46c6-8d23-8f2eb49b72c9"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 10533
+    },
+    {
+      "id": "probe-02:A",
+      "probe": "probe-02",
+      "arm": "A",
+      "family": "existing-no-execution",
+      "expected": {
+        "taskId": "951683d9-b707-41a3-8fe2-66c0eba4cdaa",
+        "workId": "89295c48-5ed1-4bb3-8d2f-432cb66090a3"
+      },
+      "user": {
+        "taskId": "e5ed0ebc-5bc3-42f1-8cec-6aaf1ea66da5",
+        "workId": "00716469-bcf1-46c6-8d23-8f2eb49b72c9"
+      },
+      "assistant": {
+        "taskId": "e5ed0ebc-5bc3-42f1-8cec-6aaf1ea66da5",
+        "workId": "00716469-bcf1-46c6-8d23-8f2eb49b72c9"
+      },
+      "userExact": false,
+      "assistantExact": false,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "e5ed0ebc-5bc3-42f1-8cec-6aaf1ea66da5",
+        "workId": "00716469-bcf1-46c6-8d23-8f2eb49b72c9"
+      },
+      "userWrongWasBinding": true,
+      "wrongExisting": true,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": false,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 7469
+    },
+    {
+      "id": "probe-03:C",
+      "probe": "probe-03",
+      "arm": "C",
+      "family": "whole-task",
+      "expected": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "user": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "assistant": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "1912007d-e1e4-418f-8fd1-7580a30b6596",
+        "workId": "b82f6775-7bb3-4e5f-87f4-b96cf58b273b"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 12404
+    },
+    {
+      "id": "probe-03:A",
+      "probe": "probe-03",
+      "arm": "A",
+      "family": "whole-task",
+      "expected": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "user": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "assistant": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "1912007d-e1e4-418f-8fd1-7580a30b6596",
+        "workId": "b82f6775-7bb3-4e5f-87f4-b96cf58b273b"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 12434
+    },
+    {
+      "id": "probe-03:B",
+      "probe": "probe-03",
+      "arm": "B",
+      "family": "whole-task",
+      "expected": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "user": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "assistant": {
+        "taskId": "dcad1214-55db-4599-8388-5aefd508a30e",
+        "workId": null
+      },
+      "userExact": true,
+      "assistantExact": true,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "1912007d-e1e4-418f-8fd1-7580a30b6596",
+        "workId": "b82f6775-7bb3-4e5f-87f4-b96cf58b273b"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 11909
+    },
+    {
+      "id": "probe-04:A",
+      "probe": "probe-04",
+      "arm": "A",
+      "family": "primary-vs-background",
+      "expected": {
+        "taskId": "5f3e9bd4-42f2-4abb-8a5e-7692cd26efae",
+        "workId": "86c9861e-2a33-44b8-8823-373dcc4a2ffc"
+      },
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "f0939370-570c-43f7-84e6-130ca6af1350",
+        "workId": "90c996cb-5178-483c-8d4e-003fdc32506a"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": false,
+      "related": [
+        {
+          "taskId": "5f3e9bd4-42f2-4abb-8a5e-7692cd26efae",
+          "workId": "86c9861e-2a33-44b8-8823-373dcc4a2ffc"
+        }
+      ],
+      "expectedRelated": 1,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 12450
+    },
+    {
+      "id": "probe-04:C",
+      "probe": "probe-04",
+      "arm": "C",
+      "family": "primary-vs-background",
+      "expected": {
+        "taskId": "5f3e9bd4-42f2-4abb-8a5e-7692cd26efae",
+        "workId": "86c9861e-2a33-44b8-8823-373dcc4a2ffc"
+      },
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "f0939370-570c-43f7-84e6-130ca6af1350",
+        "workId": "90c996cb-5178-483c-8d4e-003fdc32506a"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": false,
+      "related": [
+        {
+          "taskId": "5f3e9bd4-42f2-4abb-8a5e-7692cd26efae",
+          "workId": "86c9861e-2a33-44b8-8823-373dcc4a2ffc"
+        }
+      ],
+      "expectedRelated": 1,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 11599
+    },
+    {
+      "id": "probe-04:B",
+      "probe": "probe-04",
+      "arm": "B",
+      "family": "primary-vs-background",
+      "expected": {
+        "taskId": "5f3e9bd4-42f2-4abb-8a5e-7692cd26efae",
+        "workId": "86c9861e-2a33-44b8-8823-373dcc4a2ffc"
+      },
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": true,
+      "explicitBinding": {
+        "taskId": "f0939370-570c-43f7-84e6-130ca6af1350",
+        "workId": "90c996cb-5178-483c-8d4e-003fdc32506a"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": true,
+      "relatedExact": false,
+      "related": [
+        {
+          "taskId": "5f3e9bd4-42f2-4abb-8a5e-7692cd26efae",
+          "workId": "86c9861e-2a33-44b8-8823-373dcc4a2ffc"
+        },
+        {
+          "taskId": "f0939370-570c-43f7-84e6-130ca6af1350",
+          "workId": "90c996cb-5178-483c-8d4e-003fdc32506a"
+        }
+      ],
+      "expectedRelated": 1,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 17343
+    },
+    {
+      "id": "probe-05:C",
+      "probe": "probe-05",
+      "arm": "C",
+      "family": "quoted-negative",
+      "expected": "no_task",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "517a7c6b-9a13-45e2-8263-49062df55d1c",
+        "workId": "437f06dc-4351-41b4-8b31-d6be6f79f0e8"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": false,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 6969
+    },
+    {
+      "id": "probe-05:B",
+      "probe": "probe-05",
+      "arm": "B",
+      "family": "quoted-negative",
+      "expected": "no_task",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "517a7c6b-9a13-45e2-8263-49062df55d1c",
+        "workId": "437f06dc-4351-41b4-8b31-d6be6f79f0e8"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": false,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 6368
+    },
+    {
+      "id": "probe-05:A",
+      "probe": "probe-05",
+      "arm": "A",
+      "family": "quoted-negative",
+      "expected": "no_task",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": true,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "517a7c6b-9a13-45e2-8263-49062df55d1c",
+        "workId": "437f06dc-4351-41b4-8b31-d6be6f79f0e8"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "describe_only",
+      "intentExact": false,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 8767
+    },
+    {
+      "id": "probe-06:B",
+      "probe": "probe-06",
+      "arm": "B",
+      "family": "conditional-mention",
+      "expected": "unresolved",
+      "user": "unresolved",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "8a695429-2201-4519-85e2-104114546a9c",
+        "workId": "4a4e0333-4da8-489e-86c4-19f35c4e9f2f"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "clarify",
+      "intentExact": true,
+      "relatedExact": false,
+      "related": [
+        {
+          "taskId": "8a695429-2201-4519-85e2-104114546a9c",
+          "workId": "4a4e0333-4da8-489e-86c4-19f35c4e9f2f"
+        }
+      ],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 10902
+    },
+    {
+      "id": "probe-06:A",
+      "probe": "probe-06",
+      "arm": "A",
+      "family": "conditional-mention",
+      "expected": "unresolved",
+      "user": "unresolved",
+      "assistant": "unresolved",
+      "userExact": true,
+      "assistantExact": true,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "8a695429-2201-4519-85e2-104114546a9c",
+        "workId": "4a4e0333-4da8-489e-86c4-19f35c4e9f2f"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "clarify",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 8360
+    },
+    {
+      "id": "probe-06:C",
+      "probe": "probe-06",
+      "arm": "C",
+      "family": "conditional-mention",
+      "expected": "unresolved",
+      "user": "unresolved",
+      "assistant": "no_task",
+      "userExact": true,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "8a695429-2201-4519-85e2-104114546a9c",
+        "workId": "4a4e0333-4da8-489e-86c4-19f35c4e9f2f"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "clarify",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 8545
+    },
+    {
+      "id": "probe-07:A",
+      "probe": "probe-07",
+      "arm": "A",
+      "family": "duplicate-title",
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "9e529faf-606f-4e2a-853d-9e9ab76101f9",
+        "workId": "cd4c48fe-2977-41fa-8d7b-8817459bf585"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "clarify",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": false,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 10246
+    },
+    {
+      "id": "probe-07:B",
+      "probe": "probe-07",
+      "arm": "B",
+      "family": "duplicate-title",
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "9e529faf-606f-4e2a-853d-9e9ab76101f9",
+        "workId": "cd4c48fe-2977-41fa-8d7b-8817459bf585"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "clarify",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": false,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 10345
+    },
+    {
+      "id": "probe-07:C",
+      "probe": "probe-07",
+      "arm": "C",
+      "family": "duplicate-title",
+      "expected": "unresolved",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "9e529faf-606f-4e2a-853d-9e9ab76101f9",
+        "workId": "cd4c48fe-2977-41fa-8d7b-8817459bf585"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "clarify",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": false,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 10393
+    },
+    {
+      "id": "probe-08:C",
+      "probe": "probe-08",
+      "arm": "C",
+      "family": "new-with-negative",
+      "expected": "new_task_proposal",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "bb057bdc-ee46-4acc-8742-640cfd372b3c",
+        "workId": "bbcf2286-577e-4fb5-8d31-3d6343b95bad"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "propose",
+      "intentExact": true,
+      "relatedExact": false,
+      "related": [
+        {
+          "taskId": "bb057bdc-ee46-4acc-8742-640cfd372b3c",
+          "workId": "bbcf2286-577e-4fb5-8d31-3d6343b95bad"
+        }
+      ],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 11209
+    },
+    {
+      "id": "probe-08:B",
+      "probe": "probe-08",
+      "arm": "B",
+      "family": "new-with-negative",
+      "expected": "new_task_proposal",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "bb057bdc-ee46-4acc-8742-640cfd372b3c",
+        "workId": "bbcf2286-577e-4fb5-8d31-3d6343b95bad"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "propose",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 9285
+    },
+    {
+      "id": "probe-08:A",
+      "probe": "probe-08",
+      "arm": "A",
+      "family": "new-with-negative",
+      "expected": "new_task_proposal",
+      "user": "no_task",
+      "assistant": "no_task",
+      "userExact": false,
+      "assistantExact": false,
+      "positive": false,
+      "explicitBinding": {
+        "taskId": "bb057bdc-ee46-4acc-8742-640cfd372b3c",
+        "workId": "bbcf2286-577e-4fb5-8d31-3d6343b95bad"
+      },
+      "userWrongWasBinding": false,
+      "wrongExisting": false,
+      "negativeWrongExisting": false,
+      "intent": "propose",
+      "intentExact": true,
+      "relatedExact": true,
+      "related": [],
+      "expectedRelated": 0,
+      "valid": true,
+      "issues": [],
+      "same": true,
+      "completed": true,
+      "answerOK": true,
+      "leak": false,
+      "mutation": false,
+      "unexpectedTools": 0,
+      "latencyMs": 9025
+    }
+  ]
+}

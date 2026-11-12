@@ -1,0 +1,109 @@
+{
+  "provenance": "post_experiment_deterministic_diagnostic_not_a_qualified_resolver",
+  "total": 10,
+  "covered": 3,
+  "exact": 3,
+  "possibleRecoveries": 1,
+  "cases": [
+    {
+      "id": "case-01:B:base",
+      "family": "existing-no-execution",
+      "literalMatchCount": 1,
+      "selectedTitle": "Verbena Route",
+      "exactLiteral": true,
+      "modelUserExact": true,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    },
+    {
+      "id": "case-02:B:base",
+      "family": "existing-no-execution",
+      "literalMatchCount": 1,
+      "selectedTitle": "Ash Album",
+      "exactLiteral": true,
+      "modelUserExact": true,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    },
+    {
+      "id": "case-03:B:base",
+      "family": "whole-task",
+      "literalMatchCount": 1,
+      "selectedTitle": "Thyme Calendar",
+      "exactLiteral": true,
+      "modelUserExact": false,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": true
+    },
+    {
+      "id": "case-04:B:base",
+      "family": "whole-task",
+      "literalMatchCount": 2,
+      "selectedTitle": null,
+      "exactLiteral": false,
+      "modelUserExact": true,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    },
+    {
+      "id": "case-05:B:base",
+      "family": "new-goal",
+      "literalMatchCount": 0,
+      "selectedTitle": null,
+      "exactLiteral": false,
+      "modelUserExact": false,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    },
+    {
+      "id": "case-06:B:base",
+      "family": "ambiguous",
+      "literalMatchCount": 0,
+      "selectedTitle": null,
+      "exactLiteral": false,
+      "modelUserExact": true,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    },
+    {
+      "id": "case-07:B:base",
+      "family": "no-task",
+      "literalMatchCount": 0,
+      "selectedTitle": null,
+      "exactLiteral": false,
+      "modelUserExact": true,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    },
+    {
+      "id": "case-08:B:base",
+      "family": "multi-response",
+      "literalMatchCount": 2,
+      "selectedTitle": null,
+      "exactLiteral": false,
+      "modelUserExact": false,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    },
+    {
+      "id": "case-09:B:base",
+      "family": "multi-response",
+      "literalMatchCount": 2,
+      "selectedTitle": null,
+      "exactLiteral": false,
+      "modelUserExact": false,
+      "modelWrongExistingWasBinding": true,
+      "opportunity": false
+    },
+    {
+      "id": "case-10:B:base",
+      "family": "multi-tool",
+      "literalMatchCount": 2,
+      "selectedTitle": null,
+      "exactLiteral": false,
+      "modelUserExact": true,
+      "modelWrongExistingWasBinding": false,
+      "opportunity": false
+    }
+  ]
+}

@@ -1,0 +1,2979 @@
+{
+  "provenance": "actual_local_open_weight_inference",
+  "runtimeBuild": "b12283/f3b407ca1",
+  "modelSha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+  "runtime": {
+    "provenance": "actual_local_open_weight_inference",
+    "status": "completed",
+    "started": 56,
+    "completed": 56,
+    "stopped": null,
+    "runtimeStopped": true,
+    "externalProviderRequests": 0,
+    "externalApiCostCny": 0,
+    "promptTokens": 14392,
+    "outputTokens": 4852,
+    "totalTokens": 19244,
+    "reservedTokenUpperBound": 28728
+  },
+  "validRecords": 1,
+  "missing": 0,
+  "truncated": 0,
+  "splits": {
+    "dev": {
+      "off": {
+        "n": 14,
+        "ruleDecisionExact": {
+          "n": 14,
+          "d": 14,
+          "rate": 1
+        },
+        "modelDecisionExactValidResponse": {
+          "n": 1,
+          "d": 14,
+          "rate": 0.07142857142857142
+        },
+        "modelDecisionAndSupportExact": {
+          "n": 1,
+          "d": 14,
+          "rate": 0.07142857142857142
+        },
+        "modelRawDecisionExactDiagnosticOnly": {
+          "n": 2,
+          "d": 14,
+          "rate": 0.14285714285714285
+        },
+        "modelCorrectTargetValidResponse": {
+          "n": 0,
+          "d": 1,
+          "rate": 0
+        },
+        "modelCorrectTargetWithSupport": {
+          "n": 0,
+          "d": 1,
+          "rate": 0
+        },
+        "modelRawCorrectTargetDiagnosticOnly": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "accepted": {
+          "n": 1,
+          "d": 14,
+          "rate": 0.07142857142857142
+        },
+        "wrongIdentityAccepted": 0,
+        "wrongIdentityRaw": 12,
+        "assignedOnNegativeRaw": 12,
+        "abstentionExactValidResponse": {
+          "n": 1,
+          "d": 13,
+          "rate": 0.07692307692307693
+        },
+        "invalid": {
+          "accepted_for_scoring": 1,
+          "evidence_error": 13
+        }
+      },
+      "on": {
+        "n": 14,
+        "ruleDecisionExact": {
+          "n": 9,
+          "d": 14,
+          "rate": 0.6428571428571429
+        },
+        "modelDecisionExactValidResponse": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "modelDecisionAndSupportExact": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "modelRawDecisionExactDiagnosticOnly": {
+          "n": 1,
+          "d": 14,
+          "rate": 0.07142857142857142
+        },
+        "modelCorrectTargetValidResponse": {
+          "n": 0,
+          "d": 8,
+          "rate": 0
+        },
+        "modelCorrectTargetWithSupport": {
+          "n": 0,
+          "d": 8,
+          "rate": 0
+        },
+        "modelRawCorrectTargetDiagnosticOnly": {
+          "n": 1,
+          "d": 8,
+          "rate": 0.125
+        },
+        "accepted": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "wrongIdentityAccepted": 0,
+        "wrongIdentityRaw": 13,
+        "assignedOnNegativeRaw": 6,
+        "abstentionExactValidResponse": {
+          "n": 0,
+          "d": 6,
+          "rate": 0
+        },
+        "invalid": {
+          "evidence_error": 10,
+          "schema_error": 4
+        }
+      },
+      "pairedEvidenceDependent": {
+        "n": 7,
+        "ruleCorrectBoth": 2,
+        "modelCorrectBoth": 0,
+        "modelRawCorrectBothDiagnosticOnly": 0
+      },
+      "byFamilyOn": {
+        "ambiguous": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "complex_negation": {
+          "n": 2,
+          "ruleDecisionExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 2,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "evidence_error": 2
+          }
+        },
+        "history": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "schema_error": 1
+          }
+        },
+        "literal_control": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "schema_error": 1
+          }
+        },
+        "negation_only": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "nonaction": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "schema_error": 1
+          }
+        },
+        "override": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 0,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "paraphrase": {
+          "n": 3,
+          "ruleDecisionExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 3,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "evidence_error": 2,
+            "schema_error": 1
+          }
+        },
+        "source_denied": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "stale_source": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "unavailable": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        }
+      }
+    },
+    "validation": {
+      "off": {
+        "n": 14,
+        "ruleDecisionExact": {
+          "n": 11,
+          "d": 14,
+          "rate": 0.7857142857142857
+        },
+        "modelDecisionExactValidResponse": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "modelDecisionAndSupportExact": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "modelRawDecisionExactDiagnosticOnly": {
+          "n": 1,
+          "d": 14,
+          "rate": 0.07142857142857142
+        },
+        "modelCorrectTargetValidResponse": {
+          "n": 0,
+          "d": 1,
+          "rate": 0
+        },
+        "modelCorrectTargetWithSupport": {
+          "n": 0,
+          "d": 1,
+          "rate": 0
+        },
+        "modelRawCorrectTargetDiagnosticOnly": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "accepted": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "wrongIdentityAccepted": 0,
+        "wrongIdentityRaw": 13,
+        "assignedOnNegativeRaw": 13,
+        "abstentionExactValidResponse": {
+          "n": 0,
+          "d": 13,
+          "rate": 0
+        },
+        "invalid": {
+          "evidence_error": 14
+        }
+      },
+      "on": {
+        "n": 14,
+        "ruleDecisionExact": {
+          "n": 9,
+          "d": 14,
+          "rate": 0.6428571428571429
+        },
+        "modelDecisionExactValidResponse": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "modelDecisionAndSupportExact": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "modelRawDecisionExactDiagnosticOnly": {
+          "n": 1,
+          "d": 14,
+          "rate": 0.07142857142857142
+        },
+        "modelCorrectTargetValidResponse": {
+          "n": 0,
+          "d": 8,
+          "rate": 0
+        },
+        "modelCorrectTargetWithSupport": {
+          "n": 0,
+          "d": 8,
+          "rate": 0
+        },
+        "modelRawCorrectTargetDiagnosticOnly": {
+          "n": 1,
+          "d": 8,
+          "rate": 0.125
+        },
+        "accepted": {
+          "n": 0,
+          "d": 14,
+          "rate": 0
+        },
+        "wrongIdentityAccepted": 0,
+        "wrongIdentityRaw": 13,
+        "assignedOnNegativeRaw": 6,
+        "abstentionExactValidResponse": {
+          "n": 0,
+          "d": 6,
+          "rate": 0
+        },
+        "invalid": {
+          "evidence_error": 11,
+          "schema_error": 3
+        }
+      },
+      "pairedEvidenceDependent": {
+        "n": 7,
+        "ruleCorrectBoth": 2,
+        "modelCorrectBoth": 0,
+        "modelRawCorrectBothDiagnosticOnly": 0
+      },
+      "byFamilyOn": {
+        "ambiguous": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "complex_negation": {
+          "n": 2,
+          "ruleDecisionExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 2,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "evidence_error": 1,
+            "schema_error": 1
+          }
+        },
+        "history": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "schema_error": 1
+          }
+        },
+        "literal_control": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "negation_only": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "nonaction": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "schema_error": 1
+          }
+        },
+        "override": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 0,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "paraphrase": {
+          "n": 3,
+          "ruleDecisionExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "accepted": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 3,
+          "assignedOnNegativeRaw": 0,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "invalid": {
+            "evidence_error": 3
+          }
+        },
+        "source_denied": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "stale_source": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        },
+        "unavailable": {
+          "n": 1,
+          "ruleDecisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "modelDecisionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelDecisionAndSupportExact": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelRawDecisionExactDiagnosticOnly": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "modelCorrectTargetValidResponse": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelCorrectTargetWithSupport": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "modelRawCorrectTargetDiagnosticOnly": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "accepted": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "wrongIdentityAccepted": 0,
+          "wrongIdentityRaw": 1,
+          "assignedOnNegativeRaw": 1,
+          "abstentionExactValidResponse": {
+            "n": 0,
+            "d": 1,
+            "rate": 0
+          },
+          "invalid": {
+            "evidence_error": 1
+          }
+        }
+      }
+    }
+  },
+  "ruleBaseline": {
+    "provenance": "phase-0.9.6 deterministic contrast rules on same scoped packet",
+    "dev": {
+      "off": {
+        "n": 14,
+        "targetResolvable": 1,
+        "noIdentityExpected": 13,
+        "decisionExact": {
+          "n": 14,
+          "d": 14,
+          "rate": 1
+        },
+        "correctCoverage": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "coveredAccuracy": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "on": {
+        "n": 14,
+        "targetResolvable": 8,
+        "noIdentityExpected": 6,
+        "decisionExact": {
+          "n": 9,
+          "d": 14,
+          "rate": 0.6428571428571429
+        },
+        "correctCoverage": {
+          "n": 3,
+          "d": 8,
+          "rate": 0.375
+        },
+        "coveredAccuracy": {
+          "n": 3,
+          "d": 3,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "paired": {
+        "wins": 0,
+        "losses": 5,
+        "bothCorrect": 9,
+        "bothWrong": 0,
+        "expectedSwitch": 7,
+        "resolvedWithEvidence": 2,
+        "correctInBothConditions": 2
+      },
+      "byFamilyOn": {
+        "ambiguous": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "complex_negation": {
+          "n": 2,
+          "targetResolvable": 2,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "history": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "literal_control": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "negation_only": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "nonaction": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "override": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "paraphrase": {
+          "n": 3,
+          "targetResolvable": 3,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "source_denied": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "stale_source": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "unavailable": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        }
+      }
+    },
+    "validation": {
+      "off": {
+        "n": 14,
+        "targetResolvable": 1,
+        "noIdentityExpected": 13,
+        "decisionExact": {
+          "n": 11,
+          "d": 14,
+          "rate": 0.7857142857142857
+        },
+        "correctCoverage": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "coveredAccuracy": {
+          "n": 1,
+          "d": 1,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "on": {
+        "n": 14,
+        "targetResolvable": 8,
+        "noIdentityExpected": 6,
+        "decisionExact": {
+          "n": 9,
+          "d": 14,
+          "rate": 0.6428571428571429
+        },
+        "correctCoverage": {
+          "n": 3,
+          "d": 8,
+          "rate": 0.375
+        },
+        "coveredAccuracy": {
+          "n": 3,
+          "d": 3,
+          "rate": 1
+        },
+        "wrongIdentity": 0,
+        "wrongOnNegative": 0,
+        "evidenceScore": null
+      },
+      "paired": {
+        "wins": 0,
+        "losses": 2,
+        "bothCorrect": 9,
+        "bothWrong": 3,
+        "expectedSwitch": 7,
+        "resolvedWithEvidence": 2,
+        "correctInBothConditions": 2
+      },
+      "byFamilyOn": {
+        "ambiguous": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "complex_negation": {
+          "n": 2,
+          "targetResolvable": 2,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 2,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "history": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "literal_control": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "negation_only": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "nonaction": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "override": {
+          "n": 1,
+          "targetResolvable": 1,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "coveredAccuracy": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "paraphrase": {
+          "n": 3,
+          "targetResolvable": 3,
+          "noIdentityExpected": 0,
+          "decisionExact": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 3,
+            "rate": 0
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "source_denied": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "stale_source": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        },
+        "unavailable": {
+          "n": 1,
+          "targetResolvable": 0,
+          "noIdentityExpected": 1,
+          "decisionExact": {
+            "n": 1,
+            "d": 1,
+            "rate": 1
+          },
+          "correctCoverage": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "coveredAccuracy": {
+            "n": 0,
+            "d": 0,
+            "rate": null
+          },
+          "wrongIdentity": 0,
+          "wrongOnNegative": 0,
+          "evidenceScore": null
+        }
+      }
+    }
+  },
+  "outcomes": [
+    {
+      "storyId": "d715d1fcfbd02d8e6214d459",
+      "split": "dev",
+      "mode": "off",
+      "family": "paraphrase",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "d715d1fcfbd02d8e6214d459",
+      "split": "dev",
+      "mode": "on",
+      "family": "paraphrase",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "71a567f0bb2739edac23fe5c",
+      "split": "dev",
+      "mode": "off",
+      "family": "paraphrase",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "71a567f0bb2739edac23fe5c",
+      "split": "dev",
+      "mode": "on",
+      "family": "paraphrase",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "16771d8cdae650a7fc8cff44",
+      "split": "dev",
+      "mode": "off",
+      "family": "paraphrase",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "16771d8cdae650a7fc8cff44",
+      "split": "dev",
+      "mode": "on",
+      "family": "paraphrase",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "schema_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "7f7e5c8bc4b64946ca6d5838",
+      "split": "dev",
+      "mode": "off",
+      "family": "complex_negation",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "7f7e5c8bc4b64946ca6d5838",
+      "split": "dev",
+      "mode": "on",
+      "family": "complex_negation",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "2f85c6ee7ad9b1313b33c872",
+      "split": "dev",
+      "mode": "off",
+      "family": "complex_negation",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "2f85c6ee7ad9b1313b33c872",
+      "split": "dev",
+      "mode": "on",
+      "family": "complex_negation",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "a639528d8272a7ba9021984f",
+      "split": "dev",
+      "mode": "off",
+      "family": "history",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "a639528d8272a7ba9021984f",
+      "split": "dev",
+      "mode": "on",
+      "family": "history",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "schema_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "19e9a3f0fecc763fbf453f44",
+      "split": "dev",
+      "mode": "off",
+      "family": "override",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": true,
+      "modelEmitted": true,
+      "rawWrongIdentity": false,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "19e9a3f0fecc763fbf453f44",
+      "split": "dev",
+      "mode": "on",
+      "family": "override",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": true,
+      "modelEmitted": true,
+      "rawWrongIdentity": false,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "380ea438b8aae9a665ab0613",
+      "split": "dev",
+      "mode": "off",
+      "family": "literal_control",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "380ea438b8aae9a665ab0613",
+      "split": "dev",
+      "mode": "on",
+      "family": "literal_control",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "schema_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "70ae0005f637494be27064b4",
+      "split": "dev",
+      "mode": "off",
+      "family": "source_denied",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "70ae0005f637494be27064b4",
+      "split": "dev",
+      "mode": "on",
+      "family": "source_denied",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8fb31d08013eb6f05839534c",
+      "split": "dev",
+      "mode": "off",
+      "family": "unavailable",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8fb31d08013eb6f05839534c",
+      "split": "dev",
+      "mode": "on",
+      "family": "unavailable",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "7a3241dcc6c5949ae32480ee",
+      "split": "dev",
+      "mode": "off",
+      "family": "ambiguous",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "7a3241dcc6c5949ae32480ee",
+      "split": "dev",
+      "mode": "on",
+      "family": "ambiguous",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "3b3c9c50d941107c950e581c",
+      "split": "dev",
+      "mode": "off",
+      "family": "nonaction",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": true,
+      "modelEmitted": false,
+      "rawWrongIdentity": false,
+      "status": "accepted_for_scoring",
+      "identityCorrect": true,
+      "supportCorrect": true,
+      "exact": true,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "3b3c9c50d941107c950e581c",
+      "split": "dev",
+      "mode": "on",
+      "family": "nonaction",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "schema_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "916c9d873ea83adbee820e21",
+      "split": "dev",
+      "mode": "off",
+      "family": "negation_only",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "916c9d873ea83adbee820e21",
+      "split": "dev",
+      "mode": "on",
+      "family": "negation_only",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "95f38aad4f172352a2e10018",
+      "split": "dev",
+      "mode": "off",
+      "family": "stale_source",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "95f38aad4f172352a2e10018",
+      "split": "dev",
+      "mode": "on",
+      "family": "stale_source",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8d4ca578eebe79afd9213afc",
+      "split": "validation",
+      "mode": "off",
+      "family": "paraphrase",
+      "targetExpected": false,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8d4ca578eebe79afd9213afc",
+      "split": "validation",
+      "mode": "on",
+      "family": "paraphrase",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "93818d6729495c321423585d",
+      "split": "validation",
+      "mode": "off",
+      "family": "paraphrase",
+      "targetExpected": false,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "93818d6729495c321423585d",
+      "split": "validation",
+      "mode": "on",
+      "family": "paraphrase",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "b8bf08ab6bf9e22710f4b3f8",
+      "split": "validation",
+      "mode": "off",
+      "family": "paraphrase",
+      "targetExpected": false,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "b8bf08ab6bf9e22710f4b3f8",
+      "split": "validation",
+      "mode": "on",
+      "family": "paraphrase",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "2a2a61b347f27100df74710b",
+      "split": "validation",
+      "mode": "off",
+      "family": "complex_negation",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "2a2a61b347f27100df74710b",
+      "split": "validation",
+      "mode": "on",
+      "family": "complex_negation",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "schema_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "683cc6bbe5c2a3e2d54464de",
+      "split": "validation",
+      "mode": "off",
+      "family": "complex_negation",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "683cc6bbe5c2a3e2d54464de",
+      "split": "validation",
+      "mode": "on",
+      "family": "complex_negation",
+      "targetExpected": true,
+      "ruleExact": false,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "c7d051df30fbf57c8fd2af6a",
+      "split": "validation",
+      "mode": "off",
+      "family": "history",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "c7d051df30fbf57c8fd2af6a",
+      "split": "validation",
+      "mode": "on",
+      "family": "history",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "schema_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "89de0f8510786137675fa619",
+      "split": "validation",
+      "mode": "off",
+      "family": "override",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": true,
+      "modelEmitted": true,
+      "rawWrongIdentity": false,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "89de0f8510786137675fa619",
+      "split": "validation",
+      "mode": "on",
+      "family": "override",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": true,
+      "modelEmitted": true,
+      "rawWrongIdentity": false,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8975fa76c602f06b62dfe887",
+      "split": "validation",
+      "mode": "off",
+      "family": "source_denied",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8975fa76c602f06b62dfe887",
+      "split": "validation",
+      "mode": "on",
+      "family": "source_denied",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "d68125c36b5d5bd9a6f0486f",
+      "split": "validation",
+      "mode": "off",
+      "family": "unavailable",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "d68125c36b5d5bd9a6f0486f",
+      "split": "validation",
+      "mode": "on",
+      "family": "unavailable",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8c1b9da341608223b8ed4ab2",
+      "split": "validation",
+      "mode": "off",
+      "family": "ambiguous",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "8c1b9da341608223b8ed4ab2",
+      "split": "validation",
+      "mode": "on",
+      "family": "ambiguous",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "6abc3379a10ca72ee5978546",
+      "split": "validation",
+      "mode": "off",
+      "family": "nonaction",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "6abc3379a10ca72ee5978546",
+      "split": "validation",
+      "mode": "on",
+      "family": "nonaction",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "schema_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "a80406e3e27f4d93687fcca2",
+      "split": "validation",
+      "mode": "off",
+      "family": "negation_only",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "a80406e3e27f4d93687fcca2",
+      "split": "validation",
+      "mode": "on",
+      "family": "negation_only",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "b3beeaa50ec35f0a6a36e3cb",
+      "split": "validation",
+      "mode": "off",
+      "family": "literal_control",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "b3beeaa50ec35f0a6a36e3cb",
+      "split": "validation",
+      "mode": "on",
+      "family": "literal_control",
+      "targetExpected": true,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "50328ab8e5cc4e4f88d951f7",
+      "split": "validation",
+      "mode": "off",
+      "family": "stale_source",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    },
+    {
+      "storyId": "50328ab8e5cc4e4f88d951f7",
+      "split": "validation",
+      "mode": "on",
+      "family": "stale_source",
+      "targetExpected": false,
+      "ruleExact": true,
+      "rawExact": false,
+      "modelEmitted": true,
+      "rawWrongIdentity": true,
+      "status": "evidence_error",
+      "identityCorrect": false,
+      "supportCorrect": false,
+      "exact": false,
+      "wrongIdentity": false
+    }
+  ],
+  "qualification": "PRODUCTION_NO_GO_SYNTHETIC_LOCAL_DIAGNOSTIC_ONLY"
+}

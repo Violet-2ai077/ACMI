@@ -1,0 +1,22 @@
+{
+  "provenance": "post_run_diagnostic_no_repair_no_rescore",
+  "n": 56,
+  "parsed": 56,
+  "choices": {
+    "suggest_active": 48,
+    "no_suggestion": 1,
+    "clarify": 7
+  },
+  "countersMayOverlap": {
+    "invalidCoordinates": 55,
+    "quoteNotInSource": 0,
+    "duplicateRef": 7,
+    "citedAbsentSource": 0,
+    "nonNullHandleOnAbstention": 7
+  },
+  "backendGenerations": 56,
+  "generationElapsedMs": {
+    "p50": 2070,
+    "p95": 2652
+  }
+}

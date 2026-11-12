@@ -1,0 +1,39 @@
+{
+  "provenance": "actual_pinned_local_model_via_stock_dsh",
+  "model": "Qwen3-14B-Q4_K_M",
+  "dshVersion": "0.2.2-rc.1",
+  "frozen": {
+    "inputs": "ab64b348dc1fd4209633c84f68448ece0668f1a929f0bb66f7495ac76995cca6",
+    "truth": "908dd5942411d42066041c6d70952bdbf8368809d24c9e18eb9a5305d4ca9d7c",
+    "catalog": "272249b2c27e18e1bd1e477f69142b65ea74cf773e461e8a11e6316b7671c0c0"
+  },
+  "records": 16,
+  "requested": 18,
+  "stopped": null,
+  "runtimeStopped": true,
+  "backend": {
+    "attempts": 18,
+    "counts": {
+      "pilot": 18,
+      "main": 0,
+      "control": 0
+    },
+    "input": 5258,
+    "output": 1305,
+    "reserved": 11018,
+    "peakInput": 358,
+    "peakSampledGpuMiB": 10715,
+    "peakSampledGpuC": 37,
+    "externalProviderRequests": 0,
+    "externalApiCostCny": 0,
+    "port": 3298,
+    "verified": {
+      "launcher": "f9c45c8880180d6e6dd9f2e6077b5e4cabb8af6ae5e013d710712543cdc3cdc5",
+      "weights": "500a8806e85ee9c83f3ae08420295592451379b4f8cf2d0f41c15dffeb6b81f0",
+      "impl": "41cd7b6001f31f569d8b2891b15de460fc50279033f5f0ca60c22d2248b45168",
+      "vulkan": "30a2bcb9dafede36a1b608b514bb288f2d63440e5e09506ae529acd56f632e14",
+      "llama": "c9ee3e6cee5ce2ddb8e1eaed54df9ed79b0b48f97edadf93fe0ea8b08a48f128"
+    }
+  },
+  "wallMs": 176936
+}

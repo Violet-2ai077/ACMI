@@ -11,6 +11,12 @@
 
 ## Conditional or experimental
 
+- Phases 0.9.15 and 0.9.16: relative proposals improved two explicit new-goal
+  cases, but neither the new contract nor the follow-up unresolved reference
+  passed the model gate. Keep WorkAnchor and the sidecar experimental; do not
+  promote automatic routing or production streaming. See the
+  [experiment record](docs/experiments/README.md).
+
 - Phase 0.9.14: request-scoped work anchors improved explicit continuation
   without authorizing tool execution. The model identity gate still did
   not pass. See the [Phase 0.9.14 report](docs/experiments/phase-0.9.14-work-anchor-report.md).

@@ -1,0 +1,20 @@
+{
+  "provenance": "actual_model_via_stock_dsh_agent_loop",
+  "dshVersion": "0.2.2-rc.1",
+  "model": "Qwen3-14B-Q4_K_M",
+  "modelSha256": "500a8806e85ee9c83f3ae08420295592451379b4f8cf2d0f41c15dffeb6b81f0",
+  "caseDigest": "2a2d1c02a7fea3b4b298c88809b42052e56c00be3101d68596f248091becce72",
+  "nativeCalls": 16,
+  "completed": 16,
+  "stopped": null,
+  "runtimeStopped": true,
+  "status": "completed",
+  "backend": {
+    "attempts": 16,
+    "input": 3864,
+    "output": 186,
+    "reserved": 6424,
+    "externalProviderRequests": 0,
+    "externalApiCostCny": 0
+  }
+}

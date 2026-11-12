@@ -1,0 +1,47 @@
+{
+  "pilot": {
+    "targetPosition": {
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "8": 4
+    },
+    "selectedPosition": {
+      "2": 1,
+      "5": 1,
+      "7": 1,
+      "8": 2
+    },
+    "selectedHandle": {
+      "-": 19,
+      "h_99589e49": 1,
+      "h_b8070159": 1,
+      "h_534b7fe4": 1,
+      "h_b26ef17d": 1,
+      "h_6f973497": 1
+    },
+    "correctPosition": {},
+    "accuracy": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "8": 0
+    }
+  },
+  "main": {
+    "targetPosition": {},
+    "selectedPosition": {},
+    "selectedHandle": {},
+    "correctPosition": {},
+    "accuracy": {}
+  },
+  "metamorphic": {
+    "comparisons": 0,
+    "consistent": 0,
+    "variations": []
+  },
+  "mainStatus": "NOT_RUN_PILOT_GATE",
+  "selectionSource": "raw user field; exact is host validated"
+}

@@ -1,0 +1,6 @@
+{
+  "generationStarts": 24,
+  "generationPattern": "slot launch_slot_: .*processing task, is_child = 0$",
+  "ownedPort": 10586,
+  "ownedListenerStillOpen": false
+}
