@@ -48,6 +48,11 @@ Each row describes what was actually tested and what was not established.
   beside the journal, while Windows uses a semaphore. The follow-up fixes
   journal selection in the test fixtures only; it does not edit prior scores
   or change runtime storage behavior.
+- The [next CI run](https://github.com/Violet-2ai077/ACMI/actions/runs/43250159658)
+  passed on Ubuntu and exposed slow-runner assumptions in Windows persistence
+  fixtures. Follow-up checks wait for the durable state, keep the debounce
+  test ahead of its first fallback poll, and stage one complete turn before
+  reviewing its proposal. These are fixture changes, not model reruns.
 
 ## Current decision / 当前判断
 

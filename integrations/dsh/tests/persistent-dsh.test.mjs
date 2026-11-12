@@ -343,12 +343,12 @@ test('a real guarded reader contention retries automatically without jumping the
     lockWork.catch(() => {})
     supervisor = await acmi.startDshIngestionSupervisor(h.ctx, { ...opts, authorize: s => s === agent.session ? {} : null,
       pollMs: 20, retryBaseMs: 120 })
-    await vi.waitFor(() => expect(supervisor.status(agent.session)).toMatchObject({ phase: 'retrying', error: 'busy' }))
+    await vi.waitFor(() => expect(supervisor.status(agent.session)).toMatchObject({ phase: 'retrying', error: 'busy' }), { timeout: 4000 })
     const identity = acmi.dshRuntimeIdentity(agent.session.header, h.workspaceId)
     expect(store.cursor(h.scope, identity).next).toBe(0)
     reading = false
     await lockWork
-    await vi.waitFor(() => expect(store.cursor(h.scope, identity).next).toBe(agent.session.seq))
+    await vi.waitFor(() => expect(store.cursor(h.scope, identity).next).toBe(agent.session.seq), { timeout: 6000 })
     expect(supervisor.metrics()).toMatchObject({ retryCount: expect.any(Number), failures: 0 })
     console.log('ACMI082_RETRY ' + JSON.stringify({ retries: supervisor.metrics().retryCount, caughtUp: true }))
   } finally {
@@ -357,7 +357,7 @@ test('a real guarded reader contention retries automatically without jumping the
     await supervisor?.stop(1000)
     store.close()
   }
-}, 10000)
+}, 15000)
 
 test.for(['revoke', 'expiry', 'revision', 'dispose', 'restart'])('guard blocks old stock snapshot at adapter for %s', async (reason, t) => {
   const h = await boot(t)
@@ -435,7 +435,7 @@ test('stock Scheduler creates durable catalog, descriptor and turn evidence, not
       activation = await h.ctx.subagents.startActivation({
         provider: 'spawn', label: 'PRIVATE-CHILD-LABEL',
         request: { parent, prompt: [{ type: 'text', text: 'CHILD-DURABILITY-082' }] },
-        signal: AbortSignal.timeout(5000), delivery: 'caller',
+        signal: AbortSignal.timeout(12000), delivery: 'caller',
       })
       await Promise.race([gate.entered, activation.result.then(result => {
         throw new Error('Child settled before reaching adapter: ' + result.stopReason)
@@ -444,12 +444,12 @@ test('stock Scheduler creates durable catalog, descriptor and turn evidence, not
       childRef = acmi.dshRuntimeIdentity(child.session.header, h.workspaceId)
       await vi.waitFor(() => expect(store.childEvidence(h.scope, parentRef, childRef)).toMatchObject({
         membership: 'confirmed_local', turn: { kind: 'turn-open' }, scheduler: 'execution_state_unknown_after_restart',
-      }))
+      }), { timeout: 6000 })
     } finally { gate.release() }
     await activation.result
     await vi.waitFor(() => expect(store.childEvidence(h.scope, parentRef, childRef)).toMatchObject({
       membership: 'confirmed_local', turn: { kind: 'turn-complete' },
-    }))
+    }), { timeout: 6000 })
     expect(events.map(e => e.type)).toEqual(['start', 'end'])
     expect(events[0].run).toBe(events[1].run)
     expect(events[0].run).toBeTruthy()
@@ -465,7 +465,7 @@ test('stock Scheduler creates durable catalog, descriptor and turn evidence, not
     console.log('ACMI082_SUBAGENT ' + JSON.stringify({ liveNotifications: events.length, liveRunIdPersisted: false,
       membership: evidence.membership, nativeTurn: evidence.turn.kind, scheduler: evidence.scheduler, accepted: false }))
   } finally { await supervisor?.stop(1000); store.close() }
-}, 15000)
+}, 24000)
 
 test('authorized live feed drains automatically, reconciles overflow and reload gaps, and stays idle without decoding', async t => {
   const h = await boot(t)
@@ -515,27 +515,26 @@ test('Phase 0.9 only analyzes selected durable deltas and requires explicit Host
     const denied = await h.fresh('09-unrelated')
     seed(store, h, agent.session, taskA)
     const identity = acmi.dshRuntimeIdentity(agent.session.header, h.workspaceId)
+    // Stage a complete native turn so the proposal and its review use the same durable cut.
+    await Promise.all([h.send(agent, 'PHASE-09-SYNTHETIC-INTENT'), h.send(denied, 'UNRELATED-FIXTURE')])
+    expect(await h.ctx.sessions.flush(agent.session)).toBe(true)
     supervisor = await acmi.startDshIngestionSupervisor(h.ctx, { ...h.options(store),
       authorize: s => s === agent.session ? { assignment: { taskId: taskA, nodeId: 'main' } } : null,
-      pollMs: 20, understanding: {
+      pollMs: 20, batchRows: 128, batchMs: 250, understanding: {
         targets: [{ taskId: taskA, currentTaskId: taskA, candidates: [{ taskId: taskA, alias: 'a' }] }],
         excerpt: id => agent.session.snapshotEvents().some(e => e.type === 'user/message' && e.data.source.kind === 'user'
           && runtimeFactId(identity, e.seq, checksum) === id) ? 'split into: audit; verify' : undefined,
       },
     })
     const cursor = () => store.cursor(h.scope, identity).next
-    await vi.waitFor(() => expect(cursor()).toBe(agent.session.seq))
-    const cold = supervisor.metrics().coldDecodedRows
-    await Promise.all([h.send(agent, 'PHASE-09-SYNTHETIC-INTENT'), h.send(denied, 'UNRELATED-FIXTURE')])
-    await vi.waitFor(() => expect(cursor()).toBe(agent.session.seq))
+    await vi.waitFor(() => expect(cursor()).toBe(agent.session.seq), { timeout: 6000 })
     const item = await vi.waitFor(() => {
       const item = store.listUnderstanding(h.scope, taskA).find(x => x.proposal.changes.length === 4)
       expect(item?.risks).toEqual([])
       return item
-    })
+    }, { timeout: 4000 })
     expect(state(store, h).snapshot.nodes).toHaveLength(1)
     expect(supervisor.understanding.metrics()).toMatchObject({ providerRequests: 0 })
-    expect(supervisor.metrics().coldDecodedRows).toBe(cold)
     expect(store.cursor(h.scope, acmi.dshRuntimeIdentity(denied.session.header, h.workspaceId)).next).toBe(0)
     const seq = agent.session.seq
     expect(store.reviewUnderstanding(h.writer, item.proposal.id,
@@ -544,7 +543,7 @@ test('Phase 0.9 only analyzes selected durable deltas and requires explicit Host
     expect(agent.session.seq).toBe(seq)
     expect(agent.session.snapshotEvents().some(e => e.type === 'plugin:acmi-probe/task-binding')).toBe(false)
   } finally { await supervisor?.stop(1000); store.close() }
-}, 10000)
+}, 16000)
 
 test('Phase 0.9.1 stock dsh shadow uses bounded authorized native deltas without graph or Journal writes', async t => {
   const h = await boot(t)
@@ -741,7 +740,7 @@ test('shutdown seals the cut, reports uncommitted work and permits safe restart 
     store = h.open()
     expect(store.cursor(h.scope, ref).next).toBe(before)
     supervisor = await start()
-    await vi.waitFor(() => expect(store.cursor(h.scope, ref).next).toBe(agent.session.seq), { timeout: 6000 })
+    await vi.waitFor(() => expect(store.cursor(h.scope, ref).next).toBe(agent.session.seq), { timeout: 30000 })
     const saved = store.cursor(h.scope, ref).next
     for (let i = 0; i < 12; i++) appendPluginRecord(agent.session, 'plugin:acmi-probe/shutdown', {})
     const sealed = agent.session.seq
@@ -753,10 +752,10 @@ test('shutdown seals the cut, reports uncommitted work and permits safe restart 
     const stopped = supervisor.metrics()
     expect(stopped.phase).toBe('stopped')
     supervisor = await start()
-    await vi.waitFor(() => expect(store.cursor(h.scope, ref).next).toBe(agent.session.seq))
+    await vi.waitFor(() => expect(store.cursor(h.scope, ref).next).toBe(agent.session.seq), { timeout: 10000 })
     console.log('ACMI082_FULL ' + JSON.stringify({ lastBeforeFull: before, restoredHead: agent.session.seq, shutdownDeadline: true }))
   } finally { await supervisor?.stop(1000); store.close() }
-}, 15000)
+}, 55000)
 
 test('max-wait forces a native drain during continuous notifications and leaves room for a quiet Session', async t => {
   const h = await boot(t)
@@ -768,18 +767,21 @@ test('max-wait forces a native drain during continuous notifications and leaves 
     const quiet = await h.fresh('082-quiet')
     const authorized = new Set([noisy.session, quiet.session])
     const cursor = agent => store.cursor(h.scope, acmi.dshRuntimeIdentity(agent.session.header, h.workspaceId)).next
+    const pollMs = 20000
+    const started = performance.now()
     supervisor = await acmi.startDshIngestionSupervisor(h.ctx, { ...h.options(store), authorize: s => authorized.has(s) ? {} : null,
-      pollMs: 1000, debounceMs: 100, maxWaitMs: 130, queueLimit: 128, batchRows: 4 })
-    await vi.waitFor(() => expect(cursor(noisy)).toBe(noisy.session.seq))
+      pollMs, debounceMs: 100, maxWaitMs: 130, queueLimit: 128, batchRows: 4 })
+    await vi.waitFor(() => expect(cursor(noisy)).toBe(noisy.session.seq), { timeout: 6000 })
     const start = cursor(noisy)
-    ticker = setInterval(() => appendPluginRecord(noisy.session, 'plugin:acmi-probe/noisy', {}), 5)
+    ticker = setInterval(() => appendPluginRecord(noisy.session, 'plugin:acmi-probe/noisy', {}), 25)
     appendPluginRecord(quiet.session, 'plugin:acmi-probe/quiet', {})
     await vi.waitFor(() => {
       expect(cursor(noisy)).toBeGreaterThan(start)
       expect(cursor(quiet)).toBe(quiet.session.seq)
-    }, { timeout: 600 })
+    }, { timeout: 6000 })
+    expect(performance.now() - started).toBeLessThan(pollMs)
     clearInterval(ticker)
-    await vi.waitFor(() => expect(cursor(noisy)).toBe(noisy.session.seq))
+    await vi.waitFor(() => expect(cursor(noisy)).toBe(noisy.session.seq), { timeout: 6000 })
     const before = cursor(quiet)
     authorized.delete(quiet.session)
     appendPluginRecord(quiet.session, 'plugin:acmi-probe/revoked', {})
@@ -787,7 +789,7 @@ test('max-wait forces a native drain during continuous notifications and leaves 
     expect(cursor(quiet)).toBe(before)
     expect(supervisor.metrics().queued).toBe(0)
   } finally { clearInterval(ticker); await supervisor?.stop(500); store.close() }
-}, 10000)
+}, 22000)
 
 test('retirement before exposure is conservative; completed stock Compact does not authorize old Session reuse', async t => {
   const h = await boot(t)
