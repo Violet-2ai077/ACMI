@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { sameAssignment, WorkAnchorRegistry } from './anchor.mjs'
 import { anchorWire, hash } from './design.mjs'
 
-export function makeAnchorCase(entry, catalog, fixture) {
+export function makeAnchorCase(entry, catalog, fixture, { expose = entry.arm === 'B', buildWire = anchorWire } = {}) {
   assert(catalog.workspace === fixture.request.workspace && entry.story === fixture.request.sessionId, 'INVALID_HOST_FIXTURE')
   const { launch, request } = fixture
   const links = Object.entries(catalog.links)
@@ -25,9 +25,9 @@ export function makeAnchorCase(entry, catalog, fixture) {
       && Number.isSafeInteger(source.sourceUserSeq), 'MISSING_NATIVE_SOURCE')
     const resolved = registry.resolve(launch?.eventId ?? null, request, source.nativeUserId, 110)
     const effective = resolved.status === 'accepted' ? resolved.target : null
-    const ref = effective && entry.arm === 'B' ? links.find(([, assignment]) => sameAssignment(effective, assignment))?.[0] : null
+    const ref = effective && expose ? links.find(([, assignment]) => sameAssignment(effective, assignment))?.[0] : null
     assert(ref !== undefined, 'ANCHOR_NOT_IN_MODEL_CATALOG')
-    const packet = anchorWire(entry, results, ref)
+    const packet = buildWire(entry, results, ref)
     const wire = JSON.stringify(packet)
     assert(!wire.includes(request.workspace) && !wire.includes(request.requestId) && !wire.includes(source.nativeUserId)
       && (!launch || !wire.includes(launch.eventId)), 'PRIVATE_HOST_ID_IN_WIRE')

@@ -20,7 +20,8 @@ const snapshot = async root => {
   return Promise.all(files.map(async f => [f, hash(await readFile(f))]))
 }
 
-export async function assignmentHost(acmi, splitAssignment, CausalAttribution, root, infer, model, { buildPacket = wire, gateOperations } = {}) {
+export async function assignmentHost(acmi, splitAssignment, CausalAttribution, root, infer, model,
+  { buildPacket = wire, gateOperations, proposalContext } = {}) {
   const [work, journal, graph, home, agents] = ['workspace', 'journal', 'graph', 'home', 'agents'].map(p => join(root, p))
   for (const dir of [work, journal, graph, home, agents]) await mkdir(dir)
   const keys = ['DSH_HOME', 'DSH_AGENTS_HOME']
@@ -59,7 +60,8 @@ export async function assignmentHost(acmi, splitAssignment, CausalAttribution, r
         const step = { ...received, generation, sourceUserSeq: logged.seq, requestDigest: hash(packetText),
           actions: [], decoded: null, withheld: null }
         route.steps.push(step)
-        try { step.decoded = splitAssignment(received.raw, received.stop, { links: catalog.links, toolAvailable, arm: entry.arm }) }
+        try { step.decoded = splitAssignment(received.raw, received.stop, { ...proposalContext?.(entry, source),
+          links: catalog.links, toolAvailable, arm: entry.arm }) }
         catch (e) { step.withheld = e.message; throw new Error('ASSIGNMENT_FRAME_WITHHELD') }
         const all = step.decoded.operations
         const admitted = gateOperations ? gateOperations(all, { ...source, entry, catalog, generation }) : all
