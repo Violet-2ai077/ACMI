@@ -23,9 +23,13 @@ credentials, automatic binding, dynamic persistent prompt cache, or migrations.
 **Completed:** 2026-11-14. All three stages below are implemented and verified
 within their experimental scope. See the [design and trust boundaries](../specs/2026-11-14-model-continuation-design.md)
 and [result report](../../verification/2026-11-14-model-continuation.md).
-Implementation and self-checks are not a new independent review; the prior
-milestone's one-time authorization was not reused. The feature branch is retained
-without merging, pushing or releasing.
+The initial delivery used implementation and self-checks, not an independent
+review. The user subsequently authorized one independent review, fixes, merge,
+push and CI verification. That review and its same-reviewer follow-up passed:
+one P3 audit-ledger text mismatch gap was fixed in `9517270`, with a formal
+red/green regression. No remaining actionable findings or blockers were reported.
+Normal main integration and push are now authorized; no release or cleanup is
+included. See the verification report for post-review results.
 
 ## Stage 1: stable baseline and executable walkthrough
 

@@ -7,11 +7,47 @@ files are read-only inputs, not regenerated or reclassified by this run.
 
 All three selected stages are complete: baseline/documentation closure,
 experimental explicit model continuation, and usability/delivery readiness.
-Base main is `6efc0c4`; work is retained on `codex/explicit-model-continuation`
-at `E:/codex-prj/ACMI/worktrees/explicit-model-continuation`. Main is unchanged.
-No new push, release, tag, historical cleanup or independent-review authorization
-was inferred from the previous milestone. This round used implementation workers
-and parent self-checks, not a newly authorized independent code review.
+Base main is `6efc0c4`; implementation uses `codex/explicit-model-continuation`
+at `E:/codex-prj/ACMI/worktrees/explicit-model-continuation`. Initial delivery kept
+main unchanged and used implementation workers and parent self-checks only.
+The user subsequently explicitly authorized one independent review, fixes,
+verification, main merge, push and CI checks. No release, tag or historical
+cleanup is included in that authorization.
+
+### Independent review and repair
+
+One independent reviewer examined the complete original 31-file diff against
+`6efc0c4`, ending at `530488a`, including related Host/Graph/Journal behavior and
+the plan, design and claims. The reviewer ran the model tests (29/29), Host
+source suite (27/27), a new deterministic subprocess case, and shutdown/lease
+checks. Close-timeout retained both leases; late completion was rejected and
+clean reopening succeeded. The existing seven real completions were inspected
+read-only, without new inference or changes to evidence.
+
+The sole finding was P3: `auditNative` compared native text to Host result text
+and native usage to completion-ledger usage, but omitted ledger answer text.
+Changing only the third completion's text still passed the original audit.
+Commit `9517270` adds the missing equality check and a formal regression that
+creates isolated deterministic native evidence, validates it, then modifies only
+the ledger text. It failed with `Missing expected rejection` before the fix and
+passed after. The new test is included in `pnpm test:model-continuation` and CI.
+
+The same reviewer rechecked the three-file fix: the formal regression passed,
+the preserved mismatched-ledger reproduction now threw `ERR_ASSERTION`, both
+unaltered real evidence sets still passed, and model tests passed 30/30.
+Final independent assessment: **zero remaining actionable findings, zero blockers;
+ready to merge**. This is the authorized review plus its follow-up, not multiple
+independent reviews and not a production qualification.
+
+Review artifacts and subsequent integration logs are under
+`E:/codex-prj/ACMI/verification/phase-0.9.18/review`.
+
+Post-fix verification at `9517270` passed on Windows and the independent Ubuntu
+WSL clone: `pnpm check` (43 Source files / 276 tests, 30 model-path Node tests,
+build/link checks and three demos), Built dsh (21 files / 154 tests), and offline
+script tests (93/93, zero skipped). The dependency audit reported no known
+vulnerabilities. These results supersede the original 29-model / 92-offline
+counts below; historical run counts are retained rather than rewritten.
 
 Independent no-local clones at functional/runner commit `d31e300` passed:
 

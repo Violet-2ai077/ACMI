@@ -9,11 +9,14 @@ merged code, not unfinished feature work.
 
 Implement a feature in its own worktree. The completed explicit continuation work used
 `E:/codex-prj/ACMI/acmi-phase-0.9.17` on `acmi/phase-0.9.17` and is merged into main
-at `6efc0c4`. New model continuation development uses
+at `6efc0c4`. The model continuation feature worktree is
 `E:/codex-prj/ACMI/worktrees/explicit-model-continuation` on
 `codex/explicit-model-continuation`. Do not switch the
 main checkout to that branch or copy feature files over main to synchronize it.
 Changes reach main only through an explicitly approved merge or pull request.
+After the approved model-continuation integration, open `acmi` to run the model
+console; retain the feature worktree for traceability, not as a required runtime
+entry point. Do not reuse a completed feature branch for unrelated new work.
 The initial main relocation did not merge, push, publish, or advance main.
 
 ## Local directories
