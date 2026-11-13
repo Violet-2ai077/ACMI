@@ -6,6 +6,8 @@
 
 ## 本轮接续更新
 
+- 2026-11-14 状态校正：0.9.17 已快进合入并推送 `main`，提交 `6efc0c4`。合并后主线 268 项测试及三个示例通过，GitHub CI `43444597133` 的 Windows / Ubuntu 作业均成功。下文的批次交接状态属于历史记录，不是尚待执行的集成任务。
+
 - 主线固定为 `E:/codex-prj/ACMI/acmi` 的 `main`，集成前基点为 `2032c96`；原 `acmi-main` 已通过 Git worktree 移动为 `acmi-phase-0.8.2`，保存原历史分支。没有删除历史分支。目录规则见[工作区组织](../workspace-organization.md)。
 - `2602b99`：工作区组织文档。主线调整后离线依赖安装、`pnpm check` 219/219 和三个 demo 通过。
 - `b4dc956`：串行 Host、不可伪造且一次消费的确认预览、持久登记 gate、注册来源恢复、退出租约保留。Source 250/250、Built dsh 139/139 通过。
@@ -76,9 +78,9 @@ finally { Remove-Item Env:ACMI_TEST_BUILT -ErrorAction SilentlyContinue }
 
 ## 从这里接续：授权集成与后续范围
 
-1. 保持 `acmi` 为 `main`，继续开发时打开 `acmi-phase-0.9.17`；不要把未合并功能文件手动复制回主线。
-2. 本机双平台验收已完成；合并后在主线复验，并把实际远端 CI 与本机证据分开记录，不冒用旧 CI。
-3. 用户明确选择“合并，push”。保留历史分支与 worktree，使用普通合并/快进和非强制推送，不自动清理历史资料。
-4. 后续真实模型上下文恢复需另行设计和授权，不通过关闭 synthetic guard 或读取既有用户 Journal 来替代。
+1. 保持 `acmi` 为 `main`；0.9.17 worktree 已完成使命，保留追溯，不再作为新功能开发入口。
+2. 本机双平台、合并后主线复验和本次远端 CI 均已完成；各项证据保持分别记录。
+3. 合并、普通推送已按用户授权完成，未发布、未删除历史分支或 worktree。
+4. 用户于 2026-11-14 批准自主推进后续三个阶段，见[新实施计划](../superpowers/plans/2026-11-14-model-continuation.md)。新模型请求只使用隔离测试数据，不关闭 synthetic guard，不读取既有用户 Journal。
 
 **范围外或需单独记录：**本次推送触发的远端 CI、真实模型上下文恢复、生产多写者和存储迁移。保留 `synthetic: true`；不接入真实 Provider、既有 dsh Home 或用户 Journal，不发布、不自动推进研究阶段。

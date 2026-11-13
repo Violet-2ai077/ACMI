@@ -7,8 +7,11 @@ Use `E:/codex-prj/ACMI/acmi` for `main`. This directory also owns the common
 Open this directory as the default project in the editor or Codex. It shows
 merged code, not unfinished feature work.
 
-Implement a feature in its own worktree. The explicit continuation work uses
-`E:/codex-prj/ACMI/acmi-phase-0.9.17` on `acmi/phase-0.9.17`. Do not switch the
+Implement a feature in its own worktree. The completed explicit continuation work used
+`E:/codex-prj/ACMI/acmi-phase-0.9.17` on `acmi/phase-0.9.17` and is merged into main
+at `6efc0c4`. New model continuation development uses
+`E:/codex-prj/ACMI/worktrees/explicit-model-continuation` on
+`codex/explicit-model-continuation`. Do not switch the
 main checkout to that branch or copy feature files over main to synchronize it.
 Changes reach main only through an explicitly approved merge or pull request.
 The initial main relocation did not merge, push, publish, or advance main.
@@ -18,7 +21,7 @@ The initial main relocation did not merge, push, publish, or advance main.
 | Directory | Role |
 | --- | --- |
 | `acmi/` | Stable main checkout and common Git database |
-| `acmi-phase-0.9.17/` | Existing active feature worktree |
+| `acmi-phase-0.9.17/` | Completed feature worktree, retained for traceability |
 | `acmi-phase-0.8.2/`, older `acmi-phase-*` worktrees | Historical checkouts; not active development targets |
 | `worktrees/` | Suggested location for future short-lived feature worktrees |
 | `deliverables/` | Existing packaged delivery artifacts |
@@ -40,7 +43,7 @@ Check location before editing:
 
 ```powershell
 git -C E:/codex-prj/ACMI/acmi worktree list
-git -C E:/codex-prj/ACMI/acmi-phase-0.9.17 status --short --branch
+git -C E:/codex-prj/ACMI/worktrees/explicit-model-continuation status --short --branch
 ```
 
 For a new, approved feature, use the desktop's native worktree workflow when
