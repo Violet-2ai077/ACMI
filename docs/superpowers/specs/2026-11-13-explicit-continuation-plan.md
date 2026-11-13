@@ -51,7 +51,13 @@ Handoff after Chunk 2: [progress checkpoint and resume steps](../../runbooks/pha
 
 **Files:** `examples/task-console/{package.json,run.mjs,console.mjs,dsh.mjs,README.md}`, `examples/task-console/tests/continuation.test.mjs`, workspace lockfile.
 
-- [ ] Run an isolated console subprocess against new roots and test explicit initialization/confirmation, EOF/cancel, separate create and bind, read-only history, scripted sample, graceful close, and new process/new Session restoring the same UUID without automatic binding. Include process termination before registration and after commit, recovery-blocked missing source, and bounded shutdown reporting; validate no network or Provider use.
-- [ ] `pnpm exec vitest run examples/task-console/tests/continuation.test.mjs` must fail before the CLI exists.
-- [ ] Compose the pinned dsh writer and testkit-backed scripted Session in the example. Separate commands and terminal escaping from dsh lifecycle. Display `identity_ready`, `history_ready` or `history_incomplete`, and `model_context_not_enabled` without exposing message contents. Update lockfile using pinned pnpm offline and document operation, limits, and errors.
+- [x] Run an isolated console subprocess against new roots and test explicit initialization/confirmation, EOF/cancel, separate create and bind, read-only history, scripted sample, graceful close, and new process/new Session restoring the same UUID without automatic binding. Include process termination before registration and after commit, recovery-blocked missing source, and bounded shutdown reporting; validate no network or Provider use.
+- [x] `pnpm exec vitest run examples/task-console/tests/continuation.test.mjs` must fail before the CLI exists.
+- [x] Compose the pinned dsh writer and testkit-backed scripted Session in the example. Separate commands and terminal escaping from dsh lifecycle. Display `identity_ready`, `history_ready` or `history_incomplete`, and `model_context_not_enabled` without exposing message contents. Update lockfile using pinned pnpm offline and document operation, limits, and errors.
 - [ ] Run frozen install, `pnpm check`, all Built dsh tests, all offline Node tests, and repeat cross-process acceptance three times. Report separately what was executed locally and whether current Windows/Ubuntu CI exists. Don't report real model history recovery or release qualification.
+
+Implementation and combined independent code review are complete at `311709b`.
+Windows clean-clone full checks and three CLI runs (11/11 each) passed; the remaining platform gate is Ubuntu,
+where frozen installation was blocked by registry access and missing offline
+dependency-policy metadata. No dependency policy was disabled. Keep this final
+cross-platform acceptance item open until the spec's Ubuntu gate is actually run.

@@ -21,6 +21,13 @@ for setup and compatibility. To connect another runtime, start with the
 
 ## Quick start
 
+For the experimental, provider-free persistent task console, see the
+[explicit continuation example](examples/task-console/README.md). It requires
+dedicated roots and operator confirmation; it is not a chat client or model
+context recovery. See the [current checkpoint](docs/runbooks/phase-0.9.17-progress-checkpoint.md)
+for validation limits and [workspace organization](docs/workspace-organization.md)
+for the main/feature directory split.
+
 ```sh
 pnpm install --frozen-lockfile
 pnpm build

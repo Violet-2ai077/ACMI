@@ -3,6 +3,18 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
+## Unreleased - Phase 0.9.17 explicit continuation
+
+- Add paired dedicated Journal/Graph roots and exclusive writer ownership,
+  persisted Session registration, scoped Task pages and independent receipt reads.
+- Add a serialized Host with expiring, one-use confirmations, registered-source
+  recovery, authorization checks across asynchronous reads and safe shutdown.
+- Add an isolated provider-free task console: explicit create/bind/leave,
+  fresh-Session continuation of the same UUID, synthetic samples and bounded
+  history. No automatic routing or real-model context recovery is enabled.
+- Document a stable main checkout and separate feature worktrees. This is not
+  a release; platform qualification remains recorded in the progress checkpoint.
+
 ## Unreleased - Experiment history through Phase 0.9.16
 
 - Preserve the [experiment record](docs/experiments/README.md), including

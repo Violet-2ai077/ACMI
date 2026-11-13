@@ -203,3 +203,6 @@ Source、Built dsh、离线实验回归均须通过。Windows、Ubuntu 均验证
 - [x] 独立审阅，修复离线回执、双根互斥与允许列表契约问题；复审通过。
 - [x] 用户批准按此范围开始实施。
 - [ ] 分批执行[实施计划](2026-11-13-explicit-continuation-plan.md)并完成整体验收。
+
+四批代码已实现，Windows 干净克隆与独立代码审阅通过；Ubuntu 验收尚未完成，
+因此保留整体验收为未完成。具体结果见[验证报告](../../verification/2026-11-13-explicit-continuation.md)。

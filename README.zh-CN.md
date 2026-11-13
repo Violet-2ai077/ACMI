@@ -10,6 +10,11 @@ ACMI（Agent Context & Memory Infrastructure）为智能体运行时提供跨会
 
 ## 快速开始
 
+需要持久化的显式任务续接，可查看实验性的[任务控制台](examples/task-console/README.md)。
+它使用专用存储根和操作者确认，不调用 Provider，也不是聊天客户端或模型上下文恢复。
+验收边界见[当前进度](docs/runbooks/phase-0.9.17-progress-checkpoint.md)，
+主线与开发目录的分工见[工作区组织](docs/workspace-organization.md)。
+
 ```sh
 pnpm install --frozen-lockfile
 pnpm build

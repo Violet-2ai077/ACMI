@@ -11,6 +11,12 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.17: implement an operator-confirmed, provider-free persistent
+  [task console](examples/task-console/README.md), using fresh Sessions and
+  scoped historical receipts. This does not enable model context recovery or
+  automatic routing. Cross-platform acceptance is not yet complete; see the
+  [progress checkpoint](docs/runbooks/phase-0.9.17-progress-checkpoint.md).
+
 - Phases 0.9.15 and 0.9.16: relative proposals improved two explicit new-goal
   cases, but neither the new contract nor the follow-up unresolved reference
   passed the model gate. Keep WorkAnchor and the sidecar experimental; do not

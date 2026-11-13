@@ -22,6 +22,7 @@ The initial main relocation did not merge, push, publish, or advance main.
 | `acmi-phase-0.8.2/`, older `acmi-phase-*` worktrees | Historical checkouts; not active development targets |
 | `worktrees/` | Suggested location for future short-lived feature worktrees |
 | `deliverables/` | Existing packaged delivery artifacts |
+| `verification/<milestone>/` | New disposable clean clones, verification logs and isolated environment setup |
 | Existing `*-evidence`, `*-run`, `*-verification`, `*-internal-custody` | Historical experiment artifacts; preserve paths and access boundaries |
 | `deepseek-harness/` | Separate upstream source; not an ACMI worktree |
 
