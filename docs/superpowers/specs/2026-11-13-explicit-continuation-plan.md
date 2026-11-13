@@ -12,6 +12,8 @@
 
 Approved scope: [explicit continuation design](2026-11-13-explicit-continuation-design.md). Work in `acmi/phase-0.9.17`, not `main`; don't push or publish. Start with the isolation batch; the following batches depend on its verified API.
 
+Handoff after Chunk 2: [progress checkpoint and resume steps](../../runbooks/phase-0.9.17-progress-checkpoint.md).
+
 ## Chunk 1: Dedicated roots and writer ownership
 
 **Files:** `integrations/dsh/src/continuation-layout.ts`, `continuation-lock.ts`, `graph-store-db.ts`, `storage-isolation.ts`, `index.ts`; test `integrations/dsh/tests/continuation-roots.test.mjs`.
