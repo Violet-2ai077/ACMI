@@ -18,24 +18,34 @@ export async function reconcileKnownDshSession(
   ctx: Context, opts: DshIngestionOptions, session: RuntimeSessionRef, signal = AbortSignal.timeout(8000),
 ) {
   const { store, scope, writer } = opts
+  const identity = { ...session }
   const authorized = () => opts.enabled === true && opts.synthetic === true && opts.runtimeVersion === DSH_VERSION
     && getDshRuntimeVersion() === DSH_VERSION && store.permits(scope) && store.permitsWrite(writer)
-    && session.adapterId === 'dsh' && session.instanceId === store.workspaceId && !ctx.sessions.get(SessionId(session.sessionId))
-  if (!authorized() || !store.isSeparateFrom(opts.workspaceRoot) || !store.isSeparateFrom(opts.journalRoot)) throw new GraphStoreError('unavailable')
-  const journal = await openDshJournal(opts.journalRoot, opts.workspaceRoot, opts.compression)
-  if (journal.partitionId !== store.workspaceId) throw new GraphStoreError('unavailable')
-  const snapshot = await journal.inspect(session.sessionId, signal)
-  if (!snapshot || canonical(dshRuntimeIdentity(snapshot.header, store.workspaceId)) !== canonical(session)) throw new GraphStoreError('unavailable')
-  const cut = await journal.read(snapshot, signal)
-  if (!authorized()) throw new GraphStoreError('unavailable')
-  const start = cut.inheritedEventCount
-  const cursor = store.cursor(scope, session, start)
-  if (!cursor || cursor.next > cut.events.length) throw new GraphStoreError('conflict')
-  let revision = cursor.bindingRevision
-  if (cursor.next > start) verifyAnchor(store, scope, session, snapshot.header, cut.events[cursor.next - 1], cursor.next - 1, revision)
-  for (let next = cursor.next; next < cut.events.length; next++) {
+    && identity.adapterId === 'dsh' && identity.instanceId === store.workspaceId && !ctx.sessions.get(SessionId(identity.sessionId))
+  const registered = () => {
     signal.throwIfAborted()
     if (!authorized()) throw new GraphStoreError('unavailable')
+    return store.continuationIngestionSource(scope, writer, identity, opts)
+  }
+  if (!store.isSeparateFrom(opts.workspaceRoot) || !store.isSeparateFrom(opts.journalRoot)) throw new GraphStoreError('unavailable')
+  registered()
+  const journal = await openDshJournal(opts.journalRoot, opts.workspaceRoot, opts.compression)
+  if (journal.partitionId !== store.workspaceId) throw new GraphStoreError('unavailable')
+  registered()
+  const snapshot = await journal.inspect(identity.sessionId, signal)
+  registered()
+  if (!snapshot || canonical(dshRuntimeIdentity(snapshot.header, store.workspaceId)) !== canonical(identity)) throw new GraphStoreError('unavailable')
+  const cut = await journal.read(snapshot, signal)
+  const registration = registered()
+  const start = cut.inheritedEventCount
+  const cursor = store.cursor(scope, identity, start)
+  if (!cursor || cursor.next > cut.events.length || registration && cut.events.length < registration.checkpointNext) {
+    throw new GraphStoreError('conflict')
+  }
+  let revision = cursor.bindingRevision
+  if (cursor.next > start) verifyAnchor(store, scope, identity, snapshot.header, cut.events[cursor.next - 1], cursor.next - 1, revision)
+  for (let next = cursor.next; next < cut.events.length; next++) {
+    registered()
     const row = cut.events[next]
     if (!row || row.seq !== next) throw new GraphStoreError('gap')
     const fact = normalizeDshRuntimeFact(snapshot.header, row, store.workspaceId, revision)
@@ -44,6 +54,7 @@ export async function reconcileKnownDshSession(
     // An offline repair is operator-driven, but must still yield to cancellation.
     if ((next - cursor.next) % 32 === 31) await new Promise<void>(resolve => setImmediate(resolve))
   }
+  registered()
   return { next: cut.events.length, committed: cut.events.length - cursor.next, decoded: cut.events.length }
 }
 
@@ -113,6 +124,7 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
   let replayRows = 0
   const valid = (s: Session) => !disposed && store.permits(scope) && store.permitsWrite(writer) && ctx.get('sessionPersistence')?.identity === backend
     && s.header.cwd === workspaceRoot && ctx.sessions.get(s.id) === s
+  const registered = (s: Session) => store.continuationIngestionSource(scope, writer, dshRuntimeIdentity(s.header, store.workspaceId), opts)
   const stopEvents = ctx.on('session/event', (s, event) => {
     const row = tracked.get(s)
     if (sealed || !row || !valid(s) || !Number.isSafeInteger(event.seq) || event.seq < s.inheritedEventCount) return
@@ -144,9 +156,13 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
     queued -= row.rows.splice(0).length
     controls.notify(session)
   }, { global: true })
-  const allowed = (s: Session, p: Pending) => !disposed && store.permits(scope) && store.permitsWrite(writer)
-    && (!controls?.allowed || controls.allowed(s)) && tracked.get(s) === p
-    && (p.closed ? !ctx.sessions.get(s.id) && s.header.cwd === workspaceRoot && ctx.get('sessionPersistence')?.identity === backend : valid(s))
+  const allowed = (s: Session, p: Pending) => {
+    if (disposed || !store.permits(scope) || !store.permitsWrite(writer) || tracked.get(s) !== p
+      || (controls?.allowed && !controls.allowed(s))
+      || !(p.closed ? !ctx.sessions.get(s.id) && s.header.cwd === workspaceRoot && ctx.get('sessionPersistence')?.identity === backend : valid(s))) return false
+    registered(s)
+    return true
+  }
   function dispose() {
     if (disposed) return
     disposed = true
@@ -186,7 +202,10 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
       const latest = pending.sealAt ?? s.seq
       const identity = dshRuntimeIdentity(s.header, store.workspaceId)
       const cursor = store.cursor(scope, identity, s.inheritedEventCount)
+      const registration = registered(s)
+      signal.throwIfAborted()
       if (!cursor || cursor.next > latest) throw new GraphStoreError('gap')
+      if (registration && latest < registration.checkpointNext) throw new GraphStoreError('conflict')
       if (cursor.next === latest) return cursor.next
       if (!pending.closed) await durability(s, signal)
       if (!own()) throw new GraphStoreError('unavailable')
@@ -255,6 +274,8 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
   return {
     attach(session: Session, assignment?: RuntimeWorkAssignment) {
       if (!valid(session) || tracked.has(session) || tracked.size >= 32) throw new GraphStoreError('unavailable')
+      const registration = registered(session)
+      if (registration && (assignment || session.seq < registration.checkpointNext)) throw new GraphStoreError('unavailable')
       if (assignment) {
         const cut = store.read(scope, assignment.taskId)
         if (!cut?.snapshot.nodes.some(node => node.id === assignment.nodeId)) throw new GraphStoreError('unavailable')

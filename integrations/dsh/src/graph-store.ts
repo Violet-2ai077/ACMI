@@ -380,6 +380,10 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     const key = runtimeIdentity(fact.source.session)
     const seq = fact.source.localSeq
     const status = this.#tx(() => {
+      if (this.#options.continuation) {
+        if (!this.#registeredContinuation(fact.source.session)) return fail('unavailable')
+        if (assignment || fact.detail.kind === 'binding' || start !== 0) return fail('conflict')
+      }
       const cursor = this.#cursor(key, start)
       if (seq < cursor.next) {
         const row = this.#one('SELECT body,hash FROM runtime_fact WHERE session=? AND seq=?', key, seq) ?? fail('corrupt')
@@ -485,6 +489,22 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     return registration && runtimeIdentity(registration.session) === runtimeIdentity(ref) ? registration : undefined
   }
 
+  continuationSource(reader: WorkspaceScope, ref: RuntimeSessionRef): ContinuationRegistration {
+    this.#continuationRead(reader)
+    try { return this.#registeredContinuation(ref) ?? fail('unavailable') } catch (error) { throw translateGraphError(error) }
+  }
+
+  /** Ingestion cannot opt a continuation Store out of the paired, exact registration gate. */
+  continuationIngestionSource(reader: WorkspaceScope, writer: WorkspaceScope, ref: RuntimeSessionRef,
+    roots: Omit<ContinuationRoots, 'graphRoot'>): ContinuationRegistration | null {
+    const expected = this.#options.continuation
+    if (!expected) return null
+    this.#writable(writer)
+    if (expected.workspaceRoot !== roots.workspaceRoot || expected.journalRoot !== roots.journalRoot
+      || expected.compression !== roots.compression) return fail('unavailable')
+    return this.continuationSource(reader, ref)
+  }
+
   continuationSessions(reader: WorkspaceScope): readonly ContinuationRegistration[] {
     this.#continuationRead(reader)
     try {
@@ -494,11 +514,22 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
   }
 
   continuationReceipts(reader: WorkspaceScope, ref: RuntimeSessionRef, after = 0, limit = 64): readonly TaskLifecycleReceipt[] {
-    this.#continuationRead(reader)
     try {
-      const entry = this.#registeredContinuation(ref) ?? fail('unavailable')
+      const entry = this.continuationSource(reader, ref)
       verifyTaskLifecycleCreationLinks(this.#db, this.#hasTaskLifecycleLedger, runtimeIdentity(entry.session))
       return readTaskLifecycleHistory(this.#db, this.workspaceId, entry.session, after, limit, this.#hasTaskLifecycleLedger)
+    } catch (error) { throw translateGraphError(error) }
+  }
+
+  continuationOperation(reader: WorkspaceScope, ref: RuntimeSessionRef, operationId: string): TaskLifecycleReceipt | undefined {
+    const { session } = this.continuationSource(reader, ref)
+    if (!this.#hasTaskLifecycleLedger) return undefined
+    try {
+      const row = this.#one('SELECT ordinal FROM task_lifecycle_receipt WHERE session=? AND operation_key=?',
+        runtimeIdentity(session), operationId)
+      if (!row) return undefined
+      if (typeof row.ordinal !== 'number' || !expectNumber(row.ordinal) || row.ordinal < 1) return fail('corrupt')
+      return this.continuationReceipts(reader, session, row.ordinal - 1, 1)[0] ?? fail('corrupt')
     } catch (error) { throw translateGraphError(error) }
   }
 
