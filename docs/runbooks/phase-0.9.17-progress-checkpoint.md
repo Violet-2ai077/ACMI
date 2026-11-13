@@ -2,11 +2,11 @@
 
 记录日期：2026-11-13（Asia/Shanghai）。用户已要求继续实施，并将当前 `acmi` 目录恢复为主线入口。
 
-**当前：四批代码均已实现；Windows 干净克隆验证及独立代码终审已通过，Ubuntu 验收仍未完成。** 目标仍是通过本机操作者确认，在新进程、新 dsh Session 中显式绑定同一个 Task UUID，并读取已授权历史；不是自动任务路由或真实模型上下文恢复。功能保留在分支，未合并、推送或发布。
+**当前：四批代码均已实现；Windows 与 Ubuntu 24.04 WSL 干净克隆验证及独立代码终审均已通过。** 目标仍是通过本机操作者确认，在新进程、新 dsh Session 中显式绑定同一个 Task UUID，并读取已授权历史；不是自动任务路由或真实模型上下文恢复。用户已明确批准合并和推送；不创建 Release，不改变生产资格结论。
 
 ## 本轮接续更新
 
-- 主线固定为 `E:/codex-prj/ACMI/acmi` 的 `main`，仍为 `2032c96`；原 `acmi-main` 已通过 Git worktree 移动为 `acmi-phase-0.8.2`，保存原历史分支。没有合并、推送或删除历史分支。目录规则见[工作区组织](../workspace-organization.md)。
+- 主线固定为 `E:/codex-prj/ACMI/acmi` 的 `main`，集成前基点为 `2032c96`；原 `acmi-main` 已通过 Git worktree 移动为 `acmi-phase-0.8.2`，保存原历史分支。没有删除历史分支。目录规则见[工作区组织](../workspace-organization.md)。
 - `2602b99`：工作区组织文档。主线调整后离线依赖安装、`pnpm check` 219/219 和三个 demo 通过。
 - `b4dc956`：串行 Host、不可伪造且一次消费的确认预览、持久登记 gate、注册来源恢复、退出租约保留。Source 250/250、Built dsh 139/139 通过。
 - `88134d7`：独立复审指出 inspect 等待后读取正文前存在授权窗口；新增正式红绿回归并修复 flush/stat/inspect/read 各异步边界。Host 与持久 dsh 定向 Source/Built 各 41/41，复审通过，无剩余阻断项。
@@ -14,7 +14,7 @@
 - `311709b`：合并终审发现分片 stdin 误判 EOF 和登记 checkpoint 异步重授权缺口；正式回归先红后绿，修复后同一评审者定向复审确认两项均关闭，剩余阻断代码问题为零。
 - 对 `311709b` 的独立 Windows 克隆执行 frozen install、`pnpm check` 43 文件/268 项与三个 demo、Built dsh 21 文件/146 项、离线 Node 88 项，均通过。统计不包含本地临时评审测试，各套件覆盖有重叠。
 - 同一干净克隆的 CLI 验收文件连续三轮均为 11/11（每轮 8 个子进程用例和 3 个输入边界用例）。完整命令、证据和平台限制见[本轮验证报告](../verification/2026-11-13-explicit-continuation.md)。
-- Ubuntu 24.04 WSL 已建立固定 Node 24.16.0/pnpm 11.28.5 的独立克隆，但 frozen install 遇到 registry timeout，离线缓存又缺少 Linux 包及依赖策略元数据；未关闭依赖策略，不能声明 Ubuntu 验收通过。
+- Ubuntu 后续诊断确认 pnpm 实际访问不可达代理端点。仅在验证进程中设置 registry 的 NO_PROXY 后，frozen install 及 182 项依赖策略检查通过；同一功能代码 Source 268/268、Built dsh 146/146、离线 Node 88/88、三轮 CLI 每轮 11/11 全部通过。未修改系统代理、锁文件或依赖版本。
 
 以下第 1/2 批记录保留作为历史背景；后续操作以本节及文末的待办为准。
 
@@ -74,11 +74,11 @@ try { pnpm exec vitest run integrations/dsh/tests }
 finally { Remove-Item Env:ACMI_TEST_BUILT -ErrorAction SilentlyContinue }
 ```
 
-## 从这里接续：补齐平台验收并决定集成
+## 从这里接续：授权集成与后续范围
 
 1. 保持 `acmi` 为 `main`，继续开发时打开 `acmi-phase-0.9.17`；不要把未合并功能文件手动复制回主线。
-2. 在可完成 frozen install 的 Ubuntu 环境，对最终功能提交运行 Source、Built dsh、离线 Node 和三轮 CLI 验收。当前本地 WSL 安装失败不是测试通过；不关闭依赖策略绕过，也不冒用主线旧 CI。
-3. 用户批准集成后，再选择本地合并或推送 PR；本阶段没有自动执行这两项，也没有删除历史 worktree。
+2. 本机双平台验收已完成；合并后在主线复验，并把实际远端 CI 与本机证据分开记录，不冒用旧 CI。
+3. 用户明确选择“合并，push”。保留历史分支与 worktree，使用普通合并/快进和非强制推送，不自动清理历史资料。
 4. 后续真实模型上下文恢复需另行设计和授权，不通过关闭 synthetic guard 或读取既有用户 Journal 来替代。
 
-**仍未验证：**当前功能提交的 Ubuntu 运行和远端 CI、真实模型上下文恢复、生产多写者和存储迁移。保留 `synthetic: true`；不接入真实 Provider、既有 dsh Home 或用户 Journal，不发布、不自动推进研究阶段。
+**范围外或需单独记录：**本次推送触发的远端 CI、真实模型上下文恢复、生产多写者和存储迁移。保留 `synthetic: true`；不接入真实 Provider、既有 dsh Home 或用户 Journal，不发布、不自动推进研究阶段。
