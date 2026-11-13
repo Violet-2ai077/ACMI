@@ -20,56 +20,66 @@ credentials, automatic binding, dynamic persistent prompt cache, or migrations.
 **Tech stack:** Existing Node 24.16.0 / pnpm 11.28.5 / TypeScript / pinned dsh
 0.2.2-rc.1, existing local Qwen GGUF and llama.cpp. No new package dependencies.
 
+**Completed:** 2026-11-14. All three stages below are implemented and verified
+within their experimental scope. See the [design and trust boundaries](../specs/2026-11-14-model-continuation-design.md)
+and [result report](../../verification/2026-11-14-model-continuation.md).
+Implementation and self-checks are not a new independent review; the prior
+milestone's one-time authorization was not reused. The feature branch is retained
+without merging, pushing or releasing.
+
 ## Stage 1: stable baseline and executable walkthrough
 
-- [ ] Correct current checkpoint/workspace instructions after the 0.9.17 merge;
+- [x] Correct current checkpoint/workspace instructions after the 0.9.17 merge;
   preserve historical experiment facts. Record baseline `6efc0c4` and its green CI.
-- [ ] Install frozen offline dependencies in `worktrees/explicit-model-continuation`
+- [x] Install frozen offline dependencies in `worktrees/explicit-model-continuation`
   on `codex/explicit-model-continuation`; run `pnpm check` before implementation.
-- [ ] Run a repeatable isolated create / bind / sample / close / reopen / rebind
+- [x] Run a repeatable isolated create / bind / sample / close / reopen / rebind
   walkthrough, assert same Task UUID and different Session, and retain evidence.
 
 ## Stage 2: minimal real model continuation
 
-- [ ] Add Host contracts `modelEnabled?: true`, optional runtime
+- [x] Add Host contracts `modelEnabled?: true`, optional runtime
   `runModel(session, { prompt, context, authorize }, signal)`, and
   `host.modelTurn(prompt, { maxContextBytes? }, signal)`. Default capability absent.
   Reject unbound, reused/nonempty Session, invalid input, incomplete recovery,
   unauthorized and over-budget requests before any model execution.
-- [ ] Add `continuation-context.ts`: at most 64 assigned facts, exact registration
+- [x] Add `continuation-context.ts`: at most 64 assigned facts, exact registration
   and incarnation checks before/after each async read, deterministic JSON text,
   objective/criteria plus plain user/assistant/tool-result evidence and coordinates.
   Bound serialized UTF-8 bytes (default 16 KiB, maximum 32 KiB); refuse overflow,
   never silently claim complete history. Report bounded-window policy explicitly.
-- [ ] Test red then green: default disabled, unbound, A/B isolation, fresh Session,
+- [x] Test red then green: default disabled, unbound, A/B isolation, fresh Session,
   process reopen, read/write/operator revocation, cancellation, budget exhaustion,
   missing Journal, and callback authorization invalidation. Existing causal result
   tests remain required. Run source and built integration suites.
-- [ ] Implement separate `model-runtime.mjs` and loopback-only text completion
+- [x] Implement separate `model-runtime.mjs` and loopback-only text completion
   transport. Reject non-loopback URLs, redirects, tools, empty/truncated responses,
   invalid usage, excess response bytes, timeouts; no retries. Native dsh Agent Loop
   records the real prompt/answer. No original console behavior changes by default.
-- [ ] Add subprocess runner and frozen synthetic A/B fixture. Seed task A and
+- [x] Add subprocess runner and frozen synthetic A/B fixture. Seed task A and
   distractor B, exit, reopen in a new process, explicitly bind A, ask for the next
   step without repeating its historical facts. Test through fake transport first.
-- [ ] Reuse pinned local model files without altering prior evidence/services.
+- [x] Reuse pinned local model files without altering prior evidence/services.
   Launch a private loopback server, at most 8 requests / 512 output tokens per
   request / 120 seconds each; no paid API. Record exact requests, hashes, native
   completion, usage and answer assertions. Stop only owned process afterward.
   A failed semantic assertion remains a failed gate, not a reason to tune answers.
+  Historical-value recovery passed first. A separately frozen derived-action
+  follow-up and empty-history control also passed; seven real requests total,
+  no retries. The first answer remains classified as retrieval, not an action.
 
 ## Stage 3: usability and delivery readiness (selected expansion)
 
-- [ ] Deliver a separate explicit model-console entry point with task listing,
+- [x] Deliver a separate explicit model-console entry point with task listing,
   preview/confirmation reuse, endpoint disclosure and one-turn isolation. Improve
   actionable failure messages and keep raw secrets/content out of generic errors.
-- [ ] Write operator guide: install, dedicated roots, start local endpoint, create,
+- [x] Write operator guide: install, dedicated roots, start local endpoint, create,
   select, ask, reopen, history, receipts, interrupted-turn handling. Backups only
   while stopped; never repair/delete stores automatically. Document no migration,
   no arbitrary tools, no production qualification or new runtime support.
-- [ ] Run full Windows verification, built integration, offline suites, repeat CLI
+- [x] Run full Windows verification, built integration, offline suites, repeat CLI
   tests and Ubuntu WSL verification in an independent clone where practical.
-- [ ] Publish a result matrix separating deterministic, native integration and real
+- [x] Publish a result matrix separating deterministic, native integration and real
   semantic evidence. Commit coherent changes on feature branch; preserve main and
   all historical worktrees. Do not infer a new release or push approval from the
   prior milestone. List any unpassed gates honestly.

@@ -3,6 +3,51 @@
 This report records new evidence only. Prior 0.9.x experiment evidence and model
 files are read-only inputs, not regenerated or reclassified by this run.
 
+## Delivery status and full regression
+
+All three selected stages are complete: baseline/documentation closure,
+experimental explicit model continuation, and usability/delivery readiness.
+Base main is `6efc0c4`; work is retained on `codex/explicit-model-continuation`
+at `E:/codex-prj/ACMI/worktrees/explicit-model-continuation`. Main is unchanged.
+No new push, release, tag, historical cleanup or independent-review authorization
+was inferred from the previous milestone. This round used implementation workers
+and parent self-checks, not a newly authorized independent code review.
+
+Independent no-local clones at functional/runner commit `d31e300` passed:
+
+| Check | Windows x64 | Ubuntu 24.04 WSL |
+| --- | --- | --- |
+| Offline frozen install | PASS | PASS |
+| `pnpm check` source tests | 43 files / 276 tests | 43 files / 276 tests |
+| `pnpm check` model-path Node tests | 29 / 29 | 29 / 29 |
+| Build, source/link checks and three demos | PASS | PASS |
+| Built dsh integration tests | 21 files / 154 tests | 21 files / 154 tests |
+| Historical and new offline script tests | 92 / 92, zero skipped | 92 / 92, zero skipped |
+| Original CLI, three additional rounds | 11 / 11 each | 11 / 11 each |
+| Model-path Node tests, three additional rounds | 29 / 29 each | 29 / 29 each |
+| Cross-process fake acceptance | Derived action + empty control | Historical-value recovery |
+| Worktree after all checks | Clean | Clean |
+
+Suites overlap; their counts are not unique-test totals. Windows logs are
+`E:/codex-prj/ACMI/verification/phase-0.9.18/windows-clean-*.log`; Linux logs are
+`ubuntu-*.log` in the same directory. The Linux clone is
+`/var/tmp/acmi-phase0918-verify.iFk6mS/source` and uses a dedicated Node 24.16.0
+distribution, leaving the system runtime unchanged. Both platforms use pnpm
+11.28.5 and the unchanged lockfile. This is local verification, not hosted CI;
+the old main CI is not evidence for this branch.
+
+The later `76afbb1` change only enables the model capability in the existing
+missing-Journal regression, so its rejection is proved to come from recovery
+blocking rather than default-off behavior. It changes no implementation.
+The final documentation records these results separately from real inference.
+
+The existing generic security scanner reported no findings across 36 integration
+TypeScript files, but covers only one file in the console directory and does not
+cover its `.mjs` implementation. It is not a security qualification. Manual
+self-checks and targeted authorization/transport/confirmation regressions cover
+the new path; scope and accepted limits are in the
+[design](../superpowers/specs/2026-11-14-model-continuation-design.md).
+
 ## Scope and fixed acceptance
 
 The subprocess runner uses dedicated empty workspace, Journal, graph and home
