@@ -13,7 +13,7 @@
     "test": "pnpm run build && vitest run",
     "demo": "node examples/synthetic-demo/dist/index.js",
     "demo:adapter": "node examples/custom-agent-adapter/dist/index.js",
-    "test:model-continuation": "node --test examples/task-console/model-transport.node-test.mjs examples/task-console/model-runtime.node-test.mjs examples/task-console/tests/model-console.node-test.mjs scripts/phase-0.9.18/fixture.node-test.mjs scripts/phase-0.9.18/derived-fixture.node-test.mjs",
+    "test:model-continuation": "node --test examples/task-console/model-transport.node-test.mjs examples/task-console/model-runtime.node-test.mjs examples/task-console/tests/model-console.node-test.mjs scripts/phase-0.9.18/fixture.node-test.mjs scripts/phase-0.9.18/derived-fixture.node-test.mjs scripts/phase-0.9.18/audit.node-test.mjs",
     "check": "pnpm run lint && pnpm test && pnpm test:model-continuation && pnpm demo && pnpm demo:adapter && pnpm --filter @acmi/dsh-quickstart demo"
   },
   "devDependencies": {

@@ -44,6 +44,7 @@ export async function auditNative(directory) {
     assert.equal(endings[0].data.reason.kind, 'completed')
     assert.equal(users[0].data.content.map(block => block.text).join(''), prompt)
     assert.equal(assistants[0].data.message.content.map(block => block.text).join(''), result.answer)
+    assert.equal(result.answer, completions[index].result.text)
     assert.equal(assistants[0].data.usage.inputTokens, completions[index].result.usage.inputTokens)
     assert.equal(assistants[0].data.usage.outputTokens, completions[index].result.usage.outputTokens)
     assert.ok(assistants[0].data.usage.outputTokens <= 512)
