@@ -66,12 +66,16 @@ export function verifyContinuationSources(db: DatabaseSync, ledger: boolean): vo
 }
 
 export async function confirmContinuationCheckpoint(roots: ContinuationRoots, ref: RuntimeSessionRef, next: number,
-  signal: AbortSignal): Promise<void> {
+  signal: AbortSignal, guard: () => void): Promise<void> {
+  guard()
   const journal = await openDshJournal(roots.journalRoot, roots.workspaceRoot, roots.compression)
+  guard()
   if (journal.partitionId !== ref.instanceId) return fail('unavailable')
   const snapshot = await journal.inspect(ref.sessionId, signal)
+  guard()
   if (!snapshot || runtimeIdentity(dshSessionRef(snapshot.header, journal.partitionId)) !== runtimeIdentity(ref)) return fail('unavailable')
   const cut = await journal.read(snapshot, signal)
+  guard()
   if (cut.events.length !== next) return fail('revision')
 }
 

@@ -58,8 +58,16 @@ export function readInput(input, signal) {
     if (signal.aborted) return undefined
     const cutoff = sequence
     display('prompt', prompt)
-    if (!queued.length && !ended) await new Promise(resolve => { wake = resolve })
-    wake = undefined
+    if (!queued.length && !ended) {
+      const abort = () => wake?.()
+      signal.addEventListener('abort', abort, { once: true })
+      try {
+        while (!queued.length && !ended && !signal.aborted) await new Promise(resolve => { wake = resolve })
+      } finally {
+        wake = undefined
+        signal.removeEventListener('abort', abort)
+      }
+    }
     if (signal.aborted) return undefined
     if (failure) throw failure
     // Ignore partial EOF lines and never approve using input buffered before the prompt.

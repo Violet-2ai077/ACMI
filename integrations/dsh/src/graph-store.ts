@@ -559,9 +559,10 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       return live.nextSourceSeq
     }
     const next = current()
-    await confirmContinuationCheckpoint(roots, session, next, signal)
+    const guard = () => { if (current() !== next) fail('revision') }
+    await confirmContinuationCheckpoint(roots, session, next, signal, guard)
     return this.#tx(() => {
-      if (current() !== next) return fail('revision')
+      guard()
       return insertContinuationRegistration(this.#db, session, next, capSessions)
     })
   }

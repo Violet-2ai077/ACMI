@@ -7,9 +7,10 @@ import { Context } from '@deepseek-ai/cordis'
 import { mountAgentLoopTestDependencies, mountAgentLoopTestHarness } from '@deepseek-ai/dsh-agent-loop-testkit'
 import { SessionId } from '@deepseek-ai/dsh-session'
 import * as Jsonl from '@deepseek-ai/dsh-session-persistence-jsonl'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 
 const acmi = process.env.ACMI_TEST_BUILT === '1' ? await import('../dist/index.js') : await import('../src/index.ts')
+const scopedRead = process.env.ACMI_TEST_BUILT === '1' ? await import('../dist/scoped-read.js') : await import('../src/scoped-read.ts')
 
 async function fixture(t) {
   const base = await realpath(await mkdtemp(join(tmpdir(), 'acmi-catalog-')))
@@ -87,6 +88,49 @@ test.for(['revocation', 'sequence drift'])('registration rejects %s during async
   else f.live({ session: f.session, nextSourceSeq: f.native.seq + 1 })
   await expect(pending).rejects.toMatchObject({ code: mode === 'revocation' ? 'unavailable' : 'revision' })
   expect(f.store.continuationSessions(f.reader)).toEqual([])
+})
+
+test.for([
+  { stage: 'open', drift: 'identity', code: 'unavailable', expected: ['open'] },
+  { stage: 'inspect', drift: 'writer', code: 'unavailable', expected: ['open', 'inspect'] },
+  { stage: 'inspect', drift: 'identity', code: 'unavailable', expected: ['open', 'inspect'] },
+  { stage: 'inspect', drift: 'sequence', code: 'revision', expected: ['open', 'inspect'] },
+  { stage: 'read', drift: 'writer', code: 'unavailable', expected: ['open', 'inspect', 'read'] },
+])('registration stops after $drift drift during Journal $stage', async ({ stage, drift, code, expected }, t) => {
+  const f = await fixture(t)
+  expect(await f.flush()).toBeTruthy()
+  const calls = []
+  function complete(step) {
+    if (step !== stage) return
+    if (drift === 'writer') f.write.revoke(f.writer)
+    else if (drift === 'identity') f.live({ session: { ...f.session, incarnation: '0' }, nextSourceSeq: f.native.seq })
+    else f.live({ session: f.session, nextSourceSeq: f.native.seq + 1 })
+  }
+  const open = scopedRead.openDshJournal
+  const boundary = vi.spyOn(scopedRead, 'openDshJournal').mockImplementation(async (...args) => {
+    calls.push('open')
+    const journal = await open(...args)
+    complete('open')
+    return { ...journal,
+      async inspect(...input) {
+        calls.push('inspect')
+        const result = await journal.inspect(...input)
+        complete('inspect')
+        return result
+      },
+      async read(...input) {
+        calls.push('read')
+        const result = await journal.read(...input)
+        complete('read')
+        return result
+      },
+    }
+  })
+  try {
+    await expect(f.register()).rejects.toMatchObject({ code })
+    expect(f.store.continuationSessions(f.reader)).toEqual([])
+    expect(calls).toEqual(expected)
+  } finally { boundary.mockRestore() }
 })
 
 test('old receipts require a current read grant and exact registration, not a live Session or writer', async t => {

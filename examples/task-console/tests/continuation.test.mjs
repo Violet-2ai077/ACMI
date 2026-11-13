@@ -4,8 +4,11 @@ import { mkdir, mkdtemp, readFile, readdir, realpath, rm, writeFile } from 'node
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { DatabaseSync } from 'node:sqlite'
+import { PassThrough } from 'node:stream'
+import { setImmediate } from 'node:timers/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
+import { readInput } from '../console.mjs'
 
 const entry = fileURLToPath(new URL('../run.mjs', import.meta.url))
 const pair = 'continuation-pair.json'
@@ -181,6 +184,64 @@ async function close(cli, expected = { saved: true, pending: 0, reason: null }) 
   expect(await cli.line('shutdown')).toMatchObject(expected)
   expect(await cli.done()).toMatchObject({ code: expected.saved ? 0 : 1, signal: null })
 }
+
+test('input waits across chunks, keeps the original confirmation cutoff, and ends only on a terminal condition', async t => {
+  const input = new PassThrough()
+  const controller = new AbortController()
+  const ask = readInput(input, controller.signal)
+  const output = vi.spyOn(process.stdout, 'write').mockReturnValue(true)
+  t.onTestFinished(() => { input.destroy(); output.mockRestore() })
+
+  async function fragment(pending, chunk) {
+    const stillWaiting = Symbol('still waiting')
+    input.write(chunk)
+    expect(await Promise.race([pending, setImmediate(stillWaiting)])).toBe(stillWaiting)
+  }
+
+  const command = ask('command')
+  await fragment(command, 'sta')
+  input.write('tus\n')
+  expect(await command).toBe('status')
+
+  const confirmation = ask('confirm', true)
+  await fragment(confirmation, 'y')
+  await fragment(confirmation, 'es\r')
+  input.write('\n')
+  expect(await confirmation).toBe('yes')
+
+  input.write('y')
+  const prebuffered = ask('confirm', true)
+  await fragment(prebuffered, 'es\r')
+  input.write('\n')
+  expect(await prebuffered).toBe('')
+
+  const eof = ask('confirm', true)
+  await fragment(eof, 'yes')
+  input.end()
+  expect(await eof).toBeUndefined()
+})
+
+test('abort wakes an input wait even while the stream is open', async t => {
+  const input = new PassThrough()
+  const controller = new AbortController()
+  const output = vi.spyOn(process.stdout, 'write').mockReturnValue(true)
+  t.onTestFinished(() => { input.destroy(); output.mockRestore() })
+  const pending = readInput(input, controller.signal)('command')
+  controller.abort()
+  expect(await Promise.race([pending, setImmediate('still waiting')])).toBeUndefined()
+  expect(input.destroyed).toBe(false)
+})
+
+test('input propagates a stream failure after an incomplete line', async t => {
+  const input = new PassThrough()
+  const output = vi.spyOn(process.stdout, 'write').mockReturnValue(true)
+  t.onTestFinished(() => { input.destroy(); output.mockRestore() })
+  const pending = readInput(input, new AbortController().signal)('command')
+  const failure = new Error('broken input')
+  input.write('sta')
+  input.destroy(failure)
+  await expect(pending).rejects.toBe(failure)
+})
 
 test('initialization is explicit; cancel and EOF leave roots untouched, and init never overwrites', async t => {
   const f = await fixture(t)
