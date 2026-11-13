@@ -12,10 +12,17 @@ import {
   makeQualificationEvidence, qualificationEvidenceLink, qualificationEvidencePolicy, validateGroundedChange,
 } from '@acmi/core'
 import { connectGraphRoot, GraphStoreError, pathsOverlap, translateGraphError } from './graph-store-db.ts'
+import {
+  confirmContinuationCheckpoint, enableContinuationCatalog, findContinuationRegistration, insertContinuationRegistration,
+  readContinuationRegistrations, readContinuationTasks, verifyContinuationSources, type ContinuationRegistration, type ContinuationTaskCursor,
+  type ContinuationTaskPage,
+} from './continuation-catalog.ts'
+import { verifyContinuationPair, type ContinuationRoots } from './continuation-layout.ts'
 import { continuityDigest as sha } from './local-digest.ts'
 import { isSnapshotReservation, type SnapshotReservation } from './snapshot-guard.ts'
-import { createTaskLifecycle, enableTaskLifecycle, hasTaskLifecycleLedger, taskLifecycleBindingAt,
-  type TaskLifecycleHost, type TaskLifecycleHostOptions } from './task-lifecycle.ts'
+import { createTaskLifecycle, enableTaskLifecycle, hasTaskLifecycleLedger, readTaskLifecycleHistory, taskLifecycleBindingAt,
+  validDshLifecycleSession, verifyTaskLifecycleCreationLinks, type TaskLifecycleHost, type TaskLifecycleHostOptions,
+  type TaskLifecycleReceipt } from './task-lifecycle.ts'
 import { enableQualification, validQualificationSource, type QualificationSourceCommand } from './qualification-store.ts'
 import { digestId, enableUnderstanding, validUnderstandingRequest, type SavedUnderstanding, type SavedUnderstandingReview,
   type UnderstandingCursorMove, type UnderstandingInboxItem, type UnderstandingPage, type UnderstandingRequest,
@@ -37,6 +44,7 @@ export interface GraphStoreOptions {
   readonly understanding?: true
   readonly qualification?: true
   readonly taskLifecycle?: TaskLifecycleHostOptions
+  readonly continuation?: ContinuationRoots
 }
 export interface RuntimeWorkAssignment {
   readonly taskId: string
@@ -93,9 +101,13 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       operatorAuthority: { permits: lifecycle.operatorAuthority.permits.bind(lifecycle.operatorAuthority) },
       currentSession: lifecycle.currentSession.bind(lifecycle),
     }
-    this.#options = { ...options }
+    this.#options = { ...options, ...(options.continuation && { continuation: { ...options.continuation } }) }
     this.#scope = this.#authority.grant(options.workspaceId)
     try {
+      if (this.#options.continuation) {
+        if (this.#options.continuation.graphRoot !== options.root) fail('conflict')
+        verifyContinuationPair(this.#options.continuation, options.workspaceId)
+      }
       this.#db = connectGraphRoot(options.root, options.workspaceId, options.maxPages)
       try {
         this.#factCount = Number(this.#db.prepare('SELECT count(*) AS n FROM runtime_fact').get()?.n)
@@ -108,6 +120,7 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
         const existingLifecycle = hasTaskLifecycleLedger(this.#db)
         if (lifecycle && !existingLifecycle) enableTaskLifecycle(this.#db)
         this.#hasTaskLifecycleLedger = existingLifecycle || lifecycle !== undefined
+        if (this.#options.continuation) enableContinuationCatalog(this.#db)
       } catch (error) {
         this.#db.close()
         throw error
@@ -462,6 +475,66 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
     const task = this.#state(taskId).graph.read(this.#scope)?.task
     return task !== undefined && task.closed === undefined
   }
+  #continuationRead(reader: WorkspaceScope): void {
+    if (!this.#options.continuation || !this.permits(reader)) fail('unavailable')
+  }
+
+  #registeredContinuation(ref: RuntimeSessionRef): ContinuationRegistration | undefined {
+    if (!validDshLifecycleSession(ref, this.workspaceId)) return undefined
+    const registration = findContinuationRegistration(this.#db, this.workspaceId, ref.sessionId)
+    return registration && runtimeIdentity(registration.session) === runtimeIdentity(ref) ? registration : undefined
+  }
+
+  continuationSessions(reader: WorkspaceScope): readonly ContinuationRegistration[] {
+    this.#continuationRead(reader)
+    try {
+      verifyContinuationSources(this.#db, this.#hasTaskLifecycleLedger)
+      return readContinuationRegistrations(this.#db, this.workspaceId, capSessions)
+    } catch (error) { throw translateGraphError(error) }
+  }
+
+  continuationReceipts(reader: WorkspaceScope, ref: RuntimeSessionRef, after = 0, limit = 64): readonly TaskLifecycleReceipt[] {
+    this.#continuationRead(reader)
+    try {
+      const entry = this.#registeredContinuation(ref) ?? fail('unavailable')
+      verifyTaskLifecycleCreationLinks(this.#db, this.#hasTaskLifecycleLedger, runtimeIdentity(entry.session))
+      return readTaskLifecycleHistory(this.#db, this.workspaceId, entry.session, after, limit, this.#hasTaskLifecycleLedger)
+    } catch (error) { throw translateGraphError(error) }
+  }
+
+  continuationTasks(reader: WorkspaceScope, limit = 64, cursor?: ContinuationTaskCursor): ContinuationTaskPage {
+    this.#continuationRead(reader)
+    try {
+      verifyTaskLifecycleCreationLinks(this.#db, this.#hasTaskLifecycleLedger)
+      return readContinuationTasks(this.#db, this.workspaceId, capTasks, limit, cursor, task => this.#cut(this.#state(task)))
+    } catch (error) { throw translateGraphError(error) }
+  }
+
+  async registerContinuationSession(writer: WorkspaceScope, ref: RuntimeSessionRef, signal = AbortSignal.timeout(10_000)):
+  Promise<ContinuationRegistration> {
+    const roots = this.#options.continuation ?? fail('unavailable')
+    const config = this.#lifecycleConfig ?? fail('unavailable')
+    this.#writable(writer)
+    if (!validDshLifecycleSession(ref, this.workspaceId)) return fail('unavailable')
+    const session = { ...ref }
+    const key = runtimeIdentity(session)
+    const current = (): number => {
+      this.#writable(writer)
+      signal.throwIfAborted()
+      const live = config.currentSession(session.sessionId)
+      if (!live || !validDshLifecycleSession(live.session, this.workspaceId) || runtimeIdentity(live.session) !== key
+        || typeof live.nextSourceSeq !== 'number' || !expectNumber(live.nextSourceSeq)) return fail('unavailable')
+      this.#writable(writer)
+      return live.nextSourceSeq
+    }
+    const next = current()
+    await confirmContinuationCheckpoint(roots, session, next, signal)
+    return this.#tx(() => {
+      if (current() !== next) return fail('revision')
+      return insertContinuationRegistration(this.#db, session, next, capSessions)
+    })
+  }
+
   /** Enable only from a trusted Host surface, never as an LLM-callable tool. */
   taskLifecycle(writer: WorkspaceScope, operator: WorkspaceScope): TaskLifecycleHost {
     const config = this.#lifecycleConfig ?? fail('unavailable')
@@ -470,7 +543,11 @@ export class LocalGraphStore implements GraphStreamReader, GraphStreamWriter {
       if (writer === operator || config.operatorAuthority.permits(operator, this.workspaceId) !== true) fail('unavailable')
     }
     authorize()
-    return createTaskLifecycle({ db: this.#db, workspaceId: this.workspaceId, authorize, currentSession: config.currentSession,
+    const currentSession = this.#options.continuation ? (id: string) => {
+      const live = config.currentSession(id)
+      return live && this.#registeredContinuation(live.session) ? live : null
+    } : config.currentSession
+    return createTaskLifecycle({ db: this.#db, workspaceId: this.workspaceId, authorize, currentSession,
       tx: fn => this.#tx(fn), nativeCursor: session => this.#cursor(session, 0), activeTask: taskId => this.#activeLifecycleTask(taskId),
       append: (taskId, draft) => this.#append(taskId, draft, 'host_confirmed', zero) })
   }

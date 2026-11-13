@@ -29,10 +29,12 @@ Approved scope: [explicit continuation design](2026-11-13-explicit-continuation-
 
 **Files:** `continuation-catalog.ts`, `graph-store.ts`, `task-lifecycle.ts`, `index.ts`; test `integrations/dsh/tests/continuation-catalog.test.mjs`.
 
-- [ ] Test a reopened Store with durable Session registration, foreign/incarnation mismatch, repeated registration, revoked reads, corrupt history, and paginated Task catalog with stale cursor rejection. A past lifecycle receipt must be readable through an allowlisted read grant with no live Session or write grant.
-- [ ] Run `pnpm exec vitest run integrations/dsh/tests/continuation-catalog.test.mjs` and verify red.
-- [ ] Add an opt-in catalog table scoped to the validated Graph root, with unique exact Session identity and a hard 256 row cap. Keep the Task listing derived from validated Graph state, enforce the existing 64 Task cap, and scope UUID keyset cursors to the catalog revision. Extract the validated receipt paging into an internal read helper reused by live lifecycle and the separately authorized historical read interface. Write registration only after an independently verified native checkpoint; don't expose the database connection.
-- [ ] Rerun the focused test and existing `integrations/dsh/tests/task-lifecycle.test.mjs` in Source and Built modes. Verify zero failures and review the batch.
+**Contract:** `GraphStoreOptions.continuation` carries the dedicated root configuration; `root` must match its Graph root. `registerContinuationSession(writer, ref, signal)` uses the configured native live-Session resolver and reads the exact configured Journal, requiring matching incarnation and durable next sequence plus renewed writer and live checks before transaction commit. An identical registration keeps its first receipt; reuse of a Session ID by another incarnation fails closed. `continuationSessions(reader)` lists at most 256 validated registrations; `continuationReceipts(reader, ref, after, limit)` is the independent read-only receipt page, with no live resolver call. `continuationTasks(reader, limit, cursor)` returns task summaries ordered by UUID plus a cursor containing Workspace, last UUID and revision of that ordered directory. Both page methods recheck current read authorization on every call.
+
+- [x] Test durable reopen, exact native identity and sequence, registration retry, revoked permissions, corrupt or missing records, and stale Task pages. Old receipts remain readable without live Session resolution or a write grant.
+- [x] Verify red before implementation and for both missing-record regressions.
+- [x] Implement the opt-in 256-Session catalog, the 64-Task revision-scoped directory, independent history authorization, and native checkpoint validation before registration. Cross-check durable Session references and creation receipts against Graph records.
+- [x] Verify 19/19 focused Source, 233/233 `pnpm check` Source and all demos, 122/122 full Built dsh on Windows. Independent review confirmed both missing-record regressions are closed.
 
 ## Chunk 3: Host confirmation and recovery
 

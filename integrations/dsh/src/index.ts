@@ -12,6 +12,7 @@ export { dshRuntimeIdentity, normalizeDshRuntimeFact, runtimeFactAdapterVersion 
 export { GraphStoreError, provisionGraphRoot } from './graph-store-db.ts'
 export { acquireContinuationRoots, provisionContinuationRoots, type ContinuationRootLease } from './continuation-lock.ts'
 export type { ContinuationRoots } from './continuation-layout.ts'
+export type { ContinuationRegistration, ContinuationTaskCursor, ContinuationTaskPage, ContinuationTaskSummary } from './continuation-catalog.ts'
 export { LocalGraphStore, openGraphStore } from './graph-store.ts'
 export type { GraphStoreOptions, RuntimeWorkAssignment } from './graph-store.ts'
 export type { GraphAppendReceipt } from '@acmi/contracts'

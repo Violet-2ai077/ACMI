@@ -69,7 +69,7 @@ const taskOrNull = (value: unknown): value is string | null => value === null ||
 const bindingChange = (receipt: TaskLifecycleReceipt): receipt is BindingReceipt => receipt.kind === 'bind' || receipt.kind === 'unbind'
 const initialState = (): TaskLifecycleState => ({ selectedTaskId: null, binding: { taskId: null, revision: 0 } })
 
-function validSession(value: unknown, workspaceId: string): value is RuntimeSessionRef {
+export function validDshLifecycleSession(value: unknown, workspaceId: string): value is RuntimeSessionRef {
   return exactFields(value, ['adapterId', 'instanceId', 'sessionId', 'incarnation']) && value.adapterId === 'dsh'
     && value.instanceId === workspaceId && boundedText(value.sessionId) && typeof value.incarnation === 'string'
     && /^(?:0|[1-9][0-9]{0,15})$/u.test(value.incarnation) && natural(Number(value.incarnation))
@@ -118,7 +118,7 @@ function readReceipt(row: Row, workspaceId: string, key: string): TaskLifecycleR
   try { parsed = JSON.parse(row.body) } catch { return fail('corrupt') }
   if (!exactFields(parsed, ['version', 'workspaceId', 'session', 'operationId', 'ordinal', 'commandHash', 'committedAt',
     'before', 'after', 'kind', 'taskId', 'effectiveFrom', 'graphRevision']) || parsed.version !== 'host-task-lifecycle-v1'
-    || parsed.workspaceId !== workspaceId || !validSession(parsed.session, workspaceId) || runtimeIdentity(parsed.session) !== key
+    || parsed.workspaceId !== workspaceId || !validDshLifecycleSession(parsed.session, workspaceId) || runtimeIdentity(parsed.session) !== key
     || !operationId(parsed.operationId) || parsed.operationId !== row.operation_key || !natural(parsed.ordinal)
     || parsed.ordinal === 0 || parsed.ordinal !== row.ordinal || !hex(parsed.commandHash) || !boundedText(parsed.committedAt, 24)
     || !stateValid(parsed.before) || !stateValid(parsed.after) || !taskOrNull(parsed.taskId)) return fail('corrupt')
@@ -143,16 +143,58 @@ export function taskLifecycleBindingAt(db: DatabaseSync, workspaceId: string, ke
   return bindingChange(receipt) ? receipt : fail('corrupt')
 }
 
+export function readTaskLifecycleHistory(db: DatabaseSync, workspaceId: string, session: RuntimeSessionRef,
+  after: number, limit: number, ledger = true): readonly TaskLifecycleReceipt[] {
+  if (!natural(after) || !natural(limit) || limit < 1 || limit > 128) return fail('limit')
+  if (!ledger) return after === 0 ? [] : fail('corrupt')
+  const key = runtimeIdentity(session)
+  try {
+    const start = after === 0 ? undefined
+      : db.prepare('SELECT * FROM task_lifecycle_receipt WHERE session=? AND ordinal=?').get(key, after)
+    if (after !== 0 && !start) return fail('corrupt')
+    const rows = db.prepare('SELECT * FROM task_lifecycle_receipt WHERE session=? AND ordinal>? ORDER BY ordinal LIMIT ?').all(key, after, limit)
+    let prior = start ? readReceipt(start, workspaceId, key).after : initialState()
+    return rows.map((row, index) => {
+      const receipt = readReceipt(row, workspaceId, key)
+      if (receipt.ordinal !== after + index + 1 || canonical(receipt.before) !== canonical(prior)) return fail('corrupt')
+      prior = receipt.after
+      return receipt
+    })
+  } catch (error) { throw translateGraphError(error) }
+}
+
+export function verifyTaskLifecycleCreationLinks(db: DatabaseSync, ledger: boolean, key: string | null = null): void {
+  try {
+    const missingTask = ledger && db.prepare(`SELECT 1 FROM task_lifecycle_receipt AS receipt
+      WHERE (? IS NULL OR receipt.session=?) AND json_extract(receipt.body, '$.kind')='create' AND NOT EXISTS (
+        SELECT 1 FROM graph_event AS event WHERE event.task=json_extract(receipt.body, '$.taskId') AND event.seq=1
+          AND event.hash=json_extract(receipt.body, '$.graphRevision')) LIMIT 1`).get(key, key)
+    const missingReceipt = db.prepare(`WITH opened AS (
+      SELECT task, hash, json_extract(body, '$.event.source.localSeq') AS ordinal,
+        json_array('dsh', json_extract(body, '$.event.source.session.instanceId'),
+          json_extract(body, '$.event.source.session.sessionId'), json_extract(body, '$.event.source.session.incarnation')) AS session
+      FROM graph_event WHERE seq=1 AND json_extract(body, '$.event.source.session.adapterId')='acmi-host-lifecycle'
+    ) SELECT 1 FROM opened WHERE (? IS NULL OR opened.session=?) AND ${ledger ? `NOT EXISTS (
+      SELECT 1 FROM task_lifecycle_receipt AS receipt WHERE receipt.session=opened.session AND receipt.ordinal=opened.ordinal
+        AND json_extract(receipt.body, '$.kind')='create' AND json_extract(receipt.body, '$.taskId')=opened.task
+        AND json_extract(receipt.body, '$.graphRevision')=opened.hash)` : '1'} LIMIT 1`).get(key, key)
+    if (missingTask || missingReceipt) fail('corrupt')
+  } catch (error) {
+    if (error instanceof Error && error.message === 'malformed JSON') fail('corrupt')
+    throw translateGraphError(error)
+  }
+}
+
 /** Internal bridge: callers only receive the scoped Host handle, never the SQLite connection. */
 export function createTaskLifecycle(store: Store): TaskLifecycleHost {
   const { db, workspaceId } = store
   const confirmations = new WeakMap<TaskLifecycleConfirmation, Confirmed>()
   function authorized(session: RuntimeSessionRef): number {
     store.authorize()
-    if (!validSession(session, workspaceId)) return fail('unavailable')
+    if (!validDshLifecycleSession(session, workspaceId)) return fail('unavailable')
     let live: ReturnType<TaskLifecycleHostOptions['currentSession']>
     try { live = store.currentSession(session.sessionId) } catch { return fail('unavailable') }
-    if (!live || !validSession(live.session, workspaceId) || runtimeIdentity(live.session) !== runtimeIdentity(session)
+    if (!live || !validDshLifecycleSession(live.session, workspaceId) || runtimeIdentity(live.session) !== runtimeIdentity(session)
       || !natural(live.nextSourceSeq)) return fail('unavailable')
     store.authorize()
     return live.nextSourceSeq
@@ -225,20 +267,7 @@ export function createTaskLifecycle(store: Store): TaskLifecycleHost {
     },
     history(session, after = 0, limit = 64) {
       authorized(session)
-      if (!natural(after) || !natural(limit) || limit < 1 || limit > 128) return fail('limit')
-      const key = runtimeIdentity(session)
-      try {
-        const start = after === 0 ? undefined
-          : db.prepare('SELECT * FROM task_lifecycle_receipt WHERE session=? AND ordinal=?').get(key, after)
-        const rows = db.prepare('SELECT * FROM task_lifecycle_receipt WHERE session=? AND ordinal>? ORDER BY ordinal LIMIT ?').all(key, after, limit)
-        let prior = start ? readReceipt(start, workspaceId, key).after : initialState()
-        return rows.map((row, index) => {
-          const receipt = readReceipt(row, workspaceId, key)
-          if ((after !== 0 && !start) || receipt.ordinal !== after + index + 1 || canonical(receipt.before) !== canonical(prior)) return fail('corrupt')
-          prior = receipt.after
-          return receipt
-        })
-      } catch (error) { throw translateGraphError(error) }
+      return readTaskLifecycleHistory(db, workspaceId, session, after, limit)
     },
   })
 }
