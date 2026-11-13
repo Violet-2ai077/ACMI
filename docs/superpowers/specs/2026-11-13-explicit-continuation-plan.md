@@ -42,10 +42,10 @@ Handoff after Chunk 2: [progress checkpoint and resume steps](../../runbooks/pha
 
 **Files:** `continuation-host.ts`, `runtime-ingestion.ts`, `index.ts`; test `integrations/dsh/tests/continuation-host.test.mjs`.
 
-- [ ] Test preview cancellation, timeout, forgery, scope/sequence/binding revision drift, no auto-binding on create, fresh Session confirmation, a flushed but unreconciled cut, and failures before registration and after receipt commit. Verify the exact registered identity gates live attach/drain, offline reconciliation and receipt reads. Exercise A/B/A and original-call attribution after a switch.
-- [ ] Run `pnpm exec vitest run integrations/dsh/tests/continuation-host.test.mjs` and verify red.
-- [ ] Implement a serialized controller with an opaque consumable preview scoped to one command, current Session, Task revision and Graph/native cursor. Delegate to existing lifecycle confirm/execute. Use bounded reconciliation of registered Sessions only, enter a read-only recovery-blocked state on any invalid source, and never reopen an old Session as live for receipt reads. Dispose the dsh writer/ingestion and Store before releasing leases. Keep `synthetic: true` enforced.
-- [ ] Rerun the focused test and persistent dsh regression in Source and Built modes. Verify zero failures and review the batch.
+- [x] Test preview cancellation, timeout, forgery, scope/sequence/binding revision drift, no auto-binding on create, fresh Session confirmation, a flushed but unreconciled cut, and failures before registration and after receipt commit. Verify the exact registered identity gates live attach/drain, offline reconciliation and receipt reads. Exercise A/B/A and original-call attribution after a switch.
+- [x] Run `pnpm exec vitest run integrations/dsh/tests/continuation-host.test.mjs` and verify red.
+- [x] Implement a serialized controller with an opaque consumable preview scoped to one command, current Session, Task revision and Graph/native cursor. Delegate to existing lifecycle confirm/execute. Use bounded reconciliation of registered Sessions only, enter a read-only recovery-blocked state on any invalid source, and never reopen an old Session as live for receipt reads. Dispose the dsh writer/ingestion and Store before releasing leases. Keep `synthetic: true` enforced.
+- [x] Rerun the focused test and persistent dsh regression in Source and Built modes. Verify zero failures and review the batch. Implementation `b4dc956`: Source 250/250, Built dsh 139/139. Review fix `88134d7`: Source/Built focused 41/41 each; independent re-review passed the async authorization boundaries.
 
 ## Chunk 4: CLI and final verification
 
