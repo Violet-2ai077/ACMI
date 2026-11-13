@@ -11,6 +11,13 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.18: opt-in [local model continuation](examples/task-console/MODEL-README.md)
+  on isolated test data. Each request uses a fresh Session, explicit task binding,
+  registered-source text evidence and request-time authorization. No tools,
+  cloud calls, automatic routing, or general production recovery. Deterministic
+  and real-model gates are recorded separately in the
+  [verification report](docs/verification/2026-11-14-model-continuation.md).
+
 - Phase 0.9.17: implement an operator-confirmed, provider-free persistent
   [task console](examples/task-console/README.md), using fresh Sessions and
   scoped historical receipts. This does not enable model context recovery or

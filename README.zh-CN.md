@@ -15,6 +15,10 @@ ACMI（Agent Context & Memory Infrastructure）为智能体运行时提供跨会
 验收边界见[当前进度](docs/runbooks/phase-0.9.17-progress-checkpoint.md)，
 主线与开发目录的分工见[工作区组织](docs/workspace-organization.md)。
 
+需要验证真实本地模型的显式续接，可使用独立的[模型控制台](examples/task-console/MODEL-README.md)。
+该入口只面向隔离测试数据，每轮使用新 Session、显式绑定和独立请求确认，向本地模型提供有界任务历史。
+它不启用自动任务识别，也不构成通用记忆恢复；确定性验证与真实模型结果分别记录在[验收报告](docs/verification/2026-11-14-model-continuation.md)。
+
 ```sh
 pnpm install --frozen-lockfile
 pnpm build

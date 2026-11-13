@@ -28,6 +28,12 @@ context recovery. See the [current checkpoint](docs/runbooks/phase-0.9.17-progre
 for validation limits and [workspace organization](docs/workspace-organization.md)
 for the main/feature directory split.
 
+For explicitly confirmed, text-only local model requests using isolated test
+data, use the separate [model continuation console](examples/task-console/MODEL-README.md).
+It prepares bounded task evidence for each fresh Session, not automatic routing
+or general memory recovery. See the [verification report](docs/verification/2026-11-14-model-continuation.md)
+for deterministic and real-model evidence separately.
+
 ```sh
 pnpm install --frozen-lockfile
 pnpm build

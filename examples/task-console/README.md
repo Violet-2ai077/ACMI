@@ -6,6 +6,10 @@ events come only from the fixed `sample` command, are marked synthetic, and use
 no Provider, model request, tool execution, or network service. Operator-entered
 objectives and criteria are stored as Graph task metadata, not sent to dsh.
 
+This default entry point remains provider-free. A separate opt-in
+[model continuation console](MODEL-README.md) accepts confirmed text-only
+requests to a local model using isolated test data; it is not enabled here.
+
 ## Start and reopen
 
 From the repository root, install with the pinned Node/pnpm versions and build:

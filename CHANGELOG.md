@@ -3,6 +3,17 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
+## Unreleased - Phase 0.9.18 explicit local model continuation
+
+- Add opt-in Host model turns with fresh-Session isolation, bounded registered
+  historical text and authorization checks before reads, dispatch and acceptance.
+- Add a separate confirmed local-model console and text-only loopback transport
+  using the pinned native dsh Agent Loop. The provider-free console is unchanged.
+- Add subprocess continuation fixtures, native Journal audits and a pinned
+  private local-model launcher. Deterministic model-path tests run in `pnpm check`.
+- This is an isolated test-data experiment, not production recovery, a new
+  runtime adapter, storage migration, backup qualification, or a release.
+
 ## Unreleased - Phase 0.9.17 explicit continuation
 
 - Add paired dedicated Journal/Graph roots and exclusive writer ownership,
