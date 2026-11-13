@@ -12,6 +12,7 @@ export { dshRuntimeIdentity, normalizeDshRuntimeFact, runtimeFactAdapterVersion 
 export { GraphStoreError, provisionGraphRoot } from './graph-store-db.ts'
 export { acquireContinuationRoots, provisionContinuationRoots, type ContinuationRootLease } from './continuation-lock.ts'
 export type { ContinuationRoots } from './continuation-layout.ts'
+export type { ContinuationModelContext, ContinuationContextSource } from './continuation-context.ts'
 export { openContinuationHost, type ContinuationAccess, type ContinuationCloseResult, type ContinuationCommand, type ContinuationHistory,
   type ContinuationHistoryEvent, type ContinuationHost, type ContinuationHostOptions, type ContinuationPreview, type ContinuationPreviewToken,
   type ContinuationRuntime, type ContinuationStatus, type ContinuationTask } from './continuation-host.ts'

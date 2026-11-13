@@ -70,8 +70,21 @@ async function fixture(t) {
         const turn = 1 + session.snapshotEvents().filter(event => event.type === 'turn/start').length
         session.append('turn/start', { turn })
         session.append('user/message', createUserMessage({ source: { kind: 'user' },
-          content: [{ type: 'text', text: 'PRIVATE-SYNTHETIC-TEST-INPUT' }] }), { surfaceOp: 'append' })
+          content: [{ type: 'text', text: state.sampleText ?? 'PRIVATE-SYNTHETIC-TEST-INPUT' }] }), { surfaceOp: 'append' })
         session.append('turn/end', { turn, reason: { kind: 'completed' } })
+      },
+      async runModel(session, request, signal) {
+        state.lastAuthorize = request.authorize
+        if (state.beforeModel) await state.beforeModel()
+        request.authorize()
+        signal.throwIfAborted()
+        state.modelCalls = (state.modelCalls ?? 0) + 1
+        state.context = request.context
+        session.append('turn/start', { turn: 1 })
+        session.append('user/message', createUserMessage({ source: { kind: 'user' },
+          content: [{ type: 'text', text: request.prompt }] }), { surfaceOp: 'append' })
+        session.append('turn/end', { turn: 1, reason: { kind: 'completed' } })
+        return 'fixture answer'
       },
       async dispose() {
         if (state.onDispose) await state.onDispose()
@@ -108,6 +121,112 @@ async function fixture(t) {
 const approve = async (host, command) => host.confirm((await host.preview(command)).token, true)
 const start = (s, turn) => s.append('turn/start', { turn })
 const end = (s, turn) => s.append('turn/end', { turn, reason: { kind: 'completed' } })
+
+test('model requests are default-off and require an explicit binding and fresh Session', async t => {
+  const f = await fixture(t)
+  const disabled = await f.open()
+  await expect(disabled.modelTurn('next')).rejects.toMatchObject(unavailable)
+  await disabled.close()
+  const host = await f.open({ modelEnabled: true })
+  await expect(host.modelTurn('next')).rejects.toMatchObject(unavailable)
+  const a = await approve(host, create)
+  await approve(host, resume(a.taskId))
+  expect(await host.modelTurn('next')).toMatchObject({ answer: 'fixture answer' })
+  await expect(host.modelTurn('again')).rejects.toMatchObject({ code: 'conflict' })
+  expect(f.state.modelCalls).toBe(1)
+  expect(() => f.state.lastAuthorize()).toThrow()
+})
+
+test('model context survives reopen and includes only the explicitly selected task history', async t => {
+  const f = await fixture(t)
+  const first = await f.open()
+  const a = await approve(first, create), b = await approve(first, create)
+  await approve(first, resume(a.taskId))
+  f.state.sampleText = 'A-ONLY-CEDAR-47'
+  await first.sample()
+  await approve(first, resume(b.taskId))
+  f.state.sampleText = 'B-ONLY-PLUM-92'
+  await first.sample()
+  await first.close()
+  const next = await f.open({ modelEnabled: true })
+  await approve(next, resume(a.taskId))
+  const result = await next.modelTurn('Continue from the saved value.')
+  expect(result.context.text).toContain('A-ONLY-CEDAR-47')
+  expect(result.context.text).not.toContain('B-ONLY-PLUM-92')
+  expect(result.context.bytes).toBe(Buffer.byteLength(result.context.text))
+  expect(result.context.sha256).toMatch(/^[a-f0-9]{64}$/u)
+  expect(result.context.sources).toHaveLength(1)
+  expect(result.context.window).toBe('latest-64-facts')
+  expect((await next.status()).pending).toBe(0)
+})
+
+test('oversize context and pre-aborted requests never execute the model', async t => {
+  const f = await fixture(t)
+  const host = await f.open({ modelEnabled: true })
+  const a = await approve(host, create)
+  await approve(host, resume(a.taskId))
+  await expect(host.modelTurn('next', { maxContextBytes: 16 })).rejects.toMatchObject({ code: 'limit' })
+  await expect(host.modelTurn('next', {}, AbortSignal.abort())).rejects.toThrow()
+  expect(f.state.modelCalls ?? 0).toBe(0)
+})
+
+test('large historical text fails the byte budget without dropping evidence or consuming the fresh Session', async t => {
+  const f = await fixture(t)
+  const host = await f.open({ modelEnabled: true })
+  const a = await approve(host, create)
+  await approve(host, resume(a.taskId))
+  f.state.sampleText = 'x'.repeat(18000)
+  await host.sample()
+  await host.newSession()
+  await approve(host, resume(a.taskId))
+  await expect(host.modelTurn('next')).rejects.toMatchObject({ code: 'limit' })
+  expect(f.state.modelCalls ?? 0).toBe(0)
+  expect((await host.status()).recovery).toBe('ready')
+  const result = await host.modelTurn('next', { maxContextBytes: 32768 })
+  expect(result.context.text).toContain(f.state.sampleText)
+})
+
+for (const authority of ['read', 'write', 'operatorAuthority']) {
+  test(`revoked ${authority} prevents dispatch after context preparation`, async t => {
+    const f = await fixture(t)
+    const host = await f.open({ modelEnabled: true })
+    const a = await approve(host, create)
+    await approve(host, resume(a.taskId))
+    const grant = { read: 'reader', write: 'writer', operatorAuthority: 'operator' }[authority]
+    f.state.beforeModel = () => f.state.access[authority].revoke(f.state.access[grant])
+    await expect(host.modelTurn('next')).rejects.toMatchObject(unavailable)
+    expect(f.state.modelCalls ?? 0).toBe(0)
+  })
+}
+
+test('model read rechecks authorization after inspect and never reads revoked content', async t => {
+  const f = await fixture(t)
+  const first = await f.open()
+  const a = await approve(first, create)
+  await approve(first, resume(a.taskId))
+  await first.sample()
+  await first.close()
+  const next = await f.open({ modelEnabled: true })
+  await approve(next, resume(a.taskId))
+  const original = scopedRead.openDshJournal
+  let reads = 0
+  const spy = vi.spyOn(scopedRead, 'openDshJournal').mockImplementation(async (...args) => {
+    const journal = await original(...args)
+    return { ...journal,
+      async inspect(...params) {
+        const value = await journal.inspect(...params)
+        f.state.access.read.revoke(f.state.access.reader)
+        return value
+      },
+      async read(...params) { reads++; return journal.read(...params) },
+    }
+  })
+  try {
+    await expect(next.modelTurn('continue')).rejects.toMatchObject(unavailable)
+    expect(reads).toBe(0)
+    expect(f.state.modelCalls ?? 0).toBe(0)
+  } finally { spy.mockRestore() }
+})
 
 test('cancel, EOF, expiry and fabricated tokens cannot create, execute or bind', async t => {
   const f = await fixture(t)
@@ -441,12 +560,13 @@ test('missing registered Journal blocks startup but permits scoped receipt reads
   expect(await blocked.history(first.taskId)).toMatchObject({ history: 'history_incomplete' })
   await expect(blocked.preview(create)).rejects.toMatchObject(unavailable)
   await expect(blocked.sample()).rejects.toMatchObject(unavailable)
+  await expect(blocked.modelTurn('next')).rejects.toMatchObject(unavailable)
   expect((await blocked.close()).saved).toBe(false)
 })
 
 test('A/B/A does not rewrite binding or late result attribution', async t => {
   const f = await fixture(t)
-  const host = await f.open()
+  const host = await f.open({ modelEnabled: true })
   const a = await approve(host, create), b = await approve(host, create)
   expect(a.taskId).not.toBe(b.taskId)
   const first = await approve(host, resume(a.taskId))
@@ -473,6 +593,14 @@ test('A/B/A does not rewrite binding or late result attribution', async t => {
   ]) })
   expect((await host.history(b.taskId)).events).not.toContainEqual(expect.objectContaining({ kind: 'tool-result' }))
   expect((await host.tasks()).items).toHaveLength(2)
+  await host.newSession()
+  await approve(host, resume(a.taskId))
+  const restored = await host.modelTurn('next')
+  expect(restored.context.text).toContain('PRIVATE-LATE')
+  expect(restored.context.sources).toContainEqual(expect.objectContaining({ kind: 'tool-result', callSeq: call.seq }))
+  await host.newSession()
+  await approve(host, resume(b.taskId))
+  expect((await host.modelTurn('next')).context.text).not.toContain('PRIVATE-LATE')
 })
 
 test('shutdown deadline retains both leases while the dsh writer is still disposing', async t => {

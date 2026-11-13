@@ -7,6 +7,7 @@ import { getDshRuntimeVersion } from '@deepseek-ai/dsh-app-boot'
 import { SessionId, type Session } from '@deepseek-ai/dsh-session'
 import type { ContinuationRegistration, ContinuationTaskCursor, ContinuationTaskPage } from './continuation-catalog.ts'
 import type { ContinuationRoots } from './continuation-layout.ts'
+import { prepareContinuationContext, type ContinuationModelContext } from './continuation-context.ts'
 import { acquireContinuationRoots, type ContinuationRootLease } from './continuation-lock.ts'
 import { GraphStoreError, type GraphStoreCode } from './graph-store-db.ts'
 import { openGraphStore, type LocalGraphStore } from './graph-store.ts'
@@ -27,12 +28,15 @@ export interface ContinuationAccess {
   readonly operator: WorkspaceScope
 }
 
-/** Trusted provider-free composition. Only the Host calls these hooks, never terminal input or a model. */
+/** Trusted composition. Only the Host calls these hooks, never terminal input or a model. */
 export interface ContinuationRuntime {
   readonly ctx: Context
   createSession(signal: AbortSignal): Promise<Session>
   isIdle(session: Session): boolean
   runSample(session: Session, signal: AbortSignal): Promise<void>
+  /** Opt-in isolated test-data request. Reauthorize immediately before transport dispatch. */
+  runModel?(session: Session, request: { readonly prompt: string; readonly context: string; readonly authorize: () => void },
+    signal: AbortSignal): Promise<string>
   closeSession(session: Session, signal: AbortSignal): Promise<void>
   /** Resolve only after all native writers have stopped. A failure retains the root leases. */
   dispose(): Promise<void>
@@ -41,6 +45,7 @@ export interface ContinuationRuntime {
 export interface ContinuationHostOptions {
   readonly roots: ContinuationRoots
   readonly synthetic: true
+  readonly modelEnabled?: true
   readonly runtimeVersion: string
   readonly authorize: (workspaceId: string) => ContinuationAccess
   readonly openRuntime: (roots: ContinuationRoots) => Promise<ContinuationRuntime>
@@ -79,7 +84,7 @@ export interface ContinuationStatus {
   readonly binding: TaskLifecycleState['binding'] | null
   readonly identity: 'identity_ready' | 'identity_unbound'
   readonly history: HistoryState
-  readonly modelContext: 'model_context_not_enabled'
+  readonly modelContext: 'model_context_not_enabled' | 'explicit_request_only'
   readonly recovery: 'ready' | 'recovery_blocked'
   readonly reason: RecoveryReason | null
   readonly pending: number | null
@@ -114,6 +119,8 @@ export interface ContinuationHost {
   newSession(signal?: AbortSignal): Promise<RuntimeSessionRef>
   sync(signal?: AbortSignal): Promise<number>
   sample(signal?: AbortSignal): Promise<{ readonly synthetic: true; readonly next: number }>
+  modelTurn(prompt: string, options?: { readonly maxContextBytes?: number }, signal?: AbortSignal):
+    Promise<{ readonly answer: string; readonly context: ContinuationModelContext; readonly next: number }>
   status(): Promise<ContinuationStatus>
   tasks(limit?: number, cursor?: ContinuationTaskCursor): Promise<ContinuationTaskPage>
   history(taskId: string, limit?: number): Promise<ContinuationHistory>
@@ -185,7 +192,7 @@ export async function openContinuationHost(options: ContinuationHostOptions): Pr
       get: () => current,
       set: session => { current = session },
       stage: session => { staged = session },
-    })
+    }, options.modelEnabled === true)
   } catch (error) {
     // If native disposal itself fails, do not let another writer in.
     await runtime?.dispose()
@@ -200,7 +207,7 @@ async function runHost(roots: ContinuationRoots, lease: ContinuationRootLease, s
     get(): Session | undefined
     set(session: Session | undefined): void
     stage(session: Session | undefined): void
-  }): Promise<ContinuationHost> {
+  }, modelEnabled: boolean): Promise<ContinuationHost> {
   const { workspaceId } = lease
   const { reader, writer, operator } = access
   const { ctx } = runtime
@@ -419,6 +426,51 @@ async function runHost(roots: ContinuationRoots, lease: ContinuationRootLease, s
         } catch (error) { block(error, limit); throw error }
       })
     },
+    modelTurn(prompt, options = {}, signal) {
+      return request(async () => {
+        if (!modelEnabled || !runtime.runModel) return fail('unavailable')
+        if (!boundedText(prompt, 4096) || !prompt.trim()) return fail('invalid')
+        const session = current()
+        mutable()
+        idle(session)
+        const identity = ref(session)
+        const binding = lifecycle().state(identity).binding
+        if (!binding.taskId) return fail('unavailable')
+        // Native prompt history cannot be reused after switching tasks or revoking a read.
+        if (session.snapshotEvents().some(event => event.type === 'turn/start' || event.type === 'user/message'
+          || event.type === 'assistant/message' || event.type === 'tool/result')) return fail('conflict')
+        const target = task(binding.taskId, true)
+        if (target.status !== 'open') return fail('unavailable')
+        const limit = AbortSignal.any([AbortSignal.timeout(120_000), ...(signal ? [signal] : [])])
+        let active = true
+        const authorize = () => {
+          limit.throwIfAborted()
+          if (!active || closing) return fail('unavailable')
+          mutable()
+          store.continuationSource(reader, identity)
+          if (live.get() !== session || ctx.sessions.get(session.id) !== session
+            || canonical(lifecycle().state(identity).binding) !== canonical(binding)
+            || task(target.taskId, true).revision !== target.revision) return fail('revision')
+        }
+        pendingPreview = undefined
+        try {
+          authorize()
+          await sync(session, limit)
+          const context = await prepareContinuationContext({ roots, store, reader, task: target, authorize,
+            signal: limit, maxBytes: options.maxContextBytes ?? 16384 })
+          authorize()
+          const answer = await runtime.runModel(session, { prompt, context: context.text, authorize }, limit)
+          authorize()
+          if (!boundedText(answer, 16384) || !answer.trim()) return fail('invalid')
+          return { answer, context, next: await sync(session, limit) }
+        } catch (error) {
+          // A rejected request may already have native events; stop until an explicit reopen.
+          if (session.snapshotEvents().some(event => event.type === 'turn/start')
+            || !(error instanceof GraphStoreError && error.code === 'limit')) block(error, limit)
+          throw error
+        } finally { active = false }
+      })
+    },
     status() {
       return request(() => {
         const session = live.get()
@@ -436,7 +488,8 @@ async function runHost(roots: ContinuationRoots, lease: ContinuationRootLease, s
         const remaining = pending()
         return { workspaceId, session: identity, binding, identity: identityReady ? 'identity_ready' : 'identity_unbound',
           history: !blocked && store.permits(reader) && remaining === 0 ? 'history_ready' : 'history_incomplete',
-          modelContext: 'model_context_not_enabled', recovery: blocked ? 'recovery_blocked' : 'ready', reason: blocked,
+          modelContext: modelEnabled && runtime.runModel ? 'explicit_request_only' : 'model_context_not_enabled',
+          recovery: blocked ? 'recovery_blocked' : 'ready', reason: blocked,
           pending: remaining, reconciledSessions, recoveredEvents }
       })
     },
