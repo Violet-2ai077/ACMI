@@ -1,5 +1,9 @@
 # Contributing to ACMI
 
+Keep `main` in the stable primary checkout and use isolated feature worktrees.
+See [workspace organization](docs/workspace-organization.md) for branch roles,
+local directory layout, verification, and safe historical-worktree retirement.
+
 Use the Node version range and pnpm version specified by [`package.json`](package.json).
 From a checkout, run:
 
