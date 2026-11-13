@@ -10,6 +10,7 @@ import * as Jsonl from '@deepseek-ai/dsh-session-persistence-jsonl'
 import { expect, test, vi } from 'vitest'
 
 const acmi = process.env.ACMI_TEST_BUILT === '1' ? await import('../dist/index.js') : await import('../src/index.ts')
+const scopedRead = process.env.ACMI_TEST_BUILT === '1' ? await import('../dist/scoped-read.js') : await import('../src/scoped-read.ts')
 const create = { kind: 'create', objective: 'Duplicate title', criteria: ['Validate identity'] }
 const resume = taskId => ({ kind: 'continue', taskId })
 const unavailable = { code: 'unavailable' }
@@ -315,6 +316,64 @@ test('exact registration gates attach, offline reconciliation and receipts; drai
   await expect(acmi.reconcileKnownDshSession(runtime.ctx, { ...opts, writer: nextWriter }, ref)).resolves.toMatchObject({ committed: 2 })
   read.revoke(reader)
   expect(() => store.continuationReceipts(reader, ref)).toThrow(/unavailable/)
+})
+
+test('live reconciliation does not start a Journal body read after revocation during inspect', async t => {
+  const f = await fixture(t)
+  const { store, opts, runtime, reader, writer, read } = await f.lowLevel()
+  const { ctx } = runtime
+  const native = await runtime.createSession()
+  await ctx.sessions.flush(native)
+  await store.registerContinuationSession(writer, f.ref(native))
+  const open = scopedRead.openDshJournal
+  const readBody = vi.fn()
+  const boundary = vi.spyOn(scopedRead, 'openDshJournal').mockImplementation(async (...args) => {
+    const journal = await open(...args)
+    return {
+      ...journal,
+      async inspect(...inspectArgs) {
+        const snapshot = await journal.inspect(...inspectArgs)
+        read.revoke(reader)
+        return snapshot
+      },
+      read(...readArgs) {
+        readBody()
+        return journal.read(...readArgs)
+      },
+    }
+  })
+  try {
+    const ingestion = await acmi.registerDshRuntimeIngestion(ctx, opts)
+    ingestion.attach(native)
+    start(native, 1)
+    end(native, 1)
+    await expect(ingestion.reconcile(native)).rejects.toMatchObject(unavailable)
+    expect(readBody).not.toHaveBeenCalled()
+  } finally { boundary.mockRestore() }
+})
+
+test('drain does not stat a Session detached while its native flush was pending', async t => {
+  const f = await fixture(t)
+  const { store, opts, runtime, writer } = await f.lowLevel()
+  const { ctx } = runtime
+  const native = await runtime.createSession()
+  await ctx.sessions.flush(native)
+  await store.registerContinuationSession(writer, f.ref(native))
+  const ingestion = await acmi.registerDshRuntimeIngestion(ctx, opts)
+  ingestion.attach(native)
+  start(native, 1)
+  end(native, 1)
+  const flush = ctx.sessions.flush.bind(ctx.sessions)
+  const barrier = vi.spyOn(ctx.sessions, 'flush').mockImplementation(async session => {
+    const flushed = await flush(session)
+    ingestion.detach(native)
+    return flushed
+  })
+  const stat = vi.spyOn(ctx.sessionPersistence, 'stat')
+  try {
+    await expect(ingestion.drain(native)).rejects.toMatchObject(unavailable)
+    expect(stat).not.toHaveBeenCalled()
+  } finally { barrier.mockRestore(); stat.mockRestore() }
 })
 
 test('the continuation Store rejects unregistered facts and native binding before the first Host binding', async t => {

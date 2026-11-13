@@ -175,10 +175,13 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
   }
   ctx.effect(() => dispose, 'ACMI persistent runtime observation')
 
-  async function durability(s: Session, signal: AbortSignal): Promise<void> {
-    signal.throwIfAborted()
-    if (!valid(s) || !await ctx.sessions.flush(s) || !valid(s)) throw new GraphStoreError('unavailable')
+  async function durability(s: Session, own: () => void, signal: AbortSignal): Promise<void> {
+    own()
+    if (!await ctx.sessions.flush(s)) throw new GraphStoreError('unavailable')
+    own()
+    if (!valid(s)) throw new GraphStoreError('unavailable')
     const stat = await ctx.sessionPersistence.stat(s.id, { signal })
+    own()
     const expected = join(projectDir(journalRoot, workspaceRoot), encodeSegment(s.id), generationLogFilename(4, compression))
     if (!valid(s) || stat?.header.createdAt !== s.header.createdAt || stat.header.cwd !== workspaceRoot
       || stat.location?.kind !== 'jsonl' || stat.location.path !== expected) throw new GraphStoreError('unavailable')
@@ -198,7 +201,10 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
     if (busy) throw new GraphStoreError('busy')
     busy = true
     try {
-      const own = () => allowed(s, pending)
+      const own = () => {
+        signal.throwIfAborted()
+        if (!allowed(s, pending)) throw new GraphStoreError('unavailable')
+      }
       const latest = pending.sealAt ?? s.seq
       const identity = dshRuntimeIdentity(s.header, store.workspaceId)
       const cursor = store.cursor(scope, identity, s.inheritedEventCount)
@@ -207,8 +213,8 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
       if (!cursor || cursor.next > latest) throw new GraphStoreError('gap')
       if (registration && latest < registration.checkpointNext) throw new GraphStoreError('conflict')
       if (cursor.next === latest) return cursor.next
-      if (!pending.closed) await durability(s, signal)
-      if (!own()) throw new GraphStoreError('unavailable')
+      if (!pending.closed) await durability(s, own, signal)
+      own()
       let next = cursor.next
       let binding = cursor.bindingRevision
       let stopAt = Math.min(latest, next + (controls?.batchRows ?? Number.MAX_SAFE_INTEGER))
@@ -219,11 +225,13 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
           forgetReplay(s)
           if (replayRows + latest - next > 16_384) throw new GraphStoreError('busy')
           const snapshot = await journal.inspect(s.id, signal)
+          own()
           if (!snapshot || snapshot.header.createdAt !== s.header.createdAt) throw new GraphStoreError('unavailable')
           const cut = await journal.read(snapshot, signal)
+          own()
           reconciliations++
           decoded += cut.events.length
-          if (!own() || cut.inheritedEventCount !== s.inheritedEventCount || cut.events.length < latest
+          if (cut.inheritedEventCount !== s.inheritedEventCount || cut.events.length < latest
             || cut.meta.createdAt !== s.header.createdAt) throw new GraphStoreError('gap')
           if (next > s.inheritedEventCount) verifyAnchor(store, scope, identity, s.header, cut.events[next - 1], next - 1, binding)
           const facts: RuntimeFact[] = []
@@ -243,8 +251,7 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
         stopAt = Math.min(stopAt, replay.through)
         const deadline = performance.now() + (controls?.batchMs ?? Infinity)
         for (; next < stopAt; next++) {
-          signal.throwIfAborted()
-          if (!own()) throw new GraphStoreError('unavailable')
+          own()
           const fact = replay.facts[next - replay.from]
           if (!fact || fact.source.localSeq !== next) throw new GraphStoreError('gap')
           binding = commit(s, pending, fact, binding)
@@ -255,8 +262,7 @@ export async function registerDshRuntimeIngestion(ctx: Context, opts: DshIngesti
       } else {
         const deadline = performance.now() + (controls?.batchMs ?? Infinity)
         for (const event of pending.rows) {
-          signal.throwIfAborted()
-          if (!own()) throw new GraphStoreError('unavailable')
+          own()
           if (event.seq >= stopAt) break
           if (event.seq < next) continue
           if (event.seq !== next) throw new GraphStoreError('gap')
