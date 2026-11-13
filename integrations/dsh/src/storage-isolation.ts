@@ -6,6 +6,7 @@ import { lstat, open, opendir, realpath } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { SESSION_FORMAT_VERSION } from '@deepseek-ai/dsh-session'
+import { continuationOwner, continuationPair, verifyJournalContinuationPair } from './continuation-layout.ts'
 import { projectKey, ScopedJournalError, type JsonlCompression } from './journal-format.ts'
 
 const MARKER = '.acmi-scoped-root.json'
@@ -52,13 +53,18 @@ async function context(root: string, workspace: string, encoding: JsonlCompressi
   } as const
 }
 
-async function inventory(root: string, workspace: string, empty: boolean): Promise<void> {
+async function inventory(root: string, workspace: string, empty: boolean): Promise<boolean> {
   const bucket = projectKey(workspace)
+  let sidecars = 0
   for await (const entry of await opendir(root)) {
     if (!empty && ((entry.name === MARKER && entry.isFile()) || (entry.name === bucket && entry.isDirectory()))
       && !entry.isSymbolicLink()) continue
+    if (!empty && (entry.name === continuationOwner || entry.name === continuationPair) && entry.isFile()
+      && !entry.isSymbolicLink()) { sidecars++; continue }
     throw denied()
   }
+  if (sidecars === 1) throw denied()
+  return sidecars === 2
 }
 
 async function readMarker(path: string): Promise<{ text: string; revision: string }> {
@@ -124,17 +130,19 @@ export async function openStorageIsolation(
   try {
     const expected = await context(root, workspace, encoding)
     const path = join(root, MARKER)
-    await inventory(root, workspace, false)
+    const paired = await inventory(root, workspace, false)
     const marker = await readMarker(path)
     if (!matches(marker.text, expected)) throw denied()
+    const pair = paired ? verifyJournalContinuationPair(root, workspace, encoding, expected.partitionId) : null
     return {
       partitionId: expected.partitionId,
       async verify() {
         try {
           const current = await context(root, workspace, encoding)
-          await inventory(root, workspace, false)
+          const stillPaired = await inventory(root, workspace, false)
           if (current.rootIdentity !== expected.rootIdentity || current.workspaceIdentity !== expected.workspaceIdentity
-            || fingerprint(await lstat(path, { bigint: true })) !== marker.revision) throw denied()
+            || fingerprint(await lstat(path, { bigint: true })) !== marker.revision || stillPaired !== paired
+            || (stillPaired && verifyJournalContinuationPair(root, workspace, encoding, expected.partitionId) !== pair)) throw denied()
         } catch {
           throw denied()
         }

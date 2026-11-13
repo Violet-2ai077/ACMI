@@ -80,8 +80,7 @@ export function provisionGraphRoot(root: string, workspaceId: string): void {
   writeFileSync(join(root, marker), canonical({ workspaceId, rootId }), { flag: 'wx', mode: 0o600, flush: true })
 }
 
-export function connectGraphRoot(root: string, workspaceId: string, maxPages = 65_536): DatabaseSync {
-  if (!Number.isSafeInteger(maxPages) || maxPages < 16 || maxPages > 65_536) throw new GraphStoreError('invalid')
+export function verifyGraphRootMarker(root: string, workspaceId: string): string {
   const rootId = rootIdentity(root, workspaceId)
   const mark = join(root, marker)
   regular(mark, 2048)
@@ -89,6 +88,13 @@ export function connectGraphRoot(root: string, workspaceId: string, maxPages = 6
   const file = join(root, database)
   regular(file, 256 * 1024 * 1024)
   regular(file + '-journal', 257 * 1024 * 1024, true)
+  return rootId
+}
+
+export function connectGraphRoot(root: string, workspaceId: string, maxPages = 65_536): DatabaseSync {
+  if (!Number.isSafeInteger(maxPages) || maxPages < 16 || maxPages > 65_536) throw new GraphStoreError('invalid')
+  const rootId = verifyGraphRootMarker(root, workspaceId)
+  const file = join(root, database)
   const db = new DatabaseSync(file, { timeout: 0, allowExtension: false })
   try {
     db.exec('PRAGMA trusted_schema=OFF; PRAGMA locking_mode=EXCLUSIVE; PRAGMA synchronous=FULL; BEGIN EXCLUSIVE; COMMIT;')
