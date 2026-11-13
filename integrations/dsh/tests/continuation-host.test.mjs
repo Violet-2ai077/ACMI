@@ -554,7 +554,7 @@ test('missing registered Journal blocks startup but permits scoped receipt reads
   const file = (await f.state.ctx.sessionPersistence.stat(f.state.native.id, {})).location.path
   await host.close()
   await rm(file)
-  const blocked = await f.open()
+  const blocked = await f.open({ modelEnabled: true })
   expect(await blocked.status()).toMatchObject({ session: null, recovery: 'recovery_blocked', history: 'history_incomplete' })
   expect(await blocked.receipts(first.session)).toEqual([first])
   expect(await blocked.history(first.taskId)).toMatchObject({ history: 'history_incomplete' })
