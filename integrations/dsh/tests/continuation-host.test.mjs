@@ -581,7 +581,7 @@ test('A/B/A does not rewrite binding or late result attribution', async t => {
   await host.sync()
   const second = await approve(host, resume(b.taskId))
   const late = native.append('tool/result', { turn, step,
-    message: createToolResultMessage({ callId, isError: false, content: [{ type: 'text', text: 'PRIVATE-LATE' }] }) },
+    message: createToolResultMessage({ callId, isError: true, content: [{ type: 'text', text: 'PRIVATE-LATE' }] }) },
   { surfaceOp: 'append', sourceEventSeqs: [call.seq] })
   native.append('step/end', { turn, step })
   end(native, turn)
@@ -597,6 +597,7 @@ test('A/B/A does not rewrite binding or late result attribution', async t => {
   await approve(host, resume(a.taskId))
   const restored = await host.modelTurn('next')
   expect(restored.context.text).toContain('PRIVATE-LATE')
+  expect(JSON.parse(restored.context.text).evidence.find(item => item.kind === 'tool-result').isError).toBe(true)
   expect(restored.context.sources).toContainEqual(expect.objectContaining({ kind: 'tool-result', callSeq: call.seq }))
   await host.newSession()
   await approve(host, resume(b.taskId))

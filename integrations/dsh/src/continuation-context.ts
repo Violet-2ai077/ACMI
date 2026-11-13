@@ -46,7 +46,7 @@ export async function prepareContinuationContext(options: {
   check()
   if (!Number.isSafeInteger(maxBytes) || maxBytes < 1 || maxBytes > 32768) return fail('limit')
   const facts = store.facts(reader, task.taskId, 64)
-  const evidence: (ContinuationContextSource & { text: string })[] = []
+  const evidence: (ContinuationContextSource & { text: string; isError?: boolean })[] = []
   const journal = await openDshJournal(roots.journalRoot, roots.workspaceRoot, roots.compression)
   check()
   if (journal.partitionId !== store.workspaceId) return fail('unavailable')
@@ -80,7 +80,8 @@ export async function prepareContinuationContext(options: {
     textBytes += Buffer.byteLength(text, 'utf8')
     if (textBytes > maxBytes) return fail('limit')
     if (text) evidence.push({ session, localSeq, kind,
-      ...(kind === 'tool-result' && fact.detail.callSeq !== undefined ? { callSeq: fact.detail.callSeq } : {}), text })
+      ...(kind === 'tool-result' && fact.detail.callSeq !== undefined ? { callSeq: fact.detail.callSeq } : {}),
+      ...(event.type === 'tool/result' ? { isError: Boolean(event.data.message.isError) } : {}), text })
   }
   check()
   const window = 'latest-64-facts' as const
