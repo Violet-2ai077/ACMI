@@ -33,6 +33,18 @@ Each row describes what was actually tested and what was not established.
 
 ## How to audit or replay / 如何核查与复放
 
+### Latest research checkpoint
+
+[Phase 0.9.19](../../research/phase-0.9.19/STATUS.md) returns to same-generation
+task attribution and ongoing state maintenance, with separate C1/C2/C3 conditions
+and a development-only D diagnostic. R4 stopped after 35 requests at the frozen
+wire limit; the later offline transaction/audit implementation passed its covered
+correctness checks, but capacity is not closed and performance acceptance has not
+run. These are separate evidence types, not a model GO or a completed benchmark.
+The checkpoint links the complete design, all batch reports and local evidence
+indexes. Raw runtime archives remain outside Git; do not treat the indexes as a
+self-contained replay dataset or pool these results with earlier experiments.
+
 - Each phase report records its evidence type and limits; recent phases link
   frozen preregistrations and identify the source commit. The paired studies
   use synthetic ground truth and deterministic scorers, not another model

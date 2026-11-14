@@ -1,0 +1,616 @@
+{
+  "version": "re-ra-rc-final-verification-v1",
+  "created_at": "2026-11-14T23:35:40.294Z",
+  "node": "v24.16.0",
+  "model_calls": 0,
+  "performance_evaluation": false,
+  "performance_status": "NOT_RUN",
+  "development_refreeze": false,
+  "new_runtime_limits": false,
+  "live_admission_bytes": 1048576,
+  "correctness_status": "PASS_WITHIN_TESTED_COVERAGE",
+  "capacity_closed": false,
+  "capacity_status": "CAPACITY_NOT_CLOSED",
+  "historical": {
+    "files": 456,
+    "groups": [
+      {
+        "group": "live-20261114-r1",
+        "files": 19,
+        "unchanged": true,
+        "file_count_unchanged": true
+      },
+      {
+        "group": "live-20261114-r2",
+        "files": 63,
+        "unchanged": true,
+        "file_count_unchanged": true
+      },
+      {
+        "group": "live-20261115-r3",
+        "files": 86,
+        "unchanged": true,
+        "file_count_unchanged": true
+      },
+      {
+        "group": "live-20261115-r4",
+        "files": 99,
+        "unchanged": true,
+        "file_count_unchanged": true
+      },
+      {
+        "group": "offline-ro-rs-20261115",
+        "files": 189,
+        "unchanged": true,
+        "file_count_unchanged": true
+      }
+    ]
+  },
+  "study_materials": [
+    {
+      "path": "public/corpus.json",
+      "sha256": "ac3af4ca9451be784ca362fa26b98469fb1c6de86f911f64e23041a25fc32cb1",
+      "unchanged": true
+    },
+    {
+      "path": "oracle/corpus.json",
+      "sha256": "862f2a26abc98bdb288d8358551111d9c7117d056d60434ae2308352b4742372",
+      "unchanged": true
+    },
+    {
+      "path": "plan/schedule.json",
+      "sha256": "a566366b31b20a7147f974cc24c3a8083f66e6869f54e0061bc75094d39343ae",
+      "unchanged": true
+    },
+    {
+      "path": "prompts/a.txt",
+      "sha256": "5936d8268a976adef027e729e2363ac75463500813c47efa438cecaa1228f41c",
+      "unchanged": true
+    },
+    {
+      "path": "prompts/b.txt",
+      "sha256": "6ddc08f257b022db13dd78e2106d635e50098e2088a0f48b4456aa4b2fef4001",
+      "unchanged": true
+    },
+    {
+      "path": "prompts/c0.txt",
+      "sha256": "529d963aa4e93aec0dc537c09d4a4d45655261394e4c0e843f05982f0346d2f0",
+      "unchanged": true
+    },
+    {
+      "path": "prompts/d.txt",
+      "sha256": "cdec82b64b4a6efb1716bf3dc9a72ffa52a120b044643dd5a9c7b1c4a92b0c81",
+      "unchanged": true
+    }
+  ],
+  "main": {
+    "path": "E:/codex-prj/ACMI/acmi",
+    "head": "9db1ee7da8209363a1fd76f3bebc83f75dfe9c9d",
+    "clean": true
+  },
+  "verification": {
+    "tests": 208,
+    "passed": 208,
+    "failed": 0,
+    "skipped": 0,
+    "test_log_sha256": "9f95dd3c9ae7a81361e6b5713064896a6f9a26de57c3068a253cc62c3b57d8ef",
+    "syntax_modules": 82,
+    "diff_check": true
+  },
+  "artifacts": [
+    {
+      "path": "all35-correctness.json",
+      "sha256": "3b9d24303198c67b6450483b90d001ee3dedf8b14157c901fb820e94ab60a8d3"
+    },
+    {
+      "path": "capacity-proof.json",
+      "sha256": "01822a52a8ffc611fb363009e9b640def98cf171f62912e7ab340fd568adf3db"
+    },
+    {
+      "path": "overshoot-transport.json",
+      "sha256": "1fc6fd1012802d153bd451ec1680f090ca18333c74218d1fc76abd644e221de9"
+    },
+    {
+      "path": "historical-baseline.json",
+      "sha256": "bbf2fd3e185a58923703f0bf55f932c6f234f3d038512d14be1adcef8c771096"
+    }
+  ],
+  "source_snapshot": {
+    "path": "source-final",
+    "files": [
+      {
+        "path": "DESIGN.md",
+        "sha256": "9a367ced4497be6529c10918a85b7d220d7a6d5971063c74c3dffc0ff37038c7"
+      },
+      {
+        "path": "README.md",
+        "sha256": "5407390cb1859f3fd9e46d69d7df7c58b21951dc8d5e979705aaaf0dbb1cf486"
+      },
+      {
+        "path": "cli.mjs",
+        "sha256": "031733eb65815fc73f62e11f0d72c8dc43e18d9a6595d1dadad5662f168da816"
+      },
+      {
+        "path": "context/build.mjs",
+        "sha256": "653edca2ab75ba2279a0085706dab074bfcd4cf828802bac82c3f1cc01b2f248"
+      },
+      {
+        "path": "corpus/fixtures.mjs",
+        "sha256": "f733e171d1b6f0711019383a521205601770bc63bff10e09da4638632ab07ed4"
+      },
+      {
+        "path": "evaluator/read-raw.mjs",
+        "sha256": "6826e50785f88ef68279d5313bfb894ff9d33398c3ca39e573a7c6a0932a8e51"
+      },
+      {
+        "path": "evaluator/score.mjs",
+        "sha256": "88a94ce289a626dd8b4acb1b1381f904f837c34bc8c3e4e549eaf0346d0e5605"
+      },
+      {
+        "path": "execution/README.md",
+        "sha256": "792b9afbadc84cdabc6eeba7c3268ed45b032b106812bc2fe829ffa229ee353a"
+      },
+      {
+        "path": "execution/accept-wire-evidence.mjs",
+        "sha256": "d39a1284e62c7220f28dfa2dff2a54c8baf6bc5acb5486831eb210cb53d06a98"
+      },
+      {
+        "path": "execution/check-capacity-proof.mjs",
+        "sha256": "a41fc867c9762026854811d5a8e92612b3e14115bd09f32049fb9164ca198cf4"
+      },
+      {
+        "path": "execution/freeze-r4.mjs",
+        "sha256": "3c2616dc2a1e48f2acb35995e82398e7a089c30093c2bd700ebc33f8b391b939"
+      },
+      {
+        "path": "execution/live.mjs",
+        "sha256": "79c06cd99ddaaf9e4abd9e8751ee833fd55257876a6f4a6f52dbb798ed7cd0f6"
+      },
+      {
+        "path": "execution/probe-wire-capacity.mjs",
+        "sha256": "e8b7d1b91eb86a090bb20622a4bdc1049533092c2fcb383cf630abde8933e9ea"
+      },
+      {
+        "path": "execution/r4-authorization.md",
+        "sha256": "b42f33cc28118f444beb536efe0a903d833ff4f23b4ac4db7dc05bc21416858e"
+      },
+      {
+        "path": "execution/replay-sink.mjs",
+        "sha256": "b3ef4483bc5dbceebc50dbd8f9e2c5c16ef8303860fefed04332c30493869be5"
+      },
+      {
+        "path": "execution/report.mjs",
+        "sha256": "326e3ecf27fa96b519bd7d99123070f642b8b6cb4001c5fa02cd129b4164cbe3"
+      },
+      {
+        "path": "execution/results-2026-11-14.md",
+        "sha256": "03bf5643db64e6727b330a3d45b1f14a1fd2e9ae43350e88180e87b560c84d71"
+      },
+      {
+        "path": "execution/results-2026-11-15.md",
+        "sha256": "c3beeb5523925977e523ac68b6e559f5a522171e255d3b06ec9e5f9ef0ed7ee5"
+      },
+      {
+        "path": "execution/results-r4-2026-11-15.md",
+        "sha256": "2c658f6e516dd33df0c75705eeec800e73876229693596c2bb667b55f12169bc"
+      },
+      {
+        "path": "execution/stress-sink.mjs",
+        "sha256": "25f81681b093c149bc0c93425163e5323b3884e63f7eece3de03236f0d91ebdc"
+      },
+      {
+        "path": "execution/verify-transaction-audit.mjs",
+        "sha256": "54d1371eb606ba59ca39b0f1b82caf48a9163622565b614e76337c732d2df12a"
+      },
+      {
+        "path": "gate-1-report.md",
+        "sha256": "2a59765ad0a2f3ad270b148c2df2966cec919d35c9eebbef825aede9fef9d0fb"
+      },
+      {
+        "path": "gate2/DESIGN.md",
+        "sha256": "d28b51d188bd60b41e5d4bfc8bcab935971354267b8fe2ce4cc647fff7ea2a9a"
+      },
+      {
+        "path": "gate2/README.md",
+        "sha256": "dfddcded64db0b380c980a7d0c64b510361aa74a8ded52c2fecead0d459401c9"
+      },
+      {
+        "path": "gate2/capacity-proof.mjs",
+        "sha256": "c777134235606759b1d5ef07c1d0a01ab94f6910e53e06e60e0bfb9c6071face"
+      },
+      {
+        "path": "gate2/cli.mjs",
+        "sha256": "6405f6b4020486deef52ed1faef912d6fd7a511cf409de6d3e4b5283b77d599b"
+      },
+      {
+        "path": "gate2/config.template.json",
+        "sha256": "b0b9084832421acc06961ff67862fbc306f180dac5d6f79e9244eab3d5bf77b7"
+      },
+      {
+        "path": "gate2/corpus-plan.md",
+        "sha256": "9dbbd449a0af2524144077f32acff76709c3787f25729995933b2810b7a4ba3e"
+      },
+      {
+        "path": "gate2/corpus.md",
+        "sha256": "218bf267a9b7c240a6781f90161babc01df011b2a34465f4f380d4c6fabcfed0"
+      },
+      {
+        "path": "gate2/corpus.mjs",
+        "sha256": "5380dda507900302303684c4be2ad3d89936c55474546d34b4145adcd3f7f362"
+      },
+      {
+        "path": "gate2/deadline-transport.mjs",
+        "sha256": "af719d60e7017c40f5991ea8530e8dac01b04bd21e1fada097510f66a57f2c66"
+      },
+      {
+        "path": "gate2/development-corpus.mjs",
+        "sha256": "95378af09afe70221d293035c41ec26d1ebc148c3a931e534075f397eeb1be51"
+      },
+      {
+        "path": "gate2/development-evaluator.mjs",
+        "sha256": "74483f679ffad19027bd26712bb43f6579fa48218948563f54e00225cb82c234"
+      },
+      {
+        "path": "gate2/development-scenarios.md",
+        "sha256": "7bff402b399587e65dec93bb7b50728a51179a76f1dea330477afd05bb656d49"
+      },
+      {
+        "path": "gate2/dsh-inspect.mjs",
+        "sha256": "9c48244a05e5d2832d96fd167a330ec280e6adb383053adf15fc6b5cfbb32542"
+      },
+      {
+        "path": "gate2/dsh-plan.md",
+        "sha256": "086886bba31956ad39bda2bae31a46f4df806a1d5998ca3769c92d051ad07ec4"
+      },
+      {
+        "path": "gate2/dsh-route.mjs",
+        "sha256": "4c3c1a4a8a58a1f908ca06e04635c71788b0bb3fd7819244a662581b4effbe94"
+      },
+      {
+        "path": "gate2/dsh.md",
+        "sha256": "947bf59e71c9ce019373d8b4f6cdc3151ced8ca27521550ddff8843a8aed2145"
+      },
+      {
+        "path": "gate2/freeze-development.mjs",
+        "sha256": "ec89b9a0918fbadb5329d29339f7c856e5228e447beba9db2b2fd9379c6c1481"
+      },
+      {
+        "path": "gate2/freeze-plan.md",
+        "sha256": "81193ddbfbd6b865719c93ff4bbfb174e37945befc5c76675db1119eb2a461b5"
+      },
+      {
+        "path": "gate2/freeze.md",
+        "sha256": "493b89355b29831944178900606d32ae26d68c6821807e691bf059d9dc1e5402"
+      },
+      {
+        "path": "gate2/freeze.mjs",
+        "sha256": "bab606c4a7b31d4db065c607482b9e88626c920a52521746c2abc82460a07113"
+      },
+      {
+        "path": "gate2/implementation-plan.md",
+        "sha256": "811c7a5694d9d1feb00288fa0dbb0d4b475cc4fb04ab4cb2295adb7afa2bca0e"
+      },
+      {
+        "path": "gate2/inline-profile.mjs",
+        "sha256": "dca24872c679235307e12ee7fcd170da2249e1f32ec2b88644a0c46e9596301b"
+      },
+      {
+        "path": "gate2/integration-plan.md",
+        "sha256": "b6f6b07716420d152053985222de0ebd19437bd1bcb19b0211d38bf3d74cc114"
+      },
+      {
+        "path": "gate2/integration-report.md",
+        "sha256": "d8b7843d013f453e6ff3717febcb3b7a7dd5784859a41390af26d7c756755d05"
+      },
+      {
+        "path": "gate2/ledger-plan.md",
+        "sha256": "ba537a6ccef6c94c51d2db6bfe57552dc6d0811bc889a80ff1dd8f7c6028cd4c"
+      },
+      {
+        "path": "gate2/ledger-state.mjs",
+        "sha256": "ce545d69ff81c30ecd7561ec4981885f29201868990d74f3444333a43bd26f7f"
+      },
+      {
+        "path": "gate2/ledger.md",
+        "sha256": "65dd96803ef67ded0a33905d703de3764dbbdd2569bc52061d4d6705d0916f0a"
+      },
+      {
+        "path": "gate2/offline-verification.mjs",
+        "sha256": "dc7ecb637da33a3664abc36758737a70b642ff15f1c02303974af3c1f0bf25fd"
+      },
+      {
+        "path": "gate2/owner-amendments.md",
+        "sha256": "696108a9b229f237b055eb71089df2ab4891f866e7b29b1fa839c1a64edf2966"
+      },
+      {
+        "path": "gate2/plan.mjs",
+        "sha256": "d1b0ca7e099d829d135e19bd6937532877abbb3f4d7a94c44b2118dfeebdec64"
+      },
+      {
+        "path": "gate2/progress.md",
+        "sha256": "8b2fe11d2d2bb93a622d0fe28d926ad3f100fc7a7bdc62d43e1bba803e1b33a7"
+      },
+      {
+        "path": "gate2/prompts.mjs",
+        "sha256": "3ba7311b402aa06d6be39b685fca7c467e55c33401d78f6a349946968f285b08"
+      },
+      {
+        "path": "gate2/protocol-revision-proposal-2026-11-15.md",
+        "sha256": "2e759477a5743f4288b7a9d904b7b56f8c74fca115e24eb8c47cf9104e8cb11e"
+      },
+      {
+        "path": "gate2/readiness.mjs",
+        "sha256": "1ce67c24e29762ab27140498bd23cec7705f1a2601dd3ee86409f301a6efb4a5"
+      },
+      {
+        "path": "gate2/request.mjs",
+        "sha256": "fd7c8b8e7f6846124d9912e533ebae2575a95b9927646e468bbe17b30644a729"
+      },
+      {
+        "path": "gate2/revision-acceptance.md",
+        "sha256": "c6dcf0df315e8e933c372f3144b678f64e10d025867f60397e02b1bfbc7e7b73"
+      },
+      {
+        "path": "gate2/revision-implementation.md",
+        "sha256": "feebacc7b599d5f5045f7367b0f227b49f040ccd2843bf5fb9d4f5ae55c7e202"
+      },
+      {
+        "path": "gate2/revision-policy.mjs",
+        "sha256": "e2039f17cf880d9e67ffeefdabfa4113c119e3fa62982db905859fdcc27453dd"
+      },
+      {
+        "path": "gate2/routing-amendment.md",
+        "sha256": "ca61a1c76b67c7c10f5fa39bfeb1751301487042d164d8a265e1cc44d8aa839e"
+      },
+      {
+        "path": "gate2/routing.mjs",
+        "sha256": "bf47573980e4b6b83d220624b498c1062c86e1a71d1fcac3b351a77b0edab66e"
+      },
+      {
+        "path": "gate2/run-ledger.mjs",
+        "sha256": "a627dcff37c80494380c034b118eb281f12de6a1446f89ef49567f94f5a25bda"
+      },
+      {
+        "path": "gate2/send-boundary.mjs",
+        "sha256": "3658f231710d80a2ba6089af15dc1f377cc61bdcc7a7ee164b3f0cbcd5a2b5c7"
+      },
+      {
+        "path": "gate2/sink-plan.md",
+        "sha256": "7411d69c68e614bfcae3001457b4511422d48950ef5c550a60744657599cb6e8"
+      },
+      {
+        "path": "gate2/sink-repair.md",
+        "sha256": "50090f6fc19495589a04289b04158c0ef09be1580b306faacb4c8958cd27f930"
+      },
+      {
+        "path": "gate2/stream-audit.mjs",
+        "sha256": "11c87d1b3705482a9773d0344a9743d19c3b339583d48af6c721cc9a6b74230b"
+      },
+      {
+        "path": "gate2/transaction-audit-capacity-proposal-2026-11-15.md",
+        "sha256": "99d07f377f38c257e1e717fc3ae638753759c640e2e02495f2eb3f97d2ba3092"
+      },
+      {
+        "path": "gate2/transaction-audit-correctness-2026-11-15.md",
+        "sha256": "3343c215b9fc714f333a4649a50bbc3c0fe4352ca78e184c0b834658adf477e4"
+      },
+      {
+        "path": "gate2/transaction-audit-implementation.md",
+        "sha256": "ba06b44815b79f97c6113d5a7aa686a215abecef9f468c9801a6ab5af01ebc22"
+      },
+      {
+        "path": "gate2/transaction-frame.mjs",
+        "sha256": "4a966438a141bc21b8ec8541b6f35c4da9e63b106fc51ec7df882a68664d54fd"
+      },
+      {
+        "path": "gate2/transport-plan.md",
+        "sha256": "92b3b81bd0a2b7fcbef104c14b45bdaa04a89c08e45a705359ec5f27eccdf97b"
+      },
+      {
+        "path": "gate2/transport.md",
+        "sha256": "0fb66e5838e7744c701304ef360e9313153be9f313281ec09d2f3e69bf53055b"
+      },
+      {
+        "path": "gate2/transport.mjs",
+        "sha256": "83deda3c0324614f55403c493eec045ab04c45267140dd9a46d073a46b4d92ff"
+      },
+      {
+        "path": "gate2/wire-accounting.mjs",
+        "sha256": "69f4d85fc139ea0e1a17d899177b4400f352fb02db1835ca9039c7016d1e7bd0"
+      },
+      {
+        "path": "gate2/wire-evidence-acceptance-2026-11-15.md",
+        "sha256": "5bd1cfafb989f2a99acad270e3c1df86c33f99c98aec2fa25e866da292694473"
+      },
+      {
+        "path": "gate2/wire-evidence-implementation.md",
+        "sha256": "4763040bb2589628e7ef2fecd94d09a8f36372e2e4531eca8664aca86a55b87d"
+      },
+      {
+        "path": "gate2/wire-evidence-revision-proposal-2026-11-15.md",
+        "sha256": "c36e0a354b2142997f2ac416abf74c8f5a371ca01e087d18f6b26671fee6dad0"
+      },
+      {
+        "path": "ledger/store.mjs",
+        "sha256": "8ba4c664b79a938cb7c23b447cff9ae7cdd56dd634b451da488193fafc053658"
+      },
+      {
+        "path": "progress.md",
+        "sha256": "6f5bca79688dfb41d4747ce346f38ec780744fecb8ed32bb4aefd80745b4ab95"
+      },
+      {
+        "path": "protocol/contracts.mjs",
+        "sha256": "e449aa10e889b7a72bb6f1bc7da9d122e1023c5ea257d1ae2400f19ac6340ecd"
+      },
+      {
+        "path": "protocol/wire.mjs",
+        "sha256": "6a7d1661b0d4237c596721c700735f7d32a37c50631fb2b028b1b14d27f2d83b"
+      },
+      {
+        "path": "report/build.mjs",
+        "sha256": "9ab5b4e277f6b0b5ece37734976c66721768ea40c947262031b15fef1e35a878"
+      },
+      {
+        "path": "runner/fake.mjs",
+        "sha256": "a92d475635be0f2ff7856ea7092867c64e86691a47b23e9e4808846e3c009809"
+      },
+      {
+        "path": "runner/run.mjs",
+        "sha256": "39a879e78a1619de2734c17104a37c526def872f7985bd4c25e41e6a5ad775e0"
+      },
+      {
+        "path": "tests/context.node-test.mjs",
+        "sha256": "8959d5d23e188d65747334d7a5f916186e2828dfae4eea5a89e510412bbd4038"
+      },
+      {
+        "path": "tests/evaluator.node-test.mjs",
+        "sha256": "8bfab46b9d54281d894c762f9c0406baea986608b1ad3f9fa57c1270b7cc8acd"
+      },
+      {
+        "path": "tests/execution.node-test.mjs",
+        "sha256": "3f867bb13f7d4b6e67bb25f35d2731194c2538b00c51d6ea7716a3ce755bbaee"
+      },
+      {
+        "path": "tests/gate2-binary-frame.node-test.mjs",
+        "sha256": "a84d6e5d028da9acec48638bf6e9e93613ffc27d6ffeaf6ccff7fe3663004ae5"
+      },
+      {
+        "path": "tests/gate2-boundary.node-test.mjs",
+        "sha256": "1c4874b0da25a12d312499ce449b4094fee84f2da28f7b8030e59f51a7f50327"
+      },
+      {
+        "path": "tests/gate2-cache.node-test.mjs",
+        "sha256": "f659f8403e31ee697f173eebdf72c21551711b31a33e5a0d0f142ebaddd15e2c"
+      },
+      {
+        "path": "tests/gate2-capacity-proof.node-test.mjs",
+        "sha256": "c8b4b3da1286e31d0ce1a99168d60e9a2241af48fafd664f62801dcd5a76b585"
+      },
+      {
+        "path": "tests/gate2-censored-ledger.node-test.mjs",
+        "sha256": "adb36d34915517710adea76d486fdc6c6b49222ce6347b8bd7aec78d44517491"
+      },
+      {
+        "path": "tests/gate2-corpus.node-test.mjs",
+        "sha256": "0924a8abcd6cfe9042a97ef9f0069cbd600a58adcca29e116cb7782e1b61e33d"
+      },
+      {
+        "path": "tests/gate2-deadline-revision.node-test.mjs",
+        "sha256": "6e47f78e66eb051c7dc484134927eff9d06f9a77eb09cd26915ea69f73fc547c"
+      },
+      {
+        "path": "tests/gate2-development.node-test.mjs",
+        "sha256": "64cc9eac9fbc3d08f3a9e599d577fc72401f4ab8f24441c7ba931dd431c83751"
+      },
+      {
+        "path": "tests/gate2-dsh.node-test.mjs",
+        "sha256": "3f6fd9968b0b33535c0e98b28fd67c731bec0981cf25e569004f67754ed9e4af"
+      },
+      {
+        "path": "tests/gate2-end-to-end.node-test.mjs",
+        "sha256": "577f929187e3587fe866b2bdcf7aae3afd8880e2e3cd02464553a94c24931a5d"
+      },
+      {
+        "path": "tests/gate2-freeze.node-test.mjs",
+        "sha256": "9cd5c33386d2fda84509ccfb3d0ded1b509d3719ab117111f6ef56006f4ef708"
+      },
+      {
+        "path": "tests/gate2-inline-revision.node-test.mjs",
+        "sha256": "a9c2d18996d510998706210c3da6ed0eafba50df7bf177a8c797234fe84f1f1e"
+      },
+      {
+        "path": "tests/gate2-ledger.node-test.mjs",
+        "sha256": "a58c8174e8080aa64be0d9b19f2df0ffd7b5ca99bfb9b1e46dcd937afe14dbe4"
+      },
+      {
+        "path": "tests/gate2-package.node-test.mjs",
+        "sha256": "56bcbd72d27fd05e0b8c6c8d1ea6ceeda19b44684d9da146f648b0353c9e5b41"
+      },
+      {
+        "path": "tests/gate2-plan.node-test.mjs",
+        "sha256": "0f0912165021634a2d8419eab03ec84a5c79180971ced306957c30980e144831"
+      },
+      {
+        "path": "tests/gate2-readiness.node-test.mjs",
+        "sha256": "bf6a75fbbb9e6a6e246aa7da1604d4fddd2df050f454a2c017812d8c827938b7"
+      },
+      {
+        "path": "tests/gate2-request.node-test.mjs",
+        "sha256": "5eeff6b266e7f833d30c61c6312b6acf77c1a166631c06bbe7ed9f4d8e4756e5"
+      },
+      {
+        "path": "tests/gate2-revision-boundary.node-test.mjs",
+        "sha256": "1adf7495e921a910719ace1faa12ea789a0ad46f2002890363a0d73b651f0e06"
+      },
+      {
+        "path": "tests/gate2-revision-live.node-test.mjs",
+        "sha256": "a0b153634de6f165db9eb1051479e7d4dbb40426d757ccf79119d9aa5ee66fae"
+      },
+      {
+        "path": "tests/gate2-routing.node-test.mjs",
+        "sha256": "08da8b41ef1186a3df604022c02f436e558a64f5a8d71288838328aed3e739c9"
+      },
+      {
+        "path": "tests/gate2-stream-audit.node-test.mjs",
+        "sha256": "1b39d820667ce5575afcb68de8943aee6b54a9f398ec5053598aa403c89bebf3"
+      },
+      {
+        "path": "tests/gate2-transaction-policy.node-test.mjs",
+        "sha256": "c269b5aceb2856440aa39c2487c81d5e65464c9f2f63c1b1ebc0078225c69971"
+      },
+      {
+        "path": "tests/gate2-transactions.node-test.mjs",
+        "sha256": "6594e1e3d23741fa0eff8a7d45e9145d494515971674f4b051c9c8c179c9b6e8"
+      },
+      {
+        "path": "tests/gate2-transport.node-test.mjs",
+        "sha256": "bc8bd5d3177629cf497b90db3d9500d85c77ef9a61935ba3aeaf3f05a449df4d"
+      },
+      {
+        "path": "tests/gate2-wire-accounting.node-test.mjs",
+        "sha256": "bf62cd0209b1ca0a9936955220173058dd21f725ba30f8a094098d36edf459c8"
+      },
+      {
+        "path": "tests/integrity.node-test.mjs",
+        "sha256": "90dae8538e85e0a73a6cc12d7eb873c0a18372ae7c7c2782a1638b03aafe86de"
+      },
+      {
+        "path": "tests/ledger.node-test.mjs",
+        "sha256": "26d31313a9b012f5c117de0320584fbd9ed1e3f26f3d6356f0f0e0d000038e57"
+      },
+      {
+        "path": "tests/offline.node-test.mjs",
+        "sha256": "14155e8ab7f21fdcaa654d8f75a6d2d4bc9e2945cfeeec3d0db5835aa5dafce7"
+      },
+      {
+        "path": "tests/report.node-test.mjs",
+        "sha256": "73914943db55712ba629a2aa0848b001a94b79ebd8a19a885fb263481237e79a"
+      },
+      {
+        "path": "tests/runner.node-test.mjs",
+        "sha256": "67c144912f1a5cd33d838c6f412110513ec8b5c2262985f2505947045f225c28"
+      },
+      {
+        "path": "tests/semantics.node-test.mjs",
+        "sha256": "8c6d76d3aee2b36bdd0cb2af4f05a8f7903f26c6a18108fe3e6de1540728e85a"
+      },
+      {
+        "path": "tests/state.node-test.mjs",
+        "sha256": "ffb798cc8f34bde52a68fa92b7e968be68aeec5536d3e500c5953683414539b5"
+      },
+      {
+        "path": "tests/support/corpus-fixture.mjs",
+        "sha256": "0836c5b1fd79df7504f52f516877676d6a9a368e963456b6055d67ea75e48340"
+      },
+      {
+        "path": "tests/support/dsh-yaml-stub.cjs",
+        "sha256": "0bac3fd053cd1d7a2a48c93c8c97cc1fa3af74b1c44886f80b3da76e3cca69c6"
+      },
+      {
+        "path": "tests/wire.node-test.mjs",
+        "sha256": "95d5fcfb1e78e204734973cba61645a318aa57df59d9ee9bf3a382e0507d9e2d"
+      }
+    ]
+  },
+  "note": "Offline evidence archive only; not a development freeze or performance acceptance. Historical failures and scores unchanged."
+}
