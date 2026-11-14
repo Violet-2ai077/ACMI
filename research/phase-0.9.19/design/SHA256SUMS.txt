@@ -1,0 +1,4 @@
+3ebe4339fa937707d7e509ef8fe2e79bb85ca73ccce266a988fb0087b7561dcc  model-native-task-attribution-research-design.md
+fb2fc77c5cb9138e4a3c87b98852094aac4a51c0aa2239ae6c7922b749ae5b42  model-native-task-attribution-research-design.v1.md
+206458f0b4188347d30b63fa322430211e406284484460625b8c22ef830c816e  owner-review-revision-summary.md
+4df5279f2f2d39fefe71b47a7913cdc0fce5973c4b2295f8cfa7eb6dd6511990  gate-1-implementation-plan.md

@@ -6,7 +6,7 @@
 
 ACMI（Agent Context & Memory Infrastructure）为智能体运行时提供跨会话的工作身份。会话切换任务，或另一个会话继续同一任务时，任务 UUID 保持不变。ACMI 记录显式绑定并提供带来源信息的只读历史。它不负责运行智能体，也不是自动任务识别器或长期记忆引擎。
 
-**Alpha 阶段：**无需启动 dsh、提供凭据或调用模型即可运行确定性合成演示。`main` 同时保留截至 Phase 0.9.16 的研究历史，不启用自动任务路由。首个官方集成为 [DeepSeek Harness（dsh）](integrations/dsh/README.md)，目标版本为 `0.2.2-rc.1`；安装和兼容性见 [dsh 快速入门](examples/dsh-quickstart/README.md)。接入其他运行时可从[适配器编写指南](docs/adapter-authoring.md)和[自定义适配器示例](examples/custom-agent-adapter/README.md)开始。
+**Alpha 阶段：**无需启动 dsh、提供凭据或调用模型即可运行确定性合成演示。`main` 同时保留截至 Phase 0.9.19 的研究历史，不启用自动任务路由。最新[模型原生任务归属进度](research/phase-0.9.19/STATUS.md)分别记录离线正确性、已停止的探索批次与尚未闭合的容量门槛。首个官方集成为 [DeepSeek Harness（dsh）](integrations/dsh/README.md)，目标版本为 `0.2.2-rc.1`；安装和兼容性见 [dsh 快速入门](examples/dsh-quickstart/README.md)。接入其他运行时可从[适配器编写指南](docs/adapter-authoring.md)和[自定义适配器示例](examples/custom-agent-adapter/README.md)开始。
 
 ## 快速开始
 

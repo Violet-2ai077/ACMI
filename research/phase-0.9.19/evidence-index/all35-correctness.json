@@ -1,0 +1,18 @@
+{
+  "version": "transaction-audit-correctness-v1",
+  "model_calls": 0,
+  "performance_evaluation": false,
+  "evaluator_calls_on_real_output": 0,
+  "source_head": "f631422f9f49099b28ee9d6e9e85cbcd33b255806d733d05f00b136b60c32924",
+  "logical_events_equal": 99985,
+  "attempts_equal": 35,
+  "original_read_boundaries": 35308,
+  "source_times_and_payload_hashes_equal": true,
+  "selective_audited_attempts_equal": true,
+  "reopened_full_state_equal": true,
+  "final_halted": true,
+  "binary_bytes": 71856567,
+  "logical_head": "6e3e620547b276a56218095329cddccab15f2dc0779f256dc5cbd343455ecd7c",
+  "physical_head": "079f9b27bfca57bf13df237aea3e1688587cadde09b00c0e6a23c2f51ea69ccb",
+  "note": "No timing/RSS comparison, performance gate, model continuation, rescore or new research freeze."
+}

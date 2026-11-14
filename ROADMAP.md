@@ -11,6 +11,12 @@
 
 ## Conditional or experimental
 
+- Phase 0.9.19: isolated [model-native task attribution research](research/phase-0.9.19/STATUS.md).
+  A/B same-generation markers and state maintenance remain unqualified. The last
+  development batch stopped at its wire limit; offline R-E/R-A correctness passed
+  in covered tests, but R-C capacity is not closed and performance acceptance is
+  pending. No new default routing, production integration or automatic model run.
+
 - Phase 0.9.18: opt-in [local model continuation](examples/task-console/MODEL-README.md)
   on isolated test data. Each request uses a fresh Session, explicit task binding,
   registered-source text evidence and request-time authorization. No tools,

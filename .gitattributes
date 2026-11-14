@@ -1,2 +1,4 @@
 * text=auto eol=lf
 docs/experiments/evidence/** -text whitespace=cr-at-eol
+research/phase-0.9.19/design/** -text whitespace=cr-at-eol
+research/phase-0.9.19/evidence-index/** -text whitespace=cr-at-eol

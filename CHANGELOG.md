@@ -3,6 +3,20 @@
 Dependency security baseline: Vitest 4.1.12 and Zod 4.6.6; older transitive
 Zod is overridden in the workspace. No installed dsh dependency was changed.
 
+## Unreleased - Phase 0.9.19 model-native attribution research
+
+- Preserve the research design, Owner revisions, isolated harness, deterministic
+  evaluator, frozen-input checks, proposal-only state and historical reports.
+- Compare A/B same-generation protocols across C1/C2/C3; keep D diagnostic-only
+  and frozen replay separate from closed-loop state maintenance.
+- Record stopped exploratory batches without retries or historical rescoring.
+  Add offline transaction framing, streaming full-history audit and capacity
+  counterexamples. Correctness passed in covered tests; capacity is not closed
+  and performance acceptance remains pending.
+- This is source/document synchronization, not production Host/Graph integration,
+  a release, a model GO, a new research freeze or permission for further runs.
+  See the [current checkpoint](research/phase-0.9.19/STATUS.md).
+
 ## Unreleased - Phase 0.9.18 explicit local model continuation
 
 - Add opt-in Host model turns with fresh-Session isolation, bounded registered
