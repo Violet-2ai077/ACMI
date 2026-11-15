@@ -1,8 +1,25 @@
 # Phase 0.9.19 - current research checkpoint
 
-Updated: 2026-11-15. This checkpoint supersedes historical "not yet run" or
+Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
+
+## Current governing priority - 2026-11-16
+
+**Mechanism validation first; engineering only as necessary for trustworthy
+experiments.** See [RESEARCH-PRIORITY.md](RESEARCH-PRIORITY.md). Do not automatically
+continue the native/storage/RSS closure chain. New engineering must identify
+the mechanism question, the concrete experimental-validity blocker and the
+smallest sufficient intervention. The research focus is state-maintenance
+failures and missing C2/C3 continuity evidence, not production infrastructure.
+
+Main receives the stable phase constraint and working entry points only.
+Subsequent ME/S2/MC/SC explorations and all original phase evidence are retained
+on the research branch; see [archive and branch scope](RESEARCH-ARCHIVE.md).
+No candidate contract or model batch is enabled by this integration. G1 remains
+unapproved; P-G FAIL, live 1 MiB, frozen materials, scores and original gates stay.
+
+## Historical checkpoints
 
 Owner subsequently authorized synchronization, merge to main and push of this
 checkpoint. Integration verification is separate from the J1 static review;
