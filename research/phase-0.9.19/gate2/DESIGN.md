@@ -2,6 +2,16 @@
 
 Date: 2026-11-14. Scope: offline planning and compilation, not model experiments.
 
+## 2026-11-15: capacity and performance preparation, not execution
+
+Task 1/2 are authorized for offline design, tools and non-timing correctness.
+The capacity calculator evaluates declared premises and concrete witnesses; it
+does not certify runtime guarantees. The performance preparer pins inputs and
+keeps unproved denominators, compatibility and resources blocked. Its evaluator
+uses the original gates. Only synthetic-clock tracing is available; real series
+dispatch always refuses execution. See `capacity-contract-proposal.md` and
+`performance-preparation-results-2026-11-15.md`. No live source or limits change.
+
 ## 2026-11-15: approved protocol revision, offline implementation
 
 Spec: protocol-revision-proposal-2026-11-15.md. The Owner approved the proposal

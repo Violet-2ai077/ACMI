@@ -1,5 +1,47 @@
 # Gate 2 离线准备
 
+Owner 仅授权的 J1 静态细化已完成：[交付、编码与 576 槽位证明](j1-static-proof-results-2026-11-15.md)。
+新增两个静态阻塞：原 v4 全 journal 单字符串物化无法覆盖 576 槽位支持域；完整
+pretty-result 的 usage 扩展可超出候选 X=16 MiB。客户端 Q/F 与控制记录界仍未闭合。
+DC-EC-1 不进入 J2；候选数字未启用，P-G FAIL/live 1 MiB/冻结材料及历史证据不变。
+本轮只有静态读取、微型算术及文档/完整性检查，没有实现、回放、重评分或模型批次。
+
+Owner 已认可 S2 的范围及当前不准入结论；新提交
+[交付契约与证据容量联合修订方案](../../../docs/superpowers/plans/2026-11-15-joint-delivery-evidence-capacity-proposal.md)。
+候选明确列出新增交付域限制/截尾与证据预算，只有条件字节核算，尚无客户端及
+完整资源可行性证明。本轮不改实现、不启用上限、不重冻结或启动模型；P-G FAIL 保留。
+
+S2 审议已提交：[原门槛适用范围及采集路径](s2-acquisition-admission-review-2026-11-15.md)。
+结论：当前没有合规可启用采集路径。候选相对性能门槛不要求 v4 比自身改善，但
+原路径容量仍不闭合、旧批授权已结束；v6 的 P-G FAIL 不豁免、不重启计数优化。
+本轮只有只读审议及文档更新，等待 Owner 审核；未改实现、重评分、重冻结或运行模型。
+
+S1 已完成：[中期研究结论](../execution/s1-interim-research-conclusions-2026-11-15.md)。
+已只读核对原分数、r4 实际输入/输出与闭环传递，分开解释字面表示差异和具体状态
+问题；C2/C3 的 A/B 闭环仍未观察。未重评分、改实现、重冻结或启动模型批次。
+S1 中期结论已获 Owner 认可，后续 S2 只读审议见上；P-G FAIL 和 live 1 MiB 保持不变。
+
+最新 Owner 决议：接受 P-G 条件不可行结论，保留 FAIL，停止为计数门槛继续优化。
+下一阶段仅提交 [核心归属研究路径](../../../docs/superpowers/plans/2026-11-15-core-attribution-research-next-stage.md)
+供审核：建议先只读综合已有研究证据，再单独审议新增采集准入，不重做 Gate 1。
+本轮不改实现、旧分数、冻结材料或门槛，不执行性能系列、重新冻结或模型批次。
+以下工程验收与授权均保留为历史记录，不构成当前执行许可。
+
+最新审议：[P-G 结构性屏障与条件不可行依据](../../../docs/superpowers/plans/2026-11-15-pg-structural-barrier-review.md)。
+保留现行八个独立耐久确认点时，下界 496 高于门槛允许的 434；屏障内成本优化不解此题。
+仅提交方案审核，未修改实现或运行新回放。下方保留原验证结果。
+
+最新后续结果：[完整三层负载与测量桥接](workload-bridge-results-2026-11-15.md)。
+P-G 非计时 append/flush-request 从 620 到 496，仅减少 20%，未达原 30% 门槛。
+保持 BLOCKED；时间/RSS 验收、native supervisor 与 live 恢复均未获通过。
+见 [测量及 supervisor 设计](measurement-supervisor-design.md)。下方为前序记录。
+
+2026-11-15 最新检查点：Owner 已批准 Task 1/2 离线细化和工具验证。
+交付 [容量契约](capacity-contract-proposal.md) 与
+[性能验收器准备结果及资源建议](performance-preparation-results-2026-11-15.md)。
+R-C 仍未闭合，性能准备 BLOCKED；未执行性能系列、重新冻结或新模型批次。
+下面的合并/推送及 live 授权属于历史时点，不是本次执行许可。
+
 当前状态以 [全阶段检查点](../STATUS.md) 和
 [R-E/R-A/R-C 检查报告](transaction-audit-correctness-2026-11-15.md) 为准：
 离线正确性已检查，容量不闭合，性能验收未执行。Owner 本次另行授权源码和文档

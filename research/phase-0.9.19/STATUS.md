@@ -4,6 +4,70 @@ Updated: 2026-11-15. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
+Owner subsequently authorized synchronization, merge to main and push of this
+checkpoint. Integration verification is separate from the J1 static review;
+see [integration record](execution/integration-after-j1-2026-11-15.md).
+This grant does not approve J2, candidate limits, performance series, refreeze
+or model acquisition. Original J1/S1/S2 reports remain byte-preserved.
+
+Owner authorized J1 static proof only. The completed
+[J1 proof report](gate2/j1-static-proof-results-2026-11-15.md) identifies two blockers:
+v4 whole-journal string materialization cannot cover the 576-slot domain in the
+current runtime, and the proposed 16 MiB external-evidence coefficient has a
+pretty-printed usage counterexample. Client Q/F and complete control bounds remain
+unproven. DC-EC-1 is blocked; no candidate values are enabled and no J2 is started.
+Only static inspection, tiny arithmetic and documentation/custody checks occurred.
+
+S2 scope and non-admission conclusions are accepted by Owner. The preceding joint
+revision proposal remains preserved:
+[delivery contract and evidence capacity](../../docs/superpowers/plans/2026-11-15-joint-delivery-evidence-capacity-proposal.md).
+It explicitly proposes a narrower delivery domain and larger evidence budgets;
+conditional byte arithmetic is not a client, RSS, audit or live-readiness proof.
+No limits are activated and P-G count optimization remains stopped.
+
+S2 accepted basis:
+[scope of original gates and acquisition paths](gate2/s2-acquisition-admission-review-2026-11-15.md).
+No currently admissible acquisition path was identified. Candidate-relative
+performance gates are distinct from research outcome gates; the v4 reference
+still lacks closed capacity and fresh execution authorization. P-G remains FAIL.
+No implementation, rescoring, performance series, refreeze or model batch occurred.
+
+S1 read-only research synthesis is complete and accepted by Owner:
+[interim research conclusions](execution/s1-interim-research-conclusions-2026-11-15.md).
+Identity correctness and full state maintenance diverge; both literal-reference
+differences and concrete state-representation failures are evidenced. C2/C3 A/B
+closed loops remain unobserved. No rescoring or implementation change occurred.
+S2 was authorized only as a read-only review; no acquisition or performance work is authorized.
+
+Owner accepted the conditional P-G infeasibility, retained FAIL,
+and stopped count-gate optimization. Approved S1 basis:
+[core attribution research reorientation](../../docs/superpowers/plans/2026-11-15-core-attribution-research-next-stage.md).
+The latest authorization permits proposal work only, not implementation,
+rescoring, refreeze, performance series or a model batch. R2 and completed Gate 1 remain.
+
+Accepted basis: [P-G structural barrier feasibility](../../docs/superpowers/plans/2026-11-15-pg-structural-barrier-review.md).
+With the eight independent durable acknowledgements and crash-prefix semantics
+preserved, the count floor is 496 versus the required maximum 434. No count-pass
+candidate is proposed within that contract. Intra-barrier CPU/memory work cannot
+remove this failure; control co-commit would change the preserved boundaries.
+This review changes documentation only, not implementation or execution authority.
+
+Latest checkpoint: [full workload/bridge preparation](gate2/workload-bridge-results-2026-11-15.md)
+and [measurement/supervisor design](gate2/measurement-supervisor-design.md).
+P-G non-timing counts fail the unchanged gate: 620 -> 496 append/flush requests,
+only 20% reduction versus the required 30%. No timing series was run. This is
+an engineering candidate failure, not a model-attribution research NO-GO.
+
+Owner approved Task 1/2 and subsequent offline completion of operation tables,
+original-v4 equivalence, resource analysis and fault validation under the
+[R-C capacity and R-E/R-A performance plan](../../docs/superpowers/plans/2026-11-15-attribution-capacity-performance-plan.md).
+Offline tools and non-timing validation are delivered with explicit blockers:
+[capacity contract](gate2/capacity-contract-proposal.md),
+[performance preparation and resource proposal](gate2/performance-preparation-results-2026-11-15.md).
+R2 is accepted; Gate 1 is not reimplemented. Capacity remains NOT CLOSED and
+performance readiness BLOCKED. No performance series, research refreeze, model
+batch, main edit, commit or push is authorized by this preparation approval.
+
 ## Decision and authorization
 
 - Research question unchanged: can one normal answer generation also identify,
@@ -17,9 +81,15 @@ not rewrite the evidence or authorizations recorded at those earlier times.
   reproduces incomplete evidence followed by a halted ledger.
 - **Performance acceptance: NOT RUN for R-E/R-A.** Earlier R-O/R-S failures stay
   failures. Sparse 576-slot recovery is not a saturated capacity proof.
-- Latest Owner instruction authorizes synchronizing this work, merging `main`
-  and pushing. It does not authorize new limits, weaker gates, research refreeze,
-  further model batches or production Host/Graph integration. Live stays 1 MiB.
+- The preceding synchronization/merge/push is complete. Task 1/2 offline design,
+  tools and non-timing verification are historical approvals; the latest Owner
+  instruction authorizes J1 static proof only, now submitted for review. The joint
+  capacity candidate is blocked by representation and external-encoding counterexamples.
+  The resource proposal is 16 GiB disk (reallocated 6/2/2/2/4 GiB), 8 GiB RSS per serial child, at least
+  12 GiB free host memory and 18 hours for a possible 30-child fixed series.
+  These are unapproved administrative allowances, not feasibility proofs or new
+  live stop rules. RSS/time/native-supervisor proofs remain missing and P-G
+  count gates fail. Live stays 1 MiB.
 
 ## Complete design and implementation history
 
@@ -37,6 +107,8 @@ not rewrite the evidence or authorizations recorded at those earlier times.
 | D timeout and B whitespace revisions | [Proposal](gate2/protocol-revision-proposal-2026-11-15.md), [acceptance](gate2/revision-acceptance.md) |
 | R-O/R-S wire accounting | [Proposal](gate2/wire-evidence-revision-proposal-2026-11-15.md), [acceptance and failures](gate2/wire-evidence-acceptance-2026-11-15.md) |
 | R-E/R-A/R-C transaction, audit and capacity | [Proposal](gate2/transaction-audit-capacity-proposal-2026-11-15.md), [implementation](gate2/transaction-audit-implementation.md), [results](gate2/transaction-audit-correctness-2026-11-15.md) |
+| Task 1/2 capacity and performance preparation | [Capacity contract](gate2/capacity-contract-proposal.md), [results and budget](gate2/performance-preparation-results-2026-11-15.md), [preparation ledger](gate2/capacity-performance-preparation.md) |
+| Full workload/bridge follow-up | [Results](gate2/workload-bridge-results-2026-11-15.md), [supervisor design](gate2/measurement-supervisor-design.md), [ledger](gate2/workload-bridge-progress.md) |
 
 Design files are byte-preserving copies of the existing deliverables, not a new
 revision or freeze. Their original local path references and approval status at
