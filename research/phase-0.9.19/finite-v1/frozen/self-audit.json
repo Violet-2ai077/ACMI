@@ -1,0 +1,15 @@
+{
+  "reviewed_before_exposure": true,
+  "reviewer": "Codex self-audit under delegated Owner authorization; not independent review",
+  "public_policies_checked": true,
+  "all_oracle_refs_unique_visible": true,
+  "condition_isolation": true,
+  "births_in_visible_slots": true,
+  "oracle_protocol_roundtrips": 48,
+  "stories": 2,
+  "trajectories": 12,
+  "turns": 48,
+  "at": "2026-11-15T17:04:20.529Z",
+  "base_commit": "c38abf67334157755cf17a84badf5b3f9c0664e8",
+  "node": "v24.16.0"
+}

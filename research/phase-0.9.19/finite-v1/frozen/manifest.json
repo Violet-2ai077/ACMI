@@ -1,0 +1,24 @@
+{
+  "version": "FM1-20261116",
+  "at": "2026-11-15T17:04:20.593Z",
+  "files": {
+    "research/phase-0.9.19/finite-v1/PLAN.md": "0ef7c2edc0399a87b681347ae8a46bb957260421ce7ea231bbc779cd6ba5a051",
+    "research/phase-0.9.19/finite-v1/evaluate.mjs": "5838becd67edb7339c8cddcaade6f9ec9edb1df65144cb6fcd976cc393fa13ba",
+    "research/phase-0.9.19/finite-v1/experiment.mjs": "8750b4879de3ca351b110fced9878eab835c9445fa82972de8bf7db5b8ca94f5",
+    "research/phase-0.9.19/finite-v1/experiment.node-test.mjs": "300f867352fc3ba1b39b6d1a5fde0f2bc3dffa7ca5fbc0e1d45009ae12243ac5",
+    "research/phase-0.9.19/finite-v1/materials.mjs": "a3b8ef168f510a5b6a72207eb17d1d4c6339ee5743907bd717fb9ac2ad3684fb",
+    "research/phase-0.9.19/gate2/deadline-transport.mjs": "af719d60e7017c40f5991ea8530e8dac01b04bd21e1fada097510f66a57f2c66",
+    "research/phase-0.9.19/gate2/dsh-inspect.mjs": "9c48244a05e5d2832d96fd167a330ec280e6adb383053adf15fc6b5cfbb32542",
+    "research/phase-0.9.19/gate2/dsh-route.mjs": "4c3c1a4a8a58a1f908ca06e04635c71788b0bb3fd7819244a662581b4effbe94",
+    "research/phase-0.9.19/gate2/routing.mjs": "bf47573980e4b6b83d220624b498c1062c86e1a71d1fcac3b351a77b0edab66e",
+    "research/phase-0.9.19/gate2/transport.mjs": "83deda3c0324614f55403c493eec045ab04c45267140dd9a46d073a46b4d92ff",
+    "research/phase-0.9.19/gate2/wire-accounting.mjs": "69f4d85fc139ea0e1a17d899177b4400f352fb02db1835ca9039c7016d1e7bd0",
+    "research/phase-0.9.19/protocol/contracts.mjs": "e449aa10e889b7a72bb6f1bc7da9d122e1023c5ea257d1ae2400f19ac6340ecd",
+    "research/phase-0.9.19/finite-v1/frozen/oracle.json": "08102899d38d90f3e5cf749088206ecafd3c24dcafcf7a8b809a44e73a2773c9",
+    "research/phase-0.9.19/finite-v1/frozen/plan.json": "c3314d09f2bb6e86b4744554083ad90ec51d0e3202dfcf797763beecb6bb6cc9",
+    "research/phase-0.9.19/finite-v1/frozen/prompts.json": "08a70567821c079507ac1ffadff679a3beb15be0c891e1b744828b02efa05bc1",
+    "research/phase-0.9.19/finite-v1/frozen/public.json": "38084a6126469e21feb7bb2f80bbe70f39a7391372a03b17cbee01b059f08513",
+    "research/phase-0.9.19/finite-v1/frozen/route.json": "11a12e2a218d3344857bc589a9509c60688a5732db243c481dc0cc93e427579d",
+    "research/phase-0.9.19/finite-v1/frozen/self-audit.json": "f3dfd734dadef9dc6e34abcc01b9dbbe1e4e514558a5da09ed1874bb087198d7"
+  }
+}

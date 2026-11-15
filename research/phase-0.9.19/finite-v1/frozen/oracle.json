@@ -1,0 +1,2406 @@
+[
+  {
+    "story": "amber-filter",
+    "condition": "C1",
+    "turn": 1,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000100"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000100",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000100",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "5",
+        "five"
+      ],
+      [
+        "patch"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C1",
+    "turn": 2,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000100",
+        "f0190000-0000-4000-8000-000000000102"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000102",
+      "created": [
+        "f0190000-0000-4000-8000-000000000102"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000100",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u2",
+                  "quote": "filter patch claimed"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000102",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "scope"
+      ],
+      [
+        "limits"
+      ],
+      [
+        "unverified"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C1",
+    "turn": 3,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000100"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000100",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000100",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "three edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "filter run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "fix third case"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "keep strict parsing"
+            },
+            "evidence": [
+              {
+                "source_id": "u3",
+                "quote": "keep strict parsing"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "third case failure"
+              },
+              "status": "open"
+            }
+          ],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000102",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "1",
+        "one"
+      ],
+      [
+        "strict"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C1",
+    "turn": 4,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000100",
+        "f0190000-0000-4000-8000-000000000102"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000100",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000100",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "three edge cases pass"
+              },
+              "status": "satisfied"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "filter run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "fix third case"
+              },
+              "status": "completed",
+              "basis": "accepted",
+              "evidence": [
+                {
+                  "source_id": "u4",
+                  "quote": "filter signoff"
+                }
+              ]
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "keep strict parsing"
+            },
+            "evidence": [
+              {
+                "source_id": "u3",
+                "quote": "keep strict parsing"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "third case failure"
+              },
+              "status": "resolved"
+            }
+          ],
+          "lifecycle": "completed"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000102",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "accepted"
+      ],
+      [
+        "note"
+      ],
+      [
+        "pending"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C2",
+    "turn": 1,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000110"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000110",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000110",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "5",
+        "five"
+      ],
+      [
+        "patch"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C2",
+    "turn": 2,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000110",
+        "f0190000-0000-4000-8000-000000000112"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000112",
+      "created": [
+        "f0190000-0000-4000-8000-000000000112"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000110",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u2",
+                  "quote": "filter patch claimed"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000112",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "scope"
+      ],
+      [
+        "limits"
+      ],
+      [
+        "unverified"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C2",
+    "turn": 3,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000110"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000110",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000110",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "three edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "filter run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "fix third case"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "keep strict parsing"
+            },
+            "evidence": [
+              {
+                "source_id": "u3",
+                "quote": "keep strict parsing"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "third case failure"
+              },
+              "status": "open"
+            }
+          ],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000112",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "1",
+        "one"
+      ],
+      [
+        "strict"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C2",
+    "turn": 4,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000110",
+        "f0190000-0000-4000-8000-000000000112"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000110",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000110",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "three edge cases pass"
+              },
+              "status": "satisfied"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "filter run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "fix third case"
+              },
+              "status": "completed",
+              "basis": "accepted",
+              "evidence": [
+                {
+                  "source_id": "u4",
+                  "quote": "filter signoff"
+                }
+              ]
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "keep strict parsing"
+            },
+            "evidence": [
+              {
+                "source_id": "u3",
+                "quote": "keep strict parsing"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "third case failure"
+              },
+              "status": "resolved"
+            }
+          ],
+          "lifecycle": "completed"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000112",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "accepted"
+      ],
+      [
+        "note"
+      ],
+      [
+        "pending"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C3",
+    "turn": 1,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000121"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000121",
+      "created": [
+        "f0190000-0000-4000-8000-000000000121"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000121",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "5",
+        "five"
+      ],
+      [
+        "patch"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C3",
+    "turn": 2,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000121",
+        "f0190000-0000-4000-8000-000000000122"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000122",
+      "created": [
+        "f0190000-0000-4000-8000-000000000122"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000121",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u2",
+                  "quote": "filter patch claimed"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000122",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "scope"
+      ],
+      [
+        "limits"
+      ],
+      [
+        "unverified"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C3",
+    "turn": 3,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000121"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000121",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000121",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "three edge cases pass"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "filter run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "fix third case"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "keep strict parsing"
+            },
+            "evidence": [
+              {
+                "source_id": "u3",
+                "quote": "keep strict parsing"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "third case failure"
+              },
+              "status": "open"
+            }
+          ],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000122",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "1",
+        "one"
+      ],
+      [
+        "strict"
+      ]
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C3",
+    "turn": 4,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000121",
+        "f0190000-0000-4000-8000-000000000122"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000121",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000121",
+          "goal": {
+            "source_id": "h0",
+            "quote": "repair amber filter"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two edge cases pass"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "three edge cases pass"
+              },
+              "status": "satisfied"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "patch filter"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "filter run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "fix third case"
+              },
+              "status": "completed",
+              "basis": "accepted",
+              "evidence": [
+                {
+                  "source_id": "u4",
+                  "quote": "filter signoff"
+                }
+              ]
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "keep strict parsing"
+            },
+            "evidence": [
+              {
+                "source_id": "u3",
+                "quote": "keep strict parsing"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "third case failure"
+              },
+              "status": "resolved"
+            }
+          ],
+          "lifecycle": "completed"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000122",
+          "goal": {
+            "source_id": "u2",
+            "quote": "write copper note"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "note reviewed"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft note"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "accepted"
+      ],
+      [
+        "note"
+      ],
+      [
+        "pending"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C1",
+    "turn": 1,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000200"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000200",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000200",
+          "goal": {
+            "source_id": "h0",
+            "quote": "pack jade kit"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u1",
+                  "quote": "kit claim"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "verification"
+      ],
+      [
+        "acceptance"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C1",
+    "turn": 2,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000202"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000202",
+      "created": [
+        "f0190000-0000-4000-8000-000000000202"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000200",
+          "goal": {
+            "source_id": "h0",
+            "quote": "pack jade kit"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u1",
+                  "quote": "kit claim"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000202",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "batch"
+      ],
+      [
+        "date"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C1",
+    "turn": 3,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000200"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000200",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000200",
+          "goal": {
+            "source_id": "u3",
+            "quote": "pack jade kit for cold storage"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold seal verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "seal run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold check"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "tape dispute"
+              },
+              "status": "open"
+            }
+          ],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000202",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "cold"
+      ],
+      [
+        "pending"
+      ],
+      [
+        "disputed"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C1",
+    "turn": 4,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000200"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000200",
+      "created": [],
+      "unresolved": [
+        {
+          "source_id": "u4",
+          "quote": "Also archive the old item"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000200",
+          "goal": {
+            "source_id": "u3",
+            "quote": "pack jade kit for cold storage"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold seal verified"
+              },
+              "status": "satisfied"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "seal run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold check"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u4",
+                  "quote": "cold run"
+                }
+              ]
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "use green tape"
+            },
+            "evidence": [
+              {
+                "source_id": "u4",
+                "quote": "tape ruling"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "tape dispute"
+              },
+              "status": "resolved"
+            }
+          ],
+          "lifecycle": "ready"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000202",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "acceptance"
+      ],
+      [
+        "clarify"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C2",
+    "turn": 1,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000210"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000210",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000210",
+          "goal": {
+            "source_id": "h0",
+            "quote": "pack jade kit"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u1",
+                  "quote": "kit claim"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "verification"
+      ],
+      [
+        "acceptance"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C2",
+    "turn": 2,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000212"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000212",
+      "created": [
+        "f0190000-0000-4000-8000-000000000212"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000210",
+          "goal": {
+            "source_id": "h0",
+            "quote": "pack jade kit"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u1",
+                  "quote": "kit claim"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000212",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "batch"
+      ],
+      [
+        "date"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C2",
+    "turn": 3,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000210"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000210",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000210",
+          "goal": {
+            "source_id": "u3",
+            "quote": "pack jade kit for cold storage"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold seal verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "seal run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold check"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "tape dispute"
+              },
+              "status": "open"
+            }
+          ],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000212",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "cold"
+      ],
+      [
+        "pending"
+      ],
+      [
+        "disputed"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C2",
+    "turn": 4,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000210"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000210",
+      "created": [],
+      "unresolved": [
+        {
+          "source_id": "u4",
+          "quote": "Also archive the old item"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000210",
+          "goal": {
+            "source_id": "u3",
+            "quote": "pack jade kit for cold storage"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold seal verified"
+              },
+              "status": "satisfied"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "seal run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold check"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u4",
+                  "quote": "cold run"
+                }
+              ]
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "use green tape"
+            },
+            "evidence": [
+              {
+                "source_id": "u4",
+                "quote": "tape ruling"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "tape dispute"
+              },
+              "status": "resolved"
+            }
+          ],
+          "lifecycle": "ready"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000212",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "acceptance"
+      ],
+      [
+        "clarify"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C3",
+    "turn": 1,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000221"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000221",
+      "created": [
+        "f0190000-0000-4000-8000-000000000221"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000221",
+          "goal": {
+            "source_id": "h0",
+            "quote": "pack jade kit"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u1",
+                  "quote": "kit claim"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "verification"
+      ],
+      [
+        "acceptance"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C3",
+    "turn": 2,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000222"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000222",
+      "created": [
+        "f0190000-0000-4000-8000-000000000222"
+      ],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000221",
+          "goal": {
+            "source_id": "h0",
+            "quote": "pack jade kit"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "ready",
+              "basis": "reported",
+              "evidence": [
+                {
+                  "source_id": "u1",
+                  "quote": "kit claim"
+                }
+              ]
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000222",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "batch"
+      ],
+      [
+        "date"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C3",
+    "turn": 3,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000221"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000221",
+      "created": [],
+      "unresolved": [],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000221",
+          "goal": {
+            "source_id": "u3",
+            "quote": "pack jade kit for cold storage"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold seal verified"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "seal run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold check"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "tape dispute"
+              },
+              "status": "open"
+            }
+          ],
+          "lifecycle": "running"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000222",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "cold"
+      ],
+      [
+        "pending"
+      ],
+      [
+        "disputed"
+      ]
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C3",
+    "turn": 4,
+    "state": {
+      "task_ids": [
+        "f0190000-0000-4000-8000-000000000221"
+      ],
+      "focus": "f0190000-0000-4000-8000-000000000221",
+      "created": [],
+      "unresolved": [
+        {
+          "source_id": "u4",
+          "quote": "Also archive the old item"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "f0190000-0000-4000-8000-000000000221",
+          "goal": {
+            "source_id": "u3",
+            "quote": "pack jade kit for cold storage"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "two seals verified"
+              },
+              "status": "superseded"
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold seal verified"
+              },
+              "status": "satisfied"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "h0",
+                "quote": "seal kit"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u3",
+                  "quote": "seal run"
+                }
+              ]
+            },
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "cold check"
+              },
+              "status": "completed",
+              "basis": "observed",
+              "evidence": [
+                {
+                  "source_id": "u4",
+                  "quote": "cold run"
+                }
+              ]
+            }
+          ],
+          "decision": {
+            "ref": {
+              "source_id": "u3",
+              "quote": "use green tape"
+            },
+            "evidence": [
+              {
+                "source_id": "u4",
+                "quote": "tape ruling"
+              }
+            ]
+          },
+          "conflicts": [
+            {
+              "ref": {
+                "source_id": "u3",
+                "quote": "tape dispute"
+              },
+              "status": "resolved"
+            }
+          ],
+          "lifecycle": "ready"
+        },
+        {
+          "id": "f0190000-0000-4000-8000-000000000222",
+          "goal": {
+            "source_id": "u2",
+            "quote": "prepare violet label"
+          },
+          "criteria": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "label approved"
+              },
+              "status": "pending"
+            }
+          ],
+          "work": [
+            {
+              "ref": {
+                "source_id": "u2",
+                "quote": "draft label"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          ],
+          "decision": null,
+          "conflicts": [],
+          "lifecycle": "running"
+        }
+      ]
+    },
+    "answer": [
+      [
+        "acceptance"
+      ],
+      [
+        "clarify"
+      ]
+    ]
+  }
+]

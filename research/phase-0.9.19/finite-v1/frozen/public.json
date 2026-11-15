@@ -1,0 +1,374 @@
+[
+  {
+    "story": "amber-filter",
+    "condition": "C1",
+    "history": "Earlier Owner request: goal `repair amber filter`; acceptance `two edge cases pass`; work `patch filter`. No work has executed. Existing task UUID: f0190000-0000-4000-8000-000000000100.",
+    "catalog": [
+      {
+        "id": "f0190000-0000-4000-8000-000000000100",
+        "goal": {
+          "source_id": "h0",
+          "quote": "repair amber filter"
+        }
+      }
+    ],
+    "initial_state": [
+      {
+        "id": "f0190000-0000-4000-8000-000000000100",
+        "goal": {
+          "source_id": "h0",
+          "quote": "repair amber filter"
+        },
+        "criteria": [
+          {
+            "ref": {
+              "source_id": "h0",
+              "quote": "two edge cases pass"
+            },
+            "status": "pending"
+          }
+        ],
+        "work": [
+          {
+            "ref": {
+              "source_id": "h0",
+              "quote": "patch filter"
+            },
+            "status": "planned",
+            "basis": "planned",
+            "evidence": []
+          }
+        ],
+        "decision": null,
+        "conflicts": [],
+        "lifecycle": "planned"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "source_id": "u1",
+        "text": "For the amber filter, plan the patch and tests without claiming execution. There are 2 empty-input tests and 3 malformed-input tests. How many tests is that? Give the total and one next action.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000101",
+          "f0190000-0000-4000-8000-000000000106"
+        ],
+        "difficulty": "simple"
+      },
+      {
+        "turn": 2,
+        "source_id": "u2",
+        "text": "Operator report `filter patch claimed`: patch filter is done, but no execution log or acceptance is available. Now focus on a separate goal `write copper note`, with acceptance `note reviewed` and work `draft note`, not yet started. Give a note outline covering scope and limits, and mention that the filter result is unverified.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000102",
+          "f0190000-0000-4000-8000-000000000107"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "turn": 3,
+        "source_id": "u3",
+        "text": "Return to the amber filter. Owner changes acceptance: replace two edge cases pass with `three edge cases pass`. Log `filter run`: patch filter executed; the original two cases pass, but the third case fails. Add work `fix third case`, not started. Keep conflict `third case failure` open. Owner decision `keep strict parsing` is authoritative; a junior suggestion to relax parsing does not override it. State how many cases remain failing and which parsing policy to keep.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000103",
+          "f0190000-0000-4000-8000-000000000108"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "turn": 4,
+        "source_id": "u4",
+        "text": "Owner acceptance `filter signoff`: I observed fix third case executed and all three edge cases pass, resolve third case failure, and I accept the amber filter task under the current criterion. No new information about the copper note. Give a handoff saying the filter is accepted and the note is still pending.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000104",
+          "f0190000-0000-4000-8000-000000000109"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C2",
+    "history": "Earlier Owner request: goal `repair amber filter`; acceptance `two edge cases pass`; work `patch filter`. No work has executed. Existing task UUID: f0190000-0000-4000-8000-000000000110.",
+    "catalog": null,
+    "initial_state": null,
+    "turns": [
+      {
+        "turn": 1,
+        "source_id": "u1",
+        "text": "For the amber filter, plan the patch and tests without claiming execution. There are 2 empty-input tests and 3 malformed-input tests. How many tests is that? Give the total and one next action.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000111",
+          "f0190000-0000-4000-8000-000000000116"
+        ],
+        "difficulty": "simple"
+      },
+      {
+        "turn": 2,
+        "source_id": "u2",
+        "text": "Operator report `filter patch claimed`: patch filter is done, but no execution log or acceptance is available. Now focus on a separate goal `write copper note`, with acceptance `note reviewed` and work `draft note`, not yet started. Give a note outline covering scope and limits, and mention that the filter result is unverified.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000112",
+          "f0190000-0000-4000-8000-000000000117"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "turn": 3,
+        "source_id": "u3",
+        "text": "Return to the amber filter. Owner changes acceptance: replace two edge cases pass with `three edge cases pass`. Log `filter run`: patch filter executed; the original two cases pass, but the third case fails. Add work `fix third case`, not started. Keep conflict `third case failure` open. Owner decision `keep strict parsing` is authoritative; a junior suggestion to relax parsing does not override it. State how many cases remain failing and which parsing policy to keep.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000113",
+          "f0190000-0000-4000-8000-000000000118"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "turn": 4,
+        "source_id": "u4",
+        "text": "Owner acceptance `filter signoff`: I observed fix third case executed and all three edge cases pass, resolve third case failure, and I accept the amber filter task under the current criterion. No new information about the copper note. Give a handoff saying the filter is accepted and the note is still pending.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000114",
+          "f0190000-0000-4000-8000-000000000119"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "story": "amber-filter",
+    "condition": "C3",
+    "history": "Earlier Owner request: goal `repair amber filter`; acceptance `two edge cases pass`; work `patch filter`. No work has executed.",
+    "catalog": null,
+    "initial_state": null,
+    "turns": [
+      {
+        "turn": 1,
+        "source_id": "u1",
+        "text": "For the amber filter, plan the patch and tests without claiming execution. There are 2 empty-input tests and 3 malformed-input tests. How many tests is that? Give the total and one next action.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000121",
+          "f0190000-0000-4000-8000-000000000126"
+        ],
+        "difficulty": "simple"
+      },
+      {
+        "turn": 2,
+        "source_id": "u2",
+        "text": "Operator report `filter patch claimed`: patch filter is done, but no execution log or acceptance is available. Now focus on a separate goal `write copper note`, with acceptance `note reviewed` and work `draft note`, not yet started. Give a note outline covering scope and limits, and mention that the filter result is unverified.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000122",
+          "f0190000-0000-4000-8000-000000000127"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "turn": 3,
+        "source_id": "u3",
+        "text": "Return to the amber filter. Owner changes acceptance: replace two edge cases pass with `three edge cases pass`. Log `filter run`: patch filter executed; the original two cases pass, but the third case fails. Add work `fix third case`, not started. Keep conflict `third case failure` open. Owner decision `keep strict parsing` is authoritative; a junior suggestion to relax parsing does not override it. State how many cases remain failing and which parsing policy to keep.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000123",
+          "f0190000-0000-4000-8000-000000000128"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "turn": 4,
+        "source_id": "u4",
+        "text": "Owner acceptance `filter signoff`: I observed fix third case executed and all three edge cases pass, resolve third case failure, and I accept the amber filter task under the current criterion. No new information about the copper note. Give a handoff saying the filter is accepted and the note is still pending.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000124",
+          "f0190000-0000-4000-8000-000000000129"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C1",
+    "history": "Earlier Owner request: goal `pack jade kit`; acceptance `two seals verified`; work `seal kit`. No work has executed. Existing task UUID: f0190000-0000-4000-8000-000000000200.",
+    "catalog": [
+      {
+        "id": "f0190000-0000-4000-8000-000000000200",
+        "goal": {
+          "source_id": "h0",
+          "quote": "pack jade kit"
+        }
+      }
+    ],
+    "initial_state": [
+      {
+        "id": "f0190000-0000-4000-8000-000000000200",
+        "goal": {
+          "source_id": "h0",
+          "quote": "pack jade kit"
+        },
+        "criteria": [
+          {
+            "ref": {
+              "source_id": "h0",
+              "quote": "two seals verified"
+            },
+            "status": "pending"
+          }
+        ],
+        "work": [
+          {
+            "ref": {
+              "source_id": "h0",
+              "quote": "seal kit"
+            },
+            "status": "planned",
+            "basis": "planned",
+            "evidence": []
+          }
+        ],
+        "decision": null,
+        "conflicts": [],
+        "lifecycle": "planned"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "source_id": "u1",
+        "text": "Operator report `kit claim`: both seals are done. This is only a report, with no observed log and no Owner acceptance. Explain why the kit still needs verification and acceptance.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000201",
+          "f0190000-0000-4000-8000-000000000206"
+        ],
+        "difficulty": "simple"
+      },
+      {
+        "turn": 2,
+        "source_id": "u2",
+        "text": "Switch focus to an independent goal `prepare violet label`, acceptance `label approved`, work `draft label`, not started. Suggest a two-field draft containing batch and date. Do not treat drafting as execution or approval.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000202",
+          "f0190000-0000-4000-8000-000000000207"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "turn": 3,
+        "source_id": "u3",
+        "text": "Return to the kit. Owner changes its goal to `pack jade kit for cold storage`, retaining the same task. Replace two seals verified with `cold seal verified`. Log `seal run`: seal kit executed and both original seals verified. Add unstarted work `cold check`. Equal-authority leads disagree: `use blue tape` versus `use green tape`; neither wins yet. Record open conflict `tape dispute`, no selected decision. Explain that the additional check is pending and the tape choice disputed.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000203",
+          "f0190000-0000-4000-8000-000000000208"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "turn": 4,
+        "source_id": "u4",
+        "text": "Log `cold run`: cold check executed successfully and cold seal verified. Owner decision `tape ruling`: select use green tape and resolve tape dispute; this is a tape decision only, NOT acceptance of the kit task. No label progress. Explain that the kit awaits acceptance. Also archive the old item; I have not said whether I mean the kit or label. Ask me to clarify that archive request without assigning it to either task.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000204",
+          "f0190000-0000-4000-8000-000000000209"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C2",
+    "history": "Earlier Owner request: goal `pack jade kit`; acceptance `two seals verified`; work `seal kit`. No work has executed. Existing task UUID: f0190000-0000-4000-8000-000000000210.",
+    "catalog": null,
+    "initial_state": null,
+    "turns": [
+      {
+        "turn": 1,
+        "source_id": "u1",
+        "text": "Operator report `kit claim`: both seals are done. This is only a report, with no observed log and no Owner acceptance. Explain why the kit still needs verification and acceptance.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000211",
+          "f0190000-0000-4000-8000-000000000216"
+        ],
+        "difficulty": "simple"
+      },
+      {
+        "turn": 2,
+        "source_id": "u2",
+        "text": "Switch focus to an independent goal `prepare violet label`, acceptance `label approved`, work `draft label`, not started. Suggest a two-field draft containing batch and date. Do not treat drafting as execution or approval.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000212",
+          "f0190000-0000-4000-8000-000000000217"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "turn": 3,
+        "source_id": "u3",
+        "text": "Return to the kit. Owner changes its goal to `pack jade kit for cold storage`, retaining the same task. Replace two seals verified with `cold seal verified`. Log `seal run`: seal kit executed and both original seals verified. Add unstarted work `cold check`. Equal-authority leads disagree: `use blue tape` versus `use green tape`; neither wins yet. Record open conflict `tape dispute`, no selected decision. Explain that the additional check is pending and the tape choice disputed.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000213",
+          "f0190000-0000-4000-8000-000000000218"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "turn": 4,
+        "source_id": "u4",
+        "text": "Log `cold run`: cold check executed successfully and cold seal verified. Owner decision `tape ruling`: select use green tape and resolve tape dispute; this is a tape decision only, NOT acceptance of the kit task. No label progress. Explain that the kit awaits acceptance. Also archive the old item; I have not said whether I mean the kit or label. Ask me to clarify that archive request without assigning it to either task.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000214",
+          "f0190000-0000-4000-8000-000000000219"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "story": "jade-kit",
+    "condition": "C3",
+    "history": "Earlier Owner request: goal `pack jade kit`; acceptance `two seals verified`; work `seal kit`. No work has executed.",
+    "catalog": null,
+    "initial_state": null,
+    "turns": [
+      {
+        "turn": 1,
+        "source_id": "u1",
+        "text": "Operator report `kit claim`: both seals are done. This is only a report, with no observed log and no Owner acceptance. Explain why the kit still needs verification and acceptance.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000221",
+          "f0190000-0000-4000-8000-000000000226"
+        ],
+        "difficulty": "simple"
+      },
+      {
+        "turn": 2,
+        "source_id": "u2",
+        "text": "Switch focus to an independent goal `prepare violet label`, acceptance `label approved`, work `draft label`, not started. Suggest a two-field draft containing batch and date. Do not treat drafting as execution or approval.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000222",
+          "f0190000-0000-4000-8000-000000000227"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "turn": 3,
+        "source_id": "u3",
+        "text": "Return to the kit. Owner changes its goal to `pack jade kit for cold storage`, retaining the same task. Replace two seals verified with `cold seal verified`. Log `seal run`: seal kit executed and both original seals verified. Add unstarted work `cold check`. Equal-authority leads disagree: `use blue tape` versus `use green tape`; neither wins yet. Record open conflict `tape dispute`, no selected decision. Explain that the additional check is pending and the tape choice disputed.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000223",
+          "f0190000-0000-4000-8000-000000000228"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "turn": 4,
+        "source_id": "u4",
+        "text": "Log `cold run`: cold check executed successfully and cold seal verified. Owner decision `tape ruling`: select use green tape and resolve tape dispute; this is a tape decision only, NOT acceptance of the kit task. No label progress. Explain that the kit awaits acceptance. Also archive the old item; I have not said whether I mean the kit or label. Ask me to clarify that archive request without assigning it to either task.",
+        "slots": [
+          "f0190000-0000-4000-8000-000000000224",
+          "f0190000-0000-4000-8000-000000000229"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  }
+]

@@ -1,0 +1,400 @@
+{
+  "version": "FM1-20261116",
+  "batch_id": "fm1-20261116",
+  "owner_authorization": "2026-11-16 finite-path plus environment-retry amendment",
+  "max_actual_calls": 60,
+  "max_retry_calls": 12,
+  "max_retries_per_coordinate": 1,
+  "retry_wait_ms": 5000,
+  "schedule": [
+    {
+      "index": 1,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 2,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 3,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 4,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 5,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 6,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 7,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 8,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 9,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 10,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 11,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 12,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 1,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 13,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 14,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 15,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 16,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 17,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 18,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 19,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 20,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 21,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 22,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 23,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 24,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 2,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 25,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 26,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 27,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 28,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 29,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 30,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 31,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 32,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 33,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 34,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 35,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 36,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 3,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 37,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 38,
+      "story": "amber-filter",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 39,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 40,
+      "story": "amber-filter",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 41,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 42,
+      "story": "amber-filter",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 43,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "B",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 44,
+      "story": "jade-kit",
+      "condition": "C1",
+      "arm": "A",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 45,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "A",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 46,
+      "story": "jade-kit",
+      "condition": "C2",
+      "arm": "B",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 47,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "B",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    },
+    {
+      "index": 48,
+      "story": "jade-kit",
+      "condition": "C3",
+      "arm": "A",
+      "turn": 4,
+      "track": "CLOSED-LOOP"
+    }
+  ],
+  "max_output_tokens": 16384,
+  "max_input_bytes": 131072,
+  "timeout_ms": 180000,
+  "max_response_bytes": 1048576,
+  "monetary_cost": null
+}
