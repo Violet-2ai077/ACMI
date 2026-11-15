@@ -4,7 +4,22 @@ Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Current governing priority - 2026-11-16
+## Latest execution - FM1 finite mechanism path, 2026-11-16
+
+Owner separately authorized a finite mechanism study and subsequently allowed
+bounded retries for environmental failures. This is NOT an old G1/P-G pass and
+does not repair or rescore historical batches. [FM1 results](finite-v1/RESULTS.md):
+48/48 actual generations completed, zero retries/failures/unsent, 12 four-turn
+CLOSED-LOOP trajectories across two synthetic stories and C1/C2/C3 A/B.
+Freeze committed before exposure; all raw-stream and exact-history checks pass.
+C2/C3 identity continuity has direct evidence under explicit anchor/goal cues;
+full state reliability is not established. Wrong structured decisions despite
+correct prose, identity drift and retained extra work are evidenced. Some exact
+failures remain reference/acceptance-policy or lexical-test ambiguities, not
+proven semantic failures. No product GO, no historical score changes. STOPPED
+after delivery; no automatic next stage or capacity qualification work.
+
+## Governing priority and preceding authorization state - 2026-11-16
 
 **Mechanism validation first; engineering only as necessary for trustworthy
 experiments.** Owner made this a binding phase constraint; see

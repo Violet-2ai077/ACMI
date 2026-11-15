@@ -1,5 +1,10 @@
 # FM1 research entry point
 
+Completed: [RESULTS.md](RESULTS.md). 48/48 live generations, no retry or failed
+acquisition; C2/C3 continuity evidence plus concrete state failures. The limited
+research loop is closed and no further stage is running. See `analysis/` and
+`evidence/` for preserved scores and original requests/streams/results.
+
 Scope and public policies: [PLAN.md](PLAN.md). This is a separate, prospectively
 frozen reduced-protocol mechanism study, not a historical rescore or G1/P-G pass.
 No independent reviewer or reviewer agent was used or claimed.

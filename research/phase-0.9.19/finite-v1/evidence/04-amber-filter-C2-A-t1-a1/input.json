@@ -1,0 +1,30 @@
+{
+  "coordinate": {
+    "index": 4,
+    "story": "amber-filter",
+    "condition": "C2",
+    "arm": "A",
+    "turn": 1,
+    "track": "CLOSED-LOOP"
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "h0",
+      "role": "user",
+      "content": "Earlier Owner request: goal `repair amber filter`; acceptance `two edge cases pass`; work `patch filter`. No work has executed. Existing task UUID: f0190000-0000-4000-8000-000000000110."
+    },
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "For the amber filter, plan the patch and tests without claiming execution. There are 2 empty-input tests and 3 malformed-input tests. How many tests is that? Give the total and one next action."
+    }
+  ],
+  "request_sha256": "a8c6dec7a66596314d8cb013e8d106069068356fc72f346e63811ff9205fd8ef",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-799718ca155a97e9d3e07625d98ba9f1bdab2100b124095a"
+  },
+  "freeze_sha256": "8c4f1285bcbe367682eca7a231f6c8f5c059902e32ae0491f032bc48bfaef2ec"
+}

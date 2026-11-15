@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Suggested two-field draft: `Batch: [batch identifier]` and `Date: [YYYY-MM-DD]`. This is only a template suggestion; it does not execute `draft label` or satisfy `label approved`.\",\"state\":{\"task_ids\":[\"f0190000-0000-4000-8000-000000000212\"],\"focus\":\"f0190000-0000-4000-8000-000000000212\",\"created\":[\"f0190000-0000-4000-8000-000000000212\"],\"unresolved\":[],\"tasks\":[{\"id\":\"f0190000-0000-4000-8000-000000000210\",\"goal\":{\"source_id\":\"h0\",\"quote\":\"pack jade kit\"},\"criteria\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"two seals verified\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"seal kit\"},\"status\":\"ready\",\"basis\":\"reported\",\"evidence\":[{\"source_id\":\"u1\",\"quote\":\"kit claim\"}]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"},{\"id\":\"f0190000-0000-4000-8000-000000000212\",\"goal\":{\"source_id\":\"u2\",\"quote\":\"prepare violet label\"},\"criteria\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"label approved\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"draft label\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"}]}}",
+  "reasoning": "We need answer. Need parse sources? Current source_id u2, source_ids h0 u1 a1 u2. Previous task 210. New task distinct goal `prepare violet label`, acceptance `label approved`, work `draft label`, not started. Need create new task using first unused UUID slot f0190000-...212. Focus switch to new task. Need task_ids includes explicitly requested current task, maybe previous? The current answer pertains new task. task_ids contains every task explicitly requested in current answer, including status mentions, not background. The user requests new goal and asks draft, plus says don't treat drafting as execution or approval. Do we mention prior? Probably not task_ids only new task. focus new task. created new UUID. unresolved none. State task: goal quote prepare violet label from u2? Need exact source id. Current user message is source? Source IDs list h0,u1,a1,u2. u2 is current source. Quote exact inside first defining backticks: prepare violet label. criteria label approved pending. work draft label planned basis planned evidence []. Decision? \"Suggest a two-field draft containing batch and date.\" Is that a decision? No, it's output suggestion. Could decision be field structure? But decisions need option-defining reference. None. conflicts none. lifecycle running since requested. Answer direct concise under 100 words. Need output JSON with answer string and state.\n\nNeed be careful: \"Do not treat drafting as execution or approval.\" Work remains planned. Lifecycle running. Answer: suggest fields Batch and Date, blank values, draft not execution; approval still needed after draft. Could mention template:\nBatch: [batch identifier]\nDate: [YYYY-MM-DD]\nNeed normal answer and state once. Ensure JSON valid, no markdown fences. Use current source u2 for refs. Could criteria and goal from u2. Work ref draft label. Good.\n\nNeed no extra fields. Answer string can include newline? JSON string with \\n fine. Or concise. Let's craft:\n\"Use two fields only:\\nBatch: [batch identifier]\\nDate: [YYYY-MM-DD]\\nThis is a suggested draft template, not execution; `draft label` remains planned and `label approved` is still pending.\"\nNeed not cite backticks? answer okay.\n\nState task id new 212, focus 212, created [212], unresolved [], tasks one. But preserve full memory of off-focus tasks. Wait protocol says \"Preserve the full memory of off-focus tasks.\" If state includes only current task, previous task lost? Need likely include previous task 210 too, untouched off-focus retains state. The state tasks should include both? The current output state must preserve previous task. Need include 210 and 212. task_ids? \"task_ids contains every task explicitly requested in the current answer, including requested status mentions, not everything mentioned only as background.\" Current answer requests new goal, not previous. But state tasks should include off-focus previous. focus new. created [212]. tasks includes both. Need previous task state from prior output: goal pack jade kit, criterion two seals verified pending, work seal kit ready reported evidence u1 kit claim, decision null, conflicts [], lifecycle running. Note u1 quote `kit claim` exact? Original operator report \"Operator report `kit claim`: both seals are done.\" yes.\n\nNew task: task_ids [212]? It says task_ids every task explicitly requested in current answer. The current message switches focus to independent goal, so yes 212. Could also include 210? No, only background off-focus. State tasks includes 210. Focus 212.\n\nNeed consider work \"draft label\" maybe we actually drafted it in answer. Does that count as observed completion? The user says suggest a two-field draft, don't treat drafting as execution. Hmm \"draft label\" could be the work; the current answer provides a suggested two-field draft. But explicit instruction says \"Do not treat drafting as execution or approval.\" So work remains planned, not completed. Could it be ready/reported? No. Planned basis planned evidence []. Lifecycle running. Good.\n\nNeed maybe decision field? They specifically ask \"Suggest a two-field draft containing batch and date.\" This is a design suggestion, not a task decision. Could create a decision? No option conflict. decision null.\n\nNeed exact quote \"batch and date\" maybe not a work item. Criteria only label approved. Good.\n\nAnswer under 100 words. JSON only. Ensure no markdown fences. Need escape newlines. Could answer one string no newline. We'll include line breaks as \\n. Let's formulate JSON.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1383,
+    "completion_tokens": 1322,
+    "total_tokens": 2705,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 965
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00086894,
+      "allowance": 0.00052136,
+      "tokens": {
+        "input": 487,
+        "output": 1322,
+        "reasoning": 965,
+        "cache_read": 896,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-236f7e",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 86483,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180006.34279999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.10670000000391155,
+    "content_type": "text/event-stream",
+    "wire_chunks": 463,
+    "wire_sha256": "84ab6566190047ffcc459ffe4fbe6e74792641a635572eebe140aa0150316a09",
+    "content_sha256": "d24333d80f8d8f566961df7987a34daa9304bd6501e34b766f0b91e3739022f4",
+    "reasoning_sha256": "b72e016365197abc6156351a97c6f9d7f9087539cf5b9aaca733f079695201cb"
+  },
+  "latency": {
+    "total_ms": 16965.336300000024,
+    "first_wire_ms": 3847.455200000026,
+    "first_content_ms": 14756.390200000023,
+    "first_reasoning_ms": 3848.3784999999916,
+    "evidence_write_ms": 325.1348999988404
+  }
+}

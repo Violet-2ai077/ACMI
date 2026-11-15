@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Note outline: 1) Purpose and scope—what the copper note covers; 2) Key points and assumptions; 3) Limits—exclusions, uncertainty, and claims requiring verification; 4) Review step for `note reviewed`. The filter patch was reported done, but its result is unverified: no execution log or acceptance is available.\",\"state\":{\"task_ids\":[\"f0190000-0000-4000-8000-000000000100\",\"f0190000-0000-4000-8000-000000000102\"],\"focus\":\"f0190000-0000-4000-8000-000000000102\",\"created\":[\"f0190000-0000-4000-8000-000000000102\"],\"unresolved\":[],\"tasks\":[{\"id\":\"f0190000-0000-4000-8000-000000000100\",\"goal\":{\"source_id\":\"h0\",\"quote\":\"repair amber filter\"},\"criteria\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"two edge cases pass\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"patch filter\"},\"status\":\"ready\",\"basis\":\"reported\",\"evidence\":[{\"source_id\":\"u2\",\"quote\":\"filter patch claimed\"}]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"},{\"id\":\"f0190000-0000-4000-8000-000000000102\",\"goal\":{\"source_id\":\"u2\",\"quote\":\"write copper note\"},\"criteria\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"note reviewed\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"draft note\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"}]}}",
+  "reasoning": "We need answer with structured sidecar. Need identify tasks. Existing task amber filter continues, add operator report work evidence for patch filter: \"filter patch claimed\" reported done, but no execution log or acceptance available. So patch filter status ready basis reported evidence quote. This doesn't complete task. Criteria pending, lifecycle running? Focus switches to new goal write copper note. Need CREATE new task using first unused UUID f0190000-0000-4000-8000-000000000102. Task goal quote `write copper note`, criterion `note reviewed` pending, work `draft note` planned planned. lifecycle running because requested. task_ids should contain every task explicitly requested in current answer including status mentions. We answer about new goal and mention filter result unverified. Does that mean task_ids include both? \"mention that the filter result is unverified\" is status mention, so yes both tasks. Focus new task. created new UUID. unresolved none.\n\nNeed note outline covering scope and limits. This is answering, not new work item perhaps draft note remains planned. Mention filter result unverified. Need no markdown fences. Answer concise under 100 words normally. Can include outline. State full schema.\n\nNeed preserve decision null conflicts empty. For existing work, \"filter patch claimed\" reported. Should work status be ready (self-reported done without direct observation ready/reported). Yes. Evidence REF exact. Need perhaps report source is operator? source_id u2? Wait source messages: h0, u1, a1, u2? The operator report is current u2? The current user message source id presumably u2. It is the only new message. So quote `filter patch claimed` occurs exactly in u2. Use source_id u2. Goal for new task quote `write copper note` from u2, criterion `note reviewed` from u2, work `draft note` from u2. Existing task goal h0 etc.\n\nNeed answer mention outline scope and limits, filter result unverified. Keep draft note not claimed. Let's formulate:\n\n\"Note outline: 1) Purpose/scope—what the copper note covers; 2) Key points/assumptions; 3) Limits—exclusions, uncertainty, no unverified claims; 4) Next review step. The filter patch was reported done but remains unverified; no execution log or acceptance.\"\n\nCould mention acceptance note reviewed. Good. State. Ensure JSON no markdown. Use proper escaping. task_ids order maybe existing then new? Focus new. created [new]. tasks two entries. Existing lifecycle running, new running. For existing work ref original `patch filter`, status ready basis reported evidence [u2 filter patch claimed]. This evidence indicates \"patch filter is done\" but quote exact requirement is first defining ref `patch filter`; keep ref. Evidence quote can be `filter patch claimed`. Good.\n\nFor new task no decision etc.\n\nNeed answer string no markdown maybe simple numbered outline. Under 100 words.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1525,
+    "completion_tokens": 1013,
+    "total_tokens": 2538,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 611
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00070484,
+      "allowance": 0.0004229,
+      "tokens": {
+        "input": 629,
+        "output": 1013,
+        "reasoning": 611,
+        "cache_read": 896,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-302ca4",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 63424,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5733,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07660000000032596,
+    "content_type": "text/event-stream",
+    "wire_chunks": 347,
+    "wire_sha256": "4aa4e98472fe0f86e63d6da20b8bf10b50224596bfddbeb4fda24d9e7eb3a817",
+    "content_sha256": "501f3258640bd535884a755db88a6e7d7cbf8e2c35acaf5ad332cd533de4d378",
+    "reasoning_sha256": "508a170d8e277dbd5b00e213ac8218b1cdda5a5f04dd41e0fbb85c7b2491f053"
+  },
+  "latency": {
+    "total_ms": 13654.002999999997,
+    "first_wire_ms": 4004.485799999995,
+    "first_content_ms": 11235.1924,
+    "first_reasoning_ms": 4005.2292000000016,
+    "evidence_write_ms": 231.87770000007004
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"The `seal run` is logged as observed completion of `seal kit`, including verification of both original seals. However, the current acceptance criterion is `cold seal verified`, which remains pending. The added `cold check` is still planned/unstarted, and the `tape dispute` remains open with no selected decision.\",\"state\":{\"task_ids\":[\"f0190000-0000-4000-8000-000000000221\"],\"focus\":\"f0190000-0000-4000-8000-000000000221\",\"created\":[],\"unresolved\":[],\"tasks\":[{\"id\":\"f0190000-0000-4000-8000-000000000221\",\"goal\":{\"source_id\":\"u3\",\"quote\":\"pack jade kit for cold storage\"},\"criteria\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"two seals verified\"},\"status\":\"superseded\"},{\"ref\":{\"source_id\":\"u3\",\"quote\":\"cold seal verified\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"seal kit\"},\"status\":\"completed\",\"basis\":\"observed\",\"evidence\":[{\"source_id\":\"u3\",\"quote\":\"seal run\"}]},{\"ref\":{\"source_id\":\"u3\",\"quote\":\"cold check\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[{\"ref\":{\"source_id\":\"u3\",\"quote\":\"tape dispute\"},\"status\":\"open\"}],\"lifecycle\":\"running\"},{\"id\":\"f0190000-0000-4000-8000-000000000222\",\"goal\":{\"source_id\":\"u2\",\"quote\":\"prepare violet label\"},\"criteria\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"label approved\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"draft label\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"}]}}",
+  "reasoning": "We need answer with state. Need parse. Existing tasks: kit id ...221, violet ...222. Current source u3? New evidence likely source_id u3. Owner changes goal to `pack jade kit for cold storage`, retaining task. Replace criterion with `cold seal verified`. Log `seal run`: seal kit executed and both original seals verified. Work seal kit status completed? basis observed, evidence quote `seal run` (source u3). Add unstarted work `cold check` planned. Conflict `tape dispute` open. Decision null? They say no selected decision. There may be prior decision? None. Equal-authority leads disagree, options. Need conflict ref exact text inside first defining backticks. The conflict named \"tape dispute\" maybe backticked? User text: Record open conflict `tape dispute`, no selected decision. So ref quote `tape dispute`. Should we record decision? null because no selected. Though conflict entries perhaps options not expressed in schema. Keep resolved scope. Criteria: old `two seals verified` replaced by `cold seal verified`. Old criterion superseded, new pending. Goal changed: canonical reference to latest goal quote `pack jade kit for cold storage`. Keep old goal replaced, only current goal allowed. Work seal kit completed observed with evidence `seal run`. Need maybe the evidence is exact quote \"seal run\": It says Log `seal run`: seal kit executed and both original seals verified. Use quote `seal run`. Work `cold check` planned. Maybe \"draft label\" remains planned. Violet task untouched. Focus kit. task_ids current answer explicitly requested? \"Return to the kit.\" task_ids should include kit. Maybe also mention violet? Not requested except preserved. Focus kit. Created none.\n\nLifecycle kit running: new criterion pending, cold check planned. Work seal kit completed. Lifecycle running. Violet running untouched.\n\nNeed answer concise under 100 words: additional cold check pending, tape choice disputed. Also explain seal run completed original seals but current acceptance is cold seal verified. No task acceptance. Mention no decision selected.\n\nState exact. Need ensure arrays no duplicates. Criterion refs: old superseded, new pending. Both retained. Conflict ref `tape dispute`, status open. Decision null. Work `seal kit` completed basis observed evidence [u3 `seal run`]. Work `cold check` planned planned evidence []. Should \"unstarted work cold check\" no evidence. Good.\n\nCould decision maybe no selected. null. Conflicts only tape dispute. Any resolved? none.\n\nDo we need cite `seal run` label in answer? Can mention. quote event labels.\n\nAnswer should not claim two seals verified as current criterion except completed work details. \"The seal run is logged as observed completion of seal kit, including the original seals, but current acceptance is cold seal verified, which remains pending.\" \"cold check is still planned/unstarted\" and tape disputed, no selected decision.\n\nNeed maybe \"additional check pending\" means cold check planned. Good.\n\nOutput JSON only.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1849,
+    "completion_tokens": 1062,
+    "total_tokens": 2911,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 633
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00078284,
+      "allowance": 0.0004697,
+      "tokens": {
+        "input": 953,
+        "output": 1062,
+        "reasoning": 633,
+        "cache_read": 896,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-2406f3",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 65148,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180006.45550000004,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11240000010002404,
+    "content_type": "text/event-stream",
+    "wire_chunks": 336,
+    "wire_sha256": "79896a7ccacf90cc6d4188c6c55b5ff1ea1ed84a76b1d0883a20063f9e3cf8db",
+    "content_sha256": "8e3efdadb7e3a826d5fbf7a3c61334232d53792acfdc5ac9faa20734641e57ab",
+    "reasoning_sha256": "2022af372f559bfbd2ea0f0ec846b35c404173cd35233177b125b98133c9fb09"
+  },
+  "latency": {
+    "total_ms": 13786.209099999978,
+    "first_wire_ms": 3422.896999999997,
+    "first_content_ms": 10837.05150000006,
+    "first_reasoning_ms": 3424.348400000017,
+    "evidence_write_ms": 215.5906000006944
+  }
+}

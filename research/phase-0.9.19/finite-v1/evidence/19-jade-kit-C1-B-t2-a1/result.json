@@ -1,0 +1,65 @@
+{
+  "content": "Draft template: **Batch:** [batch ID] · **Date:** [YYYY-MM-DD]. This is only a suggested structure: `draft label` remains planned, and `label approved` remains pending. The prior jade-kit task stays off-focus with its reported-but-unverified state preserved.\n\n<|fm1:state|>{\"task_ids\":[\"f0190000-0000-4000-8000-000000000202\"],\"focus\":\"f0190000-0000-4000-8000-000000000202\",\"created\":[\"f0190000-0000-4000-8000-000000000202\"],\"unresolved\":[],\"tasks\":[{\"id\":\"f0190000-0000-4000-8000-000000000200\",\"goal\":{\"source_id\":\"h0\",\"quote\":\"pack jade kit\"},\"criteria\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"two seals verified\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"seal kit\"},\"status\":\"ready\",\"basis\":\"reported\",\"evidence\":[{\"source_id\":\"u1\",\"quote\":\"kit claim\"}]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"},{\"id\":\"f0190000-0000-4000-8000-000000000202\",\"goal\":{\"source_id\":\"u2\",\"quote\":\"prepare violet label\"},\"criteria\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"label approved\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"draft label\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"}]}<|fm1:end|>",
+  "reasoning": "We need answer. New distinct goal, create first unused UUID f0190000-0000-4000-8000-000000000202. Focus switches to new task. task_ids contains tasks explicitly requested in current answer: likely new task. Does original task get mentioned? User says switch focus to independent goal. We preserve off-focus task jade kit state. task_ids: \"contains every task explicitly requested in the current answer, including requested status mentions, not everything mentioned only as background.\" Only new task requested. Existing jade kit off-focus retained in tasks but not task_ids. Need suggest two-field draft containing batch and date. That's just answer; not new work item? Work item `draft label` planned. Criteria `label approved` pending. Lifecycle running requested. Decision null. Conflicts none. State for new task goal quote exact \"prepare violet label\", criterion, work. No evidence. Need mention old kit state preserved? Answer concise under 100 words. No task acceptance of prior. State output.\n\nNeed be cautious \"do not treat drafting as execution or approval.\" We haven't drafted, only suggested structure. Answer: \"Draft template: Batch: [batch ID]; Date: [YYYY-MM-DD]. `draft label` remains planned, and `label approved` pending; this suggestion is neither drafting execution nor approval.\" Good.\n\nState includes old task and new. Old task lifecycle running because work ready/reported, criterion pending. Old work status ready basis reported evidence kit claim. New planned, lifecycle running. Focus new. created new. unresolved [].\n\nNeed exact quotes. `prepare violet label`, `label approved`, `draft label`. Good. Could decision include batch/date fields? Are these a decision? They are user requested content, no alternatives. Decision null. Criteria only label approved. Is \"two-field draft containing batch and date\" a criterion? Wording is not explicit acceptance; it's a suggestion request. Not necessarily new work item. We can reflect in answer but not meta work. Work `draft label` remains planned.\n\nNeed quote actual history for new source u2. Yes.\n\nFinal normal answer + state.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1571,
+    "completion_tokens": 829,
+    "total_tokens": 2400,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 444
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00060134,
+      "allowance": 0.0003608,
+      "tokens": {
+        "input": 675,
+        "output": 829,
+        "reasoning": 444,
+        "cache_read": 896,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b07a3852bbb-430011",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 49702,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.61920000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08200000005308539,
+    "content_type": "text/event-stream",
+    "wire_chunks": 276,
+    "wire_sha256": "318f5681760356ee197654e8ed68dd1dbbf94a3f8dd7fc32975f209f69c4995f",
+    "content_sha256": "66170206f644ec78167f8dbb361142c33a449e4379be7ea7a564fa252ac7bdbf",
+    "reasoning_sha256": "fc68fcfea761cc70e09de6dd866702de7e94a42b89ccd9ba3a17fa4539ba1cbb"
+  },
+  "latency": {
+    "total_ms": 11373.376800000027,
+    "first_wire_ms": 1834.9710000000196,
+    "first_content_ms": 8206.859600000025,
+    "first_reasoning_ms": 1836.051299999992,
+    "evidence_write_ms": 194.89190000033705
+  }
+}

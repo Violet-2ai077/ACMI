@@ -1,0 +1,30 @@
+{
+  "coordinate": {
+    "index": 10,
+    "story": "jade-kit",
+    "condition": "C2",
+    "arm": "B",
+    "turn": 1,
+    "track": "CLOSED-LOOP"
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "h0",
+      "role": "user",
+      "content": "Earlier Owner request: goal `pack jade kit`; acceptance `two seals verified`; work `seal kit`. No work has executed. Existing task UUID: f0190000-0000-4000-8000-000000000210."
+    },
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "Operator report `kit claim`: both seals are done. This is only a report, with no observed log and no Owner acceptance. Explain why the kit still needs verification and acceptance."
+    }
+  ],
+  "request_sha256": "0ed1a2f5453e28ec4dea1a9ecdd198d0658d6dd8b005b037f03245463cf45d3e",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-7e6560c0669a93204a672c18a539f9a430c773d5f867f13f"
+  },
+  "freeze_sha256": "8c4f1285bcbe367682eca7a231f6c8f5c059902e32ae0491f032bc48bfaef2ec"
+}

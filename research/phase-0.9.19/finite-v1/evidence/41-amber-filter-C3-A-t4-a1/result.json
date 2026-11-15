@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Handoff: the amber filter is accepted and complete under `three edge cases pass`; the third-case failure is resolved. The copper note is still pending: `draft note` has not started and `note reviewed` is unmet. Next action: draft the copper note and send it for review.\",\"state\":{\"task_ids\":[\"f0190000-0000-4000-8000-000000000121\",\"f0190000-0000-4000-8000-000000000122\"],\"focus\":\"f0190000-0000-4000-8000-000000000121\",\"created\":[],\"unresolved\":[],\"tasks\":[{\"id\":\"f0190000-0000-4000-8000-000000000121\",\"goal\":{\"source_id\":\"h0\",\"quote\":\"repair amber filter\"},\"criteria\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"two edge cases pass\"},\"status\":\"superseded\"},{\"ref\":{\"source_id\":\"u3\",\"quote\":\"three edge cases pass\"},\"status\":\"satisfied\"}],\"work\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"patch filter\"},\"status\":\"completed\",\"basis\":\"observed\",\"evidence\":[{\"source_id\":\"u3\",\"quote\":\"filter run\"}]},{\"ref\":{\"source_id\":\"u3\",\"quote\":\"fix third case\"},\"status\":\"completed\",\"basis\":\"observed\",\"evidence\":[{\"source_id\":\"u4\",\"quote\":\"I observed fix third case executed\"}]}],\"decision\":{\"ref\":{\"source_id\":\"u3\",\"quote\":\"keep strict parsing\"},\"evidence\":[{\"source_id\":\"u3\",\"quote\":\"keep strict parsing\"}]},\"conflicts\":[{\"ref\":{\"source_id\":\"u3\",\"quote\":\"third case failure\"},\"status\":\"resolved\"}],\"lifecycle\":\"completed\"},{\"id\":\"f0190000-0000-4000-8000-000000000122\",\"goal\":{\"source_id\":\"u2\",\"quote\":\"write copper note\"},\"criteria\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"note reviewed\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"draft note\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"}]}}",
+  "reasoning": "We need answer concise, state. Task amber: work fix third case completed observed/accepted evidence \"filter signoff\" likely. Criterion three edge cases pass satisfied. Conflict resolved. Lifecycle completed due explicit Owner acceptance. Task copper note unchanged: draft note planned, criterion pending, lifecycle running. task_ids should contain every task explicitly requested in current answer: mentions filter accepted and note still pending — both explicitly named status mentions, so both. Focus? Previous focus amber. Current asks handoff mentioning both; no explicit focus switch? \"No new information about copper note\" no switch. Retain focus amber (u3 task). No new created. Unresolved empty.\n\nNeed quotes exact. Acceptance evidence source u4 quote `filter signoff`; also maybe \"all three edge cases pass\" but this is narrative after label? The source u4 visible: \"Owner acceptance `filter signoff`: I observed fix third case executed and all three edge cases pass, resolve third case failure, and I accept the amber filter task under the current criterion. No new information about the copper note.\" First defining backticks are `filter signoff`, quote exact inside. For evidence, use filter signoff. Work fix third case ref u3 `fix third case`, status completed basis observed or accepted? Strongest supported: accepted? Owner acceptance of goal/criteria, and observed fix executed. For work itself, \"I observed fix third case executed\" = observed, not necessarily accepted work? State policy max accepted. Accepted usually explicit Owner acceptance of work? They accept task under criterion, not work item. But observed sufficient. Use observed evidence [{\"u4\",\"filter signoff\"}] perhaps also \"I observed fix third case executed\" exact quote? Must quote exact substring. Could cite \"I observed fix third case executed\" but the first defining quote for work is `fix third case`. Evidence can be other quote. Use `filter signoff` maybe encompasses acceptance. But observed basis should cite exact observed statement. Yet exact phrase \"all three edge cases pass\" supports criterion; but criterion satisfaction requires execution evidence. Could cite `filter signoff` as owner acceptance. For work completed, basis observed, evidence `all three edge cases pass`? That supports tests not fix execution. Phrase \"I observed fix third case executed\" supports observed. Use that exact quote as evidence. Is it a quote in source? yes exact substring. For criterion satisfied, evidence? Schema criteria has only ref,status, no evidence field! Exact schema criteria ref/status only. So no evidence for criteria. Work evidence only. Conflict resolved. Decision keep strict parsing unchanged ref u3, evidence perhaps keep strict parsing. Could use latest decisive evidence? No new decision. Keep same.\n\nCopper note unchanged: goal u2, criterion pending, work planned, lifecycle running (requested task lifecycle running even if all work planned). Does \"still pending\" affect? No acceptance. Good.\n\nAnswer handoff concise: \"Filter handoff: amber filter is accepted and complete under three edge cases pass; third-case failure resolved. Copper note remains pending review; draft not started. Next action: draft copper note and request review.\" Mention no new info. Under 100 words.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2372,
+    "completion_tokens": 1146,
+    "total_tokens": 3518,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 656
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00091169,
+      "allowance": 0.00054701,
+      "tokens": {
+        "input": 1476,
+        "output": 1146,
+        "reasoning": 656,
+        "cache_read": 896,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2b0ed8",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 70777,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.69770000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11999999999534339,
+    "content_type": "text/event-stream",
+    "wire_chunks": 386,
+    "wire_sha256": "bad5b826e13112b43186bdc6d2c99a222320722be4acfbdd6b0326aa69614f42",
+    "content_sha256": "8b413b919079a8c795171a5bee49759c1c950f4ff72d52909ce8807c892d4835",
+    "reasoning_sha256": "945d9193e86a134fba357cad56c1021378fa93b82e13920c89c472cf9191c1d8"
+  },
+  "latency": {
+    "total_ms": 14180.699699999997,
+    "first_wire_ms": 2085.5836000000127,
+    "first_content_ms": 10227.430500000017,
+    "first_reasoning_ms": 2086.68069999991,
+    "evidence_write_ms": 289.41870000131894
+  }
+}

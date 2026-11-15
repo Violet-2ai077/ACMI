@@ -1,0 +1,5411 @@
+{
+  "freeze_sha256": "8c4f1285bcbe367682eca7a231f6c8f5c059902e32ae0491f032bc48bfaef2ec",
+  "end_observed": true,
+  "actual_calls": 48,
+  "completed": 48,
+  "failed": 0,
+  "not_sent": [],
+  "groups": [
+    {
+      "condition": "C1",
+      "arm": "A",
+      "planned_turns": 8,
+      "actual_calls": 8,
+      "completed": 8,
+      "failed_attempts": 0,
+      "evidence_incomplete": 0,
+      "not_sent": 0,
+      "complete_trajectories": 2,
+      "metrics": {
+        "protocol": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "attribution": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "discovery": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "identity": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "state_facts": {
+          "pass": 5,
+          "assessed": 8
+        },
+        "reference_exact": {
+          "pass": 5,
+          "assessed": 8
+        },
+        "grounded": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_exact": {
+          "pass": 5,
+          "assessed": 8
+        },
+        "answer_basic": {
+          "pass": 7,
+          "assessed": 8
+        }
+      },
+      "trajectory_all_pass": {
+        "identity": 1,
+        "state_facts": 0,
+        "state_exact": 0,
+        "answer_basic": 1
+      }
+    },
+    {
+      "condition": "C1",
+      "arm": "B",
+      "planned_turns": 8,
+      "actual_calls": 8,
+      "completed": 8,
+      "failed_attempts": 0,
+      "evidence_incomplete": 0,
+      "not_sent": 0,
+      "complete_trajectories": 2,
+      "metrics": {
+        "protocol": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "attribution": {
+          "pass": 6,
+          "assessed": 8
+        },
+        "discovery": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "identity": {
+          "pass": 6,
+          "assessed": 8
+        },
+        "state_facts": {
+          "pass": 3,
+          "assessed": 8
+        },
+        "reference_exact": {
+          "pass": 3,
+          "assessed": 8
+        },
+        "grounded": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_exact": {
+          "pass": 3,
+          "assessed": 8
+        },
+        "answer_basic": {
+          "pass": 5,
+          "assessed": 8
+        }
+      },
+      "trajectory_all_pass": {
+        "identity": 1,
+        "state_facts": 0,
+        "state_exact": 0,
+        "answer_basic": 0
+      }
+    },
+    {
+      "condition": "C2",
+      "arm": "A",
+      "planned_turns": 8,
+      "actual_calls": 8,
+      "completed": 8,
+      "failed_attempts": 0,
+      "evidence_incomplete": 0,
+      "not_sent": 0,
+      "complete_trajectories": 2,
+      "metrics": {
+        "protocol": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "attribution": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "discovery": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "identity": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_facts": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "reference_exact": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "grounded": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_exact": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "answer_basic": {
+          "pass": 6,
+          "assessed": 8
+        }
+      },
+      "trajectory_all_pass": {
+        "identity": 2,
+        "state_facts": 1,
+        "state_exact": 1,
+        "answer_basic": 1
+      }
+    },
+    {
+      "condition": "C2",
+      "arm": "B",
+      "planned_turns": 8,
+      "actual_calls": 8,
+      "completed": 8,
+      "failed_attempts": 0,
+      "evidence_incomplete": 0,
+      "not_sent": 0,
+      "complete_trajectories": 2,
+      "metrics": {
+        "protocol": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "attribution": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "discovery": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "identity": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_facts": {
+          "pass": 4,
+          "assessed": 8
+        },
+        "reference_exact": {
+          "pass": 4,
+          "assessed": 8
+        },
+        "grounded": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_exact": {
+          "pass": 4,
+          "assessed": 8
+        },
+        "answer_basic": {
+          "pass": 7,
+          "assessed": 8
+        }
+      },
+      "trajectory_all_pass": {
+        "identity": 2,
+        "state_facts": 1,
+        "state_exact": 1,
+        "answer_basic": 1
+      }
+    },
+    {
+      "condition": "C3",
+      "arm": "A",
+      "planned_turns": 8,
+      "actual_calls": 8,
+      "completed": 8,
+      "failed_attempts": 0,
+      "evidence_incomplete": 0,
+      "not_sent": 0,
+      "complete_trajectories": 2,
+      "metrics": {
+        "protocol": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "attribution": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "discovery": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "identity": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_facts": {
+          "pass": 6,
+          "assessed": 8
+        },
+        "reference_exact": {
+          "pass": 6,
+          "assessed": 8
+        },
+        "grounded": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_exact": {
+          "pass": 6,
+          "assessed": 8
+        },
+        "answer_basic": {
+          "pass": 7,
+          "assessed": 8
+        }
+      },
+      "trajectory_all_pass": {
+        "identity": 2,
+        "state_facts": 0,
+        "state_exact": 0,
+        "answer_basic": 1
+      }
+    },
+    {
+      "condition": "C3",
+      "arm": "B",
+      "planned_turns": 8,
+      "actual_calls": 8,
+      "completed": 8,
+      "failed_attempts": 0,
+      "evidence_incomplete": 0,
+      "not_sent": 0,
+      "complete_trajectories": 2,
+      "metrics": {
+        "protocol": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "attribution": {
+          "pass": 7,
+          "assessed": 8
+        },
+        "discovery": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "identity": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_facts": {
+          "pass": 6,
+          "assessed": 8
+        },
+        "reference_exact": {
+          "pass": 5,
+          "assessed": 8
+        },
+        "grounded": {
+          "pass": 8,
+          "assessed": 8
+        },
+        "state_exact": {
+          "pass": 5,
+          "assessed": 8
+        },
+        "answer_basic": {
+          "pass": 6,
+          "assessed": 8
+        }
+      },
+      "trajectory_all_pass": {
+        "identity": 2,
+        "state_facts": 0,
+        "state_exact": 0,
+        "answer_basic": 1
+      }
+    }
+  ],
+  "monetary_cost": null,
+  "observed_end_call_count_matches": true,
+  "all_integrity_checks_pass": true,
+  "rows": [
+    {
+      "coordinate": {
+        "index": 1,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "01-amber-filter-C1-A-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 25379,
+      "latency": {
+        "total_ms": 6989.7853000000005,
+        "first_wire_ms": 3010.1103000000003,
+        "first_content_ms": 5751.5922,
+        "first_reasoning_ms": 3013.3147,
+        "evidence_write_ms": 120.93949999999734
+      },
+      "usage": {
+        "prompt_tokens": 1245,
+        "completion_tokens": 412,
+        "total_tokens": 1657,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 208
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00043395,
+          "allowance": 0.00026037,
+          "tokens": {
+            "input": 1245,
+            "output": 412,
+            "reasoning": 208,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "5",
+              "five"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "patch"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "4e58421a7f26f6f6674e5ceb9f9297b604b00de3d6714fd7499a78a73b347038",
+        "answer": "That’s 5 tests total (2 + 3). Next action: draft the patch plan and test plan, without claiming execution or passes."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 2,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "02-amber-filter-C1-B-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 55797,
+      "latency": {
+        "total_ms": 11515.721699999998,
+        "first_wire_ms": 3012.0069999999996,
+        "first_content_ms": 9963.803499999998,
+        "first_reasoning_ms": 3013.5581999999995,
+        "evidence_write_ms": 245.8259999999691
+      },
+      "usage": {
+        "prompt_tokens": 1283,
+        "completion_tokens": 823,
+        "total_tokens": 2106,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 576
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00068625,
+          "allowance": 0.00041175,
+          "tokens": {
+            "input": 1283,
+            "output": 823,
+            "reasoning": 576,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "5",
+              "five"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "patch"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests without claiming execution"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "280f5448f3a45bd64818e35371679b02d7813c84e084d13ad1171d2aa2f12913",
+        "answer": "5 tests total (2 empty-input + 3 malformed-input). Next action: add all 5 cases to the test plan, without executing them."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 3,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "03-amber-filter-C2-B-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 271384,
+      "latency": {
+        "total_ms": 46477.913499999995,
+        "first_wire_ms": 4080.6422999999995,
+        "first_content_ms": 44923.235799999995,
+        "first_reasoning_ms": 4085.4516000000003,
+        "evidence_write_ms": 1125.2918000001082
+      },
+      "usage": {
+        "prompt_tokens": 1122,
+        "completion_tokens": 3970,
+        "total_tokens": 5092,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3716
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0025503,
+          "allowance": 0.00153018,
+          "tokens": {
+            "input": 1122,
+            "output": 3970,
+            "reasoning": 3716,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "5",
+              "five"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "patch"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "c575fd7dc683693afa7c80883a3e939a6203b10d441b1063640a5a1e2f0c3fdb",
+        "answer": "Total: **5 tests** (2 empty-input + 3 malformed-input). Next action: draft the amber-filter patch-and-test plan for review—do not apply the patch or run tests yet."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 4,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "04-amber-filter-C2-A-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 69442,
+      "latency": {
+        "total_ms": 16876.956299999998,
+        "first_wire_ms": 6267.477200000001,
+        "first_content_ms": 15658.0599,
+        "first_reasoning_ms": 6268.241199999997,
+        "evidence_write_ms": 271.02859999971406
+      },
+      "usage": {
+        "prompt_tokens": 1084,
+        "completion_tokens": 1098,
+        "total_tokens": 2182,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 893
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0008214,
+          "allowance": 0.00049284,
+          "tokens": {
+            "input": 1084,
+            "output": 1098,
+            "reasoning": 893,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "5",
+              "five"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "patch"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "91fd4fed4d71d26a5575872c4d2c873493a18433ecdc61abc3c28ba59b0c925c",
+        "answer": "That is 5 tests total: 2 empty-input plus 3 malformed-input. Next action: draft the patch and test plan without claiming execution."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 5,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "05-amber-filter-C3-A-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 113308,
+      "latency": {
+        "total_ms": 21480.969500000007,
+        "first_wire_ms": 4147.582399999999,
+        "first_content_ms": 20047.751900000003,
+        "first_reasoning_ms": 4427.811300000001,
+        "evidence_write_ms": 455.129599999942
+      },
+      "usage": {
+        "prompt_tokens": 1061,
+        "completion_tokens": 1725,
+        "total_tokens": 2786,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1496
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00119415,
+          "allowance": 0.00071649,
+          "tokens": {
+            "input": 1061,
+            "output": 1725,
+            "reasoning": 1496,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "5",
+              "five"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "patch"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "736c236986277134c8f62cf918ffb48377c1f36b5e6a33f4fc798dae75a580fb",
+        "answer": "There are 5 tests total (2 empty-input + 3 malformed-input). Next action: draft the patch and those 5 test cases without executing them or claiming execution."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 6,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "06-amber-filter-C3-B-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 130894,
+      "latency": {
+        "total_ms": 28602.244399999996,
+        "first_wire_ms": 2339.5945999999967,
+        "first_content_ms": 26476.1535,
+        "first_reasoning_ms": 2341.135699999999,
+        "evidence_write_ms": 549.536399999517
+      },
+      "usage": {
+        "prompt_tokens": 1099,
+        "completion_tokens": 1825,
+        "total_tokens": 2924,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1589
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00125985,
+          "allowance": 0.00075591,
+          "tokens": {
+            "input": 1099,
+            "output": 1825,
+            "reasoning": 1589,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "5",
+              "five"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "patch"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "736c236986277134c8f62cf918ffb48377c1f36b5e6a33f4fc798dae75a580fb",
+        "answer": "Total: 5 tests (2 empty-input + 3 malformed-input). Next action: draft the amber filter patch and test plan without applying or running anything."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 7,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "07-jade-kit-C1-B-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 33697,
+      "latency": {
+        "total_ms": 8707.891000000003,
+        "first_wire_ms": 2029.881000000023,
+        "first_content_ms": 6574.613900000026,
+        "first_reasoning_ms": 2050.8577000000223,
+        "evidence_write_ms": 138.55669999995735
+      },
+      "usage": {
+        "prompt_tokens": 1276,
+        "completion_tokens": 533,
+        "total_tokens": 1809,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 290
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0005112,
+          "allowance": 0.00030672,
+          "tokens": {
+            "input": 1276,
+            "output": 533,
+            "reasoning": 290,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "verification"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "aa2caef01ef5527ee2c38ef4658803b1211f89f7efda13bc711b7380d0f48e01",
+        "answer": "`kit claim` is only an operator report: it does not verify both seals or constitute Owner acceptance. `two seals verified` remains pending, so `pack jade kit` is still running and needs independent verification before acceptance."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 8,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "08-jade-kit-C1-A-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 56788,
+      "latency": {
+        "total_ms": 15478.420400000003,
+        "first_wire_ms": 1723.9875000000175,
+        "first_content_ms": 12569.152900000016,
+        "first_reasoning_ms": 1724.7786000000197,
+        "evidence_write_ms": 222.89500000074622
+      },
+      "usage": {
+        "prompt_tokens": 1238,
+        "completion_tokens": 852,
+        "total_tokens": 2090,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 608
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0006969,
+          "allowance": 0.00041814,
+          "tokens": {
+            "input": 1238,
+            "output": 852,
+            "reasoning": 608,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "verification"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "aa2caef01ef5527ee2c38ef4658803b1211f89f7efda13bc711b7380d0f48e01",
+        "answer": "The kit still needs verification and acceptance: `kit claim` reports both seals done, but a report without an observed log does not satisfy `two seals verified`. The `seal kit` work is only reported-ready, and the task remains open until the Owner accepts the verified result."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 9,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "09-jade-kit-C2-A-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 52714,
+      "latency": {
+        "total_ms": 10808.969699999987,
+        "first_wire_ms": 2321.535499999998,
+        "first_content_ms": 9039.713099999994,
+        "first_reasoning_ms": 2322.185599999997,
+        "evidence_write_ms": 172.26680000024498
+      },
+      "usage": {
+        "prompt_tokens": 1077,
+        "completion_tokens": 772,
+        "total_tokens": 1849,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 518
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00062475,
+          "allowance": 0.00037485,
+          "tokens": {
+            "input": 1077,
+            "output": 772,
+            "reasoning": 518,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "verification"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "6f239c38f25716d052ce73bde6188530d706d951515819cb71268f7aa95d7926",
+        "answer": "`kit claim` is only a self-report, not direct observation of both seals. It leaves the acceptance criterion `two seals verified` pending, and the work item `seal kit` is at most reported/ready—not completed. The kit therefore remains running until verification evidence is observed and the Owner explicitly accepts the verified result."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 10,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "10-jade-kit-C2-B-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 46883,
+      "latency": {
+        "total_ms": 11720.255999999994,
+        "first_wire_ms": 4540.784299999999,
+        "first_content_ms": 9663.497699999978,
+        "first_reasoning_ms": 4541.381699999998,
+        "evidence_write_ms": 181.36739999972633
+      },
+      "usage": {
+        "prompt_tokens": 1115,
+        "completion_tokens": 677,
+        "total_tokens": 1792,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 411
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00057345,
+          "allowance": 0.00034407,
+          "tokens": {
+            "input": 1115,
+            "output": 677,
+            "reasoning": 411,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "verification"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "6f239c38f25716d052ce73bde6188530d706d951515819cb71268f7aa95d7926",
+        "answer": "The operator’s “both seals are done” is only a report, so the `seal kit` work can be treated as reported-ready, not observed-complete. The acceptance criterion `two seals verified` remains pending because no verification log was observed. The kit cannot be marked completed without explicit Owner acceptance of the current goal and criterion."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 11,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "11-jade-kit-C3-B-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 66259,
+      "latency": {
+        "total_ms": 12659.294300000009,
+        "first_wire_ms": 2456.9647000000114,
+        "first_content_ms": 10825.59580000001,
+        "first_reasoning_ms": 2458.5253000000084,
+        "evidence_write_ms": 242.55969999963418
+      },
+      "usage": {
+        "prompt_tokens": 1092,
+        "completion_tokens": 1002,
+        "total_tokens": 2094,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 720
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.000765,
+          "allowance": 0.000459,
+          "tokens": {
+            "input": 1092,
+            "output": 1002,
+            "reasoning": 720,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "verification"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "e591c241437b9a1b24468b53959b60dabd57682234a69a8cdbf2b5671c847c37",
+        "answer": "The `kit claim` reports both seals done, but a report is not an observed log. The acceptance condition `two seals verified` remains pending, and `seal kit` has only reported—not observed—completion. `pack jade kit` therefore needs independent verification and explicit Owner acceptance before it can be completed."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 12,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 1,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "12-jade-kit-C3-A-t1-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 58278,
+      "latency": {
+        "total_ms": 11680.786800000002,
+        "first_wire_ms": 2705.5699000000022,
+        "first_content_ms": 9917.237599999993,
+        "first_reasoning_ms": 2706.576700000005,
+        "evidence_write_ms": 229.63840000040364
+      },
+      "usage": {
+        "prompt_tokens": 1054,
+        "completion_tokens": 838,
+        "total_tokens": 1892,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 569
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0006609,
+          "allowance": 0.00039654,
+          "tokens": {
+            "input": 1054,
+            "output": 838,
+            "reasoning": 569,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "verification"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "e591c241437b9a1b24468b53959b60dabd57682234a69a8cdbf2b5671c847c37",
+        "answer": "`kit claim` is only a self-report, not observed evidence that `two seals verified`. Since `seal kit` has no demonstrated execution log or independent verification, it remains ready/reported rather than completed. The kit also lacks explicit Owner acceptance, so the task stays running and still needs verification and acceptance."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 13,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "13-amber-filter-C1-A-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 63424,
+      "latency": {
+        "total_ms": 13654.002999999997,
+        "first_wire_ms": 4004.485799999995,
+        "first_content_ms": 11235.1924,
+        "first_reasoning_ms": 4005.2292000000016,
+        "evidence_write_ms": 231.87770000007004
+      },
+      "usage": {
+        "prompt_tokens": 1525,
+        "completion_tokens": 1013,
+        "total_tokens": 2538,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 611
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00070484,
+          "allowance": 0.0004229,
+          "tokens": {
+            "input": 629,
+            "output": 1013,
+            "reasoning": 611,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "scope"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "limits"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "unverified"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "d237b08a9325f338ac04490c5365b7e14e0c8ddb8279480e576ed229eb9adba2",
+        "answer": "Note outline: 1) Purpose and scope—what the copper note covers; 2) Key points and assumptions; 3) Limits—exclusions, uncertainty, and claims requiring verification; 4) Review step for `note reviewed`. The filter patch was reported done, but its result is unverified: no execution log or acceptance is available."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 14,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "14-amber-filter-C1-B-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 125356,
+      "latency": {
+        "total_ms": 22582.2451,
+        "first_wire_ms": 4040.1743000000133,
+        "first_content_ms": 19688.664900000003,
+        "first_reasoning_ms": 4047.307700000005,
+        "evidence_write_ms": 448.88220000022557
+      },
+      "usage": {
+        "prompt_tokens": 1606,
+        "completion_tokens": 1919,
+        "total_tokens": 3525,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1465
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00126059,
+          "allowance": 0.00075635,
+          "tokens": {
+            "input": 710,
+            "output": 1919,
+            "reasoning": 1465,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "scope"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "limits"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "unverified"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/0/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u2",
+              "quote": "filter patch claimed"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/0/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u2",
+              "quote": "patch filter is done"
+            }
+          },
+          {
+            "path": "/state/tasks/0/work/0/evidence/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u2",
+              "quote": "no execution log or acceptance is available"
+            }
+          },
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests without claiming execution"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "fa58f05a70301f132c0bf29f8801032c7b9f1bc85ffd1a816435bb5363a97683",
+        "answer": "**Copper note outline**\n- Purpose and audience\n- Scope: amber-filter repair context\n- Limits: no validation or acceptance claim\n- Verification status: filter result is unverified—patch reported done, but no execution log or acceptance\n- Open items and next steps\n\nThe note draft has not started."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 15,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "15-amber-filter-C2-B-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 91707,
+      "latency": {
+        "total_ms": 16742.912899999996,
+        "first_wire_ms": 2284.950199999992,
+        "first_content_ms": 13834.662500000006,
+        "first_reasoning_ms": 2286.5342999999993,
+        "evidence_write_ms": 379.8577999996487
+      },
+      "usage": {
+        "prompt_tokens": 1452,
+        "completion_tokens": 1401,
+        "total_tokens": 2853,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 953
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00092669,
+          "allowance": 0.00055601,
+          "tokens": {
+            "input": 556,
+            "output": 1401,
+            "reasoning": 953,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "scope"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "limits"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "unverified"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "e89aa429de2bd1226c928e2008d3bd4e7ff036768622bc6464418a9fae9cd615",
+        "answer": "Copper note outline:\n1. Purpose and audience.\n2. Scope: what the note will cover.\n3. Limits/exclusions: explicit non-goals and unknowns.\n4. Verification note: the amber-filter patch result remains unverified—reported done, but no execution log or acceptance.\n5. Review step against `note reviewed`.\n\nNext action: draft the copper note for review."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 16,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "16-amber-filter-C2-A-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 57993,
+      "latency": {
+        "total_ms": 12636.073700000008,
+        "first_wire_ms": 3292.599599999987,
+        "first_content_ms": 9920.841000000015,
+        "first_reasoning_ms": 3294.1416999999783,
+        "evidence_write_ms": 225.1519999995071
+      },
+      "usage": {
+        "prompt_tokens": 1365,
+        "completion_tokens": 955,
+        "total_tokens": 2320,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 567
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00064604,
+          "allowance": 0.00038762,
+          "tokens": {
+            "input": 469,
+            "output": 955,
+            "reasoning": 567,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "scope"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "limits"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "unverified"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "4b5c1f353f6431ce8db7edece0dffef4cfe86675bb2ff909fbcd2206e71c4d8d",
+        "answer": "Copper note outline: 1) Scope—what the note covers. 2) Limits—exclusions and assumptions. 3) Review status and open questions. The amber filter patch is reported done, but the result remains unverified: no execution log or acceptance is available."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 17,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "17-amber-filter-C3-A-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 110587,
+      "latency": {
+        "total_ms": 20327.658400000015,
+        "first_wire_ms": 3396.3988000000245,
+        "first_content_ms": 18051.83150000003,
+        "first_reasoning_ms": 3397.0589000000036,
+        "evidence_write_ms": 412.3365999998059
+      },
+      "usage": {
+        "prompt_tokens": 1366,
+        "completion_tokens": 1742,
+        "total_tokens": 3108,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1343
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00111839,
+          "allowance": 0.00067103,
+          "tokens": {
+            "input": 470,
+            "output": 1742,
+            "reasoning": 1343,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "scope"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "limits"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "unverified"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "61b04666f149e5953c92c6b1e2bfee02afdf93312c8b069fa4a8277d9e10d763",
+        "answer": "Copper note outline: (1) Scope—what the note covers and intended reader. (2) Limits—exclusions, assumptions, and what is not verified. (3) Status—the amber filter patch is unverified: no execution log or acceptance. (4) Next action—draft the note, then request review."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 18,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "18-amber-filter-C3-B-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 195463,
+      "latency": {
+        "total_ms": 40943.652700000035,
+        "first_wire_ms": 1998.598100000003,
+        "first_content_ms": 37605.05989999999,
+        "first_reasoning_ms": 1999.7145000000019,
+        "evidence_write_ms": 688.1259000005084
+      },
+      "usage": {
+        "prompt_tokens": 1411,
+        "completion_tokens": 2920,
+        "total_tokens": 4331,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2498
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00183194,
+          "allowance": 0.00109916,
+          "tokens": {
+            "input": 515,
+            "output": 2920,
+            "reasoning": 2498,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "scope"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "limits"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "unverified"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/0/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u2",
+              "quote": "filter patch claimed"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/0/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u2",
+              "quote": "patch filter is done"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "3ab2086b0c9da601a2252ed92f9274c7847f3a07cca4458ce3081e9f83d16230",
+        "answer": "Copper note outline: 1) Scope—purpose, audience, covered topics. 2) Key points and evidence. 3) Limits—exclusions, assumptions, open questions. 4) Review checklist for “note reviewed.” Next action: draft the note, not reviewed yet. The amber filter result remains unverified: patch claimed, but no execution log or acceptance is available."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 19,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "19-jade-kit-C1-B-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 49702,
+      "latency": {
+        "total_ms": 11373.376800000027,
+        "first_wire_ms": 1834.9710000000196,
+        "first_content_ms": 8206.859600000025,
+        "first_reasoning_ms": 1836.051299999992,
+        "evidence_write_ms": 194.89190000033705
+      },
+      "usage": {
+        "prompt_tokens": 1571,
+        "completion_tokens": 829,
+        "total_tokens": 2400,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 444
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00060134,
+          "allowance": 0.0003608,
+          "tokens": {
+            "input": 675,
+            "output": 829,
+            "reasoning": 444,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "date"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "6db181ecda3f6258d6841db153e1986a7b391873119a4277cbee31a601e292a0",
+        "answer": "Draft template: **Batch:** [batch ID] · **Date:** [YYYY-MM-DD]. This is only a suggested structure: `draft label` remains planned, and `label approved` remains pending. The prior jade-kit task stays off-focus with its reported-but-unverified state preserved."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 20,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "20-jade-kit-C1-A-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 59465,
+      "latency": {
+        "total_ms": 12977.782799999986,
+        "first_wire_ms": 1756.3117000000202,
+        "first_content_ms": 10589.863500000036,
+        "first_reasoning_ms": 1771.22080000001,
+        "evidence_write_ms": 218.48799999960465
+      },
+      "usage": {
+        "prompt_tokens": 1534,
+        "completion_tokens": 965,
+        "total_tokens": 2499,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 620
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00067739,
+          "allowance": 0.00040643,
+          "tokens": {
+            "input": 638,
+            "output": 965,
+            "reasoning": 620,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "date"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "6db181ecda3f6258d6841db153e1986a7b391873119a4277cbee31a601e292a0",
+        "answer": "Suggested two-field draft: `batch`: [value]; `date`: [value]. This is only a proposed draft—no drafting execution and no label approval are recorded."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 21,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "21-jade-kit-C2-A-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 86483,
+      "latency": {
+        "total_ms": 16965.336300000024,
+        "first_wire_ms": 3847.455200000026,
+        "first_content_ms": 14756.390200000023,
+        "first_reasoning_ms": 3848.3784999999916,
+        "evidence_write_ms": 325.1348999988404
+      },
+      "usage": {
+        "prompt_tokens": 1383,
+        "completion_tokens": 1322,
+        "total_tokens": 2705,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 965
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00086894,
+          "allowance": 0.00052136,
+          "tokens": {
+            "input": 487,
+            "output": 1322,
+            "reasoning": 965,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "date"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "940f81a2e1d03879be2ee569e67fc043189281812f79eab845525bf7af586950",
+        "answer": "Suggested two-field draft: `Batch: [batch identifier]` and `Date: [YYYY-MM-DD]`. This is only a template suggestion; it does not execute `draft label` or satisfy `label approved`."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 22,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "22-jade-kit-C2-B-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 72758,
+      "latency": {
+        "total_ms": 16266.82779999997,
+        "first_wire_ms": 5193.469899999967,
+        "first_content_ms": 14078.156799999997,
+        "first_reasoning_ms": 5194.05919999996,
+        "evidence_write_ms": 302.50959999859333
+      },
+      "usage": {
+        "prompt_tokens": 1433,
+        "completion_tokens": 1136,
+        "total_tokens": 2569,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 778
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00076484,
+          "allowance": 0.0004589,
+          "tokens": {
+            "input": 537,
+            "output": 1136,
+            "reasoning": 778,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "date"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "6ba95f4c0549a2ab23bc6db6fa489d1829d07f00ad13d05fcd41a8bd98286c20",
+        "answer": "Draft the label with two fields: `batch` and `date`. This is only a drafting suggestion; it does not execute `draft label` or satisfy `label approved`."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 23,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "23-jade-kit-C3-B-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 101505,
+      "latency": {
+        "total_ms": 19911.992000000027,
+        "first_wire_ms": 4068.028900000034,
+        "first_content_ms": 17142.209900000016,
+        "first_reasoning_ms": 4069.1959999999963,
+        "evidence_write_ms": 386.5809999999474
+      },
+      "usage": {
+        "prompt_tokens": 1426,
+        "completion_tokens": 1511,
+        "total_tokens": 2937,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1125
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00098879,
+          "allowance": 0.00059327,
+          "tokens": {
+            "input": 530,
+            "output": 1511,
+            "reasoning": 1125,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "date"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "ba151c5b3db54b9133caa081cf8521ca373a95aa0988d5f02d0d942781a39dda",
+        "answer": "Focus switched to `prepare violet label`; acceptance remains `label approved`, and `draft label` is still planned—not executed. A minimal two-field draft shape could contain only: batch: [batch ID]; date: [YYYY-MM-DD]. This is a proposed format, not an actual draft or approval."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 24,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 2,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "24-jade-kit-C3-A-t2-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 314321,
+      "latency": {
+        "total_ms": 51849.71220000001,
+        "first_wire_ms": 2505.266899999988,
+        "first_content_ms": 49541.66950000002,
+        "first_reasoning_ms": 2506.755999999994,
+        "evidence_write_ms": 1164.4368000017712
+      },
+      "usage": {
+        "prompt_tokens": 1375,
+        "completion_tokens": 4561,
+        "total_tokens": 5936,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4200
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00281114,
+          "allowance": 0.00168668,
+          "tokens": {
+            "input": 479,
+            "output": 4561,
+            "reasoning": 4200,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "date"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "ba151c5b3db54b9133caa081cf8521ca373a95aa0988d5f02d0d942781a39dda",
+        "answer": "Suggested two-field draft: `Batch: [batch identifier]` and `Date: [YYYY-MM-DD]`. This is only a draft structure suggestion; it does not execute `draft label`, satisfy `label approved`, or constitute approval."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 25,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "25-amber-filter-C1-A-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 143197,
+      "latency": {
+        "total_ms": 25622.10619999998,
+        "first_wire_ms": 3105.8171999999904,
+        "first_content_ms": 23033.81919999997,
+        "first_reasoning_ms": 3106.8163999999524,
+        "evidence_write_ms": 507.8042000004789
+      },
+      "usage": {
+        "prompt_tokens": 2031,
+        "completion_tokens": 2104,
+        "total_tokens": 4135,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1686
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00143534,
+          "allowance": 0.0008612,
+          "tokens": {
+            "input": 1135,
+            "output": 2104,
+            "reasoning": 1686,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "1",
+              "one"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "strict"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "621a91c1fa34ea8851678203730014269c9733ba1ad6d01d9ac7aa263694cc84",
+        "answer": "One case remains failing: the third. The patch ran; the original two pass and the third fails. Keep the strict parsing policy."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 26,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "26-amber-filter-C1-B-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 262209,
+      "latency": {
+        "total_ms": 43646.72230000002,
+        "first_wire_ms": 3083.5277999999817,
+        "first_content_ms": 40793.09869999997,
+        "first_reasoning_ms": 3084.1098999999813,
+        "evidence_write_ms": 1042.4207000032184
+      },
+      "usage": {
+        "prompt_tokens": 2164,
+        "completion_tokens": 3991,
+        "total_tokens": 6155,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3525
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00258749,
+          "allowance": 0.00155249,
+          "tokens": {
+            "input": 1268,
+            "output": 3991,
+            "reasoning": 3525,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": false,
+        "identity": false,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "1",
+              "one"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "strict"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/created/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": "f0190000-0000-4000-8000-000000000103"
+          },
+          {
+            "path": "/state/tasks/0/work/0/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u3",
+              "quote": "filter run"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/0/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u3",
+              "quote": "patch filter executed"
+            }
+          },
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests without claiming execution"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          },
+          {
+            "path": "/state/tasks",
+            "error": "missing_item",
+            "expected": {
+              "id": "f0190000-0000-4000-8000-000000000102",
+              "goal": {
+                "source_id": "u2",
+                "quote": "write copper note"
+              },
+              "criteria": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "note reviewed"
+                  },
+                  "status": "pending"
+                }
+              ],
+              "work": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "draft note"
+                  },
+                  "status": "planned",
+                  "basis": "planned",
+                  "evidence": []
+                }
+              ],
+              "decision": null,
+              "conflicts": [],
+              "lifecycle": "running"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "id": "f0190000-0000-4000-8000-000000000103",
+              "goal": {
+                "source_id": "u2",
+                "quote": "write copper note"
+              },
+              "criteria": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "note reviewed"
+                  },
+                  "status": "pending"
+                }
+              ],
+              "work": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "draft note"
+                  },
+                  "status": "planned",
+                  "basis": "planned",
+                  "evidence": []
+                }
+              ],
+              "decision": null,
+              "conflicts": [],
+              "lifecycle": "running"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": false,
+          "criteria": false,
+          "work": false,
+          "decision": false,
+          "conflicts": false,
+          "lifecycle": false
+        },
+        "observed_state_sha256": "080fe3bddee42a7dbabc785cc7b3bd09a8a7988bb946aac8f74f8a0ba5b190e2",
+        "answer": "One case remains failing: the third. Keep **strict parsing**."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 27,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "27-amber-filter-C2-B-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 302412,
+      "latency": {
+        "total_ms": 52901.30099999998,
+        "first_wire_ms": 4986.007600000012,
+        "first_content_ms": 50272.70120000001,
+        "first_reasoning_ms": 4987.188499999931,
+        "evidence_write_ms": 1159.7757999942405
+      },
+      "usage": {
+        "prompt_tokens": 2004,
+        "completion_tokens": 4514,
+        "total_tokens": 6518,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4072
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00287729,
+          "allowance": 0.00172637,
+          "tokens": {
+            "input": 1108,
+            "output": 4514,
+            "reasoning": 4072,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "1",
+              "one"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "strict"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "237d7fec81ccd030a29ad8df88ee8cf7eeb9c711b208318c805c4f217d798bc2",
+        "answer": "One case remains failing: the third. Keep strict parsing."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 28,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "28-amber-filter-C2-A-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 134690,
+      "latency": {
+        "total_ms": 24682.480799999903,
+        "first_wire_ms": 3080.0993000000017,
+        "first_content_ms": 22067.86449999991,
+        "first_reasoning_ms": 3081.1949000000022,
+        "evidence_write_ms": 515.6068999941926
+      },
+      "usage": {
+        "prompt_tokens": 1857,
+        "completion_tokens": 1967,
+        "total_tokens": 3824,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1540
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00132704,
+          "allowance": 0.00079622,
+          "tokens": {
+            "input": 961,
+            "output": 1967,
+            "reasoning": 1540,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "1",
+              "one"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "strict"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "070493fb6a4c2f992e4f4a2f3b1b64538366ab242adab6eba439159e295cc123",
+        "answer": "One case remains failing: the third edge case; the original two pass. Keep strict parsing. Next action: begin the not-yet-started `fix third case` work."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 29,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "29-amber-filter-C3-A-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 112094,
+      "latency": {
+        "total_ms": 20127.574699999997,
+        "first_wire_ms": 2886.440100000007,
+        "first_content_ms": 17482.27000000002,
+        "first_reasoning_ms": 2887.3783999999287,
+        "evidence_write_ms": 410.1004999979632
+      },
+      "usage": {
+        "prompt_tokens": 1869,
+        "completion_tokens": 1727,
+        "total_tokens": 3596,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1293
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00118484,
+          "allowance": 0.0007109,
+          "tokens": {
+            "input": 973,
+            "output": 1727,
+            "reasoning": 1293,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "1",
+              "one"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "strict"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "ec2f9e752977883791cbe68d7075bceafb7bdcf41b25f7e82cfcfdea49ae49ee",
+        "answer": "One case remains failing: the third case. Keep strict parsing; the junior suggestion does not override that decision. The patch executed and the original two cases pass, but acceptance remains pending until `three edge cases pass`."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 30,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "30-amber-filter-C3-B-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 652761,
+      "latency": {
+        "total_ms": 131257.61109999998,
+        "first_wire_ms": 1861.3072000000393,
+        "first_content_ms": 127871.48030000005,
+        "first_reasoning_ms": 1868.3758999999845,
+        "evidence_write_ms": 2483.4599999934435
+      },
+      "usage": {
+        "prompt_tokens": 1937,
+        "completion_tokens": 9442,
+        "total_tokens": 11379,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 9003
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00582404,
+          "allowance": 0.00349442,
+          "tokens": {
+            "input": 1041,
+            "output": 9442,
+            "reasoning": 9003,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "1",
+              "one"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "strict"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "ec2f9e752977883791cbe68d7075bceafb7bdcf41b25f7e82cfcfdea49ae49ee",
+        "answer": "One case remains failing: the third case. Keep strict parsing. The patch run passes the original two cases, but the third fails; the fix is not started and the failure remains open."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 31,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "31-jade-kit-C1-B-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 99266,
+      "latency": {
+        "total_ms": 21511.484200000064,
+        "first_wire_ms": 2002.8636999999871,
+        "first_content_ms": 17831.622500000056,
+        "first_reasoning_ms": 2028.9322999999858,
+        "evidence_write_ms": 391.2249999990454
+      },
+      "usage": {
+        "prompt_tokens": 2069,
+        "completion_tokens": 1544,
+        "total_tokens": 3613,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1096
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00110504,
+          "allowance": 0.00066302,
+          "tokens": {
+            "input": 1173,
+            "output": 1544,
+            "reasoning": 1096,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "cold"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "disputed"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "b6dddb7dc1eff59d8678cd4758b269972a61781dc06570064b0511112b476cba",
+        "answer": "Back on the kit: `seal run` logs `seal kit` as executed and both original seals verified, but the replacement criterion `cold seal verified` remains pending and `cold check` is unstarted. The equal-authority `use blue tape`/`use green tape` disagreement leaves `tape dispute` open, so no tape decision is selected."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 32,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "32-jade-kit-C1-A-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 259389,
+      "latency": {
+        "total_ms": 53844.4976,
+        "first_wire_ms": 1750.3904999999795,
+        "first_content_ms": 50520.51549999998,
+        "first_reasoning_ms": 1799.5437000000384,
+        "evidence_write_ms": 1045.7631000034744
+      },
+      "usage": {
+        "prompt_tokens": 1992,
+        "completion_tokens": 3659,
+        "total_tokens": 5651,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3249
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00236249,
+          "allowance": 0.00141749,
+          "tokens": {
+            "input": 1096,
+            "output": 3659,
+            "reasoning": 3249,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": false,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "cold"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "disputed"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks",
+            "error": "missing_item",
+            "expected": {
+              "id": "f0190000-0000-4000-8000-000000000202",
+              "goal": {
+                "source_id": "u2",
+                "quote": "prepare violet label"
+              },
+              "criteria": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "label approved"
+                  },
+                  "status": "pending"
+                }
+              ],
+              "work": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "draft label"
+                  },
+                  "status": "planned",
+                  "basis": "planned",
+                  "evidence": []
+                }
+              ],
+              "decision": null,
+              "conflicts": [],
+              "lifecycle": "running"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "id": "f0190000-0000-4000-8000-000000000203",
+              "goal": {
+                "source_id": "u2",
+                "quote": "prepare violet label"
+              },
+              "criteria": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "label approved"
+                  },
+                  "status": "pending"
+                }
+              ],
+              "work": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "draft label"
+                  },
+                  "status": "planned",
+                  "basis": "planned",
+                  "evidence": []
+                }
+              ],
+              "decision": null,
+              "conflicts": [],
+              "lifecycle": "running"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": false,
+          "criteria": false,
+          "work": false,
+          "decision": false,
+          "conflicts": false,
+          "lifecycle": false
+        },
+        "observed_state_sha256": "48f2e6b3a07737cc9ab14f63e7917d19717a70d18d5c5a8ce857f8cde707abb3",
+        "answer": "The `seal run` log covers the original seals only, so the new `cold seal verified` criterion remains pending. `cold check` has not started, and the `tape dispute` remains open with no tape choice selected."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 33,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "33-jade-kit-C2-A-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 56451,
+      "latency": {
+        "total_ms": 11698.981399999931,
+        "first_wire_ms": 2505.1929000000237,
+        "first_content_ms": 8636.91149999993,
+        "first_reasoning_ms": 2505.817700000014,
+        "evidence_write_ms": 220.30980000295676
+      },
+      "usage": {
+        "prompt_tokens": 1853,
+        "completion_tokens": 906,
+        "total_tokens": 2759,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 465
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00068984,
+          "allowance": 0.0004139,
+          "tokens": {
+            "input": 957,
+            "output": 906,
+            "reasoning": 465,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "cold"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "disputed"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "2cd9e3143418251454eea39ea7d56f31903f00953f9c2cd3665e5b515bd49bb5",
+        "answer": "The original `seal kit` work is now logged as executed and verified, but the revised goal adds a pending `cold seal verified` criterion, so unstarted `cold check` must still be performed. The `tape dispute` remains open: the equal-authority blue-tape and green-tape leads conflict, so no tape decision is selected. The kit task remains running."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 34,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "34-jade-kit-C2-B-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 117659,
+      "latency": {
+        "total_ms": 22830.894100000034,
+        "first_wire_ms": 4054.545700000017,
+        "first_content_ms": 19864.464000000036,
+        "first_reasoning_ms": 4056.269800000009,
+        "evidence_write_ms": 450.87670000165235
+      },
+      "usage": {
+        "prompt_tokens": 1904,
+        "completion_tokens": 1816,
+        "total_tokens": 3720,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1387
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00124349,
+          "allowance": 0.00074609,
+          "tokens": {
+            "input": 1008,
+            "output": 1816,
+            "reasoning": 1387,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "cold"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "disputed"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "2cd9e3143418251454eea39ea7d56f31903f00953f9c2cd3665e5b515bd49bb5",
+        "answer": "The additional `cold check` is still planned, so `cold seal verified` remains pending; verifying the original seals does not satisfy the new cold-storage criterion. The `tape dispute` remains open, with neither `use blue tape` nor `use green tape` selected."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 35,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "35-jade-kit-C3-B-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 142700,
+      "latency": {
+        "total_ms": 26546.772600000026,
+        "first_wire_ms": 3349.1348999999464,
+        "first_content_ms": 23640.879799999995,
+        "first_reasoning_ms": 3349.7617999999784,
+        "evidence_write_ms": 560.2124999993248
+      },
+      "usage": {
+        "prompt_tokens": 1925,
+        "completion_tokens": 2165,
+        "total_tokens": 4090,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1704
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00145604,
+          "allowance": 0.00087362,
+          "tokens": {
+            "input": 1029,
+            "output": 2165,
+            "reasoning": 1704,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "cold"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "disputed"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "77612df41fdb4af42293ec1d5731130255ca164806e4c3cd6631f5fc96045e4b",
+        "answer": "The kit now targets cold-storage packing. The logged `seal run` shows the original `seal kit` completed with both prior seals verified, but it does not establish `cold seal verified`. The unstarted `cold check` leaves that criterion pending. The tape choice is also unresolved: `use blue tape` and `use green tape` have equal authority, so `tape dispute` remains open with no selected decision."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 36,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 3,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "36-jade-kit-C3-A-t3-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 65148,
+      "latency": {
+        "total_ms": 13786.209099999978,
+        "first_wire_ms": 3422.896999999997,
+        "first_content_ms": 10837.05150000006,
+        "first_reasoning_ms": 3424.348400000017,
+        "evidence_write_ms": 215.5906000006944
+      },
+      "usage": {
+        "prompt_tokens": 1849,
+        "completion_tokens": 1062,
+        "total_tokens": 2911,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 633
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00078284,
+          "allowance": 0.0004697,
+          "tokens": {
+            "input": 953,
+            "output": 1062,
+            "reasoning": 633,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "cold"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "disputed"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "77612df41fdb4af42293ec1d5731130255ca164806e4c3cd6631f5fc96045e4b",
+        "answer": "The `seal run` is logged as observed completion of `seal kit`, including verification of both original seals. However, the current acceptance criterion is `cold seal verified`, which remains pending. The added `cold check` is still planned/unstarted, and the `tape dispute` remains open with no selected decision."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 37,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "37-amber-filter-C1-A-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 60702,
+      "latency": {
+        "total_ms": 14664.583700000076,
+        "first_wire_ms": 5295.654100000043,
+        "first_content_ms": 12128.018700000015,
+        "first_reasoning_ms": 5296.301199999987,
+        "evidence_write_ms": 234.63840000145137
+      },
+      "usage": {
+        "prompt_tokens": 2518,
+        "completion_tokens": 945,
+        "total_tokens": 3463,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 478
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00081299,
+          "allowance": 0.00048779,
+          "tokens": {
+            "input": 1622,
+            "output": 945,
+            "reasoning": 478,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "accepted"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "note"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1/basis",
+            "expected": "accepted",
+            "actual": "observed"
+          },
+          {
+            "path": "/state/tasks/0/work/1/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "filter signoff"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/1/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "fix third case"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "3879e2cc7a32dcb64924bb209118ab15036d937edb64ae5760dfe28f33aaf54a",
+        "answer": "Handoff: the amber filter is accepted under `three edge cases pass`; the conflict is resolved. The copper note remains pending—no new information, and `draft note` has not started."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 38,
+        "story": "amber-filter",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "38-amber-filter-C1-B-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 201472,
+      "latency": {
+        "total_ms": 35968.47880000004,
+        "first_wire_ms": 3557.6031000000658,
+        "first_content_ms": 32556.92650000006,
+        "first_reasoning_ms": 3558.9378000000725,
+        "evidence_write_ms": 753.4554999996908
+      },
+      "usage": {
+        "prompt_tokens": 2699,
+        "completion_tokens": 2949,
+        "total_tokens": 5648,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2435
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00204254,
+          "allowance": 0.00122552,
+          "tokens": {
+            "input": 1803,
+            "output": 2949,
+            "reasoning": 2435,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": false,
+        "discovery": true,
+        "identity": false,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "accepted"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "note"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/task_ids",
+            "error": "missing_item",
+            "expected": "f0190000-0000-4000-8000-000000000102",
+            "actual": null
+          },
+          {
+            "path": "/state/task_ids/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": "f0190000-0000-4000-8000-000000000103"
+          },
+          {
+            "path": "/state/tasks/0/work/0/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u3",
+              "quote": "filter run"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/0/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u3",
+              "quote": "patch filter executed"
+            }
+          },
+          {
+            "path": "/state/tasks/0/work/2/basis",
+            "expected": "accepted",
+            "actual": "observed"
+          },
+          {
+            "path": "/state/tasks/0/work/2/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "filter signoff"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/2/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "I observed fix third case executed"
+            }
+          },
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests without claiming execution"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          },
+          {
+            "path": "/state/tasks",
+            "error": "missing_item",
+            "expected": {
+              "id": "f0190000-0000-4000-8000-000000000102",
+              "goal": {
+                "source_id": "u2",
+                "quote": "write copper note"
+              },
+              "criteria": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "note reviewed"
+                  },
+                  "status": "pending"
+                }
+              ],
+              "work": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "draft note"
+                  },
+                  "status": "planned",
+                  "basis": "planned",
+                  "evidence": []
+                }
+              ],
+              "decision": null,
+              "conflicts": [],
+              "lifecycle": "running"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "id": "f0190000-0000-4000-8000-000000000103",
+              "goal": {
+                "source_id": "u2",
+                "quote": "write copper note"
+              },
+              "criteria": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "note reviewed"
+                  },
+                  "status": "pending"
+                }
+              ],
+              "work": [
+                {
+                  "ref": {
+                    "source_id": "u2",
+                    "quote": "draft note"
+                  },
+                  "status": "planned",
+                  "basis": "planned",
+                  "evidence": []
+                }
+              ],
+              "decision": null,
+              "conflicts": [],
+              "lifecycle": "running"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": false,
+          "criteria": false,
+          "work": false,
+          "decision": false,
+          "conflicts": false,
+          "lifecycle": false
+        },
+        "observed_state_sha256": "3d05b8eda7cd191a78d2e97185698371d97407f2af29e15f0a62e3d6ad6c9ab4",
+        "answer": "Handoff: Amber filter is accepted and signed off under the current criterion—all three edge cases pass, and the third-case failure is resolved. The copper note remains pending: draft not started and review outstanding."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 39,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "39-amber-filter-C2-B-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 124304,
+      "latency": {
+        "total_ms": 23685.420599999954,
+        "first_wire_ms": 3978.048300000024,
+        "first_content_ms": 20433.34109999996,
+        "first_reasoning_ms": 3979.6252000000095,
+        "evidence_write_ms": 484.922200001427
+      },
+      "usage": {
+        "prompt_tokens": 2515,
+        "completion_tokens": 1843,
+        "total_tokens": 4358,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1334
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00135134,
+          "allowance": 0.0008108,
+          "tokens": {
+            "input": 1619,
+            "output": 1843,
+            "reasoning": 1334,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "accepted"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "note"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/2/basis",
+            "expected": "accepted",
+            "actual": "observed"
+          },
+          {
+            "path": "/state/tasks/0/work/2/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "filter signoff"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/2/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "I observed fix third case executed"
+            }
+          },
+          {
+            "path": "/state/tasks/0/work/2/evidence/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "all three edge cases pass"
+            }
+          },
+          {
+            "path": "/state/tasks/0/work/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "ref": {
+                "source_id": "u1",
+                "quote": "plan the patch and tests"
+              },
+              "status": "planned",
+              "basis": "planned",
+              "evidence": []
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "b26cd4d20c248610e65bfca592b275d118d05a23df51e59c014b4a336acbb02a",
+        "answer": "Amber filter is accepted under the current criterion, with the third-case failure resolved. The copper note remains pending and not started."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 40,
+        "story": "amber-filter",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "40-amber-filter-C2-A-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 108600,
+      "latency": {
+        "total_ms": 20087.189999999944,
+        "first_wire_ms": 3078.3773999999976,
+        "first_content_ms": 17347.670799999963,
+        "first_reasoning_ms": 3078.9897000000346,
+        "evidence_write_ms": 445.36420000263024
+      },
+      "usage": {
+        "prompt_tokens": 2353,
+        "completion_tokens": 1640,
+        "total_tokens": 3993,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1179
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00120524,
+          "allowance": 0.00072314,
+          "tokens": {
+            "input": 1457,
+            "output": 1640,
+            "reasoning": 1179,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "accepted"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "note"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1/basis",
+            "expected": "accepted",
+            "actual": "observed"
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "1fd564566a2f859cbf86409d07afad1807160168c4ce31c2864a049f2a1579d5",
+        "answer": "Amber filter is accepted under the current criterion: the fix executed and all three edge cases pass. The copper note remains pending; `draft note` is not started."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 41,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "41-amber-filter-C3-A-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 70777,
+      "latency": {
+        "total_ms": 14180.699699999997,
+        "first_wire_ms": 2085.5836000000127,
+        "first_content_ms": 10227.430500000017,
+        "first_reasoning_ms": 2086.68069999991,
+        "evidence_write_ms": 289.41870000131894
+      },
+      "usage": {
+        "prompt_tokens": 2372,
+        "completion_tokens": 1146,
+        "total_tokens": 3518,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 656
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00091169,
+          "allowance": 0.00054701,
+          "tokens": {
+            "input": 1476,
+            "output": 1146,
+            "reasoning": 656,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "accepted"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "note"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1/basis",
+            "expected": "accepted",
+            "actual": "observed"
+          },
+          {
+            "path": "/state/tasks/0/work/1/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "filter signoff"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/1/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "I observed fix third case executed"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "b3f962b09837d5e4cdaa291e0f49ad7f270642d3bc8ffc141829867fcb1c59b0",
+        "answer": "Handoff: the amber filter is accepted and complete under `three edge cases pass`; the third-case failure is resolved. The copper note is still pending: `draft note` has not started and `note reviewed` is unmet. Next action: draft the copper note and send it for review."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 42,
+        "story": "amber-filter",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "42-amber-filter-C3-B-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 59294,
+      "latency": {
+        "total_ms": 14769.0956,
+        "first_wire_ms": 3091.8847000000533,
+        "first_content_ms": 10889.115699999966,
+        "first_reasoning_ms": 3094.0021000000415,
+        "evidence_write_ms": 224.30020000005607
+      },
+      "usage": {
+        "prompt_tokens": 2445,
+        "completion_tokens": 1036,
+        "total_tokens": 3481,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 538
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00085664,
+          "allowance": 0.00051398,
+          "tokens": {
+            "input": 1549,
+            "output": 1036,
+            "reasoning": 538,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": true,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "accepted"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "note"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "pending"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/tasks/0/work/1/basis",
+            "expected": "accepted",
+            "actual": "observed"
+          },
+          {
+            "path": "/state/tasks/0/work/1/evidence",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "filter signoff"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/tasks/0/work/1/evidence/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "fix third case executed"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": false,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "58c1798bc970ccb888297817436b8386994c568ee99002f6dcb6c775857ddb81",
+        "answer": "Handoff: The amber filter is accepted and completed under `three edge cases pass`; `fix third case` executed, all three cases pass, and `third case failure` is resolved. The copper note remains pending, with `draft note` not started and `note reviewed` still outstanding."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 43,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "B",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "43-jade-kit-C1-B-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 152247,
+      "latency": {
+        "total_ms": 32331.262299999944,
+        "first_wire_ms": 1861.701299999957,
+        "first_content_ms": 28158.107599999872,
+        "first_reasoning_ms": 1886.0409000000218,
+        "evidence_write_ms": 620.251500000828
+      },
+      "usage": {
+        "prompt_tokens": 2612,
+        "completion_tokens": 2294,
+        "total_tokens": 4906,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1751
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00163649,
+          "allowance": 0.00098189,
+          "tokens": {
+            "input": 1716,
+            "output": 2294,
+            "reasoning": 1751,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": false,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "clarify"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/task_ids/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": "f0190000-0000-4000-8000-000000000202"
+          },
+          {
+            "path": "/state/unresolved",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "Also archive the old item"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/unresolved/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "archive the old item"
+            }
+          },
+          {
+            "path": "/state/tasks/0/decision/ref/quote",
+            "expected": "use green tape",
+            "actual": "use blue tape"
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": false,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "f815df9ad9f614632d354c0a58f1d7d0a1ee03010a8393cd776d87364885a4fa",
+        "answer": "`cold run` shows `cold check` executed and `cold seal verified`, so the kit’s current criterion is satisfied and both work items are complete. `tape ruling` selects `use green tape` and resolves `tape dispute`, but it is only a tape decision—not kit acceptance—so the kit is ready and awaits Owner acceptance. The label remains unstarted. Should the old item to archive be the kit or the violet label?"
+      }
+    },
+    {
+      "coordinate": {
+        "index": 44,
+        "story": "jade-kit",
+        "condition": "C1",
+        "arm": "A",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "44-jade-kit-C1-A-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 122952,
+      "latency": {
+        "total_ms": 26025.830199999968,
+        "first_wire_ms": 1760.5149999998976,
+        "first_content_ms": 22136.366500000004,
+        "first_reasoning_ms": 1761.718399999896,
+        "evidence_write_ms": 511.20650000101887
+      },
+      "usage": {
+        "prompt_tokens": 2497,
+        "completion_tokens": 1829,
+        "total_tokens": 4326,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1320
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00134024,
+          "allowance": 0.00080414,
+          "tokens": {
+            "input": 1601,
+            "output": 1829,
+            "reasoning": 1320,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": false,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "clarify"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/unresolved",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "Also archive the old item"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/unresolved/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "archive the old item"
+            }
+          },
+          {
+            "path": "/state/tasks/0/decision/ref/quote",
+            "expected": "use green tape",
+            "actual": "use blue tape"
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": false,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "5ca8654a4bc6f122c3be3185f05a15ba1aaf17c9d7a8764b63cde7442f82cdbd",
+        "answer": "`cold run` satisfies `cold seal verified`, and `tape ruling` selects `use green tape` and resolves `tape dispute`. The kit is ready but awaits explicit Owner acceptance, which the tape ruling does not provide. No label progress was recorded. Your archive request—`archive the old item`—is ambiguous: do you mean the kit or the label? I won’t assign it to either until you clarify."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 45,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "A",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "45-jade-kit-C2-A-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 136392,
+      "latency": {
+        "total_ms": 24224.30200000014,
+        "first_wire_ms": 3189.935999999987,
+        "first_content_ms": 21124.341100000078,
+        "first_reasoning_ms": 3190.6387000000104,
+        "evidence_write_ms": 553.4816999961622
+      },
+      "usage": {
+        "prompt_tokens": 2389,
+        "completion_tokens": 2177,
+        "total_tokens": 4566,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1660
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00153284,
+          "allowance": 0.0009197,
+          "tokens": {
+            "input": 1493,
+            "output": 2177,
+            "reasoning": 1660,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": false,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "clarify"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/task_ids/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": "f0190000-0000-4000-8000-000000000212"
+          },
+          {
+            "path": "/state/unresolved",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "Also archive the old item"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/unresolved/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "archive the old item"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "dff7917791e0b5bf7aad0946f8b28d87d3deaebf8666009b0a26c774db1c4018",
+        "answer": "`cold run` verifies `cold seal verified` and completes `cold check`; `tape ruling` selects `use green tape` and resolves `tape dispute`, but it is not kit acceptance. The kit is ready and awaits explicit Owner acceptance. No label progress. I have not assigned `archive the old item`: do you mean the kit or the violet label?"
+      }
+    },
+    {
+      "coordinate": {
+        "index": 46,
+        "story": "jade-kit",
+        "condition": "C2",
+        "arm": "B",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "46-jade-kit-C2-B-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 142184,
+      "latency": {
+        "total_ms": 24795.528099999996,
+        "first_wire_ms": 2471.0461999999825,
+        "first_content_ms": 21655.102899999823,
+        "first_reasoning_ms": 2471.809600000037,
+        "evidence_write_ms": 584.0574000070337
+      },
+      "usage": {
+        "prompt_tokens": 2428,
+        "completion_tokens": 2247,
+        "total_tokens": 4675,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1747
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00158069,
+          "allowance": 0.00094841,
+          "tokens": {
+            "input": 1532,
+            "output": 2247,
+            "reasoning": 1747,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": false,
+        "discovery": true,
+        "identity": true,
+        "state_facts": true,
+        "reference_exact": true,
+        "grounded": true,
+        "state_exact": true,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "clarify"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/unresolved",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "Also archive the old item"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/unresolved/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "archive the old item"
+            }
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": true,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "7a0c6f97d9f04b7f267da3241e4b745fab6ecbdf41c7d3dd7f22e9ee2628d300",
+        "answer": "The kit’s cold seal is verified and the tape dispute is resolved to use green tape. Because the Owner explicitly says the tape ruling is not task acceptance, the kit is ready and still awaits acceptance. The label remains unchanged. Your request to `archive the old item` is ambiguous between the kit and label; please clarify which you mean."
+      }
+    },
+    {
+      "coordinate": {
+        "index": 47,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "B",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "47-jade-kit-C3-B-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 151791,
+      "latency": {
+        "total_ms": 26234.656399999978,
+        "first_wire_ms": 2682.560300000012,
+        "first_content_ms": 22710.182700000005,
+        "first_reasoning_ms": 2683.4769999999553,
+        "evidence_write_ms": 616.4523999907542
+      },
+      "usage": {
+        "prompt_tokens": 2481,
+        "completion_tokens": 2268,
+        "total_tokens": 4749,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1718
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00160124,
+          "allowance": 0.00096074,
+          "tokens": {
+            "input": 1585,
+            "output": 2268,
+            "reasoning": 1718,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": false,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": false,
+        "answer_checks": [
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "clarify"
+            ],
+            "pass": false
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/task_ids/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": "f0190000-0000-4000-8000-000000000222"
+          },
+          {
+            "path": "/state/unresolved",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "Also archive the old item"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/unresolved/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "archive the old item"
+            }
+          },
+          {
+            "path": "/state/tasks/0/decision/ref/quote",
+            "expected": "use green tape",
+            "actual": "use blue tape"
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": false,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "417241b07cd14192e6d940b384750203b7b4b52a8af4a53bb03717e4de75359a",
+        "answer": "`cold run` confirms `cold check` completed and `cold seal verified`; with `seal kit` already logged complete, the kit has no remaining execution work or open conflict. `tape ruling` selects green tape and resolves `tape dispute`, but it is only a tape decision—not task acceptance. So the kit is ready and awaits explicit Owner acceptance. The violet label remains unchanged.\n\nWhich task does “archive the old item” refer to—the kit or the label?"
+      }
+    },
+    {
+      "coordinate": {
+        "index": 48,
+        "story": "jade-kit",
+        "condition": "C3",
+        "arm": "A",
+        "turn": 4,
+        "track": "CLOSED-LOOP"
+      },
+      "attempt": 1,
+      "directory": "48-jade-kit-C3-A-t4-a1",
+      "actual_invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 123519,
+      "latency": {
+        "total_ms": 23075.461099999957,
+        "first_wire_ms": 3741.584099999862,
+        "first_content_ms": 19897.547799999826,
+        "first_reasoning_ms": 3742.8586999999825,
+        "evidence_write_ms": 452.9943999988027
+      },
+      "usage": {
+        "prompt_tokens": 2373,
+        "completion_tokens": 1919,
+        "total_tokens": 4292,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1383
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00137564,
+          "allowance": 0.00082538,
+          "tokens": {
+            "input": 1477,
+            "output": 1919,
+            "reasoning": 1383,
+            "cache_read": 896,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "monetary_cost": null,
+      "score": {
+        "protocol": true,
+        "attribution": false,
+        "discovery": true,
+        "identity": true,
+        "state_facts": false,
+        "reference_exact": false,
+        "grounded": true,
+        "state_exact": false,
+        "answer_basic": true,
+        "answer_checks": [
+          {
+            "options": [
+              "acceptance"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "clarify"
+            ],
+            "pass": true
+          }
+        ],
+        "errors": [
+          {
+            "path": "/state/task_ids/1",
+            "error": "extra_item",
+            "expected": null,
+            "actual": "f0190000-0000-4000-8000-000000000222"
+          },
+          {
+            "path": "/state/unresolved",
+            "error": "missing_item",
+            "expected": {
+              "source_id": "u4",
+              "quote": "Also archive the old item"
+            },
+            "actual": null
+          },
+          {
+            "path": "/state/unresolved/0",
+            "error": "extra_item",
+            "expected": null,
+            "actual": {
+              "source_id": "u4",
+              "quote": "archive the old item"
+            }
+          },
+          {
+            "path": "/state/tasks/0/decision/ref/quote",
+            "expected": "use green tape",
+            "actual": "use blue tape"
+          }
+        ],
+        "grounding_errors": [],
+        "field_exact": {
+          "goal": true,
+          "criteria": true,
+          "work": true,
+          "decision": false,
+          "conflicts": true,
+          "lifecycle": true
+        },
+        "observed_state_sha256": "417241b07cd14192e6d940b384750203b7b4b52a8af4a53bb03717e4de75359a",
+        "answer": "`cold run` now provides observed completion of `cold check` and satisfies `cold seal verified`; `seal kit` is also logged complete. The `tape dispute` is resolved to `use green tape`, but `tape ruling` is not task acceptance, so the kit is ready and awaits explicit Owner acceptance. No label progress. Please clarify whether “archive the old item” refers to the kit or the label; I will not assign that archive request."
+      }
+    }
+  ]
+}

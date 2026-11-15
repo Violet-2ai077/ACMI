@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"That’s 5 tests total (2 + 3). Next action: draft the patch plan and test plan, without claiming execution or passes.\",\"state\":{\"task_ids\":[\"f0190000-0000-4000-8000-000000000100\"],\"focus\":\"f0190000-0000-4000-8000-000000000100\",\"created\":[],\"unresolved\":[],\"tasks\":[{\"id\":\"f0190000-0000-4000-8000-000000000100\",\"goal\":{\"source_id\":\"h0\",\"quote\":\"repair amber filter\"},\"criteria\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"two edge cases pass\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"patch filter\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"}]}}",
+  "reasoning": "We need answer: total tests 5 (2+3). One next action: plan/patch? User says plan the patch and tests without claiming execution. Next action maybe \"write the patch plan\" or \"draft test cases\". Need state preserve task, planned work. Current goal same. Criteria pending. Work planned. Add? The work item is `patch filter` already. New planning? We should not invent meta work items. Existing work remains planned. Criteria pending. Lifecycle running? Requested task lifecycle is running even if all work planned. Goal repair amber filter requested. So lifecycle running. focus task. task_ids includes task. created empty. unresolved empty.\n\nAnswer concise under 100 words. State JSON exact. Need goal REF source h0 quote. Criteria same. Work same. decision null conflicts []. Could lifecycle running. Yes.\n\nAnswer: \"That's 5 tests total (2 + 3). Next action: draft the test plan and patch plan—no execution or pass claims.\" This aligns.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1245,
+    "completion_tokens": 412,
+    "total_tokens": 1657,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 208
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00043395,
+      "allowance": 0.00026037,
+      "tokens": {
+        "input": 1245,
+        "output": 412,
+        "reasoning": 208,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b4f6efe0fa7-25ba1f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 25379,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.9521,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.7790000000004511,
+    "content_type": "text/event-stream",
+    "wire_chunks": 143,
+    "wire_sha256": "310a79a46c0b611d6feca8b25db1530ae643c69c96cdfc67c578f110e3ef7e27",
+    "content_sha256": "93534ce386d6786edfc513a4a8b29c9500fd2a8a4030bb8173dd4cb677e37683",
+    "reasoning_sha256": "76b04001b1176627e692292de6202b0f6c6c0731042fb6fb5a71e8481a05d58e"
+  },
+  "latency": {
+    "total_ms": 6989.7853000000005,
+    "first_wire_ms": 3010.1103000000003,
+    "first_content_ms": 5751.5922,
+    "first_reasoning_ms": 3013.3147,
+    "evidence_write_ms": 120.93949999999734
+  }
+}

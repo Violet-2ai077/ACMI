@@ -1,0 +1,7 @@
+{
+  "at": "2026-11-15T17:04:29.714Z",
+  "freeze_sha256": "8c4f1285bcbe367682eca7a231f6c8f5c059902e32ae0491f032bc48bfaef2ec",
+  "node": "v24.16.0",
+  "commit": "e2247ec6795b789c1c49b07c8abe4e6cd42aef46",
+  "max_actual_calls": 60
+}

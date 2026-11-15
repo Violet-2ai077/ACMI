@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Suggested two-field draft: `batch`: [value]; `date`: [value]. This is only a proposed draft—no drafting execution and no label approval are recorded.\",\"state\":{\"task_ids\":[\"f0190000-0000-4000-8000-000000000202\"],\"focus\":\"f0190000-0000-4000-8000-000000000202\",\"created\":[\"f0190000-0000-4000-8000-000000000202\"],\"unresolved\":[],\"tasks\":[{\"id\":\"f0190000-0000-4000-8000-000000000200\",\"goal\":{\"source_id\":\"h0\",\"quote\":\"pack jade kit\"},\"criteria\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"two seals verified\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"h0\",\"quote\":\"seal kit\"},\"status\":\"ready\",\"basis\":\"reported\",\"evidence\":[{\"source_id\":\"u1\",\"quote\":\"kit claim\"}]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"},{\"id\":\"f0190000-0000-4000-8000-000000000202\",\"goal\":{\"source_id\":\"u2\",\"quote\":\"prepare violet label\"},\"criteria\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"label approved\"},\"status\":\"pending\"}],\"work\":[{\"ref\":{\"source_id\":\"u2\",\"quote\":\"draft label\"},\"status\":\"planned\",\"basis\":\"planned\",\"evidence\":[]}],\"decision\":null,\"conflicts\":[],\"lifecycle\":\"running\"}]}}",
+  "reasoning": "We need answer plus state. Need create new task for distinct goal prepare violet label. Use first unused UUID slot: f0190000-0000-4000-8000-000000000202. Focus switches to new task. Preserve old task off-focus state, but note perhaps previous work seal kit remains ready/reported and lifecycle running. Need include task_ids every task explicitly requested in current answer including status mentions? Current asks focus independent goal, acceptance, work; suggest two-field draft. \"Do not treat drafting as execution or approval.\" We explicitly mention current new task. Do we need include old task in task_ids? \"task_ids contains every task explicitly requested in the current answer, including requested status mentions, not everything mentioned only as background.\" The current answer may reference old task? We can avoid mentioning old task in answer perhaps. But state tasks must include both to preserve. task_ids are tasks explicitly requested in current answer; likely new task only; maybe focus old? No. We should include new ID. created new. unresolved none. New task goal ref u2? Current source_id u2, quote exact `prepare violet label`; criterion `label approved`; work `draft label`. Decision? None. Conflict? The instruction \"Do not treat drafting as execution or approval\" isn't conflict maybe procedural. No explicit decision. Criteria pending. Work planned basis planned evidence []. lifecycle planned. Need answer concise under 100 words. Suggest a two-field draft containing batch and date, but not execution/approval. Could say \"Suggested label draft: Batch: [batch value]; Date: [date]. This is a template only...\" Need maybe backticks? The state refs need quotes exact visible. Goal quote appears inside backticks in user message. Criterion and work too. Good.\n\nNeed ensure state schema: focus new UUID. tasks both. For old task work ready reported with evidence `kit claim`, criterion pending, lifecycle running. Should we preserve exactly. Yes. New task maybe lifecycle planned because all work planned. Task requested starting? \"Switch focus to an independent goal...\" It's a goal active but work not started. \"Requested task lifecycle is running even if all work is planned.\" Is this task explicitly requested? They say independent goal and work not started. This is a requested task, so lifecycle running. Criteria pending. Work planned. Good.\n\nAnswer no mention creating? Fine. Keep under 100 words. State JSON no markdown. Ensure exact quote occurrences. In answer we can quote. \"Suggested two-field draft: `batch`: [value]; `date`: [value]. This is only a proposed draft—no drafting execution and no label approval are recorded.\" 27 words. Good.\n\nState task_ids maybe new only? What about old task explicitly not requested. It's background. Maybe no. But focus switched to new. Need tasks include both. `created` new. unresolved [].\n\nDecision: null. Conflicts: [].\n\nNeed answer string exactly. State as object. Ensure JSON valid.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1534,
+    "completion_tokens": 965,
+    "total_tokens": 2499,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 620
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00067739,
+      "allowance": 0.00040643,
+      "tokens": {
+        "input": 638,
+        "output": 965,
+        "reasoning": 620,
+        "cache_read": 896,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b00c3e9c4d1-2e1ad2",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 59465,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.67950000003,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08029999997233972,
+    "content_type": "text/event-stream",
+    "wire_chunks": 328,
+    "wire_sha256": "02155138099797f54b457b42a0f5b8d1c276595beda505996f9569df34554f81",
+    "content_sha256": "f84d12d9130ada4372b90e605a67f1d785d22982ca10439235e88cd289715f6e",
+    "reasoning_sha256": "0568964d492e71f73097101c01e7e5042fa618b3381ceb9bd95c7a1e37a1b98a"
+  },
+  "latency": {
+    "total_ms": 12977.782799999986,
+    "first_wire_ms": 1756.3117000000202,
+    "first_content_ms": 10589.863500000036,
+    "first_reasoning_ms": 1771.22080000001,
+    "evidence_write_ms": 218.48799999960465
+  }
+}
