@@ -1,0 +1,74 @@
+{
+  "regular_files": 52136,
+  "source_bytes": 2189583192.0,
+  "compressed_bytes": 326301166.0,
+  "zip_verified_files": 52136,
+  "junctions_preserved_as_metadata": 87,
+  "omitted_regular_files": 0,
+  "research_execution": false,
+  "secret_scan": "No strong key/private-key signatures; 145 credentials.yml match exact synthetic test content; value pattern hits are owner labels and SYNTHETIC_CREDENTIAL",
+  "packaging_failure_preserved": "Initial verification completed but metadata write failed due PowerShell false instead of $false; metadata corrected and full ZIP hash verification repeated; no research execution or evidence mutation",
+  "archives": [
+    {
+      "file": "gate-1.zip",
+      "bytes": 13106644,
+      "sha256": "01a270a1132f22d3c198b2c8ea987f844333b838339f35bff75a942abac7dbcc",
+      "files": 11898
+    },
+    {
+      "file": "gate-2.zip",
+      "bytes": 313133526,
+      "sha256": "cac7a44100451a48e90b24b827feb0cf2ce0e35247e5f94045cd62fad939585a",
+      "files": 40213,
+      "parts": [
+        {
+          "file": "gate-2.zip.part001",
+          "bytes": 50331648,
+          "sha256": "354f09106bd3e94334c22b3bdf4ff82fccbf556d0dc2a19e35c4973d36c596fd"
+        },
+        {
+          "file": "gate-2.zip.part002",
+          "bytes": 50331648,
+          "sha256": "c8e5b4f5ed1c7f71061135c7efd227ac8c53960a2073ec92d9cdfe99c73eb94a"
+        },
+        {
+          "file": "gate-2.zip.part003",
+          "bytes": 50331648,
+          "sha256": "1d16f2569a2c38f0034397eb88a73f26df2bfc7a57b7f68f299e464f582bb29b"
+        },
+        {
+          "file": "gate-2.zip.part004",
+          "bytes": 50331648,
+          "sha256": "831e04acf5a5fdcdd25f90acd84066fc4123d6597bd3eb40bac37eb255330eb1"
+        },
+        {
+          "file": "gate-2.zip.part005",
+          "bytes": 50331648,
+          "sha256": "1f656120a2f3844624a8e6c957eebea01ef9dac4bc19a87d01a3e4c2889ab779"
+        },
+        {
+          "file": "gate-2.zip.part006",
+          "bytes": 50331648,
+          "sha256": "662bbb11ee45d342c50fd3aa05ed4614d5ac19d5e8a00503cd40f5fa88eff721"
+        },
+        {
+          "file": "gate-2.zip.part007",
+          "bytes": 11143638,
+          "sha256": "09d513c42a924277cda0348a84aae0fc8e5556d57970e04b8c6b60f0e8548dfd"
+        }
+      ]
+    },
+    {
+      "file": "main-sync-20261115.zip",
+      "bytes": 36376,
+      "sha256": "e0ab06374076339c47964dc31f17edbf414edb1e1e60d9b6a616aae36a9c12b4",
+      "files": 17
+    },
+    {
+      "file": "main-sync-workers4-20261115.zip",
+      "bytes": 24620,
+      "sha256": "0f2352c83a7ef75a55260e7711016b34e3dd468a1147dbe07669965107a5b3e8",
+      "files": 8
+    }
+  ]
+}

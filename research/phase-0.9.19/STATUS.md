@@ -1,8 +1,87 @@
 # Phase 0.9.19 - current research checkpoint
 
-Updated: 2026-11-15. This checkpoint supersedes historical "not yet run" or
+Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
+
+## Current governing priority - 2026-11-16
+
+**Mechanism validation first; engineering only as necessary for trustworthy
+experiments.** Owner made this a binding phase constraint; see
+[RESEARCH-PRIORITY.md](RESEARCH-PRIORITY.md). Do not automatically continue the
+native/storage/RSS closure chain below. Its results and gaps are retained as
+engineering evidence, not the current default backlog or a model NO-GO.
+New work must identify the mechanism question, the concrete experimental
+validity blocker, and the smallest sufficient intervention. The next research
+focus is state-maintenance failures and missing C2/C3 continuity evidence,
+not production infrastructure. No new experiment or implementation is approved
+by this reprioritization. G1 remains unapproved; P-G FAIL, live 1 MiB, frozen
+materials, scores, historical evidence and original gates remain unchanged.
+
+## Historical checkpoints
+
+Owner approved finite SC-S/F/N/M static refinement only. Submitted the
+[SC results](gate2/sc-static-results-2026-11-16.md): explicit-sync source chain,
+storage fault tiers and paired range encoding, residual native exits, and the
+joint resource ledger. Paired encoding has a conditional bound; deployment,
+full profile/native domains, original pretty-output capacity and hard RSS
+remain unclosed. No candidate contract is enabled, no implementation or
+research run is performed. G1/P-G FAIL/live 1 MiB and all original gates stay.
+
+Owner accepted the MC static results and remaining gaps. Submitted the
+[SC-1 synchronization/storage qualification proposal](../../docs/superpowers/plans/2026-11-15-sync-storage-qualification-proposal.md)
+for same-handle explicit synchronization, tiered storage fault guarantees and
+bounded native/RSS proof work. Proposal only: no candidate activation, runtime
+change, implementation or research execution. G1 remains NOT approved;
+G0/P-G FAIL/live 1 MiB and all original gates remain unchanged.
+
+Owner approved MC-N/R/S/M static qualification and contract refinement only.
+Submitted the [MC static results](gate2/mc-static-qualification-results-2026-11-15.md):
+native provenance and error subdomains, v4 failure precedence, local sink
+completion and the revised conditional resource ledger. Current Node's UTF-8
+string write fast path does not establish fsync completion from flush:true;
+this is a static qualification gap, not a historical data-loss observation or
+rescoring. Total native/storage/RSS qualification remains unclosed. Candidate
+contracts are NOT enabled, G1 is NOT approved, and G0/P-G FAIL/live 1 MiB and
+all original gates remain unchanged. No research execution or implementation.
+
+Owner accepted the S2 results and remaining gaps. Submitted the
+[MC-1 minimal closure proposal](../../docs/superpowers/plans/2026-11-15-minimal-closure-contract-proposal.md)
+for native provenance, prospective reader diagnostics, owned local stdout
+capture and runtime-qualified resource claims. This is a proposal only; no
+candidate contract is enabled, G1 remains NOT approved, and no implementation,
+rescoring, performance series, research refreeze or model batch is started.
+
+Owner authorized S2-R/E/P/O/M static proofs only. Submitted the
+[five-task static results](gate2/s2-static-proof-results-2026-11-15.md) with
+reader/error/report/stdout contracts and the complete resource responsibility
+ledger. Conditional report bounds are derived; native error domains, full
+reader failure compatibility and RSS remain unclosed. No candidate contract
+is enabled, G1 is NOT approved, and G0/P-G FAIL/live 1 MiB remain unchanged.
+
+Owner accepted the ME-S conditional proofs and remaining gaps. Submitted the
+[ME-S2 static closure proposal](../../docs/superpowers/plans/2026-11-15-me-s2-static-closure-proposal.md)
+for reader-domain compatibility, error/report encoding, stdout ownership and
+complete resource accounting. The proposed contract changes are not enabled;
+G1 remains NOT approved and G0 remains blocking. No implementation or research
+execution is authorized by this proposal.
+
+Owner approved ME-S static refinement only; G1 is explicitly NOT approved.
+Submitted [ME-S proof and resource ledger](gate2/me-s-static-proof-results-2026-11-15.md)
+and [interface/equivalence contract](gate2/me-s-interface-contract-2026-11-15.md).
+Conditional encoding bounds and the 576-slot core subtotal are derived, but
+full reader-domain equivalence, complete failure/report resources and RSS remain
+unclosed. G0 still applies; no count optimization, implementation, rescoring,
+performance series, research refreeze or model batch occurred.
+
+Owner accepted J1 and authorized a proposal only. Submitted:
+[full-history materialization and external evidence encoding](../../docs/superpowers/plans/2026-11-15-history-materialization-evidence-encoding-proposal.md).
+ME-1 proposes bounded full-history replay and lossless compact derived JSON,
+not fewer audits or commits. It is not the unchanged v4 baseline. Under the
+original relative count gate it remains blocked; any narrow prospective
+capacity-migration admission contract requires an explicit Owner decision.
+No implementation, rescoring, replay, refreeze or model run is authorized.
+P-G FAIL, original evidence and live 1 MiB remain unchanged.
 
 Owner subsequently authorized synchronization, merge to main and push of this
 checkpoint. Integration verification is separate from the J1 static review;

@@ -1,5 +1,55 @@
 # Gate 2 离线准备
 
+**2026-11-16当前工作约束：** [机制验证优先](../RESEARCH-PRIORITY.md)，工程只做到
+支撑可信实验所必需。下列MC/SC等结果保留为历史工程证据，不自动续做其闭合链。
+新工程任务必须对应具体机制实验及可信度阻塞；原P-G FAIL/G1/live限制不因此解除。
+
+SC-S/F/N/M有限静态细化完成：[结果与未闭合项](sc-static-results-2026-11-16.md)。
+已补齐显式同步来源链、分层存储合同和配对格式条件编码；native全域、部署持久化、
+完整profile/原pretty输出容量与硬RSS仍未闭合。候选契约不生效，G1未批准；
+P-G FAIL、live 1 MiB、原分数和门槛不变，不改实现或启动任何研究运行阶段。
+
+MC结果已获认可；提交[SC-1实际同步与存储资格最小修订方案](../../../docs/superpowers/plans/2026-11-15-sync-storage-qualification-proposal.md)
+供审核。分别审议同句柄显式同步、分层故障保证及剩余native/RSS证明范围，不把
+较弱子证书当作原门槛通过。候选契约未生效，G1未批准，P-G FAIL/live 1 MiB及
+全部历史与门槛不变；不改实现、不重评分或进入实验/性能/冻结阶段。
+
+MC-N/R/S/M静态资格与合同细化已提交：[结果及未闭合项](mc-static-qualification-results-2026-11-15.md)。
+当前native来源和错误子域可追溯；v4失败覆盖顺序、本地完成合同与576槽资源台账
+已细化。发现当前字符串写入flush选项不能证明实际fsync的新资格缺口；不推断
+历史丢失、不重评分。总容量/native/存储/RSS仍未闭合，候选契约未生效，G1未批准；
+原P-G FAIL、live 1 MiB和全部门槛保持，不改实现或进入任何运行阶段。
+
+S2结果已获Owner认可；新增
+[MC-1最小闭合方案](../../../docs/superpowers/plans/2026-11-15-minimal-closure-contract-proposal.md)
+仅供审核。聚焦native来源资格、未来reader失败措辞等价边界、受控本地stdout捕获
+及RSS条件证书；不改冻结parser/评分，不启用候选契约，G1/P-G FAIL/live 1 MiB与
+原门槛不变。本轮不修改实现或启动任何研究运行阶段。
+
+S2-R/E/P/O/M 静态细化已完成：[结果总览](s2-static-proof-results-2026-11-15.md)、
+[完整资源台账](joint-resource-proof.md)。已给出全报告条件编码界与 reader 成本关系；
+全域失败接口、native错误及真实RSS仍未闭合。候选契约未生效，G1未批准，原分数、
+冻结、证据、门槛和live 1 MiB不变；不自动进入实现或运行阶段。
+
+Owner 已认可 ME-S 条件证明与未闭合结论。新增
+[ME-S2 静态闭合方案](../../../docs/superpowers/plans/2026-11-15-me-s2-static-closure-proposal.md)
+仅供审核：分别定义完整 reader 接受域、错误/报告编码、stdout 背压与 RSS 的证明
+任务及需另批的契约变化。G1 仍未批准，G0/P-G FAIL/live 1 MiB 不变；本轮不改实现、
+不重评分、不执行性能系列、重新冻结或启动模型批次。
+
+ME-S 静态细化已提交：[证明与资源台账](me-s-static-proof-results-2026-11-15.md)、
+[接口及等价性合同](me-s-interface-contract-2026-11-15.md)。G1 明确未获批准，继续 G0。
+已推导条件编码界、576 槽位核心子项和前缀状态关系；非规范 reader 接受域、完整
+错误/报告/队列成本与 RSS 仍未闭合，不能据子项预算批准采集。本轮未改实现或
+运行研究测试/性能/模型，冻结材料、原分数、历史证据、P-G FAIL/live 1 MiB 不变。
+
+Owner 已认可 J1；仅提交新的
+[全历史物化与外部证据编码联合方案](../../../docs/superpowers/plans/2026-11-15-history-materialization-evidence-encoding-proposal.md)。
+ME-1 保留逐记录提交及每次全审计，申请改变驻留方式和新派生 JSON 的空白编码。
+它不是原 v4：若原 >=30% 计数改善仍适用则继续阻塞；任何窄范围的前瞻准入契约
+必须由 Owner 明确批准，不能改写 P-G FAIL。本轮不改实现、不执行测试系列/重评分、
+不重冻结或运行模型；live 1 MiB、冻结材料及历史证据保持不变。
+
 Owner 仅授权的 J1 静态细化已完成：[交付、编码与 576 槽位证明](j1-static-proof-results-2026-11-15.md)。
 新增两个静态阻塞：原 v4 全 journal 单字符串物化无法覆盖 576 槽位支持域；完整
 pretty-result 的 usage 扩展可超出候选 X=16 MiB。客户端 Q/F 与控制记录界仍未闭合。

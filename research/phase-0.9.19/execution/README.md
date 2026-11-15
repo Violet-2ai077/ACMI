@@ -1,5 +1,11 @@
 # Frozen development execution
 
+Current constraint (2026-11-16): [mechanism validation first](../RESEARCH-PRIORITY.md).
+Engineering is limited to what trustworthy experiments require. The historical
+execution instructions below are not renewed authorization; no active batch
+may be resumed from them. New collection plans and any change to admission
+scope require explicit approval; original evidence, scores and gates remain.
+
 R4 result: 35 dispatched, 34 complete; request 35 hit response_byte_limit and
 globally halted under the approved policy. No retries/replacements or active run.
 See results-r4-2026-11-15.md. D2 censor continuation was not exercised live (zero
