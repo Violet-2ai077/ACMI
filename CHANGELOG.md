@@ -5,6 +5,9 @@ Zod is overridden in the workspace. No installed dsh dependency was changed.
 
 ## Unreleased - Phase 0.9.19 model-native attribution research
 
+- Cap the repository Vitest entry point at four workers after reproducing an
+  existing dsh integration-test timeout under CPU-count-based concurrency. Keep
+  all test deadlines, assertions and research acceptance gates unchanged.
 - Preserve the research design, Owner revisions, isolated harness, deterministic
   evaluator, frozen-input checks, proposal-only state and historical reports.
 - Compare A/B same-generation protocols across C1/C2/C3; keep D diagnostic-only

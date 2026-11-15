@@ -93,3 +93,13 @@ These observations do not establish the exact timeout cause; all failed logs
 are retained. Default `pnpm check` and the research suite must also run on the
 merged main before push. No test code, production code, dependencies or CI
 configuration was changed to make this synchronization pass.
+
+### Approved integration-test worker budget
+
+Owner subsequently approved fixing the Vitest entry point at four workers, with
+timeouts, assertions and research gates unchanged. `pnpm test` now specifies
+`--maxWorkers=4`, so `pnpm check` and existing CI use that same budget. This does
+not change the separate Node research suite or model execution concurrency.
+The [diagnosis and verification record](../../docs/verification/2026-11-15-test-worker-budget.md)
+preserves the earlier failures and distinguishes this engineering fix from the
+still-pending R-E/R-A performance acceptance and unresolved R-C capacity gate.

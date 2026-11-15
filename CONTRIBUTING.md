@@ -14,6 +14,15 @@ pnpm build
 pnpm demo
 ```
 
+`pnpm test` caps Vitest at four workers; `pnpm check` and the existing CI inherit
+this budget. Keep the existing test timeouts and assertions unchanged. The dsh
+storage integration tests can exceed their 5000 ms test deadline under CPU-count
+based concurrency even when they pass in isolation. See the
+[diagnosis and verification record](docs/verification/2026-11-15-test-worker-budget.md).
+Do not use a `VITEST_MAX_WORKERS` environment override during acceptance checks;
+the pinned package command is the configuration being verified. This cap applies
+to Vitest, not the separate Node research suite or model experiment concurrency.
+
 Keep public contract types in `packages/contracts` and runtime-independent
 behavior in `packages/core`. The SDK validates adapter-facing inputs. Keep
 dsh, Cordis, Node filesystem operations, and UI dependencies out of Core and
