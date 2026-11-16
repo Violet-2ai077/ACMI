@@ -1,0 +1,26 @@
+{
+  "version": "TC2-long-task-marker-continuity-20261116",
+  "at": "2026-11-16T15:10:27.673Z",
+  "files": {
+    "research/phase-0.9.19/continuity-long-v1/PLAN.md": "5a2fa571aa126545bb5c40c24b093b6e0634648db8c31356f37f58d561c0fb34",
+    "research/phase-0.9.19/continuity-long-v1/continuity.node-test.mjs": "afb53116a11a463ab07940121c8fbc8c8934ffa7b60bc3be83add3de36110265",
+    "research/phase-0.9.19/continuity-long-v1/evaluate.mjs": "b8405675e1c87da76d96ddfe6833468c606ff5330a051a7d9b18ffe0c27d59c8",
+    "research/phase-0.9.19/continuity-long-v1/materials.mjs": "01c0ac4ec6050056c490d595023a93a420bff9d38bb6bfffde7ed31c790aa685",
+    "research/phase-0.9.19/continuity-long-v1/run.mjs": "4315b948b60aead4d82642b8949ae26e2be20e5e9b7644be0299544deddc51de",
+    "research/phase-0.9.19/continuity-v1/evaluate.mjs": "45701db2435ccdc76988a5c7710c249c681ac0337c21bcec0edefae5bafd0b7b",
+    "research/phase-0.9.19/continuity-v1/materials.mjs": "6dd56e127d2930501d0b7bd8afef7ccf99ee3dff7709fa1ad015b06f6f24be42",
+    "research/phase-0.9.19/gate2/deadline-transport.mjs": "af719d60e7017c40f5991ea8530e8dac01b04bd21e1fada097510f66a57f2c66",
+    "research/phase-0.9.19/gate2/dsh-inspect.mjs": "9c48244a05e5d2832d96fd167a330ec280e6adb383053adf15fc6b5cfbb32542",
+    "research/phase-0.9.19/gate2/dsh-route.mjs": "4c3c1a4a8a58a1f908ca06e04635c71788b0bb3fd7819244a662581b4effbe94",
+    "research/phase-0.9.19/gate2/routing.mjs": "bf47573980e4b6b83d220624b498c1062c86e1a71d1fcac3b351a77b0edab66e",
+    "research/phase-0.9.19/gate2/transport.mjs": "83deda3c0324614f55403c493eec045ab04c45267140dd9a46d073a46b4d92ff",
+    "research/phase-0.9.19/gate2/wire-accounting.mjs": "69f4d85fc139ea0e1a17d899177b4400f352fb02db1835ca9039c7016d1e7bd0",
+    "research/phase-0.9.19/protocol/contracts.mjs": "e449aa10e889b7a72bb6f1bc7da9d122e1023c5ea257d1ae2400f19ac6340ecd",
+    "research/phase-0.9.19/continuity-long-v1/frozen/oracle.json": "d4a0f7fb1eac04c0fb406a3c9cf099c12e50143c38508f6ce2954de4fd8fb63d",
+    "research/phase-0.9.19/continuity-long-v1/frozen/plan.json": "1059d21727157391935a2a427ee34efe67b537790b1ef845d4bd956c35846fa6",
+    "research/phase-0.9.19/continuity-long-v1/frozen/prompt.json": "81cb81bca742aae3b98df482fa514a8a5f4d04a19d0777975cd221c1cb12b626",
+    "research/phase-0.9.19/continuity-long-v1/frozen/public.json": "5a74429333a6cc802bd2c7ea0ae5e59c61bb55f7ed0dc7789ea5446df0b77e52",
+    "research/phase-0.9.19/continuity-long-v1/frozen/route.json": "11a12e2a218d3344857bc589a9509c60688a5732db243c481dc0cc93e427579d",
+    "research/phase-0.9.19/continuity-long-v1/frozen/self-review.json": "d10a05bc4524ed3335afc186191650f10d3f5edfbbbdb41b618b7f671f7c922c"
+  }
+}

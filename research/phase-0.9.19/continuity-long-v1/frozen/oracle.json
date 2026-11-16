@@ -1,0 +1,321 @@
+[
+  {
+    "story": "similar-exports",
+    "turn": 1,
+    "task_key": "haitang-orders",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "initialization",
+    "rationale": "Independent order export for Haitang; earliest creation.",
+    "answerChecks": [
+      [
+        "order_id"
+      ],
+      [
+        "created_at"
+      ],
+      [
+        "最早",
+        "升序",
+        "ASC"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 2,
+    "task_key": "haitong-orders",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "new-similar-client-same-objective",
+    "rationale": "Distinct client with similar name, same key, different selection rule.",
+    "answerChecks": [
+      [
+        "order_id"
+      ],
+      [
+        "updated_at"
+      ],
+      [
+        "最新",
+        "降序",
+        "DESC"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 3,
+    "task_key": "haitang-orders",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-similar-client",
+    "rationale": "Return to earliest-created order rule, not preceding latest-updated client.",
+    "answerChecks": [
+      [
+        "order_id"
+      ],
+      [
+        "created_at"
+      ],
+      [
+        "ASC",
+        "升序",
+        "最早"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 4,
+    "task_key": "haitang-refunds",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "birth",
+    "category": "new-same-client-different-objective",
+    "rationale": "Same client, explicitly independent refund export.",
+    "answerChecks": [
+      [
+        "refund_id"
+      ],
+      [
+        "processed_at"
+      ],
+      [
+        "最新",
+        "降序",
+        "DESC"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 5,
+    "task_key": "haisong-orders",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "birth",
+    "category": "new-similar-export-different-key",
+    "rationale": "Fourth independent export; compound key rather than order id.",
+    "answerChecks": [
+      [
+        "batch_digest"
+      ],
+      [
+        "row_no"
+      ],
+      [
+        "组合",
+        "联合",
+        "复合",
+        "一起",
+        "\\+"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 6,
+    "task_key": "haitong-orders",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "return-after-two-intervening-births",
+    "rationale": "Return to second task with concrete latest-updated selection.",
+    "answerChecks": [
+      [
+        "10[:：]00"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 7,
+    "task_key": "haitong-refunds",
+    "expected": "5",
+    "birth_turn": 7,
+    "kind": "birth",
+    "category": "new-overlapping-client-and-objective",
+    "rationale": "Fifth task shares client with task two and refund objective with task three.",
+    "answerChecks": [
+      [
+        "refund_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "最早",
+        "升序",
+        "ASC"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 8,
+    "task_key": "haitang-orders",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-oldest-with-revised-requirement",
+    "rationale": "Identity survives changed selection rule; resolve order vs refund for same client.",
+    "answerChecks": [
+      [
+        "order_id"
+      ],
+      [
+        "created_at"
+      ],
+      [
+        "DESC",
+        "降序",
+        "最新"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 9,
+    "task_key": "haisong-orders",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "return",
+    "category": "return-compound-key",
+    "rationale": "Return to fourth task after both clients intervened.",
+    "answerChecks": [
+      [
+        "batch_digest"
+      ],
+      [
+        "row_no"
+      ],
+      [
+        "幂等",
+        "重复",
+        "一次",
+        "唯一"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 10,
+    "task_key": "haitang-refunds",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "return-same-client-confusable-objective",
+    "rationale": "Return to task three after five intervening turns; not revised order export.",
+    "answerChecks": [
+      [
+        "refund_id"
+      ],
+      [
+        "processed_at"
+      ],
+      [
+        "DESC",
+        "降序",
+        "最新"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 11,
+    "task_key": "haitong-refunds",
+    "expected": "5",
+    "birth_turn": 7,
+    "kind": "return",
+    "category": "return-same-objective-confusable-client",
+    "rationale": "Return to task five, contrasting task three with same refund key.",
+    "answerChecks": [
+      [
+        "refund_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "ASC",
+        "升序",
+        "最早",
+        "min"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 12,
+    "task_key": "haitong-orders",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "return-middle-after-five-intervening-turns",
+    "rationale": "Return to task two after five intervening turns; latest update not earliest receipt.",
+    "answerChecks": [
+      [
+        "order_id"
+      ],
+      [
+        "updated_at"
+      ],
+      [
+        "DESC",
+        "降序",
+        "最新"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 13,
+    "task_key": "haisong-orders",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "return",
+    "category": "return-implicit-unique-object",
+    "rationale": "No client name; unique compound-key description points to task four.",
+    "answerChecks": [
+      [
+        "batch_digest"
+      ],
+      [
+        "row_no"
+      ],
+      [
+        "不同",
+        "区别",
+        "区分",
+        "不相同"
+      ]
+    ]
+  },
+  {
+    "story": "similar-exports",
+    "turn": 14,
+    "task_key": "haitang-orders",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-oldest-after-five-intervening-turns",
+    "rationale": "Final return to task one; identity remains first despite intervening similar tasks.",
+    "answerChecks": [
+      [
+        "order_id"
+      ],
+      [
+        "created_at"
+      ],
+      [
+        "DESC",
+        "降序",
+        "最新"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "version": "TC2-long-task-marker-continuity-20261116",
+  "batch_id": "tc2-20261116",
+  "authorization": "Owner longer similar-task continuity request after TC1; no full state; bounded environment retries",
+  "schedule": [
+    {
+      "index": 1,
+      "story": "similar-exports",
+      "turn": 1
+    },
+    {
+      "index": 2,
+      "story": "similar-exports",
+      "turn": 2
+    },
+    {
+      "index": 3,
+      "story": "similar-exports",
+      "turn": 3
+    },
+    {
+      "index": 4,
+      "story": "similar-exports",
+      "turn": 4
+    },
+    {
+      "index": 5,
+      "story": "similar-exports",
+      "turn": 5
+    },
+    {
+      "index": 6,
+      "story": "similar-exports",
+      "turn": 6
+    },
+    {
+      "index": 7,
+      "story": "similar-exports",
+      "turn": 7
+    },
+    {
+      "index": 8,
+      "story": "similar-exports",
+      "turn": 8
+    },
+    {
+      "index": 9,
+      "story": "similar-exports",
+      "turn": 9
+    },
+    {
+      "index": 10,
+      "story": "similar-exports",
+      "turn": 10
+    },
+    {
+      "index": 11,
+      "story": "similar-exports",
+      "turn": 11
+    },
+    {
+      "index": 12,
+      "story": "similar-exports",
+      "turn": 12
+    },
+    {
+      "index": 13,
+      "story": "similar-exports",
+      "turn": 13
+    },
+    {
+      "index": 14,
+      "story": "similar-exports",
+      "turn": 14
+    }
+  ],
+  "max_actual_calls": 16,
+  "max_retry_calls": 2,
+  "retry_wait_ms": 5000,
+  "previous_conversation_calls": 104,
+  "combined_ceiling": 120,
+  "max_output_tokens": 16384,
+  "max_input_bytes": 131072,
+  "max_response_bytes": 1048576,
+  "timeout_ms": 180000
+}
