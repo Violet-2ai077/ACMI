@@ -1,0 +1,71 @@
+{
+  "content": "海桐单独配置一条导出规则，与海棠规则隔离。按 `order_id` 分组，取 `updated_at` 最新记录：\n\n```sql\nSELECT *\nFROM (\n  SELECT t.*,\n         ROW_NUMBER() OVER (\n           PARTITION BY order_id\n           ORDER BY updated_at DESC, id DESC\n         ) AS rn\n  FROM orders t\n) x\nWHERE rn = 1;\n```\n\n`updated_at` 相同时用主键兜底，保证导出的结果稳定。<|task:2|>",
+  "reasoning": "We need answer Chinese. Need task marker identity. We need determine task: previous task was 海棠 customer dedup preserving earliest created_at. Now 海桐 customer separate processing, order_id stable, wants latest updated_at. Is this same task or different? Rules: different clients separately requested work may be different tasks even using same capability/vocabulary. Project/topic same doesn't auto mean same goal. Here explicitly \"海桐客户也要单独处理\" same workflow but different customer, different requirement field. Need likely new task N=2 because different client separately required handling. Need answer under 200 Chinese characters. Simple design. Need include SQL using ROW_NUMBER partition order_id order updated_at desc, tie-break. Mention separate logic, don't mix with 海棠. Marker <|task:2|>. Ensure normal answer not claim executed. Let's craft concise. Maybe \"海桐订单导出单独建规则\" and SQL. Under 200 chars. Need maybe no code fence? Could have inline SQL. Desired oververbosity 5 but user says simple; system asks <=200. Let's create around 130 Chinese chars plus code. Marker at end. Ensure exactly one.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 586,
+    "completion_tokens": 358,
+    "total_tokens": 944,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 243,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003027,
+      "allowance": 0.00018162,
+      "tokens": {
+        "input": 586,
+        "output": 358,
+        "reasoning": 243,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "232aea40c2e60264d31ed5903336175b",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 37821,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6677,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.16890000000057626,
+    "content_type": "text/event-stream",
+    "wire_chunks": 173,
+    "wire_sha256": "338ce7d9d92eda4399c3b58f939cce993c3317182e81a96ba4e61dba14ac9320",
+    "content_sha256": "baabb8efe62c0dca83f16dbad5fe875faaeff270f4789f689dfa87e967ac6fd2",
+    "reasoning_sha256": "2429c6fa489df27f6d248efba00c16ee3ad3ac0c71e665fde3015290a6360f1a"
+  },
+  "latency": {
+    "total_ms": 5177.477099999999,
+    "first_wire_ms": 2402.0954,
+    "first_content_ms": 4169.3658000000005,
+    "first_reasoning_ms": 2402.9795999999997,
+    "evidence_write_ms": 115.40910000002623
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "content": "唯一键是 `(batch_digest, row_no)`，只有这两个字段都相同，才算同一条记录；如果 `batch_digest` 不同，即使 `row_no` 相同，这条记录也不能当成同一条，不能只按 `row_no` 去重。<|task:4|>",
+  "reasoning": " We need answer Chinese. Need identify task: 海松 customer order export dedup key (batch_digest,row_no), task 4. User asks \"那家客户\" no order id uses batch_digest,row_no. Add sentence: different batches even same row_no not same record, use original field names. Need concise, not over 200 Chinese chars? \"正常直接回答...通常不超过200字\". Need explain uniqueness composite includes batch_digest: if row_no same but batch_digest different, pair differs, so not duplicate. Must output marker exactly <|task:4|> at end. Ensure no multiple markers. Answer likely: 唯一键是(batch_digest,row_no)；只有当batch_digest和row_no都相同才视为同一记录。若batch_digest不同，即使row_no相同，(batch_digest,row_no)也不同，不能当成同一条，也不能仅按row_no去重。 That is ~100 Chinese chars. Need maybe mention don't use row_no alone. Good. Marker at end.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1789,
+    "completion_tokens": 292,
+    "total_tokens": 2081,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 224,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00044355,
+      "allowance": 0.00026613,
+      "tokens": {
+        "input": 1789,
+        "output": 292,
+        "reasoning": 224,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "21a8710ec20effaa6121b2ba8c7daf07",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 26038,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.78960000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08410000000003492,
+    "content_type": "text/event-stream",
+    "wire_chunks": 122,
+    "wire_sha256": "ee076bd6a7e3763ea5c545fe1f76b4cad10939d1ffb3d59afc8cb4d42ffdc7ec",
+    "content_sha256": "e5c44eff261b181247fbe687d7894d12bf65b277fc58953c04d430c0586098b9",
+    "reasoning_sha256": "69a60ec9e8926600f3edebc1191d441e3ee80dda08c621696a61267a24688cae"
+  },
+  "latency": {
+    "total_ms": 3373.4233999999997,
+    "first_wire_ms": 2142.235200000003,
+    "first_content_ms": 3358.6250999999975,
+    "first_reasoning_ms": 2143.8767000000007,
+    "evidence_write_ms": 58.45870000007562
+  }
+}

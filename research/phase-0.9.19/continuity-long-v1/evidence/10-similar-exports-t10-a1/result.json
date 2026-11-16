@@ -1,0 +1,71 @@
+{
+  "content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY processed_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。<|task:3|>",
+  "reasoning": "We need answer Chinese. Need identify task. User asks 海棠退款导出 fragment,沿用之前为退款约定字段和保留规则. Need inspect history. There are refund rules: 海棠? Earlier task 3 said \"海棠另有一份退款导出需要单独去重，不是刚才的订单导出。退款用refund_id判断重复，并保留processed_at最新的记录。请给退款导出一个方案。\" That is task 3. Later 海桐退款 received_at earliest task 5. User now says 海棠那份退款导出,沿用之前为退款约定的字段和保留规则. This refers task 3, not task 5. Need output PARTITION BY refund_id ORDER BY processed_at DESC, id DESC. Keep rn=1. Exactly one marker task:3. Do not confuse task. Answer concise, no code fence? Fine. Need marker end. Ensure task marker exactly one.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1521,
+    "completion_tokens": 234,
+    "total_tokens": 1755,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 185,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00036855,
+      "allowance": 0.00022113,
+      "tokens": {
+        "input": 1521,
+        "output": 234,
+        "reasoning": 185,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "a469e1178d3b417bf0ed0428f05163f4",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 21998,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180001.1101,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11080000000220025,
+    "content_type": "text/event-stream",
+    "wire_chunks": 91,
+    "wire_sha256": "e886a907300d57bb1df2ec49df42b3671a10c18afa5e3e39f212616866122512",
+    "content_sha256": "efe694f5fc746846c6f38664f05d30855b7e92bf2c7706e4e041a0971d81a167",
+    "reasoning_sha256": "8b4450311bbab86ff5f26ebd54e757ecf12ffff01ad459d9083943a64b5c10e4"
+  },
+  "latency": {
+    "total_ms": 4787.786200000002,
+    "first_wire_ms": 2872.1267000000007,
+    "first_content_ms": 4779.952299999997,
+    "first_reasoning_ms": 2872.6679000000004,
+    "evidence_write_ms": 47.93010000003778
+  }
+}

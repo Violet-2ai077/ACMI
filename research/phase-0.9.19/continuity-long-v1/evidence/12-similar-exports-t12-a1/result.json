@@ -1,0 +1,71 @@
+{
+  "content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY updated_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1`。 <|task:2|>",
+  "reasoning": "We need answer short SQL snippet for Haitong order export: partition order_id, order by updated_at DESC, id DESC. Task identity 2. Need include marker exact. Normal answer under 200 Chinese chars maybe. Ensure no mixing refund. Could just code. Then marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1689,
+    "completion_tokens": 104,
+    "total_tokens": 1793,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 56,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00031575,
+      "allowance": 0.00018945,
+      "tokens": {
+        "input": 1689,
+        "output": 104,
+        "reasoning": 56,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "2eefde7627fc421798add08bc9a70e91",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 11100,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.58070000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07879999999568099,
+    "content_type": "text/event-stream",
+    "wire_chunks": 55,
+    "wire_sha256": "125b85e3892a8c85459b29c4549fd85f9f4f3e7c8e389164df6d4c458a9496a7",
+    "content_sha256": "5bbc1b3c3fdf32aab2b6ca1333eada42711540cdc9d9b760ad480e57584ddfd7",
+    "reasoning_sha256": "5eac3ad3c86ec8eb50b9edcd95ce91c91e861696930209cab83533b4296f1121"
+  },
+  "latency": {
+    "total_ms": 2396.4504000000015,
+    "first_wire_ms": 1493.2627999999968,
+    "first_content_ms": 2183.448400000001,
+    "first_reasoning_ms": 1494.3127000000022,
+    "evidence_write_ms": 30.13239999999496
+  }
+}

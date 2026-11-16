@@ -1,0 +1,71 @@
+{
+  "content": "`(batch_digest, row_no)` 相同，说明重传的是同一批次中的同一条逻辑记录。唯一索引和 `ON CONFLICT DO NOTHING` 会把它识别为重复写入，因此只保留第一次，重传不会新增记录。 <|task:4|>",
+  "reasoning": "We need answer in Chinese, concise, direct, under 200 chars. Explain why only one write: same batch_digest and row_no means same logical row under dedup key; unique index/ON CONFLICT DO NOTHING ensures idempotent retransmission, no duplicate. Don't propose new scheme. Need task marker. This is continuation of 海松 task 4. Also note \"不要另起一套方案\" so reaffirm. Answer normal. Mark task:4. Ensure marker at end exactly.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1421,
+    "completion_tokens": 174,
+    "total_tokens": 1595,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 109,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00031755,
+      "allowance": 0.00019053,
+      "tokens": {
+        "input": 1421,
+        "output": 174,
+        "reasoning": 109,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "af0cf56a65d348da177df3a61e11dc48",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 19477,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180001.01069999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.29019999999945867,
+    "content_type": "text/event-stream",
+    "wire_chunks": 93,
+    "wire_sha256": "042022ef4eda3d4dd8b6d4ee41b07a85046b23f22dbec67eb87ef6e04ea558bb",
+    "content_sha256": "aac46fbfefcb563e7815791f28dd3a2913cd25dc471e281fae04de5f89ea7315",
+    "reasoning_sha256": "4410bd620ec6b19761d6784348f2fbed5c4be06ab315b2538dd687f1c6f20890"
+  },
+  "latency": {
+    "total_ms": 4151.014999999999,
+    "first_wire_ms": 2029.7541999999994,
+    "first_content_ms": 2567.6839,
+    "first_reasoning_ms": 2030.6659999999974,
+    "evidence_write_ms": 53.098599999957514
+  }
+}

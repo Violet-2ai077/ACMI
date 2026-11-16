@@ -1,0 +1,1475 @@
+{
+  "freeze_sha256": "c91f2af1ce2736fb3d15e46d78bb9845ab2e7ba1e6f1f310b3238bf3fde99e86",
+  "planned_calls": 14,
+  "actual_calls": 14,
+  "completed_attempts": 14,
+  "failed_attempts": 0,
+  "evidence_incomplete": 0,
+  "retry_calls": 0,
+  "not_sent": [],
+  "protocol": {
+    "correct": 14,
+    "assessed": 14
+  },
+  "canonical": {
+    "correct": 14,
+    "assessed": 14,
+    "planned": 14
+  },
+  "by_kind": [
+    {
+      "kind": "birth",
+      "planned": 5,
+      "assessed": 5,
+      "correct": 5,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "continue",
+      "planned": 0,
+      "assessed": 0,
+      "correct": 0,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "return",
+      "planned": 9,
+      "assessed": 9,
+      "correct": 9,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    }
+  ],
+  "conditional_restoration": {
+    "correct": 9,
+    "assessed": 9,
+    "unassessable": 0,
+    "planned": 9
+  },
+  "returns": [
+    {
+      "story": "similar-exports",
+      "turn": 3,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-similar-exports-t1-a1",
+      "return_directory": "03-similar-exports-t3-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 6,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "02-similar-exports-t2-a1",
+      "return_directory": "06-similar-exports-t6-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 8,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-similar-exports-t1-a1",
+      "return_directory": "08-similar-exports-t8-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 9,
+      "birth_turn": 5,
+      "canonical_expected": "4",
+      "actual_birth_marker": "4",
+      "observed": "4",
+      "birth_directory": "05-similar-exports-t5-a1",
+      "return_directory": "09-similar-exports-t9-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 10,
+      "birth_turn": 4,
+      "canonical_expected": "3",
+      "actual_birth_marker": "3",
+      "observed": "3",
+      "birth_directory": "04-similar-exports-t4-a1",
+      "return_directory": "10-similar-exports-t10-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 11,
+      "birth_turn": 7,
+      "canonical_expected": "5",
+      "actual_birth_marker": "5",
+      "observed": "5",
+      "birth_directory": "07-similar-exports-t7-a1",
+      "return_directory": "11-similar-exports-t11-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 12,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "02-similar-exports-t2-a1",
+      "return_directory": "12-similar-exports-t12-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 13,
+      "birth_turn": 5,
+      "canonical_expected": "4",
+      "actual_birth_marker": "4",
+      "observed": "4",
+      "birth_directory": "05-similar-exports-t5-a1",
+      "return_directory": "13-similar-exports-t13-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-exports",
+      "turn": 14,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-similar-exports-t1-a1",
+      "return_directory": "14-similar-exports-t14-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    }
+  ],
+  "answer_minimal": {
+    "correct": 14,
+    "assessed": 14
+  },
+  "trajectories": [
+    {
+      "story": "similar-exports",
+      "complete_turns": 14,
+      "complete": true,
+      "all_markers_correct": true,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "birth",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "birth",
+          "expected": "4",
+          "observed": "4",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 7,
+          "kind": "birth",
+          "expected": "5",
+          "observed": "5",
+          "correct": true
+        },
+        {
+          "turn": 8,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 9,
+          "kind": "return",
+          "expected": "4",
+          "observed": "4",
+          "correct": true
+        },
+        {
+          "turn": 10,
+          "kind": "return",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 11,
+          "kind": "return",
+          "expected": "5",
+          "observed": "5",
+          "correct": true
+        },
+        {
+          "turn": 12,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 13,
+          "kind": "return",
+          "expected": "4",
+          "observed": "4",
+          "correct": true
+        },
+        {
+          "turn": 14,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "strict_local_criterion_met": true,
+  "rows": [
+    {
+      "index": 1,
+      "story": "similar-exports",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-similar-exports-t1-a1",
+      "category": "initialization",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 41646,
+      "latency": {
+        "total_ms": 4848.7119999999995,
+        "first_wire_ms": 2056.3156,
+        "first_content_ms": 4267.5671,
+        "first_reasoning_ms": 2057.5939,
+        "evidence_write_ms": 132.0199999999926
+      },
+      "usage": {
+        "prompt_tokens": 427,
+        "completion_tokens": 411,
+        "total_tokens": 838,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 295,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031065,
+          "allowance": 0.00018639,
+          "tokens": {
+            "input": 427,
+            "output": 411,
+            "reasoning": 295,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最早",
+              "升序",
+              "ASC"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "按 `order_id` 分组，取 `created_at` 最早的一条。示例：\n\n```sql\nSELECT *\nFROM (\n  SELECT t.*,\n         ROW_NUMBER() OVER (\n           PARTITION BY order_id\n           ORDER BY created_at ASC\n         ) AS rn\n  FROM orders t\n) x\nWHERE rn = 1;\n```\n\n如果 `created_at` 相同，可再按主键排序，以保证结果稳定。建议仅对导出查询去重，不直接删除源表数据。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 2,
+      "story": "similar-exports",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "02-similar-exports-t2-a1",
+      "category": "new-similar-client-same-objective",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 37821,
+      "latency": {
+        "total_ms": 5177.477099999999,
+        "first_wire_ms": 2402.0954,
+        "first_content_ms": 4169.3658000000005,
+        "first_reasoning_ms": 2402.9795999999997,
+        "evidence_write_ms": 115.40910000002623
+      },
+      "usage": {
+        "prompt_tokens": 586,
+        "completion_tokens": 358,
+        "total_tokens": 944,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 243,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003027,
+          "allowance": 0.00018162,
+          "tokens": {
+            "input": 586,
+            "output": 358,
+            "reasoning": 243,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最新",
+              "降序",
+              "DESC"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "海桐单独配置一条导出规则，与海棠规则隔离。按 `order_id` 分组，取 `updated_at` 最新记录：\n\n```sql\nSELECT *\nFROM (\n  SELECT t.*,\n         ROW_NUMBER() OVER (\n           PARTITION BY order_id\n           ORDER BY updated_at DESC, id DESC\n         ) AS rn\n  FROM orders t\n) x\nWHERE rn = 1;\n```\n\n`updated_at` 相同时用主键兜底，保证导出的结果稳定。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 3,
+      "story": "similar-exports",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "03-similar-exports-t3-a1",
+      "category": "return-similar-client",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 25504,
+      "latency": {
+        "total_ms": 3727.642600000001,
+        "first_wire_ms": 2139.6924,
+        "first_content_ms": 3680.322,
+        "first_reasoning_ms": 2141.6440000000002,
+        "evidence_write_ms": 80.62740000000667
+      },
+      "usage": {
+        "prompt_tokens": 736,
+        "completion_tokens": 263,
+        "total_tokens": 999,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 214,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002682,
+          "allowance": 0.00016092,
+          "tokens": {
+            "input": 736,
+            "output": 263,
+            "reasoning": 214,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "ASC",
+              "升序",
+              "最早"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at ASC, id ASC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 4,
+      "story": "similar-exports",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "04-similar-exports-t4-a1",
+      "category": "new-same-client-different-objective",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 31391,
+      "latency": {
+        "total_ms": 3637.8564000000006,
+        "first_wire_ms": 1589.7020999999986,
+        "first_content_ms": 3375.5437999999995,
+        "first_reasoning_ms": 1590.9778999999999,
+        "evidence_write_ms": 93.21229999999923
+      },
+      "usage": {
+        "prompt_tokens": 833,
+        "completion_tokens": 302,
+        "total_tokens": 1135,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 210,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00030615,
+          "allowance": 0.00018369,
+          "tokens": {
+            "input": 833,
+            "output": 302,
+            "reasoning": 210,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "refund_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "processed_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最新",
+              "降序",
+              "DESC"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "退款导出单独配置规则：按 `refund_id` 分组，取 `processed_at` 最新的一条；如果时间相同，则用主键兜底，以保证稳定。\n\n```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY processed_at DESC, id DESC\n) AS rn\n```\n\n筛选 `rn = 1`，该规则仅用于退款导出。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 5,
+      "story": "similar-exports",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "05-similar-exports-t5-a1",
+      "category": "new-similar-export-different-key",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 31772,
+      "latency": {
+        "total_ms": 3847.801000000003,
+        "first_wire_ms": 1281.9405000000006,
+        "first_content_ms": 3132.3294000000024,
+        "first_reasoning_ms": 1282.530200000001,
+        "evidence_write_ms": 84.42249999998239
+      },
+      "usage": {
+        "prompt_tokens": 971,
+        "completion_tokens": 317,
+        "total_tokens": 1288,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 221,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00033585,
+          "allowance": 0.00020151,
+          "tokens": {
+            "input": 971,
+            "output": 317,
+            "reasoning": 221,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "4",
+        "observed": "4",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch_digest"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "组合",
+              "联合",
+              "复合",
+              "一起",
+              "\\+"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "建议使用组合去重键：`(batch_digest, row_no)`，并为这两列建立唯一索引；重传时写入采用 `INSERT ... ON CONFLICT (batch_digest, row_no) DO NOTHING`，即遇到重复就跳过。\n\n前提是同一批次重传时 `batch_digest` 保持稳定，且 `row_no` 在批次内唯一且不变化。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 6,
+      "story": "similar-exports",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "06-similar-exports-t6-a1",
+      "category": "return-after-two-intervening-births",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 4936,
+      "latency": {
+        "total_ms": 1674.677499999998,
+        "first_wire_ms": 1399.2273999999998,
+        "first_content_ms": 1570.073199999999,
+        "first_reasoning_ms": 1399.8610999999983,
+        "evidence_write_ms": 16.81370000001334
+      },
+      "usage": {
+        "prompt_tokens": 1112,
+        "completion_tokens": 48,
+        "total_tokens": 1160,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 25,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001956,
+          "allowance": 0.00011736,
+          "tokens": {
+            "input": 1112,
+            "output": 48,
+            "reasoning": 25,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "10[:：]00"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "保留 `updated_at` 为 10:00 的那条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 7,
+      "story": "similar-exports",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "07-similar-exports-t7-a1",
+      "category": "new-overlapping-client-and-objective",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 25290,
+      "latency": {
+        "total_ms": 3281.225300000002,
+        "first_wire_ms": 1257.8781000000017,
+        "first_content_ms": 2741.8693999999996,
+        "first_reasoning_ms": 1258.943900000002,
+        "evidence_write_ms": 68.99499999999534
+      },
+      "usage": {
+        "prompt_tokens": 1182,
+        "completion_tokens": 277,
+        "total_tokens": 1459,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 178,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003435,
+          "allowance": 0.0002061,
+          "tokens": {
+            "input": 1182,
+            "output": 277,
+            "reasoning": 178,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "5",
+        "observed": "5",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "refund_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最早",
+              "升序",
+              "ASC"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "海桐退款导出单独配置规则，与海桐订单导出互不影响：按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，再按主键兜底以保证结果稳定。\n\n```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY received_at ASC, id ASC\n) AS rn\n```\n\n筛选 `rn = 1`。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 8,
+      "story": "similar-exports",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "08-similar-exports-t8-a1",
+      "category": "return-oldest-with-revised-requirement",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 11569,
+      "latency": {
+        "total_ms": 2113.7304000000004,
+        "first_wire_ms": 1551.2763000000014,
+        "first_content_ms": 1994.7273000000023,
+        "first_reasoning_ms": 1552.4541000000027,
+        "evidence_write_ms": 39.53750000000582
+      },
+      "usage": {
+        "prompt_tokens": 1328,
+        "completion_tokens": 107,
+        "total_tokens": 1435,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 58,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002634,
+          "allowance": 0.00015804,
+          "tokens": {
+            "input": 1328,
+            "output": 107,
+            "reasoning": 58,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 9,
+      "story": "similar-exports",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "09-similar-exports-t9-a1",
+      "category": "return-compound-key",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 19477,
+      "latency": {
+        "total_ms": 4151.014999999999,
+        "first_wire_ms": 2029.7541999999994,
+        "first_content_ms": 2567.6839,
+        "first_reasoning_ms": 2030.6659999999974,
+        "evidence_write_ms": 53.098599999957514
+      },
+      "usage": {
+        "prompt_tokens": 1421,
+        "completion_tokens": 174,
+        "total_tokens": 1595,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 109,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031755,
+          "allowance": 0.00019053,
+          "tokens": {
+            "input": 1421,
+            "output": 174,
+            "reasoning": 109,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "4",
+        "observed": "4",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch_digest"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "幂等",
+              "重复",
+              "一次",
+              "唯一"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "`(batch_digest, row_no)` 相同，说明重传的是同一批次中的同一条逻辑记录。唯一索引和 `ON CONFLICT DO NOTHING` 会把它识别为重复写入，因此只保留第一次，重传不会新增记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 10,
+      "story": "similar-exports",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "10-similar-exports-t10-a1",
+      "category": "return-same-client-confusable-objective",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 21998,
+      "latency": {
+        "total_ms": 4787.786200000002,
+        "first_wire_ms": 2872.1267000000007,
+        "first_content_ms": 4779.952299999997,
+        "first_reasoning_ms": 2872.6679000000004,
+        "evidence_write_ms": 47.93010000003778
+      },
+      "usage": {
+        "prompt_tokens": 1521,
+        "completion_tokens": 234,
+        "total_tokens": 1755,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 185,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00036855,
+          "allowance": 0.00022113,
+          "tokens": {
+            "input": 1521,
+            "output": 234,
+            "reasoning": 185,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "refund_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "processed_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY processed_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 11,
+      "story": "similar-exports",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "11-similar-exports-t11-a1",
+      "category": "return-same-objective-confusable-client",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 12509,
+      "latency": {
+        "total_ms": 3222.4757000000027,
+        "first_wire_ms": 2636.769699999997,
+        "first_content_ms": 3045.0481,
+        "first_reasoning_ms": 2637.9769000000015,
+        "evidence_write_ms": 33.669199999982084
+      },
+      "usage": {
+        "prompt_tokens": 1609,
+        "completion_tokens": 111,
+        "total_tokens": 1720,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 70,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00030795,
+          "allowance": 0.00018477,
+          "tokens": {
+            "input": 1609,
+            "output": 111,
+            "reasoning": 70,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "5",
+        "observed": "5",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "refund_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "ASC",
+              "升序",
+              "最早",
+              "min"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，则按主键兜底。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 12,
+      "story": "similar-exports",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "12-similar-exports-t12-a1",
+      "category": "return-middle-after-five-intervening-turns",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 11100,
+      "latency": {
+        "total_ms": 2396.4504000000015,
+        "first_wire_ms": 1493.2627999999968,
+        "first_content_ms": 2183.448400000001,
+        "first_reasoning_ms": 1494.3127000000022,
+        "evidence_write_ms": 30.13239999999496
+      },
+      "usage": {
+        "prompt_tokens": 1689,
+        "completion_tokens": 104,
+        "total_tokens": 1793,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 56,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031575,
+          "allowance": 0.00018945,
+          "tokens": {
+            "input": 1689,
+            "output": 104,
+            "reasoning": 56,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY updated_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1`。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 13,
+      "story": "similar-exports",
+      "turn": 13,
+      "attempt": 1,
+      "directory": "13-similar-exports-t13-a1",
+      "category": "return-implicit-unique-object",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 26038,
+      "latency": {
+        "total_ms": 3373.4233999999997,
+        "first_wire_ms": 2142.235200000003,
+        "first_content_ms": 3358.6250999999975,
+        "first_reasoning_ms": 2143.8767000000007,
+        "evidence_write_ms": 58.45870000007562
+      },
+      "usage": {
+        "prompt_tokens": 1789,
+        "completion_tokens": 292,
+        "total_tokens": 2081,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 224,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00044355,
+          "allowance": 0.00026613,
+          "tokens": {
+            "input": 1789,
+            "output": 292,
+            "reasoning": 224,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "4",
+        "observed": "4",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch_digest"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "不同",
+              "区别",
+              "区分",
+              "不相同"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "唯一键是 `(batch_digest, row_no)`，只有这两个字段都相同，才算同一条记录；如果 `batch_digest` 不同，即使 `row_no` 相同，这条记录也不能当成同一条，不能只按 `row_no` 去重。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "similar-exports",
+      "turn": 14,
+      "attempt": 1,
+      "directory": "14-similar-exports-t14-a1",
+      "category": "return-oldest-after-five-intervening-turns",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 17012,
+      "latency": {
+        "total_ms": 2686.387799999997,
+        "first_wire_ms": 1361.8775000000023,
+        "first_content_ms": 2552.885399999999,
+        "first_reasoning_ms": 2117.642399999997,
+        "evidence_write_ms": 41.50129999999626
+      },
+      "usage": {
+        "prompt_tokens": 1898,
+        "completion_tokens": 194,
+        "total_tokens": 2092,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 145,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004011,
+          "allowance": 0.00024066,
+          "tokens": {
+            "input": 1898,
+            "output": 194,
+            "reasoning": 145,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    }
+  ]
+}

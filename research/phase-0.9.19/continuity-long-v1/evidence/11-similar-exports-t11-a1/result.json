@@ -1,0 +1,71 @@
+{
+  "content": "按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，则按主键兜底。 <|task:5|>",
+  "reasoning": "We need answer Chinese, one sentence pseudocode, retain earliest by received_at for Haitong refund. Need task marker 5. Under 200 chars. Don't claim execution. Could be \"按 refund_id 分组，取 received_at 最早的一条，时间相同按主键兜底。\" This is simple. Need task marker exactly end.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1609,
+    "completion_tokens": 111,
+    "total_tokens": 1720,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 70,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00030795,
+      "allowance": 0.00018477,
+      "tokens": {
+        "input": 1609,
+        "output": 111,
+        "reasoning": 70,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "815c84a9ec3f34571afb8a805a8cf29d",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 12509,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.4937,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08030000000144355,
+    "content_type": "text/event-stream",
+    "wire_chunks": 59,
+    "wire_sha256": "5777ab89ec37205226b072e1ae601be3e10a03f033a2ba094c47cb6a3931975b",
+    "content_sha256": "6a899c19e0eeb75b3e0ea74b252c7ef6d4e7a26322cd68cba3a64ea94e848870",
+    "reasoning_sha256": "6458a41928a3e387be2f9c73614b650ce141ae214e6b8ceed6b1c41feab8714c"
+  },
+  "latency": {
+    "total_ms": 3222.4757000000027,
+    "first_wire_ms": 2636.769699999997,
+    "first_content_ms": 3045.0481,
+    "first_reasoning_ms": 2637.9769000000015,
+    "evidence_write_ms": 33.669199999982084
+  }
+}

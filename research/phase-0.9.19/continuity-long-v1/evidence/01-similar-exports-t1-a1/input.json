@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 1,
+    "story": "similar-exports",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "海棠客户的订单导出有重复记录，order_id稳定不变，重复时保留created_at最早的一条。请给海棠的订单导出一个简单去重方案。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-8e15fea01969052ec2f3031a5122d29e369089a4ca4c7b72"
+  },
+  "request_sha256": "f70ac2baed925187a2aab6d21213b06bbca05249f909fffe03a963a9aa74961d",
+  "freeze_sha256": "c91f2af1ce2736fb3d15e46d78bb9845ab2e7ba1e6f1f310b3238bf3fde99e86"
+}

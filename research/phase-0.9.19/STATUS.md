@@ -4,7 +4,22 @@ Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Latest execution - TC1 marker continuity only, 2026-11-16
+## Latest execution - TC2 longer similar-task continuity, 2026-11-16
+
+Owner explicitly requested longer dialogue and more similar tasks/returns, still
+without full state maintenance. [TC2 results](continuity-long-v1/RESULTS.md): one
+new 14-turn CLOSED-LOOP story, five overlapping client/objective tasks, 13 switches
+and nine returns; 14/14 valid captures/protocol/canonical markers and 9/9 returns
+matching actual birth anchors. One complete trajectory passes its frozen local
+criterion. Same TC1 prompt/transport/model parameters; no map, repair or second
+marking call. 14 calls, zero failures/retries/incomplete/unsent; basic lexical
+answer checks 14/14. Total new-research calls now 118/120, unused quota not filled.
+This is a longer short-context probe, not independent samples per turn or proof
+of long-context stability. Full actual content AND reasoning history are retained.
+No full-state claim, old G1/P-G change, or C1/C2 claim; prior freezes unchanged.
+STOPPED; no automatic next batch or engineering qualification work.
+
+## Previous execution - TC1 marker continuity only, 2026-11-16
 
 Owner explicitly authorized returning to an earlier task's original marker,
 without full state maintenance. [TC1 results](continuity-v1/RESULTS.md): four new

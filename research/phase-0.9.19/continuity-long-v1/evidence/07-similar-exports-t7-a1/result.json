@@ -1,0 +1,71 @@
+{
+  "content": "海桐退款导出单独配置规则，与海桐订单导出互不影响：按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，再按主键兜底以保证结果稳定。\n\n```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY received_at ASC, id ASC\n) AS rn\n```\n\n筛选 `rn = 1`。<|task:5|>",
+  "reasoning": "We need answer in Chinese. Need identify task identity. User says 海桐退款导出 separate from 海桐订单导出. Is this new task? Need distinguish tasks. Existing tasks:\n1 海棠订单导出 dedup earliest created_at\n2 海桐订单导出 dedup latest updated_at\n3 海棠退款导出 dedup latest processed_at\n4 海松订单导出 dedup key\nNow 海桐退款导出, separate from 海桐订单导出. Same customer but different work target (refund export vs order export), explicitly separate. Need new task number 5. Give simple SQL ROW_NUMBER partition refund_id order received_at ASC, id ASC; filter rn=1. Keep under 200 Chinese chars maybe. End marker task:5 exactly. Ensure no extra after marker.\n\nNeed perhaps mention separate rule independent. Let's craft concise.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1182,
+    "completion_tokens": 277,
+    "total_tokens": 1459,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 178,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003435,
+      "allowance": 0.0002061,
+      "tokens": {
+        "input": 1182,
+        "output": 277,
+        "reasoning": 178,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "ecfdfcd5a76d3acb6e3beede52822ae0",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 25290,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.58130000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.09569999999803258,
+    "content_type": "text/event-stream",
+    "wire_chunks": 118,
+    "wire_sha256": "f6b18c95a17d74cd10483e08e4e286d9fb9c8a9e15e245300bc6c1b283d1cf9c",
+    "content_sha256": "90ded8dffe9c138047fe28aac4da970dde3e119538dab4fb7de75b47a284ad8b",
+    "reasoning_sha256": "6b18150e71d9625938a084079ce7526799f845495d03e2d4a1053cd2826d3be6"
+  },
+  "latency": {
+    "total_ms": 3281.225300000002,
+    "first_wire_ms": 1257.8781000000017,
+    "first_content_ms": 2741.8693999999996,
+    "first_reasoning_ms": 1258.943900000002,
+    "evidence_write_ms": 68.99499999999534
+  }
+}

@@ -1,0 +1,655 @@
+{
+  "at": "2026-11-16T15:11:31.127Z",
+  "actual_calls": 14,
+  "retry_calls": 0,
+  "halt": null,
+  "attempts": [
+    {
+      "index": 1,
+      "story": "similar-exports",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-similar-exports-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:10:42.142Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4848.7119999999995,
+      "usage": {
+        "prompt_tokens": 427,
+        "completion_tokens": 411,
+        "total_tokens": 838,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 295,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031065,
+          "allowance": 0.00018639,
+          "tokens": {
+            "input": 427,
+            "output": 411,
+            "reasoning": 295,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 2,
+      "story": "similar-exports",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "02-similar-exports-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:10:46.998Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5177.477099999999,
+      "usage": {
+        "prompt_tokens": 586,
+        "completion_tokens": 358,
+        "total_tokens": 944,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 243,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003027,
+          "allowance": 0.00018162,
+          "tokens": {
+            "input": 586,
+            "output": 358,
+            "reasoning": 243,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 3,
+      "story": "similar-exports",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "03-similar-exports-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:10:52.179Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3727.642600000001,
+      "usage": {
+        "prompt_tokens": 736,
+        "completion_tokens": 263,
+        "total_tokens": 999,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 214,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002682,
+          "allowance": 0.00016092,
+          "tokens": {
+            "input": 736,
+            "output": 263,
+            "reasoning": 214,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 4,
+      "story": "similar-exports",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "04-similar-exports-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:10:55.911Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3637.8564000000006,
+      "usage": {
+        "prompt_tokens": 833,
+        "completion_tokens": 302,
+        "total_tokens": 1135,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 210,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00030615,
+          "allowance": 0.00018369,
+          "tokens": {
+            "input": 833,
+            "output": 302,
+            "reasoning": 210,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 5,
+      "story": "similar-exports",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "05-similar-exports-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:10:59.553Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3847.801000000003,
+      "usage": {
+        "prompt_tokens": 971,
+        "completion_tokens": 317,
+        "total_tokens": 1288,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 221,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00033585,
+          "allowance": 0.00020151,
+          "tokens": {
+            "input": 971,
+            "output": 317,
+            "reasoning": 221,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 6,
+      "story": "similar-exports",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "06-similar-exports-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:03.404Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 1674.677499999998,
+      "usage": {
+        "prompt_tokens": 1112,
+        "completion_tokens": 48,
+        "total_tokens": 1160,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 25,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001956,
+          "allowance": 0.00011736,
+          "tokens": {
+            "input": 1112,
+            "output": 48,
+            "reasoning": 25,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 7,
+      "story": "similar-exports",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "07-similar-exports-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:05.083Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3281.225300000002,
+      "usage": {
+        "prompt_tokens": 1182,
+        "completion_tokens": 277,
+        "total_tokens": 1459,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 178,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003435,
+          "allowance": 0.0002061,
+          "tokens": {
+            "input": 1182,
+            "output": 277,
+            "reasoning": 178,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 8,
+      "story": "similar-exports",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "08-similar-exports-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:08.369Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 2113.7304000000004,
+      "usage": {
+        "prompt_tokens": 1328,
+        "completion_tokens": 107,
+        "total_tokens": 1435,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 58,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002634,
+          "allowance": 0.00015804,
+          "tokens": {
+            "input": 1328,
+            "output": 107,
+            "reasoning": 58,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 9,
+      "story": "similar-exports",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "09-similar-exports-t9-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:10.489Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4151.014999999999,
+      "usage": {
+        "prompt_tokens": 1421,
+        "completion_tokens": 174,
+        "total_tokens": 1595,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 109,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031755,
+          "allowance": 0.00019053,
+          "tokens": {
+            "input": 1421,
+            "output": 174,
+            "reasoning": 109,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 10,
+      "story": "similar-exports",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "10-similar-exports-t10-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:14.644Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4787.786200000002,
+      "usage": {
+        "prompt_tokens": 1521,
+        "completion_tokens": 234,
+        "total_tokens": 1755,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 185,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00036855,
+          "allowance": 0.00022113,
+          "tokens": {
+            "input": 1521,
+            "output": 234,
+            "reasoning": 185,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 11,
+      "story": "similar-exports",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "11-similar-exports-t11-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:19.436Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3222.4757000000027,
+      "usage": {
+        "prompt_tokens": 1609,
+        "completion_tokens": 111,
+        "total_tokens": 1720,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 70,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00030795,
+          "allowance": 0.00018477,
+          "tokens": {
+            "input": 1609,
+            "output": 111,
+            "reasoning": 70,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 12,
+      "story": "similar-exports",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "12-similar-exports-t12-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:22.662Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 2396.4504000000015,
+      "usage": {
+        "prompt_tokens": 1689,
+        "completion_tokens": 104,
+        "total_tokens": 1793,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 56,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031575,
+          "allowance": 0.00018945,
+          "tokens": {
+            "input": 1689,
+            "output": 104,
+            "reasoning": 56,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 13,
+      "story": "similar-exports",
+      "turn": 13,
+      "attempt": 1,
+      "directory": "13-similar-exports-t13-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:25.063Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3373.4233999999997,
+      "usage": {
+        "prompt_tokens": 1789,
+        "completion_tokens": 292,
+        "total_tokens": 2081,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 224,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00044355,
+          "allowance": 0.00026613,
+          "tokens": {
+            "input": 1789,
+            "output": 292,
+            "reasoning": 224,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 14,
+      "story": "similar-exports",
+      "turn": 14,
+      "attempt": 1,
+      "directory": "14-similar-exports-t14-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:11:28.440Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 2686.387799999997,
+      "usage": {
+        "prompt_tokens": 1898,
+        "completion_tokens": 194,
+        "total_tokens": 2092,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 145,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004011,
+          "allowance": 0.00024066,
+          "tokens": {
+            "input": 1898,
+            "output": 194,
+            "reasoning": 145,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    }
+  ],
+  "not_sent": [],
+  "no_resume": true,
+  "verified_charge": null
+}

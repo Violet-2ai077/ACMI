@@ -1,0 +1,71 @@
+{
+  "content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at ASC, id ASC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。<|task:1|>",
+  "reasoning": "We need answer Chinese. Need task marker. This is continuing 海棠 task 1? User asks 海棠 order export supplement SQL sorting fragment according to prior rules select row to retain per order, no full query. That's same task 1 (海棠 dedup earliest created_at). Need give fragment only likely ROW_NUMBER partition order_id order created_at asc, tie breaker id. Maybe SELECT? \"SQL排序片段\" select each order's retained row. They said not full query. Could give ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY created_at ASC, id ASC) AS rn then where rn=1? But that's not full query. Need concise under 200 words, end marker exactly <|task:1|>. Ensure no extra after marker. Chinese answer.\n\nNeed mention maybe 海棠 not 海桐. Fragment:\n\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at ASC, id ASC\n) AS rn\n\n保留 rn = 1. Good.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 736,
+    "completion_tokens": 263,
+    "total_tokens": 999,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 214,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002682,
+      "allowance": 0.00016092,
+      "tokens": {
+        "input": 736,
+        "output": 263,
+        "reasoning": 214,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "be2227969555200ef44b8ded95f2904c",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 25504,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5989,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.14220000000022992,
+    "content_type": "text/event-stream",
+    "wire_chunks": 132,
+    "wire_sha256": "588fdf10b9de171689f1b2c0d7c60f7d380c392da51aeef3f66d4cf236eaec4e",
+    "content_sha256": "0c9689ba4313175a2cce283be4a11c7d06a9bc9c01e1695d53ac1411fbea4f2a",
+    "reasoning_sha256": "24bb7ddc9e05fbf390f96b2f6b38d9e2d048824af957258988bbc56dc6974632"
+  },
+  "latency": {
+    "total_ms": 3727.642600000001,
+    "first_wire_ms": 2139.6924,
+    "first_content_ms": 3680.322,
+    "first_reasoning_ms": 2141.6440000000002,
+    "evidence_write_ms": 80.62740000000667
+  }
+}

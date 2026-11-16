@@ -1,0 +1,516 @@
+{
+  "kind": "descriptive extraction; frozen metrics unchanged; no semantic rescoring",
+  "deterministic_scores_identical": 14,
+  "deterministic_summary_identical": true,
+  "scores_sha256": "fd9fd2423c7d34e08e6945c05be3f7556f49d597e9b2d3d822392c70220a6d88",
+  "start": {
+    "at": "2026-11-16T15:10:42.083Z",
+    "freeze_sha256": "c91f2af1ce2736fb3d15e46d78bb9845ab2e7ba1e6f1f310b3238bf3fde99e86",
+    "commit": "cbb904114d434d67c487a0e2bd85001b76295698",
+    "node": "v24.16.0",
+    "max_actual_calls": 16
+  },
+  "end_at": "2026-11-16T15:11:31.127Z",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "overall_acquisition": {
+    "attempts": 14,
+    "total_latency_ms": 48926.660800000005,
+    "mean_latency_ms": 3494.761485714286,
+    "min_latency_ms": 1674.677499999998,
+    "max_latency_ms": 5177.477099999999,
+    "usage_available": 14,
+    "prompt_tokens": 17102,
+    "completion_tokens": 3192,
+    "total_tokens": 20294,
+    "reasoning_tokens": 2233,
+    "provider_cost_field_count": 14,
+    "provider_cost_field_sum": 0,
+    "provider_list_cost_field_count": 14,
+    "provider_list_cost_field_sum": 0.004480499999999999,
+    "provider_allowance_field_sum": 0.0026883,
+    "verified_charge": null,
+    "currency_verified": false,
+    "total_wire_bytes": 318063,
+    "max_wire_bytes": 41646
+  },
+  "by_story": [
+    {
+      "story": "similar-exports",
+      "attempts": 14,
+      "total_latency_ms": 48926.660800000005,
+      "mean_latency_ms": 3494.761485714286,
+      "min_latency_ms": 1674.677499999998,
+      "max_latency_ms": 5177.477099999999,
+      "usage_available": 14,
+      "prompt_tokens": 17102,
+      "completion_tokens": 3192,
+      "total_tokens": 20294,
+      "reasoning_tokens": 2233,
+      "provider_cost_field_count": 14,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 14,
+      "provider_list_cost_field_sum": 0.004480499999999999,
+      "provider_allowance_field_sum": 0.0026883,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 318063,
+      "max_wire_bytes": 41646
+    }
+  ],
+  "cases": [
+    {
+      "index": 1,
+      "story": "similar-exports",
+      "turn": 1,
+      "category": "initialization",
+      "raw_result": "evidence/01-similar-exports-t1-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/01-similar-exports-t1-a1/request.json",
+      "result_sha256": "f63ef5991240008f8709b28864968a63ff37fc23a921f97bf8cb219f23ab67f9",
+      "current_user": "海棠客户的订单导出有重复记录，order_id稳定不变，重复时保留created_at最早的一条。请给海棠的订单导出一个简单去重方案。",
+      "raw_content": "按 `order_id` 分组，取 `created_at` 最早的一条。示例：\n\n```sql\nSELECT *\nFROM (\n  SELECT t.*,\n         ROW_NUMBER() OVER (\n           PARTITION BY order_id\n           ORDER BY created_at ASC\n         ) AS rn\n  FROM orders t\n) x\nWHERE rn = 1;\n```\n\n如果 `created_at` 相同，可再按主键排序，以保证结果稳定。建议仅对导出查询去重，不直接删除源表数据。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最早",
+              "升序",
+              "ASC"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "按 `order_id` 分组，取 `created_at` 最早的一条。示例：\n\n```sql\nSELECT *\nFROM (\n  SELECT t.*,\n         ROW_NUMBER() OVER (\n           PARTITION BY order_id\n           ORDER BY created_at ASC\n         ) AS rn\n  FROM orders t\n) x\nWHERE rn = 1;\n```\n\n如果 `created_at` 相同，可再按主键排序，以保证结果稳定。建议仅对导出查询去重，不直接删除源表数据。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 2,
+      "story": "similar-exports",
+      "turn": 2,
+      "category": "new-similar-client-same-objective",
+      "raw_result": "evidence/02-similar-exports-t2-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/02-similar-exports-t2-a1/request.json",
+      "result_sha256": "81268c2587e266912706df582cd0e2361c443b82b12a3299727594a20e25f512",
+      "current_user": "海桐客户也要单独处理订单导出去重，同样有order_id，但这家要求保留updated_at最新的一条。请给海桐的订单导出设计方案。",
+      "raw_content": "海桐单独配置一条导出规则，与海棠规则隔离。按 `order_id` 分组，取 `updated_at` 最新记录：\n\n```sql\nSELECT *\nFROM (\n  SELECT t.*,\n         ROW_NUMBER() OVER (\n           PARTITION BY order_id\n           ORDER BY updated_at DESC, id DESC\n         ) AS rn\n  FROM orders t\n) x\nWHERE rn = 1;\n```\n\n`updated_at` 相同时用主键兜底，保证导出的结果稳定。<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最新",
+              "降序",
+              "DESC"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "海桐单独配置一条导出规则，与海棠规则隔离。按 `order_id` 分组，取 `updated_at` 最新记录：\n\n```sql\nSELECT *\nFROM (\n  SELECT t.*,\n         ROW_NUMBER() OVER (\n           PARTITION BY order_id\n           ORDER BY updated_at DESC, id DESC\n         ) AS rn\n  FROM orders t\n) x\nWHERE rn = 1;\n```\n\n`updated_at` 相同时用主键兜底，保证导出的结果稳定。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 3,
+      "story": "similar-exports",
+      "turn": 3,
+      "category": "return-similar-client",
+      "raw_result": "evidence/03-similar-exports-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/03-similar-exports-t3-a1/request.json",
+      "result_sha256": "e7f3ae2a393faa68c9bb4233a787bc5745a44468868b93fa019b7e0ea4943a59",
+      "current_user": "海棠的订单导出先补一个SQL排序片段，按之前的规则选出每个订单该留下的那条，不用写完整查询。",
+      "raw_content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at ASC, id ASC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "ASC",
+              "升序",
+              "最早"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at ASC, id ASC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 7,
+      "story": "similar-exports",
+      "turn": 7,
+      "category": "new-overlapping-client-and-objective",
+      "raw_result": "evidence/07-similar-exports-t7-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/07-similar-exports-t7-a1/request.json",
+      "result_sha256": "19098dff4450c092212e4bec22f14b4bdac191b2866c4f2d5af2711cb259ea1e",
+      "current_user": "海桐还要另做一份退款导出去重，用refund_id区分退款，但要保留received_at最早的一次。这份退款工作和海桐订单导出分开，请给出方案。",
+      "raw_content": "海桐退款导出单独配置规则，与海桐订单导出互不影响：按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，再按主键兜底以保证结果稳定。\n\n```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY received_at ASC, id ASC\n) AS rn\n```\n\n筛选 `rn = 1`。<|task:5|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "5",
+        "observed": "5",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "refund_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最早",
+              "升序",
+              "ASC"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "海桐退款导出单独配置规则，与海桐订单导出互不影响：按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，再按主键兜底以保证结果稳定。\n\n```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY received_at ASC, id ASC\n) AS rn\n```\n\n筛选 `rn = 1`。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 8,
+      "story": "similar-exports",
+      "turn": 8,
+      "category": "return-oldest-with-revised-requirement",
+      "raw_result": "evidence/08-similar-exports-t8-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/08-similar-exports-t8-a1/request.json",
+      "result_sha256": "08a1c34353e32b830aeb779497942ef350b2593f6c0b864a77e92878a9e523d6",
+      "current_user": "海棠订单导出的要求改一下：还是按原来的订单标识去重，但现在保留创建时间最新的一条。更新这份订单导出的排序片段，别混入退款的字段。",
+      "raw_content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 10,
+      "story": "similar-exports",
+      "turn": 10,
+      "category": "return-same-client-confusable-objective",
+      "raw_result": "evidence/10-similar-exports-t10-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/10-similar-exports-t10-a1/request.json",
+      "result_sha256": "606371c7707495bac8298fdb07a630016be904e4e278f00fc98a71046baca3a0",
+      "current_user": "海棠那份退款导出，请给一个PARTITION BY加ORDER BY片段，沿用之前为退款约定的字段和保留规则。",
+      "raw_content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY processed_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。<|task:3|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "refund_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "processed_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY refund_id\n  ORDER BY processed_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 11,
+      "story": "similar-exports",
+      "turn": 11,
+      "category": "return-same-objective-confusable-client",
+      "raw_result": "evidence/11-similar-exports-t11-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/11-similar-exports-t11-a1/request.json",
+      "result_sha256": "18de416a26250a58eeea68406ca935a4e8017705fad1d2cb95fd01d092f76283",
+      "current_user": "海桐的退款导出现在写成一句伪代码，仍按这份退款自己的时间字段保留最早记录，不要沿用另一家退款的时间字段。",
+      "raw_content": "按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，则按主键兜底。 <|task:5|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "5",
+        "observed": "5",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "refund_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "ASC",
+              "升序",
+              "最早",
+              "min"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "按 `refund_id` 分组，保留 `received_at` 最早的一条；如果 `received_at` 相同，则按主键兜底。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 12,
+      "story": "similar-exports",
+      "turn": 12,
+      "category": "return-middle-after-five-intervening-turns",
+      "raw_result": "evidence/12-similar-exports-t12-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/12-similar-exports-t12-a1/request.json",
+      "result_sha256": "c297c605fffeec5fe036d008f7406dc324b5b094f87f4d046a19097da5d5694f",
+      "current_user": "再回到海桐的订单导出。写一个简短的去重排序片段，订单字段和时间规则都沿用那份订单方案，不是退款方案。",
+      "raw_content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY updated_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1`。 <|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY updated_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1`。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 13,
+      "story": "similar-exports",
+      "turn": 13,
+      "category": "return-implicit-unique-object",
+      "raw_result": "evidence/13-similar-exports-t13-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/13-similar-exports-t13-a1/request.json",
+      "result_sha256": "1106a9bc0b195abf0b9aaeeee6d0cee54f814398cb123351934f5ee54b638f52",
+      "current_user": "没有订单号、靠文件批次摘要和行号识别记录的那家客户，方案里再补一句：不同批次里即使行号一样，也不能当成同一条。请用原字段名解释。",
+      "raw_content": "唯一键是 `(batch_digest, row_no)`，只有这两个字段都相同，才算同一条记录；如果 `batch_digest` 不同，即使 `row_no` 相同，这条记录也不能当成同一条，不能只按 `row_no` 去重。<|task:4|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "4",
+        "observed": "4",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "batch_digest"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "不同",
+              "区别",
+              "区分",
+              "不相同"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "唯一键是 `(batch_digest, row_no)`，只有这两个字段都相同，才算同一条记录；如果 `batch_digest` 不同，即使 `row_no` 相同，这条记录也不能当成同一条，不能只按 `row_no` 去重。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "similar-exports",
+      "turn": 14,
+      "category": "return-oldest-after-five-intervening-turns",
+      "raw_result": "evidence/14-similar-exports-t14-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/14-similar-exports-t14-a1/request.json",
+      "result_sha256": "9c4a08b1b30ecb44377a63a834cfc9df57deac2c92a49112e531df15c3e1db91",
+      "current_user": "最后给海棠的订单导出整理一个去重排序片段，采用我们后来改过的保留规则，不是这家退款的规则，也不是最初的旧要求。",
+      "raw_content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "created_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "降序",
+              "最新"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。",
+        "error_location": null
+      }
+    }
+  ]
+}

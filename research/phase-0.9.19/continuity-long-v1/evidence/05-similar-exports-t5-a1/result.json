@@ -1,0 +1,71 @@
+{
+  "content": "建议使用组合去重键：`(batch_digest, row_no)`，并为这两列建立唯一索引；重传时写入采用 `INSERT ... ON CONFLICT (batch_digest, row_no) DO NOTHING`，即遇到重复就跳过。\n\n前提是同一批次重传时 `batch_digest` 保持稳定，且 `row_no` 在批次内唯一且不变化。<|task:4|>",
+  "reasoning": "We need answer. Need task marker. Need identify task identity. This is new customer 海松 order export dedup key, separate from previous. New task likely task 4. Need answer normal under 200 chars Chinese. Need design dedup key for retransmission no duplicate writes, using batch_digest and row_no. Key composite (batch_digest,row_no). Need consider batch_digest maybe digest per batch, row_no unique within batch. For retransmission same content same digest and row numbers, unique constraint/upsert. If batch_digest includes row data? They say only batch_digest and row_no. Design: dedup_key = batch_digest + ':' + row_no or composite unique. Save raw fields, unique index. Retransmission INSERT ... ON CONFLICT DO NOTHING/IGNORE. Need maybe if same batch contents but different digest? But given fields. Could mention if batch_digest stable across retransmission. Need avoid claim executing. Task marker 4. Normal direct answer, concise.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 317,
+    "total_tokens": 1288,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 221,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00033585,
+      "allowance": 0.00020151,
+      "tokens": {
+        "input": 971,
+        "output": 317,
+        "reasoning": 221,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "c39a91655e3000acc5392fd58cb88229",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 31772,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.791,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.1304999999993015,
+    "content_type": "text/event-stream",
+    "wire_chunks": 164,
+    "wire_sha256": "e2edf827d327c80b0106861b7f815f46241810d9e26c2f8a336b044c3966de77",
+    "content_sha256": "bf57f16dfa3009ef8ff7b2270d4a8022d62f2e32350a0e8a3bcdc66e4bdfe656",
+    "reasoning_sha256": "24450fd06c80894f0838a13d5e7304db4e3200e613cab5efcc82f1726dfdccf8"
+  },
+  "latency": {
+    "total_ms": 3847.801000000003,
+    "first_wire_ms": 1281.9405000000006,
+    "first_content_ms": 3132.3294000000024,
+    "first_reasoning_ms": 1282.530200000001,
+    "evidence_write_ms": 84.42249999998239
+  }
+}

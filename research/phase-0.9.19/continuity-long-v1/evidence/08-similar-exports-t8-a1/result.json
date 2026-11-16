@@ -1,0 +1,71 @@
+{
+  "content": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY order_id\n  ORDER BY created_at DESC, id DESC\n) AS rn\n```\n\n保留 `rn = 1` 的记录。<|task:1|>",
+  "reasoning": "We need answer. Need task marker. This is modification of task1 (海棠订单导出), not new task. Need give updated sort fragment only, no refund fields. Order by created_at DESC, id DESC stable. Keep within short. Marker task 1. Need not overdo.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1328,
+    "completion_tokens": 107,
+    "total_tokens": 1435,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 58,
+      "rejected_prediction_tokens": 0
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002634,
+      "allowance": 0.00015804,
+      "tokens": {
+        "input": 1328,
+        "output": 107,
+        "reasoning": 58,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "11f1b45552a40531f894695019f268db",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 11569,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.52920000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.1496999999981199,
+    "content_type": "text/event-stream",
+    "wire_chunks": 52,
+    "wire_sha256": "4baa5aadb735da5097054cc9d810566f4ecabdd1670cb9378933c6352dacd6d2",
+    "content_sha256": "42faf8dc4004bf2ede349f659222236c3a97819cb8066535015cda20dd1e23f0",
+    "reasoning_sha256": "af6665a73ab207024881a8562005177077f4cb92c36400891849610ecc496f0f"
+  },
+  "latency": {
+    "total_ms": 2113.7304000000004,
+    "first_wire_ms": 1551.2763000000014,
+    "first_content_ms": 1994.7273000000023,
+    "first_reasoning_ms": 1552.4541000000027,
+    "evidence_write_ms": 39.53750000000582
+  }
+}

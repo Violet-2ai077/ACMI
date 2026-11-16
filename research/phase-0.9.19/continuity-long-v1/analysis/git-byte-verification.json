@@ -1,0 +1,7 @@
+{
+  "at": "2026-11-16T15:14:28.063Z",
+  "checked_files": 79,
+  "all_match": true,
+  "mismatches": [],
+  "scope": "Git staged blobs against frozen manifest and acquired evidence hashes"
+}
