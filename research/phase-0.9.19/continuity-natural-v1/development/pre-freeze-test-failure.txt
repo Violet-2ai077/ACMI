@@ -1,0 +1,55 @@
+exit_code=1
+✖ frozen design has five births, 19 returns and 23 switches across 24 turns (1.2379ms)
+✔ prompt and single-turn scoring semantics exactly match TC1 (2.0942ms)
+✖ all 19 return requests omit client names and explicit return instructions (0.8476ms)
+✔ terminal marker grammar is strict and not automatically repaired (0.1821ms)
+✔ perfect trajectory meets only this local 24-turn criterion (1.4427ms)
+✔ six correct turns cannot be counted as a completed longer trajectory (0.4199ms)
+✔ birth omission and collision are unassessable anchors, never repaired (0.8173ms)
+✔ self-consistent wrong birth preserves conditional but not canonical distinction (1.0773ms)
+✔ return errors separate fresh, previous-task and other established markers (1.0071ms)
+✔ missing return marker is protocol failure, UNRESOLVED is separate abstention (1.175ms)
+✔ failed acquisition stays unobserved and retained in failed denominator (0.682ms)
+✔ actual wrong marker and original reasoning are forwarded; oracle is absent (1.7048ms)
+✔ eligible environment errors only; protocol and byte-limit failures cannot retry (0.2152ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 188.4721
+
+✖ failing tests:
+
+test at research\phase-0.9.19\continuity-natural-v1\continuity.node-test.mjs:19:1
+✖ frozen design has five births, 19 returns and 23 switches across 24 turns (1.2379ms)
+  Error: explicit_return_cue
+      at audit (file:///E:/codex-prj/ACMI/worktrees/finite-mechanism/research/phase-0.9.19/continuity-natural-v1/run.mjs:66:98)
+      at TestContext.<anonymous> (file:///E:/codex-prj/ACMI/worktrees/finite-mechanism/research/phase-0.9.19/continuity-natural-v1/continuity.node-test.mjs:20:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+
+test at research\phase-0.9.19\continuity-natural-v1\continuity.node-test.mjs:33:1
+✖ all 19 return requests omit client names and explicit return instructions (0.8476ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /云栖|云溪|溪岸|回到|之前|刚才|原来|那份|那条|任务[一二三四五1-5]/u. Input:
+  
+  '还没交费的人看完应该知道什么时候之前付、付多少。改成一句友好的提醒，不要写成已经收到款。'
+  
+      at TestContext.<anonymous> (file:///E:/codex-prj/ACMI/worktrees/finite-mechanism/research/phase-0.9.19/continuity-natural-v1/continuity.node-test.mjs:36:30)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '还没交费的人看完应该知道什么时候之前付、付多少。改成一句友好的提醒，不要写成已经收到款。',
+    expected: /云栖|云溪|溪岸|回到|之前|刚才|原来|那份|那条|任务[一二三四五1-5]/u,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

@@ -1,0 +1,16 @@
+{
+  "self_reviewer": "Codex under explicit Owner delegation; not independent review",
+  "before_model_exposure": true,
+  "stories": 1,
+  "turns": 24,
+  "counts": {
+    "birth": 5,
+    "continue": 0,
+    "return": 19
+  },
+  "public_private_fields_separated": true,
+  "birth_and_return_anchors_reviewed": true,
+  "at": "2026-11-16T15:22:46.746Z",
+  "node": "v24.16.0",
+  "base_commit": "716aca407da6186aef51954e08242867908ffd54"
+}

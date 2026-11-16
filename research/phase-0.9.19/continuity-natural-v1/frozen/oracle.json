@@ -1,0 +1,571 @@
+[
+  {
+    "story": "overlapping-notices",
+    "turn": 1,
+    "task_key": "south-confirmation",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "explicit-birth",
+    "rationale": "Birth: southern venue registration confirmation, with paper book cue.",
+    "answerChecks": [
+      [
+        "周六"
+      ],
+      [
+        "14[:：]00",
+        "两点",
+        "二点"
+      ],
+      [
+        "南馆"
+      ],
+      [
+        "纸质书"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 2,
+    "task_key": "north-confirmation",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "explicit-birth",
+    "rationale": "Birth: separate client and event, similar registration confirmation but pencil cue.",
+    "answerChecks": [
+      [
+        "周日"
+      ],
+      [
+        "10[:：]00",
+        "十点"
+      ],
+      [
+        "北馆"
+      ],
+      [
+        "铅笔"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 3,
+    "task_key": "south-confirmation",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Only southern confirmation mentions bringing a paper book; no client or explicit return cue.",
+    "answerChecks": [
+      [
+        "共读",
+        "一起读",
+        "一起阅读"
+      ],
+      [
+        "周六"
+      ],
+      [
+        "南馆"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 4,
+    "task_key": "paid-receipt",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "birth",
+    "category": "explicit-birth",
+    "rationale": "Birth: same client as task one, independent paid receipt email rather than registration SMS.",
+    "answerChecks": [
+      [
+        "68",
+        "六十八"
+      ],
+      [
+        "收到",
+        "到账",
+        "收讫"
+      ],
+      [
+        "谢"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 5,
+    "task_key": "unpaid-reminder",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "birth",
+    "category": "explicit-birth",
+    "rationale": "Birth: same client as task two but distinct unpaid deadline reminder.",
+    "answerChecks": [
+      [
+        "48",
+        "四十八"
+      ],
+      [
+        "周五"
+      ],
+      [
+        "18[:：]00",
+        "六点",
+        "六时"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 6,
+    "task_key": "north-confirmation",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Pencil annotation uniquely identifies northern registration confirmation, not payment work.",
+    "answerChecks": [
+      [
+        "铅笔"
+      ],
+      [
+        "周日"
+      ],
+      [
+        "北馆"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 7,
+    "task_key": "pickup-notice",
+    "expected": "5",
+    "birth_turn": 7,
+    "kind": "birth",
+    "category": "explicit-birth",
+    "rationale": "Birth: fifth independent short-message artifact, pickup rather than event or payment.",
+    "answerChecks": [
+      [
+        "P52"
+      ],
+      [
+        "B3"
+      ],
+      [
+        "周一"
+      ],
+      [
+        "19[:：]00",
+        "七点",
+        "七时"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 8,
+    "task_key": "paid-receipt",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Only receipt email describes money received; selects paid rather than unpaid task.",
+    "answerChecks": [
+      [
+        "68",
+        "六十八"
+      ],
+      [
+        "谢"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 9,
+    "task_key": "south-confirmation",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Venue + paper-book/common-reading cues uniquely select first task; last visit until turn 24.",
+    "answerChecks": [
+      [
+        "南馆"
+      ],
+      [
+        "共读",
+        "一起读",
+        "一起阅读"
+      ],
+      [
+        "袋"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 10,
+    "task_key": "unpaid-reminder",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Only unpaid reminder has payment deadline; amount must come from history.",
+    "answerChecks": [
+      [
+        "48",
+        "四十八"
+      ],
+      [
+        "周五"
+      ],
+      [
+        "18[:：]00",
+        "六点",
+        "六时"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 11,
+    "task_key": "pickup-notice",
+    "expected": "5",
+    "birth_turn": 7,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Pickup artifact identified by collecting books and order number, not reading-session books.",
+    "answerChecks": [
+      [
+        "P52"
+      ],
+      [
+        "B3"
+      ],
+      [
+        "19[:：]00",
+        "七点",
+        "七时"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 12,
+    "task_key": "north-confirmation",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Annotation pencil selects northern session; request still edits same registration SMS.",
+    "answerChecks": [
+      [
+        "周日"
+      ],
+      [
+        "10[:：]00",
+        "十点"
+      ],
+      [
+        "二楼",
+        "2楼"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 13,
+    "task_key": "paid-receipt",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Paid receipt distinct from pending-payment reminder; no billing artifact requested.",
+    "answerChecks": [
+      [
+        "68",
+        "六十八"
+      ],
+      [
+        "收到",
+        "到账",
+        "收讫",
+        "收款"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 14,
+    "task_key": "pickup-notice",
+    "expected": "5",
+    "birth_turn": 7,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Order/cabinet and proxy collection uniquely ground fifth task.",
+    "answerChecks": [
+      [
+        "P52"
+      ],
+      [
+        "B3"
+      ],
+      [
+        "代领",
+        "朋友"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 15,
+    "task_key": "unpaid-reminder",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Unpaid recipient and deadline contrast explicitly with paid receipt semantics, no task label.",
+    "answerChecks": [
+      [
+        "48",
+        "四十八"
+      ],
+      [
+        "周五"
+      ],
+      [
+        "18[:：]00",
+        "六点",
+        "六时"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 16,
+    "task_key": "north-confirmation",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Pencil borrowing selects task two, not paper-book common-reading task one.",
+    "answerChecks": [
+      [
+        "借"
+      ],
+      [
+        "周日"
+      ],
+      [
+        "北馆"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 17,
+    "task_key": "unpaid-reminder",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Conditional already-paid exception edits unpaid reminder; not conversion into paid receipt task.",
+    "answerChecks": [
+      [
+        "48",
+        "四十八"
+      ],
+      [
+        "周五"
+      ],
+      [
+        "忽略",
+        "无需",
+        "不用"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 18,
+    "task_key": "paid-receipt",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Actual received funds and email medium uniquely select receipt after payment reminder.",
+    "answerChecks": [
+      [
+        "68",
+        "六十八"
+      ],
+      [
+        "收到",
+        "到账",
+        "收讫"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 19,
+    "task_key": "pickup-notice",
+    "expected": "5",
+    "birth_turn": 7,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Physical cabinet and order number select pickup, not event venue.",
+    "answerChecks": [
+      [
+        "P52"
+      ],
+      [
+        "B3"
+      ],
+      [
+        "周一"
+      ],
+      [
+        "19[:：]00",
+        "七点",
+        "七时"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 20,
+    "task_key": "north-confirmation",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Reading annotation selects northern session through paraphrased purpose, no pencil field repeated.",
+    "answerChecks": [
+      [
+        "周日"
+      ],
+      [
+        "北馆"
+      ],
+      [
+        "二楼",
+        "2楼"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 21,
+    "task_key": "paid-receipt",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Received-money email, not registration artifact or payment reminder; distinct deliverable persists.",
+    "answerChecks": [
+      [
+        "68",
+        "六十八"
+      ],
+      [
+        "收到",
+        "到账",
+        "收讫"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 22,
+    "task_key": "unpaid-reminder",
+    "expected": "4",
+    "birth_turn": 5,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Deadline/reminder + already-paid exception uniquely identifies fourth task without numeric key in user.",
+    "answerChecks": [
+      [
+        "48",
+        "四十八"
+      ],
+      [
+        "周五"
+      ],
+      [
+        "18[:：]00"
+      ],
+      [
+        "忽略",
+        "无需",
+        "不用"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 23,
+    "task_key": "pickup-notice",
+    "expected": "5",
+    "birth_turn": 7,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Proxy collection and store visit uniquely select pickup notification.",
+    "answerChecks": [
+      [
+        "P52"
+      ],
+      [
+        "B3"
+      ],
+      [
+        "周一"
+      ],
+      [
+        "19[:：]00",
+        "七点",
+        "七时"
+      ]
+    ]
+  },
+  {
+    "story": "overlapping-notices",
+    "turn": 24,
+    "task_key": "south-confirmation",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "content-grounded-return",
+    "rationale": "Paper-book/shared-reading context uniquely recovers first task after 14 intervening turns, without client/venue/return words.",
+    "answerChecks": [
+      [
+        "周六"
+      ],
+      [
+        "14[:：]00",
+        "两点",
+        "二点"
+      ],
+      [
+        "南馆"
+      ],
+      [
+        "三楼",
+        "3楼"
+      ],
+      [
+        "共读",
+        "一起读",
+        "一起阅读"
+      ]
+    ]
+  }
+]

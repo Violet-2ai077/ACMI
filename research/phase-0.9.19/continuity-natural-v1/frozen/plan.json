@@ -1,0 +1,136 @@
+{
+  "version": "TC3-natural-task-marker-continuity-20261116",
+  "batch_id": "tc3-20261116",
+  "authorization": "Owner explicitly authorized NEW finite round after TC2 beyond old remaining quota; reduced cues; no full state",
+  "schedule": [
+    {
+      "index": 1,
+      "story": "overlapping-notices",
+      "turn": 1
+    },
+    {
+      "index": 2,
+      "story": "overlapping-notices",
+      "turn": 2
+    },
+    {
+      "index": 3,
+      "story": "overlapping-notices",
+      "turn": 3
+    },
+    {
+      "index": 4,
+      "story": "overlapping-notices",
+      "turn": 4
+    },
+    {
+      "index": 5,
+      "story": "overlapping-notices",
+      "turn": 5
+    },
+    {
+      "index": 6,
+      "story": "overlapping-notices",
+      "turn": 6
+    },
+    {
+      "index": 7,
+      "story": "overlapping-notices",
+      "turn": 7
+    },
+    {
+      "index": 8,
+      "story": "overlapping-notices",
+      "turn": 8
+    },
+    {
+      "index": 9,
+      "story": "overlapping-notices",
+      "turn": 9
+    },
+    {
+      "index": 10,
+      "story": "overlapping-notices",
+      "turn": 10
+    },
+    {
+      "index": 11,
+      "story": "overlapping-notices",
+      "turn": 11
+    },
+    {
+      "index": 12,
+      "story": "overlapping-notices",
+      "turn": 12
+    },
+    {
+      "index": 13,
+      "story": "overlapping-notices",
+      "turn": 13
+    },
+    {
+      "index": 14,
+      "story": "overlapping-notices",
+      "turn": 14
+    },
+    {
+      "index": 15,
+      "story": "overlapping-notices",
+      "turn": 15
+    },
+    {
+      "index": 16,
+      "story": "overlapping-notices",
+      "turn": 16
+    },
+    {
+      "index": 17,
+      "story": "overlapping-notices",
+      "turn": 17
+    },
+    {
+      "index": 18,
+      "story": "overlapping-notices",
+      "turn": 18
+    },
+    {
+      "index": 19,
+      "story": "overlapping-notices",
+      "turn": 19
+    },
+    {
+      "index": 20,
+      "story": "overlapping-notices",
+      "turn": 20
+    },
+    {
+      "index": 21,
+      "story": "overlapping-notices",
+      "turn": 21
+    },
+    {
+      "index": 22,
+      "story": "overlapping-notices",
+      "turn": 22
+    },
+    {
+      "index": 23,
+      "story": "overlapping-notices",
+      "turn": 23
+    },
+    {
+      "index": 24,
+      "story": "overlapping-notices",
+      "turn": 24
+    }
+  ],
+  "max_actual_calls": 28,
+  "max_retry_calls": 4,
+  "retry_wait_ms": 5000,
+  "previous_conversation_calls": 118,
+  "combined_ceiling": 146,
+  "max_output_tokens": 16384,
+  "max_input_bytes": 131072,
+  "max_response_bytes": 1048576,
+  "timeout_ms": 180000
+}
