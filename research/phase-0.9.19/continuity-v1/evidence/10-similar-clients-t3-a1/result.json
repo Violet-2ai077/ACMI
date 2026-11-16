@@ -1,0 +1,65 @@
+{
+  "content": "青川按 `invoice_no` 去重：先规范化（去空格、统一大小写/全半角），再分组保留一条，优先保留更新时间最新或状态最完整记录；导出加 `invoice_no` 非空与唯一校验。若一发票多明细，则用 `(invoice_no, line_no)` 去重，不能只靠 `invoice_no`。\n\n<|task:3|>",
+  "reasoning": "We need answer in Chinese, under 200 chars ideally. Need task marker. Need identify tasks: task1 Qinghe order_no dedup. task2 Qinglan composite key. Current Qingchuan invoice_no separate client, distinct task -> task3. Need concise advice. Mention invoice_no may not be stable? User says export duplicates use invoice_no. Give corresponding dedup suggestion: dedup by invoice_no, retain latest/business priority, handle null/multi-line? Need not overdo. Maybe normalize invoice_no (trim, case, full-width?) and uniqueness index. If invoice_no non-unique across invoice lines, use invoice_no + line_no; but they asked corresponding. Should not conflate with Qinglan. Answer directly. Add <|task:3|>. Ensure no extra after marker except whitespace. Normal answer.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 717,
+    "completion_tokens": 259,
+    "total_tokens": 976,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 169
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00022532,
+      "allowance": 0.00013519,
+      "tokens": {
+        "input": 461,
+        "output": 259,
+        "reasoning": 169,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-7dd68c",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 18674,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6103,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.12229999999544816,
+    "content_type": "text/event-stream",
+    "wire_chunks": 99,
+    "wire_sha256": "7b8a1aca1acfa9d1213a9bc07a07bf2cb4f74d845dd9f88442e197893e9e4d5d",
+    "content_sha256": "e7b12150b3a91057abe02d9214b8b2b064188b39376c1e05a34a12f01a297674",
+    "reasoning_sha256": "334c8032f41cd9c30c8de03fc991e0614c48bf27e9a04d6ef3b04fd8c8d010cb"
+  },
+  "latency": {
+    "total_ms": 7713.2981,
+    "first_wire_ms": 4981.784199999995,
+    "first_content_ms": 6773.000999999997,
+    "first_reasoning_ms": 4982.425799999997,
+    "evidence_write_ms": 70.73809999999503
+  }
+}

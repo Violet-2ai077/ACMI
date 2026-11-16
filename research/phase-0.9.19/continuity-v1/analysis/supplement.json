@@ -1,0 +1,485 @@
+{
+  "kind": "descriptive extraction; frozen metrics unchanged; no semantic rescoring",
+  "deterministic_scores_identical": 24,
+  "deterministic_summary_identical": true,
+  "scores_sha256": "7301fad2614fe9b39c5937e3df309b4bf9582477f2f91e6d011aff9a57f63060",
+  "start": {
+    "at": "2026-11-16T14:53:38.048Z",
+    "freeze_sha256": "7d9f3a1237298432ea9b02455676be501f4c6461414d58e5e4f428b5e738d62e",
+    "commit": "89383fcee9470c4245f4a8f1c9a7b33e961c4dc0",
+    "node": "v24.16.0",
+    "max_actual_calls": 32
+  },
+  "end_at": "2026-11-16T14:55:46.272Z",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "overall_acquisition": {
+    "attempts": 24,
+    "total_latency_ms": 128063.1499,
+    "mean_latency_ms": 5335.964579166667,
+    "min_latency_ms": 2744.003500000006,
+    "max_latency_ms": 13239.076600000004,
+    "usage_available": 24,
+    "prompt_tokens": 15145,
+    "completion_tokens": 4499,
+    "total_tokens": 19644,
+    "reasoning_tokens": 3236,
+    "provider_cost_field_count": 24,
+    "provider_cost_field_sum": 0,
+    "provider_list_cost_field_count": 24,
+    "provider_list_cost_field_sum": 0.0040680000000000004,
+    "provider_allowance_field_sum": 0.00244077,
+    "verified_charge": null,
+    "currency_verified": false,
+    "total_wire_bytes": 337561,
+    "max_wire_bytes": 66213
+  },
+  "by_story": [
+    {
+      "story": "album-sign",
+      "attempts": 6,
+      "total_latency_ms": 30617.930799999987,
+      "mean_latency_ms": 5102.988466666665,
+      "min_latency_ms": 3734.1233999999968,
+      "max_latency_ms": 6678.152900000001,
+      "usage_available": 6,
+      "prompt_tokens": 3732,
+      "completion_tokens": 1030,
+      "total_tokens": 4762,
+      "reasoning_tokens": 750,
+      "provider_cost_field_count": 6,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 6,
+      "provider_list_cost_field_sum": 0.00098965,
+      "provider_allowance_field_sum": 0.00059378,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 74737,
+      "max_wire_bytes": 17092
+    },
+    {
+      "story": "similar-clients",
+      "attempts": 6,
+      "total_latency_ms": 42247.61300000001,
+      "mean_latency_ms": 7041.268833333335,
+      "min_latency_ms": 3349.1906,
+      "max_latency_ms": 13239.076600000004,
+      "usage_available": 6,
+      "prompt_tokens": 4623,
+      "completion_tokens": 1954,
+      "total_tokens": 6577,
+      "reasoning_tokens": 1369,
+      "provider_cost_field_count": 6,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 6,
+      "provider_list_cost_field_sum": 0.0016777,
+      "provider_allowance_field_sum": 0.00100661,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 144697,
+      "max_wire_bytes": 66213
+    },
+    {
+      "story": "invitation-cost-form",
+      "attempts": 6,
+      "total_latency_ms": 30354.51069999999,
+      "mean_latency_ms": 5059.085116666665,
+      "min_latency_ms": 2826.528099999996,
+      "max_latency_ms": 7937.975699999995,
+      "usage_available": 6,
+      "prompt_tokens": 3415,
+      "completion_tokens": 994,
+      "total_tokens": 4409,
+      "reasoning_tokens": 787,
+      "provider_cost_field_count": 6,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 6,
+      "provider_list_cost_field_sum": 0.0009204999999999999,
+      "provider_allowance_field_sum": 0.00055229,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 77495,
+      "max_wire_bytes": 23747
+    },
+    {
+      "story": "inventory-expenses",
+      "attempts": 6,
+      "total_latency_ms": 24843.09540000001,
+      "mean_latency_ms": 4140.515900000001,
+      "min_latency_ms": 2744.003500000006,
+      "max_latency_ms": 5750.125200000002,
+      "usage_available": 6,
+      "prompt_tokens": 3375,
+      "completion_tokens": 521,
+      "total_tokens": 3896,
+      "reasoning_tokens": 330,
+      "provider_cost_field_count": 6,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 6,
+      "provider_list_cost_field_sum": 0.00048015000000000004,
+      "provider_allowance_field_sum": 0.00028808999999999996,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 40632,
+      "max_wire_bytes": 8966
+    }
+  ],
+  "cases": [
+    {
+      "index": 2,
+      "story": "similar-clients",
+      "turn": 1,
+      "category": "initialization",
+      "raw_result": "evidence/02-similar-clients-t1-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/02-similar-clients-t1-a1/request.json",
+      "result_sha256": "368510492203db30362d0f98ff044b5d7d32baa269f1c128175192a26d81c1a8",
+      "current_user": "青禾客户的订单导出会出现重复记录，订单号order_no稳定不变。给青禾设计一个去重方案。",
+      "raw_content": "青禾订单导出按 `order_no` 去重即可：导出前用 `GROUP BY order_no` 或 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY 更新时间 DESC)` 每组保留一条，并说明保留哪条（如最新记录）。导出后建议加 `order_no` 唯一性校验，并排查重复来源（关联表一对多、分页重复读取等）。若需合并字段，可对非键字段用聚合规则，避免简单 `DISTINCT` 掩盖数据差异。\n\n<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "去重",
+              "唯一",
+              "幂等",
+              "重复"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "青禾订单导出按 `order_no` 去重即可：导出前用 `GROUP BY order_no` 或 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY 更新时间 DESC)` 每组保留一条，并说明保留哪条（如最新记录）。导出后建议加 `order_no` 唯一性校验，并排查重复来源（关联表一对多、分页重复读取等）。若需合并字段，可对非键字段用聚合规则，避免简单 `DISTINCT` 掩盖数据差异。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 6,
+      "story": "similar-clients",
+      "turn": 2,
+      "category": "new-task-similar-vocabulary",
+      "raw_result": "evidence/06-similar-clients-t2-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/06-similar-clients-t2-a1/request.json",
+      "result_sha256": "22d5d2c5857774c81eeb2fb98847eea1a505a4cd2265016b6ba7c15b68934816",
+      "current_user": "青岚客户也有导出重复，但没有订单号，只有文件摘要和行号。为青岚单独设计去重键。",
+      "raw_content": "青岚可用复合键 `(file_digest, row_no)`：`file_digest` 取原始文件字节的 SHA-256；`row_no` 是固定解析规则下的数据行序号（从 1 开始，去除表头和空行）。在数据库建立唯一索引，用来保证重复导入同一文件时幂等去重。该键只能去重“同一文件重复导入”；如需识别不同文件间的重复，可增加规范化行内容哈希及出现序号。\n\n<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "摘要",
+              "哈希",
+              "hash"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "行号"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "青岚可用复合键 `(file_digest, row_no)`：`file_digest` 取原始文件字节的 SHA-256；`row_no` 是固定解析规则下的数据行序号（从 1 开始，去除表头和空行）。在数据库建立唯一索引，用来保证重复导入同一文件时幂等去重。该键只能去重“同一文件重复导入”；如需识别不同文件间的重复，可增加规范化行内容哈希及出现序号。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 10,
+      "story": "similar-clients",
+      "turn": 3,
+      "category": "new-task-similar-vocabulary",
+      "raw_result": "evidence/10-similar-clients-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/10-similar-clients-t3-a1/request.json",
+      "result_sha256": "b1cfbcbb2e4a976d3550705cc09ac338f0a8d2fcf2b60c4fec77f7a40395cb72",
+      "current_user": "青川客户的导出重复要用invoice_no处理。请另给青川一个对应的去重建议。",
+      "raw_content": "青川按 `invoice_no` 去重：先规范化（去空格、统一大小写/全半角），再分组保留一条，优先保留更新时间最新或状态最完整记录；导出加 `invoice_no` 非空与唯一校验。若一发票多明细，则用 `(invoice_no, line_no)` 去重，不能只靠 `invoice_no`。\n\n<|task:3|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "invoice_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "去重",
+              "唯一",
+              "幂等",
+              "重复"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "青川按 `invoice_no` 去重：先规范化（去空格、统一大小写/全半角），再分组保留一条，优先保留更新时间最新或状态最完整记录；导出加 `invoice_no` 非空与唯一校验。若一发票多明细，则用 `(invoice_no, line_no)` 去重，不能只靠 `invoice_no`。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "similar-clients",
+      "turn": 4,
+      "category": "return-oldest-of-three",
+      "raw_result": "evidence/14-similar-clients-t4-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/14-similar-clients-t4-a1/request.json",
+      "result_sha256": "0511e1812005543e6ef899c5239edab0426949735afce426e6c1c3a077dd6097",
+      "current_user": "青禾那边希望重复订单只保留更新时间最新的一条，order_no仍是判断依据。把青禾的方案补上这个要求。",
+      "raw_content": "青禾方案补充：按 `order_no` 分组，用 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY update_time DESC)` 排序，仅保留 `rn=1` 的记录。更新时间相同时，再加稳定次级排序（如主键倒序），确保结果可复现；`update_time` 为空宜单独排查。导出后仍校验 `order_no` 唯一。\n\n<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "order_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最新",
+              "降序",
+              "MAX",
+              "max"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "青禾方案补充：按 `order_no` 分组，用 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY update_time DESC)` 排序，仅保留 `rn=1` 的记录。更新时间相同时，再加稳定次级排序（如主键倒序），确保结果可复现；`update_time` 为空宜单独排查。导出后仍校验 `order_no` 唯一。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 17,
+      "story": "album-sign",
+      "turn": 5,
+      "category": "return-revised-requirement",
+      "raw_result": "evidence/17-album-sign-t5-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/17-album-sign-t5-a1/request.json",
+      "result_sha256": "386d6e75ddb10f64a6920d225bf147b46bf18e66f52006ea3d0adc84fd7abea1",
+      "current_user": "旅行相册的小图现在要装进240×240的框，还是刚才640×480的照片。请更新缩略图尺寸，仍然保持比例。",
+      "raw_content": "仍按 4:3 等比缩放：640×480 放入 240×240 框内，缩略图尺寸为 **240×180**，宽度占满、高度留空，不拉伸；另存缩略图，原图不改动。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "240"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "180"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "仍按 4:3 等比缩放：640×480 放入 240×240 框内，缩略图尺寸为 **240×180**，宽度占满、高度留空，不拉伸；另存缩略图，原图不改动。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 18,
+      "story": "similar-clients",
+      "turn": 5,
+      "category": "return-third-task",
+      "raw_result": "evidence/18-similar-clients-t5-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/18-similar-clients-t5-a1/request.json",
+      "result_sha256": "22b8313c02c3a2c74416e6fc3a19691d4573fd55560230ea75bb448ae4077cbc",
+      "current_user": "青川的财务导出再给一小段伪代码，展示如何按invoice_no排除重复。",
+      "raw_content": "```sql\n-- 先规范化 invoice_no（去空格、统一大小写）\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY invoice_no\n           ORDER BY update_time DESC, id DESC\n         ) AS rn\n  FROM finance_export\n)\nSELECT * FROM ranked WHERE rn = 1;\n```\n\n导出后校验 `COUNT(*) = COUNT(DISTINCT invoice_no)`，并排除 `invoice_no` 为空的记录。\n\n<|task:3|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "invoice_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "distinct",
+              "DISTINCT",
+              "set",
+              "Set",
+              "集合",
+              "去重",
+              "重复"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\n-- 先规范化 invoice_no（去空格、统一大小写）\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY invoice_no\n           ORDER BY update_time DESC, id DESC\n         ) AS rn\n  FROM finance_export\n)\nSELECT * FROM ranked WHERE rn = 1;\n```\n\n导出后校验 `COUNT(*) = COUNT(DISTINCT invoice_no)`，并排除 `invoice_no` 为空的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 22,
+      "story": "similar-clients",
+      "turn": 6,
+      "category": "return-middle-task",
+      "raw_result": "evidence/22-similar-clients-t6-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/22-similar-clients-t6-a1/request.json",
+      "result_sha256": "448cb392b40d162d35fbceeabea6254b861216c64e75132deafcba9b47c7d429",
+      "current_user": "青岚的文件导出那套方案，用一句话解释为什么文件摘要必须和行号一起用。",
+      "raw_content": "文件摘要只能区分“哪个文件”，行号只能区分“文件内哪一行”，二者组合才能唯一标识某文件的某条数据，避免整文件被误去重或不同文件同号行被误合并。<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "摘要",
+              "哈希",
+              "hash"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "行号"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "文件摘要只能区分“哪个文件”，行号只能区分“文件内哪一行”，二者组合才能唯一标识某文件的某条数据，避免整文件被误去重或不同文件同号行被误合并。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 23,
+      "story": "invitation-cost-form",
+      "turn": 6,
+      "category": "return-rephrased-oldest",
+      "raw_result": "evidence/23-invitation-cost-form-t6-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/23-invitation-cost-form-t6-a1/request.json",
+      "result_sha256": "cef211ea17df25884d409a5aa1b270d34edcfec700b58b97c37be8be754dfa76",
+      "current_user": "给家长那条听课短信现在补上地点：社区二楼教室。保留之前的时间和亲切语气。",
+      "raw_content": "亲爱的家长朋友们：周三晚上7点，家长公开课将在社区二楼教室举行，诚邀您参加。期待与您相聚，一起交流分享！\n\n<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "二楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周三"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "七点",
+              "7点",
+              "19[:：]00"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "亲爱的家长朋友们：周三晚上7点，家长公开课将在社区二楼教室举行，诚邀您参加。期待与您相聚，一起交流分享！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 24,
+      "story": "inventory-expenses",
+      "turn": 6,
+      "category": "return-dependent-history",
+      "raw_result": "evidence/24-inventory-expenses-t6-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/24-inventory-expenses-t6-a1/request.json",
+      "result_sha256": "06217a9eea6ac34dfb289d1c448de90628d282a2f0198ca667d5b337aeedb358",
+      "current_user": "把刚才剩下的那批马克杯平均分给两个分店，每店能拿多少只？",
+      "raw_content": "剩余46只马克杯平均分给两个分店：46 ÷ 2 = **23只/店**。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "23",
+              "二十三"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "剩余46只马克杯平均分给两个分店：46 ÷ 2 = **23只/店**。",
+        "error_location": null
+      }
+    }
+  ]
+}

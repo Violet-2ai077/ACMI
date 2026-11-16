@@ -1,5 +1,11 @@
 # TC1: marker continuity only
 
+Completed: [RESULTS.md](RESULTS.md). 24/24 protocol-valid canonical markers,
+11/11 returns restore actual birth markers, four six-turn trajectories pass.
+No full work-state fields, retries or acquisition failures. This is positive
+evidence only for short conversations with complete visible history. STOPPED;
+no automatic state-maintenance stage. Raw evidence and frozen scores retained.
+
 Owner-authorized follow-up to BS1. Normal answer plus one local task marker.
 New tasks use 1,2,3 in first-appearance order; returning restores the original
 marker. No task-state snapshot, UUID, catalog, progress or acceptance fields.

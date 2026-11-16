@@ -1,0 +1,65 @@
+{
+  "content": "计算：12箱 × 6只/箱 = 72只。这批马克杯总库存为 **72只**。<|task:1|>",
+  "reasoning": "We need answer direct Chinese. Need task marker. First task likely 1. Need calculate 12*6=72. Mention total inventory 72 只. No claim beyond. Append <|task:1|>. Ensure under 200 chars.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 413,
+    "completion_tokens": 85,
+    "total_tokens": 498,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 51
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0000565,
+      "allowance": 0.0000339,
+      "tokens": {
+        "input": 29,
+        "output": 85,
+        "reasoning": 51,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-a8681b",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 5994,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180006.39049999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.1033000000006723,
+    "content_type": "text/event-stream",
+    "wire_chunks": 29,
+    "wire_sha256": "a6670cb13e51e6b090e8e2196a42f5b15d0b257f0f2ecde076c734ce2b267d22",
+    "content_sha256": "f441462c1389039a03649f0b49ee022fefa292baf5f3a1937ca34c53e96e87ea",
+    "reasoning_sha256": "5f5e683e089c60a93aa71a5e482905bf4b02f6de1919b83d2b759573506f75f8"
+  },
+  "latency": {
+    "total_ms": 3920.7700000000004,
+    "first_wire_ms": 3176.3064000000013,
+    "first_content_ms": 3876.4578,
+    "first_reasoning_ms": 3177.5491,
+    "evidence_write_ms": 26.574399999994057
+  }
+}

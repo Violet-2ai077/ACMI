@@ -1,0 +1,65 @@
+{
+  "content": "30 × 0.2 = 6（元），这次纸张成本是6元。\n\n<|task:2|>",
+  "reasoning": "我们需要回答用户当前请求。需要识别任务标记连续性。原始对话：用户先请求写邀请短信，标记 task:1（我们输出）。现在新请求：工作室打印材料用了30张纸，每张0.2元，计算纸张成本。这是真正不同的新任务，应使用下一个未使用正整数 2。回答正常直接，不超过200字。计算 30*0.2=6元。末尾恰好附标记 <|task:2|>。不要追加解释。中文。",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 479,
+    "completion_tokens": 133,
+    "total_tokens": 612,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 105
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00011402,
+      "allowance": 0.00006841,
+      "tokens": {
+        "input": 223,
+        "output": 133,
+        "reasoning": 105,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a5a3e22439a-a20d2f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10043,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5358,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11140000000159489,
+    "content_type": "text/event-stream",
+    "wire_chunks": 53,
+    "wire_sha256": "4094eeee8db300f09c74c13c2e94b84cea8a359486c2f3176a9ee633ff87caee",
+    "content_sha256": "99ecb67cf90171afec0b1a07608ce6c49483ff0c287c5e218d3b6a5704c9073f",
+    "reasoning_sha256": "7c3c76ddaee616ea4798a542ff75e4f39e4f60dc186493dfbe3f10092533a4f9"
+  },
+  "latency": {
+    "total_ms": 5673.011999999995,
+    "first_wire_ms": 3868.6352999999945,
+    "first_content_ms": 4955.607899999995,
+    "first_reasoning_ms": 3869.856799999994,
+    "evidence_write_ms": 34.547700000002806
+  }
+}

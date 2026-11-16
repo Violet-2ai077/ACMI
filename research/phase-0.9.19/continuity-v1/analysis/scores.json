@@ -1,0 +1,2127 @@
+{
+  "freeze_sha256": "7d9f3a1237298432ea9b02455676be501f4c6461414d58e5e4f428b5e738d62e",
+  "planned_calls": 24,
+  "actual_calls": 24,
+  "completed_attempts": 24,
+  "failed_attempts": 0,
+  "evidence_incomplete": 0,
+  "retry_calls": 0,
+  "not_sent": [],
+  "protocol": {
+    "correct": 24,
+    "assessed": 24
+  },
+  "canonical": {
+    "correct": 24,
+    "assessed": 24,
+    "planned": 24
+  },
+  "by_kind": [
+    {
+      "kind": "birth",
+      "planned": 10,
+      "assessed": 10,
+      "correct": 10,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "continue",
+      "planned": 3,
+      "assessed": 3,
+      "correct": 3,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "return",
+      "planned": 11,
+      "assessed": 11,
+      "correct": 11,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    }
+  ],
+  "conditional_restoration": {
+    "correct": 11,
+    "assessed": 11,
+    "unassessable": 0,
+    "planned": 11
+  },
+  "returns": [
+    {
+      "story": "album-sign",
+      "turn": 5,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-album-sign-t1-a1",
+      "return_directory": "17-album-sign-t5-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "album-sign",
+      "turn": 6,
+      "birth_turn": 3,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "09-album-sign-t3-a1",
+      "return_directory": "21-album-sign-t6-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-clients",
+      "turn": 4,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "02-similar-clients-t1-a1",
+      "return_directory": "14-similar-clients-t4-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-clients",
+      "turn": 5,
+      "birth_turn": 3,
+      "canonical_expected": "3",
+      "actual_birth_marker": "3",
+      "observed": "3",
+      "birth_directory": "10-similar-clients-t3-a1",
+      "return_directory": "18-similar-clients-t5-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "similar-clients",
+      "turn": 6,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "06-similar-clients-t2-a1",
+      "return_directory": "22-similar-clients-t6-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "invitation-cost-form",
+      "turn": 3,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "03-invitation-cost-form-t1-a1",
+      "return_directory": "11-invitation-cost-form-t3-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "invitation-cost-form",
+      "turn": 5,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "07-invitation-cost-form-t2-a1",
+      "return_directory": "19-invitation-cost-form-t5-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "invitation-cost-form",
+      "turn": 6,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "03-invitation-cost-form-t1-a1",
+      "return_directory": "23-invitation-cost-form-t6-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "inventory-expenses",
+      "turn": 4,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "04-inventory-expenses-t1-a1",
+      "return_directory": "16-inventory-expenses-t4-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "inventory-expenses",
+      "turn": 5,
+      "birth_turn": 3,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "12-inventory-expenses-t3-a1",
+      "return_directory": "20-inventory-expenses-t5-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "inventory-expenses",
+      "turn": 6,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "04-inventory-expenses-t1-a1",
+      "return_directory": "24-inventory-expenses-t6-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    }
+  ],
+  "answer_minimal": {
+    "correct": 22,
+    "assessed": 24
+  },
+  "trajectories": [
+    {
+      "story": "album-sign",
+      "complete_turns": 6,
+      "complete": true,
+      "all_markers_correct": true,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "continue",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "continue",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "story": "similar-clients",
+      "complete_turns": 6,
+      "complete": true,
+      "all_markers_correct": true,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "birth",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "return",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "story": "invitation-cost-form",
+      "complete_turns": 6,
+      "complete": true,
+      "all_markers_correct": true,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "birth",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "story": "inventory-expenses",
+      "complete_turns": 6,
+      "complete": true,
+      "all_markers_correct": true,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "continue",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "strict_local_criterion_met": true,
+  "rows": [
+    {
+      "index": 1,
+      "story": "album-sign",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-album-sign-t1-a1",
+      "category": "initialization",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 11633,
+      "latency": {
+        "total_ms": 4365.7246,
+        "first_wire_ms": 2314.9561999999996,
+        "first_content_ms": 3407.6119,
+        "first_reasoning_ms": 2316.5398999999998,
+        "evidence_write_ms": 48.31200000000348
+      },
+      "usage": {
+        "prompt_tokens": 422,
+        "completion_tokens": 146,
+        "total_tokens": 568,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001509,
+          "allowance": 0.00009054,
+          "tokens": {
+            "input": 422,
+            "output": 146,
+            "reasoning": 92,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "比例",
+              "等比"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "原图",
+              "副本",
+              "复制",
+              "另存"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "按原图宽高比等比缩放：把长边统一设为 300 像素，短边按同一比例计算；这样不会拉高或拉宽。缩略图另存为新文件，原图不动。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 2,
+      "story": "similar-clients",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "02-similar-clients-t1-a1",
+      "category": "initialization",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 10009,
+      "latency": {
+        "total_ms": 3349.1906,
+        "first_wire_ms": 1591.4726,
+        "first_content_ms": 1627.6597000000002,
+        "first_reasoning_ms": null,
+        "evidence_write_ms": 42.64130000000296
+      },
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 122,
+        "total_tokens": 540,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001359,
+          "allowance": 0.00008154,
+          "tokens": {
+            "input": 418,
+            "output": 122,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "order_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "去重",
+              "唯一",
+              "幂等",
+              "重复"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "青禾订单导出按 `order_no` 去重即可：导出前用 `GROUP BY order_no` 或 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY 更新时间 DESC)` 每组保留一条，并说明保留哪条（如最新记录）。导出后建议加 `order_no` 唯一性校验，并排查重复来源（关联表一对多、分页重复读取等）。若需合并字段，可对非键字段用聚合规则，避免简单 `DISTINCT` 掩盖数据差异。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 3,
+      "story": "invitation-cost-form",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "03-invitation-cost-form-t1-a1",
+      "category": "initialization",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 13521,
+      "latency": {
+        "total_ms": 3962.1030999999994,
+        "first_wire_ms": 1969.223500000001,
+        "first_content_ms": 3794.1361000000006,
+        "first_reasoning_ms": 1970.1626999999999,
+        "evidence_write_ms": 53.75520000001143
+      },
+      "usage": {
+        "prompt_tokens": 416,
+        "completion_tokens": 169,
+        "total_tokens": 585,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 136
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001638,
+          "allowance": 0.00009828,
+          "tokens": {
+            "input": 416,
+            "output": 169,
+            "reasoning": 136,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周三"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "七点",
+              "7点",
+              "19[:：]00"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "各位家长：本周三晚上7点将举办一场家长公开课，诚邀您参加，期待您的到来！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 4,
+      "story": "inventory-expenses",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "04-inventory-expenses-t1-a1",
+      "category": "initialization",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 5994,
+      "latency": {
+        "total_ms": 3920.7700000000004,
+        "first_wire_ms": 3176.3064000000013,
+        "first_content_ms": 3876.4578,
+        "first_reasoning_ms": 3177.5491,
+        "evidence_write_ms": 26.574399999994057
+      },
+      "usage": {
+        "prompt_tokens": 413,
+        "completion_tokens": 85,
+        "total_tokens": 498,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 51
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000565,
+          "allowance": 0.0000339,
+          "tokens": {
+            "input": 29,
+            "output": 85,
+            "reasoning": 51,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "72",
+              "七十二"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "计算：12箱 × 6只/箱 = 72只。这批马克杯总库存为 **72只**。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 5,
+      "story": "album-sign",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "05-album-sign-t2-a1",
+      "category": "immediate-continuation",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 16129,
+      "latency": {
+        "total_ms": 4519.655999999999,
+        "first_wire_ms": 2143.4388,
+        "first_content_ms": 4008.8299000000006,
+        "first_reasoning_ms": 2144.110099999998,
+        "evidence_write_ms": 56.72859999999491
+      },
+      "usage": {
+        "prompt_tokens": 511,
+        "completion_tokens": 228,
+        "total_tokens": 739,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 164
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00017582,
+          "allowance": 0.00010549,
+          "tokens": {
+            "input": 255,
+            "output": 228,
+            "reasoning": 164,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "continue",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "160"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "120"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "640×480 的照片保持 4:3 宽高比，放入 160×160 框内会等比缩小为 **160×120**：宽度正好占满，高度留空，不拉伸；缩略图另存，原图不改动。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 6,
+      "story": "similar-clients",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "06-similar-clients-t2-a1",
+      "category": "new-task-similar-vocabulary",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 66213,
+      "latency": {
+        "total_ms": 13239.076600000004,
+        "first_wire_ms": 2844.8982000000033,
+        "first_content_ms": 12231.951000000001,
+        "first_reasoning_ms": 2846.3393000000033,
+        "evidence_write_ms": 234.64559999998528
+      },
+      "usage": {
+        "prompt_tokens": 575,
+        "completion_tokens": 892,
+        "total_tokens": 1467,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 779
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00058382,
+          "allowance": 0.00035029,
+          "tokens": {
+            "input": 319,
+            "output": 892,
+            "reasoning": 779,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "摘要",
+              "哈希",
+              "hash"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "行号"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "青岚可用复合键 `(file_digest, row_no)`：`file_digest` 取原始文件字节的 SHA-256；`row_no` 是固定解析规则下的数据行序号（从 1 开始，去除表头和空行）。在数据库建立唯一索引，用来保证重复导入同一文件时幂等去重。该键只能去重“同一文件重复导入”；如需识别不同文件间的重复，可增加规范化行内容哈希及出现序号。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 7,
+      "story": "invitation-cost-form",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "07-invitation-cost-form-t2-a1",
+      "category": "new-task",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 10043,
+      "latency": {
+        "total_ms": 5673.011999999995,
+        "first_wire_ms": 3868.6352999999945,
+        "first_content_ms": 4955.607899999995,
+        "first_reasoning_ms": 3869.856799999994,
+        "evidence_write_ms": 34.547700000002806
+      },
+      "usage": {
+        "prompt_tokens": 479,
+        "completion_tokens": 133,
+        "total_tokens": 612,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00011402,
+          "allowance": 0.00006841,
+          "tokens": {
+            "input": 223,
+            "output": 133,
+            "reasoning": 105,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "6",
+              "六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "元"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "30 × 0.2 = 6（元），这次纸张成本是6元。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 8,
+      "story": "inventory-expenses",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "08-inventory-expenses-t2-a1",
+      "category": "immediate-continuation",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 5554,
+      "latency": {
+        "total_ms": 5094.290399999998,
+        "first_wire_ms": 4483.334699999999,
+        "first_content_ms": 4876.071499999998,
+        "first_reasoning_ms": 4484.562100000003,
+        "evidence_write_ms": 19.17249999997148
+      },
+      "usage": {
+        "prompt_tokens": 476,
+        "completion_tokens": 73,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 35
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005875,
+          "allowance": 0.00003525,
+          "tokens": {
+            "input": 92,
+            "output": 73,
+            "reasoning": 35,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "continue",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "66",
+              "六十六"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "按修正后的盘点：11箱 × 6只/箱 = **66只**。这批马克杯库存更新为 **66只**。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 9,
+      "story": "album-sign",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "09-album-sign-t3-a1",
+      "category": "new-task",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 8800,
+      "latency": {
+        "total_ms": 6398.333399999996,
+        "first_wire_ms": 4835.845699999998,
+        "first_content_ms": 6233.680800000002,
+        "first_reasoning_ms": 4837.051999999996,
+        "evidence_write_ms": 31.592300000040268
+      },
+      "usage": {
+        "prompt_tokens": 601,
+        "completion_tokens": 106,
+        "total_tokens": 707,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 84
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00011612,
+          "allowance": 0.00006967,
+          "tokens": {
+            "input": 345,
+            "output": 106,
+            "reasoning": 84,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周二"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "本店下周一休息，周二恢复正常营业，敬请知悉。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 10,
+      "story": "similar-clients",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "10-similar-clients-t3-a1",
+      "category": "new-task-similar-vocabulary",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 18674,
+      "latency": {
+        "total_ms": 7713.2981,
+        "first_wire_ms": 4981.784199999995,
+        "first_content_ms": 6773.000999999997,
+        "first_reasoning_ms": 4982.425799999997,
+        "evidence_write_ms": 70.73809999999503
+      },
+      "usage": {
+        "prompt_tokens": 717,
+        "completion_tokens": 259,
+        "total_tokens": 976,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 169
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00022532,
+          "allowance": 0.00013519,
+          "tokens": {
+            "input": 461,
+            "output": 259,
+            "reasoning": 169,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "invoice_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "去重",
+              "唯一",
+              "幂等",
+              "重复"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "青川按 `invoice_no` 去重：先规范化（去空格、统一大小写/全半角），再分组保留一条，优先保留更新时间最新或状态最完整记录；导出加 `invoice_no` 非空与唯一校验。若一发票多明细，则用 `(invoice_no, line_no)` 去重，不能只靠 `invoice_no`。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 11,
+      "story": "invitation-cost-form",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "11-invitation-cost-form-t3-a1",
+      "category": "return-rephrased-object",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 23747,
+      "latency": {
+        "total_ms": 6187.018099999994,
+        "first_wire_ms": 2641.1424999999945,
+        "first_content_ms": 5953.377999999997,
+        "first_reasoning_ms": 2641.7992999999988,
+        "evidence_write_ms": 88.47360000002664
+      },
+      "usage": {
+        "prompt_tokens": 531,
+        "completion_tokens": 306,
+        "total_tokens": 837,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 268
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00022562,
+          "allowance": 0.00013537,
+          "tokens": {
+            "input": 275,
+            "output": 306,
+            "reasoning": 268,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周三"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "七点",
+              "7点",
+              "19[:：]00"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "亲爱的家长朋友们：周三晚上7点有一场家长公开课，诚邀您来参加。期待与您相聚，一起交流分享！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 12,
+      "story": "inventory-expenses",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "12-inventory-expenses-t3-a1",
+      "category": "new-task-same-capability",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 8966,
+      "latency": {
+        "total_ms": 5750.125200000002,
+        "first_wire_ms": 4566.274500000007,
+        "first_content_ms": 5620.3401000000085,
+        "first_reasoning_ms": 4567.491400000006,
+        "evidence_write_ms": 35.69800000001851
+      },
+      "usage": {
+        "prompt_tokens": 540,
+        "completion_tokens": 99,
+        "total_tokens": 639,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 76
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00008395,
+          "allowance": 0.00005037,
+          "tokens": {
+            "input": 156,
+            "output": 99,
+            "reasoning": 76,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "300",
+              "三百"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报销总额：86元 + 214元 = **300元**。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 13,
+      "story": "album-sign",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "13-album-sign-t4-a1",
+      "category": "immediate-continuation",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 12115,
+      "latency": {
+        "total_ms": 6678.152900000001,
+        "first_wire_ms": 5009.252300000007,
+        "first_content_ms": 6672.671100000007,
+        "first_reasoning_ms": 5009.8329000000085,
+        "evidence_write_ms": 38.902100000021164
+      },
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 167,
+        "total_tokens": 817,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 130
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00016007,
+          "allowance": 0.00009604,
+          "tokens": {
+            "input": 394,
+            "output": 167,
+            "reasoning": 130,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "continue",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周二"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "尊敬的顾客：本店下周一暂停营业，周二恢复正常营业，由此给您带来的不便，敬请谅解。感谢您的理解与支持！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "similar-clients",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "14-similar-clients-t4-a1",
+      "category": "return-oldest-of-three",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 15816,
+      "latency": {
+        "total_ms": 9000.098299999998,
+        "first_wire_ms": 5381.517000000007,
+        "first_content_ms": 7080.260999999999,
+        "first_reasoning_ms": 5382.190199999997,
+        "evidence_write_ms": 51.93760000009206
+      },
+      "usage": {
+        "prompt_tokens": 842,
+        "completion_tokens": 217,
+        "total_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00021887,
+          "allowance": 0.00013132,
+          "tokens": {
+            "input": 586,
+            "output": 217,
+            "reasoning": 121,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "order_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最新",
+              "降序",
+              "MAX",
+              "max"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "青禾方案补充：按 `order_no` 分组，用 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY update_time DESC)` 排序，仅保留 `rn=1` 的记录。更新时间相同时，再加稳定次级排序（如主键倒序），确保结果可复现；`update_time` 为空宜单独排查。导出后仍校验 `order_no` 唯一。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 15,
+      "story": "invitation-cost-form",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "15-invitation-cost-form-t4-a1",
+      "category": "new-task",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 11276,
+      "latency": {
+        "total_ms": 7937.975699999995,
+        "first_wire_ms": 5930.213499999998,
+        "first_content_ms": 7088.901800000007,
+        "first_reasoning_ms": 5931.906199999998,
+        "evidence_write_ms": 32.71349999998347
+      },
+      "usage": {
+        "prompt_tokens": 599,
+        "completion_tokens": 134,
+        "total_tokens": 733,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00013262,
+          "allowance": 0.00007957,
+          "tokens": {
+            "input": 343,
+            "output": 134,
+            "reasoning": 97,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "过敏"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "周末团建午餐需要提前订餐，想了解一下：大家有没有食物过敏或忌口？请告诉我具体食物，方便安排。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 16,
+      "story": "inventory-expenses",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "16-inventory-expenses-t4-a1",
+      "category": "return-dependent-history",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 7229,
+      "latency": {
+        "total_ms": 3947.8704,
+        "first_wire_ms": 2964.304099999994,
+        "first_content_ms": 3684.698099999994,
+        "first_reasoning_ms": 2966.1570000000065,
+        "evidence_write_ms": 27.822000000000116
+      },
+      "usage": {
+        "prompt_tokens": 591,
+        "completion_tokens": 87,
+        "total_tokens": 678,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 51
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000844,
+          "allowance": 0.00005064,
+          "tokens": {
+            "input": 207,
+            "output": 87,
+            "reasoning": 51,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "46",
+              "四十六"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "修正后库存为66只，发出20只后：66 − 20 = **46只**。还剩 **46只**。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 17,
+      "story": "album-sign",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "17-album-sign-t5-a1",
+      "category": "return-revised-requirement",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 8968,
+      "latency": {
+        "total_ms": 3734.1233999999968,
+        "first_wire_ms": 2080.322,
+        "first_content_ms": 2908.3494999999966,
+        "first_reasoning_ms": 2445.671199999997,
+        "evidence_write_ms": 32.783299999995506
+      },
+      "usage": {
+        "prompt_tokens": 728,
+        "completion_tokens": 154,
+        "total_tokens": 882,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 90
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00016397,
+          "allowance": 0.00009838,
+          "tokens": {
+            "input": 472,
+            "output": 154,
+            "reasoning": 90,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "240"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "180"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "仍按 4:3 等比缩放：640×480 放入 240×240 框内，缩略图尺寸为 **240×180**，宽度占满、高度留空，不拉伸；另存缩略图，原图不改动。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 18,
+      "story": "similar-clients",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "18-similar-clients-t5-a1",
+      "category": "return-third-task",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 24239,
+      "latency": {
+        "total_ms": 5354.805300000007,
+        "first_wire_ms": 1924.025999999998,
+        "first_content_ms": 4486.948199999999,
+        "first_reasoning_ms": 1924.5675999999949,
+        "evidence_write_ms": 90.11220000004687
+      },
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 346,
+        "total_tokens": 1312,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 236
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031487,
+          "allowance": 0.00018892,
+          "tokens": {
+            "input": 710,
+            "output": 346,
+            "reasoning": 236,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "invoice_no"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "distinct",
+              "DISTINCT",
+              "set",
+              "Set",
+              "集合",
+              "去重",
+              "重复"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\n-- 先规范化 invoice_no（去空格、统一大小写）\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY invoice_no\n           ORDER BY update_time DESC, id DESC\n         ) AS rn\n  FROM finance_export\n)\nSELECT * FROM ranked WHERE rn = 1;\n```\n\n导出后校验 `COUNT(*) = COUNT(DISTINCT invoice_no)`，并排除 `invoice_no` 为空的记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 19,
+      "story": "invitation-cost-form",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "19-invitation-cost-form-t5-a1",
+      "category": "return-middle-task",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 5384,
+      "latency": {
+        "total_ms": 2826.528099999996,
+        "first_wire_ms": 2183.7877000000008,
+        "first_content_ms": 2666.4023000000016,
+        "first_reasoning_ms": 2184.953999999998,
+        "evidence_write_ms": 16.832900000023074
+      },
+      "usage": {
+        "prompt_tokens": 666,
+        "completion_tokens": 80,
+        "total_tokens": 746,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00011027,
+          "allowance": 0.00006616,
+          "tokens": {
+            "input": 410,
+            "output": 80,
+            "reasoning": 50,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "9",
+              "九"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "元"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "30 × 0.3 = 9（元），更新后这次纸张成本是9元。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 20,
+      "story": "inventory-expenses",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "20-inventory-expenses-t5-a1",
+      "category": "return-dependent-history",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 7031,
+      "latency": {
+        "total_ms": 3386.0359000000026,
+        "first_wire_ms": 2380.225099999996,
+        "first_content_ms": 3188.6889000000083,
+        "first_reasoning_ms": 2383.875700000004,
+        "evidence_write_ms": 27.739099999846076
+      },
+      "usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 90,
+        "total_tokens": 739,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 62
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000949,
+          "allowance": 0.00005694,
+          "tokens": {
+            "input": 265,
+            "output": 90,
+            "reasoning": 62,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "318",
+              "三百一十八"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "新的报销合计：86元 + 214元 + 18元 = **318元**。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 21,
+      "story": "album-sign",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "21-album-sign-t6-a1",
+      "category": "return-explicit-object",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 17092,
+      "latency": {
+        "total_ms": 4921.940499999997,
+        "first_wire_ms": 2336.7060000000056,
+        "first_content_ms": 4697.446200000006,
+        "first_reasoning_ms": 2337.894199999995,
+        "evidence_write_ms": 64.08079999993788
+      },
+      "usage": {
+        "prompt_tokens": 820,
+        "completion_tokens": 229,
+        "total_tokens": 1049,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 190
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00022277,
+          "allowance": 0.00013366,
+          "tokens": {
+            "input": 564,
+            "output": 229,
+            "reasoning": 190,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周二"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "理解"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "尊敬的顾客：本店下周一暂停营业，周二恢复正常营业。由此给您带来的不便，敬请谅解。感谢您的理解与支持！谢谢理解。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 22,
+      "story": "similar-clients",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "22-similar-clients-t6-a1",
+      "category": "return-middle-task",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 9746,
+      "latency": {
+        "total_ms": 3591.144100000005,
+        "first_wire_ms": 2160.988300000012,
+        "first_content_ms": 2967.6540000000095,
+        "first_reasoning_ms": 2161.6255999999994,
+        "evidence_write_ms": 32.47830000007525
+      },
+      "usage": {
+        "prompt_tokens": 1105,
+        "completion_tokens": 118,
+        "total_tokens": 1223,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00019892,
+          "allowance": 0.00011935,
+          "tokens": {
+            "input": 849,
+            "output": 118,
+            "reasoning": 64,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "摘要",
+              "哈希",
+              "hash"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "行号"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "文件摘要只能区分“哪个文件”，行号只能区分“文件内哪一行”，二者组合才能唯一标识某文件的某条数据，避免整文件被误去重或不同文件同号行被误合并。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 23,
+      "story": "invitation-cost-form",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "23-invitation-cost-form-t6-a1",
+      "category": "return-rephrased-oldest",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 13524,
+      "latency": {
+        "total_ms": 3767.873700000011,
+        "first_wire_ms": 1737.448000000004,
+        "first_content_ms": 3645.221700000009,
+        "first_reasoning_ms": 1738.4385000000038,
+        "evidence_write_ms": 45.030899999910616
+      },
+      "usage": {
+        "prompt_tokens": 724,
+        "completion_tokens": 172,
+        "total_tokens": 896,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 131
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00017417,
+          "allowance": 0.0001045,
+          "tokens": {
+            "input": 468,
+            "output": 172,
+            "reasoning": 131,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "二楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周三"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "七点",
+              "7点",
+              "19[:：]00"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "亲爱的家长朋友们：周三晚上7点，家长公开课将在社区二楼教室举行，诚邀您参加。期待与您相聚，一起交流分享！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 24,
+      "story": "inventory-expenses",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "24-inventory-expenses-t6-a1",
+      "category": "return-dependent-history",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 5858,
+      "latency": {
+        "total_ms": 2744.003500000006,
+        "first_wire_ms": 1954.9186000000045,
+        "first_content_ms": 2430.26400000001,
+        "first_reasoning_ms": 1955.9406000000017,
+        "evidence_write_ms": 21.180700000026263
+      },
+      "usage": {
+        "prompt_tokens": 706,
+        "completion_tokens": 87,
+        "total_tokens": 793,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 55
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00010165,
+          "allowance": 0.00006099,
+          "tokens": {
+            "input": 322,
+            "output": 87,
+            "reasoning": 55,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "23",
+              "二十三"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "剩余46只马克杯平均分给两个分店：46 ÷ 2 = **23只/店**。",
+        "error_location": null
+      }
+    }
+  ]
+}

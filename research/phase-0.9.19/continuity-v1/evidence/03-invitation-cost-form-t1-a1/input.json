@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 3,
+    "story": "invitation-cost-form",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "周三晚上七点有一场给家长的公开课，请写一条简短邀请短信，先不用写地点。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-f016b838efb710734308e64fe2fc902c6a7a3e4056f6c065"
+  },
+  "request_sha256": "da3ae6fea22cef38eaa585ac80e766db57d08537a7447243a64968c17f918058",
+  "freeze_sha256": "7d9f3a1237298432ea9b02455676be501f4c6461414d58e5e4f428b5e738d62e"
+}

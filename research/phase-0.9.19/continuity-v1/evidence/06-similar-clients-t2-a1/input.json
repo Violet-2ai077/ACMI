@@ -1,0 +1,33 @@
+{
+  "coordinate": {
+    "index": 6,
+    "story": "similar-clients",
+    "turn": 2
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "青禾客户的订单导出会出现重复记录，订单号order_no稳定不变。给青禾设计一个去重方案。"
+    },
+    {
+      "source_id": "a1",
+      "role": "assistant",
+      "content": "青禾订单导出按 `order_no` 去重即可：导出前用 `GROUP BY order_no` 或 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY 更新时间 DESC)` 每组保留一条，并说明保留哪条（如最新记录）。导出后建议加 `order_no` 唯一性校验，并排查重复来源（关联表一对多、分页重复读取等）。若需合并字段，可对非键字段用聚合规则，避免简单 `DISTINCT` 掩盖数据差异。\n\n<|task:1|>",
+      "reasoning_content": ""
+    },
+    {
+      "source_id": "u2",
+      "role": "user",
+      "content": "青岚客户也有导出重复，但没有订单号，只有文件摘要和行号。为青岚单独设计去重键。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-cd295a9b65c61e072cf4fb26cde17fc8f901e0c58f890ed7"
+  },
+  "request_sha256": "4bb3030e3659081e0fc75b7d88764fff32057a0926cf15b840455065d5163254",
+  "freeze_sha256": "7d9f3a1237298432ea9b02455676be501f4c6461414d58e5e4f428b5e738d62e"
+}

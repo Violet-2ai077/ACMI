@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 2,
+    "story": "similar-clients",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "青禾客户的订单导出会出现重复记录，订单号order_no稳定不变。给青禾设计一个去重方案。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-cd295a9b65c61e072cf4fb26cde17fc8f901e0c58f890ed7"
+  },
+  "request_sha256": "a42840f68ef15f25c98c95dcd64327ec85d816b679931be13d76702009e0493e",
+  "freeze_sha256": "7d9f3a1237298432ea9b02455676be501f4c6461414d58e5e4f428b5e738d62e"
+}

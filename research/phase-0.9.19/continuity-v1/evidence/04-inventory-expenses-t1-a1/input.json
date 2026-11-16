@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 4,
+    "story": "inventory-expenses",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "仓库有12箱马克杯，每箱6只。帮我算这批杯子的总库存。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-aabb9e69e6643b05e7ad528e625542d11b6c510d442b0236"
+  },
+  "request_sha256": "cc1669ee2c8bec3f292794c449d15f11bb03944ce288b684c62fe7cfe3ac71b7",
+  "freeze_sha256": "7d9f3a1237298432ea9b02455676be501f4c6461414d58e5e4f428b5e738d62e"
+}

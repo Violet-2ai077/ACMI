@@ -1,0 +1,65 @@
+{
+  "content": "本店下周一休息，周二恢复正常营业，敬请知悉。<|task:2|>",
+  "reasoning": "We need answer new task? Coffee shop notice. This is different task from photo album. Need task marker next integer 2. Need answer under 200 Chinese chars, direct. Write one sentence notice. Then marker. Ensure not conflating. \"本店下周一休息，周二恢复正常营业，敬请知悉。\" That's one sentence? Could be. Need say normal. Marker <|task:2|>.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 601,
+    "completion_tokens": 106,
+    "total_tokens": 707,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 84
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00011612,
+      "allowance": 0.00006967,
+      "tokens": {
+        "input": 345,
+        "output": 106,
+        "reasoning": 84,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b4f6efe0fa7-88cb7b",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 8800,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6593,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.10609999999724096,
+    "content_type": "text/event-stream",
+    "wire_chunks": 42,
+    "wire_sha256": "f7cf5cf6ec268578cb5581c5aa7d39af222dbc821767b47ae30f39f543abcc1f",
+    "content_sha256": "5e9503954c5450bb0d1ecae333ac70b5acb990bda17d7072e6085cae8af0cb8f",
+    "reasoning_sha256": "7244a693a531e87826e784fd26de85173469389e2c22079409d2861cf50ccd18"
+  },
+  "latency": {
+    "total_ms": 6398.333399999996,
+    "first_wire_ms": 4835.845699999998,
+    "first_content_ms": 6233.680800000002,
+    "first_reasoning_ms": 4837.051999999996,
+    "evidence_write_ms": 31.592300000040268
+  }
+}

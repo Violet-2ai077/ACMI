@@ -1,0 +1,65 @@
+{
+  "content": "周末团建午餐需要提前订餐，想了解一下：大家有没有食物过敏或忌口？请告诉我具体食物，方便安排。\n\n<|task:3|>",
+  "reasoning": "We need answer Chinese, task marker. Need identify task. User asks new task: weekend team building lunch, ask colleagues about food allergies, not public class. This is distinct new task, likely task 3. Need concise, under 200 chars maybe. Need be careful marker at end exactly. Need normal direct answer. Write question perhaps \"周末团建午餐...\" Should not mention public class. Marker task:3. No need discuss previous. Ensure exactly one marker at end.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 599,
+    "completion_tokens": 134,
+    "total_tokens": 733,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 97
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00013262,
+      "allowance": 0.00007957,
+      "tokens": {
+        "input": 343,
+        "output": 134,
+        "reasoning": 97,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-a88990",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 11276,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.79610000004,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08239999999932479,
+    "content_type": "text/event-stream",
+    "wire_chunks": 55,
+    "wire_sha256": "c7d46d96f87c920e547e5f350055def6ccec536a42d0aa942a2199fe178e6cac",
+    "content_sha256": "08406f50634a5ac0422439b35f986461b79ef757ce8ef66d71dc95b1593f3b90",
+    "reasoning_sha256": "8566a743bfe04db1b487a25adfa6518b7c7ac01348a10e2df74a63b258809c1b"
+  },
+  "latency": {
+    "total_ms": 7937.975699999995,
+    "first_wire_ms": 5930.213499999998,
+    "first_content_ms": 7088.901800000007,
+    "first_reasoning_ms": 5931.906199999998,
+    "evidence_write_ms": 32.71349999998347
+  }
+}

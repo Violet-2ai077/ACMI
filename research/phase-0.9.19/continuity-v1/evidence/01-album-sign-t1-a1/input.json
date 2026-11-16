@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 1,
+    "story": "album-sign",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "我在整理旅行相册，需要把照片做成不拉伸的缩略图，原图不要改动。请给一个最简单的缩放规则。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-c83b47611856e31b10ac966beb0a8ad0b72d2ea066226996"
+  },
+  "request_sha256": "cfdb184f9b2bf1f078d265d2b9532196c6a91c99cbf7cf43162eabdc389811e1",
+  "freeze_sha256": "7d9f3a1237298432ea9b02455676be501f4c6461414d58e5e4f428b5e738d62e"
+}

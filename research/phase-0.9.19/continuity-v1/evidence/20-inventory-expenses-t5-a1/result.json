@@ -1,0 +1,65 @@
+{
+  "content": "新的报销合计：86元 + 214元 + 18元 = **318元**。<|task:2|>",
+  "reasoning": "We need answer in Chinese, direct. Need identify task. Current request relates to reimbursement task 2, adding 18 taxi. Total 300+18=318. Need perhaps no need mention prior? concise. End exactly marker <|task:2|>. Ensure not claim actions. ≤200 chars.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 649,
+    "completion_tokens": 90,
+    "total_tokens": 739,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 62
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0000949,
+      "allowance": 0.00005694,
+      "tokens": {
+        "input": 265,
+        "output": 90,
+        "reasoning": 62,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-8c0de3",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 7031,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.51929999999,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08370000000286382,
+    "content_type": "text/event-stream",
+    "wire_chunks": 39,
+    "wire_sha256": "b6c5fad848a95fd2ef4819b3a71cf591aca460a7196a357e76fed3a2384869ce",
+    "content_sha256": "d80fb1983bd2babcd6c5034881ee30f1d6cb813d15161edb1496fe132aceed02",
+    "reasoning_sha256": "8bb212ce0ed2ab62a0a5f9f914f6764a5e0fed6309d7fc07fc4e2cc9a9eb0e40"
+  },
+  "latency": {
+    "total_ms": 3386.0359000000026,
+    "first_wire_ms": 2380.225099999996,
+    "first_content_ms": 3188.6889000000083,
+    "first_reasoning_ms": 2383.875700000004,
+    "evidence_write_ms": 27.739099999846076
+  }
+}

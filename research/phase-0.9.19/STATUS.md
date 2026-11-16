@@ -4,7 +4,21 @@ Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Latest execution - BS1 boundary-only validation, 2026-11-16
+## Latest execution - TC1 marker continuity only, 2026-11-16
+
+Owner explicitly authorized returning to an earlier task's original marker,
+without full state maintenance. [TC1 results](continuity-v1/RESULTS.md): four new
+six-turn CLOSED-LOOP stories, 24/24 complete captures/protocol-valid/canonical
+markers; 10/10 births, 3/3 immediate continuations and 11/11 returns. All returns
+also match their actual model-emitted birth anchors; no hidden map or remapping.
+No UUID slots, catalog, state snapshot, second marking call, retries or failures.
+Four trajectories pass the new strict local criterion; not old G1/P-G or product
+GO. Scope: <=3 tasks, six turns, full visible history, simple local integers.
+Two basic-answer lexical checks fail (22/24), preserved without synonym repair.
+All raw-stream/history/score checks pass. FM1/BS1 freezes and scores unchanged.
+STOPPED; no automatic full-state expansion or further research batch.
+
+## Previous execution - BS1 boundary-only validation, 2026-11-16
 
 Owner explicitly narrowed the next question to work-segment boundaries before
 identity/state continuity, then authorized execution. [BS1 results](boundary-v1/RESULTS.md):

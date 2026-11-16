@@ -1,0 +1,65 @@
+{
+  "content": "报销总额：86元 + 214元 = **300元**。<|task:2|>",
+  "reasoning": "We need answer in Chinese, normal direct, under 200 chars, no claim executing. Need task marker. Need identify distinct task. First task inventory mugs, continuing correction, task1. New client reimbursement train 86 lodging 214, different task = task2. Compute total 300. End marker exactly. Need not mention prior. Answer concise. Ensure marker last.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 540,
+    "completion_tokens": 99,
+    "total_tokens": 639,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 76
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00008395,
+      "allowance": 0.00005037,
+      "tokens": {
+        "input": 156,
+        "output": 99,
+        "reasoning": 76,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-966f8b",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 8966,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5205,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08329999999841675,
+    "content_type": "text/event-stream",
+    "wire_chunks": 44,
+    "wire_sha256": "f2601649b5c7b409f25de415bfc0326668f6950938f65bae021e029750a52d9c",
+    "content_sha256": "b98a7a83e98d4162fd7f491b2321f59185186ce689ebe4d45300125941a247dd",
+    "reasoning_sha256": "167276863c670370bf9cea85a8b0e3fae2cd76988b00b31ae041131fee8a38c1"
+  },
+  "latency": {
+    "total_ms": 5750.125200000002,
+    "first_wire_ms": 4566.274500000007,
+    "first_content_ms": 5620.3401000000085,
+    "first_reasoning_ms": 4567.491400000006,
+    "evidence_write_ms": 35.69800000001851
+  }
+}

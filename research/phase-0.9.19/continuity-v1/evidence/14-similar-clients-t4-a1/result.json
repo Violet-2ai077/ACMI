@@ -1,0 +1,65 @@
+{
+  "content": "青禾方案补充：按 `order_no` 分组，用 `ROW_NUMBER() OVER (PARTITION BY order_no ORDER BY update_time DESC)` 排序，仅保留 `rn=1` 的记录。更新时间相同时，再加稳定次级排序（如主键倒序），确保结果可复现；`update_time` 为空宜单独排查。导出后仍校验 `order_no` 唯一。\n\n<|task:1|>",
+  "reasoning": "We need answer in Chinese, normal direct under 200 chars, append task marker. Need identify task continuity: This is same 青禾 task as task 1, with added requirement. Reuse task:1, not new task. Need answer supplement. Need maybe mention ORDER BY update_time DESC, tie-breaker, null handling, unique validation. Concise. Must not claim execution. Need marker exactly at end, no extra. We need ensure no task mapping output. Answer \"青禾方案补充...\" under 200 Chinese chars. Marker <|task:1|>. Let's craft.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 842,
+    "completion_tokens": 217,
+    "total_tokens": 1059,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 121
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00021887,
+      "allowance": 0.00013132,
+      "tokens": {
+        "input": 586,
+        "output": 217,
+        "reasoning": 121,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-8c0413",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 15816,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.7741,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.09880000000703149,
+    "content_type": "text/event-stream",
+    "wire_chunks": 77,
+    "wire_sha256": "c0689d98b06d38a37a7dd948da9299cb169dd49357426cf6bc579ef2812e310c",
+    "content_sha256": "e6b4b048d68eae75004e9c5f038a40f0b86b21a91dbfac30d386e458455db105",
+    "reasoning_sha256": "5c8c5ae741a1b90dae66c73ef10bd159dfc858c95eae189d2f86dc2dd94a8138"
+  },
+  "latency": {
+    "total_ms": 9000.098299999998,
+    "first_wire_ms": 5381.517000000007,
+    "first_content_ms": 7080.260999999999,
+    "first_reasoning_ms": 5382.190199999997,
+    "evidence_write_ms": 51.93760000009206
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "content": "各位家长：本周三晚上7点将举办一场家长公开课，诚邀您参加，期待您的到来！\n\n<|task:1|>",
+  "reasoning": "We need answer Chinese, task marker. Need identify task identity from original conversation. This is first user request, no prior tasks. Need write brief invitation SMS for parent public lecture Wednesday 7pm, omit location. Under 200 Chinese chars. At end exactly marker <|task:1|>. Need not claim actions. Need maybe mention content? Request lacks topic. We can write generic \"家长公开课\". Brief. \"各位家长：本周三晚7点我们将举办一场家长公开课，诚邀您参加。期待您的到来！\" Place omitted. Should we mention no location? no. Need concise. Marker after answer exactly. Ensure no extra after marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 416,
+    "completion_tokens": 169,
+    "total_tokens": 585,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 136
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001638,
+      "allowance": 0.00009828,
+      "tokens": {
+        "input": 416,
+        "output": 169,
+        "reasoning": 136,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b4f6efe0fa7-88be16",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 13521,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.58610000001,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.18979999999828578,
+    "content_type": "text/event-stream",
+    "wire_chunks": 71,
+    "wire_sha256": "63501956e0153a43ee8fae942cfcc303ff2b928d28e68b1ad414020fe4a55728",
+    "content_sha256": "4be467a35f99cb73c7bcae1ab4d1f1392d471f7072bb29b349ed98441e310a58",
+    "reasoning_sha256": "7a98195a32a1582a08242a2f40ae81051ced3edccf29f9f814191761989e44cf"
+  },
+  "latency": {
+    "total_ms": 3962.1030999999994,
+    "first_wire_ms": 1969.223500000001,
+    "first_content_ms": 3794.1361000000006,
+    "first_reasoning_ms": 1970.1626999999999,
+    "evidence_write_ms": 53.75520000001143
+  }
+}
