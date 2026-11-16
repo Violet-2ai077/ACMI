@@ -1,0 +1,26 @@
+{
+  "version": "TC4-ambiguity-continuity-20261117",
+  "at": "2026-11-16T16:35:56.503Z",
+  "files": {
+    "research/phase-0.9.19/continuity-ambiguity-v1/PLAN.md": "7146187fffa9c6e26673cd128d66b501f032cd20970ca5dc513a21d6aaec20d0",
+    "research/phase-0.9.19/continuity-ambiguity-v1/continuity.node-test.mjs": "ce41739c89b2e96142827abde76fce1f8e034c35aa4fe82993577c10ca0b4ce9",
+    "research/phase-0.9.19/continuity-ambiguity-v1/evaluate.mjs": "6d1a3bd38a9af00879d6f7715175a074e60670cb47676bb6516c24b8423adfed",
+    "research/phase-0.9.19/continuity-ambiguity-v1/materials.mjs": "5348ae50250158f5762339322ab33adc66f4d8b14bf7d2467da351388b53ceb7",
+    "research/phase-0.9.19/continuity-ambiguity-v1/run.mjs": "62246996ab7e2cb15d548c9dd4d40050c8916d57a8a87f96e87655e802665cd3",
+    "research/phase-0.9.19/continuity-long-v1/evaluate.mjs": "b8405675e1c87da76d96ddfe6833468c606ff5330a051a7d9b18ffe0c27d59c8",
+    "research/phase-0.9.19/continuity-v1/materials.mjs": "6dd56e127d2930501d0b7bd8afef7ccf99ee3dff7709fa1ad015b06f6f24be42",
+    "research/phase-0.9.19/gate2/deadline-transport.mjs": "af719d60e7017c40f5991ea8530e8dac01b04bd21e1fada097510f66a57f2c66",
+    "research/phase-0.9.19/gate2/dsh-inspect.mjs": "9c48244a05e5d2832d96fd167a330ec280e6adb383053adf15fc6b5cfbb32542",
+    "research/phase-0.9.19/gate2/dsh-route.mjs": "4c3c1a4a8a58a1f908ca06e04635c71788b0bb3fd7819244a662581b4effbe94",
+    "research/phase-0.9.19/gate2/routing.mjs": "bf47573980e4b6b83d220624b498c1062c86e1a71d1fcac3b351a77b0edab66e",
+    "research/phase-0.9.19/gate2/transport.mjs": "83deda3c0324614f55403c493eec045ab04c45267140dd9a46d073a46b4d92ff",
+    "research/phase-0.9.19/gate2/wire-accounting.mjs": "69f4d85fc139ea0e1a17d899177b4400f352fb02db1835ca9039c7016d1e7bd0",
+    "research/phase-0.9.19/protocol/contracts.mjs": "e449aa10e889b7a72bb6f1bc7da9d122e1023c5ea257d1ae2400f19ac6340ecd",
+    "research/phase-0.9.19/continuity-ambiguity-v1/frozen/oracle.json": "12f2ae5a60b628e20cebbab4517ff282a64d5624cd81fbec40c6d06a7dd8f9a5",
+    "research/phase-0.9.19/continuity-ambiguity-v1/frozen/plan.json": "5177c5f29a55cedd6585ea1b9d573263f8e7f4c0d41cb0c35e3db771a0d97d96",
+    "research/phase-0.9.19/continuity-ambiguity-v1/frozen/prompt.json": "db7fa7a9ed4d29ee9c02888376237aa2471c846d3b7e50eeb65ab14a03a32a00",
+    "research/phase-0.9.19/continuity-ambiguity-v1/frozen/public.json": "52a2613311a3c1ac033bc4b0aa7af9de083cb7004e314690638c6f3502df9d55",
+    "research/phase-0.9.19/continuity-ambiguity-v1/frozen/route.json": "11a12e2a218d3344857bc589a9509c60688a5732db243c481dc0cc93e427579d",
+    "research/phase-0.9.19/continuity-ambiguity-v1/frozen/self-review.json": "2a49716910f5d96a58d589e27152208da22674881a9913b3fd812b0fa51fa44d"
+  }
+}

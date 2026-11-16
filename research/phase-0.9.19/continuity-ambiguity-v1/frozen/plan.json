@@ -1,0 +1,136 @@
+{
+  "version": "TC4-ambiguity-continuity-20261117",
+  "batch_id": "tc4-20261117",
+  "authorization": "Owner approved executing 2x12-turn similar-task ambiguity and clarification study; no full state",
+  "schedule": [
+    {
+      "index": 1,
+      "story": "shared-reading",
+      "turn": 1
+    },
+    {
+      "index": 2,
+      "story": "shared-ingestion",
+      "turn": 1
+    },
+    {
+      "index": 3,
+      "story": "shared-reading",
+      "turn": 2
+    },
+    {
+      "index": 4,
+      "story": "shared-ingestion",
+      "turn": 2
+    },
+    {
+      "index": 5,
+      "story": "shared-reading",
+      "turn": 3
+    },
+    {
+      "index": 6,
+      "story": "shared-ingestion",
+      "turn": 3
+    },
+    {
+      "index": 7,
+      "story": "shared-reading",
+      "turn": 4
+    },
+    {
+      "index": 8,
+      "story": "shared-ingestion",
+      "turn": 4
+    },
+    {
+      "index": 9,
+      "story": "shared-reading",
+      "turn": 5
+    },
+    {
+      "index": 10,
+      "story": "shared-ingestion",
+      "turn": 5
+    },
+    {
+      "index": 11,
+      "story": "shared-reading",
+      "turn": 6
+    },
+    {
+      "index": 12,
+      "story": "shared-ingestion",
+      "turn": 6
+    },
+    {
+      "index": 13,
+      "story": "shared-reading",
+      "turn": 7
+    },
+    {
+      "index": 14,
+      "story": "shared-ingestion",
+      "turn": 7
+    },
+    {
+      "index": 15,
+      "story": "shared-reading",
+      "turn": 8
+    },
+    {
+      "index": 16,
+      "story": "shared-ingestion",
+      "turn": 8
+    },
+    {
+      "index": 17,
+      "story": "shared-reading",
+      "turn": 9
+    },
+    {
+      "index": 18,
+      "story": "shared-ingestion",
+      "turn": 9
+    },
+    {
+      "index": 19,
+      "story": "shared-reading",
+      "turn": 10
+    },
+    {
+      "index": 20,
+      "story": "shared-ingestion",
+      "turn": 10
+    },
+    {
+      "index": 21,
+      "story": "shared-reading",
+      "turn": 11
+    },
+    {
+      "index": 22,
+      "story": "shared-ingestion",
+      "turn": 11
+    },
+    {
+      "index": 23,
+      "story": "shared-reading",
+      "turn": 12
+    },
+    {
+      "index": 24,
+      "story": "shared-ingestion",
+      "turn": 12
+    }
+  ],
+  "max_actual_calls": 28,
+  "max_retry_calls": 4,
+  "retry_wait_ms": 5000,
+  "previous_conversation_calls": 142,
+  "combined_ceiling": 170,
+  "max_output_tokens": 16384,
+  "max_input_bytes": 131072,
+  "max_response_bytes": 1048576,
+  "timeout_ms": 180000
+}

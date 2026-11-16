@@ -1,0 +1,530 @@
+[
+  {
+    "story": "shared-reading",
+    "turn": 1,
+    "task_key": "family",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "First registration artifact, family audience.",
+    "answerChecks": [
+      [
+        "14[:：]00",
+        "两点",
+        "二点"
+      ],
+      [
+        "东馆"
+      ],
+      [
+        "纸质书"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 2,
+    "task_key": "adult",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Same vocabulary and medium but independent adult artifact.",
+    "answerChecks": [
+      [
+        "16[:：]00",
+        "四点"
+      ],
+      [
+        "西馆"
+      ],
+      [
+        "纸质书"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 3,
+    "task_key": "family",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Paraphrased audience uniquely selects family artifact despite shared book cue.",
+    "answerChecks": [
+      [
+        "14[:：]00",
+        "两点",
+        "二点"
+      ],
+      [
+        "东馆"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 4,
+    "task_key": "volunteers",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Third artifact distinct audience and purpose; no merge by event.",
+    "answerChecks": [
+      [
+        "13[:：]00",
+        "一点",
+        "一时"
+      ],
+      [
+        "中庭"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 5,
+    "task_key": "adult",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Adult recipient cue selects second task without original title.",
+    "answerChecks": [
+      [
+        "16[:：]00",
+        "四点"
+      ],
+      [
+        "西馆"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 6,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "Explicitly detached feedback could refer to either registration artifact; recency is not evidence of intended referent.",
+    "answerChecks": [
+      [
+        "哪",
+        "哪一",
+        "确认.*场",
+        "请.*场"
+      ],
+      [
+        "亲子",
+        "成人"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 7,
+    "task_key": "family",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Clarification resolves preceding ambiguity to established first artifact, not a new task.",
+    "answerChecks": [
+      [
+        "14[:：]00",
+        "两点",
+        "二点"
+      ],
+      [
+        "东馆"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 8,
+    "task_key": "adult",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Same shared-reading vocabulary, different intended artifact.",
+    "answerChecks": [
+      [
+        "16[:：]00",
+        "四点"
+      ],
+      [
+        "西馆"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 9,
+    "task_key": "volunteers",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Paraphrased role restores third artifact.",
+    "answerChecks": [
+      [
+        "13[:：]00",
+        "一点",
+        "一时"
+      ],
+      [
+        "中庭"
+      ],
+      [
+        "签到"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 10,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "Both artifacts include common reading; no unique referent even though latest task is volunteers.",
+    "answerChecks": [
+      [
+        "哪",
+        "哪一",
+        "确认.*场",
+        "请.*场"
+      ],
+      [
+        "亲子",
+        "成人"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 11,
+    "task_key": "adult",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Clarification selects established second artifact.",
+    "answerChecks": [
+      [
+        "16[:：]00",
+        "四点"
+      ],
+      [
+        "西馆"
+      ]
+    ]
+  },
+  {
+    "story": "shared-reading",
+    "turn": 12,
+    "task_key": "family",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Return to first artifact via audience, not shared book/bag terms alone.",
+    "answerChecks": [
+      [
+        "14[:：]00",
+        "两点",
+        "二点"
+      ],
+      [
+        "东馆"
+      ],
+      [
+        "共读",
+        "一起读"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 1,
+    "task_key": "web",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Independent web import with event key and latest-received rule.",
+    "answerChecks": [
+      [
+        "event_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "DESC",
+        "最新",
+        "降序"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 2,
+    "task_key": "app",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Same schema and rule, different independently requested source/table.",
+    "answerChecks": [
+      [
+        "event_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "DESC",
+        "最新",
+        "降序"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 3,
+    "task_key": "web",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Browser source paraphrases web, no need to repeat table name.",
+    "answerChecks": [
+      [
+        "web_clicks"
+      ],
+      [
+        "event_id"
+      ],
+      [
+        "received_at"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 4,
+    "task_key": "payments",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Distinct ingestion objective despite same dedup capability.",
+    "answerChecks": [
+      [
+        "payments"
+      ],
+      [
+        "payment_id"
+      ],
+      [
+        "paid_at"
+      ],
+      [
+        "ASC",
+        "最早",
+        "升序"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 5,
+    "task_key": "app",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "App source selects task two; refinement preserves identity.",
+    "answerChecks": [
+      [
+        "app_clicks"
+      ],
+      [
+        "event_id"
+      ],
+      [
+        "row_id"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 6,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "Explicit lost source means either established click task, not default recent one.",
+    "answerChecks": [
+      [
+        "哪",
+        "确认",
+        "请.*来源",
+        "请.*端"
+      ],
+      [
+        "网页",
+        "web",
+        "手机",
+        "app"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 7,
+    "task_key": "web",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Clarification selects old web identity.",
+    "answerChecks": [
+      [
+        "event_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "最新",
+        "较晚",
+        "更晚",
+        "后",
+        "DESC"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 8,
+    "task_key": "app",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Shared event terminology must not merge web/app artifacts.",
+    "answerChecks": [
+      [
+        "event_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "row_id"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 9,
+    "task_key": "payments",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Semantic purpose and earliest rule restore payment import.",
+    "answerChecks": [
+      [
+        "payment_id"
+      ],
+      [
+        "最早",
+        "首次",
+        "第一"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 10,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "No discriminating clue; distinct from latest payments task.",
+    "answerChecks": [
+      [
+        "哪",
+        "确认",
+        "请.*来源",
+        "请.*端"
+      ],
+      [
+        "网页",
+        "web",
+        "手机",
+        "app"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 11,
+    "task_key": "app",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Clarification selects second identity and existing tie-break refinement.",
+    "answerChecks": [
+      [
+        "event_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "row_id"
+      ]
+    ]
+  },
+  {
+    "story": "shared-ingestion",
+    "turn": 12,
+    "task_key": "web",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Final web restoration via semantic source, not repeated table identifier.",
+    "answerChecks": [
+      [
+        "web_clicks"
+      ],
+      [
+        "event_id"
+      ],
+      [
+        "received_at"
+      ],
+      [
+        "DESC",
+        "最新",
+        "降序"
+      ]
+    ]
+  }
+]

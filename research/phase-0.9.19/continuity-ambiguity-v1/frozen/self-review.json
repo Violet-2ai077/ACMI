@@ -1,0 +1,22 @@
+{
+  "self_reviewer": "Codex under Owner delegation; not independent review",
+  "before_model_exposure": true,
+  "stories": 2,
+  "turns": 24,
+  "counts": {
+    "birth": 6,
+    "return": 14,
+    "ambiguous": 4
+  },
+  "groups": {
+    "birth": 6,
+    "clear-return": 10,
+    "ambiguous": 4,
+    "clarified-return": 4
+  },
+  "public_private_fields_separated": true,
+  "ambiguity_and_clarification_reviewed": true,
+  "at": "2026-11-16T16:35:56.450Z",
+  "node": "v24.16.0",
+  "base_commit": "d8448e20ad44441b9c864a71096e7b9fe4e222a5"
+}
