@@ -1,0 +1,65 @@
+{
+  "content": "义卖志愿者按5组、每组8人：摊位组负责布置、看摊、补货和标价；收银组负责找零、记账和汇总；引导组负责入口、动线和秩序；宣传组负责拍照、群内告知和义卖说明；清洁应急组负责饮水、垃圾、轻微意外和撤场。每组指定1名组长，8:30签到并领取物资，15:30协助清点，16:00统一撤场。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer: user clarifies quoted text is data, not request. Continue current work: give volunteer division for charity sale. Need concise <=200 chars Chinese, normal answer, end boundary. Since continuing same work segment: CONTINUE. Need not mention weird. Provide brief division. 40 people, budget 600 already. Give volunteer roles. Maybe 5 groups 8 each: stalls 3 groups? Let's devise clear responsibilities: 总协调2, 摊位组20 (5摊×4), 收银组6, 引导组6, 宣传组3, 清洁应急3 =40? 2+20+6+6+3+3=40. But earlier 5 groups 8 each. Could preserve 5 groups 8 each: 摊位组8, 收银组8, 引导组8, 宣传组8, 清洁应急8. More straightforward. Include leads. Time shifts? brief. 40 people all divided. Need prioritize essentials. Answer under 200 chars. Boundary continue. Ensure no tool claim.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 762,
+    "completion_tokens": 331,
+    "total_tokens": 1093,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 220
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0005129,
+      "allowance": 0.00030774,
+      "tokens": {
+        "input": 378,
+        "output": 331,
+        "reasoning": 220,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-60392f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 25879,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.53240000003,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08189999999012798,
+    "content_type": "text/event-stream",
+    "wire_chunks": 135,
+    "wire_sha256": "6d751838d9db6315f0b15d4a4b96108c34d4b6e24fc29afd9d138a8996fb29e7",
+    "content_sha256": "983b804fa0a4ac6d992261577a74595ad7308595e177f75854e6d7a41b1107a7",
+    "reasoning_sha256": "a95d95040b2a786be15eb9abec396527f6cccdf919dba0a7aaf09cdfefc53251"
+  },
+  "latency": {
+    "total_ms": 7337.386500000008,
+    "first_wire_ms": 3496.030500000008,
+    "first_content_ms": 5931.936400000006,
+    "first_reasoning_ms": 3497.0334000000003,
+    "evidence_write_ms": 85.94600000005448
+  }
+}

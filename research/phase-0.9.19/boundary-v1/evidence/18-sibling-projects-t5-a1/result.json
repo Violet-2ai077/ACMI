@@ -1,0 +1,65 @@
+{
+  "content": "1）同 `record_id`：两个线程用 barrier 同时提交同一键，断言表中仅 1 行、两次调用均按幂等成功处理、冲突计数增加，且无唯一约束异常泄漏。  \n2）不同 `record_id`：两线程并发提交不同键，断言两行均存在且内容正确、无冲突。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer in Chinese, concise ≤200 chars generally. Need add two concurrency tests for Beiqiao implementation. Need likely describe test cases, not actual executing. User asks \"为这个北桥实现补两个并发测试\". We should provide two tests: same record_id concurrent submissions, expect one row and both calls treat conflict idempotently; different record_ids concurrent submissions, expect both rows. Mention barriers, unique index, assert count, no errors, metrics. This continues Beiqiao pseudocode goal? Prior turn switched to Beiqiao new segment. Current is adding tests to same implementation, so CONTINUE. Need normal answer and boundary exactly. No code execution claims. Keep under 200 Chinese chars. Could give small pseudocode? Desired oververbosity 5 but user says normal direct ≤200 chars. Let's craft ~150 chars.\n\nNeed be careful: \"补两个并发测试\" likely test specs. Answer:\n\n1) 同record_id：两线程同barrier提交同键，断言表仅1行、两者均按幂等成功、冲突计数+1（或至少1次），无唯一约束异常泄漏。\n2) 不同record_id：两线程并发提交不同键，断言两行均存在、内容正确、无冲突。\n\nMaybe \"若用 DO NOTHING，返回值可能0/1\" assert. Fine.\n\nBoundary CONTINUE.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 997,
+    "completion_tokens": 371,
+    "total_tokens": 1368,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 286
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0006314,
+      "allowance": 0.00037884,
+      "tokens": {
+        "input": 613,
+        "output": 371,
+        "reasoning": 286,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-72afc1",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 28298,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.52219999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08260000000882428,
+    "content_type": "text/event-stream",
+    "wire_chunks": 153,
+    "wire_sha256": "16a4c66cc1444b5abc66622e83b8de7267dac2e0981a1923ea46b93f0d4be71f",
+    "content_sha256": "2b2102b4f0875762b5bf467f0269fe0f39f3d45d07619f12090918ad10949b5a",
+    "reasoning_sha256": "ffb176f8aa4d28b474dc1b7884e82092e4ffb01a51ca44f9ae83d92ec637454f"
+  },
+  "latency": {
+    "total_ms": 6583.570399999997,
+    "first_wire_ms": 2325.0429000000004,
+    "first_content_ms": 5887.87569999999,
+    "first_reasoning_ms": 2326.042399999991,
+    "evidence_write_ms": 106.61909999987984
+  }
+}

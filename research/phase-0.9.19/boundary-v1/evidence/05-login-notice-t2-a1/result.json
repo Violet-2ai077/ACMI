@@ -1,0 +1,65 @@
+{
+  "content": "既然请求已结束但 loading 未清除，修复要落在统一请求封装：用 `try/catch/finally` 包住请求，401 在 `catch` 中清除会话并跳转登录，`finally` 中**无条件**关闭 loading，避免 401 分支提前 `return` 或抛错绕过清理；组件自己的 loading 也在 `finally` 重置。\n\n<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese, concise <=200 chars, continue same work segment? User refines same target minimal fix. Boundary CONTINUE. Need directly answer, no claim execution. Need mention 401 handler finally/catch reset loading, retry? Since network ended but loading stuck, likely Promise rejection handled incorrectly / return before finally. Concrete: central request wrapper try/finally around actual request; in catch map 401 to redirect login; always set loading false in finally, including 401 branch; avoid early return before finally; ensure each component handler resets. Could mention axios interceptor rejection doesn't control component loading; component must finally. 200 chars. Last boundary exactly.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 549,
+    "completion_tokens": 231,
+    "total_tokens": 780,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 136
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.000329,
+      "allowance": 0.0001974,
+      "tokens": {
+        "input": 165,
+        "output": 231,
+        "reasoning": 136,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-80fa97",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 19558,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6894,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.12510000000111177,
+    "content_type": "text/event-stream",
+    "wire_chunks": 109,
+    "wire_sha256": "d5851db764eea5a167450a705956b4d6275f56b9501b0e4757b83b790788ae59",
+    "content_sha256": "2e661e72211eb2172a2b56d76791a70e8cbc0f2ce198315081e7af3dad64befa",
+    "reasoning_sha256": "fa76e6589eaba82dcce340a3924ac55dcfc711f2b096fcf3d8f2f265abf2479a"
+  },
+  "latency": {
+    "total_ms": 6826.668699999998,
+    "first_wire_ms": 3892.655999999999,
+    "first_content_ms": 5657.112300000001,
+    "first_reasoning_ms": 3894.4785999999986,
+    "evidence_write_ms": 73.62129999999524
+  }
+}

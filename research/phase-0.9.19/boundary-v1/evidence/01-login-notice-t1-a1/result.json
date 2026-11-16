@@ -1,0 +1,65 @@
+{
+  "content": "最小修复：在统一请求层优先拦截 401，清除过期会话并跳转登录（或弹登录框），同时确保加载状态在 `finally` 中关闭；不要让 401 落入普通错误分支后继续转圈。",
+  "reasoning": "We need answer in Chinese, concise, under 200 chars, minimal fix idea. Must append boundary marker CONTINUE since first turn. Need normal direct answer. Explain: distinguish 401 in global interceptor/request layer; don't treat as network error/loading; clear expired token, redirect/login modal, stop spinner/finally. Minimal fix. Maybe mention ensure finally hides loading and 401 handling central. Need not code. Keep under 200 Chinese chars. Marker exactly at end.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 462,
+    "completion_tokens": 150,
+    "total_tokens": 612,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 98
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003186,
+      "allowance": 0.00019116,
+      "tokens": {
+        "input": 462,
+        "output": 150,
+        "reasoning": 98,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b4f6efe0fa7-692262",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 12535,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.8472,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.46299999999973807,
+    "content_type": "text/event-stream",
+    "wire_chunks": 89,
+    "wire_sha256": "4058bfd3fb62e98cc95ecb26efbf429cacd689e7a1914a521bb01e70e56f8bb7",
+    "content_sha256": "4275b9c343da1d715a6c47a83fc81308e9104dad15ba338bf9249d718f3d7d3a",
+    "reasoning_sha256": "5c3ff20691273a61865b726277901485c102973f0922d96b0b26890f40724ab6"
+  },
+  "latency": {
+    "total_ms": 5218.7573,
+    "first_wire_ms": 3329.4253,
+    "first_content_ms": 4641.9614,
+    "first_reasoning_ms": 3331.5236,
+    "evidence_write_ms": 56.62270000000075
+  }
+}

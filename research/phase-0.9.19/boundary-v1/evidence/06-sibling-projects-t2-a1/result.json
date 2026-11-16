@@ -1,0 +1,65 @@
+{
+  "content": "修正：不要用应用层“先查再写”。给 `record_id` 加数据库唯一约束，两个 worker 都执行原子 upsert（如 `INSERT ... ON CONFLICT (record_id) DO NOTHING/UPDATE`），由数据库裁决并发；业务写入放在同一事务，冲突按幂等成功处理并记录指标。批内去重可保留，但唯一约束才是最终保障。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese. Need correct suggestion: concurrency two workers same record_id. Need DB-enforced uniqueness/upsert atomic, not app check. Use unique constraint on record_id, atomic upsert, transaction, handle conflicts, perhaps advisory locks? Need concise under 200 chars. Need boundary decision. This is same work target: correcting importer dedup design. CONTINUE. Need maybe mention don't do SELECT then INSERT. Use INSERT ... ON CONFLICT (record_id) DO NOTHING/UPDATE, catches race. If sequence side effects acceptable? For strict idempotency, unique key and outbox? Keep under 200 Chinese chars. Let's draft: \"修正：不要在应用层先查再写。给 record_id 建唯一约束，两个 worker 都执行原子 upsert（如 INSERT ... ON CONFLICT (record_id) DO NOTHING/UPDATE），由数据库裁决并发；同一事务内完成业务写入，冲突按幂等成功处理，并记录冲突指标。批量仍可先批内去重，但唯一约束是最终保障。\" That's ~116 chars. Add boundary.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 591,
+    "completion_tokens": 332,
+    "total_tokens": 923,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 234
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0004628,
+      "allowance": 0.00027768,
+      "tokens": {
+        "input": 207,
+        "output": 332,
+        "reasoning": 234,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a5a3e22439a-7bc3e1",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 24411,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6272,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.12419999999838183,
+    "content_type": "text/event-stream",
+    "wire_chunks": 133,
+    "wire_sha256": "da918be070056beb2f2718db8dab044ecb36ae0658dd0c59a2982c58c4236955",
+    "content_sha256": "770cc119bbc8ad4c42111a2c20682b02ace32caae3513f79cd1751c3c9f75c69",
+    "reasoning_sha256": "6205c71d4d3729da4fb5ba20abe377994b5a097002861e87e28fb0c27fbe43b1"
+  },
+  "latency": {
+    "total_ms": 9395.658999999996,
+    "first_wire_ms": 5502.973000000002,
+    "first_content_ms": 8505.381100000002,
+    "first_reasoning_ms": 5504.095400000002,
+    "evidence_write_ms": 90.57770000000528
+  }
+}

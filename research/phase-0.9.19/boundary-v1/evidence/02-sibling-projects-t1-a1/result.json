@@ -1,0 +1,65 @@
+{
+  "content": "以 `record_id` 作为幂等键：先在批次内去重，写入时用 `record_id` 的唯一约束配合 `INSERT ... ON CONFLICT DO NOTHING/UPDATE`（或等价 upsert），并让单条记录与事务边界保持原子性；重试也沿用同一幂等键。不要依赖行号或整行内容判重，并监控冲突率以发现上游问题。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese, under 200 chars ideally, direct design advice. Need boundary marker. This is first turn? History none, current request. Continue per rule. Need answer concise: use record_id as idempotency key, unique constraint/upsert, dedupe within batch, transaction, retry-safe, monitor duplicates. Mention don't rely on row hash/order. Under 200 Chinese chars perhaps. Need exact marker at end.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 459,
+    "completion_tokens": 192,
+    "total_tokens": 651,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 92
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003681,
+      "allowance": 0.00022086,
+      "tokens": {
+        "input": 459,
+        "output": 192,
+        "reasoning": 92,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-6b2811",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 14661,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5636,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.1422999999995227,
+    "content_type": "text/event-stream",
+    "wire_chunks": 81,
+    "wire_sha256": "9d86809d88b3bd128c41d4def19bb5f7fbe0bdedcc088d261cc245e80fc6456d",
+    "content_sha256": "f9b2d03dac55f22e74ec8aeee5b28b3a08b00705afa9445c8015157a38e92759",
+    "reasoning_sha256": "fb9c5d7601d82eefde59db92acf87472c17e487814ac837069487d5156735dbd"
+  },
+  "latency": {
+    "total_ms": 5058.762700000001,
+    "first_wire_ms": 2983.9884999999995,
+    "first_content_ms": 3977.4212000000007,
+    "first_reasoning_ms": 2986.441500000001,
+    "evidence_write_ms": 56.3951999999972
+  }
+}

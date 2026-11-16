@@ -1,0 +1,65 @@
+{
+  "content": "回归测试至少覆盖：\n\n1. **会话有效**：请求返回 200，loading 正常结束，不清会话、不跳登录。\n2. **会话过期**：请求返回 401，loading 在 `finally` 中被清除，会话被清理，跳转登录仅触发一次。\n3. 补测 401 后组件不残留转圈、连续多个 401 不重复跳转。\n\n<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese. Need determine boundary. User asks additional regression tests for same login fix. Same work goal, continue. Need concise ≤200 Chinese chars? \"正常、直接回答，通常不超过200字\". List tests at least valid/expired. We have boundary end. Need no code full. Could mention: 有效会话请求返回200, loading started/cleared, no redirect; expired 401, loading cleared, session cleared, redirect login once, no spin; maybe retry/dedup. But at least two. Keep under 200 Chinese chars. Boundary CONTINUE. Ensure marker exactly final. No extra after. Need perhaps note loading clear. Let's craft ~120 chars.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 673,
+    "completion_tokens": 242,
+    "total_tokens": 915,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 143
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003794,
+      "allowance": 0.00022764,
+      "tokens": {
+        "input": 289,
+        "output": 242,
+        "reasoning": 143,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-729a33",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 16977,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5844,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.0904999999984284,
+    "content_type": "text/event-stream",
+    "wire_chunks": 116,
+    "wire_sha256": "40c1959310700efdf3378e4907df8d60eef37c52ae5f154bfd01e7cce63a2522",
+    "content_sha256": "d87024683daa13e22dc1ac8576a7fdeea9b7f5d4d4eba3f622e9c17ca6e937a6",
+    "reasoning_sha256": "7f9b7baf1a93da605a088545bbfd6b00c19d7a131e613bfe42e25a05b4f7501f"
+  },
+  "latency": {
+    "total_ms": 6413.153099999996,
+    "first_wire_ms": 3736.3871,
+    "first_content_ms": 5368.570899999999,
+    "first_reasoning_ms": 3737.3759999999966,
+    "evidence_write_ms": 67.43819999996776
+  }
+}

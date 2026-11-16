@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 3,
+    "story": "venue-events",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "周六社区义卖有40人，预算800元，场地在活动室。请给一个简短的准备安排。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-17ff2ed2c6284c717421c056e4f0d847655bd8b71846babc"
+  },
+  "request_sha256": "13431b2f0e6920838111b2e7e745f3d614b8b0ef02f212c0bd9dc502520f2216",
+  "freeze_sha256": "416a70b3204574b8d26f492adbfc89e3aac974f72b8d06970faa8e1b152157b3"
+}

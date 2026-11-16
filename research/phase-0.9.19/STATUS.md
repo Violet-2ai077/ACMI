@@ -4,7 +4,21 @@ Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Latest execution - FM1 finite mechanism path, 2026-11-16
+## Latest execution - BS1 boundary-only validation, 2026-11-16
+
+Owner explicitly narrowed the next question to work-segment boundaries before
+identity/state continuity, then authorized execution. [BS1 results](boundary-v1/RESULTS.md):
+four new eight-turn CLOSED-LOOP stories, 32/32 actual generations captured, no
+environment failures/retries/unsent. No task UUID, catalog or work-state schema.
+All 28 post-initialization boundaries correct (15 CONTINUE, 11 NEW including six
+returns, two UNRESOLVED); protocol valid 31/32 because the first answer omitted
+its marker. Frozen strict all-trajectory criterion remains false, 3/4 pass.
+The omitted marker was not repaired or retried. This supports boundary ability
+in the controlled slice, NOT universal robustness or identity/state maintenance.
+All raw-stream/history/score checks pass; freeze and FM1 remain unchanged.
+STOPPED after the finite study, no automatic next research or engineering stage.
+
+## Previous execution - FM1 finite mechanism path, 2026-11-16
 
 Owner separately authorized a finite mechanism study and subsequently allowed
 bounded retries for environmental failures. This is NOT an old G1/P-G pass and

@@ -1,0 +1,65 @@
+{
+  "content": "好的，已确认取消你们两位的报名，欢迎下次读书会再来参加。<|boundary:NEW|>",
+  "reasoning": "We need answer Chinese one sentence confirming cancellation and future participation. Need decide boundary. Current last active was English translation of rainy charity arrangement, but this is reading club cancellation. Different work target, new segment. Need normal under 200 chars. Exactly one sentence? \"好的，已收到...\" Include future can join. Then boundary NEW.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1368,
+    "completion_tokens": 93,
+    "total_tokens": 1461,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 67
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0004091,
+      "allowance": 0.00024546,
+      "tokens": {
+        "input": 984,
+        "output": 93,
+        "reasoning": 67,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-60589a",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 9590,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5261,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08930000002146699,
+    "content_type": "text/event-stream",
+    "wire_chunks": 50,
+    "wire_sha256": "37459aca8c337bdc782722b0ae0125e8cb76ac00db9a6c978131c0cddc6b7370",
+    "content_sha256": "dce661fc323e1f80ecb141275261c056021f14df3da1d39fa9151fed7d2b0a14",
+    "reasoning_sha256": "44ad1d93c87b8b6df82fea0b4242f6bc72727b0a9d52c83d6411516e8e18c73d"
+  },
+  "latency": {
+    "total_ms": 4756.551500000001,
+    "first_wire_ms": 3452.383899999986,
+    "first_content_ms": 4392.223399999988,
+    "first_reasoning_ms": 3453.460699999996,
+    "evidence_write_ms": 32.35099999982049
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 1,
+    "story": "login-notice",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "我们的登录接口在会话过期后返回401，用户却只看到转圈。请给一个最小修复思路，不用写完整代码。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-7b6003ef65e1988c4a3d9478a16f7588d1a30dd5ebd932d2"
+  },
+  "request_sha256": "628ec5ca895756d10a76c798915a17f647fafda94be0fa3e5fa4c484740b25ad",
+  "freeze_sha256": "416a70b3204574b8d26f492adbfc89e3aac974f72b8d06970faa8e1b152157b3"
+}

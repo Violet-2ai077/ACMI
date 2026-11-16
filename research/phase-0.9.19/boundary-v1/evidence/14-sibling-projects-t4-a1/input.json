@@ -1,0 +1,55 @@
+{
+  "coordinate": {
+    "index": 14,
+    "story": "sibling-projects",
+    "turn": 4
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "北桥项目的导入器会把同一行重复写入。输入里有稳定的record_id，请给一个防重复写入的设计建议。"
+    },
+    {
+      "source_id": "a1",
+      "role": "assistant",
+      "content": "以 `record_id` 作为幂等键：先在批次内去重，写入时用 `record_id` 的唯一约束配合 `INSERT ... ON CONFLICT DO NOTHING/UPDATE`（或等价 upsert），并让单条记录与事务边界保持原子性；重试也沿用同一幂等键。不要依赖行号或整行内容判重，并监控冲突率以发现上游问题。<|boundary:CONTINUE|>",
+      "reasoning_content": "We need answer Chinese, under 200 chars ideally, direct design advice. Need boundary marker. This is first turn? History none, current request. Continue per rule. Need answer concise: use record_id as idempotency key, unique constraint/upsert, dedupe within batch, transaction, retry-safe, monitor duplicates. Mention don't rely on row hash/order. Under 200 Chinese chars perhaps. Need exact marker at end."
+    },
+    {
+      "source_id": "u2",
+      "role": "user",
+      "content": "北桥这里可能有两个worker同时写同一个record_id，所以只在应用内查一次不够。请修正建议。"
+    },
+    {
+      "source_id": "a2",
+      "role": "assistant",
+      "content": "修正：不要用应用层“先查再写”。给 `record_id` 加数据库唯一约束，两个 worker 都执行原子 upsert（如 `INSERT ... ON CONFLICT (record_id) DO NOTHING/UPDATE`），由数据库裁决并发；业务写入放在同一事务，冲突按幂等成功处理并记录指标。批内去重可保留，但唯一约束才是最终保障。<|boundary:CONTINUE|>",
+      "reasoning_content": "We need answer Chinese. Need correct suggestion: concurrency two workers same record_id. Need DB-enforced uniqueness/upsert atomic, not app check. Use unique constraint on record_id, atomic upsert, transaction, handle conflicts, perhaps advisory locks? Need concise under 200 chars. Need boundary decision. This is same work target: correcting importer dedup design. CONTINUE. Need maybe mention don't do SELECT then INSERT. Use INSERT ... ON CONFLICT (record_id) DO NOTHING/UPDATE, catches race. If sequence side effects acceptable? For strict idempotency, unique key and outbox? Keep under 200 Chinese chars. Let's draft: \"修正：不要在应用层先查再写。给 record_id 建唯一约束，两个 worker 都执行原子 upsert（如 INSERT ... ON CONFLICT (record_id) DO NOTHING/UPDATE），由数据库裁决并发；同一事务内完成业务写入，冲突按幂等成功处理，并记录冲突指标。批量仍可先批内去重，但唯一约束是最终保障。\" That's ~116 chars. Add boundary."
+    },
+    {
+      "source_id": "u3",
+      "role": "user",
+      "content": "南桥项目也出现导入重复，但它没有record_id，只有文件摘要和行号。为南桥单独给出幂等键设计。"
+    },
+    {
+      "source_id": "a3",
+      "role": "assistant",
+      "content": "南桥可用 `项目标识 + 原始文件内容摘要（如 SHA-256） + 行号` 作为幂等键，并在数据库加唯一约束、以原子 upsert 写入；批次内也按该键去重。摘要须在解析前对原始字节计算，这样同一文件重导不会重复，文件内容变化则视为新版本。行号只对同一摘要稳定，不能跨版本复用。<|boundary:NEW|>",
+      "reasoning_content": "We need answer user current request. Need boundary. This is new independent project/object South Bridge, separate idempotency key design, no record_id, only file digest and line number. Need answer concise <200 Chinese chars ideally. Need consider file digest and line number as key. Need mention scope: project_id + file_digest + line_no; but file digest changes when content changes, line numbers unstable across edits. For import dedupe, use stable file content digest and physical line number as key, plus importer/version? Need distinguish duplicate rows within same file? If same line repeated in input and no record_id, file digest+line number can't distinguish duplicate physical lines if line numbers unique. If file same repeated import, dedupe. If line content duplicate at different lines, they are distinct by line_no. Need perhaps batch/import id? File digest computed over raw bytes. Store key. Unique constraint, upsert. Also handle file reserialization? Could canonicalize? Only file digest and line number. We must answer direct and probably boundary NEW because separate project, another object. User explicitly \"南桥项目...为南桥单独给出\" new segment. Final marker NEW. Need not mention marker explanation. Ensure normal answer then marker. Under 200 chars. Let's draft:\n\n\"南桥建议用 `project_id + 文件内容摘要(原始字节SHA-256) + 行号` 作为幂等键，落库加唯一约束并原子 upsert；批次内再按该键去重。摘要须在解析前对原始文件计算，同一文件重导不会重复；文件内容变化即视为新版本。注意行号仅对同一摘要稳定，不能跨文件版本复用。\"\n\nNeed include maybe importer name/version? If same digest and line no but different importer logic? project_id enough. User asked separate design. Could include \"导入类型\" if multiple importers. But maybe overkill. Mention \"同一项目内\". Need concise. Boundary NEW."
+    },
+    {
+      "source_id": "u4",
+      "role": "user",
+      "content": "北桥的数据库已经确认支持唯一索引。请把北桥的方案落实为伪代码，用record_id处理冲突。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-d1ccc04e26fed13022d5ddc206348ff003deb36d9c0d8cc3"
+  },
+  "request_sha256": "46fba4c1921f5f037f48401a0a1869d857017de3cbde8f6ed4d9d645b7f1b547",
+  "freeze_sha256": "416a70b3204574b8d26f492adbfc89e3aac974f72b8d06970faa8e1b152157b3"
+}

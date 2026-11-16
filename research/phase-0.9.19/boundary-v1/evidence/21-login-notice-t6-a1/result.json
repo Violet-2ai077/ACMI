@@ -1,0 +1,65 @@
+{
+  "content": "在统一请求层增加 500 分支：请求结束后无论成功、401 还是 500，都在 `finally` 中关闭 loading。500 时显示明确错误提示，不清理会话、不跳登录，避免页面继续转圈；可提示用户稍后重试。\n\n<|boundary:NEW|>",
+  "reasoning": "We need answer in Chinese, under 200 chars, normal. This is resuming login work after unrelated meeting notice. Per boundary rules: leaving a target then returning starts new segment. So boundary NEW. Need concise: add 500 branch to fix: in unified request layer treat all terminal responses / errors, loading cleanup in finally; 500 show error message, no redirect login, no stuck loading; perhaps retry optional. Include tests? User asks add branch to fix plan. Answer only. Then marker NEW. Need ensure no mention tools. Let's craft ~100 chars.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 926,
+    "completion_tokens": 187,
+    "total_tokens": 1113,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 117
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003893,
+      "allowance": 0.00023358,
+      "tokens": {
+        "input": 542,
+        "output": 187,
+        "reasoning": 117,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-604708",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 15246,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5566,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08780000000842847,
+    "content_type": "text/event-stream",
+    "wire_chunks": 89,
+    "wire_sha256": "dae738de5c883be60b80cae35047c17d9adc449725d768c78cf99081e6382c1f",
+    "content_sha256": "768e0c71baceaf774c8c58fe282ceef953df6b759de5b014be99746b7a08c559",
+    "reasoning_sha256": "997d1b8e31ba9122ce86c2d501502c0dcc28fbabc2f431467f7cb99f4418d2e8"
+  },
+  "latency": {
+    "total_ms": 4891.198999999993,
+    "first_wire_ms": 2447.147800000006,
+    "first_content_ms": 4285.049800000008,
+    "first_reasoning_ms": 2453.837999999989,
+    "evidence_write_ms": 54.00759999998263
+  }
+}

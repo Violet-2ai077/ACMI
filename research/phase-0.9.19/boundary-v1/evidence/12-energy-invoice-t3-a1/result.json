@@ -1,0 +1,65 @@
+{
+  "content": "班组长您好：周一用电10千瓦时，周二更正为12千瓦时，周二比周一增加2千瓦时，请知悉。<|boundary:CONTINUE|>",
+  "reasoning": "我们需要回答用户。 Need answer normal, under 200 Chinese chars, no claim tools. Need append boundary marker exactly. Current request: rewrite corrected energy conclusion as short message to team leader, no calculation process. This continues same work segment? We have sequence: compute increment, correct reading, rewrite corrected conclusion as short message. Same work target: communicating corrected energy conclusion. CONTINUE likely. Need just message. Maybe \"班组长您好：周一用电10千瓦时，周二经更正为12千瓦时，周二比周一增加2千瓦时。请知悉。\" That's under 200. No calculation. Append <|boundary:CONTINUE|>. Ensure final exactly marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 561,
+    "completion_tokens": 179,
+    "total_tokens": 740,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 139
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002702,
+      "allowance": 0.00016212,
+      "tokens": {
+        "input": 177,
+        "output": 179,
+        "reasoning": 139,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a5a3e22439a-7bd7f7",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 12370,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5252,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07489999999233987,
+    "content_type": "text/event-stream",
+    "wire_chunks": 64,
+    "wire_sha256": "8bf3bd688c900cc947c565ff279453f9ee63c2b092f70d0a5c801ef3efb0f9fa",
+    "content_sha256": "1e7fec3f653dfa016ee858a15942ad65ce3a54c15da83755a1b8aaee3e03dec0",
+    "reasoning_sha256": "b8f4b27fffa1ac5db7edcab08f76f3a7690020af84f792b525c6e52ad58c8ec3"
+  },
+  "latency": {
+    "total_ms": 5965.454400000002,
+    "first_wire_ms": 4263.475000000006,
+    "first_content_ms": 5696.032300000006,
+    "first_reasoning_ms": 4264.531300000002,
+    "evidence_write_ms": 44.57110000004468
+  }
+}

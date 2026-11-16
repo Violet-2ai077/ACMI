@@ -1,0 +1,65 @@
+{
+  "content": "预算压至600元：标识物料150元、零钱备付100元、饮水100元、清洁应急50元、宣传50元、机动150元；摊位道具优先借用，宣传以社区群免费发布为主。40人仍分5组（摊位、收银、引导、宣传、清洁），周五布置，周六8:30到场、9:00开场、15:30清点、16:00撤场。优先保障标价、找零、饮水和通道安全。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese. Need adjust budget 600, 40 people same, prioritize essentials. Need likely refine allocation sum 600. Need decide boundary: This is continuation of same work target adjusting budget, CONTINUE. Need normal answer <=200 chars ideally. We need include concise arrangement. Existing items allocation 800: 物料标识200, 零钱100, 宣传50, 饮水150, 应急清洁100, 机动200. Reduce 200. Prioritize essentials: 标识/摊位分区 150, 零钱备付 100, 饮水补给 100, 清洁应急 50, 宣传 0 or 25? Sum 400? Need allocate all 600 maybe 场地活动室 no rental. Essentials: signs 150, change 100, drinking water 100, cleaning 50 =400, contingency 150, promotion 50 =600. Or keep宣传50? \"优先保留必需品\" maybe reduce promotion to 25 and contingency 125. Let's craft sum: 物料标识150 + 零钱100 + 饮水100 + 清洁50 + 宣传50 + 机动150 =600. Is promotion essential? Not exactly, but 50 low. Could say宣传由社区群免费发布，宣传费0. Then essentials 150+100+100+50=400; contingency 200. But budget 600 with 200 unused? No need spend all, could reserve. \"预算600\" means max. Better allocate 600: 标识150、零钱100、饮水100、清洁50、宣传50、机动150. Prioritize essential items. Preparation unchanged except promotion reduced, no paid materials, use existing/borrowed. 40 people 5 groups. Need concise. Include budget table maybe one sentence. Need marker exactly last. No extra after. Ensure <=200 Chinese chars? Let's count roughly. Answer maybe 150 chars. Let's formulate:\n\n预算压至600元：物料标识150、零钱备付100、饮水100、清洁应急50、宣传50、机动150；摊位道具尽量借用，宣传以社区群免费发布为主。40人仍分5组（摊位、收银、引导、宣传、清洁），周五布置、周六8:30到场、9:00开场、15:30清点、16:00撤场。优先保障标价、找零、饮水和通道安全。\n\nCount ~130. Fine. Boundary CONTINUE.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 607,
+    "completion_tokens": 621,
+    "total_tokens": 1228,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 505
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0008144,
+      "allowance": 0.00048864,
+      "tokens": {
+        "input": 223,
+        "output": 621,
+        "reasoning": 505,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-810118",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 43514,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6773,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.0878999999986263,
+    "content_type": "text/event-stream",
+    "wire_chunks": 233,
+    "wire_sha256": "ddb89032d19b14d6ab26df2f5be16c5d3c3352f15c03e006e6428743b3c0a874",
+    "content_sha256": "0351fba6adc160b833bbaa5ffbcf3eb9b8f9963c45eb3b41e77b1c81f04900fa",
+    "reasoning_sha256": "2e9d954f94c98bb6790c378b3fc7157fe1197a1947fcb2cbe9886db71cddf5d7"
+  },
+  "latency": {
+    "total_ms": 9873.2627,
+    "first_wire_ms": 3228.1021000000037,
+    "first_content_ms": 9158.7748,
+    "first_reasoning_ms": 3229.306700000001,
+    "evidence_write_ms": 142.74749999995402
+  }
+}

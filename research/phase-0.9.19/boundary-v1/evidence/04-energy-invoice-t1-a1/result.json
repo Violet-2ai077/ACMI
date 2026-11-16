@@ -1,0 +1,65 @@
+{
+  "content": "周二比周一用电量增加了4千瓦时。\n<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese. Need calculate increase: 14-10=4 kWh. One sentence. Boundary: first turn? There is current work segment? This is first actual request, no prior. Convention CONTINUE. Need normal answer <=200 Chinese chars, then marker exactly. Need be careful \"增加了4千瓦时\" and maybe percentage? Asked 增加多少 likely difference. One sentence. Could say 周二比周一增加4千瓦时。 That's a sentence. Then marker. Ensure no extra after marker except whitespace.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 458,
+    "completion_tokens": 129,
+    "total_tokens": 587,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 107
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002922,
+      "allowance": 0.00017532,
+      "tokens": {
+        "input": 458,
+        "output": 129,
+        "reasoning": 107,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a5a3e22439a-7bbf88",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10101,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5329,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11189999999987776,
+    "content_type": "text/event-stream",
+    "wire_chunks": 58,
+    "wire_sha256": "7a6ee71ca9ec35fbe003fed9ccb16a226a0f1eadbc21b1e0d2fd41acf4025feb",
+    "content_sha256": "a7d746cc5ee533fdf446a5bc87f90b801b60ad414701fbdc49eec47b73c51973",
+    "reasoning_sha256": "e839f9d59423c047eb119a9400174a8f10e090bbebd6e960f57d9c7968e8e52d"
+  },
+  "latency": {
+    "total_ms": 4309.575399999998,
+    "first_wire_ms": 2611.706399999999,
+    "first_content_ms": 3746.0239999999976,
+    "first_reasoning_ms": 2613.1129999999976,
+    "evidence_write_ms": 40.06249999998181
+  }
+}

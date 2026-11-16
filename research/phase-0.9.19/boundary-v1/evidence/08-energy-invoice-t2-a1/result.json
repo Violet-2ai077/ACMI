@@ -1,0 +1,65 @@
+{
+  "content": "按更正后的周二12千瓦时计算，周二比周一增加了2千瓦时。<|boundary:CONTINUE|>",
+  "reasoning": "我们需要回答用户中文。 Need determine boundary. Previous turn answered increase 4. Now correction: Tuesday actual 12, update increment = 12-10=2 kWh. This is same work target, correcting data and updating calculation. So CONTINUE. Need normal answer under 200 chars, one sentence maybe. Include marker at end. Must not claim tools. Answer: 按更正后的周二12千瓦时计算，周二比周一增加2千瓦时。 Then boundary CONTINUE. Need exactly one marker at end.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 506,
+    "completion_tokens": 133,
+    "total_tokens": 639,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 105
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001985,
+      "allowance": 0.0001191,
+      "tokens": {
+        "input": 122,
+        "output": 133,
+        "reasoning": 105,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-810546",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 11132,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5592,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08069999999861466,
+    "content_type": "text/event-stream",
+    "wire_chunks": 64,
+    "wire_sha256": "75beb242d8a9c5da506c40bf2f2db8dd0cbbeb1c9c7625b4def389addd16793a",
+    "content_sha256": "23b05e65e0abc559e0bc0ebd1aa318956597a6caa99975d6df8d986f9084ca95",
+    "reasoning_sha256": "8928b67bb6b2637e1df86f550a7a0837d9702d13ca62d5982027667fdc2abafc"
+  },
+  "latency": {
+    "total_ms": 5597.172300000006,
+    "first_wire_ms": 4100.463300000003,
+    "first_content_ms": 5396.406800000004,
+    "first_reasoning_ms": 4100.962800000001,
+    "evidence_write_ms": 39.72180000007211
+  }
+}

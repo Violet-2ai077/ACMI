@@ -1,0 +1,65 @@
+{
+  "content": "含税总额为154元（140元加收10%税额14元）。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese. Need boundary: continuation? Current request relates to Client B invoice total with 10% tax, same work objective as previous new segment. Continue. Need calculate 140*1.1=154. Concise under 200 chars. No claim tools. End marker exactly.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 684,
+    "completion_tokens": 89,
+    "total_tokens": 773,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 60
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001991,
+      "allowance": 0.00011946,
+      "tokens": {
+        "input": 300,
+        "output": 89,
+        "reasoning": 60,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-812413",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 7659,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.53250000003,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08770000000367872,
+    "content_type": "text/event-stream",
+    "wire_chunks": 38,
+    "wire_sha256": "98231a75443e4cab8d07549f41495249fe324a6e0610deff59e310249b0873ea",
+    "content_sha256": "35cebd5f3c978a42ff4bdea55c388620a3797c2c05c964d35a58c09130e5a1fb",
+    "reasoning_sha256": "37faf90faa2679ba5bd8981295f6a0db21e4d4696e2840006848feca543c8cf1"
+  },
+  "latency": {
+    "total_ms": 4353.801000000007,
+    "first_wire_ms": 3340.574999999997,
+    "first_content_ms": 4096.383700000006,
+    "first_reasoning_ms": 3341.6745999999985,
+    "evidence_write_ms": 28.601999999955297
+  }
+}

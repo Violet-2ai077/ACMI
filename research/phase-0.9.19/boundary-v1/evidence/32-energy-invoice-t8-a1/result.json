@@ -1,0 +1,65 @@
+{
+  "content": "尊敬的客户C：此前发票中的客户名称误写为B，现更正为C，价格和税率不变，含税总额仍为154元，请以此为准。<|boundary:NEW|>",
+  "reasoning": "We need answer Chinese. Need determine boundary. Current prior was energy reminder, now invoice customer rename B to C price tax unchanged, give one sentence correction notice with tax-inclusive amount. This is returning to invoice work target, separate from energy work. Historical previous invoice segment had B invoice and tax. Now return to invoice object after intervening energy target. Per boundary rule: leaving a target then returning starts new segment, don't restore old numbering. So NEW. Need concise normal answer, maybe one sentence. \"尊敬的客户C：此前发票中的客户名称B有误，现更正为C，商品价格及税率不变，含税总额为154元，请以此为准。\" This is one sentence. End boundary NEW exactly.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 891,
+    "completion_tokens": 192,
+    "total_tokens": 1083,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 147
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003848,
+      "allowance": 0.00023088,
+      "tokens": {
+        "input": 507,
+        "output": 192,
+        "reasoning": 147,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-605a6f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 15434,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.60359999997,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08679999999003485,
+    "content_type": "text/event-stream",
+    "wire_chunks": 92,
+    "wire_sha256": "de844704c2932a25932f3e4d70ee80143d6009c3c82316b02570996f8d50495d",
+    "content_sha256": "b18910b934e11e8ab460230334bc2f2caa32e86ee3363ef6a8ea21965626957f",
+    "reasoning_sha256": "5ba499060044f71b07bf6de273643b2b4b609d1992b35ddc80f1d073a62909a1"
+  },
+  "latency": {
+    "total_ms": 5142.09050000002,
+    "first_wire_ms": 2879.9694000000018,
+    "first_content_ms": 4734.0869999999995,
+    "first_reasoning_ms": 2880.982100000023,
+    "evidence_write_ms": 60.17739999995683
+  }
+}

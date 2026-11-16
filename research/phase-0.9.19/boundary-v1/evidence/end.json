@@ -1,0 +1,1291 @@
+{
+  "at": "2026-11-16T07:54:46.997Z",
+  "actual_calls": 32,
+  "retry_calls": 0,
+  "halt": null,
+  "attempts": [
+    {
+      "index": 1,
+      "story": "login-notice",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-login-notice-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:51:30.364Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5218.7573,
+      "usage": {
+        "prompt_tokens": 462,
+        "completion_tokens": 150,
+        "total_tokens": 612,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 98
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003186,
+          "allowance": 0.00019116,
+          "tokens": {
+            "input": 462,
+            "output": 150,
+            "reasoning": 98,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 2,
+      "story": "sibling-projects",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "02-sibling-projects-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:51:35.588Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5058.762700000001,
+      "usage": {
+        "prompt_tokens": 459,
+        "completion_tokens": 192,
+        "total_tokens": 651,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003681,
+          "allowance": 0.00022086,
+          "tokens": {
+            "input": 459,
+            "output": 192,
+            "reasoning": 92,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 3,
+      "story": "venue-events",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "03-venue-events-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:51:40.651Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 9719.630500000001,
+      "usage": {
+        "prompt_tokens": 458,
+        "completion_tokens": 567,
+        "total_tokens": 1025,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 445
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0008178,
+          "allowance": 0.00049068,
+          "tokens": {
+            "input": 458,
+            "output": 567,
+            "reasoning": 445,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 4,
+      "story": "energy-invoice",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "04-energy-invoice-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:51:50.374Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4309.575399999998,
+      "usage": {
+        "prompt_tokens": 458,
+        "completion_tokens": 129,
+        "total_tokens": 587,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 107
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002922,
+          "allowance": 0.00017532,
+          "tokens": {
+            "input": 458,
+            "output": 129,
+            "reasoning": 107,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 5,
+      "story": "login-notice",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "05-login-notice-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:51:54.688Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6826.668699999998,
+      "usage": {
+        "prompt_tokens": 549,
+        "completion_tokens": 231,
+        "total_tokens": 780,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 136
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.000329,
+          "allowance": 0.0001974,
+          "tokens": {
+            "input": 165,
+            "output": 231,
+            "reasoning": 136,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 6,
+      "story": "sibling-projects",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "06-sibling-projects-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:01.518Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 9395.658999999996,
+      "usage": {
+        "prompt_tokens": 591,
+        "completion_tokens": 332,
+        "total_tokens": 923,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 234
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004628,
+          "allowance": 0.00027768,
+          "tokens": {
+            "input": 207,
+            "output": 332,
+            "reasoning": 234,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 7,
+      "story": "venue-events",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "07-venue-events-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:10.917Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 9873.2627,
+      "usage": {
+        "prompt_tokens": 607,
+        "completion_tokens": 621,
+        "total_tokens": 1228,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 505
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0008144,
+          "allowance": 0.00048864,
+          "tokens": {
+            "input": 223,
+            "output": 621,
+            "reasoning": 505,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 8,
+      "story": "energy-invoice",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "08-energy-invoice-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:20.794Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5597.172300000006,
+      "usage": {
+        "prompt_tokens": 506,
+        "completion_tokens": 133,
+        "total_tokens": 639,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001985,
+          "allowance": 0.0001191,
+          "tokens": {
+            "input": 122,
+            "output": 133,
+            "reasoning": 105,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 9,
+      "story": "login-notice",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "09-login-notice-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:26.395Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6413.153099999996,
+      "usage": {
+        "prompt_tokens": 673,
+        "completion_tokens": 242,
+        "total_tokens": 915,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003794,
+          "allowance": 0.00022764,
+          "tokens": {
+            "input": 289,
+            "output": 242,
+            "reasoning": 143,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 10,
+      "story": "sibling-projects",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "10-sibling-projects-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:32.812Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 11031.394799999995,
+      "usage": {
+        "prompt_tokens": 727,
+        "completion_tokens": 515,
+        "total_tokens": 1242,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 416
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0007232,
+          "allowance": 0.00043392,
+          "tokens": {
+            "input": 343,
+            "output": 515,
+            "reasoning": 416,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 11,
+      "story": "venue-events",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "11-venue-events-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:43.847Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7337.386500000008,
+      "usage": {
+        "prompt_tokens": 762,
+        "completion_tokens": 331,
+        "total_tokens": 1093,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 220
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0005129,
+          "allowance": 0.00030774,
+          "tokens": {
+            "input": 378,
+            "output": 331,
+            "reasoning": 220,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 12,
+      "story": "energy-invoice",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "12-energy-invoice-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:51.188Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5965.454400000002,
+      "usage": {
+        "prompt_tokens": 561,
+        "completion_tokens": 179,
+        "total_tokens": 740,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002702,
+          "allowance": 0.00016212,
+          "tokens": {
+            "input": 177,
+            "output": 179,
+            "reasoning": 139,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 13,
+      "story": "login-notice",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "13-login-notice-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:52:57.157Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5179.00480000001,
+      "usage": {
+        "prompt_tokens": 802,
+        "completion_tokens": 77,
+        "total_tokens": 879,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002201,
+          "allowance": 0.00013206,
+          "tokens": {
+            "input": 418,
+            "output": 77,
+            "reasoning": 39,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 14,
+      "story": "sibling-projects",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "14-sibling-projects-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:02.339Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 10632.925000000003,
+      "usage": {
+        "prompt_tokens": 860,
+        "completion_tokens": 548,
+        "total_tokens": 1408,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 442
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0008027,
+          "allowance": 0.00048162,
+          "tokens": {
+            "input": 476,
+            "output": 548,
+            "reasoning": 442,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 15,
+      "story": "venue-events",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "15-venue-events-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:12.975Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5460.046300000002,
+      "usage": {
+        "prompt_tokens": 902,
+        "completion_tokens": 228,
+        "total_tokens": 1130,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 151
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004313,
+          "allowance": 0.00025878,
+          "tokens": {
+            "input": 518,
+            "output": 228,
+            "reasoning": 151,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 16,
+      "story": "energy-invoice",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "16-energy-invoice-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:18.439Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4021.2130000000034,
+      "usage": {
+        "prompt_tokens": 632,
+        "completion_tokens": 106,
+        "total_tokens": 738,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 78
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002039,
+          "allowance": 0.00012234,
+          "tokens": {
+            "input": 248,
+            "output": 106,
+            "reasoning": 78,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 17,
+      "story": "login-notice",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "17-login-notice-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:22.464Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3245.5132000000012,
+      "usage": {
+        "prompt_tokens": 860,
+        "completion_tokens": 103,
+        "total_tokens": 963,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0002687,
+          "allowance": 0.00016122,
+          "tokens": {
+            "input": 476,
+            "output": 103,
+            "reasoning": 67,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 18,
+      "story": "sibling-projects",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "18-sibling-projects-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:25.713Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6583.570399999997,
+      "usage": {
+        "prompt_tokens": 997,
+        "completion_tokens": 371,
+        "total_tokens": 1368,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 286
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0006314,
+          "allowance": 0.00037884,
+          "tokens": {
+            "input": 613,
+            "output": 371,
+            "reasoning": 286,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 19,
+      "story": "venue-events",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "19-venue-events-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:32.300Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4301.5813999999955,
+      "usage": {
+        "prompt_tokens": 1005,
+        "completion_tokens": 185,
+        "total_tokens": 1190,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004106,
+          "allowance": 0.00024636,
+          "tokens": {
+            "input": 621,
+            "output": 185,
+            "reasoning": 120,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 20,
+      "story": "energy-invoice",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "20-energy-invoice-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:36.605Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4353.801000000007,
+      "usage": {
+        "prompt_tokens": 684,
+        "completion_tokens": 89,
+        "total_tokens": 773,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 60
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001991,
+          "allowance": 0.00011946,
+          "tokens": {
+            "input": 300,
+            "output": 89,
+            "reasoning": 60,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 21,
+      "story": "login-notice",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "21-login-notice-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:40.962Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4891.198999999993,
+      "usage": {
+        "prompt_tokens": 926,
+        "completion_tokens": 187,
+        "total_tokens": 1113,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 117
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003893,
+          "allowance": 0.00023358,
+          "tokens": {
+            "input": 542,
+            "output": 187,
+            "reasoning": 117,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 22,
+      "story": "sibling-projects",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "22-sibling-projects-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:45.857Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 11553.272400000016,
+      "usage": {
+        "prompt_tokens": 1115,
+        "completion_tokens": 814,
+        "total_tokens": 1929,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 689
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0011984,
+          "allowance": 0.00071904,
+          "tokens": {
+            "input": 731,
+            "output": 814,
+            "reasoning": 689,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 23,
+      "story": "venue-events",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "23-venue-events-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:53:57.414Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7754.359200000006,
+      "usage": {
+        "prompt_tokens": 1098,
+        "completion_tokens": 409,
+        "total_tokens": 1507,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 318
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0007073,
+          "allowance": 0.00042438,
+          "tokens": {
+            "input": 714,
+            "output": 409,
+            "reasoning": 318,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 24,
+      "story": "energy-invoice",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "24-energy-invoice-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:05.173Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3780.1667000000016,
+      "usage": {
+        "prompt_tokens": 748,
+        "completion_tokens": 179,
+        "total_tokens": 927,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 150
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003263,
+          "allowance": 0.00019578,
+          "tokens": {
+            "input": 364,
+            "output": 179,
+            "reasoning": 150,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 25,
+      "story": "login-notice",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "25-login-notice-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:08.957Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4663.224300000002,
+      "usage": {
+        "prompt_tokens": 1028,
+        "completion_tokens": 163,
+        "total_tokens": 1191,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 116
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003911,
+          "allowance": 0.00023466,
+          "tokens": {
+            "input": 644,
+            "output": 163,
+            "reasoning": 116,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 26,
+      "story": "sibling-projects",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "26-sibling-projects-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:13.623Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4367.813700000028,
+      "usage": {
+        "prompt_tokens": 1270,
+        "completion_tokens": 195,
+        "total_tokens": 1465,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 160
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0005021,
+          "allowance": 0.00030126,
+          "tokens": {
+            "input": 886,
+            "output": 195,
+            "reasoning": 160,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 27,
+      "story": "venue-events",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "27-venue-events-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:17.995Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4846.760000000009,
+      "usage": {
+        "prompt_tokens": 1214,
+        "completion_tokens": 221,
+        "total_tokens": 1435,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0005165,
+          "allowance": 0.0003099,
+          "tokens": {
+            "input": 830,
+            "output": 221,
+            "reasoning": 94,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 28,
+      "story": "energy-invoice",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "28-energy-invoice-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:22.845Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3481.912000000011,
+      "usage": {
+        "prompt_tokens": 809,
+        "completion_tokens": 174,
+        "total_tokens": 983,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 127
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003386,
+          "allowance": 0.00020316,
+          "tokens": {
+            "input": 425,
+            "output": 174,
+            "reasoning": 127,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 29,
+      "story": "login-notice",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "29-login-notice-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:26.331Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4317.862399999984,
+      "usage": {
+        "prompt_tokens": 1118,
+        "completion_tokens": 157,
+        "total_tokens": 1275,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004109,
+          "allowance": 0.00024654,
+          "tokens": {
+            "input": 734,
+            "output": 157,
+            "reasoning": 120,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 30,
+      "story": "sibling-projects",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "30-sibling-projects-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:30.653Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6437.118799999997,
+      "usage": {
+        "prompt_tokens": 1343,
+        "completion_tokens": 197,
+        "total_tokens": 1540,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0005264,
+          "allowance": 0.00031584,
+          "tokens": {
+            "input": 959,
+            "output": 197,
+            "reasoning": 144,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 31,
+      "story": "venue-events",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "31-venue-events-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:37.094Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4756.551500000001,
+      "usage": {
+        "prompt_tokens": 1368,
+        "completion_tokens": 93,
+        "total_tokens": 1461,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004091,
+          "allowance": 0.00024546,
+          "tokens": {
+            "input": 984,
+            "output": 93,
+            "reasoning": 67,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 32,
+      "story": "energy-invoice",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "32-energy-invoice-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T07:54:41.854Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5142.09050000002,
+      "usage": {
+        "prompt_tokens": 891,
+        "completion_tokens": 192,
+        "total_tokens": 1083,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 147
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003848,
+          "allowance": 0.00023088,
+          "tokens": {
+            "input": 507,
+            "output": 192,
+            "reasoning": 147,
+            "cache_read": 384,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    }
+  ],
+  "not_sent": [],
+  "no_resume": true,
+  "verified_charge": null
+}

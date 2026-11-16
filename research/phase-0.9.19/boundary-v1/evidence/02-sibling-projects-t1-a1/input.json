@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 2,
+    "story": "sibling-projects",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "北桥项目的导入器会把同一行重复写入。输入里有稳定的record_id，请给一个防重复写入的设计建议。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-d1ccc04e26fed13022d5ddc206348ff003deb36d9c0d8cc3"
+  },
+  "request_sha256": "77216cb1ce83322a80e52066efeaf90df8ba851a2a4adc29278ee159750c808c",
+  "freeze_sha256": "416a70b3204574b8d26f492adbfc89e3aac974f72b8d06970faa8e1b152157b3"
+}

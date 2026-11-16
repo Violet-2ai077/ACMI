@@ -1,0 +1,65 @@
+{
+  "content": "本周合计22千瓦时，上周合计18千瓦时，本周比上周多4千瓦时。<|boundary:NEW|>",
+  "reasoning": "We need answer Chinese. Need boundary. Current work segment? User returns to A-line energy, but different goal: compare week totals. Previous segment was B invoice, then now A line weekly comparison. Is this new segment? Need decide. Work段 by objective. We had A-line correction message segment, then B invoice new segment. Now back to A-line but new objective comparing totals; leaving invoice target and returning A-line. According instructions: leaving one target then returning starts new segment, even same project/word. Also new independent request. So NEW. Need compute: this week 10+12=22; last week 8+10=18; difference 4 kWh. Answer directly. Include boundary NEW. Ensure not overdo.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 748,
+    "completion_tokens": 179,
+    "total_tokens": 927,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 150
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003263,
+      "allowance": 0.00019578,
+      "tokens": {
+        "input": 364,
+        "output": 179,
+        "reasoning": 150,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-604dc9",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 13958,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.53299999997,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.14400000000023283,
+    "content_type": "text/event-stream",
+    "wire_chunks": 76,
+    "wire_sha256": "8790561d0554f1d3f830d138d0614acef8070fe09cdabf4dc8d0a278fbb01737",
+    "content_sha256": "8d3750e710cf25be6a73a08c0d66df2fc6762b58b24cf93c0a33737ccf4b0761",
+    "reasoning_sha256": "a5f54b75bb64032b203be62df3a1f0197af1126410f1cde11e4b97f5d85a969e"
+  },
+  "latency": {
+    "total_ms": 3780.1667000000016,
+    "first_wire_ms": 1744.4125999999815,
+    "first_content_ms": 3599.8524000000034,
+    "first_reasoning_ms": 1745.440499999997,
+    "evidence_write_ms": 49.87149999997928
+  }
+}

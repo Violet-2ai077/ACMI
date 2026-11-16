@@ -1,0 +1,65 @@
+{
+  "content": "【会议调整通知】各位同事，明天周会改到下午三点，仍在原线上会议室召开，请大家准时参加，谢谢！\n\n<|boundary:NEW|>",
+  "reasoning": "We need answer Chinese. Need boundary NEW because independent request meeting notice, not login repair. Need concise, under 200 Chinese chars. Write notice. No claim execution. Need append exact marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 802,
+    "completion_tokens": 77,
+    "total_tokens": 879,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 39
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002201,
+      "allowance": 0.00013206,
+      "tokens": {
+        "input": 418,
+        "output": 77,
+        "reasoning": 39,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-8114c1",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 6255,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.56089999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07739999999466818,
+    "content_type": "text/event-stream",
+    "wire_chunks": 31,
+    "wire_sha256": "cb5eb291b9727cb2db7040f996b5df80e6ca5217dbc0579300216ddff0499539",
+    "content_sha256": "8a21d514999b4fc2f643b96938e5ad09239eb0716842c2d978cda88c01f21071",
+    "reasoning_sha256": "773ff8b964198c489fdee0c8fd368676bec008560b8ff0a801db560c6a6c62a5"
+  },
+  "latency": {
+    "total_ms": 5179.00480000001,
+    "first_wire_ms": 4347.825000000012,
+    "first_content_ms": 4858.416100000002,
+    "first_reasoning_ms": 4349.0622,
+    "evidence_write_ms": 21.890700000003562
+  }
+}

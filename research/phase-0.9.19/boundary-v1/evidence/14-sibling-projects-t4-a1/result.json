@@ -1,0 +1,65 @@
+{
+  "content": "```sql\nBEGIN;\n-- 先按 record_id 做批内去重\nINSERT INTO t(record_id, ...) VALUES (:record_id, ...)\nON CONFLICT (record_id) DO NOTHING;  -- 需覆盖旧值则改 DO UPDATE\nCOMMIT;\n```\n\n两个 worker 都执行同一原子 upsert，由唯一索引裁决并发；冲突按幂等成功处理并计数，重试沿用同一 `record_id`。<|boundary:NEW|>",
+  "reasoning": "We need answer in Chinese, under 200 chars ideally. Need boundary. This is returning to 北桥 after 南桥 separate. New segment? Historical: first 北桥 design, correction, then 南桥 new segment, now return to 北桥. Rule: leaving a goal and returning starts new segment. So boundary NEW. Need concise pseudocode with record_id conflict handling. Mention unique index, atomic upsert, transaction, concurrent workers, batch dedup, conflict metrics. Under 200 chars perhaps pseudocode adds length. Need not overdo. Let's craft ~ maybe 170 Chinese chars plus code. User asks pseudocode. Need normal answer first, then marker exactly. Use code fence? Marker not in code fence. Fine.\n\nPseudo:\n\n```\nBEGIN;\n按 record_id 批内去重;\nINSERT INTO t(...) VALUES (...)\nON CONFLICT (record_id) DO UPDATE SET ... -- 或 DO NOTHING\nRETURNING (xmax = 0) AS inserted; -- 可选\nCOMMIT;\n```\n\nFor idempotency, DO NOTHING is safest if duplicates identical; DO UPDATE if latest wins. Need ensure \"处理冲突\" maybe DO UPDATE. But earlier said DO NOTHING/UPDATE. Give choice. If duplicate lines same record id likely DO NOTHING. Explain both workers atomic, DB arbitrates. Say conflict treated success, metrics. Under 200 maybe.\n\nLet's count roughly. Could be around 180 Chinese chars plus code. The prompt says normal, direct, ≤200 characters; does code count? We should keep total perhaps ~200. Let's compact.\n\nAnswer:\n\n```sql\nBEGIN;\n-- 批内按 record_id 去重\nINSERT INTO t(record_id, ...)\nVALUES (:record_id, ...)\nON CONFLICT (record_id) DO NOTHING; -- 需覆盖旧值则 DO UPDATE\nCOMMIT;\n```\n两个 worker 都走同一语句，由唯一索引裁决；冲突视为幂等成功并计数。重试同键同事务。No need more.\n\nMarker NEW. Ensure exactly one marker at end no explanation.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 860,
+    "completion_tokens": 548,
+    "total_tokens": 1408,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 442
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0008027,
+      "allowance": 0.00048162,
+      "tokens": {
+        "input": 476,
+        "output": 548,
+        "reasoning": 442,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-72a7ef",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 38671,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.61320000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07949999999254942,
+    "content_type": "text/event-stream",
+    "wire_chunks": 230,
+    "wire_sha256": "0bbf9de2547fa5fc7abd01c16f58d4fed310e400b91cec9899302d67b8ad25a5",
+    "content_sha256": "8f76fa1ac92ee9a4e0d115d571a410d2e10167e2bdd0dca47398c9282eb77841",
+    "reasoning_sha256": "f5be889541b129dd288736c049839bc10d8ac0f6af21debef2c6ee1bcf11ba28"
+  },
+  "latency": {
+    "total_ms": 10632.925000000003,
+    "first_wire_ms": 4645.598800000007,
+    "first_content_ms": 9990.6777,
+    "first_reasoning_ms": 4646.1345,
+    "evidence_write_ms": 134.0891999998712
+  }
+}

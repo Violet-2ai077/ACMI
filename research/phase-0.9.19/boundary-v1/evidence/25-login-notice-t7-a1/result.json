@@ -1,0 +1,65 @@
+{
+  "content": "fix(auth): 统一处理会话过期与500异常，确保请求结束后清理loading；401清除会话并跳转登录，500提示错误且不跳转\n\n<|boundary:CONTINUE|>",
+  "reasoning": "We need answer in Chinese, direct concise under 200 chars. Need boundary: current request is derive commit message for completed login fix including 401/500. Prior segment was login issue, then switched to meeting, then returned login with 500. That started NEW at 500. Now same work target (login fix), so CONTINUE. Provide one commit message. No code. Maybe: fix(auth): ensure loading cleanup on 401/500, clear session and redirect on 401, show error on 500. Need exact one line Chinese. Attach marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1028,
+    "completion_tokens": 163,
+    "total_tokens": 1191,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 116
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003911,
+      "allowance": 0.00023466,
+      "tokens": {
+        "input": 644,
+        "output": 163,
+        "reasoning": 116,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-72bf01",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 12577,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5724,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07790000000386499,
+    "content_type": "text/event-stream",
+    "wire_chunks": 68,
+    "wire_sha256": "ff2af7de342018286f8ab4cadfe972734d2305692f0d6ed8544239b3fbfcfae7",
+    "content_sha256": "38558a52f51df2687694efae3af4fad7e7024dc2713ff60c8b7357f50b89e296",
+    "reasoning_sha256": "586f459dfb97ec6f3e92d4a684514050b872a123584d707a32260aebeaf3649f"
+  },
+  "latency": {
+    "total_ms": 4663.224300000002,
+    "first_wire_ms": 2835.520499999984,
+    "first_content_ms": 4261.373599999992,
+    "first_reasoning_ms": 2836.550499999983,
+    "evidence_write_ms": 48.98110000003362
+  }
+}

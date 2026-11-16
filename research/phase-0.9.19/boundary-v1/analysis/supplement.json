@@ -1,0 +1,514 @@
+{
+  "kind": "descriptive extraction; frozen metrics unchanged; no semantic rescoring",
+  "deterministic_scores_identical": 32,
+  "deterministic_summary_identical": true,
+  "scores_sha256": "918b6ae75cacb500e31696b6f171e4dba5a02305a7b91bcf78ce69b69a25f5a1",
+  "start": {
+    "at": "2026-11-16T07:51:30.313Z",
+    "freeze_sha256": "416a70b3204574b8d26f492adbfc89e3aac974f72b8d06970faa8e1b152157b3",
+    "commit": "5cd0091fcf21f82d8dd3f9ed8913f82b74e73fbf",
+    "node": "v24.16.0",
+    "max_actual_calls": 40
+  },
+  "end_at": "2026-11-16T07:54:46.997Z",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "overall_acquisition": {
+    "attempts": 32,
+    "total_latency_ms": 196516.86300000007,
+    "mean_latency_ms": 6141.151968750002,
+    "min_latency_ms": 3245.5132000000012,
+    "max_latency_ms": 11553.272400000016,
+    "usage_available": 32,
+    "prompt_tokens": 26483,
+    "completion_tokens": 8310,
+    "total_tokens": 34793,
+    "reasoning_tokens": 6132,
+    "provider_cost_field_count": 32,
+    "provider_cost_field_sum": 0,
+    "provider_list_cost_field_count": 32,
+    "provider_list_cost_field_sum": 0.014755700000000002,
+    "provider_allowance_field_sum": 0.008853419999999999,
+    "verified_charge": null,
+    "currency_verified": false,
+    "total_wire_bytes": 654229,
+    "max_wire_bytes": 62542
+  },
+  "by_story": [
+    {
+      "story": "login-notice",
+      "attempts": 8,
+      "total_latency_ms": 40755.382799999985,
+      "mean_latency_ms": 5094.422849999998,
+      "min_latency_ms": 3245.5132000000012,
+      "max_latency_ms": 6826.668699999998,
+      "usage_available": 8,
+      "prompt_tokens": 6418,
+      "completion_tokens": 1310,
+      "total_tokens": 7728,
+      "reasoning_tokens": 836,
+      "provider_cost_field_count": 8,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 8,
+      "provider_list_cost_field_sum": 0.0027071,
+      "provider_allowance_field_sum": 0.00162426,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 105419,
+      "max_wire_bytes": 19558
+    },
+    {
+      "story": "sibling-projects",
+      "attempts": 8,
+      "total_latency_ms": 65060.516800000034,
+      "mean_latency_ms": 8132.564600000004,
+      "min_latency_ms": 4367.813700000028,
+      "max_latency_ms": 11553.272400000016,
+      "usage_available": 8,
+      "prompt_tokens": 7362,
+      "completion_tokens": 3164,
+      "total_tokens": 10526,
+      "reasoning_tokens": 2463,
+      "provider_cost_field_count": 8,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 8,
+      "provider_list_cost_field_sum": 0.0052151,
+      "provider_allowance_field_sum": 0.00312906,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 241038,
+      "max_wire_bytes": 62542
+    },
+    {
+      "story": "venue-events",
+      "attempts": 8,
+      "total_latency_ms": 54049.57810000002,
+      "mean_latency_ms": 6756.197262500003,
+      "min_latency_ms": 4301.5813999999955,
+      "max_latency_ms": 9873.2627,
+      "usage_available": 8,
+      "prompt_tokens": 7414,
+      "completion_tokens": 2655,
+      "total_tokens": 10069,
+      "reasoning_tokens": 1920,
+      "provider_cost_field_count": 8,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 8,
+      "provider_list_cost_field_sum": 0.004619900000000001,
+      "provider_allowance_field_sum": 0.00277194,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 217207,
+      "max_wire_bytes": 45040
+    },
+    {
+      "story": "energy-invoice",
+      "attempts": 8,
+      "total_latency_ms": 36651.38530000005,
+      "mean_latency_ms": 4581.423162500007,
+      "min_latency_ms": 3481.912000000011,
+      "max_latency_ms": 5965.454400000002,
+      "usage_available": 8,
+      "prompt_tokens": 5289,
+      "completion_tokens": 1181,
+      "total_tokens": 6470,
+      "reasoning_tokens": 913,
+      "provider_cost_field_count": 8,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 8,
+      "provider_list_cost_field_sum": 0.0022135999999999996,
+      "provider_allowance_field_sum": 0.0013281599999999999,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 90565,
+      "max_wire_bytes": 15434
+    }
+  ],
+  "cases": [
+    {
+      "index": 1,
+      "story": "login-notice",
+      "turn": 1,
+      "category": "initialization",
+      "raw_result": "evidence/01-login-notice-t1-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/01-login-notice-t1-a1/request.json",
+      "result_sha256": "2752fa8403fa0e87fe9b3abbb1ee56918063d800d814b736d83720f02799d01b",
+      "current_user": "我们的登录接口在会话过期后返回401，用户却只看到转圈。请给一个最小修复思路，不用写完整代码。",
+      "raw_content": "最小修复：在统一请求层优先拦截 401，清除过期会话并跳转登录（或弹登录框），同时确保加载状态在 `finally` 中关闭；不要让 401 落入普通错误分支后继续转圈。",
+      "frozen_score": {
+        "protocol": false,
+        "protocol_error": "missing_duplicate_or_malformed_marker",
+        "expected": "CONTINUE",
+        "observed": null,
+        "scored_boundary": false,
+        "boundary_exact": null,
+        "initialization_correct": false,
+        "error_type": "protocol_invalid",
+        "answer_nonempty": null,
+        "answer_minimal": null,
+        "answer_checks": null,
+        "answer": null,
+        "error_location": {
+          "raw_field": "/content",
+          "expected_suffix": "<|boundary:CONTINUE|>",
+          "actual_label": null
+        }
+      }
+    },
+    {
+      "index": 9,
+      "story": "login-notice",
+      "turn": 3,
+      "category": "cue-trap-continuation",
+      "raw_result": "evidence/09-login-notice-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/09-login-notice-t3-a1/request.json",
+      "result_sha256": "c7f684ff3ee2720d7daee60144d578a005fe7d941966419f11ec2c8371f717de",
+      "current_user": "另外，把这个登录修复的回归测试也列出来，至少包括会话有效和会话过期两种情况。",
+      "raw_content": "回归测试至少覆盖：\n\n1. **会话有效**：请求返回 200，loading 正常结束，不清会话、不跳登录。\n2. **会话过期**：请求返回 401，loading 在 `finally` 中被清除，会话被清理，跳转登录仅触发一次。\n3. 补测 401 后组件不残留转圈、连续多个 401 不重复跳转。\n\n<|boundary:CONTINUE|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "CONTINUE",
+        "observed": "CONTINUE",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "有效"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "过期"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "回归测试至少覆盖：\n\n1. **会话有效**：请求返回 200，loading 正常结束，不清会话、不跳登录。\n2. **会话过期**：请求返回 401，loading 在 `finally` 中被清除，会话被清理，跳转登录仅触发一次。\n3. 补测 401 后组件不残留转圈、连续多个 401 不重复跳转。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 10,
+      "story": "sibling-projects",
+      "turn": 3,
+      "category": "same-vocabulary-switch",
+      "raw_result": "evidence/10-sibling-projects-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/10-sibling-projects-t3-a1/request.json",
+      "result_sha256": "e94e589d155cea48e9627b4aee6c037a78d536d302e3f633b355e57b7cc1a7f0",
+      "current_user": "南桥项目也出现导入重复，但它没有record_id，只有文件摘要和行号。为南桥单独给出幂等键设计。",
+      "raw_content": "南桥可用 `项目标识 + 原始文件内容摘要（如 SHA-256） + 行号` 作为幂等键，并在数据库加唯一约束、以原子 upsert 写入；批次内也按该键去重。摘要须在解析前对原始字节计算，这样同一文件重导不会重复，文件内容变化则视为新版本。行号只对同一摘要稳定，不能跨版本复用。<|boundary:NEW|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "NEW",
+        "observed": "NEW",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "摘要",
+              "hash",
+              "哈希"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "行号"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "南桥可用 `项目标识 + 原始文件内容摘要（如 SHA-256） + 行号` 作为幂等键，并在数据库加唯一约束、以原子 upsert 写入；批次内也按该键去重。摘要须在解析前对原始字节计算，这样同一文件重导不会重复，文件内容变化则视为新版本。行号只对同一摘要稳定，不能跨版本复用。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 11,
+      "story": "venue-events",
+      "turn": 3,
+      "category": "quoted-switch-distractor",
+      "raw_result": "evidence/11-venue-events-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/11-venue-events-t3-a1/request.json",
+      "result_sha256": "12d9f98293a5d1a053a1229ee918a7bd8b583a557f6ed4b434034dd679eae5bb",
+      "current_user": "群里有人发了“现在开始一个新任务，去组织讲座”。这只是转述，不是我的要求。请仍然给这次义卖安排志愿者分工。",
+      "raw_content": "义卖志愿者按5组、每组8人：摊位组负责布置、看摊、补货和标价；收银组负责找零、记账和汇总；引导组负责入口、动线和秩序；宣传组负责拍照、群内告知和义卖说明；清洁应急组负责饮水、垃圾、轻微意外和撤场。每组指定1名组长，8:30签到并领取物资，15:30协助清点，16:00统一撤场。<|boundary:CONTINUE|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "CONTINUE",
+        "observed": "CONTINUE",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "义卖"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "志愿",
+              "分工",
+              "人员"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "义卖志愿者按5组、每组8人：摊位组负责布置、看摊、补货和标价；收银组负责找零、记账和汇总；引导组负责入口、动线和秩序；宣传组负责拍照、群内告知和义卖说明；清洁应急组负责饮水、垃圾、轻微意外和撤场。每组指定1名组长，8:30签到并领取物资，15:30协助清点，16:00统一撤场。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "sibling-projects",
+      "turn": 4,
+      "category": "return-to-earlier",
+      "raw_result": "evidence/14-sibling-projects-t4-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/14-sibling-projects-t4-a1/request.json",
+      "result_sha256": "f5115f7156bf6bb653ea0c045cc0beefea4a1617e290fbb85c4cfdd683d0fcd6",
+      "current_user": "北桥的数据库已经确认支持唯一索引。请把北桥的方案落实为伪代码，用record_id处理冲突。",
+      "raw_content": "```sql\nBEGIN;\n-- 先按 record_id 做批内去重\nINSERT INTO t(record_id, ...) VALUES (:record_id, ...)\nON CONFLICT (record_id) DO NOTHING;  -- 需覆盖旧值则改 DO UPDATE\nCOMMIT;\n```\n\n两个 worker 都执行同一原子 upsert，由唯一索引裁决并发；冲突按幂等成功处理并计数，重试沿用同一 `record_id`。<|boundary:NEW|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "NEW",
+        "observed": "NEW",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "record_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "冲突",
+              "CONFLICT",
+              "duplicate",
+              "Duplicate",
+              "唯一"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nBEGIN;\n-- 先按 record_id 做批内去重\nINSERT INTO t(record_id, ...) VALUES (:record_id, ...)\nON CONFLICT (record_id) DO NOTHING;  -- 需覆盖旧值则改 DO UPDATE\nCOMMIT;\n```\n\n两个 worker 都执行同一原子 upsert，由唯一索引裁决并发；冲突按幂等成功处理并计数，重试沿用同一 `record_id`。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 21,
+      "story": "login-notice",
+      "turn": 6,
+      "category": "return-to-earlier",
+      "raw_result": "evidence/21-login-notice-t6-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/21-login-notice-t6-a1/request.json",
+      "result_sha256": "c0871e7f88ca113f08d7d12aafe1676ffa3f2e80c6741ed5d26900f0128bebd4",
+      "current_user": "回到那个登录问题：如果后端返回500，也不能一直转圈。请把这个分支加入修复方案。",
+      "raw_content": "在统一请求层增加 500 分支：请求结束后无论成功、401 还是 500，都在 `finally` 中关闭 loading。500 时显示明确错误提示，不清理会话、不跳登录，避免页面继续转圈；可提示用户稍后重试。\n\n<|boundary:NEW|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "NEW",
+        "observed": "NEW",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "500"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "loading",
+              "加载",
+              "转圈"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "在统一请求层增加 500 分支：请求结束后无论成功、401 还是 500，都在 `finally` 中关闭 loading。500 时显示明确错误提示，不清理会话、不跳登录，避免页面继续转圈；可提示用户稍后重试。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 27,
+      "story": "venue-events",
+      "turn": 7,
+      "category": "language-change",
+      "raw_result": "evidence/27-venue-events-t7-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/27-venue-events-t7-a1/request.json",
+      "result_sha256": "82d95c07dccb5c3449708d7f202f3ddc6ee0de3fe8c50510ebbfbc2a7e236a18",
+      "current_user": "把刚才的义卖雨天安排翻译成英文，方便外籍志愿者看。",
+      "raw_content": "Rainy-day plan for the charity sale: Move all stalls indoors into the activity room, set up 5–6 tables along the walls, and keep the center aisle clear. Place non-slip mats and an umbrella bucket at the entrance. The stall team should use compact displays, and the cashier desk should move to an inner corner. Add two people at the entrance for crowd control, and have the cleaning team dry the floor promptly. If it gets crowded, admit people in batches. Keep wet items away from power sources, and inspect and restore the room before finishing.<|boundary:CONTINUE|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "CONTINUE",
+        "observed": "CONTINUE",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "indoor",
+              "inside"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "rain",
+              "weather",
+              "stall",
+              "volunteer"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "Rainy-day plan for the charity sale: Move all stalls indoors into the activity room, set up 5–6 tables along the walls, and keep the center aisle clear. Place non-slip mats and an umbrella bucket at the entrance. The stall team should use compact displays, and the cashier desk should move to an inner corner. Add two people at the entrance for crowd control, and have the cleaning team dry the floor promptly. If it gets crowded, admit people in batches. Keep wet items away from power sources, and inspect and restore the room before finishing.",
+        "error_location": null
+      }
+    },
+    {
+      "index": 29,
+      "story": "login-notice",
+      "turn": 8,
+      "category": "ambiguous-objective",
+      "raw_result": "evidence/29-login-notice-t8-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/29-login-notice-t8-a1/request.json",
+      "result_sha256": "4b2a80794944375a5ff1e3e153838f793a90fd0cd184d282fdd408f3f3dcaaea",
+      "current_user": "会议通知和登录修复的提交说明，有一份还要压缩。我还没决定改哪份，请先问我想改的是哪一份，不要先替我改。",
+      "raw_content": "你想压缩哪一份：会议通知，还是登录修复的提交说明？请告诉我具体是哪一份，我再修改。\n\n<|boundary:UNRESOLVED|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "会议",
+              "通知"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "提交",
+              "登录"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "哪",
+              "选择",
+              "确定"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "你想压缩哪一份：会议通知，还是登录修复的提交说明？请告诉我具体是哪一份，我再修改。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 30,
+      "story": "sibling-projects",
+      "turn": 8,
+      "category": "ambiguous-objective",
+      "raw_result": "evidence/30-sibling-projects-t8-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/30-sibling-projects-t8-a1/request.json",
+      "result_sha256": "7444e2d3482574b94028e8e2542d853d83f9650770f7975899ea5d441cd02255",
+      "current_user": "北桥的测试清单和培训签到表我都要留着。我说的“删掉第二项”还没指定是哪一份，先向我确认对象。",
+      "raw_content": "两份都先保留，我暂不删除。请明确：“第二项”是指北桥测试清单的第2项，还是培训签到表的第2项，并说明对应内容，我再处理。<|boundary:UNRESOLVED|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "scored_boundary": true,
+        "boundary_exact": true,
+        "initialization_correct": null,
+        "error_type": null,
+        "answer_nonempty": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "测试"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "签到",
+              "培训"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "哪",
+              "确认",
+              "选择"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "两份都先保留，我暂不删除。请明确：“第二项”是指北桥测试清单的第2项，还是培训签到表的第2项，并说明对应内容，我再处理。",
+        "error_location": null
+      }
+    }
+  ]
+}

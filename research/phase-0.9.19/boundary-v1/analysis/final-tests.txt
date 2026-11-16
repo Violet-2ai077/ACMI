@@ -1,0 +1,47 @@
+✔ new private oracle has 28 boundaries across 4 eight-turn stories (1.4247ms)
+✔ valid marker is a single terminal suffix, not repaired JSON or a second answer (0.28ms)
+✔ false split and false merge are separate (0.3282ms)
+✔ abstention is neither a protocol failure nor a successful split (0.1962ms)
+✔ first turn is initialization, not an extra boundary success (0.16ms)
+✔ returning to an earlier goal allocates a new segment in the display (1.6233ms)
+✔ protocol failure remains in captured transition denominator (0.1815ms)
+✔ acquisition failure remains visible, without a fake boundary score (0.1236ms)
+✔ request excludes oracle, UUID, segment counter and story labels, preserving actual history (1.8062ms)
+✔ environment retry does not accept model mistakes or incomplete local capture (0.3532ms)
+✔ deadline transport revision exists separately from legacy transport (3.8081ms)
+✔ 180 seconds is fixed; prefix and late-delivery bytes persist without late scoring (17.0305ms)
+✔ earlier HTTP, SSE and UTF8 failures are not masked by deadline (2.3509ms)
+✔ cleanup has its own 5000 ms bound and uncertain closure cannot claim integrity (0.6482ms)
+✔ external cancellation and sink failure remain hard failures (0.7416ms)
+✔ archive callback cannot mutate delivered bytes or decoder input (0.4766ms)
+✔ late cleanup cannot claim success when synchronous work starves cleanup timer (0.5158ms)
+✔ hard byte limit and terminal write failures cannot become censored candidates (0.6742ms)
+✔ cancelled read EOF is not evidence that the remote response completed (0.288ms)
+✔ native abort-error stream closure is confirmed without hiding earlier failures (1.812ms)
+✔ deadline racing an unrelated pending-read rejection cannot mask that failure (0.3886ms)
+✔ routing identity is stable per conversation and isolated across arms, sessions, runs and replay probes (1.4835ms)
+✔ transport sends and archives only the pinned safe routing headers, rejecting mutation before Fetch (17.8841ms)
+✔ transport serialization preserves conversation and explicit reasoning history, no oracle fields (2.3065ms)
+✔ transport request rejects unsupported URLs, limits and unrelated reasoning entries (1.1044ms)
+✔ SSE decoder is byte-boundary invariant and reasoning never becomes answer text (30.9873ms)
+✔ SSE framing supports multiline data, CR-only separators and comments without repair (0.302ms)
+✔ SSE decoder rejects ambiguous or unsupported events without repair (0.7426ms)
+✔ one send archives request first and exact wire, content, reasoning and usage separately (17.5745ms)
+✔ HTTP failures and redirects are never retried; error bodies remain wire evidence (1.4856ms)
+✔ truncation, filtering, missing usage and incomplete stream are distinct outcomes (1.4232ms)
+✔ deadline aborts stalled fetch and stalled body; no retry or raw exception leakage (66.1618ms)
+✔ archive failure before send prevents send; during streaming stops with partial evidence (0.7068ms)
+✔ body digest tampering and missing transport reject before any generation (0.3723ms)
+✔ wire overflow and cancellation stop the only attempt without fabricated completion (0.392ms)
+✔ protocol rejection still drains and archives the full received response without parsing later events (0.3695ms)
+✔ archive callback cannot change bytes before provider decoding (0.4354ms)
+✔ abort-aware fetch reports deadline as timeout and cancellation during reservation sends nothing (29.1914ms)
+✔ deadline cannot be bypassed by synchronous evidence work starving the timer queue (61.3878ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 411.429

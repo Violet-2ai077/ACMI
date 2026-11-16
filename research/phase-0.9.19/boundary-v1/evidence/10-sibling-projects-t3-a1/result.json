@@ -1,0 +1,65 @@
+{
+  "content": "南桥可用 `项目标识 + 原始文件内容摘要（如 SHA-256） + 行号` 作为幂等键，并在数据库加唯一约束、以原子 upsert 写入；批次内也按该键去重。摘要须在解析前对原始字节计算，这样同一文件重导不会重复，文件内容变化则视为新版本。行号只对同一摘要稳定，不能跨版本复用。<|boundary:NEW|>",
+  "reasoning": "We need answer user current request. Need boundary. This is new independent project/object South Bridge, separate idempotency key design, no record_id, only file digest and line number. Need answer concise <200 Chinese chars ideally. Need consider file digest and line number as key. Need mention scope: project_id + file_digest + line_no; but file digest changes when content changes, line numbers unstable across edits. For import dedupe, use stable file content digest and physical line number as key, plus importer/version? Need distinguish duplicate rows within same file? If same line repeated in input and no record_id, file digest+line number can't distinguish duplicate physical lines if line numbers unique. If file same repeated import, dedupe. If line content duplicate at different lines, they are distinct by line_no. Need perhaps batch/import id? File digest computed over raw bytes. Store key. Unique constraint, upsert. Also handle file reserialization? Could canonicalize? Only file digest and line number. We must answer direct and probably boundary NEW because separate project, another object. User explicitly \"南桥项目...为南桥单独给出\" new segment. Final marker NEW. Need not mention marker explanation. Ensure normal answer then marker. Under 200 chars. Let's draft:\n\n\"南桥建议用 `project_id + 文件内容摘要(原始字节SHA-256) + 行号` 作为幂等键，落库加唯一约束并原子 upsert；批次内再按该键去重。摘要须在解析前对原始文件计算，同一文件重导不会重复；文件内容变化即视为新版本。注意行号仅对同一摘要稳定，不能跨文件版本复用。\"\n\nNeed include maybe importer name/version? If same digest and line no but different importer logic? project_id enough. User asked separate design. Could include \"导入类型\" if multiple importers. But maybe overkill. Mention \"同一项目内\". Need concise. Boundary NEW.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 727,
+    "completion_tokens": 515,
+    "total_tokens": 1242,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 416
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0007232,
+      "allowance": 0.00043392,
+      "tokens": {
+        "input": 343,
+        "output": 515,
+        "reasoning": 416,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-729cb5",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 39988,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5417,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11140000000887085,
+    "content_type": "text/event-stream",
+    "wire_chunks": 255,
+    "wire_sha256": "76ee9233648757842910a7301e9792b68087b8eb56b5c177c29b05f554f53698",
+    "content_sha256": "1e3615af2696688a67e245276e6e271e9c5c69846950d4410e5580470e2095c9",
+    "reasoning_sha256": "01bca75bbcfd61a706edc1d4cbaba00d0e2322a181c05f586fcc207d0696feea"
+  },
+  "latency": {
+    "total_ms": 11031.394799999995,
+    "first_wire_ms": 4958.810599999997,
+    "first_content_ms": 10057.684800000003,
+    "first_reasoning_ms": 4959.856,
+    "evidence_write_ms": 164.1825999998764
+  }
+}

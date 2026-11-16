@@ -1,0 +1,65 @@
+{
+  "content": "欢迎大家周日来参加读书会，先给自己一点掌声吧，能从忙碌中抽出45分钟读书聊天，真不容易。今天咱们不拘形式，先轻松聊聊各自最近读到的内容，再围绕一个话题一起交流，希望大家都能带着一点新想法回家。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese, two sentences, relaxed, host opening for book club. Then boundary. This is continuation of reading club agenda segment, so CONTINUE. Need exactly two sentences? Keep concise, no extra. Ensure two sentences and light tone. Something like: \"欢迎大家周日来参加读书会，先给自己一点掌声，毕竟能在忙碌里抽出45分钟读书聊天不容易。今天咱们不拘形式，先轻松聊聊各自最近读到的内容，再围绕一个问题一起交流，希望大家都能带着一点新想法回家。\" That's two sentences. Good. Append boundary exactly. No extra after.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1005,
+    "completion_tokens": 185,
+    "total_tokens": 1190,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 120
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0004106,
+      "allowance": 0.00024636,
+      "tokens": {
+        "input": 621,
+        "output": 185,
+        "reasoning": 120,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-812264",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 16400,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.53259999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08199999999487773,
+    "content_type": "text/event-stream",
+    "wire_chunks": 81,
+    "wire_sha256": "4afc3d8da2eaf283e005498115c21bb47b1dc59c87d3705ede2c072f68478003",
+    "content_sha256": "32dad42fa5c4fd672223d77538a4f3c2946f77a64a829ee0583b2f94a42af15a",
+    "reasoning_sha256": "8bcb355d9b82303111afc39a2753bb1cd317bf7c9b67c525bc66e8c349a8f423"
+  },
+  "latency": {
+    "total_ms": 4301.5813999999955,
+    "first_wire_ms": 1892.6950999999972,
+    "first_content_ms": 3709.170699999988,
+    "first_reasoning_ms": 1893.2904999999882,
+    "evidence_write_ms": 50.11009999993257
+  }
+}

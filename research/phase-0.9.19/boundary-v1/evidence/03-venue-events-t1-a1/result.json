@@ -1,0 +1,65 @@
+{
+  "content": "周六义卖准备：40人分成5个小组，每组8人，分别负责摊位、收银、引导、宣传和清洁。周三前收齐物品并标价；周五在活动室划分摊位、收银台和通道；当天8:30布置，9:00开场，15:30清点，16:00撤场清洁。预算800元：物料标识200、零钱备付100、宣传50、饮水补给150、应急清洁100，留200机动。注意室内通道和用电安全。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer Chinese. Need short prep arrangement for Saturday community charity sale, 40 people, budget 800, activity room. Need under 200 chars ideally. Then boundary CONTINUE first round. Need normal direct answer. No claims. Need maybe include timeline and budget breakdown. Need concise. \"简短准备安排\" likely plan. Need account 40 people, budget 800, venue activity room. Could say: 周五前分组分工... 周六 8:30布置... 预算: 摊位物料200, 标价/零钱100, 宣传50, 饮用水/简易补给150, 应急/清洁100, 备用200? Sums 800. Need be realistic. Maybe 40 people means participants? Community flea market has 40 people, budget 800, venue indoor activity room. Need prep arrangement: before, day, budget, safety/cleanup. Keep short. Under 200 Chinese characters? They say \"正常、直接...通常不超过200字\" That's instruction for answer. Need maybe 180 chars. Need append marker exactly. Let's craft concise maybe 170 Chinese chars.\n\nPotential:\n\"周六义卖准备：①周三前报名分组（摊位、收银、引导、清洁），收齐物品并标价；②周五布置动线，划分摊位、收银台、休息区，备零钱和收款码；③当天8:30到场布置，9:00开场，15:30清点，16:00撤场清洁。预算800元：物料/标识200、零钱备付100、宣传50、饮水补给150、应急清洁100，留200机动。室内注意通道和用电安全。\"\nCount ~145? Good. Boundary CONTINUE. Ensure no markdown? Fine. \"周六社区义卖有40人\" maybe 40 participants. We can refer 40人分组. Maybe include \"按5组8人\". Need short. Could improve: \"40人分5组，每组8人：摊位、收银、引导、宣传、清洁\" But 5 groups 8 each. Good. Budget. Let's ensure exactly marker final no explanation.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 458,
+    "completion_tokens": 567,
+    "total_tokens": 1025,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 445
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0008178,
+      "allowance": 0.00049068,
+      "tokens": {
+        "input": 458,
+        "output": 567,
+        "reasoning": 445,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-6b2a1e",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 45040,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5344,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.12280000000100699,
+    "content_type": "text/event-stream",
+    "wire_chunks": 253,
+    "wire_sha256": "48fdf98b5476236fe76ce6991525c9ede80922a616ebca4bb55895e708b688a2",
+    "content_sha256": "3685921b1bb2720943a2f5f6228d52496a7510fe2385857e6526ce39bde62848",
+    "reasoning_sha256": "28010328f7ea201d23857f84273eba6292a2cb166ef2d69744fd6cbf418731b1"
+  },
+  "latency": {
+    "total_ms": 9719.630500000001,
+    "first_wire_ms": 2624.2749000000003,
+    "first_content_ms": 8700.2505,
+    "first_reasoning_ms": 2625.509400000001,
+    "evidence_write_ms": 155.59620000001632
+  }
+}

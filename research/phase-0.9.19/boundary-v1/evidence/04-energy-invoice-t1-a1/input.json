@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 4,
+    "story": "energy-invoice",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "A线周一用电10千瓦时，周二14千瓦时。请计算周二比周一增加多少，并用一句话说明。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-5b49ba40b8686724a209c47b5756f4b7fc8f834d17b040e5"
+  },
+  "request_sha256": "dd5d50fdb96257ba6c24b3cea91322b8f9297b99f5e9809d7836e104afbf1f28",
+  "freeze_sha256": "416a70b3204574b8d26f492adbfc89e3aac974f72b8d06970faa8e1b152157b3"
+}

@@ -1,0 +1,65 @@
+{
+  "content": "把北桥的写改成一个原子 upsert，并且不覆盖已有值，让重复提交仍返回首次写入的行：\n\n```sql\nINSERT INTO t(...) VALUES(...)\nON CONFLICT (record_id) DO UPDATE\nSET record_id = t.record_id\nRETURNING *;\n```\n\n批内仍按 `record_id` 去重，并保留首次值。测试应断言：重复提交、并发提交同一 `record_id` 时均不报错，返回与首次写入完全相同的结果，且库中只有一行。<|boundary:CONTINUE|>",
+  "reasoning": "We need answer in Chinese, adjust upsert to return first written result on duplicate, no error. Need caveat: DO NOTHING returns no row on conflict, so need DO UPDATE ... returning original values, or INSERT ON CONFLICT DO UPDATE SET record_id=EXCLUDED.record_id RETURNING original? PostgreSQL DO UPDATE returns new row, but if set nothing except maybe record_id, other columns remain original; RETURNING * gives existing row (except any updated col). Need ensure no overwrite, no trigger side effects? Suggest `ON CONFLICT (record_id) DO UPDATE SET record_id = EXCLUDED.record_id RETURNING *` returns existing row contents. But this is a no-op update causing row version churn/locks; alternative CTE SELECT existing after DO NOTHING? Race safe within same statement? Could do `WITH ins AS (INSERT ... ON CONFLICT DO NOTHING RETURNING *) SELECT * FROM ins UNION ALL SELECT * FROM t WHERE record_id=:id LIMIT 1;` Under READ COMMITTED, visible? Potential issue: concurrent uncommitted insert not visible, but ON CONFLICT waits for other transaction then DO NOTHING, subsequent SELECT in same statement? Snapshot semantics: statement snapshot may not see committed after wait? In PostgreSQL, command counter/snapshot? Safer DO UPDATE returning. Or use `INSERT ... ON CONFLICT DO UPDATE SET record_id = t.record_id RETURNING t.*`? In DO UPDATE, existing table alias t and EXCLUDED. `SET record_id = t.record_id` no change. Return existing. Need mention no error, return first result. Also update tests: duplicate returns same payload, first-write immutable, concurrent both return identical first result. Batch behavior? If batch duplicate within batch, dedupe and return first. Need under 200 Chinese chars? User says \"正常、直接回答...不超过200字\". So concise.\n\nNeed boundary: continuing North Bridge implementation/acceptance adjustment. Previous segment was tests; now acceptance changed, still same north bridge implementation. CONTINUE. Final marker exactly. Ensure not too much. Maybe 130-180 Chinese chars.\n\nLet's craft: 将 `DO NOTHING` 改为无覆盖的 `DO UPDATE`，让冲突也 RETURNING 首次值: `INSERT INTO t(...) VALUES(...) ON CONFLICT (record_id) DO UPDATE SET record_id = t.record_id RETURNING *;` 两条并发提交均返回同一首写行，不抛唯一冲突。批内先按 record_id 去重，保留首个值。测试断言重复和并发调用均无错误且返回完全相同结果、库中仍一行。 Need maybe mention first write result if original columns not updated. `SET record_id = t.record_id` no-op retains all other columns. But in PostgreSQL, DO UPDATE target table alias can reference t; yes. `RETURNING *` returns existing row after no-op update. There is subtle: under concurrent transaction, ON CONFLICT DO UPDATE waits for winner then returns winner row. Good. If triggers, no-op update triggers update triggers. Could mention if不能接受空更新副作用, use CTE with insert/select + retry? But under 200 chars. Need perhaps no mention. Final marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1115,
+    "completion_tokens": 814,
+    "total_tokens": 1929,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 689
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0011984,
+      "allowance": 0.00071904,
+      "tokens": {
+        "input": 731,
+        "output": 814,
+        "reasoning": 689,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-72b689",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 62542,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5218,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08080000002519228,
+    "content_type": "text/event-stream",
+    "wire_chunks": 351,
+    "wire_sha256": "148efedc245a23b431381581e8aa452fbaba465fbf716019f086219c15906f84",
+    "content_sha256": "c34596cd0f793789d392f1075b0be52b0437bcfd8dc9a140e88235dcdd8c14ce",
+    "reasoning_sha256": "84a8868611b0202f43d61cf5443de407e78cf191ae66c386c0ec1608a7741045"
+  },
+  "latency": {
+    "total_ms": 11553.272400000016,
+    "first_wire_ms": 2036.8592000000062,
+    "first_content_ms": 10266.259300000005,
+    "first_reasoning_ms": 2038.0823000000091,
+    "evidence_write_ms": 242.34610000031535
+  }
+}

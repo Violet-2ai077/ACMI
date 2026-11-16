@@ -1,0 +1,65 @@
+{
+  "content": "客户B应付总额为140元（10件×14元，暂不计税）。<|boundary:NEW|>",
+  "reasoning": "We need answer in Chinese, concise. Need determine boundary: Previous work segment about A线 electricity correction and message. Current request client B invoice total 10*14=140, separate object/work goal. New segment. Need normal answer, under 200 chars. Then boundary NEW. No need tools. Ensure calculation: 10件×14元=140元，暂不计税。",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 632,
+    "completion_tokens": 106,
+    "total_tokens": 738,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 78
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002039,
+      "allowance": 0.00012234,
+      "tokens": {
+        "input": 248,
+        "output": 106,
+        "reasoning": 78,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-60411e",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 7561,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.52200000003,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.075700000001234,
+    "content_type": "text/event-stream",
+    "wire_chunks": 39,
+    "wire_sha256": "de3bbd91ca12fe5eec834346468ce134fbfd0fce155976f67040fa558eaca2f5",
+    "content_sha256": "7ae15b6451bfcda2706576abeb80e3c310e290c5fa30bf5f7537b0de3ad31369",
+    "reasoning_sha256": "35ed6ac3257348524234913e413ea085730c9fee850ba8f7db48c406a4bd2e84"
+  },
+  "latency": {
+    "total_ms": 4021.2130000000034,
+    "first_wire_ms": 3024.373200000002,
+    "first_content_ms": 3805.157600000006,
+    "first_reasoning_ms": 3025.5397999999986,
+    "evidence_write_ms": 25.54770000008284
+  }
+}

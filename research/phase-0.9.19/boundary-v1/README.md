@@ -1,5 +1,11 @@
 # BS1 boundary-only validation
 
+Completed: [RESULTS.md](RESULTS.md). 32/32 captures complete; all 28 subsequent
+boundaries correct, one first-turn missing marker (31/32 protocol-valid).
+The strict all-trajectory criterion is false and retained. No retry or repair.
+Research stopped after the finite batch; this does not establish identity or
+state continuity. Raw evidence and deterministic scores are preserved here.
+
 New Owner-authorized study, separate from FM1. See PLAN.md for frozen definitions,
 budget and interpretation. The only model label is CONTINUE / NEW / UNRESOLVED.
 No UUID, goal catalog or work-state output. Returns begin new segments.

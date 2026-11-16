@@ -1,0 +1,65 @@
+{
+  "content": "【会议调整】明天周会改为下午三点，地点不变，仍为原线上会议室，请准时参加。\n\n<|boundary:CONTINUE|>",
+  "reasoning": "We need answer normal Chinese short notice. This is continuation of prior separate work segment? Prior user asked write notice, assistant gave. Now asks shorter. This is same work objective polishing same notice. Since previous turn was boundary NEW, current should CONTINUE. Need final marker exactly. Need no more than 200 chars. Answer concise.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 860,
+    "completion_tokens": 103,
+    "total_tokens": 963,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 67
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002687,
+      "allowance": 0.00016122,
+      "tokens": {
+        "input": 476,
+        "output": 103,
+        "reasoning": 67,
+        "cache_read": 384,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-811e69",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 8802,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5647,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07749999999941792,
+    "content_type": "text/event-stream",
+    "wire_chunks": 52,
+    "wire_sha256": "3d628aee50262c89160b17f1a587b88606e6ef2f12310b2456b7fc3ddb918de9",
+    "content_sha256": "60bb94525031ff67719e4cc85360fb8558eda1bb63ee858fe6d30e5920f83597",
+    "reasoning_sha256": "6b684764c8a41140cb3d4120c382c029638a0253f8f5b91546d198d3fb332ac6"
+  },
+  "latency": {
+    "total_ms": 3245.5132000000012,
+    "first_wire_ms": 2466.519100000005,
+    "first_content_ms": 2815.039300000004,
+    "first_reasoning_ms": 2468.710300000006,
+    "evidence_write_ms": 26.584400000007008
+  }
+}
