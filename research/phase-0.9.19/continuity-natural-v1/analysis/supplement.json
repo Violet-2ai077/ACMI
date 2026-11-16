@@ -1,0 +1,522 @@
+{
+  "kind": "descriptive extraction; frozen metrics unchanged; no semantic rescoring",
+  "deterministic_scores_identical": 24,
+  "deterministic_summary_identical": true,
+  "scores_sha256": "7435de11e0e0bf02fb26e740c83ce40906d2644996f8b1ec2bac88e8cab4c1ee",
+  "start": {
+    "at": "2026-11-16T15:23:08.137Z",
+    "freeze_sha256": "8fbbc3dc5b5c35ef00995fd82379cfc27189d8d7e2794a0454805effd62a632d",
+    "commit": "c171e6a57bf0cd8a372788e4cbf8a98e6598258c",
+    "node": "v24.16.0",
+    "max_actual_calls": 28
+  },
+  "end_at": "2026-11-16T15:25:26.395Z",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "overall_acquisition": {
+    "attempts": 24,
+    "total_latency_ms": 138079.5556,
+    "mean_latency_ms": 5753.314816666666,
+    "min_latency_ms": 3833.8387,
+    "max_latency_ms": 8418.313999999998,
+    "usage_available": 24,
+    "prompt_tokens": 33319,
+    "completion_tokens": 5947,
+    "total_tokens": 39266,
+    "reasoning_tokens": 4822,
+    "provider_cost_field_count": 24,
+    "provider_cost_field_sum": 0,
+    "provider_list_cost_field_count": 24,
+    "provider_list_cost_field_sum": 0.00770056,
+    "provider_allowance_field_sum": 0.004620289999999999,
+    "verified_charge": null,
+    "currency_verified": false,
+    "total_wire_bytes": 424987,
+    "max_wire_bytes": 30484
+  },
+  "by_story": [
+    {
+      "story": "overlapping-notices",
+      "attempts": 24,
+      "total_latency_ms": 138079.5556,
+      "mean_latency_ms": 5753.314816666666,
+      "min_latency_ms": 3833.8387,
+      "max_latency_ms": 8418.313999999998,
+      "usage_available": 24,
+      "prompt_tokens": 33319,
+      "completion_tokens": 5947,
+      "total_tokens": 39266,
+      "reasoning_tokens": 4822,
+      "provider_cost_field_count": 24,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 24,
+      "provider_list_cost_field_sum": 0.00770056,
+      "provider_allowance_field_sum": 0.004620289999999999,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 424987,
+      "max_wire_bytes": 30484
+    }
+  ],
+  "cases": [
+    {
+      "index": 3,
+      "story": "overlapping-notices",
+      "turn": 3,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/03-overlapping-notices-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/03-overlapping-notices-t3-a1/request.json",
+      "result_sha256": "a63a2faa9b11a03d10cbbdfb6952280d4a155af6870d6b0c5423902d21791a14",
+      "current_user": "纸质书如果忘带，可以两人共读。把这个选择写进确认短信，语气轻松一点，时间地点也保留。",
+      "raw_content": "【云栖读书会】报名成功！本周六14:00南馆三楼见～记得带纸质书；万一忘带也别紧张，可以和伙伴两人共读。期待你来！\n<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！本周六14:00南馆三楼见～记得带纸质书；万一忘带也别紧张，可以和伙伴两人共读。期待你来！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 8,
+      "story": "overlapping-notices",
+      "turn": 8,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/08-overlapping-notices-t8-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/08-overlapping-notices-t8-a1/request.json",
+      "result_sha256": "c41ce3b62d754a8ec5a795690b30f27da4c0887603c3e3c6fc63e21d75531afb",
+      "current_user": "钱已经到账的邮件开头不要像催款。给我一个简短主题，正文也写上实收金额和一句感谢。",
+      "raw_content": "**主题：报名费已收到**\n\n您好，云栖读书会已收到您的报名费68元，特此确认。感谢您的支持与信任！\n\n<|task:3|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "谢"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**主题：报名费已收到**\n\n您好，云栖读书会已收到您的报名费68元，特此确认。感谢您的支持与信任！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 9,
+      "story": "overlapping-notices",
+      "turn": 9,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/09-overlapping-notices-t9-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/09-overlapping-notices-t9-a1/request.json",
+      "result_sha256": "135a3cf0ec560e68695aed2a389cbd91ed68583ac47c14913c3779fb1418f1b4",
+      "current_user": "南馆参加者可以把书带在手里，不用额外准备袋子。把这个小提醒合进确认短信，保留共读的选择，不要写成物品购买建议。",
+      "raw_content": "【云栖读书会】报名成功！本周六14:00南馆三楼见～请带纸质书，拿在手里即可，无需另备袋子；万一忘带，也可以和伙伴两人共读。期待你来！\n<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "袋"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！本周六14:00南馆三楼见～请带纸质书，拿在手里即可，无需另备袋子；万一忘带，也可以和伙伴两人共读。期待你来！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 12,
+      "story": "overlapping-notices",
+      "turn": 12,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/12-overlapping-notices-t12-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/12-overlapping-notices-t12-a1/request.json",
+      "result_sha256": "752d98eb4c652d2d061e7a3f93e80809ebaf53387cbdd9b4b3c5cf873685bd5e",
+      "current_user": "批注时可以先用铅笔轻轻标记。确认短信不要变成阅读教程，保留星期、开始时间和楼层即可。",
+      "raw_content": "【云溪读书会】报名成功！活动周日10:00在北馆二楼开始，请自带普通铅笔，批注时可先用铅笔轻轻标记，无需另购文具，准时参加。\n<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！活动周日10:00在北馆二楼开始，请自带普通铅笔，批注时可先用铅笔轻轻标记，无需另购文具，准时参加。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 16,
+      "story": "overlapping-notices",
+      "turn": 16,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/16-overlapping-notices-t16-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/16-overlapping-notices-t16-a1/request.json",
+      "result_sha256": "b353c10113d56ac12e101f94acc772ddd4891e886072d1c8d4dd977d823fa8f2",
+      "current_user": "铅笔可以向同伴借，别让人因为没带文具就不来。把这个选项并入报名确认，活动安排也保留。",
+      "raw_content": "【云溪读书会】报名成功！活动周日10:00在北馆二楼开始，请自带普通铅笔做阅读批注；忘带可向同伴借用，别因文具缺席，准时参加。\n<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "借"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！活动周日10:00在北馆二楼开始，请自带普通铅笔做阅读批注；忘带可向同伴借用，别因文具缺席，准时参加。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 17,
+      "story": "overlapping-notices",
+      "turn": 17,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/17-overlapping-notices-t17-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/17-overlapping-notices-t17-a1/request.json",
+      "result_sha256": "80c80253ca7a4156f395557ffe39a653da68f2b90f5f29b3c83026ca00de8797",
+      "current_user": "如果已经转账，就忽略这条提醒。把这句话放在催缴短信末尾，正文仍带金额和截止时间。",
+      "raw_content": "【云溪读书会】温馨提醒：如您尚未支付活动费用48元，请于周五18:00前完成付款；如已转账，请忽略此提醒。\n<|task:4|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "4",
+        "observed": "4",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：如您尚未支付活动费用48元，请于周五18:00前完成付款；如已转账，请忽略此提醒。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 18,
+      "story": "overlapping-notices",
+      "turn": 18,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/18-overlapping-notices-t18-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/18-overlapping-notices-t18-a1/request.json",
+      "result_sha256": "832f90d212aed580a53cc687e546d8781dbe428ae65e2b461ffdf67b7175ca61",
+      "current_user": "实收款项的邮件里不要出现付款链接。给一个温和的标题和一行正文，让收件人知道钱确实收到了。",
+      "raw_content": "**主题：报名费已收到，谢谢您**\n\n云栖读书会已收到您的报名费68元，特此确认并感谢您的支持！\n<|task:3|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**主题：报名费已收到，谢谢您**\n\n云栖读书会已收到您的报名费68元，特此确认并感谢您的支持！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 20,
+      "story": "overlapping-notices",
+      "turn": 20,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/20-overlapping-notices-t20-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/20-overlapping-notices-t20-a1/request.json",
+      "result_sha256": "855ea592085d3e5b748ccf500901d2e26c4e929b2eb852c1a8d062367b086eef",
+      "current_user": "阅读批注的参与者有孩子，语气再亲切一点。请给确认短信，别扩写成课程介绍，星期和地点要在。",
+      "raw_content": "【云溪读书会】报名成功啦！周日10:00在北馆二楼见，记得带上普通铅笔做阅读批注；忘带也没关系，可以向小伙伴借，轻松来参加就好！\n<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功啦！周日10:00在北馆二楼见，记得带上普通铅笔做阅读批注；忘带也没关系，可以向小伙伴借，轻松来参加就好！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 22,
+      "story": "overlapping-notices",
+      "turn": 22,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/22-overlapping-notices-t22-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/22-overlapping-notices-t22-a1/request.json",
+      "result_sha256": "b8d5b88ab25c285607b6eb082ee8fe2cd71795aa5143af0c765eda7d34e50835",
+      "current_user": "缴费期限用24小时制，金额只出现一次，给我一条完整的温和提醒，保留已付可忽略的说明。",
+      "raw_content": "【云溪读书会】温馨提醒：如您尚未支付活动费用48元，请于周五18:00前完成付款；如已转账，请忽略此提醒。感谢配合！\n<|task:4|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "4",
+        "observed": "4",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：如您尚未支付活动费用48元，请于周五18:00前完成付款；如已转账，请忽略此提醒。感谢配合！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 24,
+      "story": "overlapping-notices",
+      "turn": 24,
+      "category": "content-grounded-return",
+      "raw_result": "evidence/24-overlapping-notices-t24-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/24-overlapping-notices-t24-a1/request.json",
+      "result_sha256": "e1d2e6c73694e96c38f9095dc41d12e66f103eb206060053b1eb32b1d7bd0639",
+      "current_user": "有人忘带纸质书也别让他为难，两个人一起读就行。请给可直接发送的报名确认短信，带上活动的开始时间和地点。",
+      "raw_content": "【云栖读书会】报名成功！本周六14:00南馆三楼开始，请带纸质书；若忘带也没关系，可以和伙伴两人一起读，期待你来！\n<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "三楼",
+              "3楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！本周六14:00南馆三楼开始，请带纸质书；若忘带也没关系，可以和伙伴两人一起读，期待你来！",
+        "error_location": null
+      }
+    }
+  ]
+}

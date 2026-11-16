@@ -1,0 +1,65 @@
+{
+  "content": "【云栖读书会】报名成功！活动本周六14:00在南馆三楼开始，请自带纸质书，准时参加。\n<|task:1|>",
+  "reasoning": "We need answer in Chinese, direct, under 200 chars, only SMS, no fee mention. Task marker: first task, N=1. Need perhaps no extra beyond SMS and marker. Ensure not claim operations. Write concise. \"【云栖读书会】报名成功！活动本周六14:00在南馆三楼开始，请自带纸质书，准时参加。\" That's enough. Ensure \"只写短信\" means only text. End marker exactly.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 430,
+    "completion_tokens": 131,
+    "total_tokens": 561,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 94
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001431,
+      "allowance": 0.00008586,
+      "tokens": {
+        "input": 430,
+        "output": 131,
+        "reasoning": 94,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2e1a95617389-5d6331",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10454,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.8675,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.4641999999998916,
+    "content_type": "text/event-stream",
+    "wire_chunks": 55,
+    "wire_sha256": "6c0d6cc17230b709f3902a53af51ff975d4a1c54baf55cb977dcadb71c0a6a79",
+    "content_sha256": "ac489e380e5fbf9685d51a8877f1e20309559503cc1fec4c1a8653d3efe8b803",
+    "reasoning_sha256": "93fef6de1eb2a32bc7604c2de60b8c7f24ea47fc623a9df784fbaf744b4a276c"
+  },
+  "latency": {
+    "total_ms": 3833.8387,
+    "first_wire_ms": 2301.2234,
+    "first_content_ms": 3645.4337,
+    "first_reasoning_ms": 2303.4489,
+    "evidence_write_ms": 48.852099999997165
+  }
+}

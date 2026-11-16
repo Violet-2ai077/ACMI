@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 1,
+    "story": "overlapping-notices",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "为云栖读书会写报名成功确认短信：周六14:00在南馆三楼开始，请参加者自带纸质书。只写短信，不涉及缴费。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-269faf7515c2ac6c32c97a13863567bdfaf230b8eb199d8b"
+  },
+  "request_sha256": "8baeccc4b0a2c92c8638d3f9ca4ac245ee8b48bfdeb166fab014796b54633b27",
+  "freeze_sha256": "8fbbc3dc5b5c35ef00995fd82379cfc27189d8d7e2794a0454805effd62a632d"
+}

@@ -4,7 +4,24 @@ Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Latest execution - TC2 longer similar-task continuity, 2026-11-16
+## Latest execution - TC3 longer reduced-cue continuity, 2026-11-16
+
+Owner separately authorized a new finite call round beyond the old remaining
+two calls, with longer dialogue and fewer client/return prompts, no full state.
+[TC3 results](continuity-natural-v1/RESULTS.md): one new 24-turn CLOSED-LOOP story,
+five overlapping notice tasks, 19 returns without client names or explicit return
+commands, longest absence 14 intervening turns. 24/24 capture/protocol/canonical
+identities and basic lexical checks; 19/19 actual birth-anchor restorations.
+One complete trajectory passes its frozen local criterion, not general GO.
+24 actual calls of new 28-call ceiling; zero failures/retries/incomplete/unsent.
+Prior 118 calls remain unchanged; total 142, not charged to old remaining slots.
+TC1 prompt and TC2 evaluator reused exactly. Full actual content AND reasoning
+history retained; all assistant answers naturally retain client names, so this
+is reduced USER cue evidence, not absence of identity cues throughout history.
+Prior freezes unchanged; no full-state/C1/C2 claims or G1/P-G changes.
+STOPPED, no automatic further batch or state-maintenance expansion.
+
+## Previous execution - TC2 longer similar-task continuity, 2026-11-16
 
 Owner explicitly requested longer dialogue and more similar tasks/returns, still
 without full state maintenance. [TC2 results](continuity-long-v1/RESULTS.md): one

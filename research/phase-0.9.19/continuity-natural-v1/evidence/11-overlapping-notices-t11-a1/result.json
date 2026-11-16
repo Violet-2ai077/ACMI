@@ -1,0 +1,65 @@
+{
+  "content": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取；无需打印单，出示订单号即可。\n<|task:5|>",
+  "reasoning": "We need answer to latest user. Need identify task identity. We have ongoing tasks markers. Latest refers to 溪岸书店 pickup notification task 5. Need update that SMS: no printed slip, show order number, cabinet B3, Monday 19:00 deadline. Only pickup SMS, not reading club. Need concise normal answer <=200 Chinese characters maybe. End with <|task:5|>. Need no extra. Let's craft:\n【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取；无需打印单，出示订单号即可。\nThat's it. Ensure marker exact.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1271,
+    "completion_tokens": 177,
+    "total_tokens": 1448,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 133
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00025922,
+      "allowance": 0.00015553,
+      "tokens": {
+        "input": 1015,
+        "output": 177,
+        "reasoning": 133,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bbc1a9a3f81-634ba0",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 13225,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6797,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08430000000225846,
+    "content_type": "text/event-stream",
+    "wire_chunks": 67,
+    "wire_sha256": "8be1448032e6e31bda6a905d75273e941b03e495cedb2a89566c7002e8c92311",
+    "content_sha256": "e111f695396273bae19f4c4b82c8c3e83c353e2f48a00478118d0b2abb599b5a",
+    "reasoning_sha256": "142878123d3a8689d942cac06d0daba0a00be051df2abb0ee484d9247fe5ad3a"
+  },
+  "latency": {
+    "total_ms": 4326.087100000004,
+    "first_wire_ms": 1944.9662000000026,
+    "first_content_ms": 3788.1748000000007,
+    "first_reasoning_ms": 1946.1784000000043,
+    "evidence_write_ms": 50.70919999996113
+  }
+}

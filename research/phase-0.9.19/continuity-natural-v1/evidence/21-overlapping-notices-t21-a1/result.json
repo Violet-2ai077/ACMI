@@ -1,0 +1,65 @@
+{
+  "content": "**主题：报名费收款确认**\n\n您好，云栖读书会已收到您的报名费68元，感谢您的支持！\n\n云栖读书会\n<|task:3|>",
+  "reasoning": "We need answer in Chinese, email concise, subject and body, amount 68, received, no link, no schedule, no seat lock, no invoice/tax. Task 3. Need only email likely. Under 200 chars. End task marker exactly. Ensure not confuse. Could say 主题：报名费收款确认 正文：您好，云栖读书会已收到您的报名费68元，感谢您的支持！ 云栖读书会. No \"名额锁定\". Fine.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2096,
+    "completion_tokens": 140,
+    "total_tokens": 2236,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 100
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00036077,
+      "allowance": 0.00021646,
+      "tokens": {
+        "input": 1840,
+        "output": 140,
+        "reasoning": 100,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bbebc09213d-be40bb",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 9874,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.78879999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08699999999953434,
+    "content_type": "text/event-stream",
+    "wire_chunks": 49,
+    "wire_sha256": "c1ddea4a454ff70ce6a6198b41033a82b88f074128aea974a0f63b476796390a",
+    "content_sha256": "62e42eac93f00a8fe32f558250c466238cd40d61c0582dee9acd262a039a9bd7",
+    "reasoning_sha256": "25c3b197243f5a7286a1ba65e7750fff7d00a1f5d6ae1e0c58b8cf9360029643"
+  },
+  "latency": {
+    "total_ms": 5128.084300000002,
+    "first_wire_ms": 3148.5399000000034,
+    "first_content_ms": 4688.879199999996,
+    "first_reasoning_ms": 3149.6103999999905,
+    "evidence_write_ms": 31.514699999941513
+  }
+}

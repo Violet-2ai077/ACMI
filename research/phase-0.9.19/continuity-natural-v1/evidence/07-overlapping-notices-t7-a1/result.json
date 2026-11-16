@@ -1,0 +1,65 @@
+{
+  "content": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取。\n<|task:5|>",
+  "reasoning": "We need answer current request. Need task marker identify task. This is new different client/work: 溪岸书店 self-pickup notification. New task number 5 likely. Need only SMS, not associated reading club. Chinese concise. Mark <|task:5|>. Need ensure normal direct, under 200 chars. No claim beyond. Write.\n\nNeed be careful no extra.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 952,
+    "completion_tokens": 113,
+    "total_tokens": 1065,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 78
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00017297,
+      "allowance": 0.00010378,
+      "tokens": {
+        "input": 696,
+        "output": 113,
+        "reasoning": 78,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b6defcc5f88-7d4fb4",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 9969,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6823,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08880000000499422,
+    "content_type": "text/event-stream",
+    "wire_chunks": 48,
+    "wire_sha256": "c453ce270095ef08134f9cdac6f6133a5d0c264c8e325492d8ad5f0c00e52402",
+    "content_sha256": "2e7a9bcc97fcbe00c2a50bc6b54c90e41bfe5035ea5cd60b94fb3148957f1b25",
+    "reasoning_sha256": "7ff1422b69f86d8bb4deb5f706c20c0838f844c401f408d2911543bb31dc91be"
+  },
+  "latency": {
+    "total_ms": 5341.158900000002,
+    "first_wire_ms": 3807.5535999999993,
+    "first_content_ms": 5083.044200000004,
+    "first_reasoning_ms": 3808.5310000000027,
+    "evidence_write_ms": 39.103199999975914
+  }
+}

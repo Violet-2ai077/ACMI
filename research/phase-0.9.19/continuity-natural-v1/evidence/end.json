@@ -1,0 +1,971 @@
+{
+  "at": "2026-11-16T15:25:26.395Z",
+  "actual_calls": 24,
+  "retry_calls": 0,
+  "halt": null,
+  "attempts": [
+    {
+      "index": 1,
+      "story": "overlapping-notices",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-overlapping-notices-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:08.199Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3833.8387,
+      "usage": {
+        "prompt_tokens": 430,
+        "completion_tokens": 131,
+        "total_tokens": 561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001431,
+          "allowance": 0.00008586,
+          "tokens": {
+            "input": 430,
+            "output": 131,
+            "reasoning": 94,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 2,
+      "story": "overlapping-notices",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "02-overlapping-notices-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:12.040Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4274.901,
+      "usage": {
+        "prompt_tokens": 506,
+        "completion_tokens": 243,
+        "total_tokens": 749,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 204
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00018407,
+          "allowance": 0.00011044,
+          "tokens": {
+            "input": 250,
+            "output": 243,
+            "reasoning": 204,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 3,
+      "story": "overlapping-notices",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "03-overlapping-notices-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:16.320Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6424.5983,
+      "usage": {
+        "prompt_tokens": 580,
+        "completion_tokens": 280,
+        "total_tokens": 860,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 232
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00021737,
+          "allowance": 0.00013042,
+          "tokens": {
+            "input": 324,
+            "output": 280,
+            "reasoning": 232,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 4,
+      "story": "overlapping-notices",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "04-overlapping-notices-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:22.750Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6111.7022000000015,
+      "usage": {
+        "prompt_tokens": 675,
+        "completion_tokens": 368,
+        "total_tokens": 1043,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 314
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00028442,
+          "allowance": 0.00017065,
+          "tokens": {
+            "input": 419,
+            "output": 368,
+            "reasoning": 314,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 5,
+      "story": "overlapping-notices",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "05-overlapping-notices-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:28.867Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4385.3315,
+      "usage": {
+        "prompt_tokens": 777,
+        "completion_tokens": 191,
+        "total_tokens": 968,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 149
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00019352,
+          "allowance": 0.00011611,
+          "tokens": {
+            "input": 521,
+            "output": 191,
+            "reasoning": 149,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 6,
+      "story": "overlapping-notices",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "06-overlapping-notices-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:33.258Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7117.0825,
+      "usage": {
+        "prompt_tokens": 855,
+        "completion_tokens": 286,
+        "total_tokens": 1141,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 238
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00026222,
+          "allowance": 0.00015733,
+          "tokens": {
+            "input": 599,
+            "output": 286,
+            "reasoning": 238,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 7,
+      "story": "overlapping-notices",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "07-overlapping-notices-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:40.379Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5341.158900000002,
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 113,
+        "total_tokens": 1065,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 78
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00017297,
+          "allowance": 0.00010378,
+          "tokens": {
+            "input": 696,
+            "output": 113,
+            "reasoning": 78,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 8,
+      "story": "overlapping-notices",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "08-overlapping-notices-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:45.725Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4595.701399999998,
+      "usage": {
+        "prompt_tokens": 1022,
+        "completion_tokens": 227,
+        "total_tokens": 1249,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 186
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00025187,
+          "allowance": 0.00015112,
+          "tokens": {
+            "input": 766,
+            "output": 227,
+            "reasoning": 186,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 9,
+      "story": "overlapping-notices",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "09-overlapping-notices-t9-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:50.327Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5487.0677,
+      "usage": {
+        "prompt_tokens": 1105,
+        "completion_tokens": 236,
+        "total_tokens": 1341,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 179
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00026972,
+          "allowance": 0.00016183,
+          "tokens": {
+            "input": 849,
+            "output": 236,
+            "reasoning": 179,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 10,
+      "story": "overlapping-notices",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "10-overlapping-notices-t10-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:55.818Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4038.7107000000033,
+      "usage": {
+        "prompt_tokens": 1195,
+        "completion_tokens": 213,
+        "total_tokens": 1408,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 174
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00026942,
+          "allowance": 0.00016165,
+          "tokens": {
+            "input": 939,
+            "output": 213,
+            "reasoning": 174,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 11,
+      "story": "overlapping-notices",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "11-overlapping-notices-t11-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:23:59.861Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4326.087100000004,
+      "usage": {
+        "prompt_tokens": 1271,
+        "completion_tokens": 177,
+        "total_tokens": 1448,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 133
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00025922,
+          "allowance": 0.00015553,
+          "tokens": {
+            "input": 1015,
+            "output": 177,
+            "reasoning": 133,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 12,
+      "story": "overlapping-notices",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "12-overlapping-notices-t12-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:04.192Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5423.277399999999,
+      "usage": {
+        "prompt_tokens": 1346,
+        "completion_tokens": 268,
+        "total_tokens": 1614,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 219
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00032507,
+          "allowance": 0.00019504,
+          "tokens": {
+            "input": 1090,
+            "output": 268,
+            "reasoning": 219,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 13,
+      "story": "overlapping-notices",
+      "turn": 13,
+      "attempt": 1,
+      "directory": "13-overlapping-notices-t13-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:09.620Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4327.592700000008,
+      "usage": {
+        "prompt_tokens": 1430,
+        "completion_tokens": 167,
+        "total_tokens": 1597,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 130
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00027707,
+          "allowance": 0.00016624,
+          "tokens": {
+            "input": 1174,
+            "output": 167,
+            "reasoning": 130,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 14,
+      "story": "overlapping-notices",
+      "turn": 14,
+      "attempt": 1,
+      "directory": "14-overlapping-notices-t14-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:13.952Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6027.074099999998,
+      "usage": {
+        "prompt_tokens": 1504,
+        "completion_tokens": 265,
+        "total_tokens": 1769,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 205
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00034697,
+          "allowance": 0.00020818,
+          "tokens": {
+            "input": 1248,
+            "output": 265,
+            "reasoning": 205,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 15,
+      "story": "overlapping-notices",
+      "turn": 15,
+      "attempt": 1,
+      "directory": "15-overlapping-notices-t15-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:19.985Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8059.9712,
+      "usage": {
+        "prompt_tokens": 1598,
+        "completion_tokens": 169,
+        "total_tokens": 1767,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00030347,
+          "allowance": 0.00018208,
+          "tokens": {
+            "input": 1342,
+            "output": 169,
+            "reasoning": 128,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 16,
+      "story": "overlapping-notices",
+      "turn": 16,
+      "attempt": 1,
+      "directory": "16-overlapping-notices-t16-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:28.049Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7039.585899999991,
+      "usage": {
+        "prompt_tokens": 1672,
+        "completion_tokens": 315,
+        "total_tokens": 1987,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 263
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00040217,
+          "allowance": 0.0002413,
+          "tokens": {
+            "input": 1416,
+            "output": 315,
+            "reasoning": 263,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 17,
+      "story": "overlapping-notices",
+      "turn": 17,
+      "attempt": 1,
+      "directory": "17-overlapping-notices-t17-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:35.093Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4920.747100000008,
+      "usage": {
+        "prompt_tokens": 1757,
+        "completion_tokens": 256,
+        "total_tokens": 2013,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 210
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00037952,
+          "allowance": 0.00022771,
+          "tokens": {
+            "input": 1501,
+            "output": 256,
+            "reasoning": 210,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 18,
+      "story": "overlapping-notices",
+      "turn": 18,
+      "attempt": 1,
+      "directory": "18-overlapping-notices-t18-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:40.018Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4997.819199999998,
+      "usage": {
+        "prompt_tokens": 1840,
+        "completion_tokens": 221,
+        "total_tokens": 2061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 181
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00037097,
+          "allowance": 0.00022258,
+          "tokens": {
+            "input": 1584,
+            "output": 221,
+            "reasoning": 181,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 19,
+      "story": "overlapping-notices",
+      "turn": 19,
+      "attempt": 1,
+      "directory": "19-overlapping-notices-t19-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:45.020Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8418.313999999998,
+      "usage": {
+        "prompt_tokens": 1913,
+        "completion_tokens": 440,
+        "total_tokens": 2353,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 378
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00051332,
+          "allowance": 0.00030799,
+          "tokens": {
+            "input": 1657,
+            "output": 440,
+            "reasoning": 378,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 20,
+      "story": "overlapping-notices",
+      "turn": 20,
+      "attempt": 1,
+      "directory": "20-overlapping-notices-t20-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:24:53.443Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8177.166799999992,
+      "usage": {
+        "prompt_tokens": 2012,
+        "completion_tokens": 315,
+        "total_tokens": 2327,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 264
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00045317,
+          "allowance": 0.0002719,
+          "tokens": {
+            "input": 1756,
+            "output": 315,
+            "reasoning": 264,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 21,
+      "story": "overlapping-notices",
+      "turn": 21,
+      "attempt": 1,
+      "directory": "21-overlapping-notices-t21-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:25:01.625Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5128.084300000002,
+      "usage": {
+        "prompt_tokens": 2096,
+        "completion_tokens": 140,
+        "total_tokens": 2236,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00036077,
+          "allowance": 0.00021646,
+          "tokens": {
+            "input": 1840,
+            "output": 140,
+            "reasoning": 100,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 22,
+      "story": "overlapping-notices",
+      "turn": 22,
+      "attempt": 1,
+      "directory": "22-overlapping-notices-t22-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:25:06.757Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4604.9418000000005,
+      "usage": {
+        "prompt_tokens": 2170,
+        "completion_tokens": 160,
+        "total_tokens": 2330,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 111
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00038387,
+          "allowance": 0.00023032,
+          "tokens": {
+            "input": 1914,
+            "output": 160,
+            "reasoning": 111,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 23,
+      "story": "overlapping-notices",
+      "turn": 23,
+      "attempt": 1,
+      "directory": "23-overlapping-notices-t23-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:25:11.368Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7882.982799999998,
+      "usage": {
+        "prompt_tokens": 2255,
+        "completion_tokens": 392,
+        "total_tokens": 2647,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 326
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00053582,
+          "allowance": 0.00032149,
+          "tokens": {
+            "input": 1999,
+            "output": 392,
+            "reasoning": 326,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 24,
+      "story": "overlapping-notices",
+      "turn": 24,
+      "attempt": 1,
+      "directory": "24-overlapping-notices-t24-a1",
+      "invoked": true,
+      "at": "2026-11-16T15:25:19.257Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7135.818299999984,
+      "usage": {
+        "prompt_tokens": 2358,
+        "completion_tokens": 374,
+        "total_tokens": 2732,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 326
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00054047,
+          "allowance": 0.00032428,
+          "tokens": {
+            "input": 2102,
+            "output": 374,
+            "reasoning": 326,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    }
+  ],
+  "not_sent": [],
+  "no_resume": true,
+  "verified_charge": null
+}
