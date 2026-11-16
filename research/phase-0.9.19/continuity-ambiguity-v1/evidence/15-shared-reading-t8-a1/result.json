@@ -1,0 +1,65 @@
+{
+  "content": "【成人读书场】报名确认：周日16:00在西馆二楼举行，请携带纸质书；可两人共读，独自参加的读者也可现场寻找同伴一起读。期待您准时参加。\n\n<|task:2|>",
+  "reasoning": "We need answer to user. Need identify task. Conversation tasks: Task1 parent-child reading confirmation SMS. Task2 adult reading confirmation SMS. Task3 volunteer assembly notice. Current says adult readers attending alone can find companions to co-read, add to their confirmation SMS, retain time/location. This relates task2 (adult reading confirmation). Need concise answer. Include 16:00 西馆二楼, bring paper book? They say \"把这句话放进他们的确认短信，时间地点保留\" likely modify adult SMS; maybe retain previous content? Should state 成年读者独自参加也能现场找同伴共读. Need not overdo. Add tag <|task:2|>. Chinese. Less than 200 chars. Avoid claiming actual sending. Output normal answer and exact marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1016,
+    "completion_tokens": 209,
+    "total_tokens": 1225,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 158
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00024017,
+      "allowance": 0.0001441,
+      "tokens": {
+        "input": 760,
+        "output": 209,
+        "reasoning": 158,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-93e3ed",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 16872,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5808,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08529999999154825,
+    "content_type": "text/event-stream",
+    "wire_chunks": 79,
+    "wire_sha256": "2ce50a52803ce57e1b6ece0a09b0eefc5eaf45fee1242a2485aaf909e7ee6e0e",
+    "content_sha256": "94a7a8d344fed789e5fb7cb87925b10542f7cacaab01b2ec034df1b867dbe1a6",
+    "reasoning_sha256": "d154f3d0cce27a59af4fa4df085af0db23a1c948ca9988040b544f86c154cdc4"
+  },
+  "latency": {
+    "total_ms": 6149.617400000003,
+    "first_wire_ms": 3661.0320999999967,
+    "first_content_ms": 5667.143199999991,
+    "first_reasoning_ms": 3661.5084999999963,
+    "evidence_write_ms": 49.37229999984265
+  }
+}

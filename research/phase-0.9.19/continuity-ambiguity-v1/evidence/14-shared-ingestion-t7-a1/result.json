@@ -1,0 +1,65 @@
+{
+  "content": "可用样例：\n\n```sql\nINSERT INTO web_clicks (event_id, received_at, row_id) VALUES\n('e1', '2026-01-01 10:00:00', 1),\n('e1', '2026-01-01 10:05:00', 2),\n('e2', '2026-01-01 10:03:00', 3);\n```\n\n预期结果：`e1` 仅保留 `received_at=2026-01-01 10:05:00` 的记录，`e2` 保留。<|task:1|>",
+  "reasoning": "We need answer to latest user. Need identify task. Conversation tasks: Task 1 web_clicks de-dupe import. Task2 app_clicks. Task3 payments. Then unresolved ambiguous test request. User clarifies browser page path = web_clicks task 1. Need provide simple duplicate event test sample. Need normal answer under 200 Chinese chars likely. Need include test sample maybe input rows and expected. Need not pretend execution. We can give SQL-ish sample data. Need task marker task:1. Should answer concise. Need ensure \"简单样例\" for duplicate event. Could provide two rows same event_id different received_at, expected latest. Maybe include query? They asked test sample. Let's craft:\n\n样例数据 web_clicks:\n('e1','2026-01-01 10:00:00','r1'),\n('e1','2026-01-01 10:05:00','r2'),\n('e2',...)\nAfter query expected e1 latest row r2, e2 retained.\n\nNeed mention event_id, received_at, row_id perhaps. Simple. Can't execute. We can say \"可用以下样例：\". Under 200 chars. final marker exactly. Let's formulate in Chinese.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1090,
+    "completion_tokens": 383,
+    "total_tokens": 1473,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 251
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00035567,
+      "allowance": 0.0002134,
+      "tokens": {
+        "input": 834,
+        "output": 383,
+        "reasoning": 251,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-93e17f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 23354,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.4362,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.10440000001108274,
+    "content_type": "text/event-stream",
+    "wire_chunks": 116,
+    "wire_sha256": "1c3e1250285fe8286c9390500796d38e71df38cb97da52160b94d9dd519b9646",
+    "content_sha256": "8d810134ed9b4c6445a25f76740416b9d4ab35d1975ea76ba906f0915b33606a",
+    "reasoning_sha256": "47802e151067b1fdbbc0a8c29b20fd1c3e839981f06428836de8e3a3e76bd788"
+  },
+  "latency": {
+    "total_ms": 6499.951300000001,
+    "first_wire_ms": 3055.7976000000053,
+    "first_content_ms": 5675.622600000002,
+    "first_reasoning_ms": 3056.449900000007,
+    "evidence_write_ms": 76.93410000005679
+  }
+}

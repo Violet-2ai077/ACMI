@@ -1,0 +1,65 @@
+{
+  "content": "【亲子读书场】报名成功：周日14:00在东馆二楼举行，请携带纸质书，可由两人共读。期待您和孩子准时参加。\n\n<|task:1|>",
+  "reasoning": "We need answer Chinese, direct, under 200 chars. Need task marker. We need identify task identity. Only one user task: write an SMS confirmation. No prior history. So N=1. Need craft SMS includes time 14:00, location east building second floor, bring paper book, two people can read together, independent notice. Maybe mention \"周日亲子读书场报名确认\". Need direct. Under 200 Chinese characters. End exactly marker. No extra after. We should not claim sent. Perhaps:\n\n【亲子读书场】报名成功：周日14:00在东馆二楼举行，请携带纸质书，可两人共读。期待您和孩子准时参加。\n\nThis is 50ish. It's a notification, not confirmation of sending. Fine.\n\nNeed marker after. Ensure no code fence.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 426,
+    "completion_tokens": 207,
+    "total_tokens": 633,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 165
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001881,
+      "allowance": 0.00011286,
+      "tokens": {
+        "input": 426,
+        "output": 207,
+        "reasoning": 165,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-9f2323",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 16256,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.7934,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.5635000000002037,
+    "content_type": "text/event-stream",
+    "wire_chunks": 81,
+    "wire_sha256": "66c9068e1a561ff2955e8db068488980e904638f14a07f3fd93daa3fe12247b1",
+    "content_sha256": "efb0fe1af87cb10f69f1c0da50e69f838a3e2fe2de0df9540d9ee2d3be9c3e60",
+    "reasoning_sha256": "0958e6c1f1080540e6267e894b8581d2a8678285878ead5628dbb2a557381598"
+  },
+  "latency": {
+    "total_ms": 5642.737700000001,
+    "first_wire_ms": 3292.7971,
+    "first_content_ms": 5370.3813,
+    "first_reasoning_ms": 3294.0168,
+    "evidence_write_ms": 56.205500000006566
+  }
+}

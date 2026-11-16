@@ -1,0 +1,65 @@
+{
+  "content": "判重字段是 `payment_id`。同一笔付款的回调可能因重试或重复送达出现多条；`paid_at` 表示付款实际完成时间，首次有效回调应最接近真实到账时间。保留最早一条可避免后续重复通知覆盖原始到账时间，并确保同一 `payment_id` 只有一条记录。<|task:3|>",
+  "reasoning": "We need answer. Task identity: payments callback import, task 3. Need explain why keep earliest paid_at and judgment field payment_id. Concise. Mark task 3.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1433,
+    "completion_tokens": 116,
+    "total_tokens": 1549,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 36
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00024692,
+      "allowance": 0.00014815,
+      "tokens": {
+        "input": 1177,
+        "output": 116,
+        "reasoning": 36,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-b22aae",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 9590,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.48950000003,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.0786999999982072,
+    "content_type": "text/event-stream",
+    "wire_chunks": 45,
+    "wire_sha256": "fbc735e9499f4e570bc63d97d0f00fd189f50ed493df0b5bf5f2826c9b16fbd4",
+    "content_sha256": "dea306e4cc0c032b1edaa4804ca12e125c0ffb532f6fb5db510d32746681022d",
+    "reasoning_sha256": "9c128ddbfdb62787d1a3a77c8d525829b1b16ccb94251cd22976c54c96f54c1f"
+  },
+  "latency": {
+    "total_ms": 5286.723900000012,
+    "first_wire_ms": 4001.7481000000116,
+    "first_content_ms": 4301.568400000004,
+    "first_reasoning_ms": 4002.267200000002,
+    "evidence_write_ms": 29.41979999995965
+  }
+}

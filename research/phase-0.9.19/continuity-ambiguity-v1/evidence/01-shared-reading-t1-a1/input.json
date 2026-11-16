@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 1,
+    "story": "shared-reading",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "写一条周日亲子读书场的报名确认短信：14:00在东馆二楼，请带纸质书，可两人共读。它是一份独立通知。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-b95ceef32ec3498b9e18221268036cee9ede94478b0a2fa4"
+  },
+  "request_sha256": "5883422e61370039417ca10f3b2fd7109cdb558f1fa8f90a277cb371818733d0",
+  "freeze_sha256": "f820e5f540648a703cdcf6378e72e07fe174f89f6007e6a4a6510e445084f1b0"
+}

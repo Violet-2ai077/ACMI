@@ -1,0 +1,65 @@
+{
+  "content": "```sql\nINSERT INTO app_clicks (event_id, received_at, row_id) VALUES\n('e1', '2026-01-01 10:00:00', 1),\n('e1', '2026-01-01 10:05:00', 2),\n('e1', '2026-01-01 10:05:00', 3),\n('e2', '2026-01-01 10:03:00', 4);\n```\n\n预期：`e1` 保留 10:05:00 中 `row_id=3` 的一条；`e2` 保留。<|task:2|>",
+  "reasoning": "We need answer in Chinese, direct, concise. Need task marker. Current task is app_clicks test sample, same task as task 2? Earlier task 2 was app_clicks import scheme; this is test example for same task, so task 2. Need provide SQL insert with duplicate event_id, same received_at tie row_id desc. Show expected. Under 200 chars maybe. Need ensure columns plausible: event_id, received_at, row_id. Could use e1 three records: two same event with same timestamp? To demonstrate tie and latest. \"沿用这一路的时间排序和并列规则\" Means sample duplicate event and tie rule. Show duplicates with latest and tie. Maybe event e1 records at 10:00 row1; 10:05 row2; 10:05 row3, expected keep row3. e2 singleton. Simple.\n\nNeed normal answer, exact one marker at end, no extra. Chinese.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1251,
+    "completion_tokens": 337,
+    "total_tokens": 1588,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 192
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00035222,
+      "allowance": 0.00021133,
+      "tokens": {
+        "input": 995,
+        "output": 337,
+        "reasoning": 192,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-85555f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 19688,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5262,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07899999999790452,
+    "content_type": "text/event-stream",
+    "wire_chunks": 101,
+    "wire_sha256": "d63f473a843f0c290cd45de22d334419e9add13876c3f6789cb4b4673a8c30b6",
+    "content_sha256": "81d415b1501fa21b8231b45e8ee18daadd53b205ce07c339b7ef334a1689ab89",
+    "reasoning_sha256": "a935f13cf3d83f58bbacc98f2548a1cedfe309acadb30cc31930e797bc31454a"
+  },
+  "latency": {
+    "total_ms": 8629.308699999994,
+    "first_wire_ms": 5873.739699999991,
+    "first_content_ms": 7846.560099999988,
+    "first_reasoning_ms": 5874.26909999999,
+    "evidence_write_ms": 58.83300000015879
+  }
+}

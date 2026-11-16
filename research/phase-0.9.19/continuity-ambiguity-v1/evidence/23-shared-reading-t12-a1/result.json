@@ -1,0 +1,65 @@
+{
+  "content": "【亲子读书场】报名成功：周日14:00东馆二楼见！无需额外准备书袋；请携带纸质书，忘带书也可和家长一起共读。期待您和孩子准时参加。\n\n<|task:1|>",
+  "reasoning": "We need answer final confirmation for parent-child, incorporate no extra book bag, time/place, forgot book can co-read with parent. Must preserve task marker 1. Chinese concise under 200 chars. Need be attentive: \"要和孩子一起来的人不用额外准备书袋。整合成最终报名确认短信，时间地点和忘带书可共读都保留。\" So final parent-child registration SMS. Include 14:00 East Hall 2F, bring paper book maybe, forgot book can read with parent, no extra book bag needed. Task 1. Ensure marker at end exactly. No extra after.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1363,
+    "completion_tokens": 177,
+    "total_tokens": 1540,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 125
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00027302,
+      "allowance": 0.00016381,
+      "tokens": {
+        "input": 1107,
+        "output": 177,
+        "reasoning": 125,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-9f5aba",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 13615,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6209,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07850000000325963,
+    "content_type": "text/event-stream",
+    "wire_chunks": 69,
+    "wire_sha256": "7f3763f4d3254616dd8712ce22e7839ea67758dbb6c5502c98c6db22760bd609",
+    "content_sha256": "a7a556ea74bfe737d46cdc33df1c0c19b2f9edd1bc4f0e79dd8a925c6efd9e8e",
+    "reasoning_sha256": "df8267559ec7378de3cb0f635ca108f6cad72fa8b39f1be2339867a51c3889bd"
+  },
+  "latency": {
+    "total_ms": 5398.362000000023,
+    "first_wire_ms": 3364.101000000024,
+    "first_content_ms": 4806.018700000015,
+    "first_reasoning_ms": 3368.2263000000094,
+    "evidence_write_ms": 39.86870000019553
+  }
+}

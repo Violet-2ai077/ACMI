@@ -1,0 +1,2471 @@
+{
+  "freeze_sha256": "f820e5f540648a703cdcf6378e72e07fe174f89f6007e6a4a6510e445084f1b0",
+  "planned_calls": 24,
+  "actual_calls": 24,
+  "completed_attempts": 24,
+  "failed_attempts": 0,
+  "evidence_incomplete": 0,
+  "retry_calls": 0,
+  "not_sent": [],
+  "protocol": {
+    "correct": 24,
+    "assessed": 24
+  },
+  "canonical": {
+    "correct": 24,
+    "assessed": 24,
+    "planned": 24
+  },
+  "by_kind": [
+    {
+      "kind": "birth",
+      "planned": 6,
+      "assessed": 6,
+      "correct": 6,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "continue",
+      "planned": 0,
+      "assessed": 0,
+      "correct": 0,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "return",
+      "planned": 14,
+      "assessed": 14,
+      "correct": 14,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    }
+  ],
+  "conditional_restoration": {
+    "correct": 14,
+    "assessed": 14,
+    "unassessable": 0,
+    "planned": 14
+  },
+  "returns": [
+    {
+      "story": "shared-reading",
+      "turn": 3,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-shared-reading-t1-a1",
+      "return_directory": "05-shared-reading-t3-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-reading",
+      "turn": 5,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "03-shared-reading-t2-a1",
+      "return_directory": "09-shared-reading-t5-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-reading",
+      "turn": 7,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-shared-reading-t1-a1",
+      "return_directory": "13-shared-reading-t7-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-reading",
+      "turn": 8,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "03-shared-reading-t2-a1",
+      "return_directory": "15-shared-reading-t8-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-reading",
+      "turn": 9,
+      "birth_turn": 4,
+      "canonical_expected": "3",
+      "actual_birth_marker": "3",
+      "observed": "3",
+      "birth_directory": "07-shared-reading-t4-a1",
+      "return_directory": "17-shared-reading-t9-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-reading",
+      "turn": 11,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "03-shared-reading-t2-a1",
+      "return_directory": "21-shared-reading-t11-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-reading",
+      "turn": 12,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-shared-reading-t1-a1",
+      "return_directory": "23-shared-reading-t12-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 3,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "02-shared-ingestion-t1-a1",
+      "return_directory": "06-shared-ingestion-t3-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 5,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "04-shared-ingestion-t2-a1",
+      "return_directory": "10-shared-ingestion-t5-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 7,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "02-shared-ingestion-t1-a1",
+      "return_directory": "14-shared-ingestion-t7-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 8,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "04-shared-ingestion-t2-a1",
+      "return_directory": "16-shared-ingestion-t8-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 9,
+      "birth_turn": 4,
+      "canonical_expected": "3",
+      "actual_birth_marker": "3",
+      "observed": "3",
+      "birth_directory": "08-shared-ingestion-t4-a1",
+      "return_directory": "18-shared-ingestion-t9-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 11,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "04-shared-ingestion-t2-a1",
+      "return_directory": "22-shared-ingestion-t11-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 12,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "02-shared-ingestion-t1-a1",
+      "return_directory": "24-shared-ingestion-t12-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    }
+  ],
+  "answer_minimal": {
+    "correct": 23,
+    "assessed": 24
+  },
+  "trajectories": [
+    {
+      "story": "shared-reading",
+      "complete_turns": 12,
+      "complete": true,
+      "all_markers_correct": true,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "birth",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "UNRESOLVED",
+          "correct": true
+        },
+        {
+          "turn": 7,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 8,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 9,
+          "kind": "return",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 10,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "UNRESOLVED",
+          "correct": true
+        },
+        {
+          "turn": 11,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 12,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "story": "shared-ingestion",
+      "complete_turns": 12,
+      "complete": true,
+      "all_markers_correct": true,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "birth",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "UNRESOLVED",
+          "correct": true
+        },
+        {
+          "turn": 7,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 8,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 9,
+          "kind": "return",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 10,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "UNRESOLVED",
+          "correct": true
+        },
+        {
+          "turn": 11,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 12,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "strict_local_criterion_met": true,
+  "groups": {
+    "birth": {
+      "planned": 6,
+      "assessed": 6,
+      "correct": 6,
+      "protocol_invalid": 0,
+      "unresolved": 0,
+      "answer_checks_pass": 6
+    },
+    "clear-return": {
+      "planned": 10,
+      "assessed": 10,
+      "correct": 10,
+      "protocol_invalid": 0,
+      "unresolved": 0,
+      "answer_checks_pass": 10
+    },
+    "ambiguous": {
+      "planned": 4,
+      "assessed": 4,
+      "correct": 4,
+      "protocol_invalid": 0,
+      "unresolved": 4,
+      "answer_checks_pass": 4
+    },
+    "clarified-return": {
+      "planned": 4,
+      "assessed": 4,
+      "correct": 4,
+      "protocol_invalid": 0,
+      "unresolved": 0,
+      "answer_checks_pass": 3
+    }
+  },
+  "ambiguities": [
+    {
+      "story": "shared-reading",
+      "turn": 6,
+      "directory": "11-shared-reading-t6-a1",
+      "outcome": "abstained",
+      "observed": "UNRESOLVED",
+      "clarification_lexical": true
+    },
+    {
+      "story": "shared-reading",
+      "turn": 10,
+      "directory": "19-shared-reading-t10-a1",
+      "outcome": "abstained",
+      "observed": "UNRESOLVED",
+      "clarification_lexical": true
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 6,
+      "directory": "12-shared-ingestion-t6-a1",
+      "outcome": "abstained",
+      "observed": "UNRESOLVED",
+      "clarification_lexical": true
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 10,
+      "directory": "20-shared-ingestion-t10-a1",
+      "outcome": "abstained",
+      "observed": "UNRESOLVED",
+      "clarification_lexical": true
+    }
+  ],
+  "confusion": [
+    {
+      "story": "shared-reading",
+      "turn": 3,
+      "directory": "05-shared-reading-t3-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-reading",
+      "turn": 5,
+      "directory": "09-shared-reading-t5-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-reading",
+      "turn": 7,
+      "directory": "13-shared-reading-t7-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-reading",
+      "turn": 8,
+      "directory": "15-shared-reading-t8-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-reading",
+      "turn": 9,
+      "directory": "17-shared-reading-t9-a1",
+      "observed": "3",
+      "canonical_expected": "3",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-reading",
+      "turn": 11,
+      "directory": "21-shared-reading-t11-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-reading",
+      "turn": 12,
+      "directory": "23-shared-reading-t12-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 3,
+      "directory": "06-shared-ingestion-t3-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 5,
+      "directory": "10-shared-ingestion-t5-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 7,
+      "directory": "14-shared-ingestion-t7-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 8,
+      "directory": "16-shared-ingestion-t8-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 9,
+      "directory": "18-shared-ingestion-t9-a1",
+      "observed": "3",
+      "canonical_expected": "3",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 11,
+      "directory": "22-shared-ingestion-t11-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "shared-ingestion",
+      "turn": 12,
+      "directory": "24-shared-ingestion-t12-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    }
+  ],
+  "other_task_assignments": 0,
+  "unnecessary_abstentions": 0,
+  "rows": [
+    {
+      "index": 1,
+      "story": "shared-reading",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-shared-reading-t1-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 16256,
+      "latency": {
+        "total_ms": 5642.737700000001,
+        "first_wire_ms": 3292.7971,
+        "first_content_ms": 5370.3813,
+        "first_reasoning_ms": 3294.0168,
+        "evidence_write_ms": 56.205500000006566
+      },
+      "usage": {
+        "prompt_tokens": 426,
+        "completion_tokens": 207,
+        "total_tokens": 633,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001881,
+          "allowance": 0.00011286,
+          "tokens": {
+            "input": 426,
+            "output": 207,
+            "reasoning": 165,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "东馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "纸质书"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子读书场】报名成功：周日14:00在东馆二楼举行，请携带纸质书，可由两人共读。期待您和孩子准时参加。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 2,
+      "story": "shared-ingestion",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "02-shared-ingestion-t1-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 22198,
+      "latency": {
+        "total_ms": 7817.1881,
+        "first_wire_ms": 4526.682100000001,
+        "first_content_ms": 7215.955800000001,
+        "first_reasoning_ms": 4528.075900000001,
+        "evidence_write_ms": 73.25539999998637
+      },
+      "usage": {
+        "prompt_tokens": 427,
+        "completion_tokens": 324,
+        "total_tokens": 751,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 255
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00025845,
+          "allowance": 0.00015507,
+          "tokens": {
+            "input": 427,
+            "output": 324,
+            "reasoning": 255,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "去重排序片段：\n\n```sql\nROW_NUMBER() OVER (\n  PARTITION BY event_id\n  ORDER BY received_at DESC\n) AS rn\n```\n\n筛选 `rn = 1`；若写入 `web_clicks`，再按 `event_id` 执行 upsert。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 3,
+      "story": "shared-reading",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "03-shared-reading-t2-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 11058,
+      "latency": {
+        "total_ms": 6012.792500000001,
+        "first_wire_ms": 4468.494400000001,
+        "first_content_ms": 5660.5303,
+        "first_reasoning_ms": 4469.0570000000025,
+        "evidence_write_ms": 32.37180000000626
+      },
+      "usage": {
+        "prompt_tokens": 512,
+        "completion_tokens": 124,
+        "total_tokens": 636,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 83
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00011357,
+          "allowance": 0.00006814,
+          "tokens": {
+            "input": 256,
+            "output": 124,
+            "reasoning": 83,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "16[:：]00",
+              "四点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "西馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "纸质书"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人读书场】报名成功：周日16:00在西馆二楼举行，请携带纸质书，可由两人共读。期待您准时参加。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 4,
+      "story": "shared-ingestion",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "04-shared-ingestion-t2-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 13776,
+      "latency": {
+        "total_ms": 6485.805099999998,
+        "first_wire_ms": 4619.924899999998,
+        "first_content_ms": 6201.030499999997,
+        "first_reasoning_ms": 4620.526299999998,
+        "evidence_write_ms": 46.265899999987596
+      },
+      "usage": {
+        "prompt_tokens": 540,
+        "completion_tokens": 193,
+        "total_tokens": 733,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00015917,
+          "allowance": 0.0000955,
+          "tokens": {
+            "input": 284,
+            "output": 193,
+            "reasoning": 144,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nROW_NUMBER() OVER (\n  PARTITION BY event_id\n  ORDER BY received_at DESC\n) AS rn\n```\n\n按 `rn = 1` 保留最新记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 5,
+      "story": "shared-reading",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "05-shared-reading-t3-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 25761,
+      "latency": {
+        "total_ms": 6798.076699999998,
+        "first_wire_ms": 2887.608800000002,
+        "first_content_ms": 6303.180800000002,
+        "first_reasoning_ms": 2888.3371000000006,
+        "evidence_write_ms": 89.79039999998713
+      },
+      "usage": {
+        "prompt_tokens": 585,
+        "completion_tokens": 310,
+        "total_tokens": 895,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 258
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00023612,
+          "allowance": 0.00014167,
+          "tokens": {
+            "input": 329,
+            "output": 310,
+            "reasoning": 258,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "东馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子读书场】报名成功啦！周日14:00东馆二楼见～小朋友忘带书也没关系，可以和家长一起读；带上纸质书更棒，快来一起玩转故事吧！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 6,
+      "story": "shared-ingestion",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "06-shared-ingestion-t3-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 26605,
+      "latency": {
+        "total_ms": 8763.958200000001,
+        "first_wire_ms": 4898.447099999998,
+        "first_content_ms": 8587.680699999997,
+        "first_reasoning_ms": 4898.9519999999975,
+        "evidence_write_ms": 83.79089999997814
+      },
+      "usage": {
+        "prompt_tokens": 619,
+        "completion_tokens": 448,
+        "total_tokens": 1067,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 358
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00032402,
+          "allowance": 0.00019441,
+          "tokens": {
+            "input": 363,
+            "output": 448,
+            "reasoning": 358,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "web_clicks"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY event_id\n           ORDER BY received_at DESC\n         ) AS rn\n  FROM web_clicks\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n`web_clicks` 中每个 `event_id` 仅保留 `received_at` 最新的一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 7,
+      "story": "shared-reading",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "07-shared-reading-t4-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 17211,
+      "latency": {
+        "total_ms": 6125.305899999999,
+        "first_wire_ms": 3343.193600000006,
+        "first_content_ms": 5600.230900000002,
+        "first_reasoning_ms": 3343.6991000000053,
+        "evidence_write_ms": 54.4684999999954
+      },
+      "usage": {
+        "prompt_tokens": 676,
+        "completion_tokens": 209,
+        "total_tokens": 885,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00018917,
+          "allowance": 0.0001135,
+          "tokens": {
+            "input": 420,
+            "output": 209,
+            "reasoning": 159,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "13[:：]00",
+              "一点",
+              "一时"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "中庭"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【志愿者集合通知】周日亲子场、成人场读书活动志愿者请于13:00到中庭服务台集合，统一领取任务。此通知仅面向志愿者，不是报名确认短信。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 8,
+      "story": "shared-ingestion",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "08-shared-ingestion-t4-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 8405,
+      "latency": {
+        "total_ms": 4626.047700000003,
+        "first_wire_ms": 3391.398100000006,
+        "first_content_ms": 4072.1565000000046,
+        "first_reasoning_ms": 3392.1236000000063,
+        "evidence_write_ms": 30.111700000037672
+      },
+      "usage": {
+        "prompt_tokens": 745,
+        "completion_tokens": 137,
+        "total_tokens": 882,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00015632,
+          "allowance": 0.00009379,
+          "tokens": {
+            "input": 489,
+            "output": 137,
+            "reasoning": 56,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "payments"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "payment_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "paid_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "ASC",
+              "最早",
+              "升序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY payment_id\n           ORDER BY paid_at ASC\n         ) AS rn\n  FROM payments\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n每个 `payment_id` 仅保留 `paid_at` 最早的一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 9,
+      "story": "shared-reading",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "09-shared-reading-t5-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 22964,
+      "latency": {
+        "total_ms": 7154.626600000003,
+        "first_wire_ms": 3668.3588999999993,
+        "first_content_ms": 6900.9432000000015,
+        "first_reasoning_ms": 3668.808799999999,
+        "evidence_write_ms": 75.5640999999523
+      },
+      "usage": {
+        "prompt_tokens": 760,
+        "completion_tokens": 336,
+        "total_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 289
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00027797,
+          "allowance": 0.00016678,
+          "tokens": {
+            "input": 504,
+            "output": 336,
+            "reasoning": 289,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "16[:：]00",
+              "四点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "西馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人读书场】报名确认：活动于周日16:00在西馆二楼举行。请携带纸质书，可两人共读。感谢您的参与，期待您准时到场。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 10,
+      "story": "shared-ingestion",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "10-shared-ingestion-t5-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 27781,
+      "latency": {
+        "total_ms": 8101.629699999998,
+        "first_wire_ms": 4149.774700000002,
+        "first_content_ms": 7896.474200000004,
+        "first_reasoning_ms": 4151.000200000002,
+        "evidence_write_ms": 77.71140000006562
+      },
+      "usage": {
+        "prompt_tokens": 862,
+        "completion_tokens": 453,
+        "total_tokens": 1315,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 355
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00036347,
+          "allowance": 0.00021808,
+          "tokens": {
+            "input": 606,
+            "output": 453,
+            "reasoning": 355,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "app_clicks"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY event_id\n           ORDER BY received_at DESC, row_id DESC\n         ) AS rn\n  FROM app_clicks\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n每个 `event_id` 保留 `received_at` 最新的一条；时间相同时取 `row_id` 最大的一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 11,
+      "story": "shared-reading",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "11-shared-reading-t6-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 39566,
+      "latency": {
+        "total_ms": 12270.62890000001,
+        "first_wire_ms": 6495.280500000008,
+        "first_content_ms": 11684.95730000001,
+        "first_reasoning_ms": 6495.828300000008,
+        "evidence_write_ms": 116.53050000008079
+      },
+      "usage": {
+        "prompt_tokens": 854,
+        "completion_tokens": 560,
+        "total_tokens": 1414,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 483
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00042647,
+          "allowance": 0.00025588,
+          "tokens": {
+            "input": 598,
+            "output": 560,
+            "reasoning": 483,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "kind": "ambiguous",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "哪一",
+              "确认.*场",
+              "请.*场"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "亲子",
+              "成人"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "该反馈未注明场次，无法确定修改对象。可分别压缩为——亲子场：周日14:00东馆二楼，请带纸质书，可两人共读。成人场：周日16:00西馆二楼，请带纸质书，可两人共读。请确认采用哪场。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 12,
+      "story": "shared-ingestion",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "12-shared-ingestion-t6-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 24599,
+      "latency": {
+        "total_ms": 7675.512099999993,
+        "first_wire_ms": 3410.6008999999904,
+        "first_content_ms": 6737.171099999992,
+        "first_reasoning_ms": 3411.7464000000036,
+        "evidence_write_ms": 73.56769999995595
+      },
+      "usage": {
+        "prompt_tokens": 1006,
+        "completion_tokens": 337,
+        "total_tokens": 1343,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 277
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031547,
+          "allowance": 0.00018928,
+          "tokens": {
+            "input": 750,
+            "output": 337,
+            "reasoning": 277,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "kind": "ambiguous",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认",
+              "请.*来源",
+              "请.*端"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "网页",
+              "web",
+              "手机",
+              "app"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "无法确定对应哪份方案：`web_clicks` 按 `received_at DESC`，`app_clicks` 还需 `row_id DESC` 兜底。请确认表名/来源，我再补对应测试样例。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 13,
+      "story": "shared-reading",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "13-shared-reading-t7-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 14013,
+      "latency": {
+        "total_ms": 4524.750100000005,
+        "first_wire_ms": 2501.8462,
+        "first_content_ms": 4376.190300000002,
+        "first_reasoning_ms": 2502.3485000000073,
+        "evidence_write_ms": 42.613700000045355
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 187,
+        "total_tokens": 1139,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 152
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00021737,
+          "allowance": 0.00013042,
+          "tokens": {
+            "input": 696,
+            "output": 187,
+            "reasoning": 152,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "东馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子读书场】报名成功：周日14:00东馆二楼，请带纸质书，可两人共读。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "shared-ingestion",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "14-shared-ingestion-t7-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 23354,
+      "latency": {
+        "total_ms": 6499.951300000001,
+        "first_wire_ms": 3055.7976000000053,
+        "first_content_ms": 5675.622600000002,
+        "first_reasoning_ms": 3056.449900000007,
+        "evidence_write_ms": 76.93410000005679
+      },
+      "usage": {
+        "prompt_tokens": 1090,
+        "completion_tokens": 383,
+        "total_tokens": 1473,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 251
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035567,
+          "allowance": 0.0002134,
+          "tokens": {
+            "input": 834,
+            "output": 383,
+            "reasoning": 251,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最新",
+              "较晚",
+              "更晚",
+              "后",
+              "DESC"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "可用样例：\n\n```sql\nINSERT INTO web_clicks (event_id, received_at, row_id) VALUES\n('e1', '2026-01-01 10:00:00', 1),\n('e1', '2026-01-01 10:05:00', 2),\n('e2', '2026-01-01 10:03:00', 3);\n```\n\n预期结果：`e1` 仅保留 `received_at=2026-01-01 10:05:00` 的记录，`e2` 保留。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 15,
+      "story": "shared-reading",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "15-shared-reading-t8-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 16872,
+      "latency": {
+        "total_ms": 6149.617400000003,
+        "first_wire_ms": 3661.0320999999967,
+        "first_content_ms": 5667.143199999991,
+        "first_reasoning_ms": 3661.5084999999963,
+        "evidence_write_ms": 49.37229999984265
+      },
+      "usage": {
+        "prompt_tokens": 1016,
+        "completion_tokens": 209,
+        "total_tokens": 1225,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 158
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00024017,
+          "allowance": 0.0001441,
+          "tokens": {
+            "input": 760,
+            "output": 209,
+            "reasoning": 158,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "16[:：]00",
+              "四点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "西馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人读书场】报名确认：周日16:00在西馆二楼举行，请携带纸质书；可两人共读，独自参加的读者也可现场寻找同伴一起读。期待您准时参加。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 16,
+      "story": "shared-ingestion",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "16-shared-ingestion-t8-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 19688,
+      "latency": {
+        "total_ms": 8629.308699999994,
+        "first_wire_ms": 5873.739699999991,
+        "first_content_ms": 7846.560099999988,
+        "first_reasoning_ms": 5874.26909999999,
+        "evidence_write_ms": 58.83300000015879
+      },
+      "usage": {
+        "prompt_tokens": 1251,
+        "completion_tokens": 337,
+        "total_tokens": 1588,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035222,
+          "allowance": 0.00021133,
+          "tokens": {
+            "input": 995,
+            "output": 337,
+            "reasoning": 192,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nINSERT INTO app_clicks (event_id, received_at, row_id) VALUES\n('e1', '2026-01-01 10:00:00', 1),\n('e1', '2026-01-01 10:05:00', 2),\n('e1', '2026-01-01 10:05:00', 3),\n('e2', '2026-01-01 10:03:00', 4);\n```\n\n预期：`e1` 保留 10:05:00 中 `row_id=3` 的一条；`e2` 保留。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 17,
+      "story": "shared-reading",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "17-shared-reading-t9-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 11784,
+      "latency": {
+        "total_ms": 5169.085200000001,
+        "first_wire_ms": 3391.711599999995,
+        "first_content_ms": 4742.005099999995,
+        "first_reasoning_ms": 3392.235799999995,
+        "evidence_write_ms": 36.354600000137
+      },
+      "usage": {
+        "prompt_tokens": 1096,
+        "completion_tokens": 191,
+        "total_tokens": 1287,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00024137,
+          "allowance": 0.00014482,
+          "tokens": {
+            "input": 840,
+            "output": 191,
+            "reasoning": 137,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "13[:：]00",
+              "一点",
+              "一时"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "中庭"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "签到"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【志愿者集合通知】两场读书活动志愿者请于周日13:00到中庭服务台集合；负责接待的人员到达后请先在服务台签到，再统一领取任务。此通知仅面向志愿者。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 18,
+      "story": "shared-ingestion",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "18-shared-ingestion-t9-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 9590,
+      "latency": {
+        "total_ms": 5286.723900000012,
+        "first_wire_ms": 4001.7481000000116,
+        "first_content_ms": 4301.568400000004,
+        "first_reasoning_ms": 4002.267200000002,
+        "evidence_write_ms": 29.41979999995965
+      },
+      "usage": {
+        "prompt_tokens": 1433,
+        "completion_tokens": 116,
+        "total_tokens": 1549,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 36
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00024692,
+          "allowance": 0.00014815,
+          "tokens": {
+            "input": 1177,
+            "output": 116,
+            "reasoning": 36,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "payment_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "最早",
+              "首次",
+              "第一"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "判重字段是 `payment_id`。同一笔付款的回调可能因重试或重复送达出现多条；`paid_at` 表示付款实际完成时间，首次有效回调应最接近真实到账时间。保留最早一条可避免后续重复通知覆盖原始到账时间，并确保同一 `payment_id` 只有一条记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 19,
+      "story": "shared-reading",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "19-shared-reading-t10-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 28545,
+      "latency": {
+        "total_ms": 9212.6342,
+        "first_wire_ms": 4891.865699999995,
+        "first_content_ms": 8704.0196,
+        "first_reasoning_ms": 4892.778200000001,
+        "evidence_write_ms": 99.60160000021278
+      },
+      "usage": {
+        "prompt_tokens": 1194,
+        "completion_tokens": 380,
+        "total_tokens": 1574,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 323
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00036947,
+          "allowance": 0.00022168,
+          "tokens": {
+            "input": 938,
+            "output": 380,
+            "reasoning": 323,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "kind": "ambiguous",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "哪一",
+              "确认.*场",
+              "请.*场"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "亲子",
+              "成人"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "便条未注明场次，而亲子场和成人场都安排了共读，因此无法确定应改哪条报名确认。请明确是“亲子场”还是“成人场”，我再据此调整语气。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 20,
+      "story": "shared-ingestion",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "20-shared-ingestion-t10-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 16188,
+      "latency": {
+        "total_ms": 6028.255799999984,
+        "first_wire_ms": 3749.129099999991,
+        "first_content_ms": 5452.145999999979,
+        "first_reasoning_ms": 3751.4727999999886,
+        "evidence_write_ms": 52.45270000011078
+      },
+      "usage": {
+        "prompt_tokens": 1558,
+        "completion_tokens": 212,
+        "total_tokens": 1770,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 146
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00032327,
+          "allowance": 0.00019396,
+          "tokens": {
+            "input": 1302,
+            "output": 212,
+            "reasoning": 146,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "kind": "ambiguous",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认",
+              "请.*来源",
+              "请.*端"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "网页",
+              "web",
+              "手机",
+              "app"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "无法判断指哪一路：网页端 `web_clicks` 仅按 `received_at DESC`；手机端 `app_clicks` 还需 `row_id DESC` 兜底。请确认是网页端还是手机端，我再给对应简短说明。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 21,
+      "story": "shared-reading",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "21-shared-reading-t11-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 14491,
+      "latency": {
+        "total_ms": 7471.1391,
+        "first_wire_ms": 5388.783200000005,
+        "first_content_ms": 7095.320500000002,
+        "first_reasoning_ms": 5389.255800000014,
+        "evidence_write_ms": 44.20370000007097
+      },
+      "usage": {
+        "prompt_tokens": 1274,
+        "completion_tokens": 184,
+        "total_tokens": 1458,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00026387,
+          "allowance": 0.00015832,
+          "tokens": {
+            "input": 1018,
+            "output": 184,
+            "reasoning": 132,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "16[:：]00",
+              "四点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "西馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人读书场】报名确认：周日16:00在西馆二楼见！请带一本纸质书，可以两人共读；独自来的读者也能现场找同伴一起读。期待与您相见。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 22,
+      "story": "shared-ingestion",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "22-shared-ingestion-t11-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 7974,
+      "latency": {
+        "total_ms": 6412.802599999995,
+        "first_wire_ms": 5473.295899999997,
+        "first_content_ms": 6159.979200000002,
+        "first_reasoning_ms": 5474.249199999991,
+        "evidence_write_ms": 27.696700000204146
+      },
+      "usage": {
+        "prompt_tokens": 1648,
+        "completion_tokens": 123,
+        "total_tokens": 1771,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 72
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00028337,
+          "allowance": 0.00017002,
+          "tokens": {
+            "input": 1392,
+            "output": 123,
+            "reasoning": 72,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "`app_clicks` 按 `event_id` 去重，只保留 `received_at` 最新的一条；若 `received_at` 相同，则保留 `row_id` 最大的一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 23,
+      "story": "shared-reading",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "23-shared-reading-t12-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 13615,
+      "latency": {
+        "total_ms": 5398.362000000023,
+        "first_wire_ms": 3364.101000000024,
+        "first_content_ms": 4806.018700000015,
+        "first_reasoning_ms": 3368.2263000000094,
+        "evidence_write_ms": 39.86870000019553
+      },
+      "usage": {
+        "prompt_tokens": 1363,
+        "completion_tokens": 177,
+        "total_tokens": 1540,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00027302,
+          "allowance": 0.00016381,
+          "tokens": {
+            "input": 1107,
+            "output": 177,
+            "reasoning": 125,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "东馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子读书场】报名成功：周日14:00东馆二楼见！无需额外准备书袋；请携带纸质书，忘带书也可和家长一起共读。期待您和孩子准时参加。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 24,
+      "story": "shared-ingestion",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "24-shared-ingestion-t12-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 14365,
+      "latency": {
+        "total_ms": 5278.821499999991,
+        "first_wire_ms": 3299.8912999999884,
+        "first_content_ms": 4813.941400000011,
+        "first_reasoning_ms": 3300.4083999999857,
+        "evidence_write_ms": 42.12379999968107
+      },
+      "usage": {
+        "prompt_tokens": 1731,
+        "completion_tokens": 215,
+        "total_tokens": 1946,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035102,
+          "allowance": 0.00021061,
+          "tokens": {
+            "input": 1475,
+            "output": 215,
+            "reasoning": 132,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "web_clicks"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "event_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "received_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY event_id\n           ORDER BY received_at DESC\n         ) AS rn\n  FROM web_clicks\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n每个 `event_id` 仅保留 `received_at` 最新的一条。",
+        "error_location": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "content": "【志愿者集合通知】周日亲子场、成人场读书活动志愿者请于13:00到中庭服务台集合，统一领取任务。此通知仅面向志愿者，不是报名确认短信。\n\n<|task:3|>",
+  "reasoning": "We need answer Chinese, concise under 200 chars. Need task marker: new independent task, third task. Need write volunteer assembly notice for two events, Sunday 13:00 atrium service desk, not registrant confirmation. Need distinguish. Include both events perhaps \"周日两场读书场志愿者集合通知：13:00中庭服务台...\" Independent work. Mark task 3. Need no extra after marker. Also task identity: previous task 1亲子, task2成人, task3 volunteer. This is new distinct. Answer direct. Ensure not confuse as confirmation. Could write \"【志愿者集合通知】...\" Mention两场活动（亲子场、成人场）志愿者. 13:00中庭服务台集合。 Do not say报名成功. Under 200 chars.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 676,
+    "completion_tokens": 209,
+    "total_tokens": 885,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 159
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00018917,
+      "allowance": 0.0001135,
+      "tokens": {
+        "input": 420,
+        "output": 209,
+        "reasoning": 159,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-93d185",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 17211,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6124,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08769999999640277,
+    "content_type": "text/event-stream",
+    "wire_chunks": 85,
+    "wire_sha256": "f510a28e888da722ce74427ad571c5cd3e990922d7c5a7b112a9a4d9779cc337",
+    "content_sha256": "01738722fe3448ef7c9fde6f9f09aed127807a422da541b7918a42f6a57f4573",
+    "reasoning_sha256": "c5327b6356752051171d0b2a3883b9b5e6f739e73ac917ad16c8943947c46483"
+  },
+  "latency": {
+    "total_ms": 6125.305899999999,
+    "first_wire_ms": 3343.193600000006,
+    "first_content_ms": 5600.230900000002,
+    "first_reasoning_ms": 3343.6991000000053,
+    "evidence_write_ms": 54.4684999999954
+  }
+}

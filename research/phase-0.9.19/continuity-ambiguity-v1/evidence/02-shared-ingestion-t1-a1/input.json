@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 2,
+    "story": "shared-ingestion",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "为网页点击日志单独设计去重导入：表web_clicks，用event_id判重，同一事件保留received_at最新的一条。给最小排序片段。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-4dc7be8bffda68bab7951376f26e824e31d00b60bfa56e61"
+  },
+  "request_sha256": "48e059f6622bd89e0a34dde7a9ca85100337f4c63b6ee8015edfbfda4d346a26",
+  "freeze_sha256": "f820e5f540648a703cdcf6378e72e07fe174f89f6007e6a4a6510e445084f1b0"
+}

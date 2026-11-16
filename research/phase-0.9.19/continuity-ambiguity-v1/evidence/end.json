@@ -1,0 +1,971 @@
+{
+  "at": "2026-11-16T16:38:49.992Z",
+  "actual_calls": 24,
+  "retry_calls": 0,
+  "halt": null,
+  "attempts": [
+    {
+      "index": 1,
+      "story": "shared-reading",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-shared-reading-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:06.364Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5642.737700000001,
+      "usage": {
+        "prompt_tokens": 426,
+        "completion_tokens": 207,
+        "total_tokens": 633,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0001881,
+          "allowance": 0.00011286,
+          "tokens": {
+            "input": 426,
+            "output": 207,
+            "reasoning": 165,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 2,
+      "story": "shared-ingestion",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "02-shared-ingestion-t1-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:12.013Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7817.1881,
+      "usage": {
+        "prompt_tokens": 427,
+        "completion_tokens": 324,
+        "total_tokens": 751,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 255
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00025845,
+          "allowance": 0.00015507,
+          "tokens": {
+            "input": 427,
+            "output": 324,
+            "reasoning": 255,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 3,
+      "story": "shared-reading",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "03-shared-reading-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:19.834Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6012.792500000001,
+      "usage": {
+        "prompt_tokens": 512,
+        "completion_tokens": 124,
+        "total_tokens": 636,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 83
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00011357,
+          "allowance": 0.00006814,
+          "tokens": {
+            "input": 256,
+            "output": 124,
+            "reasoning": 83,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 4,
+      "story": "shared-ingestion",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "04-shared-ingestion-t2-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:25.851Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6485.805099999998,
+      "usage": {
+        "prompt_tokens": 540,
+        "completion_tokens": 193,
+        "total_tokens": 733,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00015917,
+          "allowance": 0.0000955,
+          "tokens": {
+            "input": 284,
+            "output": 193,
+            "reasoning": 144,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 5,
+      "story": "shared-reading",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "05-shared-reading-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:32.340Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6798.076699999998,
+      "usage": {
+        "prompt_tokens": 585,
+        "completion_tokens": 310,
+        "total_tokens": 895,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 258
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00023612,
+          "allowance": 0.00014167,
+          "tokens": {
+            "input": 329,
+            "output": 310,
+            "reasoning": 258,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 6,
+      "story": "shared-ingestion",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "06-shared-ingestion-t3-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:39.142Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8763.958200000001,
+      "usage": {
+        "prompt_tokens": 619,
+        "completion_tokens": 448,
+        "total_tokens": 1067,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 358
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00032402,
+          "allowance": 0.00019441,
+          "tokens": {
+            "input": 363,
+            "output": 448,
+            "reasoning": 358,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 7,
+      "story": "shared-reading",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "07-shared-reading-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:47.910Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6125.305899999999,
+      "usage": {
+        "prompt_tokens": 676,
+        "completion_tokens": 209,
+        "total_tokens": 885,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00018917,
+          "allowance": 0.0001135,
+          "tokens": {
+            "input": 420,
+            "output": 209,
+            "reasoning": 159,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 8,
+      "story": "shared-ingestion",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "08-shared-ingestion-t4-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:54.039Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4626.047700000003,
+      "usage": {
+        "prompt_tokens": 745,
+        "completion_tokens": 137,
+        "total_tokens": 882,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00015632,
+          "allowance": 0.00009379,
+          "tokens": {
+            "input": 489,
+            "output": 137,
+            "reasoning": 56,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 9,
+      "story": "shared-reading",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "09-shared-reading-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:36:58.669Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7154.626600000003,
+      "usage": {
+        "prompt_tokens": 760,
+        "completion_tokens": 336,
+        "total_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 289
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00027797,
+          "allowance": 0.00016678,
+          "tokens": {
+            "input": 504,
+            "output": 336,
+            "reasoning": 289,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 10,
+      "story": "shared-ingestion",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "10-shared-ingestion-t5-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:05.828Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8101.629699999998,
+      "usage": {
+        "prompt_tokens": 862,
+        "completion_tokens": 453,
+        "total_tokens": 1315,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 355
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00036347,
+          "allowance": 0.00021808,
+          "tokens": {
+            "input": 606,
+            "output": 453,
+            "reasoning": 355,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 11,
+      "story": "shared-reading",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "11-shared-reading-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:13.933Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 12270.62890000001,
+      "usage": {
+        "prompt_tokens": 854,
+        "completion_tokens": 560,
+        "total_tokens": 1414,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 483
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00042647,
+          "allowance": 0.00025588,
+          "tokens": {
+            "input": 598,
+            "output": 560,
+            "reasoning": 483,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 12,
+      "story": "shared-ingestion",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "12-shared-ingestion-t6-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:26.208Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7675.512099999993,
+      "usage": {
+        "prompt_tokens": 1006,
+        "completion_tokens": 337,
+        "total_tokens": 1343,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 277
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00031547,
+          "allowance": 0.00018928,
+          "tokens": {
+            "input": 750,
+            "output": 337,
+            "reasoning": 277,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 13,
+      "story": "shared-reading",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "13-shared-reading-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:33.887Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4524.750100000005,
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 187,
+        "total_tokens": 1139,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 152
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00021737,
+          "allowance": 0.00013042,
+          "tokens": {
+            "input": 696,
+            "output": 187,
+            "reasoning": 152,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 14,
+      "story": "shared-ingestion",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "14-shared-ingestion-t7-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:38.416Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6499.951300000001,
+      "usage": {
+        "prompt_tokens": 1090,
+        "completion_tokens": 383,
+        "total_tokens": 1473,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 251
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035567,
+          "allowance": 0.0002134,
+          "tokens": {
+            "input": 834,
+            "output": 383,
+            "reasoning": 251,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 15,
+      "story": "shared-reading",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "15-shared-reading-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:44.920Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6149.617400000003,
+      "usage": {
+        "prompt_tokens": 1016,
+        "completion_tokens": 209,
+        "total_tokens": 1225,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 158
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00024017,
+          "allowance": 0.0001441,
+          "tokens": {
+            "input": 760,
+            "output": 209,
+            "reasoning": 158,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 16,
+      "story": "shared-ingestion",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "16-shared-ingestion-t8-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:51.073Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8629.308699999994,
+      "usage": {
+        "prompt_tokens": 1251,
+        "completion_tokens": 337,
+        "total_tokens": 1588,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035222,
+          "allowance": 0.00021133,
+          "tokens": {
+            "input": 995,
+            "output": 337,
+            "reasoning": 192,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 17,
+      "story": "shared-reading",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "17-shared-reading-t9-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:37:59.706Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5169.085200000001,
+      "usage": {
+        "prompt_tokens": 1096,
+        "completion_tokens": 191,
+        "total_tokens": 1287,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00024137,
+          "allowance": 0.00014482,
+          "tokens": {
+            "input": 840,
+            "output": 191,
+            "reasoning": 137,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 18,
+      "story": "shared-ingestion",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "18-shared-ingestion-t9-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:38:04.879Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5286.723900000012,
+      "usage": {
+        "prompt_tokens": 1433,
+        "completion_tokens": 116,
+        "total_tokens": 1549,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 36
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00024692,
+          "allowance": 0.00014815,
+          "tokens": {
+            "input": 1177,
+            "output": 116,
+            "reasoning": 36,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 19,
+      "story": "shared-reading",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "19-shared-reading-t10-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:38:10.170Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 9212.6342,
+      "usage": {
+        "prompt_tokens": 1194,
+        "completion_tokens": 380,
+        "total_tokens": 1574,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 323
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00036947,
+          "allowance": 0.00022168,
+          "tokens": {
+            "input": 938,
+            "output": 380,
+            "reasoning": 323,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 20,
+      "story": "shared-ingestion",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "20-shared-ingestion-t10-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:38:19.386Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6028.255799999984,
+      "usage": {
+        "prompt_tokens": 1558,
+        "completion_tokens": 212,
+        "total_tokens": 1770,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 146
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00032327,
+          "allowance": 0.00019396,
+          "tokens": {
+            "input": 1302,
+            "output": 212,
+            "reasoning": 146,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 21,
+      "story": "shared-reading",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "21-shared-reading-t11-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:38:25.418Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7471.1391,
+      "usage": {
+        "prompt_tokens": 1274,
+        "completion_tokens": 184,
+        "total_tokens": 1458,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00026387,
+          "allowance": 0.00015832,
+          "tokens": {
+            "input": 1018,
+            "output": 184,
+            "reasoning": 132,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 22,
+      "story": "shared-ingestion",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "22-shared-ingestion-t11-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:38:32.893Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6412.802599999995,
+      "usage": {
+        "prompt_tokens": 1648,
+        "completion_tokens": 123,
+        "total_tokens": 1771,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 72
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00028337,
+          "allowance": 0.00017002,
+          "tokens": {
+            "input": 1392,
+            "output": 123,
+            "reasoning": 72,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 23,
+      "story": "shared-reading",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "23-shared-reading-t12-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:38:39.310Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5398.362000000023,
+      "usage": {
+        "prompt_tokens": 1363,
+        "completion_tokens": 177,
+        "total_tokens": 1540,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00027302,
+          "allowance": 0.00016381,
+          "tokens": {
+            "input": 1107,
+            "output": 177,
+            "reasoning": 125,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 24,
+      "story": "shared-ingestion",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "24-shared-ingestion-t12-a1",
+      "invoked": true,
+      "at": "2026-11-16T16:38:44.712Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5278.821499999991,
+      "usage": {
+        "prompt_tokens": 1731,
+        "completion_tokens": 215,
+        "total_tokens": 1946,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035102,
+          "allowance": 0.00021061,
+          "tokens": {
+            "input": 1475,
+            "output": 215,
+            "reasoning": 132,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    }
+  ],
+  "not_sent": [],
+  "no_resume": true,
+  "verified_charge": null
+}

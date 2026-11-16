@@ -1,0 +1,65 @@
+{
+  "content": "【成人读书场】报名成功：周日16:00在西馆二楼举行，请携带纸质书，可由两人共读。期待您准时参加。\n\n<|task:2|>",
+  "reasoning": "We need answer in Chinese, concise under 200 chars, normal. Need identify task. First task was parent-child reading session confirmation SMS. Now new task: adult reading session confirmation SMS, explicitly separate independent notice, different target audience/time/location. Need task number new 2. Include \"另\" indicates distinct. Need write SMS. Then marker <|task:2|>. Ensure no extra after marker.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 512,
+    "completion_tokens": 124,
+    "total_tokens": 636,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 83
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00011357,
+      "allowance": 0.00006814,
+      "tokens": {
+        "input": 256,
+        "output": 124,
+        "reasoning": 83,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-9f2849",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 11058,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.52930000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11800000000221189,
+    "content_type": "text/event-stream",
+    "wire_chunks": 52,
+    "wire_sha256": "21f24762ac92bb06f9aaa382f61b2f849eeaacb3485bac4ee8787681c1b1b87f",
+    "content_sha256": "58c8d1a65b5806d91591339c4ef78320b2278f9ffbe479eb336b08842caaed9b",
+    "reasoning_sha256": "f141713227dbdf13803de3c083fa6b28d688984a6f3f3b9efb9969370900b38d"
+  },
+  "latency": {
+    "total_ms": 6012.792500000001,
+    "first_wire_ms": 4468.494400000001,
+    "first_content_ms": 5660.5303,
+    "first_reasoning_ms": 4469.0570000000025,
+    "evidence_write_ms": 32.37180000000626
+  }
+}

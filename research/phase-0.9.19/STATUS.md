@@ -1,10 +1,26 @@
 # Phase 0.9.19 - current research checkpoint
 
-Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
+Updated: 2026-11-17. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Latest execution - TC3 longer reduced-cue continuity, 2026-11-16
+## Latest execution - TC4 ambiguity and clarification, 2026-11-17
+
+Owner approved executing two 12-turn stories with similar tasks, genuinely
+underdetermined requests and fixed clarification turns, still no full state.
+[TC4 results](continuity-ambiguity-v1/RESULTS.md): 24 calls of new 28-call cap,
+24/24 complete/protocol-valid/canonical outcomes; six births, 10/10 clear returns,
+4/4 UNRESOLVED with clarification, 4/4 clarified returns; all 14 identifiable
+returns restore actual birth markers. No wrong-task assignment or unnecessary
+abstention. Basic lexical answers 23/24, one time-example wording mismatch kept.
+Two complete trajectories meet frozen local criterion; not general or old GO.
+Ambiguity explicitly disclosed missing provenance; no claim of detecting
+unannounced ambiguity. Same prompt, actual content AND reasoning history retained.
+No failures/retries/incomplete/unsent; cumulative calls 166, old 142 unchanged.
+All prior freezes unchanged; no C1/C2/full-state or old G1/P-G changes.
+STOPPED, no automatic next batch or state-maintenance engineering.
+
+## Previous execution - TC3 longer reduced-cue continuity, 2026-11-16
 
 Owner separately authorized a new finite call round beyond the old remaining
 two calls, with longer dialogue and fewer client/return prompts, no full state.
