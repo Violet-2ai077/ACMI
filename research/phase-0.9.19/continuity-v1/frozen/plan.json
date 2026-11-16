@@ -1,0 +1,136 @@
+{
+  "version": "TC1-task-marker-continuity-20261116",
+  "batch_id": "tc1-20261116",
+  "authorization": "Owner marker-continuity-only request after BS1; environment retries retained",
+  "schedule": [
+    {
+      "index": 1,
+      "story": "album-sign",
+      "turn": 1
+    },
+    {
+      "index": 2,
+      "story": "similar-clients",
+      "turn": 1
+    },
+    {
+      "index": 3,
+      "story": "invitation-cost-form",
+      "turn": 1
+    },
+    {
+      "index": 4,
+      "story": "inventory-expenses",
+      "turn": 1
+    },
+    {
+      "index": 5,
+      "story": "album-sign",
+      "turn": 2
+    },
+    {
+      "index": 6,
+      "story": "similar-clients",
+      "turn": 2
+    },
+    {
+      "index": 7,
+      "story": "invitation-cost-form",
+      "turn": 2
+    },
+    {
+      "index": 8,
+      "story": "inventory-expenses",
+      "turn": 2
+    },
+    {
+      "index": 9,
+      "story": "album-sign",
+      "turn": 3
+    },
+    {
+      "index": 10,
+      "story": "similar-clients",
+      "turn": 3
+    },
+    {
+      "index": 11,
+      "story": "invitation-cost-form",
+      "turn": 3
+    },
+    {
+      "index": 12,
+      "story": "inventory-expenses",
+      "turn": 3
+    },
+    {
+      "index": 13,
+      "story": "album-sign",
+      "turn": 4
+    },
+    {
+      "index": 14,
+      "story": "similar-clients",
+      "turn": 4
+    },
+    {
+      "index": 15,
+      "story": "invitation-cost-form",
+      "turn": 4
+    },
+    {
+      "index": 16,
+      "story": "inventory-expenses",
+      "turn": 4
+    },
+    {
+      "index": 17,
+      "story": "album-sign",
+      "turn": 5
+    },
+    {
+      "index": 18,
+      "story": "similar-clients",
+      "turn": 5
+    },
+    {
+      "index": 19,
+      "story": "invitation-cost-form",
+      "turn": 5
+    },
+    {
+      "index": 20,
+      "story": "inventory-expenses",
+      "turn": 5
+    },
+    {
+      "index": 21,
+      "story": "album-sign",
+      "turn": 6
+    },
+    {
+      "index": 22,
+      "story": "similar-clients",
+      "turn": 6
+    },
+    {
+      "index": 23,
+      "story": "invitation-cost-form",
+      "turn": 6
+    },
+    {
+      "index": 24,
+      "story": "inventory-expenses",
+      "turn": 6
+    }
+  ],
+  "max_actual_calls": 32,
+  "max_retry_calls": 8,
+  "retry_wait_ms": 5000,
+  "previous_conversation_calls": 80,
+  "combined_ceiling": 120,
+  "max_output_tokens": 16384,
+  "max_input_bytes": 131072,
+  "max_response_bytes": 1048576,
+  "timeout_ms": 180000
+}

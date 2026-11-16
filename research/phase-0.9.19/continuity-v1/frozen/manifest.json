@@ -1,0 +1,24 @@
+{
+  "version": "TC1-task-marker-continuity-20261116",
+  "at": "2026-11-16T14:53:37.505Z",
+  "files": {
+    "research/phase-0.9.19/continuity-v1/PLAN.md": "5c210c5019672bb1669f39e86679214347d6025dfbee6edc71de8397be285a80",
+    "research/phase-0.9.19/continuity-v1/continuity.node-test.mjs": "fab27ead026c8dcca3a7083cfde8eaa02889d9bf3198acae889bf89c6b6c8bfa",
+    "research/phase-0.9.19/continuity-v1/evaluate.mjs": "45701db2435ccdc76988a5c7710c249c681ac0337c21bcec0edefae5bafd0b7b",
+    "research/phase-0.9.19/continuity-v1/materials.mjs": "6dd56e127d2930501d0b7bd8afef7ccf99ee3dff7709fa1ad015b06f6f24be42",
+    "research/phase-0.9.19/continuity-v1/run.mjs": "6c3715b569cc3378ecc3c162ededf585c451675db32646ccd91b07dcda6e3fac",
+    "research/phase-0.9.19/gate2/deadline-transport.mjs": "af719d60e7017c40f5991ea8530e8dac01b04bd21e1fada097510f66a57f2c66",
+    "research/phase-0.9.19/gate2/dsh-inspect.mjs": "9c48244a05e5d2832d96fd167a330ec280e6adb383053adf15fc6b5cfbb32542",
+    "research/phase-0.9.19/gate2/dsh-route.mjs": "4c3c1a4a8a58a1f908ca06e04635c71788b0bb3fd7819244a662581b4effbe94",
+    "research/phase-0.9.19/gate2/routing.mjs": "bf47573980e4b6b83d220624b498c1062c86e1a71d1fcac3b351a77b0edab66e",
+    "research/phase-0.9.19/gate2/transport.mjs": "83deda3c0324614f55403c493eec045ab04c45267140dd9a46d073a46b4d92ff",
+    "research/phase-0.9.19/gate2/wire-accounting.mjs": "69f4d85fc139ea0e1a17d899177b4400f352fb02db1835ca9039c7016d1e7bd0",
+    "research/phase-0.9.19/protocol/contracts.mjs": "e449aa10e889b7a72bb6f1bc7da9d122e1023c5ea257d1ae2400f19ac6340ecd",
+    "research/phase-0.9.19/continuity-v1/frozen/oracle.json": "a1ce968b372af2634f01da01f74cee58124d15d8f84b956948c93624367f501b",
+    "research/phase-0.9.19/continuity-v1/frozen/plan.json": "baf75afa5ebd2dc08095cc4e3f62795cdf2f7cc2e16e7b83fb60edf4a2a4b29d",
+    "research/phase-0.9.19/continuity-v1/frozen/prompt.json": "3e732304003002c5c9e55887890d764154344ee17289530fbcd62759595a075a",
+    "research/phase-0.9.19/continuity-v1/frozen/public.json": "2ba137264684968a577aefebd64b2fea2a87621444eac155b4f5e3bdc959a097",
+    "research/phase-0.9.19/continuity-v1/frozen/route.json": "11a12e2a218d3344857bc589a9509c60688a5732db243c481dc0cc93e427579d",
+    "research/phase-0.9.19/continuity-v1/frozen/self-review.json": "d97c4c1cb411f7ad80785c0f2481ecbad8511a6c2640631185c1f8799596a166"
+  }
+}

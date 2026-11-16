@@ -1,0 +1,456 @@
+[
+  {
+    "story": "album-sign",
+    "turn": 1,
+    "task_key": "album",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "initialization",
+    "rationale": "Birth of thumbnail rule task.",
+    "answerChecks": [
+      [
+        "比例",
+        "等比"
+      ],
+      [
+        "原图",
+        "副本",
+        "复制",
+        "另存"
+      ]
+    ]
+  },
+  {
+    "story": "album-sign",
+    "turn": 2,
+    "task_key": "album",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "continue",
+    "category": "immediate-continuation",
+    "rationale": "Numerical example of the same thumbnail rule.",
+    "answerChecks": [
+      [
+        "160"
+      ],
+      [
+        "120"
+      ]
+    ]
+  },
+  {
+    "story": "album-sign",
+    "turn": 3,
+    "task_key": "sign",
+    "expected": "2",
+    "birth_turn": 3,
+    "kind": "birth",
+    "category": "new-task",
+    "rationale": "Independent coffee-shop notice task.",
+    "answerChecks": [
+      [
+        "周一"
+      ],
+      [
+        "周二"
+      ]
+    ]
+  },
+  {
+    "story": "album-sign",
+    "turn": 4,
+    "task_key": "sign",
+    "expected": "2",
+    "birth_turn": 3,
+    "kind": "continue",
+    "category": "immediate-continuation",
+    "rationale": "Edit same coffee-shop notice.",
+    "answerChecks": [
+      [
+        "周一"
+      ],
+      [
+        "周二"
+      ]
+    ]
+  },
+  {
+    "story": "album-sign",
+    "turn": 5,
+    "task_key": "album",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-revised-requirement",
+    "rationale": "Return to original thumbnail task with changed size, not a new task.",
+    "answerChecks": [
+      [
+        "240"
+      ],
+      [
+        "180"
+      ]
+    ]
+  },
+  {
+    "story": "album-sign",
+    "turn": 6,
+    "task_key": "sign",
+    "expected": "2",
+    "birth_turn": 3,
+    "kind": "return",
+    "category": "return-explicit-object",
+    "rationale": "Return to the established sign task after thumbnail work.",
+    "answerChecks": [
+      [
+        "周一"
+      ],
+      [
+        "周二"
+      ],
+      [
+        "理解"
+      ]
+    ]
+  },
+  {
+    "story": "similar-clients",
+    "turn": 1,
+    "task_key": "qinghe",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "initialization",
+    "rationale": "First independently requested client export task.",
+    "answerChecks": [
+      [
+        "order_no"
+      ],
+      [
+        "去重",
+        "唯一",
+        "幂等",
+        "重复"
+      ]
+    ]
+  },
+  {
+    "story": "similar-clients",
+    "turn": 2,
+    "task_key": "qinglan",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "new-task-similar-vocabulary",
+    "rationale": "Same capability, different independently requested client and key.",
+    "answerChecks": [
+      [
+        "摘要",
+        "哈希",
+        "hash"
+      ],
+      [
+        "行号"
+      ]
+    ]
+  },
+  {
+    "story": "similar-clients",
+    "turn": 3,
+    "task_key": "qingchuan",
+    "expected": "3",
+    "birth_turn": 3,
+    "kind": "birth",
+    "category": "new-task-similar-vocabulary",
+    "rationale": "Third independent client task with a distinct key.",
+    "answerChecks": [
+      [
+        "invoice_no"
+      ],
+      [
+        "去重",
+        "唯一",
+        "幂等",
+        "重复"
+      ]
+    ]
+  },
+  {
+    "story": "similar-clients",
+    "turn": 4,
+    "task_key": "qinghe",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-oldest-of-three",
+    "rationale": "Return to first client, revising same export requirement.",
+    "answerChecks": [
+      [
+        "order_no"
+      ],
+      [
+        "最新",
+        "降序",
+        "MAX",
+        "max"
+      ]
+    ]
+  },
+  {
+    "story": "similar-clients",
+    "turn": 5,
+    "task_key": "qingchuan",
+    "expected": "3",
+    "birth_turn": 3,
+    "kind": "return",
+    "category": "return-third-task",
+    "rationale": "Return to third client task, not immediate previous or oldest task.",
+    "answerChecks": [
+      [
+        "invoice_no"
+      ],
+      [
+        "distinct",
+        "DISTINCT",
+        "set",
+        "Set",
+        "集合",
+        "去重",
+        "重复"
+      ]
+    ]
+  },
+  {
+    "story": "similar-clients",
+    "turn": 6,
+    "task_key": "qinglan",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "return-middle-task",
+    "rationale": "Return to second client after both other clients intervened.",
+    "answerChecks": [
+      [
+        "摘要",
+        "哈希",
+        "hash"
+      ],
+      [
+        "行号"
+      ]
+    ]
+  },
+  {
+    "story": "invitation-cost-form",
+    "turn": 1,
+    "task_key": "invitation",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "initialization",
+    "rationale": "Birth of class invitation message task.",
+    "answerChecks": [
+      [
+        "周三"
+      ],
+      [
+        "七点",
+        "7点",
+        "19[:：]00"
+      ]
+    ]
+  },
+  {
+    "story": "invitation-cost-form",
+    "turn": 2,
+    "task_key": "printing",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "new-task",
+    "rationale": "Independent printing cost calculation.",
+    "answerChecks": [
+      [
+        "6",
+        "六"
+      ],
+      [
+        "元"
+      ]
+    ]
+  },
+  {
+    "story": "invitation-cost-form",
+    "turn": 3,
+    "task_key": "invitation",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-rephrased-object",
+    "rationale": "Same invitation identified with paraphrased wording, after cost work.",
+    "answerChecks": [
+      [
+        "周三"
+      ],
+      [
+        "七点",
+        "7点",
+        "19[:：]00"
+      ]
+    ]
+  },
+  {
+    "story": "invitation-cost-form",
+    "turn": 4,
+    "task_key": "allergy",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "birth",
+    "category": "new-task",
+    "rationale": "Independent lunch allergy questionnaire task.",
+    "answerChecks": [
+      [
+        "过敏"
+      ]
+    ]
+  },
+  {
+    "story": "invitation-cost-form",
+    "turn": 5,
+    "task_key": "printing",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "return-middle-task",
+    "rationale": "Return to earlier printing cost with corrected input.",
+    "answerChecks": [
+      [
+        "9",
+        "九"
+      ],
+      [
+        "元"
+      ]
+    ]
+  },
+  {
+    "story": "invitation-cost-form",
+    "turn": 6,
+    "task_key": "invitation",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-rephrased-oldest",
+    "rationale": "Return to the original invitation after two other objectives.",
+    "answerChecks": [
+      [
+        "二楼"
+      ],
+      [
+        "周三"
+      ],
+      [
+        "七点",
+        "7点",
+        "19[:：]00"
+      ]
+    ]
+  },
+  {
+    "story": "inventory-expenses",
+    "turn": 1,
+    "task_key": "inventory",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "initialization",
+    "rationale": "Birth of warehouse inventory task.",
+    "answerChecks": [
+      [
+        "72",
+        "七十二"
+      ]
+    ]
+  },
+  {
+    "story": "inventory-expenses",
+    "turn": 2,
+    "task_key": "inventory",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "continue",
+    "category": "immediate-continuation",
+    "rationale": "Data correction within the same inventory task.",
+    "answerChecks": [
+      [
+        "66",
+        "六十六"
+      ]
+    ]
+  },
+  {
+    "story": "inventory-expenses",
+    "turn": 3,
+    "task_key": "expenses",
+    "expected": "2",
+    "birth_turn": 3,
+    "kind": "birth",
+    "category": "new-task-same-capability",
+    "rationale": "Same arithmetic capability but an independent expense task.",
+    "answerChecks": [
+      [
+        "300",
+        "三百"
+      ]
+    ]
+  },
+  {
+    "story": "inventory-expenses",
+    "turn": 4,
+    "task_key": "inventory",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-dependent-history",
+    "rationale": "Return requires the earlier corrected inventory, not a new stock task.",
+    "answerChecks": [
+      [
+        "46",
+        "四十六"
+      ]
+    ]
+  },
+  {
+    "story": "inventory-expenses",
+    "turn": 5,
+    "task_key": "expenses",
+    "expected": "2",
+    "birth_turn": 3,
+    "kind": "return",
+    "category": "return-dependent-history",
+    "rationale": "Return to expense total after intervening inventory calculation.",
+    "answerChecks": [
+      [
+        "318",
+        "三百一十八"
+      ]
+    ]
+  },
+  {
+    "story": "inventory-expenses",
+    "turn": 6,
+    "task_key": "inventory",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "return-dependent-history",
+    "rationale": "Return to the same inventory, changing the requested calculation.",
+    "answerChecks": [
+      [
+        "23",
+        "二十三"
+      ]
+    ]
+  }
+]
