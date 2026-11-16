@@ -1,0 +1,176 @@
+{
+  "version": "BS1-boundary-only-20261116",
+  "batch_id": "bs1-20261116",
+  "authorization": "Owner boundary-only validation request, after FM1; environment retries retained",
+  "schedule": [
+    {
+      "index": 1,
+      "story": "login-notice",
+      "turn": 1
+    },
+    {
+      "index": 2,
+      "story": "sibling-projects",
+      "turn": 1
+    },
+    {
+      "index": 3,
+      "story": "venue-events",
+      "turn": 1
+    },
+    {
+      "index": 4,
+      "story": "energy-invoice",
+      "turn": 1
+    },
+    {
+      "index": 5,
+      "story": "login-notice",
+      "turn": 2
+    },
+    {
+      "index": 6,
+      "story": "sibling-projects",
+      "turn": 2
+    },
+    {
+      "index": 7,
+      "story": "venue-events",
+      "turn": 2
+    },
+    {
+      "index": 8,
+      "story": "energy-invoice",
+      "turn": 2
+    },
+    {
+      "index": 9,
+      "story": "login-notice",
+      "turn": 3
+    },
+    {
+      "index": 10,
+      "story": "sibling-projects",
+      "turn": 3
+    },
+    {
+      "index": 11,
+      "story": "venue-events",
+      "turn": 3
+    },
+    {
+      "index": 12,
+      "story": "energy-invoice",
+      "turn": 3
+    },
+    {
+      "index": 13,
+      "story": "login-notice",
+      "turn": 4
+    },
+    {
+      "index": 14,
+      "story": "sibling-projects",
+      "turn": 4
+    },
+    {
+      "index": 15,
+      "story": "venue-events",
+      "turn": 4
+    },
+    {
+      "index": 16,
+      "story": "energy-invoice",
+      "turn": 4
+    },
+    {
+      "index": 17,
+      "story": "login-notice",
+      "turn": 5
+    },
+    {
+      "index": 18,
+      "story": "sibling-projects",
+      "turn": 5
+    },
+    {
+      "index": 19,
+      "story": "venue-events",
+      "turn": 5
+    },
+    {
+      "index": 20,
+      "story": "energy-invoice",
+      "turn": 5
+    },
+    {
+      "index": 21,
+      "story": "login-notice",
+      "turn": 6
+    },
+    {
+      "index": 22,
+      "story": "sibling-projects",
+      "turn": 6
+    },
+    {
+      "index": 23,
+      "story": "venue-events",
+      "turn": 6
+    },
+    {
+      "index": 24,
+      "story": "energy-invoice",
+      "turn": 6
+    },
+    {
+      "index": 25,
+      "story": "login-notice",
+      "turn": 7
+    },
+    {
+      "index": 26,
+      "story": "sibling-projects",
+      "turn": 7
+    },
+    {
+      "index": 27,
+      "story": "venue-events",
+      "turn": 7
+    },
+    {
+      "index": 28,
+      "story": "energy-invoice",
+      "turn": 7
+    },
+    {
+      "index": 29,
+      "story": "login-notice",
+      "turn": 8
+    },
+    {
+      "index": 30,
+      "story": "sibling-projects",
+      "turn": 8
+    },
+    {
+      "index": 31,
+      "story": "venue-events",
+      "turn": 8
+    },
+    {
+      "index": 32,
+      "story": "energy-invoice",
+      "turn": 8
+    }
+  ],
+  "max_actual_calls": 40,
+  "max_retry_calls": 8,
+  "retry_wait_ms": 5000,
+  "previous_conversation_calls": 48,
+  "combined_ceiling": 120,
+  "max_output_tokens": 16384,
+  "max_input_bytes": 131072,
+  "max_response_bytes": 1048576,
+  "timeout_ms": 180000
+}

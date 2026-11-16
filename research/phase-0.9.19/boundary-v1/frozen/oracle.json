@@ -1,0 +1,595 @@
+[
+  {
+    "story": "login-notice",
+    "turn": 1,
+    "expected": "CONTINUE",
+    "category": "initialization",
+    "rationale": "First request initializes a segment.",
+    "answerChecks": [
+      [
+        "过期",
+        "失效",
+        "401"
+      ],
+      [
+        "提示",
+        "登录",
+        "停止",
+        "结束"
+      ]
+    ],
+    "scored_boundary": false
+  },
+  {
+    "story": "login-notice",
+    "turn": 2,
+    "expected": "CONTINUE",
+    "category": "evidence-update",
+    "rationale": "Additional evidence for the same login repair.",
+    "answerChecks": [
+      [
+        "loading",
+        "加载",
+        "转圈"
+      ],
+      [
+        "finally",
+        "清",
+        "重置",
+        "关闭",
+        "结束"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "login-notice",
+    "turn": 3,
+    "expected": "CONTINUE",
+    "category": "cue-trap-continuation",
+    "rationale": "Also introduces a supporting test step, not a separate objective.",
+    "answerChecks": [
+      [
+        "有效"
+      ],
+      [
+        "过期"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "login-notice",
+    "turn": 4,
+    "expected": "NEW",
+    "category": "implicit-switch",
+    "rationale": "Meeting notification is independent from login repair; no switch keyword needed.",
+    "answerChecks": [
+      [
+        "三点",
+        "3点",
+        "15[:：]00"
+      ],
+      [
+        "明天",
+        "明日"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "login-notice",
+    "turn": 5,
+    "expected": "CONTINUE",
+    "category": "revision",
+    "rationale": "Edit the same meeting notification.",
+    "answerChecks": [
+      [
+        "三点",
+        "3点",
+        "15[:：]00"
+      ],
+      [
+        "线上",
+        "会议室"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "login-notice",
+    "turn": 6,
+    "expected": "NEW",
+    "category": "return-to-earlier",
+    "rationale": "Return after intervening meeting work starts a new segment, despite the same old objective.",
+    "answerChecks": [
+      [
+        "500"
+      ],
+      [
+        "loading",
+        "加载",
+        "转圈"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "login-notice",
+    "turn": 7,
+    "expected": "CONTINUE",
+    "category": "format-change",
+    "rationale": "A commit description directly supports the current repair.",
+    "answerChecks": [
+      [
+        "401"
+      ],
+      [
+        "500"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "login-notice",
+    "turn": 8,
+    "expected": "UNRESOLVED",
+    "category": "ambiguous-objective",
+    "rationale": "The user explicitly withholds selection between two independent objectives.",
+    "answerChecks": [
+      [
+        "会议",
+        "通知"
+      ],
+      [
+        "提交",
+        "登录"
+      ],
+      [
+        "哪",
+        "选择",
+        "确定"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 1,
+    "expected": "CONTINUE",
+    "category": "initialization",
+    "rationale": "First request initializes a segment.",
+    "answerChecks": [
+      [
+        "record_id"
+      ],
+      [
+        "唯一",
+        "幂等",
+        "去重",
+        "重复"
+      ]
+    ],
+    "scored_boundary": false
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 2,
+    "expected": "CONTINUE",
+    "category": "evidence-update",
+    "rationale": "Concurrency information modifies the same importer fix.",
+    "answerChecks": [
+      [
+        "唯一",
+        "冲突",
+        "原子",
+        "事务",
+        "幂等"
+      ],
+      [
+        "数据库",
+        "约束",
+        "索引",
+        "INSERT",
+        "UPSERT"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 3,
+    "expected": "NEW",
+    "category": "same-vocabulary-switch",
+    "rationale": "Same kind of capability but a different separately requested project/objective.",
+    "answerChecks": [
+      [
+        "摘要",
+        "hash",
+        "哈希"
+      ],
+      [
+        "行号"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 4,
+    "expected": "NEW",
+    "category": "return-to-earlier",
+    "rationale": "Return to Northbridge after Southbridge is a new segment.",
+    "answerChecks": [
+      [
+        "record_id"
+      ],
+      [
+        "冲突",
+        "CONFLICT",
+        "duplicate",
+        "Duplicate",
+        "唯一"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 5,
+    "expected": "CONTINUE",
+    "category": "method-change",
+    "rationale": "Testing is a supporting step for the same Northbridge implementation.",
+    "answerChecks": [
+      [
+        "同一",
+        "相同"
+      ],
+      [
+        "不同"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 6,
+    "expected": "CONTINUE",
+    "category": "criterion-change",
+    "rationale": "Acceptance change does not by itself switch the work objective.",
+    "answerChecks": [
+      [
+        "首次",
+        "第一次",
+        "原有",
+        "已有"
+      ],
+      [
+        "返回"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 7,
+    "expected": "NEW",
+    "category": "shared-project-switch",
+    "rationale": "Same project name but independent training administration deliverable.",
+    "answerChecks": [
+      [
+        "姓名"
+      ],
+      [
+        "部门"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "sibling-projects",
+    "turn": 8,
+    "expected": "UNRESOLVED",
+    "category": "ambiguous-objective",
+    "rationale": "Explicitly ambiguous target between testing and training administration.",
+    "answerChecks": [
+      [
+        "测试"
+      ],
+      [
+        "签到",
+        "培训"
+      ],
+      [
+        "哪",
+        "确认",
+        "选择"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "venue-events",
+    "turn": 1,
+    "expected": "CONTINUE",
+    "category": "initialization",
+    "rationale": "First request initializes a segment.",
+    "answerChecks": [
+      [
+        "义卖"
+      ],
+      [
+        "预算",
+        "800",
+        "物资",
+        "分工"
+      ]
+    ],
+    "scored_boundary": false
+  },
+  {
+    "story": "venue-events",
+    "turn": 2,
+    "expected": "CONTINUE",
+    "category": "criterion-change",
+    "rationale": "Budget change within the same event.",
+    "answerChecks": [
+      [
+        "600"
+      ],
+      [
+        "必需",
+        "必要",
+        "优先",
+        "基础"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "venue-events",
+    "turn": 3,
+    "expected": "CONTINUE",
+    "category": "quoted-switch-distractor",
+    "rationale": "Quoted new-task language is not the actual user objective.",
+    "answerChecks": [
+      [
+        "义卖"
+      ],
+      [
+        "志愿",
+        "分工",
+        "人员"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "venue-events",
+    "turn": 4,
+    "expected": "NEW",
+    "category": "shared-venue-switch",
+    "rationale": "New event/objective despite sharing the venue.",
+    "answerChecks": [
+      [
+        "读书"
+      ],
+      [
+        "45",
+        "四十五"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "venue-events",
+    "turn": 5,
+    "expected": "CONTINUE",
+    "category": "format-change",
+    "rationale": "Opening remarks support the current reading event.",
+    "answerChecks": [
+      [
+        "读书",
+        "阅读",
+        "书",
+        "分享"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "venue-events",
+    "turn": 6,
+    "expected": "NEW",
+    "category": "return-to-earlier",
+    "rationale": "Implicit return to the charity sale after reading-event work.",
+    "answerChecks": [
+      [
+        "室内"
+      ],
+      [
+        "雨",
+        "入口",
+        "摊位"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "venue-events",
+    "turn": 7,
+    "expected": "CONTINUE",
+    "category": "language-change",
+    "rationale": "Translation changes method/language, not the objective.",
+    "answerChecks": [
+      [
+        "indoor",
+        "inside"
+      ],
+      [
+        "rain",
+        "weather",
+        "stall",
+        "volunteer"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "venue-events",
+    "turn": 8,
+    "expected": "NEW",
+    "category": "return-to-earlier",
+    "rationale": "Return to the reading event after charity-sale work.",
+    "answerChecks": [
+      [
+        "取消"
+      ],
+      [
+        "欢迎",
+        "以后",
+        "下次",
+        "今后"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 1,
+    "expected": "CONTINUE",
+    "category": "initialization",
+    "rationale": "First request initializes a segment.",
+    "answerChecks": [
+      [
+        "4",
+        "四"
+      ],
+      [
+        "千瓦时",
+        "kWh"
+      ]
+    ],
+    "scored_boundary": false
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 2,
+    "expected": "CONTINUE",
+    "category": "data-correction",
+    "rationale": "Correct data for the same energy comparison.",
+    "answerChecks": [
+      [
+        "2",
+        "二",
+        "两"
+      ],
+      [
+        "千瓦时",
+        "kWh"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 3,
+    "expected": "CONTINUE",
+    "category": "format-change",
+    "rationale": "Reporting the same result is not a new objective.",
+    "answerChecks": [
+      [
+        "2",
+        "二",
+        "两"
+      ],
+      [
+        "千瓦时",
+        "kWh"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 4,
+    "expected": "NEW",
+    "category": "implicit-switch",
+    "rationale": "Energy comparison and invoice total are different objectives despite repeated numbers.",
+    "answerChecks": [
+      [
+        "140",
+        "一百四十"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 5,
+    "expected": "CONTINUE",
+    "category": "criterion-change",
+    "rationale": "Pricing requirement changes for the same invoice.",
+    "answerChecks": [
+      [
+        "154",
+        "一百五十四"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 6,
+    "expected": "NEW",
+    "category": "return-to-earlier",
+    "rationale": "Return to energy analysis after invoice work, with implicit rather than explicit return cue.",
+    "answerChecks": [
+      [
+        "4",
+        "四"
+      ],
+      [
+        "千瓦时",
+        "kWh"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 7,
+    "expected": "CONTINUE",
+    "category": "cue-trap-continuation",
+    "rationale": "Also adds a caveat to the same energy report.",
+    "answerChecks": [
+      [
+        "读数",
+        "仪表"
+      ],
+      [
+        "准确",
+        "核实",
+        "确认"
+      ]
+    ],
+    "scored_boundary": true
+  },
+  {
+    "story": "energy-invoice",
+    "turn": 8,
+    "expected": "NEW",
+    "category": "return-to-earlier",
+    "rationale": "Return to invoicing after energy work; customer-name edit itself is not the reason for a new segment.",
+    "answerChecks": [
+      [
+        "C"
+      ],
+      [
+        "154",
+        "一百五十四"
+      ]
+    ],
+    "scored_boundary": true
+  }
+]

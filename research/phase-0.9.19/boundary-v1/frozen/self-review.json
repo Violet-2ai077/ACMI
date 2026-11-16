@@ -1,0 +1,18 @@
+{
+  "self_reviewer": "Codex under explicit Owner delegation; not independent review",
+  "before_model_exposure": true,
+  "stories": 4,
+  "turns": 32,
+  "scored_transitions": 28,
+  "counts": {
+    "CONTINUE": 15,
+    "NEW": 11,
+    "UNRESOLVED": 2
+  },
+  "returns": 6,
+  "public_private_fields_separated": true,
+  "boundary_rationales_reviewed_against_public_policy": true,
+  "at": "2026-11-16T07:51:29.724Z",
+  "node": "v24.16.0",
+  "base_commit": "d3c41afcdde3a530185083489697e63d25e95908"
+}
