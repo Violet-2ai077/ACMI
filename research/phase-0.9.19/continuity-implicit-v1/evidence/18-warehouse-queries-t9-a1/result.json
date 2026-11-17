@@ -1,0 +1,65 @@
+{
+  "content": "费用合计：87元。<|task:3|>",
+  "reasoning": "We need answer. Need task marker. This is delivery fee task task3, revised cost. Compute 50+32+5=87. In Chinese concise. Marker task3.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1178,
+    "completion_tokens": 51,
+    "total_tokens": 1229,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 37
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00033934,
+      "allowance": 0.0002036,
+      "tokens": {
+        "input": 922,
+        "output": 51,
+        "reasoning": 37,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b4f6efe0fa7-d01a42",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 4526,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6129,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07639999999082647,
+    "content_type": "text/event-stream",
+    "wire_chunks": 22,
+    "wire_sha256": "9f97d05a6db9178180a99ae1623c2232fe84ab8aaf3be93f146634159ba6bc2f",
+    "content_sha256": "6124bb6b08781ff763dcd2615dd009300fb620fa83c4b6ef686892beaff6d0d0",
+    "reasoning_sha256": "afefb77d0609107ed0ca496e8dc7e238f87bf18799d0f0fbc47adc150f6e2505"
+  },
+  "latency": {
+    "total_ms": 5712.57620000001,
+    "first_wire_ms": 5127.877299999993,
+    "first_content_ms": 5622.836899999995,
+    "first_reasoning_ms": 5128.844299999997,
+    "evidence_write_ms": 15.730200000150944
+  }
+}

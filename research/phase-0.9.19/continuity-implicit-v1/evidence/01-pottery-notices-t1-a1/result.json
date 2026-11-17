@@ -1,0 +1,65 @@
+{
+  "content": "【陶艺课报名确认】您好，您已成功报名成人陶艺课。上课时间为周六10:00，地点在南楼A室。请携带围裙和湿巾，准时参加。祝您体验愉快！<|task:1|>",
+  "reasoning": "We need answer in Chinese, under 200 chars. Need task marker. This is first task likely N=1. Need write standalone confirmation SMS. Include Saturday 10:00, South Building Room A, bring apron and wet wipes. Independent registration confirmation SMS—perhaps concise, no extra context. Need maybe name placeholder? \"您好，您已成功报名成人陶艺课...\" Include details. No claimed actions. Need exact one marker at end. Ensure not code fence. Count Chinese chars under 200.\n\nDraft: \"【陶艺课报名确认】您好，您已成功报名成人陶艺课。课程时间：周六10:00；地点：南楼A室。请携带围裙和湿巾，准时参加。祝您体验愉快！\" That's ~65. Good. Marker <|task:1|>. Need perhaps \"报名确认短信\" independent, no course provider name. Fine.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 421,
+    "completion_tokens": 245,
+    "total_tokens": 666,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 189
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0004203,
+      "allowance": 0.00025218,
+      "tokens": {
+        "input": 421,
+        "output": 245,
+        "reasoning": 189,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-ffeb37",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 16733,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.7908,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.45089999999981956,
+    "content_type": "text/event-stream",
+    "wire_chunks": 83,
+    "wire_sha256": "1ff7e7c7bc0d2bfdacd6d4055be57e6adfdc6037fa75f1e54c386c0c1eda899a",
+    "content_sha256": "9068e08d30a1a96c2896d6e7f350fb797da472ef9fe13a24e8661bd46c14eb94",
+    "reasoning_sha256": "bde2ec5f7bcd7381fc2d4aa86081aee6b974fcbac241d1ef2df49f1b35f7d636"
+  },
+  "latency": {
+    "total_ms": 5367.2194,
+    "first_wire_ms": 2956.2929,
+    "first_content_ms": 5021.0699,
+    "first_reasoning_ms": 2957.5136,
+    "evidence_write_ms": 58.551599999994664
+  }
+}

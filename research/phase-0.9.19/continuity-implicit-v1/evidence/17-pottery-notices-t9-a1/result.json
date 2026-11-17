@@ -1,0 +1,65 @@
+{
+  "content": "**开门前场地检查**\n- [ ] 水龙头：出水、关闭正常，无漏水\n- [ ] 照明：灯具正常点亮，无闪烁或损坏\n\n<|task:3|>",
+  "reasoning": "We need answer in Chinese. Need identify task: checklist task 3 (same work: keep two items, now format as two checkboxes before opening). Not new task? It is continuation of checklist work, task 3. Need answer normal direct <=200 Chinese chars, no claim. Two checkbox items. At end marker task:3. Need maybe \"开门前场地检查\" with checkboxes. Ensure only two checklist items. Concise.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1091,
+    "completion_tokens": 135,
+    "total_tokens": 1226,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 90
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00041404,
+      "allowance": 0.00024842,
+      "tokens": {
+        "input": 835,
+        "output": 135,
+        "reasoning": 90,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-c2bf9e",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10440,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5137,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.0746999999973923,
+    "content_type": "text/event-stream",
+    "wire_chunks": 55,
+    "wire_sha256": "e18a88d587477c56eee7b55b617339c11aa90fa740b0a4cab725de706c90020c",
+    "content_sha256": "4a5cfc988603ac6a56d3eded687b134a41dd3502d6d4d314eeaaaadb1f414acc",
+    "reasoning_sha256": "b8112613decaf8f37cf83365573d4d3dafe93b51f5ec87b015bcf48fe58d617c"
+  },
+  "latency": {
+    "total_ms": 5165.087100000004,
+    "first_wire_ms": 3497.8847000000096,
+    "first_content_ms": 4563.573500000013,
+    "first_reasoning_ms": 3501.6033000000025,
+    "evidence_write_ms": 37.49109999992652
+  }
+}

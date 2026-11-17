@@ -1,0 +1,65 @@
+{
+  "content": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。请带上围裙和湿巾；即使一个人来体验、第一次接触泥巴，也可以放松心情，期待见到您！<|task:1|>",
+  "reasoning": "We need answer. Need identify task. User says \"是自己来体验、不带小朋友的那场。\" This clarifies prior ambiguous? We already answered adult version. They refer to need send confirmation friendly, participant brings apron and wipes, retains activity arrangements, \"the one where you come experience yourself, without kids.\" That's adult pottery task 1. Need perhaps provide friendly confirmation for adult class. We must be concise under 200 Chinese chars. Need no claim executed. Include time location and apron/wipes. Could say 【成人陶艺课报名确认】您好！... independently. Task 1. Need maybe recognize as same task as prior message (task 1). Output marker. Ensure task marker at end. No extra after. Let's craft concise, friendly, adult solo. \"您好！您报名的成人陶艺课已确认：周六10:00在南楼A室，请带上围裙和湿巾。一个人来、第一次玩泥也没关系，轻松体验就好，期待见到您！\" This includes no child. Great. <|task:1|>.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1250,
+    "completion_tokens": 284,
+    "total_tokens": 1534,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 220
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0007158,
+      "allowance": 0.00042948,
+      "tokens": {
+        "input": 1250,
+        "output": 284,
+        "reasoning": 220,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b00c3e9c4d1-f2f2ad",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 20957,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5972,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07660000000032596,
+    "content_type": "text/event-stream",
+    "wire_chunks": 111,
+    "wire_sha256": "16d4976cee328a089b12d3e97c2279a5ec0f70aea6bf040b9c03361d6863688d",
+    "content_sha256": "7eb3059eaecc49742b52da1a1e7800a859802c01cb85b6d32071d34fb7e1c848",
+    "reasoning_sha256": "bc08f352508b020345c3a2c5513bf548e56097c31566c7a29585697d4f5cbeab"
+  },
+  "latency": {
+    "total_ms": 8532.116700000013,
+    "first_wire_ms": 5718.97100000002,
+    "first_content_ms": 8329.376500000013,
+    "first_reasoning_ms": 5725.824800000002,
+    "evidence_write_ms": 61.337199999717996
+  }
+}

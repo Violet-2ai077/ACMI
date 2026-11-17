@@ -1,0 +1,65 @@
+{
+  "content": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n这条查询会按 `sku` 分组，只保留每组中 `updated_at` 最新的一条记录。如果同一 `sku` 存在相同的最新时间，则只会任意返回其中一条。<|task:1|>",
+  "reasoning": "We need answer Chinese, complete SQL. Need task marker. First task likely N=1. Need write dedup query for cold_stock, group by sku, keep latest updated_at. Complete SQL. Need consider ties? \"保留updated_at最新的记录\" possibly SELECT DISTINCT ON PostgreSQL, or window function portable. Need provide complete SQL perhaps with ROW_NUMBER. Table cold_stock, group sku. Need maybe all columns latest per sku. Use ROW_NUMBER() OVER (PARTITION BY sku ORDER BY updated_at DESC) rn, filter rn=1. Tie ambiguity: add deterministic tiebreaker? No id mentioned. We can mention if ties, returns one arbitrarily; maybe use `ORDER BY updated_at DESC` only. Need direct under 200 chars? User asks SQL. Mark task at end. Let's craft in Chinese with code block. Complete SQL:\n\nSELECT * FROM (\n SELECT cs.*, ROW_NUMBER() OVER (PARTITION BY sku ORDER BY updated_at DESC) AS rn\n FROM cold_stock cs\n) t\nWHERE rn = 1;\n\nCould use QUALIFY if dialect. Standard portable. Need perhaps not alias? SQL complete. If want \"去重查询\" maybe only deduplicate. Include note ties. Need marker exactly end. No extra after. The response maybe 100 Chinese chars plus SQL. Ensure marker not in code fence. Answer normal.\n\nNeed determine task identity: user asks cold stock dedup query. N=1. No prior.\n\nLet's answer concise.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 422,
+    "completion_tokens": 427,
+    "total_tokens": 849,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 318
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.000639,
+      "allowance": 0.0003834,
+      "tokens": {
+        "input": 422,
+        "output": 427,
+        "reasoning": 318,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-c29a78",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 27697,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5782,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.1489000000001397,
+    "content_type": "text/event-stream",
+    "wire_chunks": 157,
+    "wire_sha256": "a886c129de357bac0d427cec97cd2834adfd5ffd6bb9097e94f616e0034c6436",
+    "content_sha256": "bd4a92a5650a751af0ecf6d32d380a9721e06ad0b1ce4b4d4b4d7babd70be95e",
+    "reasoning_sha256": "6d779431389117b0ffeb286f57648f241b59779499108dc75b64c6fde5e08ec1"
+  },
+  "latency": {
+    "total_ms": 7625.896299999999,
+    "first_wire_ms": 3577.6202999999996,
+    "first_content_ms": 6904.0691,
+    "first_reasoning_ms": 3578.8064999999997,
+    "evidence_write_ms": 99.62039999999524
+  }
+}

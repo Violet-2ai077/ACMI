@@ -1,0 +1,2493 @@
+{
+  "freeze_sha256": "040b23386edffe5c59a3ca938472b07c8a20e6eca4696e48acfd54b120180945",
+  "planned_calls": 24,
+  "actual_calls": 24,
+  "completed_attempts": 24,
+  "failed_attempts": 0,
+  "evidence_incomplete": 0,
+  "retry_calls": 0,
+  "not_sent": [],
+  "protocol": {
+    "correct": 24,
+    "assessed": 24
+  },
+  "canonical": {
+    "correct": 21,
+    "assessed": 24,
+    "planned": 24
+  },
+  "by_kind": [
+    {
+      "kind": "birth",
+      "planned": 6,
+      "assessed": 6,
+      "correct": 6,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "continue",
+      "planned": 2,
+      "assessed": 2,
+      "correct": 2,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    },
+    {
+      "kind": "return",
+      "planned": 12,
+      "assessed": 12,
+      "correct": 12,
+      "protocol_invalid": 0,
+      "unresolved": 0
+    }
+  ],
+  "conditional_restoration": {
+    "correct": 12,
+    "assessed": 12,
+    "unassessable": 0,
+    "planned": 12
+  },
+  "returns": [
+    {
+      "story": "pottery-notices",
+      "turn": 3,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-pottery-notices-t1-a1",
+      "return_directory": "05-pottery-notices-t3-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 7,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "03-pottery-notices-t2-a1",
+      "return_directory": "13-pottery-notices-t7-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 8,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-pottery-notices-t1-a1",
+      "return_directory": "15-pottery-notices-t8-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 9,
+      "birth_turn": 4,
+      "canonical_expected": "3",
+      "actual_birth_marker": "3",
+      "observed": "3",
+      "birth_directory": "07-pottery-notices-t4-a1",
+      "return_directory": "17-pottery-notices-t9-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 11,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "01-pottery-notices-t1-a1",
+      "return_directory": "21-pottery-notices-t11-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 12,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "03-pottery-notices-t2-a1",
+      "return_directory": "23-pottery-notices-t12-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 3,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "02-warehouse-queries-t1-a1",
+      "return_directory": "06-warehouse-queries-t3-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 7,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "04-warehouse-queries-t2-a1",
+      "return_directory": "14-warehouse-queries-t7-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 8,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "02-warehouse-queries-t1-a1",
+      "return_directory": "16-warehouse-queries-t8-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 9,
+      "birth_turn": 4,
+      "canonical_expected": "3",
+      "actual_birth_marker": "3",
+      "observed": "3",
+      "birth_directory": "08-warehouse-queries-t4-a1",
+      "return_directory": "18-warehouse-queries-t9-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 11,
+      "birth_turn": 1,
+      "canonical_expected": "1",
+      "actual_birth_marker": "1",
+      "observed": "1",
+      "birth_directory": "02-warehouse-queries-t1-a1",
+      "return_directory": "22-warehouse-queries-t11-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 12,
+      "birth_turn": 2,
+      "canonical_expected": "2",
+      "actual_birth_marker": "2",
+      "observed": "2",
+      "birth_directory": "04-warehouse-queries-t2-a1",
+      "return_directory": "24-warehouse-queries-t12-a1",
+      "canonical_exact": true,
+      "assessable": true,
+      "restored": true,
+      "reason": null
+    }
+  ],
+  "answer_minimal": {
+    "correct": 20,
+    "assessed": 24
+  },
+  "trajectories": [
+    {
+      "story": "pottery-notices",
+      "complete_turns": 12,
+      "complete": true,
+      "all_markers_correct": false,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "birth",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "continue",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "UNRESOLVED",
+          "correct": true
+        },
+        {
+          "turn": 7,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 8,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 9,
+          "kind": "return",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 10,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "1",
+          "correct": false
+        },
+        {
+          "turn": 11,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 12,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "story": "warehouse-queries",
+      "complete_turns": 12,
+      "complete": true,
+      "all_markers_correct": false,
+      "sequence": [
+        {
+          "turn": 1,
+          "kind": "birth",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "kind": "birth",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "kind": "birth",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "kind": "continue",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "1",
+          "correct": false
+        },
+        {
+          "turn": 7,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        },
+        {
+          "turn": 8,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 9,
+          "kind": "return",
+          "expected": "3",
+          "observed": "3",
+          "correct": true
+        },
+        {
+          "turn": 10,
+          "kind": "ambiguous",
+          "expected": "UNRESOLVED",
+          "observed": "1",
+          "correct": false
+        },
+        {
+          "turn": 11,
+          "kind": "return",
+          "expected": "1",
+          "observed": "1",
+          "correct": true
+        },
+        {
+          "turn": 12,
+          "kind": "return",
+          "expected": "2",
+          "observed": "2",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "strict_local_criterion_met": false,
+  "groups": {
+    "birth": {
+      "planned": 6,
+      "assessed": 6,
+      "correct": 6,
+      "protocol_invalid": 0,
+      "unresolved": 0,
+      "answer_checks_pass": 6
+    },
+    "clear-return": {
+      "planned": 8,
+      "assessed": 8,
+      "correct": 8,
+      "protocol_invalid": 0,
+      "unresolved": 0,
+      "answer_checks_pass": 8
+    },
+    "ambiguous": {
+      "planned": 4,
+      "assessed": 4,
+      "correct": 1,
+      "protocol_invalid": 0,
+      "unresolved": 1,
+      "answer_checks_pass": 1
+    },
+    "clarified-return": {
+      "planned": 4,
+      "assessed": 4,
+      "correct": 4,
+      "protocol_invalid": 0,
+      "unresolved": 0,
+      "answer_checks_pass": 3
+    },
+    "continue": {
+      "planned": 2,
+      "assessed": 2,
+      "correct": 2,
+      "protocol_invalid": 0,
+      "unresolved": 0,
+      "answer_checks_pass": 2
+    }
+  },
+  "ambiguities": [
+    {
+      "story": "pottery-notices",
+      "turn": 6,
+      "directory": "11-pottery-notices-t6-a1",
+      "outcome": "abstained",
+      "observed": "UNRESOLVED",
+      "clarification_lexical": true
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 10,
+      "directory": "19-pottery-notices-t10-a1",
+      "outcome": "unsupported_numeric_assignment",
+      "observed": "1",
+      "clarification_lexical": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 6,
+      "directory": "12-warehouse-queries-t6-a1",
+      "outcome": "unsupported_numeric_assignment",
+      "observed": "1",
+      "clarification_lexical": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 10,
+      "directory": "20-warehouse-queries-t10-a1",
+      "outcome": "unsupported_numeric_assignment",
+      "observed": "1",
+      "clarification_lexical": false
+    }
+  ],
+  "confusion": [
+    {
+      "story": "pottery-notices",
+      "turn": 3,
+      "directory": "05-pottery-notices-t3-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 7,
+      "directory": "13-pottery-notices-t7-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 8,
+      "directory": "15-pottery-notices-t8-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 9,
+      "directory": "17-pottery-notices-t9-a1",
+      "observed": "3",
+      "canonical_expected": "3",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 11,
+      "directory": "21-pottery-notices-t11-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 12,
+      "directory": "23-pottery-notices-t12-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 3,
+      "directory": "06-warehouse-queries-t3-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 7,
+      "directory": "14-warehouse-queries-t7-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 8,
+      "directory": "16-warehouse-queries-t8-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 9,
+      "directory": "18-warehouse-queries-t9-a1",
+      "observed": "3",
+      "canonical_expected": "3",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 11,
+      "directory": "22-warehouse-queries-t11-a1",
+      "observed": "1",
+      "canonical_expected": "1",
+      "other_task_canonical_number": false
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 12,
+      "directory": "24-warehouse-queries-t12-a1",
+      "observed": "2",
+      "canonical_expected": "2",
+      "other_task_canonical_number": false
+    }
+  ],
+  "other_task_assignments": 0,
+  "unnecessary_abstentions": 0,
+  "ambiguity_strategy": [
+    {
+      "story": "pottery-notices",
+      "turn": 6,
+      "directory": "11-pottery-notices-t6-a1",
+      "outcome": "abstained",
+      "observed": "UNRESOLVED",
+      "clarification_lexical": true,
+      "candidate_markers": [
+        "1",
+        "2"
+      ],
+      "most_recent_candidate": "1",
+      "numeric_candidate": false,
+      "chose_recent_candidate": false,
+      "interpretation": "descriptive strategy only; no alternative PASS and no inference of intent or internal algorithm"
+    },
+    {
+      "story": "pottery-notices",
+      "turn": 10,
+      "directory": "19-pottery-notices-t10-a1",
+      "outcome": "unsupported_numeric_assignment",
+      "observed": "1",
+      "clarification_lexical": false,
+      "candidate_markers": [
+        "1",
+        "2"
+      ],
+      "most_recent_candidate": "1",
+      "numeric_candidate": true,
+      "chose_recent_candidate": true,
+      "interpretation": "descriptive strategy only; no alternative PASS and no inference of intent or internal algorithm"
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 6,
+      "directory": "12-warehouse-queries-t6-a1",
+      "outcome": "unsupported_numeric_assignment",
+      "observed": "1",
+      "clarification_lexical": false,
+      "candidate_markers": [
+        "1",
+        "2"
+      ],
+      "most_recent_candidate": "1",
+      "numeric_candidate": true,
+      "chose_recent_candidate": true,
+      "interpretation": "descriptive strategy only; no alternative PASS and no inference of intent or internal algorithm"
+    },
+    {
+      "story": "warehouse-queries",
+      "turn": 10,
+      "directory": "20-warehouse-queries-t10-a1",
+      "outcome": "unsupported_numeric_assignment",
+      "observed": "1",
+      "clarification_lexical": false,
+      "candidate_markers": [
+        "1",
+        "2"
+      ],
+      "most_recent_candidate": "1",
+      "numeric_candidate": true,
+      "chose_recent_candidate": true,
+      "interpretation": "descriptive strategy only; no alternative PASS and no inference of intent or internal algorithm"
+    }
+  ],
+  "rows": [
+    {
+      "index": 1,
+      "story": "pottery-notices",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-pottery-notices-t1-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 16733,
+      "latency": {
+        "total_ms": 5367.2194,
+        "first_wire_ms": 2956.2929,
+        "first_content_ms": 5021.0699,
+        "first_reasoning_ms": 2957.5136,
+        "evidence_write_ms": 58.551599999994664
+      },
+      "usage": {
+        "prompt_tokens": 421,
+        "completion_tokens": 245,
+        "total_tokens": 666,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 189
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004203,
+          "allowance": 0.00025218,
+          "tokens": {
+            "input": 421,
+            "output": 245,
+            "reasoning": 189,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "围裙"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【陶艺课报名确认】您好，您已成功报名成人陶艺课。上课时间为周六10:00，地点在南楼A室。请携带围裙和湿巾，准时参加。祝您体验愉快！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 2,
+      "story": "warehouse-queries",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "02-warehouse-queries-t1-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 27697,
+      "latency": {
+        "total_ms": 7625.896299999999,
+        "first_wire_ms": 3577.6202999999996,
+        "first_content_ms": 6904.0691,
+        "first_reasoning_ms": 3578.8064999999997,
+        "evidence_write_ms": 99.62039999999524
+      },
+      "usage": {
+        "prompt_tokens": 422,
+        "completion_tokens": 427,
+        "total_tokens": 849,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 318
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.000639,
+          "allowance": 0.0003834,
+          "tokens": {
+            "input": 422,
+            "output": 427,
+            "reasoning": 318,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "cold_stock"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n这条查询会按 `sku` 分组，只保留每组中 `updated_at` 最新的一条记录。如果同一 `sku` 存在相同的最新时间，则只会任意返回其中一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 3,
+      "story": "pottery-notices",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "03-pottery-notices-t2-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 14718,
+      "latency": {
+        "total_ms": 7143.730699999998,
+        "first_wire_ms": 5014.742799999998,
+        "first_content_ms": 6645.893599999998,
+        "first_reasoning_ms": 5015.497099999999,
+        "evidence_write_ms": 40.37830000002759
+      },
+      "usage": {
+        "prompt_tokens": 521,
+        "completion_tokens": 229,
+        "total_tokens": 750,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 171
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035584,
+          "allowance": 0.0002135,
+          "tokens": {
+            "input": 265,
+            "output": 229,
+            "reasoning": 171,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "15[:：]00",
+              "三点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "围裙"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子陶艺课报名确认】您好，您已成功报名亲子陶艺课。上课时间为周六15:00，地点在北楼B室。请携带围裙和湿巾，准时参加。祝您和孩子体验愉快！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 4,
+      "story": "warehouse-queries",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "04-warehouse-queries-t2-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 25084,
+      "latency": {
+        "total_ms": 8253.6643,
+        "first_wire_ms": 4442.614699999998,
+        "first_content_ms": 7544.4696,
+        "first_reasoning_ms": 4443.785499999998,
+        "evidence_write_ms": 85.0315000000046
+      },
+      "usage": {
+        "prompt_tokens": 574,
+        "completion_tokens": 347,
+        "total_tokens": 921,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 250
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00051334,
+          "allowance": 0.000308,
+          "tokens": {
+            "input": 318,
+            "output": 347,
+            "reasoning": 250,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "ambient_stock"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nSELECT *\nFROM (\n    SELECT\n        a.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC\n        ) AS rn\n    FROM ambient_stock a\n) t\nWHERE rn = 1;\n```\n\n这条查询只针对 `ambient_stock`，按 `sku` 分组，并保留 `updated_at` 最新的一条记录。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 5,
+      "story": "pottery-notices",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "05-pottery-notices-t3-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 27896,
+      "latency": {
+        "total_ms": 8272.9322,
+        "first_wire_ms": 3917.8696999999993,
+        "first_content_ms": 8018.196899999999,
+        "first_reasoning_ms": 3919.124899999999,
+        "evidence_write_ms": 87.03250000003754
+      },
+      "usage": {
+        "prompt_tokens": 610,
+        "completion_tokens": 400,
+        "total_tokens": 1010,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 335
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00058774,
+          "allowance": 0.00035264,
+          "tokens": {
+            "input": 354,
+            "output": 400,
+            "reasoning": 335,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。一个人来、第一次接触泥巴都没关系，放轻松就好；记得带上围裙和湿巾，期待和您见面！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 6,
+      "story": "warehouse-queries",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "06-warehouse-queries-t3-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 16417,
+      "latency": {
+        "total_ms": 5197.128100000002,
+        "first_wire_ms": 2891.664300000004,
+        "first_content_ms": 4436.016000000003,
+        "first_reasoning_ms": 2892.1744000000035,
+        "evidence_write_ms": 55.916499999970256
+      },
+      "usage": {
+        "prompt_tokens": 703,
+        "completion_tokens": 255,
+        "total_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00044164,
+          "allowance": 0.00026498,
+          "tokens": {
+            "input": 447,
+            "output": 255,
+            "reasoning": 157,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "cold_stock"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC, row_id DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n低温仓（冷库）查询已加入 `updated_at` 相同时按 `row_id` 倒序选择。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 7,
+      "story": "pottery-notices",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "07-pottery-notices-t4-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 15997,
+      "latency": {
+        "total_ms": 4617.9306,
+        "first_wire_ms": 2419.2762000000002,
+        "first_content_ms": 4160.203200000004,
+        "first_reasoning_ms": 2419.8341999999975,
+        "evidence_write_ms": 50.57539999992878
+      },
+      "usage": {
+        "prompt_tokens": 708,
+        "completion_tokens": 203,
+        "total_tokens": 911,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 142
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00038074,
+          "allowance": 0.00022844,
+          "tokens": {
+            "input": 452,
+            "output": 203,
+            "reasoning": 142,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "水龙头"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "照明",
+              "灯"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**场地设备检查清单（内部使用）**\n1. 水龙头：逐个开启，检查出水、关闭及是否漏水。\n2. 照明：逐区开启，检查灯具是否正常点亮、闪烁或损坏。\n发现问题请记录并报修。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 8,
+      "story": "warehouse-queries",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "08-warehouse-queries-t4-a1",
+      "category": "birth",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 10952,
+      "latency": {
+        "total_ms": 4754.716699999997,
+        "first_wire_ms": 3220.279999999999,
+        "first_content_ms": 4632.354800000001,
+        "first_reasoning_ms": 3221.056700000001,
+        "evidence_write_ms": 33.396700000041164
+      },
+      "usage": {
+        "prompt_tokens": 830,
+        "completion_tokens": 131,
+        "total_tokens": 961,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 117
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00033094,
+          "allowance": 0.00019856,
+          "tokens": {
+            "input": 574,
+            "output": 131,
+            "reasoning": 117,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "birth",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "80",
+              "八十"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "费用合计：80元。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 9,
+      "story": "pottery-notices",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "09-pottery-notices-t5-a1",
+      "category": "continue",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 9292,
+      "latency": {
+        "total_ms": 4170.5682000000015,
+        "first_wire_ms": 2658.6537000000026,
+        "first_content_ms": 3512.092499999999,
+        "first_reasoning_ms": 2659.155899999998,
+        "evidence_write_ms": 30.819100000036997
+      },
+      "usage": {
+        "prompt_tokens": 788,
+        "completion_tokens": 134,
+        "total_tokens": 922,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 89
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00032194,
+          "allowance": 0.00019316,
+          "tokens": {
+            "input": 532,
+            "output": 134,
+            "reasoning": 89,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "continue",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "水龙头"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "照明",
+              "灯"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "场地设备检查清单：\n1. 水龙头：检查出水、关闭是否正常，有无漏水。\n2. 照明：检查灯具是否正常点亮，有无闪烁或损坏。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 10,
+      "story": "warehouse-queries",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "10-warehouse-queries-t5-a1",
+      "category": "continue",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 7763,
+      "latency": {
+        "total_ms": 2564.7485000000015,
+        "first_wire_ms": 1533.381100000006,
+        "first_content_ms": 2462.553700000004,
+        "first_reasoning_ms": 1533.9020000000019,
+        "evidence_write_ms": 24.310200000021723
+      },
+      "usage": {
+        "prompt_tokens": 862,
+        "completion_tokens": 88,
+        "total_tokens": 950,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 75
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003642,
+          "allowance": 0.00021852,
+          "tokens": {
+            "input": 862,
+            "output": 88,
+            "reasoning": 75,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "continue",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "85",
+              "八十五"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "合计：85元。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 11,
+      "story": "pottery-notices",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "11-pottery-notices-t6-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 35184,
+      "latency": {
+        "total_ms": 7906.207800000004,
+        "first_wire_ms": 2527.141399999993,
+        "first_content_ms": 7374.9342999999935,
+        "first_reasoning_ms": 2528.2892999999967,
+        "evidence_write_ms": 123.74960000003921
+      },
+      "usage": {
+        "prompt_tokens": 858,
+        "completion_tokens": 481,
+        "total_tokens": 1339,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 430
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00075934,
+          "allowance": 0.0004556,
+          "tokens": {
+            "input": 602,
+            "output": 481,
+            "reasoning": 430,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "kind": "ambiguous",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认.*场",
+              "请.*场",
+              "成人.*还是.*亲子",
+              "亲子.*还是.*成人"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "成人",
+              "亲子"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "您指的是周六10:00成人陶艺课，还是15:00亲子陶艺课？两场是独立短信，请指定一场，我会压缩成一句并保留时间、地点。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 12,
+      "story": "warehouse-queries",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "12-warehouse-queries-t6-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 180237,
+      "latency": {
+        "total_ms": 31996.6875,
+        "first_wire_ms": 3730.2593999999954,
+        "first_content_ms": 31713.434200000003,
+        "first_reasoning_ms": 3730.8271999999997,
+        "evidence_write_ms": 639.4575000002369
+      },
+      "usage": {
+        "prompt_tokens": 900,
+        "completion_tokens": 2548,
+        "total_tokens": 3448,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2498
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00325234,
+          "allowance": 0.0019514,
+          "tokens": {
+            "input": 644,
+            "output": 2548,
+            "reasoning": 2498,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "1",
+        "kind": "ambiguous",
+        "canonical_exact": false,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认",
+              "冷库.*还是.*常温",
+              "常温.*还是.*冷库"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "冷库",
+              "常温",
+              "cold_stock",
+              "ambient_stock"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "分组字段：`sku`；排序部分：`ORDER BY updated_at DESC, row_id DESC`，也就是先按更新时间倒序，更新时间相同时再按 `row_id` 倒序。",
+        "error_location": {
+          "raw_field": "/content",
+          "expected_suffix": "<|task:UNRESOLVED|>",
+          "observed_marker": "1"
+        }
+      }
+    },
+    {
+      "index": 13,
+      "story": "pottery-notices",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "13-pottery-notices-t7-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 9915,
+      "latency": {
+        "total_ms": 4969.079799999992,
+        "first_wire_ms": 3617.3475999999937,
+        "first_content_ms": 4465.97589999999,
+        "first_reasoning_ms": 3617.936799999996,
+        "evidence_write_ms": 33.168500000130734
+      },
+      "usage": {
+        "prompt_tokens": 928,
+        "completion_tokens": 115,
+        "total_tokens": 1043,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00034114,
+          "allowance": 0.00020468,
+          "tokens": {
+            "input": 672,
+            "output": 115,
+            "reasoning": 67,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "15[:：]00",
+              "三点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子陶艺课确认】您已报名周六15:00在北楼B室开课的亲子陶艺课，请带上围裙和湿巾，和孩子一起动手体验吧！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "warehouse-queries",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "14-warehouse-queries-t7-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 48883,
+      "latency": {
+        "total_ms": 10120.7019,
+        "first_wire_ms": 2679.327099999995,
+        "first_content_ms": 9648.733999999997,
+        "first_reasoning_ms": 2680.4038,
+        "evidence_write_ms": 164.05349999983446
+      },
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 722,
+        "total_tokens": 1687,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 667
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00108064,
+          "allowance": 0.00064838,
+          "tokens": {
+            "input": 709,
+            "output": 722,
+            "reasoning": 667,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "你指的是常温仓 `ambient_stock` 也要加上 `row_id DESC` 作为时间相同时的次级排序（分组字段仍为 `sku`），还是只单独列出它的分组字段和排序部分？",
+        "error_location": null
+      }
+    },
+    {
+      "index": 15,
+      "story": "pottery-notices",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "15-pottery-notices-t8-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 25272,
+      "latency": {
+        "total_ms": 8167.660600000003,
+        "first_wire_ms": 4169.486600000004,
+        "first_content_ms": 7819.968900000007,
+        "first_reasoning_ms": 4170.118199999997,
+        "evidence_write_ms": 89.04130000005534
+      },
+      "usage": {
+        "prompt_tokens": 1008,
+        "completion_tokens": 339,
+        "total_tokens": 1347,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 283
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00063394,
+          "allowance": 0.00038036,
+          "tokens": {
+            "input": 752,
+            "output": 339,
+            "reasoning": 283,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "围裙"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人陶艺课报名确认】您报名的成人陶艺课于周六10:00在南楼A室开课，请带围裙和湿巾；围裙容易弄脏，建议穿不怕脏的衣物。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 16,
+      "story": "warehouse-queries",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "16-warehouse-queries-t8-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 9611,
+      "latency": {
+        "total_ms": 3133.2476000000024,
+        "first_wire_ms": 1715.4395999999979,
+        "first_content_ms": 2462.2427999999927,
+        "first_reasoning_ms": 1716.3855999999942,
+        "evidence_write_ms": 31.284700000062003
+      },
+      "usage": {
+        "prompt_tokens": 1047,
+        "completion_tokens": 152,
+        "total_tokens": 1199,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00042124,
+          "allowance": 0.00025274,
+          "tokens": {
+            "input": 791,
+            "output": 152,
+            "reasoning": 50,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "cold_stock"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC, row_id DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n按 `sku` 分组，保留 `updated_at` 最新的一条；时间并列时按 `row_id` 倒序选一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 17,
+      "story": "pottery-notices",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "17-pottery-notices-t9-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 10440,
+      "latency": {
+        "total_ms": 5165.087100000004,
+        "first_wire_ms": 3497.8847000000096,
+        "first_content_ms": 4563.573500000013,
+        "first_reasoning_ms": 3501.6033000000025,
+        "evidence_write_ms": 37.49109999992652
+      },
+      "usage": {
+        "prompt_tokens": 1091,
+        "completion_tokens": 135,
+        "total_tokens": 1226,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 90
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00041404,
+          "allowance": 0.00024842,
+          "tokens": {
+            "input": 835,
+            "output": 135,
+            "reasoning": 90,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "水龙头"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "灯",
+              "照明"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**开门前场地检查**\n- [ ] 水龙头：出水、关闭正常，无漏水\n- [ ] 照明：灯具正常点亮，无闪烁或损坏",
+        "error_location": null
+      }
+    },
+    {
+      "index": 18,
+      "story": "warehouse-queries",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "18-warehouse-queries-t9-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 4526,
+      "latency": {
+        "total_ms": 5712.57620000001,
+        "first_wire_ms": 5127.877299999993,
+        "first_content_ms": 5622.836899999995,
+        "first_reasoning_ms": 5128.844299999997,
+        "evidence_write_ms": 15.730200000150944
+      },
+      "usage": {
+        "prompt_tokens": 1178,
+        "completion_tokens": 51,
+        "total_tokens": 1229,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 37
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00033934,
+          "allowance": 0.0002036,
+          "tokens": {
+            "input": 922,
+            "output": 51,
+            "reasoning": 37,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "3",
+        "observed": "3",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "87",
+              "八十七"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "费用合计：87元。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 19,
+      "story": "pottery-notices",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "19-pottery-notices-t10-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 37105,
+      "latency": {
+        "total_ms": 9894.310200000007,
+        "first_wire_ms": 7180.686500000011,
+        "first_content_ms": 9817.525900000008,
+        "first_reasoning_ms": 7181.272800000006,
+        "evidence_write_ms": 85.60129999977653
+      },
+      "usage": {
+        "prompt_tokens": 1167,
+        "completion_tokens": 321,
+        "total_tokens": 1488,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 256,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0007353,
+          "allowance": 0.00044118,
+          "tokens": {
+            "input": 1167,
+            "output": 321,
+            "reasoning": 256,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "1",
+        "kind": "ambiguous",
+        "canonical_exact": false,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认.*场",
+              "请.*场",
+              "成人.*还是.*亲子",
+              "亲子.*还是.*成人"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "成人",
+              "亲子"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人陶艺课报名确认】您好！您的成人陶艺课已确认：周六10:00在南楼A室。请带上围裙和湿巾，围裙容易弄脏，建议穿不怕脏的衣物。期待和您一起轻松玩泥巴！",
+        "error_location": {
+          "raw_field": "/content",
+          "expected_suffix": "<|task:UNRESOLVED|>",
+          "observed_marker": "1"
+        }
+      }
+    },
+    {
+      "index": 20,
+      "story": "warehouse-queries",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "20-warehouse-queries-t10-a1",
+      "category": "ambiguous",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 33062,
+      "latency": {
+        "total_ms": 14384.945000000007,
+        "first_wire_ms": 10086.589199999988,
+        "first_content_ms": 14089.022700000001,
+        "first_reasoning_ms": 10087.20629999999,
+        "evidence_write_ms": 116.9661999999953
+      },
+      "usage": {
+        "prompt_tokens": 1217,
+        "completion_tokens": 464,
+        "total_tokens": 1681,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 414
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00084664,
+          "allowance": 0.00050798,
+          "tokens": {
+            "input": 961,
+            "output": 464,
+            "reasoning": 414,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "1",
+        "kind": "ambiguous",
+        "canonical_exact": false,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认",
+              "冷库.*还是.*常温",
+              "常温.*还是.*冷库"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "冷库",
+              "常温",
+              "cold_stock",
+              "ambient_stock"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "这条查询针对 `cold_stock`，按 `sku` 分组；每组只保留 `updated_at` 最新的一条记录，若更新时间相同，则取 `row_id` 最大的一条。",
+        "error_location": {
+          "raw_field": "/content",
+          "expected_suffix": "<|task:UNRESOLVED|>",
+          "observed_marker": "1"
+        }
+      }
+    },
+    {
+      "index": 21,
+      "story": "pottery-notices",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "21-pottery-notices-t11-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 20957,
+      "latency": {
+        "total_ms": 8532.116700000013,
+        "first_wire_ms": 5718.97100000002,
+        "first_content_ms": 8329.376500000013,
+        "first_reasoning_ms": 5725.824800000002,
+        "evidence_write_ms": 61.337199999717996
+      },
+      "usage": {
+        "prompt_tokens": 1250,
+        "completion_tokens": 284,
+        "total_tokens": 1534,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 220
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0007158,
+          "allowance": 0.00042948,
+          "tokens": {
+            "input": 1250,
+            "output": 284,
+            "reasoning": 220,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。请带上围裙和湿巾；即使一个人来体验、第一次接触泥巴，也可以放松心情，期待见到您！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 22,
+      "story": "warehouse-queries",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "22-warehouse-queries-t11-a1",
+      "category": "clarified-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 14059,
+      "latency": {
+        "total_ms": 6942.839899999992,
+        "first_wire_ms": 4929.631199999974,
+        "first_content_ms": 6599.277399999992,
+        "first_reasoning_ms": 4931.051399999997,
+        "evidence_write_ms": 39.63160000013886
+      },
+      "usage": {
+        "prompt_tokens": 1281,
+        "completion_tokens": 192,
+        "total_tokens": 1473,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 133
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00053944,
+          "allowance": 0.00032366,
+          "tokens": {
+            "input": 1025,
+            "output": 192,
+            "reasoning": 133,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "可以这样说明：针对必须低温保存的商品，在 `cold_stock` 中按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录；如果更新时间相同，就取 `row_id` 最大的一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 23,
+      "story": "pottery-notices",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "23-pottery-notices-t12-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 6540,
+      "latency": {
+        "total_ms": 4147.2212,
+        "first_wire_ms": 3400.6205999999947,
+        "first_content_ms": 3833.3166999999958,
+        "first_reasoning_ms": 3401.688200000004,
+        "evidence_write_ms": 18.196300000097835
+      },
+      "usage": {
+        "prompt_tokens": 1341,
+        "completion_tokens": 114,
+        "total_tokens": 1455,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00046384,
+          "allowance": 0.0002783,
+          "tokens": {
+            "input": 1085,
+            "output": 114,
+            "reasoning": 56,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "15[:：]00",
+              "三点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "围裙"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子陶艺课报名确认】您好！您和孩子报名的亲子陶艺课已确认：周六15:00在北楼B室。请带上围裙和湿巾，和孩子一起轻松玩泥巴，期待见到你们！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 24,
+      "story": "warehouse-queries",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "24-warehouse-queries-t12-a1",
+      "category": "clear-return",
+      "invoked": true,
+      "outcome": "complete",
+      "capture_valid": true,
+      "error_code": null,
+      "wire_bytes": 14463,
+      "latency": {
+        "total_ms": 3858.2838000000047,
+        "first_wire_ms": 1817.5072000000218,
+        "first_content_ms": 3656.9890000000014,
+        "first_reasoning_ms": 1818.0776000000187,
+        "evidence_write_ms": 44.679600000119535
+      },
+      "usage": {
+        "prompt_tokens": 1364,
+        "completion_tokens": 208,
+        "total_tokens": 1572,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 171
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00058354,
+          "allowance": 0.00035012,
+          "tokens": {
+            "input": 1108,
+            "output": 208,
+            "reasoning": 171,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "response_model": "deepseek-v4.1-flash",
+      "score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "对于常温仓 `ambient_stock`，按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录。",
+        "error_location": null
+      }
+    }
+  ]
+}

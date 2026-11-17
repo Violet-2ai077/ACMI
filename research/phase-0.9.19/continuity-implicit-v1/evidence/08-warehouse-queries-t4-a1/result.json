@@ -1,0 +1,65 @@
+{
+  "content": "费用合计：80元。<|task:3|>",
+  "reasoning": "We need answer Chinese. Need task marking. Current task? User asks separate independent delivery fee calculation: freight 48, handling 32, only total. This is a new different task? Need identify. Previous tasks: cold stock dedup task 1, ambient task 2. Now \"另外算一笔独立的配送费用...\" independent delivery fee. New truly different task, first occurrence => 3. Need answer normally direct concise <=200 chars, only total. Probably \"费用合计：80元。\" Then marker task:3. Ensure exactly one marker at end, no extra.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 830,
+    "completion_tokens": 131,
+    "total_tokens": 961,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 117
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00033094,
+      "allowance": 0.00019856,
+      "tokens": {
+        "input": 574,
+        "output": 131,
+        "reasoning": 117,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a5a3e22439a-f857ca",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10952,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.47639999999,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.08690000000206055,
+    "content_type": "text/event-stream",
+    "wire_chunks": 52,
+    "wire_sha256": "7c016f0faacd745da4f47beea6494b5fa5498d347057965326e97285a790b838",
+    "content_sha256": "802ecd1af167d359d62fe919e892778e608da48eea44c7207a6c490d8497c92e",
+    "reasoning_sha256": "cab0d463f99b4b8bf66d2dfe81e06f456b3537ce847e520cb6f34b13cfb2b594"
+  },
+  "latency": {
+    "total_ms": 4754.716699999997,
+    "first_wire_ms": 3220.279999999999,
+    "first_content_ms": 4632.354800000001,
+    "first_reasoning_ms": 3221.056700000001,
+    "evidence_write_ms": 33.396700000041164
+  }
+}

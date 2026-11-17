@@ -1,0 +1,65 @@
+{
+  "content": "对于常温仓 `ambient_stock`，按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录。<|task:2|>",
+  "reasoning": "We need answer one sentence for ambient_stock, its own retention rule. What is its rule? Earlier task 2 query only updated_at DESC, no row_id tiebreaker. User previously ambiguous \"不用控温存放的那些商品。\" Assistant clarified whether add row_id or list. User didn't answer, moved to cold task. Now asks \"沿用那个仓库自己的保留规则\" = ambient warehouse's own rule, which is latest updated_at only. Need one sentence understandable. Mention ambient_stock, group sku, latest updated_at. Tie unspecified. Keep under 200 chars. Task: This is ambient inventory dedup, task 2. Output marker task 2. Need not mention SQL. Maybe \"针对常温仓 ambient_stock，按 sku 分组，每组只保留 updated_at 最新的一条记录。\" Good. Marker exactly.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1364,
+    "completion_tokens": 208,
+    "total_tokens": 1572,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 171
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00058354,
+      "allowance": 0.00035012,
+      "tokens": {
+        "input": 1108,
+        "output": 208,
+        "reasoning": 171,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b00c3e9c4d1-f2fb50",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 14463,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5113,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07400000002235174,
+    "content_type": "text/event-stream",
+    "wire_chunks": 75,
+    "wire_sha256": "cbfca778431679354f5cdceb263af247af3b345d5c404e8d2114b674bfc436a5",
+    "content_sha256": "18318bab5db868bbc16e2bf73241cbeccb15da3b269208e4a2d73e6ef627479c",
+    "reasoning_sha256": "05b1005b2ad91dd0e1fd90a737396daa4f8d93888a1056e80ea17508d6d0275f"
+  },
+  "latency": {
+    "total_ms": 3858.2838000000047,
+    "first_wire_ms": 1817.5072000000218,
+    "first_content_ms": 3656.9890000000014,
+    "first_reasoning_ms": 1818.0776000000187,
+    "evidence_write_ms": 44.679600000119535
+  }
+}

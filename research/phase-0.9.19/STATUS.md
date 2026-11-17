@@ -4,7 +4,24 @@ Updated: 2026-11-17. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Latest execution - TC4 ambiguity and clarification, 2026-11-17
+## Latest execution - TC5 unannounced ambiguity, 2026-11-17
+
+Owner authorized testing self-detected ambiguity without missing-source warnings,
+still no full state. [TC5 results](continuity-implicit-v1/RESULTS.md): two new
+12-turn CLOSED-LOOP stories, 24/24 complete/protocol-valid, 21/24 canonical outcomes.
+Six births, 8/8 clear returns, 2/2 immediate continuations and 4/4 clarified-return
+markers correct; all 12 identifiable returns restore actual birth anchors.
+Implicit ambiguity: only 1/4 UNRESOLVED with clarification, 3/4 select candidate 1.
+Strict local criterion FAILED; 0/2 all-correct trajectories. Recent candidate was
+also first-born 1 in all probes; defaulting vs recognition failure is not resolved.
+Basic answers 20/24; one clarified turn has correct identity but an unnecessary
+content question instead of requested output. Zero unnecessary UNRESOLVED does
+not mean zero unnecessary natural-language clarification. All failures retained.
+24 calls of new 28 cap, zero transport failures/retries/incomplete/unsent; total 190.
+Same prompt and complete actual content/reasoning history. Prior freezes unchanged.
+STOPPED, no automatic prompt repair, next batch or full-state engineering.
+
+## Previous execution - TC4 ambiguity and clarification, 2026-11-17
 
 Owner approved executing two 12-turn stories with similar tasks, genuinely
 underdetermined requests and fixed clarification turns, still no full state.

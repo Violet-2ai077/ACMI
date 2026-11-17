@@ -1,0 +1,602 @@
+{
+  "kind": "descriptive extraction; frozen metrics unchanged; no semantic rescoring",
+  "deterministic_scores_identical": 24,
+  "deterministic_summary_identical": true,
+  "scores_sha256": "ccdbafe9c3c8da33c313470c3ca2847a8cbbff8d6aa730f7b4f1c35622db8b6e",
+  "start": {
+    "at": "2026-11-17T06:55:45.891Z",
+    "freeze_sha256": "040b23386edffe5c59a3ca938472b07c8a20e6eca4696e48acfd54b120180945",
+    "commit": "353852e6e24a5173e9c13d2154bf061b5bb56be4",
+    "node": "v24.16.0",
+    "max_actual_calls": 28
+  },
+  "end_at": "2026-11-17T06:58:48.938Z",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "overall_acquisition": {
+    "attempts": 24,
+    "total_latency_ms": 182899.50030000004,
+    "mean_latency_ms": 7620.8125125000015,
+    "min_latency_ms": 2564.7485000000015,
+    "max_latency_ms": 31996.6875,
+    "usage_available": 24,
+    "prompt_tokens": 22034,
+    "completion_tokens": 8585,
+    "total_tokens": 30619,
+    "reasoning_tokens": 7215,
+    "provider_cost_field_count": 24,
+    "provider_cost_field_sum": 0,
+    "provider_list_cost_field_count": 24,
+    "provider_list_cost_field_sum": 0.015482260000000001,
+    "provider_allowance_field_sum": 0.009289279999999999,
+    "verified_charge": null,
+    "currency_verified": false,
+    "total_wire_bytes": 622803,
+    "max_wire_bytes": 180237
+  },
+  "by_story": [
+    {
+      "story": "pottery-notices",
+      "attempts": 12,
+      "total_latency_ms": 78354.06450000002,
+      "mean_latency_ms": 6529.505375000002,
+      "min_latency_ms": 4147.2212,
+      "max_latency_ms": 9894.310200000007,
+      "usage_available": 12,
+      "prompt_tokens": 10691,
+      "completion_tokens": 3000,
+      "total_tokens": 13691,
+      "reasoning_tokens": 2328,
+      "provider_cost_field_count": 12,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 12,
+      "provider_list_cost_field_sum": 0.00612996,
+      "provider_allowance_field_sum": 0.00367794,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 230049,
+      "max_wire_bytes": 37105
+    },
+    {
+      "story": "warehouse-queries",
+      "attempts": 12,
+      "total_latency_ms": 104545.43580000002,
+      "mean_latency_ms": 8712.119650000002,
+      "min_latency_ms": 2564.7485000000015,
+      "max_latency_ms": 31996.6875,
+      "usage_available": 12,
+      "prompt_tokens": 11343,
+      "completion_tokens": 5585,
+      "total_tokens": 16928,
+      "reasoning_tokens": 4887,
+      "provider_cost_field_count": 12,
+      "provider_cost_field_sum": 0,
+      "provider_list_cost_field_count": 12,
+      "provider_list_cost_field_sum": 0.0093523,
+      "provider_allowance_field_sum": 0.0056113399999999985,
+      "verified_charge": null,
+      "currency_verified": false,
+      "total_wire_bytes": 392754,
+      "max_wire_bytes": 180237
+    }
+  ],
+  "cases": [
+    {
+      "index": 5,
+      "story": "pottery-notices",
+      "turn": 3,
+      "category": "clear-return",
+      "raw_result": "evidence/05-pottery-notices-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/05-pottery-notices-t3-a1/request.json",
+      "result_sha256": "d030344bdfe42be157569520fcdbf6b6b7a2bdeb8c8dbff29f490feca47a2c6d",
+      "current_user": "独自来体验的成年学员可能是第一次接触泥巴，语气放轻松些，时间地点和用品保留。",
+      "raw_content": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。一个人来、第一次接触泥巴都没关系，放轻松就好；记得带上围裙和湿巾，期待和您见面！<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。一个人来、第一次接触泥巴都没关系，放轻松就好；记得带上围裙和湿巾，期待和您见面！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 6,
+      "story": "warehouse-queries",
+      "turn": 3,
+      "category": "clear-return",
+      "raw_result": "evidence/06-warehouse-queries-t3-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/06-warehouse-queries-t3-a1/request.json",
+      "result_sha256": "86d806e8e52ba83f3a9be49366dbaf8772de94541372bfb0688d1a8d8f76af3e",
+      "current_user": "需要低温保存的那批商品，时间相同时再按row_id倒序选择一条，给更新后的查询。",
+      "raw_content": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC, row_id DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n低温仓（冷库）查询已加入 `updated_at` 相同时按 `row_id` 倒序选择。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "cold_stock"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC, row_id DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n低温仓（冷库）查询已加入 `updated_at` 相同时按 `row_id` 倒序选择。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 11,
+      "story": "pottery-notices",
+      "turn": 6,
+      "category": "ambiguous",
+      "raw_result": "evidence/11-pottery-notices-t6-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/11-pottery-notices-t6-a1/request.json",
+      "result_sha256": "86f6730c581221a4f42f73ca07ee77527a940f2cc54b13a0f1fd765d1f19f709",
+      "current_user": "把周六陶艺课的报名确认短信压缩成一句，保留上课时间和地点。",
+      "raw_content": "您指的是周六10:00成人陶艺课，还是15:00亲子陶艺课？两场是独立短信，请指定一场，我会压缩成一句并保留时间、地点。<|task:UNRESOLVED|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "UNRESOLVED",
+        "kind": "ambiguous",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认.*场",
+              "请.*场",
+              "成人.*还是.*亲子",
+              "亲子.*还是.*成人"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "成人",
+              "亲子"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "您指的是周六10:00成人陶艺课，还是15:00亲子陶艺课？两场是独立短信，请指定一场，我会压缩成一句并保留时间、地点。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 12,
+      "story": "warehouse-queries",
+      "turn": 6,
+      "category": "ambiguous",
+      "raw_result": "evidence/12-warehouse-queries-t6-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/12-warehouse-queries-t6-a1/request.json",
+      "result_sha256": "3fb910c37f4a5a7e08a0f5ff4a7a6b7fc523242b0684eb4c8ba3aad1bf0e8553",
+      "current_user": "把库存去重查询的排序部分单独列出来，分组字段也要有。",
+      "raw_content": "分组字段：`sku`；排序部分：`ORDER BY updated_at DESC, row_id DESC`，也就是先按更新时间倒序，更新时间相同时再按 `row_id` 倒序。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "1",
+        "kind": "ambiguous",
+        "canonical_exact": false,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认",
+              "冷库.*还是.*常温",
+              "常温.*还是.*冷库"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "冷库",
+              "常温",
+              "cold_stock",
+              "ambient_stock"
+            ],
+            "pass": false
+          }
+        ],
+        "answer": "分组字段：`sku`；排序部分：`ORDER BY updated_at DESC, row_id DESC`，也就是先按更新时间倒序，更新时间相同时再按 `row_id` 倒序。",
+        "error_location": {
+          "raw_field": "/content",
+          "expected_suffix": "<|task:UNRESOLVED|>",
+          "observed_marker": "1"
+        }
+      }
+    },
+    {
+      "index": 13,
+      "story": "pottery-notices",
+      "turn": 7,
+      "category": "clarified-return",
+      "raw_result": "evidence/13-pottery-notices-t7-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/13-pottery-notices-t7-a1/request.json",
+      "result_sha256": "533cf3bee975aaadd71eec8d3de6786edee8aa982c4cb0aa26822aa814f2e177",
+      "current_user": "给带小朋友一起动手的家长看的那份。",
+      "raw_content": "【亲子陶艺课确认】您已报名周六15:00在北楼B室开课的亲子陶艺课，请带上围裙和湿巾，和孩子一起动手体验吧！<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "15[:：]00",
+              "三点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子陶艺课确认】您已报名周六15:00在北楼B室开课的亲子陶艺课，请带上围裙和湿巾，和孩子一起动手体验吧！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 14,
+      "story": "warehouse-queries",
+      "turn": 7,
+      "category": "clarified-return",
+      "raw_result": "evidence/14-warehouse-queries-t7-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/14-warehouse-queries-t7-a1/request.json",
+      "result_sha256": "d7dddbbc74b5b8d191531198a6f32d6344040de6102fa01593180f08473b0c03",
+      "current_user": "不用控温存放的那些商品。",
+      "raw_content": "你指的是常温仓 `ambient_stock` 也要加上 `row_id DESC` 作为时间相同时的次级排序（分组字段仍为 `sku`），还是只单独列出它的分组字段和排序部分？<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "你指的是常温仓 `ambient_stock` 也要加上 `row_id DESC` 作为时间相同时的次级排序（分组字段仍为 `sku`），还是只单独列出它的分组字段和排序部分？",
+        "error_location": null
+      }
+    },
+    {
+      "index": 19,
+      "story": "pottery-notices",
+      "turn": 10,
+      "category": "ambiguous",
+      "raw_result": "evidence/19-pottery-notices-t10-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/19-pottery-notices-t10-a1/request.json",
+      "result_sha256": "f25c30c7ce3c5e26c08df7b6eb68a248aee852adc5709b36f1a4261d586912c6",
+      "current_user": "给需要带围裙和湿巾的学员，那条报名确认再写得亲切一点，保留活动安排。",
+      "raw_content": "【成人陶艺课报名确认】您好！您的成人陶艺课已确认：周六10:00在南楼A室。请带上围裙和湿巾，围裙容易弄脏，建议穿不怕脏的衣物。期待和您一起轻松玩泥巴！<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "1",
+        "kind": "ambiguous",
+        "canonical_exact": false,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认.*场",
+              "请.*场",
+              "成人.*还是.*亲子",
+              "亲子.*还是.*成人"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "成人",
+              "亲子"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人陶艺课报名确认】您好！您的成人陶艺课已确认：周六10:00在南楼A室。请带上围裙和湿巾，围裙容易弄脏，建议穿不怕脏的衣物。期待和您一起轻松玩泥巴！",
+        "error_location": {
+          "raw_field": "/content",
+          "expected_suffix": "<|task:UNRESOLVED|>",
+          "observed_marker": "1"
+        }
+      }
+    },
+    {
+      "index": 20,
+      "story": "warehouse-queries",
+      "turn": 10,
+      "category": "ambiguous",
+      "raw_result": "evidence/20-warehouse-queries-t10-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/20-warehouse-queries-t10-a1/request.json",
+      "result_sha256": "e8cd43f95ac54014ace09db1831c34af0ce89a808f98b1df3c7f7d70d2fd4b1b",
+      "current_user": "按sku保留最新记录的那份库存查询，写成一句便于同事理解的说明。",
+      "raw_content": "这条查询针对 `cold_stock`，按 `sku` 分组；每组只保留 `updated_at` 最新的一条记录，若更新时间相同，则取 `row_id` 最大的一条。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "UNRESOLVED",
+        "observed": "1",
+        "kind": "ambiguous",
+        "canonical_exact": false,
+        "answer_minimal": false,
+        "answer_checks": [
+          {
+            "options": [
+              "哪",
+              "确认",
+              "冷库.*还是.*常温",
+              "常温.*还是.*冷库"
+            ],
+            "pass": false
+          },
+          {
+            "options": [
+              "冷库",
+              "常温",
+              "cold_stock",
+              "ambient_stock"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "这条查询针对 `cold_stock`，按 `sku` 分组；每组只保留 `updated_at` 最新的一条记录，若更新时间相同，则取 `row_id` 最大的一条。",
+        "error_location": {
+          "raw_field": "/content",
+          "expected_suffix": "<|task:UNRESOLVED|>",
+          "observed_marker": "1"
+        }
+      }
+    },
+    {
+      "index": 21,
+      "story": "pottery-notices",
+      "turn": 11,
+      "category": "clarified-return",
+      "raw_result": "evidence/21-pottery-notices-t11-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/21-pottery-notices-t11-a1/request.json",
+      "result_sha256": "013a7571c9e5f82bf5d5ebdae0617603a2ef54312238e991bf7aac5a5f293652",
+      "current_user": "是自己来体验、不带小朋友的那场。",
+      "raw_content": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。请带上围裙和湿巾；即使一个人来体验、第一次接触泥巴，也可以放松心情，期待见到您！<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。请带上围裙和湿巾；即使一个人来体验、第一次接触泥巴，也可以放松心情，期待见到您！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 22,
+      "story": "warehouse-queries",
+      "turn": 11,
+      "category": "clarified-return",
+      "raw_result": "evidence/22-warehouse-queries-t11-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/22-warehouse-queries-t11-a1/request.json",
+      "result_sha256": "0e560b11f6b38bc6305ecf92d215cf2360bba537f5e37b555cbb943c52b6a4ab",
+      "current_user": "用于必须低温保存的商品。",
+      "raw_content": "可以这样说明：针对必须低温保存的商品，在 `cold_stock` 中按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录；如果更新时间相同，就取 `row_id` 最大的一条。<|task:1|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "1",
+        "observed": "1",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "row_id"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "可以这样说明：针对必须低温保存的商品，在 `cold_stock` 中按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录；如果更新时间相同，就取 `row_id` 最大的一条。",
+        "error_location": null
+      }
+    },
+    {
+      "index": 23,
+      "story": "pottery-notices",
+      "turn": 12,
+      "category": "clear-return",
+      "raw_result": "evidence/23-pottery-notices-t12-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/23-pottery-notices-t12-a1/request.json",
+      "result_sha256": "590105c067adb9b2ac959845d1071799fa3c8869dc3da1f15239b328befa6459",
+      "current_user": "家长带孩子做陶器的确认短信也给一版亲切文案，保留时间地点和用品。",
+      "raw_content": "【亲子陶艺课报名确认】您好！您和孩子报名的亲子陶艺课已确认：周六15:00在北楼B室。请带上围裙和湿巾，和孩子一起轻松玩泥巴，期待见到你们！<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "15[:：]00",
+              "三点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "围裙"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【亲子陶艺课报名确认】您好！您和孩子报名的亲子陶艺课已确认：周六15:00在北楼B室。请带上围裙和湿巾，和孩子一起轻松玩泥巴，期待见到你们！",
+        "error_location": null
+      }
+    },
+    {
+      "index": 24,
+      "story": "warehouse-queries",
+      "turn": 12,
+      "category": "clear-return",
+      "raw_result": "evidence/24-warehouse-queries-t12-a1/result.json",
+      "raw_pointer": "/content",
+      "request": "evidence/24-warehouse-queries-t12-a1/request.json",
+      "result_sha256": "b3f3f1872f4e44d06fc485fffc71bb0e23eb1004a72b5433d87a56131e1540e2",
+      "current_user": "不需要冷藏的商品也给一句去重说明，沿用那个仓库自己的保留规则。",
+      "raw_content": "对于常温仓 `ambient_stock`，按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录。<|task:2|>",
+      "frozen_score": {
+        "protocol": true,
+        "protocol_error": null,
+        "expected": "2",
+        "observed": "2",
+        "kind": "return",
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "answer_checks": [
+          {
+            "options": [
+              "sku"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "updated_at"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "DESC",
+              "最新",
+              "降序"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "对于常温仓 `ambient_stock`，按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录。",
+        "error_location": null
+      }
+    }
+  ]
+}

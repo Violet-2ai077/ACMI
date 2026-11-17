@@ -1,0 +1,65 @@
+{
+  "content": "合计：85元。<|task:3|>",
+  "reasoning": "我们需要回答用户当前请求：在之前独立配送费用中，运费48+搬运费32=80，现在再加5元包装费，总85元。需要附task标记。这个任务与之前配送费用是同一任务，标记task:3。正常直接回答，不超过200字。末尾恰好附一个标记。不能额外解释。用中文回答。",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 862,
+    "completion_tokens": 88,
+    "total_tokens": 950,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 75
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0003642,
+      "allowance": 0.00021852,
+      "tokens": {
+        "input": 862,
+        "output": 88,
+        "reasoning": 75,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b07a3852bbb-13eed5b",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 7763,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6104,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.10900000000401633,
+    "content_type": "text/event-stream",
+    "wire_chunks": 36,
+    "wire_sha256": "85940be4bc4bed6303dd2996bc44521554015e780fb455ffc9e4218c679d6d23",
+    "content_sha256": "789d882fc8bcaee4291c5b65b97a36d76da5c8e83f2c27e04f3d5d7ee6262e0f",
+    "reasoning_sha256": "e49316e39b7061289a626f122f1f1fd2104a72e299e153129aa82b7b97d2f74d"
+  },
+  "latency": {
+    "total_ms": 2564.7485000000015,
+    "first_wire_ms": 1533.381100000006,
+    "first_content_ms": 2462.553700000004,
+    "first_reasoning_ms": 1533.9020000000019,
+    "evidence_write_ms": 24.310200000021723
+  }
+}

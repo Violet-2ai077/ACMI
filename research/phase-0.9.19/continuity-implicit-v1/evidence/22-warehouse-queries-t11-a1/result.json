@@ -1,0 +1,65 @@
+{
+  "content": "可以这样说明：针对必须低温保存的商品，在 `cold_stock` 中按 `sku` 分组，每组只保留 `updated_at` 最新的一条记录；如果更新时间相同，就取 `row_id` 最大的一条。<|task:1|>",
+  "reasoning": "We need answer current request. Need identify task. User says \"用于必须低温保存的商品。\" This is likely clarification that previous one-sentence description refers to cold storage items. Need perhaps provide adjusted one-sentence explanation emphasizing for products requiring low-temperature storage. Task identity: task1 cold_stock query. Need answer concise, no claim. Append mark task1. Chinese. Something like: \"这句说明可写为：针对必须低温保存商品的 cold_stock 库存，按 sku 分组，每组保留 updated_at 最新记录；时间并列时取 row_id 最大的一条。\" That answers. <=200 chars. Exactly one marker at end.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1281,
+    "completion_tokens": 192,
+    "total_tokens": 1473,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 133
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00053944,
+      "allowance": 0.00032366,
+      "tokens": {
+        "input": 1025,
+        "output": 192,
+        "reasoning": 133,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b07a3852bbb-13f3334",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 14059,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.6265,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07600000000093132,
+    "content_type": "text/event-stream",
+    "wire_chunks": 73,
+    "wire_sha256": "dc34d4335a583316b0aa3ce74a6d5e6a4359e26435867838d8e5564e5f6ec5f1",
+    "content_sha256": "099cb37abc94e7c1cbf887ba6a2cd214c692a3a6c8d00cdeb06f752b76d33eac",
+    "reasoning_sha256": "e6dcd35062a5a0a5ea8dfbde02efd61f7f60a9c78d8c0f978cfbb30da0b0846b"
+  },
+  "latency": {
+    "total_ms": 6942.839899999992,
+    "first_wire_ms": 4929.631199999974,
+    "first_content_ms": 6599.277399999992,
+    "first_reasoning_ms": 4931.051399999997,
+    "evidence_write_ms": 39.63160000013886
+  }
+}

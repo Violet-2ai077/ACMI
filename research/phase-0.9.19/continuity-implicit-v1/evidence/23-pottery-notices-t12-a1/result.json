@@ -1,0 +1,65 @@
+{
+  "content": "【亲子陶艺课报名确认】您好！您和孩子报名的亲子陶艺课已确认：周六15:00在北楼B室。请带上围裙和湿巾，和孩子一起轻松玩泥巴，期待见到你们！<|task:2|>",
+  "reasoning": "【亲子陶艺课报名确认】您好！您和孩子报名的亲子陶艺课已确认：周六15:00在北楼B室。请带上围裙和湿巾，和孩子一起轻松玩泥巴，期待见到你们！\n\n<|task:2|>",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1341,
+    "completion_tokens": 114,
+    "total_tokens": 1455,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 56
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00046384,
+      "allowance": 0.0002783,
+      "tokens": {
+        "input": 1085,
+        "output": 114,
+        "reasoning": 56,
+        "cache_read": 256,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-1001eea",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 6540,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.60029999996,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.07649999999557622,
+    "content_type": "text/event-stream",
+    "wire_chunks": 33,
+    "wire_sha256": "83dab4b86cd44b5e2ed7e5b9a5745c89e7414286668e96f3442991d65a46f6c2",
+    "content_sha256": "35e820310a4049f23c9cfc6fe4a4966bb0d3d3cc493d4a0d664e1d5d37e741df",
+    "reasoning_sha256": "9827ebf06768d8ce82beb87854fa3a2c077f41c4532eced2185ccfce054207d9"
+  },
+  "latency": {
+    "total_ms": 4147.2212,
+    "first_wire_ms": 3400.6205999999947,
+    "first_content_ms": 3833.3166999999958,
+    "first_reasoning_ms": 3401.688200000004,
+    "evidence_write_ms": 18.196300000097835
+  }
+}

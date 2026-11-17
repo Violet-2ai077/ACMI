@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 2,
+    "story": "warehouse-queries",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "为冷库库存单独写去重查询：表cold_stock，按sku分组，保留updated_at最新的记录。给一段完整SQL。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-244a1be19ac40717e459de7c88332c4445f6b3c214d3ecf5"
+  },
+  "request_sha256": "bede9e0eae4a7e8077c90a85bde001aff5e0f4fd2215269140dfe60a43493bec",
+  "freeze_sha256": "040b23386edffe5c59a3ca938472b07c8a20e6eca4696e48acfd54b120180945"
+}

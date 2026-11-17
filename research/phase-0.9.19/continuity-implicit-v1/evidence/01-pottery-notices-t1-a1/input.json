@@ -1,0 +1,22 @@
+{
+  "coordinate": {
+    "index": 1,
+    "story": "pottery-notices",
+    "turn": 1
+  },
+  "attempt": 1,
+  "messages": [
+    {
+      "source_id": "u1",
+      "role": "user",
+      "content": "给成人陶艺课写一份独立的报名确认短信：周六10:00在南楼A室，请带围裙和湿巾。"
+    }
+  ],
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "headers": {
+    "user-agent": "acmi-attribution-research/0.9.19",
+    "x-opencode-session": "acmi-11eaffe9319454f7ceac6dec2c01d138b0d8e2a732c78bdb"
+  },
+  "request_sha256": "0d1268bb54754939747d0447e6d0c89d8a0fae64903c235918acbed8aabba523",
+  "freeze_sha256": "040b23386edffe5c59a3ca938472b07c8a20e6eca4696e48acfd54b120180945"
+}

@@ -1,0 +1,977 @@
+{
+  "at": "2026-11-17T06:58:48.938Z",
+  "actual_calls": 24,
+  "retry_calls": 0,
+  "halt": null,
+  "attempts": [
+    {
+      "index": 1,
+      "story": "pottery-notices",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "01-pottery-notices-t1-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:55:45.942Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5367.2194,
+      "usage": {
+        "prompt_tokens": 421,
+        "completion_tokens": 245,
+        "total_tokens": 666,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 189
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0004203,
+          "allowance": 0.00025218,
+          "tokens": {
+            "input": 421,
+            "output": 245,
+            "reasoning": 189,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 2,
+      "story": "warehouse-queries",
+      "turn": 1,
+      "attempt": 1,
+      "directory": "02-warehouse-queries-t1-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:55:51.315Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7625.896299999999,
+      "usage": {
+        "prompt_tokens": 422,
+        "completion_tokens": 427,
+        "total_tokens": 849,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 318
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.000639,
+          "allowance": 0.0003834,
+          "tokens": {
+            "input": 422,
+            "output": 427,
+            "reasoning": 318,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 3,
+      "story": "pottery-notices",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "03-pottery-notices-t2-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:55:58.945Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7143.730699999998,
+      "usage": {
+        "prompt_tokens": 521,
+        "completion_tokens": 229,
+        "total_tokens": 750,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 171
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00035584,
+          "allowance": 0.0002135,
+          "tokens": {
+            "input": 265,
+            "output": 229,
+            "reasoning": 171,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 4,
+      "story": "warehouse-queries",
+      "turn": 2,
+      "attempt": 1,
+      "directory": "04-warehouse-queries-t2-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:06.093Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8253.6643,
+      "usage": {
+        "prompt_tokens": 574,
+        "completion_tokens": 347,
+        "total_tokens": 921,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 250
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00051334,
+          "allowance": 0.000308,
+          "tokens": {
+            "input": 318,
+            "output": 347,
+            "reasoning": 250,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 5,
+      "story": "pottery-notices",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "05-pottery-notices-t3-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:14.351Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8272.9322,
+      "usage": {
+        "prompt_tokens": 610,
+        "completion_tokens": 400,
+        "total_tokens": 1010,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 335
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00058774,
+          "allowance": 0.00035264,
+          "tokens": {
+            "input": 354,
+            "output": 400,
+            "reasoning": 335,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 6,
+      "story": "warehouse-queries",
+      "turn": 3,
+      "attempt": 1,
+      "directory": "06-warehouse-queries-t3-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:22.628Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5197.128100000002,
+      "usage": {
+        "prompt_tokens": 703,
+        "completion_tokens": 255,
+        "total_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00044164,
+          "allowance": 0.00026498,
+          "tokens": {
+            "input": 447,
+            "output": 255,
+            "reasoning": 157,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 7,
+      "story": "pottery-notices",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "07-pottery-notices-t4-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:27.829Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4617.9306,
+      "usage": {
+        "prompt_tokens": 708,
+        "completion_tokens": 203,
+        "total_tokens": 911,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 142
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00038074,
+          "allowance": 0.00022844,
+          "tokens": {
+            "input": 452,
+            "output": 203,
+            "reasoning": 142,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 8,
+      "story": "warehouse-queries",
+      "turn": 4,
+      "attempt": 1,
+      "directory": "08-warehouse-queries-t4-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:32.451Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4754.716699999997,
+      "usage": {
+        "prompt_tokens": 830,
+        "completion_tokens": 131,
+        "total_tokens": 961,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 117
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00033094,
+          "allowance": 0.00019856,
+          "tokens": {
+            "input": 574,
+            "output": 131,
+            "reasoning": 117,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 9,
+      "story": "pottery-notices",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "09-pottery-notices-t5-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:37.209Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4170.5682000000015,
+      "usage": {
+        "prompt_tokens": 788,
+        "completion_tokens": 134,
+        "total_tokens": 922,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 89
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00032194,
+          "allowance": 0.00019316,
+          "tokens": {
+            "input": 532,
+            "output": 134,
+            "reasoning": 89,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 10,
+      "story": "warehouse-queries",
+      "turn": 5,
+      "attempt": 1,
+      "directory": "10-warehouse-queries-t5-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:41.384Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 2564.7485000000015,
+      "usage": {
+        "prompt_tokens": 862,
+        "completion_tokens": 88,
+        "total_tokens": 950,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 75
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0003642,
+          "allowance": 0.00021852,
+          "tokens": {
+            "input": 862,
+            "output": 88,
+            "reasoning": 75,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 11,
+      "story": "pottery-notices",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "11-pottery-notices-t6-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:43.952Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 7906.207800000004,
+      "usage": {
+        "prompt_tokens": 858,
+        "completion_tokens": 481,
+        "total_tokens": 1339,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 430
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00075934,
+          "allowance": 0.0004556,
+          "tokens": {
+            "input": 602,
+            "output": 481,
+            "reasoning": 430,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 12,
+      "story": "warehouse-queries",
+      "turn": 6,
+      "attempt": 1,
+      "directory": "12-warehouse-queries-t6-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:56:51.863Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 31996.6875,
+      "usage": {
+        "prompt_tokens": 900,
+        "completion_tokens": 2548,
+        "total_tokens": 3448,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2498
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00325234,
+          "allowance": 0.0019514,
+          "tokens": {
+            "input": 644,
+            "output": 2548,
+            "reasoning": 2498,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 13,
+      "story": "pottery-notices",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "13-pottery-notices-t7-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:57:23.863Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4969.079799999992,
+      "usage": {
+        "prompt_tokens": 928,
+        "completion_tokens": 115,
+        "total_tokens": 1043,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00034114,
+          "allowance": 0.00020468,
+          "tokens": {
+            "input": 672,
+            "output": 115,
+            "reasoning": 67,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 14,
+      "story": "warehouse-queries",
+      "turn": 7,
+      "attempt": 1,
+      "directory": "14-warehouse-queries-t7-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:57:28.837Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 10120.7019,
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 722,
+        "total_tokens": 1687,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 667
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00108064,
+          "allowance": 0.00064838,
+          "tokens": {
+            "input": 709,
+            "output": 722,
+            "reasoning": 667,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 15,
+      "story": "pottery-notices",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "15-pottery-notices-t8-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:57:38.962Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8167.660600000003,
+      "usage": {
+        "prompt_tokens": 1008,
+        "completion_tokens": 339,
+        "total_tokens": 1347,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 283
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00063394,
+          "allowance": 0.00038036,
+          "tokens": {
+            "input": 752,
+            "output": 339,
+            "reasoning": 283,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 16,
+      "story": "warehouse-queries",
+      "turn": 8,
+      "attempt": 1,
+      "directory": "16-warehouse-queries-t8-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:57:47.134Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3133.2476000000024,
+      "usage": {
+        "prompt_tokens": 1047,
+        "completion_tokens": 152,
+        "total_tokens": 1199,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00042124,
+          "allowance": 0.00025274,
+          "tokens": {
+            "input": 791,
+            "output": 152,
+            "reasoning": 50,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 17,
+      "story": "pottery-notices",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "17-pottery-notices-t9-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:57:50.271Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5165.087100000004,
+      "usage": {
+        "prompt_tokens": 1091,
+        "completion_tokens": 135,
+        "total_tokens": 1226,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 90
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00041404,
+          "allowance": 0.00024842,
+          "tokens": {
+            "input": 835,
+            "output": 135,
+            "reasoning": 90,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 18,
+      "story": "warehouse-queries",
+      "turn": 9,
+      "attempt": 1,
+      "directory": "18-warehouse-queries-t9-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:57:55.439Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 5712.57620000001,
+      "usage": {
+        "prompt_tokens": 1178,
+        "completion_tokens": 51,
+        "total_tokens": 1229,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 37
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00033934,
+          "allowance": 0.0002036,
+          "tokens": {
+            "input": 922,
+            "output": 51,
+            "reasoning": 37,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 19,
+      "story": "pottery-notices",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "19-pottery-notices-t10-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:58:01.156Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 9894.310200000007,
+      "usage": {
+        "prompt_tokens": 1167,
+        "completion_tokens": 321,
+        "total_tokens": 1488,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 256,
+          "rejected_prediction_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0007353,
+          "allowance": 0.00044118,
+          "tokens": {
+            "input": 1167,
+            "output": 321,
+            "reasoning": 256,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 20,
+      "story": "warehouse-queries",
+      "turn": 10,
+      "attempt": 1,
+      "directory": "20-warehouse-queries-t10-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:58:11.054Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 14384.945000000007,
+      "usage": {
+        "prompt_tokens": 1217,
+        "completion_tokens": 464,
+        "total_tokens": 1681,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 414
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00084664,
+          "allowance": 0.00050798,
+          "tokens": {
+            "input": 961,
+            "output": 464,
+            "reasoning": 414,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 21,
+      "story": "pottery-notices",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "21-pottery-notices-t11-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:58:25.443Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 8532.116700000013,
+      "usage": {
+        "prompt_tokens": 1250,
+        "completion_tokens": 284,
+        "total_tokens": 1534,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 220
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0007158,
+          "allowance": 0.00042948,
+          "tokens": {
+            "input": 1250,
+            "output": 284,
+            "reasoning": 220,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 22,
+      "story": "warehouse-queries",
+      "turn": 11,
+      "attempt": 1,
+      "directory": "22-warehouse-queries-t11-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:58:33.980Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 6942.839899999992,
+      "usage": {
+        "prompt_tokens": 1281,
+        "completion_tokens": 192,
+        "total_tokens": 1473,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 133
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00053944,
+          "allowance": 0.00032366,
+          "tokens": {
+            "input": 1025,
+            "output": 192,
+            "reasoning": 133,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 23,
+      "story": "pottery-notices",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "23-pottery-notices-t12-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:58:40.927Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 4147.2212,
+      "usage": {
+        "prompt_tokens": 1341,
+        "completion_tokens": 114,
+        "total_tokens": 1455,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00046384,
+          "allowance": 0.0002783,
+          "tokens": {
+            "input": 1085,
+            "output": 114,
+            "reasoning": 56,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    },
+    {
+      "index": 24,
+      "story": "warehouse-queries",
+      "turn": 12,
+      "attempt": 1,
+      "directory": "24-warehouse-queries-t12-a1",
+      "invoked": true,
+      "at": "2026-11-17T06:58:45.078Z",
+      "outcome": "complete",
+      "evidence_complete": true,
+      "error_code": null,
+      "http_status": 200,
+      "latency_ms": 3858.2838000000047,
+      "usage": {
+        "prompt_tokens": 1364,
+        "completion_tokens": 208,
+        "total_tokens": 1572,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 171
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00058354,
+          "allowance": 0.00035012,
+          "tokens": {
+            "input": 1108,
+            "output": 208,
+            "reasoning": 171,
+            "cache_read": 256,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "verified_charge": null
+    }
+  ],
+  "not_sent": [],
+  "no_resume": true,
+  "verified_charge": null
+}
