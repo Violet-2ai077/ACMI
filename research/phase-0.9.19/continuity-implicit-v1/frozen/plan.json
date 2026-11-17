@@ -1,0 +1,136 @@
+{
+  "version": "TC5-implicit-ambiguity-20261117",
+  "batch_id": "tc5-20261117",
+  "authorization": "Owner authorized unannounced ambiguity vs resolved continuity; finite round; no full state",
+  "schedule": [
+    {
+      "index": 1,
+      "story": "pottery-notices",
+      "turn": 1
+    },
+    {
+      "index": 2,
+      "story": "warehouse-queries",
+      "turn": 1
+    },
+    {
+      "index": 3,
+      "story": "pottery-notices",
+      "turn": 2
+    },
+    {
+      "index": 4,
+      "story": "warehouse-queries",
+      "turn": 2
+    },
+    {
+      "index": 5,
+      "story": "pottery-notices",
+      "turn": 3
+    },
+    {
+      "index": 6,
+      "story": "warehouse-queries",
+      "turn": 3
+    },
+    {
+      "index": 7,
+      "story": "pottery-notices",
+      "turn": 4
+    },
+    {
+      "index": 8,
+      "story": "warehouse-queries",
+      "turn": 4
+    },
+    {
+      "index": 9,
+      "story": "pottery-notices",
+      "turn": 5
+    },
+    {
+      "index": 10,
+      "story": "warehouse-queries",
+      "turn": 5
+    },
+    {
+      "index": 11,
+      "story": "pottery-notices",
+      "turn": 6
+    },
+    {
+      "index": 12,
+      "story": "warehouse-queries",
+      "turn": 6
+    },
+    {
+      "index": 13,
+      "story": "pottery-notices",
+      "turn": 7
+    },
+    {
+      "index": 14,
+      "story": "warehouse-queries",
+      "turn": 7
+    },
+    {
+      "index": 15,
+      "story": "pottery-notices",
+      "turn": 8
+    },
+    {
+      "index": 16,
+      "story": "warehouse-queries",
+      "turn": 8
+    },
+    {
+      "index": 17,
+      "story": "pottery-notices",
+      "turn": 9
+    },
+    {
+      "index": 18,
+      "story": "warehouse-queries",
+      "turn": 9
+    },
+    {
+      "index": 19,
+      "story": "pottery-notices",
+      "turn": 10
+    },
+    {
+      "index": 20,
+      "story": "warehouse-queries",
+      "turn": 10
+    },
+    {
+      "index": 21,
+      "story": "pottery-notices",
+      "turn": 11
+    },
+    {
+      "index": 22,
+      "story": "warehouse-queries",
+      "turn": 11
+    },
+    {
+      "index": 23,
+      "story": "pottery-notices",
+      "turn": 12
+    },
+    {
+      "index": 24,
+      "story": "warehouse-queries",
+      "turn": 12
+    }
+  ],
+  "max_actual_calls": 28,
+  "max_retry_calls": 4,
+  "retry_wait_ms": 5000,
+  "previous_conversation_calls": 166,
+  "combined_ceiling": 194,
+  "max_output_tokens": 16384,
+  "max_input_bytes": 131072,
+  "max_response_bytes": 1048576,
+  "timeout_ms": 180000
+}

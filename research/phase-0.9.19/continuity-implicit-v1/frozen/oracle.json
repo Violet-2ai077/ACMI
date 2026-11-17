@@ -1,0 +1,537 @@
+[
+  {
+    "story": "pottery-notices",
+    "turn": 1,
+    "task_key": "adult",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Birth of adult pottery confirmation.",
+    "answerChecks": [
+      [
+        "周六"
+      ],
+      [
+        "10[:：]00",
+        "十点"
+      ],
+      [
+        "南楼"
+      ],
+      [
+        "围裙"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 2,
+    "task_key": "family",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Independent family artifact shares pottery/apron/wipes/Saturday words.",
+    "answerChecks": [
+      [
+        "周六"
+      ],
+      [
+        "15[:：]00",
+        "三点"
+      ],
+      [
+        "北楼"
+      ],
+      [
+        "围裙"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 3,
+    "task_key": "adult",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Adult recipient uniquely selects first artifact through semantic paraphrase.",
+    "answerChecks": [
+      [
+        "10[:：]00",
+        "十点"
+      ],
+      [
+        "南楼"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 4,
+    "task_key": "equipment",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Third noncandidate artifact breaks immediate discourse focus on confirmations.",
+    "answerChecks": [
+      [
+        "水龙头"
+      ],
+      [
+        "照明",
+        "灯"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 5,
+    "task_key": "equipment",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "continue",
+    "category": "continue",
+    "rationale": "Immediate ellipsis naturally continues preceding equipment checklist; do not force clarification.",
+    "answerChecks": [
+      [
+        "水龙头"
+      ],
+      [
+        "照明",
+        "灯"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 6,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "Both established confirmations fit; immediately previous artifact is equipment, not a candidate. Strict oracle asks clarification; earlier candidate recency remains a pragmatic alternative.",
+    "answerChecks": [
+      [
+        "哪",
+        "确认.*场",
+        "请.*场",
+        "成人.*还是.*亲子",
+        "亲子.*还是.*成人"
+      ],
+      [
+        "成人",
+        "亲子"
+      ]
+    ],
+    "candidate_markers": [
+      "1",
+      "2"
+    ],
+    "most_recent_candidate": "1",
+    "immediate_previous_marker": "3"
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 7,
+    "task_key": "family",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Fixed clarification selects older family candidate, regardless of preceding assistant guess.",
+    "answerChecks": [
+      [
+        "15[:：]00",
+        "三点"
+      ],
+      [
+        "北楼"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 8,
+    "task_key": "adult",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Unique adult audience resumes first identity despite shared apron cue.",
+    "answerChecks": [
+      [
+        "10[:：]00",
+        "十点"
+      ],
+      [
+        "南楼"
+      ],
+      [
+        "围裙"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 9,
+    "task_key": "equipment",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Return to third artifact; both candidate confirmations now noncurrent.",
+    "answerChecks": [
+      [
+        "水龙头"
+      ],
+      [
+        "灯",
+        "照明"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 10,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "Both audiences need apron and wipes; no discriminating wording. Latest artifact is checklist; prior candidate recency is recorded, not treated as latent intention.",
+    "answerChecks": [
+      [
+        "哪",
+        "确认.*场",
+        "请.*场",
+        "成人.*还是.*亲子",
+        "亲子.*还是.*成人"
+      ],
+      [
+        "成人",
+        "亲子"
+      ]
+    ],
+    "candidate_markers": [
+      "1",
+      "2"
+    ],
+    "most_recent_candidate": "1",
+    "immediate_previous_marker": "3"
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 11,
+    "task_key": "adult",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Clarification selects existing adult identity, not new task.",
+    "answerChecks": [
+      [
+        "10[:：]00",
+        "十点"
+      ],
+      [
+        "南楼"
+      ]
+    ]
+  },
+  {
+    "story": "pottery-notices",
+    "turn": 12,
+    "task_key": "family",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Clearly specified family return is the nonabstention contrast.",
+    "answerChecks": [
+      [
+        "15[:：]00",
+        "三点"
+      ],
+      [
+        "北楼"
+      ],
+      [
+        "围裙"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 1,
+    "task_key": "cold",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Birth of cold-storage inventory query.",
+    "answerChecks": [
+      [
+        "cold_stock"
+      ],
+      [
+        "sku"
+      ],
+      [
+        "updated_at"
+      ],
+      [
+        "DESC",
+        "最新",
+        "降序"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 2,
+    "task_key": "ambient",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Same schema/rule, independent ambient warehouse artifact.",
+    "answerChecks": [
+      [
+        "ambient_stock"
+      ],
+      [
+        "sku"
+      ],
+      [
+        "updated_at"
+      ],
+      [
+        "DESC",
+        "最新",
+        "降序"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 3,
+    "task_key": "cold",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Temperature purpose uniquely selects cold query without table identifier.",
+    "answerChecks": [
+      [
+        "cold_stock"
+      ],
+      [
+        "row_id"
+      ],
+      [
+        "updated_at"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 4,
+    "task_key": "delivery",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "birth",
+    "category": "birth",
+    "rationale": "Third arithmetic task outside either inventory-query candidate.",
+    "answerChecks": [
+      [
+        "80",
+        "八十"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 5,
+    "task_key": "delivery",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "continue",
+    "category": "continue",
+    "rationale": "Natural immediately scoped continuation, not ambiguous merely because names omitted.",
+    "answerChecks": [
+      [
+        "85",
+        "八十五"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 6,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "Both inventory queries qualify; immediately preceding work is arithmetic. No explicit information-loss warning; strict unique-reference oracle expects clarification.",
+    "answerChecks": [
+      [
+        "哪",
+        "确认",
+        "冷库.*还是.*常温",
+        "常温.*还是.*冷库"
+      ],
+      [
+        "冷库",
+        "常温",
+        "cold_stock",
+        "ambient_stock"
+      ]
+    ],
+    "candidate_markers": [
+      "1",
+      "2"
+    ],
+    "most_recent_candidate": "1",
+    "immediate_previous_marker": "3"
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 7,
+    "task_key": "ambient",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Clarification resolves to older ambient task; fixed despite any prior guess.",
+    "answerChecks": [
+      [
+        "sku"
+      ],
+      [
+        "updated_at"
+      ],
+      [
+        "DESC",
+        "最新",
+        "降序"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 8,
+    "task_key": "cold",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Clear return with retained tie-break requirement, not full state schema.",
+    "answerChecks": [
+      [
+        "cold_stock"
+      ],
+      [
+        "row_id"
+      ],
+      [
+        "updated_at"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 9,
+    "task_key": "delivery",
+    "expected": "3",
+    "birth_turn": 4,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Return to arithmetic task, moves immediate focus away from inventory candidates.",
+    "answerChecks": [
+      [
+        "87",
+        "八十七"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 10,
+    "task_key": null,
+    "expected": "UNRESOLVED",
+    "birth_turn": null,
+    "kind": "ambiguous",
+    "category": "ambiguous",
+    "rationale": "Both cold and ambient meet exact key/latest description. Prior cold recency is a possible conversational convention, not a hidden oracle fact.",
+    "answerChecks": [
+      [
+        "哪",
+        "确认",
+        "冷库.*还是.*常温",
+        "常温.*还是.*冷库"
+      ],
+      [
+        "冷库",
+        "常温",
+        "cold_stock",
+        "ambient_stock"
+      ]
+    ],
+    "candidate_markers": [
+      "1",
+      "2"
+    ],
+    "most_recent_candidate": "1",
+    "immediate_previous_marker": "3"
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 11,
+    "task_key": "cold",
+    "expected": "1",
+    "birth_turn": 1,
+    "kind": "return",
+    "category": "clarified-return",
+    "rationale": "Clarification restores cold identity after unresolved turn.",
+    "answerChecks": [
+      [
+        "sku"
+      ],
+      [
+        "updated_at"
+      ],
+      [
+        "row_id"
+      ]
+    ]
+  },
+  {
+    "story": "warehouse-queries",
+    "turn": 12,
+    "task_key": "ambient",
+    "expected": "2",
+    "birth_turn": 2,
+    "kind": "return",
+    "category": "clear-return",
+    "rationale": "Unique semantic source restores ambient task; unnecessary abstention would fail.",
+    "answerChecks": [
+      [
+        "sku"
+      ],
+      [
+        "updated_at"
+      ],
+      [
+        "DESC",
+        "最新",
+        "降序"
+      ]
+    ]
+  }
+]

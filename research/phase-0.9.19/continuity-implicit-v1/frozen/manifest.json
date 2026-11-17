@@ -1,0 +1,27 @@
+{
+  "version": "TC5-implicit-ambiguity-20261117",
+  "at": "2026-11-17T06:55:33.597Z",
+  "files": {
+    "research/phase-0.9.19/continuity-ambiguity-v1/evaluate.mjs": "6d1a3bd38a9af00879d6f7715175a074e60670cb47676bb6516c24b8423adfed",
+    "research/phase-0.9.19/continuity-implicit-v1/PLAN.md": "5be584f4e63df04ce3418630647ff4d6e8da5cd92ff4993a541453a9538422fa",
+    "research/phase-0.9.19/continuity-implicit-v1/continuity.node-test.mjs": "6a5e2320ba63979d88383e6f1b122f941f03c12d5d78504e03ca97d35ca1927e",
+    "research/phase-0.9.19/continuity-implicit-v1/evaluate.mjs": "624d47582d3b4b565a16e5346fc5af410f40a5a7d06dd44a4bd3ef8f2bec5bfb",
+    "research/phase-0.9.19/continuity-implicit-v1/materials.mjs": "896ee8394c117ad5a583d30f2025bed577af08e40d21e6f012a6001710f89d2c",
+    "research/phase-0.9.19/continuity-implicit-v1/run.mjs": "e486909f460e1c30c714fcaea99d26bec3c87aa80e1cfea17b05db39cfc3ef7d",
+    "research/phase-0.9.19/continuity-long-v1/evaluate.mjs": "b8405675e1c87da76d96ddfe6833468c606ff5330a051a7d9b18ffe0c27d59c8",
+    "research/phase-0.9.19/continuity-v1/materials.mjs": "6dd56e127d2930501d0b7bd8afef7ccf99ee3dff7709fa1ad015b06f6f24be42",
+    "research/phase-0.9.19/gate2/deadline-transport.mjs": "af719d60e7017c40f5991ea8530e8dac01b04bd21e1fada097510f66a57f2c66",
+    "research/phase-0.9.19/gate2/dsh-inspect.mjs": "9c48244a05e5d2832d96fd167a330ec280e6adb383053adf15fc6b5cfbb32542",
+    "research/phase-0.9.19/gate2/dsh-route.mjs": "4c3c1a4a8a58a1f908ca06e04635c71788b0bb3fd7819244a662581b4effbe94",
+    "research/phase-0.9.19/gate2/routing.mjs": "bf47573980e4b6b83d220624b498c1062c86e1a71d1fcac3b351a77b0edab66e",
+    "research/phase-0.9.19/gate2/transport.mjs": "83deda3c0324614f55403c493eec045ab04c45267140dd9a46d073a46b4d92ff",
+    "research/phase-0.9.19/gate2/wire-accounting.mjs": "69f4d85fc139ea0e1a17d899177b4400f352fb02db1835ca9039c7016d1e7bd0",
+    "research/phase-0.9.19/protocol/contracts.mjs": "e449aa10e889b7a72bb6f1bc7da9d122e1023c5ea257d1ae2400f19ac6340ecd",
+    "research/phase-0.9.19/continuity-implicit-v1/frozen/oracle.json": "c236c9b43cc31f75e817b966af3a6bd1fc89c3ce862c00982ac6f3ae65ae7bd3",
+    "research/phase-0.9.19/continuity-implicit-v1/frozen/plan.json": "2af3d9c7ebc95f503b89632f5619a66dc51f06744763074449fe8c6803be2bb9",
+    "research/phase-0.9.19/continuity-implicit-v1/frozen/prompt.json": "6c056964e6cd6ef447a9016d45ba9d37efd878aa760bf9aecbd60f4ed2eaaa0b",
+    "research/phase-0.9.19/continuity-implicit-v1/frozen/public.json": "2be7913c29ddfd34a753292002e21a9c9d41f179658c59fa9e429ae246984002",
+    "research/phase-0.9.19/continuity-implicit-v1/frozen/route.json": "11a12e2a218d3344857bc589a9509c60688a5732db243c481dc0cc93e427579d",
+    "research/phase-0.9.19/continuity-implicit-v1/frozen/self-review.json": "3fdb24d2e9067bd330f5b49bbed1fbffb44e195a60f18c8e29ea3e8084579e04"
+  }
+}
