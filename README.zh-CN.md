@@ -8,6 +8,8 @@ ACMI（Agent Context & Memory Infrastructure）为智能体运行时提供跨会
 
 **Alpha 阶段：**无需启动 dsh、提供凭据或调用模型即可运行确定性合成演示。`main` 同时保留截至 Phase 0.9.19 的研究历史，不启用自动任务路由。最新[模型原生任务归属进度](research/phase-0.9.19/STATUS.md)分别记录离线正确性、已停止的探索批次与尚未闭合的容量门槛。首个官方集成为 [DeepSeek Harness（dsh）](integrations/dsh/README.md)，目标版本为 `0.2.2-rc.1`；安装和兼容性见 [dsh 快速入门](examples/dsh-quickstart/README.md)。接入其他运行时可从[适配器编写指南](docs/adapter-authoring.md)和[自定义适配器示例](examples/custom-agent-adapter/README.md)开始。
 
+上述研究进度也收录了 TH1 交接实验：按任务过滤缩短了输入，但两个变体中，接手方读到压缩摘要和最新工作区记忆后，最终都用了摘要里的旧规则。
+
 ## 快速开始
 
 需要持久化的显式任务续接，可查看实验性的[任务控制台](examples/task-console/README.md)。

@@ -1,8 +1,31 @@
 # Phase 0.9.19 - current research checkpoint
 
-Updated: 2026-11-16. This checkpoint supersedes historical "not yet run" or
+Updated: 2026-11-21. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
+
+## Published research since the initial checkpoint
+
+Main includes the findings and links, not the experimental runners, model
+captures or a change to runtime behavior. Immutable research snapshots:
+
+- [FM1, BS1 and TC1-TC5 checkpoint](https://github.com/Violet-2ai077/ACMI/blob/eb0bb5eac194da43aec872db0dd6022ffa7165dd/research/phase-0.9.19/STATUS.md):
+  finite closed-loop identity and state studies, then boundary/marker studies.
+  In TC5, all 8 explicit returns were correct, but only 1 of 4 implicit
+  ambiguities led to clarification. The two short stories do not establish
+  autonomous routing or full-state continuity.
+- [TH1 report](https://github.com/Violet-2ai077/ACMI/blob/25c25c65ad0fc69ccc322478e11e58dd2031e32d/research/phase-0.9.19/th1-handoff/RESULTS.md)
+  and [offline replay](https://github.com/Violet-2ai077/ACMI/tree/25c25c65ad0fc69ccc322478e11e58dd2031e32d/research/phase-0.9.19/th1-handoff):
+  in two paired synthetic variants, 3/4 task histories were complete. Correct
+  deliveries: mixed transcript 2/2, filtered transcript plus memory 1/2,
+  actual compact plus memory 0/2, authored control 2/2. Both compacts repeated
+  a superseded footer despite correct separately supplied workspace memory.
+  Memory alone transferred the latest footer without a local seal in 2/2
+  new-job probes. The pre-registered end-to-end criterion failed in both
+  variants. The 24-call capture is available for verification without a model.
+
+These later, separately authorized studies do not reopen the original Gate 2
+series, change its scores, or qualify a production memory/compaction path.
 
 ## Current governing priority - 2026-11-16
 

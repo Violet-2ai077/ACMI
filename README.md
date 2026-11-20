@@ -15,6 +15,8 @@ credentials, or a model. `main` also carries the research history through
 Phase 0.9.19; it does not enable automatic task routing. The latest
 [model-native attribution checkpoint](research/phase-0.9.19/STATUS.md) separates
 offline correctness, stopped exploratory runs, and unresolved capacity gates.
+It also links the TH1 handoff evidence: task filtering shortened context, but
+both tested compacts carried a superseded workspace rule into the final answer.
 The first official integration is [DeepSeek Harness (dsh)](integrations/dsh/README.md),
 targeting `0.2.2-rc.1`; see the [dsh Quick Start](examples/dsh-quickstart/README.md)
 for setup and compatibility. To connect another runtime, start with the
