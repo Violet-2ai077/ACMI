@@ -1,0 +1,65 @@
+{
+  "content": "{\"footer\":\"UNKNOWN\",\"seal\":\"UNKNOWN\"}",
+  "reasoning": "We need answer only JSON. Need infer from memory empty and request says fresh print job Cairn no local details. Using only supplied workspace memory, prepare defaults. Memory empty. Return UNKNOWN for each not established. So {\"footer\":\"UNKNOWN\",\"seal\":\"UNKNOWN\"}. Ensure only JSON.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 113,
+    "completion_tokens": 75,
+    "total_tokens": 188,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 61
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00006195,
+      "allowance": 0.00003717,
+      "tokens": {
+        "input": 113,
+        "output": 75,
+        "reasoning": 61,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-262ec96",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 5719,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180002.77850000001,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11940000002505258,
+    "content_type": "text/event-stream",
+    "wire_chunks": 33,
+    "wire_sha256": "8e9e1bf44722106a5eabc81128caa232b98a7b15143dc147e6067a0e35f1ae33",
+    "content_sha256": "131b37da26b7a5d469dd12ec8957c9617689d35ed130eb7020ff16928b0128a7",
+    "reasoning_sha256": "a76dd0256f690b77ab6af0c27bd6d369b1846965cc4389165c5d222073587d59"
+  },
+  "latency": {
+    "total_ms": 4405.908599999995,
+    "first_wire_ms": 3545.212900000013,
+    "first_content_ms": 4402.898699999991,
+    "first_reasoning_ms": 3546.3343999999925,
+    "evidence_write_ms": 27.012900000088848
+  }
+}

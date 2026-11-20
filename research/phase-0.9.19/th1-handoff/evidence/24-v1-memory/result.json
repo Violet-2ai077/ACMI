@@ -1,0 +1,65 @@
+{
+  "content": "{\"footer\":\"M16\",\"seal\":\"UNKNOWN\"}",
+  "reasoning": "We need answer only JSON. Need interpret. Fresh print job Cairn no local details. Workspace memory has key footer value M16 source 3. Need prepare defaults footer, seal. Only supplied memory establishes footer = M16? Need determine if source_id applicability? Memory generic key footer value M16. Need use only supplied workspace memory. Seal unknown. Return {\"footer\":\"M16\",\"seal\":\"UNKNOWN\"}. Ensure JSON only.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 126,
+    "completion_tokens": 104,
+    "total_tokens": 230,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 90
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0000813,
+      "allowance": 0.00004878,
+      "tokens": {
+        "input": 126,
+        "output": 104,
+        "reasoning": 90,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a5a3e22439a-2e7d00a",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 8269,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.80930000005,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.1252000000094995,
+    "content_type": "text/event-stream",
+    "wire_chunks": 40,
+    "wire_sha256": "b0dd52fcb88a384245d9715a047cd3e0f16ca6c031ddb5ad6f1c2db729ee4520",
+    "content_sha256": "6a817165613be71d297abf50ea7b96d5557dbe046d12aa6388c7dd9b2aa6c59f",
+    "reasoning_sha256": "16fb9faa58345d66da3b960148539b0e978195a1ee43b7930cb15f053f78d1b5"
+  },
+  "latency": {
+    "total_ms": 4621.468900000007,
+    "first_wire_ms": 3524.389900000009,
+    "first_content_ms": 4528.195000000007,
+    "first_reasoning_ms": 3525.189800000022,
+    "evidence_write_ms": 29.751099999732105
+  }
+}

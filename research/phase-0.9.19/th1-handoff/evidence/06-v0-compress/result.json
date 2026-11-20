@@ -1,0 +1,65 @@
+{
+  "content": "Alder print job handoff:\n- Print code revisions, in order: K14 → N72 (current: N72, replacing K14).\n- Job seal: S58, job-only; retained.\n- Workspace-wide standing footer on every job: M16.\n- Latest operative decision: Alder uses print code N72 with seal S58 retained.",
+  "reasoning": "We need answer as handoff note plain text. Need compact transcript into handoff, preserve ordered revisions of print code, job seal, latest operative decision; discard repeated acknowledgements. Must not infer missing facts. Need mention Alder print job opened? Print code revisions K14 then N72. Seal S58 job-only retained. Standing footer every workspace job M16. Latest operative decision likely Alder print code N72 replacing K14, seal retained. Need perhaps say \"Latest: Alder uses print code N72; seal remains S58 (job-only). Workspace-wide footer remains M16.\" Need not infer confirmation separate? The transcript has user requests and assistant answer. \"job seal\" ordered revisions? Seal only S58 throughout, job-only. Maybe mention opening request? Handoff note.\n\nNeed plain text, short. Ensure no extra facts. Could format lines:\n\nAlder print job: opened.\nPrint code revisions, in order: K14 → N72 (N72 is current/latest; replaces K14).\nJob seal: S58, job-only, retained.\nWorkspace standing footer: M16 on every workspace job.\n\nLatest operative decision: Alder print code is N72; seal S58 retained. Workspace footer M16.\n\nShould we include \"seal is S58 only for this job\" yes. \"standing footer ... M16\" yes. \"Confirm change\" response doesn't matter, but latest decision. Discard repeated acknowledgments. Maybe \"Opened with print code K14 and job-only seal S58; print code revised to N72.\" Good.\n\nNeed perhaps no markdown? Plain text okay.\n\nFinal.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 239,
+    "completion_tokens": 410,
+    "total_tokens": 649,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 335
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00028185,
+      "allowance": 0.00016911,
+      "tokens": {
+        "input": 239,
+        "output": 410,
+        "reasoning": 335,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-2e1de1f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 27419,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.86370000002,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.28110000000015134,
+    "content_type": "text/event-stream",
+    "wire_chunks": 167,
+    "wire_sha256": "cb53db7872a2ff8f53aa151ae10d7232a3de33f7f0ff46f449ff528254f46bae",
+    "content_sha256": "88d85230707bd096640d167fba038af359f8d1db5b1f7723552203be3eb443c7",
+    "reasoning_sha256": "815884487dc4bc8c63774d127568efd8c8c738384f06bbf9f56d6ad29922d4c6"
+  },
+  "latency": {
+    "total_ms": 9546.4034,
+    "first_wire_ms": 3562.124200000002,
+    "first_content_ms": 8341.260700000003,
+    "first_reasoning_ms": 3562.7994999999974,
+    "evidence_write_ms": 143.45329999999012
+  }
+}

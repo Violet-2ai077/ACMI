@@ -1,0 +1,8 @@
+{
+  "full": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+  "filtered": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+  "compact": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M16\"}",
+  "gold": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+  "memory": "{\"footer\":\"M94\",\"seal\":\"UNKNOWN\"}",
+  "empty": "{\"footer\":\"UNKNOWN\",\"seal\":\"UNKNOWN\"}"
+}

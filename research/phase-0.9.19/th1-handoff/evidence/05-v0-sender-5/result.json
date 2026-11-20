@@ -1,0 +1,65 @@
+{
+  "content": "Birch remains at print code J26 with job-only seal S31; this is a readback only, with no changes.\n\n{\"answer\":\"Birch's current print code is J26 and its job-only seal is S31.\",\"tag\":\"birch\",\"global\":[]}",
+  "reasoning": "We need answer acknowledgment + JSON only. Readback Birch current code J26, seal S31. No global. Tag birch.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 536,
+    "completion_tokens": 85,
+    "total_tokens": 621,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 26
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001314,
+      "allowance": 0.00007884,
+      "tokens": {
+        "input": 536,
+        "output": 85,
+        "reasoning": 26,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-2478774",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 5785,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180001.2878,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.22850000000107684,
+    "content_type": "text/event-stream",
+    "wire_chunks": 34,
+    "wire_sha256": "6f65acbfbe3b7b0f0be3573a828d5be99a7f8fe5ad0746793c9989ce94ffd2b8",
+    "content_sha256": "169d07974e7c60a7476eb71a8ed7500dc26d10534cc16f0955e4d50c2d1397ec",
+    "reasoning_sha256": "f20ee3e9d2efb8a056a8c244fde3b79f08fc6c53b6eb9ef3e27af95b495188f2"
+  },
+  "latency": {
+    "total_ms": 6075.121500000001,
+    "first_wire_ms": 5000.2749,
+    "first_content_ms": 5329.908599999999,
+    "first_reasoning_ms": 5003.215099999998,
+    "evidence_write_ms": 34.30400000000736
+  }
+}

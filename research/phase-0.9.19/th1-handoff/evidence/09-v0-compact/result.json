@@ -1,0 +1,65 @@
+{
+  "content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M16\"}",
+  "reasoning": "We need answer JSON only. Need parse. Need deliver trail actual print code changes first to last, no duplicate acknowledgements. Print code revisions in order K14 → N72 current N72 replacing K14. Trail [\"K14\",\"N72\"]. print_line latestCode/seal/footer. Latest code N72. Seal S58 job-only retained. Footer workspace-wide standing M16. Memory key footer M94 source 4? Need distinguish global footer updates from job-local rules. Evidence note says workspace-wide standing footer every job M16. memory says footer M94 source 4 maybe conflicting? Need only supplied evidence. Which footer to use? The note is handoff. Memory entry footer M94 source 4. Need determine from instructions: Distinguish global footer updates from job-local rules. The memory may be distractor/outdated? Let's inspect. \"Workspace-wide standing footer on every job: M16.\" This seems explicit current footer. Memory [{\"key\":\"footer\",\"value\":\"M94\",\"source\":4}] maybe source 4 unknown. Need use supplied evidence. Could be global footer updates? The job handoff note likely authoritative? We need \"latestCode/seal/footer\". Footer M16 because workspace-wide standing footer. But memory says footer M94 source 4—maybe must distinguish global footer updates from job-local rules; source 4 may be some memory source, not necessarily authoritative. The note says standing footer M16. We should use M16. Need output only JSON. trail no duplicates. print_line \"N72/S58/M16\". Check if seal job-only retained. Yes. No spaces. Ensure JSON valid.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 248,
+    "completion_tokens": 361,
+    "total_tokens": 609,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 337
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0002538,
+      "allowance": 0.00015228,
+      "tokens": {
+        "input": 248,
+        "output": 361,
+        "reasoning": 337,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-2e1ebcb",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 23720,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.5679,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.12039999999979045,
+    "content_type": "text/event-stream",
+    "wire_chunks": 122,
+    "wire_sha256": "dcecc2a8e04a8f0888ca553a4bd4243658deed21347e99840e95c2b05800d6e2",
+    "content_sha256": "faaa3f9821c5e0c4d010bed6d94ee9f7e7bc226db304e40c8c3ad9964acc8ee7",
+    "reasoning_sha256": "b48b8410eb7cb8f2b0cf274e3ce383f34a8c24ae1f81d5beba219ccb01503690"
+  },
+  "latency": {
+    "total_ms": 9473.909099999997,
+    "first_wire_ms": 4668.275600000001,
+    "first_content_ms": 9210.166700000009,
+    "first_reasoning_ms": 4669.425500000005,
+    "evidence_write_ms": 111.00240000006306
+  }
+}

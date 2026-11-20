@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Alder is open with print code K14 and job-only seal S58, and the workspace-wide footer is now M16.\",\"tag\":\"alder\",\"global\":[{\"key\":\"footer\",\"value\":\"M16\"}]}",
+  "reasoning": "We need answer. Need parse. User asks open Alder print job, print code K14, seal S58 job-specific. Set standing footer on every workspace job to M16. Need acknowledge concrete change in short normal sentence. Same reply only JSON with answer, tag, global. Need invent stable short nonempty tag per distinct job reuse when returns. This is first mention Alder job, tag e.g. \"alder\". Global: workspace-wide persistent preference footer = M16 merits global write. Key footer literal M16. But note \"standing footer on every workspace job\" yes global. Don't promote seal/codes. JSON only. Need answer sentence acknowledge concrete changes. Could say \"Alder is open with print code K14 and job-only seal S58, and the workspace-wide footer is now M16.\" But \"only JSON\" and answer string. tag \"alder\". global [{\"key\":\"footer\",\"value\":\"M16\"}]. Need ensure no markdown.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 216,
+    "completion_tokens": 250,
+    "total_tokens": 466,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 199
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001824,
+      "allowance": 0.00010944,
+      "tokens": {
+        "input": 216,
+        "output": 250,
+        "reasoning": 199,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2af5812",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 16287,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180001.2192,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.8822000000000116,
+    "content_type": "text/event-stream",
+    "wire_chunks": 80,
+    "wire_sha256": "575e31108992a2629dd20d071a4d87c706ea53bdd59445688ec3f860d91743b5",
+    "content_sha256": "4eb1933ce65639247529f7d7a979e8d5ca12c042a117bf9aefaa912fa7744910",
+    "reasoning_sha256": "7e4f940b63a0642d4e8b6ec7053532d3b2faa1b74646e173493471565dc2a8fd"
+  },
+  "latency": {
+    "total_ms": 7744.9433,
+    "first_wire_ms": 4785.6194,
+    "first_content_ms": 7536.533899999999,
+    "first_reasoning_ms": 4787.4429,
+    "evidence_write_ms": 78.88069999999661
+  }
+}

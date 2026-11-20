@@ -1,0 +1,65 @@
+{
+  "content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M94\"}",
+  "reasoning": "We need answer JSON only. Need parse. Need deliver Alder print label. Trail actual print code changes first to last, no duplicate acknowledgements. Initial open start code P83. Then replace earlier print code with J26. So trail [\"P83\",\"J26\"]. Seal S31 job-local. Footer? User says set standing footer every workspace job to M94. Memory has footer M16 source 3 likely stale prior? Evidence transcript id2 sets global footer M94. Need print_line latestCode/seal/footer = J26/S31/M94. Need be careful \"Distinguish global footer updates from job-local rules.\" Yes. Output JSON.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 313,
+    "completion_tokens": 158,
+    "total_tokens": 471,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 134
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00014175,
+      "allowance": 0.00008505,
+      "tokens": {
+        "input": 313,
+        "output": 158,
+        "reasoning": 134,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b4f6efe0fa7-258b796",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10865,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.8099,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.09709999998449348,
+    "content_type": "text/event-stream",
+    "wire_chunks": 57,
+    "wire_sha256": "d133631b6f1eeb1b830319b56df992ecb3ab602b6052bfa2cf6fb9da26ee0341",
+    "content_sha256": "72d6cd1c3abf5ffcf31b35bc6ea0f9b5c4c9e7d2e9415b416c46a3fc1d500273",
+    "reasoning_sha256": "86b26304f5dda4945de757743dd262191f63e423b6c0b2479134eacc3c456927"
+  },
+  "latency": {
+    "total_ms": 5398.867900000012,
+    "first_wire_ms": 3153.9040000000095,
+    "first_content_ms": 5309.926500000001,
+    "first_reasoning_ms": 3155.7931999999855,
+    "evidence_write_ms": 48.68249999982072
+  }
+}

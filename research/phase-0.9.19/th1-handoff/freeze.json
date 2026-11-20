@@ -1,0 +1,21 @@
+{
+  "time": "2026-11-20T14:20:00.822Z",
+  "files": {
+    "../../../worktrees/finite-mechanism/research/phase-0.9.19/gate2/deadline-transport.mjs": "af719d60e7017c40f5991ea8530e8dac01b04bd21e1fada097510f66a57f2c66",
+    "../../../worktrees/finite-mechanism/research/phase-0.9.19/gate2/dsh-inspect.mjs": "9c48244a05e5d2832d96fd167a330ec280e6adb383053adf15fc6b5cfbb32542",
+    "../../../worktrees/finite-mechanism/research/phase-0.9.19/gate2/dsh-route.mjs": "4c3c1a4a8a58a1f908ca06e04635c71788b0bb3fd7819244a662581b4effbe94",
+    "../../../worktrees/finite-mechanism/research/phase-0.9.19/gate2/routing.mjs": "bf47573980e4b6b83d220624b498c1062c86e1a71d1fcac3b351a77b0edab66e",
+    "../../../worktrees/finite-mechanism/research/phase-0.9.19/gate2/transport.mjs": "83deda3c0324614f55403c493eec045ab04c45267140dd9a46d073a46b4d92ff",
+    "../../../worktrees/finite-mechanism/research/phase-0.9.19/gate2/wire-accounting.mjs": "69f4d85fc139ea0e1a17d899177b4400f352fb02db1835ca9039c7016d1e7bd0",
+    "../../../worktrees/finite-mechanism/research/phase-0.9.19/protocol/contracts.mjs": "e449aa10e889b7a72bb6f1bc7da9d122e1023c5ea257d1ae2400f19ac6340ecd",
+    "PLAN.md": "1a4c39f073c4ecb2199c82a6e8c0604a3d8bb044f0c5b8bf55801af9089b2e44",
+    "protocol.mjs": "20e8d443a1fe357e7e59dbe9753abe5275926e32d26caad05f090d58f742e6e4",
+    "run.mjs": "af7ee2d79e77c8ecb751a14b76eb7e562e9960a954c68bc82c9a82dff4030396",
+    "tests.mjs": "0959c5b9d0189899542e205d35d18eaac78c129ffb0f295f9edcfc906bbc26d0"
+  },
+  "route": "e0b4f8b962027164cc597d007ff74d43046c4de19feeeb123c488729d2110927",
+  "model": "deepseek-v4.1-flash",
+  "dsh": "0.2.1-rc.2",
+  "cap": 24,
+  "retries": 0
+}

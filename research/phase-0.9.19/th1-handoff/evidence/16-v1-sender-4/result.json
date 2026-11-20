@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Confirmed: the Alder proof’s print code is now J26, and its seal S31 is retained.\",\"tag\":\"alder-print\",\"global\":[]}",
+  "reasoning": "We need answer acknowledge concrete change short normal sentence, same reply only JSON. Need tag reuse alder-print. Global [] because no workspace preference change; footer unchanged. Need mention Alder proof print code J26, seal retained S31, confirmed. JSON only. Ensure valid.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 488,
+    "completion_tokens": 97,
+    "total_tokens": 585,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 57
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001314,
+      "allowance": 0.00007884,
+      "tokens": {
+        "input": 488,
+        "output": 97,
+        "reasoning": 57,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2b4f6efe0fa7-258ac5f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 8578,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.8125,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.16069999999308493,
+    "content_type": "text/event-stream",
+    "wire_chunks": 45,
+    "wire_sha256": "599212ea5a8afcc6b1b49acea59cd2a65473007015f18429a6bbd911feb6141b",
+    "content_sha256": "1bf80ddb948b0faae4b1087648ebb5b379de72dbe23bf693ef0586897ef9f6e4",
+    "reasoning_sha256": "b43957d4f6bb9b1d43f93d4c5f272b76148a049de457bb01561aa680dae3c815"
+  },
+  "latency": {
+    "total_ms": 6364.42779999999,
+    "first_wire_ms": 4568.1612999999925,
+    "first_content_ms": 6081.093099999998,
+    "first_reasoning_ms": 4570.4755000000005,
+    "evidence_write_ms": 47.88150000011956
+  }
+}

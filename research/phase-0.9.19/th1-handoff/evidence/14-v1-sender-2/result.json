@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"The Alder print job is open with its print code starting at P83 and seal S31 applied only to this job, and the workspace-wide standing footer is set to M94.\",\"tag\":\"alder-print\",\"global\":[{\"key\":\"footer\",\"value\":\"M94\"}]}",
+  "reasoning": "We need answer acknowledge concrete change short normal sentence, same reply only JSON. Need parse: Alder print job, print code at P83, seal S31 only for this job (job-specific, don't promote). Set standing footer on every workspace job to M94 — workspace-wide persistent preference merits global write. Need key e.g. footer value literal M94. tag stable per distinct job; alder job distinct tag \"alder-print\". global [{\"key\":\"footer\",\"value\":\"M94\"}]. Need maybe answer mention all. Keep concise. JSON only. Ensure valid JSON.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 289,
+    "completion_tokens": 184,
+    "total_tokens": 473,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 120
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00015375,
+      "allowance": 0.00009225,
+      "tokens": {
+        "input": 289,
+        "output": 184,
+        "reasoning": 120,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2aaead389ab9-247a5ca",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 12125,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.7842,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.09279999999853317,
+    "content_type": "text/event-stream",
+    "wire_chunks": 71,
+    "wire_sha256": "56df3b93499deac1cfb0b34e64289d085affb609670912cc06037fffcc9a2ba5",
+    "content_sha256": "837d6800b87c28127567bd163211d6b6786d8eedd310132fc019e3fd6b38fb9b",
+    "reasoning_sha256": "c6703bcaf133ebc8bf8a707988947cd36b159c398d6eca32a114ef9f0c051b30"
+  },
+  "latency": {
+    "total_ms": 6158.28379999999,
+    "first_wire_ms": 3800.1168999999936,
+    "first_content_ms": 5506.175799999997,
+    "first_reasoning_ms": 3800.7131999999983,
+    "evidence_write_ms": 60.89690000015253
+  }
+}

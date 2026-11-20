@@ -1,0 +1,8 @@
+{
+  "gold": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+  "compact": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M94\"}",
+  "filtered": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M94\"}",
+  "full": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+  "empty": "{\"footer\":\"UNKNOWN\",\"seal\":\"UNKNOWN\"}",
+  "memory": "{\"footer\":\"M16\",\"seal\":\"UNKNOWN\"}"
+}

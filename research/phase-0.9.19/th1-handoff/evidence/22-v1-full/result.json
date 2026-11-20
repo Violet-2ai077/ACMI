@@ -1,0 +1,65 @@
+{
+  "content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+  "reasoning": "We need answer only JSON. Need parse. Need deliver Alder print label. Need trail actual print code changes from first to last, no duplicate acknowledgements. print_line single label ready to print, literal values separated by slash no spaces. Use UNKNOWN unavailable. Need distinguish global footer updates from job-local rules.\n\nWe need determine Alder current print code, seal, footer. Transcript:\n1 Birch opened print code starts K14; S58 local.\n2 Alder opened start P83; seal S31 local. standing footer every workspace M94 global.\n3 Birch replace print code N72. standing footer ALL jobs now M16 superseding earlier global. local seal unchanged.\n4 Alder proof replace earlier print code with J26. Retain seal S31.\n5 Birch readback current code N72 seal S58 no change.\n\nDeliver Alder print label. Actual print code changes for Alder: P83 -> J26. Trail should list actual print code changes from first to last, no duplicate acknowledgements. Should include codes only? Example {\"trail\":[\"code1\",\"code2\"],\"print_line\":\"latestCode/seal/footer\"}. So trail [\"P83\",\"J26\"]. print_line latest code J26 / seal S31 / footer current global M16. No spaces: \"J26/S31/M16\". Need ensure \"global footer updates from job-local rules\" means footer is M16 global, not perhaps initial M94? Latest global supersedes. Alder local seal S31 retained. So final JSON only.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 491,
+    "completion_tokens": 340,
+    "total_tokens": 831,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 316
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00027765,
+      "allowance": 0.00016659,
+      "tokens": {
+        "input": 491,
+        "output": 340,
+        "reasoning": 316,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a538a5c39f0-2e214f7",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 22560,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.81649999996,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.19810000000870787,
+    "content_type": "text/event-stream",
+    "wire_chunks": 131,
+    "wire_sha256": "1d0db76d33d4f6ee77b1f1eb4e7a7e66c5162cd282c3d1d517a2b20979f4e8c1",
+    "content_sha256": "9bf04eeaf626332ba1643fcc082e5f51f72e15252bbea45e6f4e0f34b8b3f6b2",
+    "reasoning_sha256": "2193804e6fe20730d5ad81bc8d59d90a12b97fc8bf28695b38e4d69a56af3ae3"
+  },
+  "latency": {
+    "total_ms": 7467.993199999997,
+    "first_wire_ms": 2956.440799999982,
+    "first_content_ms": 7267.369799999986,
+    "first_reasoning_ms": 2957.4425999999803,
+    "evidence_write_ms": 116.71109999984037
+  }
+}

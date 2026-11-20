@@ -1,0 +1,65 @@
+{
+  "content": "Alder print job:\n- Print code revisions, in order: P83 → J26. Latest operative print code: J26.\n- Job seal: S31, for this job only; retained after print-code revision.\n- Workspace standing footer: M94 on every workspace job.",
+  "reasoning": "We need answer handoff note plain text. Need preserve ordered revisions print code, job seal, latest operative decision; discard repeated acknowledgements. We have source transcript two turns. Need note maybe include Alder job opened print code P83 seal S31 only this job. Standing footer every workspace job M94. Then replaced print code with J26 retain seal. Latest operative decision: print code J26; seal S31 retained. Need perhaps mention revisions ordered: P83 -> J26. The job seal S31 only Alder. Workspace footer M94. Don't infer missing facts. Short handoff note plain text. Must not add. Could include confirmations? \"Discard repeated acknowledgements\" means no fluff. Use plain text. Maybe:\n\nAlder print job\n- Print code revisions (ordered): P83 initially; replaced with J26 (latest operative).\n- Job seal: S31, applies only to Alder; retained through revision.\n- Workspace standing footer: M94 on every workspace job.\n\nNeed ensure \"print code starting at P83\" vs \"initially P83\". Good. No inference.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 249,
+    "completion_tokens": 291,
+    "total_tokens": 540,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 231
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00021195,
+      "allowance": 0.00012717,
+      "tokens": {
+        "input": 249,
+        "output": 291,
+        "reasoning": 231,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2a5a3e22439a-2e7beda",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 19045,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.83779999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.15260000000125729,
+    "content_type": "text/event-stream",
+    "wire_chunks": 95,
+    "wire_sha256": "f843e7e2aa5a5a39e412a5a68b560a3e6f1816b50cc35d1b52c250819f0926f6",
+    "content_sha256": "a521a6d6f68a165b945013d69146fc247c466ecdfbf2d2fc44ee8d9d6725546f",
+    "reasoning_sha256": "264296300816cde357dbaff2c87c6cafa3e04b0adc52f254a27d91c1e8798132"
+  },
+  "latency": {
+    "total_ms": 7247.848700000002,
+    "first_wire_ms": 3179.4817999999796,
+    "first_content_ms": 6358.8658,
+    "first_reasoning_ms": 3180.4979999999923,
+    "evidence_write_ms": 84.6850000002596
+  }
+}

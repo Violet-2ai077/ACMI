@@ -1,0 +1,65 @@
+{
+  "content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+  "reasoning": "We need answer only JSON. Need parse. Need deliver Alder print label. Need trail actual print code changes first to last, no duplicate acknowledgements. print_line literal values separated by slash no spaces: latestCode/seal/footer. Need distinguish global footer updates vs job-local rules. Evidence: initial Alder print code K14, seal S58 job-only. Standing footer every workspace job M16. Then replace earlier print code with N72 retain seal. Memory key footer value M94 source 4. Hmm transcript has source ids? Need determine footer latest? Memory says footer M94 source 4. Maybe source 4 supersedes? Need use supplied evidence. Need infer latest footer from memory? The transcript says workspace-wide footer now M16. Memory entry footer M94 source 4 perhaps later update? Need be careful: only supplied evidence. It includes memory with key footer value M94 source 4. Since question distinguish global footer updates from job-local rules. Need print line latest code N72, seal S58, footer M94 likely. Trail should list actual print code changes: [\"K14\",\"N72\"]. No duplicate ack. Output JSON exactly. Need consider if trail should only print codes? Yes \"trail lists the actual print code changes from first to last\". So K14,N72. print_line \"N72/S58/M94\". Ensure no spaces. Let's final JSON only.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 303,
+    "completion_tokens": 313,
+    "total_tokens": 616,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 289
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00023325,
+      "allowance": 0.00013995,
+      "tokens": {
+        "input": 303,
+        "output": 313,
+        "reasoning": 289,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2af7097",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 22491,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.79989999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.09380000000237487,
+    "content_type": "text/event-stream",
+    "wire_chunks": 131,
+    "wire_sha256": "fb045d1caed944ed87cabf97cf811e47db46ba75b0f343bd4f1efd75d21c0d31",
+    "content_sha256": "365a7e49a7232d370ab993698f43daa5fbdcc8460a81baa0d43ac4323e0a774f",
+    "reasoning_sha256": "c0033b62ecb4cbf868f55b6857743216971520516446db071aed047376c9a289"
+  },
+  "latency": {
+    "total_ms": 7762.1273,
+    "first_wire_ms": 3337.0290999999997,
+    "first_content_ms": 7534.732999999993,
+    "first_reasoning_ms": 3338.4050999999963,
+    "evidence_write_ms": 112.50010000007751
+  }
+}

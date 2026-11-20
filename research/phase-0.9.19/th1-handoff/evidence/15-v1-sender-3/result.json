@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Birch’s print code is now N72 with its local seal left unchanged, and the workspace-wide standing footer is now M16, superseding M94.\",\"tag\":\"birch-print\",\"global\":[{\"key\":\"footer\",\"value\":\"M16\"}]}",
+  "reasoning": "We need answer acknowledge concrete change short normal sentence, same reply only JSON. Need tag reuse birch-print. Global footer M16 supersedes. Local seal leave alone. Need mention Birch print code replaced N72, seal unchanged. JSON only. Keys footer literal. Ensure valid JSON only no markdown.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 397,
+    "completion_tokens": 121,
+    "total_tokens": 518,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 61
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00013215,
+      "allowance": 0.00007929,
+      "tokens": {
+        "input": 397,
+        "output": 121,
+        "reasoning": 61,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2af893e",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 8649,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.74330000003,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.1471999999921536,
+    "content_type": "text/event-stream",
+    "wire_chunks": 45,
+    "wire_sha256": "e414de8a4502412602a7a3352ee3d24f194b1114bc3040fd711cff7bfdbc5994",
+    "content_sha256": "dcfb7b169613da0701afa2d82d52d5d7c1a4e465a5d1aca01adacd1e4472e6a2",
+    "reasoning_sha256": "b05a1fdf8b10f46efa2793b18f4dbcab3755714c8b0ba1cdf360452ed2bbf97f"
+  },
+  "latency": {
+    "total_ms": 5259.788700000005,
+    "first_wire_ms": 3578.147800000006,
+    "first_content_ms": 4656.7618000000075,
+    "first_reasoning_ms": 3578.9359000000113,
+    "evidence_write_ms": 37.79240000009304
+  }
+}

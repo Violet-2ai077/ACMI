@@ -1,0 +1,65 @@
+{
+  "content": "{\"footer\":\"UNKNOWN\",\"seal\":\"UNKNOWN\"}",
+  "reasoning": "We need answer only JSON footer/seal. Need interpret. Fresh print job Cairn no local details. Workspace memory empty. Need defaults? Return UNKNOWN each value not established. So {\"footer\":\"UNKNOWN\",\"seal\":\"UNKNOWN\"}. Ensure only JSON.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 113,
+    "completion_tokens": 69,
+    "total_tokens": 182,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 55
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00005835,
+      "allowance": 0.00003501,
+      "tokens": {
+        "input": 113,
+        "output": 69,
+        "reasoning": 55,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2bc4e6b84a45-262d29c",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 5268,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.79150000005,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.0951000000059139,
+    "content_type": "text/event-stream",
+    "wire_chunks": 29,
+    "wire_sha256": "1f25bde300b3a905ea7f45f27713a60d9dfc09e6a7bc5784e8416a20c3be0e7c",
+    "content_sha256": "131b37da26b7a5d469dd12ec8957c9617689d35ed130eb7020ff16928b0128a7",
+    "reasoning_sha256": "8fb29be648e7156e71252f81dafac123069f7d1ca23ed8cd01f13a98c0c4551e"
+  },
+  "latency": {
+    "total_ms": 5029.52350000001,
+    "first_wire_ms": 3966.973900000012,
+    "first_content_ms": 5025.8157000000065,
+    "first_reasoning_ms": 3968.544099999999,
+    "evidence_write_ms": 25.321299999952316
+  }
+}

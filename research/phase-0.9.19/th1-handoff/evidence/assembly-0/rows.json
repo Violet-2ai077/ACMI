@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "user": "Open the Alder print job. Start its print code at K14; its seal is S58, only for this job. Set the standing footer on every workspace job to M16.",
+    "answer": "Alder is open with print code K14 and job-only seal S58, and the workspace-wide footer is now M16.",
+    "tag": "alder",
+    "global": [
+      {
+        "key": "footer",
+        "value": "M16"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "user": "Open the Birch print job. Its print code starts at P83; stamp S31 on this job only.",
+    "answer": "Birch is open with print code P83 and job-only seal S31.",
+    "tag": "birch",
+    "global": []
+  },
+  {
+    "id": 3,
+    "user": "On the Alder proof replace its earlier print code with N72. Retain its seal. Confirm the change.",
+    "answer": "Alder's print code is now N72, replacing K14, and its job-only seal S58 is retained.",
+    "tag": "alder",
+    "global": []
+  },
+  {
+    "id": 4,
+    "user": "For Birch replace the print code with J26. Separately the standing footer on ALL workspace jobs is now M94, superseding the earlier one. Leave the local seal alone.",
+    "answer": "Birch's print code is now J26, replacing P83, with job-only seal S31 unchanged; the workspace-wide footer is now M94, superseding M16.",
+    "tag": "birch",
+    "global": [
+      {
+        "key": "footer",
+        "value": "M94"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "user": "For that Birch proof, confirm its current code and seal for the operator. This is a readback, not a change.",
+    "answer": "Birch remains at print code J26 with job-only seal S31; this is a readback only, with no changes.\n\n{\"answer\":\"Birch's current print code is J26 and its job-only seal is S31.\",\"tag\":\"birch\",\"global\":[]}",
+    "tag": null,
+    "global": null
+  }
+]

@@ -1,0 +1,134 @@
+{
+  "at": "2026-11-20T14:23:04.382Z",
+  "calls": 24,
+  "halt": null,
+  "scores": [
+    {
+      "chains": {
+        "A": {
+          "expected": [
+            1,
+            3
+          ],
+          "actual": [
+            1,
+            3
+          ],
+          "purity": 1,
+          "coverage": 1,
+          "exact": true
+        },
+        "B": {
+          "expected": [
+            2,
+            4,
+            5
+          ],
+          "actual": [
+            2,
+            4
+          ],
+          "purity": 1,
+          "coverage": 0.6666666666666666,
+          "exact": false
+        }
+      },
+      "writes": false,
+      "global_exact": true,
+      "arms": {
+        "full": {
+          "trail": true,
+          "delivery": true,
+          "pass": true,
+          "context_bytes": 1351
+        },
+        "filtered": {
+          "trail": true,
+          "delivery": true,
+          "pass": true,
+          "context_bytes": 554
+        },
+        "compact": {
+          "trail": true,
+          "delivery": false,
+          "pass": false,
+          "context_bytes": 337
+        },
+        "gold": {
+          "trail": true,
+          "delivery": true,
+          "pass": true,
+          "context_bytes": 105
+        }
+      },
+      "smaller": true,
+      "transfer_ok": true,
+      "no_memory_ok": true,
+      "local_pass": false
+    },
+    {
+      "chains": {
+        "A": {
+          "expected": [
+            2,
+            4
+          ],
+          "actual": [
+            2,
+            4
+          ],
+          "purity": 1,
+          "coverage": 1,
+          "exact": true
+        },
+        "B": {
+          "expected": [
+            1,
+            3,
+            5
+          ],
+          "actual": [
+            1,
+            3,
+            5
+          ],
+          "purity": 1,
+          "coverage": 1,
+          "exact": true
+        }
+      },
+      "writes": true,
+      "global_exact": true,
+      "arms": {
+        "full": {
+          "trail": true,
+          "delivery": true,
+          "pass": true,
+          "context_bytes": 1332
+        },
+        "filtered": {
+          "trail": true,
+          "delivery": false,
+          "pass": false,
+          "context_bytes": 611
+        },
+        "compact": {
+          "trail": true,
+          "delivery": false,
+          "pass": false,
+          "context_bytes": 293
+        },
+        "gold": {
+          "trail": true,
+          "delivery": true,
+          "pass": true,
+          "context_bytes": 105
+        }
+      },
+      "smaller": true,
+      "transfer_ok": true,
+      "no_memory_ok": true,
+      "local_pass": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Alder's print code is now N72, replacing K14, and its job-only seal S58 is retained.\",\"tag\":\"alder\",\"global\":[]}",
+  "reasoning": "We need answer. Need acknowledge concrete change short sentence. Same reply JSON only. Job alder tag reuse. Seal S58 retained. Print code changed K14->N72. No global (footer unchanged). Need JSON {\"answer\":\"...\",\"tag\":\"...\",\"global\":[]}. Ensure only JSON in reply? User says \"In the SAME reply give only JSON ...\" So final only JSON. Answer concise normal sentence plus confirmation.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 359,
+    "completion_tokens": 127,
+    "total_tokens": 486,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 88
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00013005,
+      "allowance": 0.00007803,
+      "tokens": {
+        "input": 359,
+        "output": 127,
+        "reasoning": 88,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2af5f21",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 8298,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.9929,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.4194999999999709,
+    "content_type": "text/event-stream",
+    "wire_chunks": 49,
+    "wire_sha256": "1ebb040c357d7dc543da7e187d1f17d7c44eb86c31c99b80d08d5d189a1ba1b2",
+    "content_sha256": "69eeaf35babc4b52a03a75d212be68098c66bd1674dfe7fceb5f4649c92b582a",
+    "reasoning_sha256": "4ee8c93cfbbb33db9af9a227a4de383457fc1ccf2fc4685c90bae39c38ae680a"
+  },
+  "latency": {
+    "total_ms": 7510.805899999999,
+    "first_wire_ms": 5883.1567,
+    "first_content_ms": 7462.523399999998,
+    "first_reasoning_ms": 5885.313300000002,
+    "evidence_write_ms": 69.57859999998072
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "user": "Open the Birch print job. Its print code starts at K14; stamp S58 on this job only.",
+    "answer": "The Birch print job is open with its print code starting at K14, and stamp S58 is applied only to this job.",
+    "tag": "birch-print",
+    "global": []
+  },
+  {
+    "id": 2,
+    "user": "Open the Alder print job. Start its print code at P83; its seal is S31, only for this job. Set the standing footer on every workspace job to M94.",
+    "answer": "The Alder print job is open with its print code starting at P83 and seal S31 applied only to this job, and the workspace-wide standing footer is set to M94.",
+    "tag": "alder-print",
+    "global": [
+      {
+        "key": "footer",
+        "value": "M94"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "user": "For Birch replace the print code with N72. Separately the standing footer on ALL workspace jobs is now M16, superseding the earlier one. Leave the local seal alone.",
+    "answer": "Birch’s print code is now N72 with its local seal left unchanged, and the workspace-wide standing footer is now M16, superseding M94.",
+    "tag": "birch-print",
+    "global": [
+      {
+        "key": "footer",
+        "value": "M16"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "user": "On the Alder proof replace its earlier print code with J26. Retain its seal. Confirm the change.",
+    "answer": "Confirmed: the Alder proof’s print code is now J26, and its seal S31 is retained.",
+    "tag": "alder-print",
+    "global": []
+  },
+  {
+    "id": 5,
+    "user": "For that Birch proof, confirm its current code and seal for the operator. This is a readback, not a change.",
+    "answer": "Birch proof readback: current print code is N72 and its seal is S58; no changes made.",
+    "tag": "birch-print",
+    "global": []
+  }
+]

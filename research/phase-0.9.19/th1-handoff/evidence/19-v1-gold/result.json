@@ -1,0 +1,65 @@
+{
+  "content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+  "reasoning": "We need answer JSON only. Need parse evidence. Need deliver Alder print label. Evidence note: \"Alder: print code P83 then J26; seal S31.\" memory footer M16 source 3. Need trail actual print code changes first to last, no duplicate acknowledgements. So trail [\"P83\",\"J26\"]. print_line single label ready to print literal values separated by slash without spaces. Pattern latestCode/seal/footer. latestCode = J26, seal S31, footer M16. So \"J26/S31/M16\". Need ensure distinguish global footer updates from job-local rules. We have footer memory global M16. Output JSON only.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 185,
+    "completion_tokens": 162,
+    "total_tokens": 347,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 138
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00012495,
+      "allowance": 0.00007497,
+      "tokens": {
+        "input": 185,
+        "output": 162,
+        "reasoning": 138,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2af942f",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10259,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180000.8723,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.09170000001904555,
+    "content_type": "text/event-stream",
+    "wire_chunks": 65,
+    "wire_sha256": "ada42adb3a72cbf031c237e9fa0b2d6ff5a20d0edbaba59192053c477944d2fa",
+    "content_sha256": "9bf04eeaf626332ba1643fcc082e5f51f72e15252bbea45e6f4e0f34b8b3f6b2",
+    "reasoning_sha256": "adf9e1f55428bede75750fd02010e1438ff797da46c1262893cde878abaa70e2"
+  },
+  "latency": {
+    "total_ms": 5847.877399999998,
+    "first_wire_ms": 3819.2011999999813,
+    "first_content_ms": 5734.891999999993,
+    "first_reasoning_ms": 3820.367099999974,
+    "evidence_write_ms": 53.31939999997849
+  }
+}

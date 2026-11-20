@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Birch proof readback: current print code is N72 and its seal is S58; no changes made.\",\"tag\":\"birch-print\",\"global\":[]}",
+  "reasoning": "We need answer acknowledge concrete change? The note is readback for Birch proof current code and seal. Need state N72 and S58. Need JSON only with answer tag global []. Tag birch-print reuse. Short normal sentence. No change. \"Birch proof current code is N72 and its seal is S58.\" Ensure \"proof\" though earlier Birch print job, okay.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 561,
+    "completion_tokens": 118,
+    "total_tokens": 679,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 78
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.00015495,
+      "allowance": 0.00009297,
+      "tokens": {
+        "input": 561,
+        "output": 118,
+        "reasoning": 78,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2af8e57",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 9228,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180001.52769999998,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.14690000002156012,
+    "content_type": "text/event-stream",
+    "wire_chunks": 43,
+    "wire_sha256": "2ebdbcf6084630ce4b69cf8043ac0c1d7b622833f5f687e208ad393c38502cdc",
+    "content_sha256": "0d183f3bfb096ccc6d03e012bb330a1f97886206a409afa2b5822e0cb265522a",
+    "reasoning_sha256": "7a38e467b42e5fe024fd98922cb3b9e55bde36f3af745bd485e8ef6eebc4800d"
+  },
+  "latency": {
+    "total_ms": 6945.480800000005,
+    "first_wire_ms": 5465.172600000005,
+    "first_content_ms": 6495.012700000007,
+    "first_reasoning_ms": 5465.886199999994,
+    "evidence_write_ms": 40.679699999964214
+  }
+}

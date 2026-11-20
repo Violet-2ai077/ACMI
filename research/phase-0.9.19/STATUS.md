@@ -4,7 +4,15 @@ Updated: 2026-11-17. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Latest execution - TC5 unannounced ambiguity, 2026-11-17
+## Handoff pilot - TH1, 2026-11-20
+
+The [TH1 capture and offline replay](th1-handoff/README.md) preserve 24
+synthetic calls and both failed end-to-end trajectories. The four receiver
+conditions (mixed, filtered + memory, compact + memory, authored control)
+delivered correct labels in 2/2, 1/2, 0/2 and 2/2 variants, respectively.
+This is a new finite experiment, not a rescore of TC5 or a runtime feature.
+
+## TC5 unannounced ambiguity, 2026-11-17
 
 Owner authorized testing self-detected ambiguity without missing-source warnings,
 still no full state. [TC5 results](continuity-implicit-v1/RESULTS.md): two new

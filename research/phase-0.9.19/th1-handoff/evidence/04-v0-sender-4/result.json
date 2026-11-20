@@ -1,0 +1,65 @@
+{
+  "content": "{\"answer\":\"Birch's print code is now J26, replacing P83, with job-only seal S31 unchanged; the workspace-wide footer is now M94, superseding M16.\",\"tag\":\"birch\",\"global\":[{\"key\":\"footer\",\"value\":\"M94\"}]}",
+  "reasoning": "We need answer acknowledge concrete changes. Need JSON only. Mention Birch print code replaced J26, seal unchanged S31. Global footer M94 supersedes M16. Tag birch reuse. Answer short normal sentence plus JSON. Ensure only JSON? User says \"In the SAME reply give only JSON {\"answer\"...}\". We must output only JSON. Need include answer string. global footer M94.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 442,
+    "completion_tokens": 140,
+    "total_tokens": 582,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 79
+    },
+    "cost": 0,
+    "opencode": {
+      "billing_source": "go",
+      "list_cost": 0.0001503,
+      "allowance": 0.00009018,
+      "tokens": {
+        "input": 442,
+        "output": 140,
+        "reasoning": 79,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0
+      }
+    }
+  },
+  "done": true,
+  "generation_id": "gw-2abd6f0cdecb-2af60f5",
+  "response_model": "deepseek-v4.1-flash",
+  "outcome": "complete",
+  "attempted": true,
+  "transport_complete": true,
+  "response_body_complete": true,
+  "evidence_complete": true,
+  "error_code": null,
+  "http_status": 200,
+  "wire_bytes": 10315,
+  "termination": {
+    "policy": "D-180-LOCAL-v1",
+    "deadline_ms": 180000,
+    "deadline_at_ms": 180001.9485,
+    "stop_cause": null,
+    "stopped_at_ms": null,
+    "errors": [],
+    "prefix_integrity": true,
+    "local_pipeline_closed": true,
+    "cleanup_limit_ms": 5000,
+    "cleanup_ms": 0.11880000000019209,
+    "content_type": "text/event-stream",
+    "wire_chunks": 58,
+    "wire_sha256": "60aad636365a13df894eb4d6c80e2980fbc39f5f5f9998a694187cf3c881f3f5",
+    "content_sha256": "724d6f038f7f21627bcf05655a334cf8cac525c732b71d182cc56e7e6fd0a0ff",
+    "reasoning_sha256": "6ad2d69949286911e63b4932b57fedcc189cd272683ead98a818e4ade37c8f36"
+  },
+  "latency": {
+    "total_ms": 4960.091400000001,
+    "first_wire_ms": 2748.3111000000026,
+    "first_content_ms": 4140.709999999999,
+    "first_reasoning_ms": 2750.116600000001,
+    "evidence_write_ms": 60.53129999997327
+  }
+}
