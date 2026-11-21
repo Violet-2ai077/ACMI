@@ -1,0 +1,5526 @@
+{
+  "meta": {
+    "run_id": "2026-11-21T17-59-15-189Z-max-all",
+    "protocol_version": "TC3-B-de-greenhouse-strip-ablation-20261122",
+    "model": "deepseek-v4.1-flash",
+    "reasoning_effort": "max",
+    "only": "all",
+    "started_at": "2026-11-21T17:59:15.189Z",
+    "completed_at": "2026-11-21T18:04:02.711Z",
+    "total_transport_retries": 0,
+    "frozen_manifest": {
+      "experiment": "TC3-B",
+      "title": "24-Turn De-Greenhouse Task Continuity Stress Test (Strip CoT & Strip Explicit Headers)",
+      "protocol_version": "TC3-B-de-greenhouse-strip-ablation-20261122",
+      "story_id": "overlapping-notices",
+      "system_prompt_variant": "SYSTEM_C0 (Verbatim original TC1-TC3 prompt)",
+      "frozen_at": "2026-11-21T17:58:55.725Z",
+      "conditions_count": 3,
+      "turns_per_condition": 24,
+      "total_planned_calls": 72,
+      "frozen_proper_nouns": [
+        "云栖读书会",
+        "云溪读书会",
+        "溪岸书店",
+        "云栖",
+        "云溪",
+        "溪岸"
+      ],
+      "files": {
+        "story.mjs": "7dd5581107530c9e402fac2299fe179b54394bdc58e89503fe56741b5e884e08",
+        "stripper.mjs": "f24c49fd444161313a13ccdb5d3d58713f4786c1ceedf691ba26bbf7bd47b3a8",
+        "evaluate.mjs": "a9b49ef5ada8866e2c0e753cfecddc94ec7ee27748cec0e77c5a4a2bf79e3056",
+        "client.mjs": "5d07b66d0e7a68ca5a597fc1e24a89756bae25027bb943d2df1ecba884beebce",
+        "run.mjs": "2068e71a3d1636a2309d5b015b2031bb91d5f178cdf2ab88e1f149395f72a293",
+        "tc3-b.node-test.mjs": "aa2b679173a6cf1f0f1e9a132ff20df21dc10239b1db6e419cd7616afea6c68c"
+      }
+    }
+  },
+  "summary": {
+    "total_records": 72,
+    "by_condition": {
+      "S0_baseline": {
+        "total": 24,
+        "strict_valid_count": 24,
+        "strict_valid_rate": 1,
+        "canonical_exact_count": 24,
+        "canonical_exact_rate": 1,
+        "answer_minimal_count": 24,
+        "answer_minimal_rate": 1,
+        "full_pass_count": 24,
+        "full_pass_rate": 1,
+        "closed_fence_detached_count": 0,
+        "unresolved_count": 0,
+        "mean_reasoning_tokens": 182,
+        "median_reasoning_tokens": 160,
+        "mean_elapsed_ms": 3662.4,
+        "conditional_restoration_assessed": 19,
+        "conditional_restoration_correct": 19,
+        "conditional_restoration_rate": 1,
+        "turn_24_gap_14": {
+          "expected": "1",
+          "observed": "1",
+          "strict_valid": true,
+          "canonical_exact": true,
+          "answer_minimal": true,
+          "full_pass": true,
+          "reasoning_tokens": 153,
+          "elapsed_ms": 3482
+        },
+        "return_assessments": [
+          {
+            "turn": 3,
+            "task_key": "south-confirmation",
+            "gap_turns": 1,
+            "gap_bucket": "short_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 6,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 8,
+            "task_key": "paid-receipt",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 9,
+            "task_key": "south-confirmation",
+            "gap_turns": 5,
+            "gap_bucket": "long_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 10,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 11,
+            "task_key": "pickup-notice",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 12,
+            "task_key": "north-confirmation",
+            "gap_turns": 5,
+            "gap_bucket": "long_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 13,
+            "task_key": "paid-receipt",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 14,
+            "task_key": "pickup-notice",
+            "gap_turns": 2,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 15,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 16,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 17,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 1,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 18,
+            "task_key": "paid-receipt",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 19,
+            "task_key": "pickup-notice",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 20,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 21,
+            "task_key": "paid-receipt",
+            "gap_turns": 2,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 22,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 23,
+            "task_key": "pickup-notice",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 24,
+            "task_key": "south-confirmation",
+            "gap_turns": 14,
+            "gap_bucket": "long_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          }
+        ]
+      },
+      "S1_strip_cot": {
+        "total": 24,
+        "strict_valid_count": 24,
+        "strict_valid_rate": 1,
+        "canonical_exact_count": 24,
+        "canonical_exact_rate": 1,
+        "answer_minimal_count": 24,
+        "answer_minimal_rate": 1,
+        "full_pass_count": 24,
+        "full_pass_rate": 1,
+        "closed_fence_detached_count": 0,
+        "unresolved_count": 0,
+        "mean_reasoning_tokens": 232.1,
+        "median_reasoning_tokens": 208,
+        "mean_elapsed_ms": 4253.8,
+        "conditional_restoration_assessed": 19,
+        "conditional_restoration_correct": 19,
+        "conditional_restoration_rate": 1,
+        "turn_24_gap_14": {
+          "expected": "1",
+          "observed": "1",
+          "strict_valid": true,
+          "canonical_exact": true,
+          "answer_minimal": true,
+          "full_pass": true,
+          "reasoning_tokens": 200,
+          "elapsed_ms": 5952
+        },
+        "return_assessments": [
+          {
+            "turn": 3,
+            "task_key": "south-confirmation",
+            "gap_turns": 1,
+            "gap_bucket": "short_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 6,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 8,
+            "task_key": "paid-receipt",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 9,
+            "task_key": "south-confirmation",
+            "gap_turns": 5,
+            "gap_bucket": "long_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 10,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 11,
+            "task_key": "pickup-notice",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 12,
+            "task_key": "north-confirmation",
+            "gap_turns": 5,
+            "gap_bucket": "long_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 13,
+            "task_key": "paid-receipt",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 14,
+            "task_key": "pickup-notice",
+            "gap_turns": 2,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 15,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 16,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 17,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 1,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 18,
+            "task_key": "paid-receipt",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 19,
+            "task_key": "pickup-notice",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 20,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 21,
+            "task_key": "paid-receipt",
+            "gap_turns": 2,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 22,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 23,
+            "task_key": "pickup-notice",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 24,
+            "task_key": "south-confirmation",
+            "gap_turns": 14,
+            "gap_bucket": "long_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          }
+        ]
+      },
+      "S2_strip_cot_and_header": {
+        "total": 24,
+        "strict_valid_count": 24,
+        "strict_valid_rate": 1,
+        "canonical_exact_count": 24,
+        "canonical_exact_rate": 1,
+        "answer_minimal_count": 24,
+        "answer_minimal_rate": 1,
+        "full_pass_count": 24,
+        "full_pass_rate": 1,
+        "closed_fence_detached_count": 0,
+        "unresolved_count": 0,
+        "mean_reasoning_tokens": 232.5,
+        "median_reasoning_tokens": 209.5,
+        "mean_elapsed_ms": 4059.7,
+        "conditional_restoration_assessed": 19,
+        "conditional_restoration_correct": 19,
+        "conditional_restoration_rate": 1,
+        "turn_24_gap_14": {
+          "expected": "1",
+          "observed": "1",
+          "strict_valid": true,
+          "canonical_exact": true,
+          "answer_minimal": true,
+          "full_pass": true,
+          "reasoning_tokens": 143,
+          "elapsed_ms": 4913
+        },
+        "return_assessments": [
+          {
+            "turn": 3,
+            "task_key": "south-confirmation",
+            "gap_turns": 1,
+            "gap_bucket": "short_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 6,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 8,
+            "task_key": "paid-receipt",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 9,
+            "task_key": "south-confirmation",
+            "gap_turns": 5,
+            "gap_bucket": "long_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 10,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 11,
+            "task_key": "pickup-notice",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 12,
+            "task_key": "north-confirmation",
+            "gap_turns": 5,
+            "gap_bucket": "long_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 13,
+            "task_key": "paid-receipt",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 14,
+            "task_key": "pickup-notice",
+            "gap_turns": 2,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 15,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 16,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 17,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 1,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 18,
+            "task_key": "paid-receipt",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 19,
+            "task_key": "pickup-notice",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 20,
+            "task_key": "north-confirmation",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "2",
+            "actual_birth_marker": "2",
+            "observed": "2",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 21,
+            "task_key": "paid-receipt",
+            "gap_turns": 2,
+            "gap_bucket": "short_return",
+            "expected": "3",
+            "actual_birth_marker": "3",
+            "observed": "3",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 22,
+            "task_key": "unpaid-reminder",
+            "gap_turns": 4,
+            "gap_bucket": "short_return",
+            "expected": "4",
+            "actual_birth_marker": "4",
+            "observed": "4",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 23,
+            "task_key": "pickup-notice",
+            "gap_turns": 3,
+            "gap_bucket": "short_return",
+            "expected": "5",
+            "actual_birth_marker": "5",
+            "observed": "5",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          },
+          {
+            "turn": 24,
+            "task_key": "south-confirmation",
+            "gap_turns": 14,
+            "gap_bucket": "long_return",
+            "expected": "1",
+            "actual_birth_marker": "1",
+            "observed": "1",
+            "assessable": true,
+            "restored": true,
+            "reason": null
+          }
+        ]
+      }
+    },
+    "by_condition_and_bucket": {
+      "S0_baseline": {
+        "birth_or_continue": {
+          "total": 5,
+          "strict_valid_count": 5,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 5,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 5,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 5,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 195.4,
+          "median_reasoning_tokens": 161,
+          "mean_elapsed_ms": 4155.2
+        },
+        "short_return": {
+          "total": 16,
+          "strict_valid_count": 16,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 16,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 16,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 16,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 183.5,
+          "median_reasoning_tokens": 176.5,
+          "mean_elapsed_ms": 3580.4
+        },
+        "long_return": {
+          "total": 3,
+          "strict_valid_count": 3,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 3,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 3,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 3,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 151.7,
+          "median_reasoning_tokens": 153,
+          "mean_elapsed_ms": 3278.3
+        }
+      },
+      "S1_strip_cot": {
+        "birth_or_continue": {
+          "total": 5,
+          "strict_valid_count": 5,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 5,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 5,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 5,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 212,
+          "median_reasoning_tokens": 216,
+          "mean_elapsed_ms": 3849
+        },
+        "short_return": {
+          "total": 16,
+          "strict_valid_count": 16,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 16,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 16,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 16,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 226.6,
+          "median_reasoning_tokens": 208,
+          "mean_elapsed_ms": 4148.7
+        },
+        "long_return": {
+          "total": 3,
+          "strict_valid_count": 3,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 3,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 3,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 3,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 295.3,
+          "median_reasoning_tokens": 200,
+          "mean_elapsed_ms": 5489.3
+        }
+      },
+      "S2_strip_cot_and_header": {
+        "birth_or_continue": {
+          "total": 5,
+          "strict_valid_count": 5,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 5,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 5,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 5,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 248.6,
+          "median_reasoning_tokens": 216,
+          "mean_elapsed_ms": 4097
+        },
+        "short_return": {
+          "total": 16,
+          "strict_valid_count": 16,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 16,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 16,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 16,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 206.1,
+          "median_reasoning_tokens": 182,
+          "mean_elapsed_ms": 3687.8
+        },
+        "long_return": {
+          "total": 3,
+          "strict_valid_count": 3,
+          "strict_valid_rate": 1,
+          "canonical_exact_count": 3,
+          "canonical_exact_rate": 1,
+          "answer_minimal_count": 3,
+          "answer_minimal_rate": 1,
+          "full_pass_count": 3,
+          "full_pass_rate": 1,
+          "closed_fence_detached_count": 0,
+          "unresolved_count": 0,
+          "mean_reasoning_tokens": 346.7,
+          "median_reasoning_tokens": 295,
+          "mean_elapsed_ms": 5981
+        }
+      }
+    }
+  },
+  "records": [
+    {
+      "task_id": "S0_baseline_overlapping-notices_t01",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 1,
+      "elapsed_ms": 3642,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 430,
+        "completion_tokens": 193,
+        "total_tokens": 623,
+        "reasoning_tokens": 154
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 1,
+        "source_id": "u1",
+        "task_key": "south-confirmation",
+        "kind": "birth",
+        "birth_turn": 1,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "纸质书"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！活动将于周六14:00在南馆三楼开始，请自带纸质书参加。期待届时见面！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/001-S0_baseline_overlapping-notices_t01.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t02",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 2,
+      "elapsed_ms": 4077,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 508,
+        "completion_tokens": 202,
+        "total_tokens": 710,
+        "reasoning_tokens": 161
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 2,
+        "source_id": "u2",
+        "task_key": "north-confirmation",
+        "kind": "birth",
+        "birth_turn": 2,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "铅笔"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！活动将于周日10:00在北馆二楼开始，请自带铅笔用于阅读批注。期待您的参与！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/002-S0_baseline_overlapping-notices_t02.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t03",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 3,
+      "elapsed_ms": 3220,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 584,
+        "completion_tokens": 172,
+        "total_tokens": 756,
+        "reasoning_tokens": 120
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 3,
+        "source_id": "u3",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 1,
+        "gap_turns": 1,
+        "gap_bucket": "short_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！本周六14:00，南馆三楼见。记得带纸质书；万一忘带也别慌，可以找书友两人共读，轻松开聊～",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/003-S0_baseline_overlapping-notices_t03.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t04",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 4,
+      "elapsed_ms": 4501,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 683,
+        "completion_tokens": 387,
+        "total_tokens": 1070,
+        "reasoning_tokens": 340
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 4,
+        "source_id": "u4",
+        "task_key": "paid-receipt",
+        "kind": "birth",
+        "birth_turn": 4,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "谢"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：收款确认｜云栖读书会报名费\n\n您好！您支付的云栖读书会报名费68元已到账。感谢您的支持与信任，特此确认。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/004-S0_baseline_overlapping-notices_t04.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t05",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 5,
+      "elapsed_ms": 5824,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 778,
+        "completion_tokens": 225,
+        "total_tokens": 1003,
+        "reasoning_tokens": 185
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 5,
+        "source_id": "u5",
+        "task_key": "unpaid-reminder",
+        "kind": "birth",
+        "birth_turn": 5,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：您的活动费用48元尚未支付，请于周五18:00前完成缴费。感谢您的配合！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/005-S0_baseline_overlapping-notices_t05.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t06",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 6,
+      "elapsed_ms": 3833,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 854,
+        "completion_tokens": 249,
+        "total_tokens": 1103,
+        "reasoning_tokens": 202
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 6,
+        "source_id": "u6",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 2,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "铅笔"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！活动于周日10:00在北馆二楼开始，自带普通铅笔做阅读批注即可，无需另购文具。期待您的参与！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/006-S0_baseline_overlapping-notices_t06.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t07",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 7,
+      "elapsed_ms": 2732,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 950,
+        "completion_tokens": 172,
+        "total_tokens": 1122,
+        "reasoning_tokens": 137
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 7,
+        "source_id": "u7",
+        "task_key": "pickup-notice",
+        "kind": "birth",
+        "birth_turn": 7,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/007-S0_baseline_overlapping-notices_t07.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t08",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 8,
+      "elapsed_ms": 3627,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1020,
+        "completion_tokens": 279,
+        "total_tokens": 1299,
+        "reasoning_tokens": 241
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 8,
+        "source_id": "u8",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 4,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "谢"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：款项已收到｜云栖读书会\n\n您好！云栖读书会报名费68元已实收，感谢您的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/008-S0_baseline_overlapping-notices_t08.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t09",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 9,
+      "elapsed_ms": 3024,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1100,
+        "completion_tokens": 194,
+        "total_tokens": 1294,
+        "reasoning_tokens": 143
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 9,
+        "source_id": "u9",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 3,
+        "gap_turns": 5,
+        "gap_bucket": "long_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "袋"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！周六14:00南馆三楼见。纸质书拿在手里即可，无需另备袋子；若忘带，也可与书友两人共读。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/009-S0_baseline_overlapping-notices_t09.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t10",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 10,
+      "elapsed_ms": 3549,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1184,
+        "completion_tokens": 168,
+        "total_tokens": 1352,
+        "reasoning_tokens": 131
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 10,
+        "source_id": "u10",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 5,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：活动费用48元，请于周五18:00前完成支付。感谢您的配合！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/010-S0_baseline_overlapping-notices_t10.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t11",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 11,
+      "elapsed_ms": 2465,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1258,
+        "completion_tokens": 202,
+        "total_tokens": 1460,
+        "reasoning_tokens": 155
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 11,
+        "source_id": "u11",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 7,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取；取书无需带打印单，出示订单号即可。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/011-S0_baseline_overlapping-notices_t11.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t12",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 12,
+      "elapsed_ms": 3329,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1336,
+        "completion_tokens": 200,
+        "total_tokens": 1536,
+        "reasoning_tokens": 159
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 12,
+        "source_id": "u12",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 6,
+        "gap_turns": 5,
+        "gap_bucket": "long_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！活动周日10:00在北馆二楼开始，请自带普通铅笔，可先轻轻标记。期待参与！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/012-S0_baseline_overlapping-notices_t12.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t13",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 13,
+      "elapsed_ms": 2614,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1412,
+        "completion_tokens": 188,
+        "total_tokens": 1600,
+        "reasoning_tokens": 148
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 13,
+        "source_id": "u13",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 8,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫",
+              "收款"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：云栖读书会报名费收款确认\n\n正文：云栖读书会报名费68元已到账，感谢您的支付与支持。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/013-S0_baseline_overlapping-notices_t13.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t14",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 14,
+      "elapsed_ms": 4364,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1489,
+        "completion_tokens": 334,
+        "total_tokens": 1823,
+        "reasoning_tokens": 274
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 14,
+        "source_id": "u14",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 11,
+        "gap_turns": 2,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "代领",
+              "朋友"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取；无需打印单，出示订单号即可。若请朋友代领，提供订单号和柜号即可，无需身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/014-S0_baseline_overlapping-notices_t14.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t15",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 15,
+      "elapsed_ms": 3673,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1583,
+        "completion_tokens": 224,
+        "total_tokens": 1807,
+        "reasoning_tokens": 188
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 15,
+        "source_id": "u15",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 10,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：您的活动费用48元请于周五18:00前完成支付，感谢配合！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/015-S0_baseline_overlapping-notices_t15.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t16",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 16,
+      "elapsed_ms": 3557,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1652,
+        "completion_tokens": 235,
+        "total_tokens": 1887,
+        "reasoning_tokens": 180
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 16,
+        "source_id": "u16",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 12,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "借"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！活动周日10:00在北馆二楼开始。请自带普通铅笔做批注；忘带可向同伴借用，无需另购，也别因文具缺席。期待参与！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/016-S0_baseline_overlapping-notices_t16.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t17",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 17,
+      "elapsed_ms": 3448,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1740,
+        "completion_tokens": 266,
+        "total_tokens": 2006,
+        "reasoning_tokens": 224
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 17,
+        "source_id": "u17",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 15,
+        "gap_turns": 1,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：活动费用48元，请于周五18:00前完成支付；如已完成转账，请忽略本条提醒。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/017-S0_baseline_overlapping-notices_t17.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t18",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 18,
+      "elapsed_ms": 3207,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1819,
+        "completion_tokens": 218,
+        "total_tokens": 2037,
+        "reasoning_tokens": 177
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 18,
+        "source_id": "u18",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 13,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：报名费已收到，谢谢您｜云栖读书会\n\n正文：云栖读书会报名费68元已收到，感谢您的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/018-S0_baseline_overlapping-notices_t18.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t19",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 19,
+      "elapsed_ms": 4088,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1893,
+        "completion_tokens": 351,
+        "total_tokens": 2244,
+        "reasoning_tokens": 291
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 19,
+        "source_id": "u19",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 14,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取；无需打印单，出示订单号即可。若请朋友代领，提供订单号和柜号即可，无需身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/019-S0_baseline_overlapping-notices_t19.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t20",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 20,
+      "elapsed_ms": 5048,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 1990,
+        "completion_tokens": 189,
+        "total_tokens": 2179,
+        "reasoning_tokens": 130
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 20,
+        "source_id": "u20",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 16,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！本周日10:00，北馆二楼见。欢迎家长和小朋友一起参加，带上普通铅笔做批注即可；忘带也能向同伴借用，轻轻标记就好。期待你们来！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/020-S0_baseline_overlapping-notices_t20.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t21",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 21,
+      "elapsed_ms": 3660,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 2082,
+        "completion_tokens": 186,
+        "total_tokens": 2268,
+        "reasoning_tokens": 145
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 21,
+        "source_id": "u21",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 18,
+        "gap_turns": 2,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：云栖读书会报名费收款确认\n\n您好！您支付的云栖读书会报名费68元已收到，感谢您的支持与信任。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/021-S0_baseline_overlapping-notices_t21.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t22",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 22,
+      "elapsed_ms": 3282,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 2157,
+        "completion_tokens": 199,
+        "total_tokens": 2356,
+        "reasoning_tokens": 154
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 22,
+        "source_id": "u22",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 17,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：您的活动费用48元尚未支付，请于周五18:00前完成缴费；如已转账，请忽略本条提醒。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/022-S0_baseline_overlapping-notices_t22.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t23",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 23,
+      "elapsed_ms": 3652,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 2238,
+        "completion_tokens": 240,
+        "total_tokens": 2478,
+        "reasoning_tokens": 176
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 23,
+        "source_id": "u23",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 19,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取；到店报订单号即可，无需打印单。若请朋友代领，也只需提供订单号和柜号，无需出示身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/023-S0_baseline_overlapping-notices_t23.json"
+    },
+    {
+      "task_id": "S0_baseline_overlapping-notices_t24",
+      "condition_id": "S0_baseline",
+      "condition_short_id": "S0",
+      "include_reasoning_history": true,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 24,
+      "elapsed_ms": 3482,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "full_reasoning_content",
+      "usage": {
+        "prompt_tokens": 2339,
+        "completion_tokens": 203,
+        "total_tokens": 2542,
+        "reasoning_tokens": 153
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 24,
+        "source_id": "u24",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 9,
+        "gap_turns": 14,
+        "gap_bucket": "long_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "三楼",
+              "3楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！活动于周六14:00在南馆三楼开始。请自带纸质书；若忘带也不用为难，可与书友两人共读。期待参加！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/024-S0_baseline_overlapping-notices_t24.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t01",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 1,
+      "elapsed_ms": 3223,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 430,
+        "completion_tokens": 114,
+        "total_tokens": 544,
+        "reasoning_tokens": 76
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 1,
+        "source_id": "u1",
+        "task_key": "south-confirmation",
+        "kind": "birth",
+        "birth_turn": 1,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "纸质书"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！本周六14:00在南馆三楼开始，请参加者自带纸质书。期待见面。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/025-S1_strip_cot_overlapping-notices_t01.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t02",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 2,
+      "elapsed_ms": 4651,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 507,
+        "completion_tokens": 406,
+        "total_tokens": 913,
+        "reasoning_tokens": 367
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 2,
+        "source_id": "u2",
+        "task_key": "north-confirmation",
+        "kind": "birth",
+        "birth_turn": 2,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "铅笔"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！本周日10:00在北馆二楼开始，请自带铅笔用于阅读批注。期待参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/026-S1_strip_cot_overlapping-notices_t02.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t03",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 3,
+      "elapsed_ms": 4093,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 581,
+        "completion_tokens": 269,
+        "total_tokens": 850,
+        "reasoning_tokens": 222
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 3,
+        "source_id": "u3",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 1,
+        "gap_turns": 1,
+        "gap_bucket": "short_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！周六14:00在南馆三楼开始。记得带纸质书；万一忘带也别慌，可以两人共读，轻松来就好～",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/027-S1_strip_cot_overlapping-notices_t03.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t04",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 4,
+      "elapsed_ms": 3983,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 675,
+        "completion_tokens": 266,
+        "total_tokens": 941,
+        "reasoning_tokens": 216
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 4,
+        "source_id": "u4",
+        "task_key": "paid-receipt",
+        "kind": "birth",
+        "birth_turn": 4,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "谢"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**主题：云栖读书会报名费收款确认**\n\n您好！云栖读书会已收到您的报名费68元，特此确认。感谢您的支持与参与！\n\n云栖读书会",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/028-S1_strip_cot_overlapping-notices_t04.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t05",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 5,
+      "elapsed_ms": 2896,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 773,
+        "completion_tokens": 138,
+        "total_tokens": 911,
+        "reasoning_tokens": 93
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 5,
+        "source_id": "u5",
+        "task_key": "unpaid-reminder",
+        "kind": "birth",
+        "birth_turn": 5,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：您的报名费48元尚未支付，请于周五18:00前完成付款。方便的话记得处理一下，感谢支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/029-S1_strip_cot_overlapping-notices_t05.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t06",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 6,
+      "elapsed_ms": 3257,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 854,
+        "completion_tokens": 243,
+        "total_tokens": 1097,
+        "reasoning_tokens": 194
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 6,
+        "source_id": "u6",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 2,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "铅笔"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！本周日10:00在北馆二楼开始，请自带铅笔做阅读批注；普通铅笔就够，无需另买文具。期待参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/030-S1_strip_cot_overlapping-notices_t06.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t07",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 7,
+      "elapsed_ms": 4492,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 343,
+        "total_tokens": 1295,
+        "reasoning_tokens": 308
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 7,
+        "source_id": "u7",
+        "task_key": "pickup-notice",
+        "kind": "birth",
+        "birth_turn": 7,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/031-S1_strip_cot_overlapping-notices_t07.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t08",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 8,
+      "elapsed_ms": 5095,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1022,
+        "completion_tokens": 342,
+        "total_tokens": 1364,
+        "reasoning_tokens": 288
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 8,
+        "source_id": "u8",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 4,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "谢"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**主题：您的68元报名费已到账**\n\n您好，感谢您支持云栖读书会。您的报名费已到账，实收68元。感谢您的支持与信任！\n\n云栖读书会",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/032-S1_strip_cot_overlapping-notices_t08.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t09",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 9,
+      "elapsed_ms": 3960,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1118,
+        "completion_tokens": 238,
+        "total_tokens": 1356,
+        "reasoning_tokens": 181
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 9,
+        "source_id": "u9",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 3,
+        "gap_turns": 5,
+        "gap_bucket": "long_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "袋"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！周六14:00在南馆三楼开始。记得带纸质书；忘带也没关系，可以两人共读，把书拿在手里就行，不用额外准备袋子～期待见面。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/033-S1_strip_cot_overlapping-notices_t09.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t10",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 10,
+      "elapsed_ms": 3361,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1208,
+        "completion_tokens": 217,
+        "total_tokens": 1425,
+        "reasoning_tokens": 178
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 10,
+        "source_id": "u10",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 5,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：报名费48元请于周五18:00前支付。方便时处理即可，感谢支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/034-S1_strip_cot_overlapping-notices_t10.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t11",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 11,
+      "elapsed_ms": 3885,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1284,
+        "completion_tokens": 153,
+        "total_tokens": 1437,
+        "reasoning_tokens": 107
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 11,
+        "source_id": "u11",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 7,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前到柜B3领取。取书无需打印单，出示订单号即可。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/035-S1_strip_cot_overlapping-notices_t11.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t12",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 12,
+      "elapsed_ms": 6556,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1361,
+        "completion_tokens": 553,
+        "total_tokens": 1914,
+        "reasoning_tokens": 505
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 12,
+        "source_id": "u12",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 6,
+        "gap_turns": 5,
+        "gap_bucket": "long_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！本周日10:00在北馆二楼开始。请自带普通铅笔，批注时可先轻轻标记，无需另买文具。期待参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/036-S1_strip_cot_overlapping-notices_t12.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t13",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 13,
+      "elapsed_ms": 4980,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1444,
+        "completion_tokens": 214,
+        "total_tokens": 1658,
+        "reasoning_tokens": 181
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 13,
+        "source_id": "u13",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 8,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫",
+              "收款"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**主题：报名费收款确认**\n\n云栖读书会已收到您的报名费68元，感谢您的支持。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/037-S1_strip_cot_overlapping-notices_t13.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t14",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 14,
+      "elapsed_ms": 7050,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1514,
+        "completion_tokens": 544,
+        "total_tokens": 2058,
+        "reasoning_tokens": 485
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 14,
+        "source_id": "u14",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 11,
+        "gap_turns": 2,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "代领",
+              "朋友"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】订单P52已备好，请于周一19:00前到柜B3领取。无需打印单，出示订单号即可；若请朋友代领，提供订单号和柜号即可，无需身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/038-S1_strip_cot_overlapping-notices_t14.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t15",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 15,
+      "elapsed_ms": 3454,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1607,
+        "completion_tokens": 179,
+        "total_tokens": 1786,
+        "reasoning_tokens": 143
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 15,
+        "source_id": "u15",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 10,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：您的报名费48元请于周五18:00前支付即可，感谢支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/039-S1_strip_cot_overlapping-notices_t15.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t16",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 16,
+      "elapsed_ms": 5019,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1676,
+        "completion_tokens": 395,
+        "total_tokens": 2071,
+        "reasoning_tokens": 338
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 16,
+        "source_id": "u16",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 12,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "借"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功！本周日10:00在北馆二楼开始。请自带普通铅笔做阅读批注，可先轻轻标记；忘带可向同伴借用，别因文具缺席。期待参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/040-S1_strip_cot_overlapping-notices_t16.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t17",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 17,
+      "elapsed_ms": 4424,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1766,
+        "completion_tokens": 291,
+        "total_tokens": 2057,
+        "reasoning_tokens": 250
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 17,
+        "source_id": "u17",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 15,
+        "gap_turns": 1,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：报名费48元请于周五18:00前支付即可。如果已经转账，就忽略这条提醒。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/041-S1_strip_cot_overlapping-notices_t17.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t18",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 18,
+      "elapsed_ms": 3471,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1844,
+        "completion_tokens": 179,
+        "total_tokens": 2023,
+        "reasoning_tokens": 142
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 18,
+        "source_id": "u18",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 13,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**主题：您的报名费已收到**\n\n您好，云栖读书会已收到您支付的报名费68元，感谢您的支持。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/042-S1_strip_cot_overlapping-notices_t18.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t19",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 19,
+      "elapsed_ms": 4730,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1914,
+        "completion_tokens": 409,
+        "total_tokens": 2323,
+        "reasoning_tokens": 348
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 19,
+        "source_id": "u19",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 14,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前领取，柜号为B3。无需打印单，出示订单号即可；若请朋友代领，提供订单号和柜号即可，无需身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/043-S1_strip_cot_overlapping-notices_t19.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t20",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 20,
+      "elapsed_ms": 4141,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2012,
+        "completion_tokens": 286,
+        "total_tokens": 2298,
+        "reasoning_tokens": 233
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 20,
+        "source_id": "u20",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 16,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】报名成功啦！本周日10:00在北馆二楼见～记得带上普通铅笔做阅读批注；忘带也没关系，可以和小伙伴借用。期待和你一起读书！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/044-S1_strip_cot_overlapping-notices_t20.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t21",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 21,
+      "elapsed_ms": 2829,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2098,
+        "completion_tokens": 184,
+        "total_tokens": 2282,
+        "reasoning_tokens": 145
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 21,
+        "source_id": "u21",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 18,
+        "gap_turns": 2,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "**主题：报名费收款确认**\n\n您好！云栖读书会已收到您的报名费68元，特此确认。感谢您的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/045-S1_strip_cot_overlapping-notices_t21.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t22",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 22,
+      "elapsed_ms": 2638,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2171,
+        "completion_tokens": 179,
+        "total_tokens": 2350,
+        "reasoning_tokens": 136
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 22,
+        "source_id": "u22",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 17,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云溪读书会】温馨提醒：报名费48元请于周五18:00前支付。若已转账，请忽略此提醒，感谢支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/046-S1_strip_cot_overlapping-notices_t22.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t23",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 23,
+      "elapsed_ms": 3952,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2250,
+        "completion_tokens": 296,
+        "total_tokens": 2546,
+        "reasoning_tokens": 235
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 23,
+        "source_id": "u23",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 19,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52已备好，请于周一19:00前领取，柜号为B3。领取时无需打印任何单据，出示或报出订单号即可；代领人到店也报订单号即可。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/047-S1_strip_cot_overlapping-notices_t23.json"
+    },
+    {
+      "task_id": "S1_strip_cot_overlapping-notices_t24",
+      "condition_id": "S1_strip_cot",
+      "condition_short_id": "S1",
+      "include_reasoning_history": false,
+      "strip_headers": false,
+      "story_id": "overlapping-notices",
+      "turn": 24,
+      "elapsed_ms": 5952,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2348,
+        "completion_tokens": 247,
+        "total_tokens": 2595,
+        "reasoning_tokens": 200
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 24,
+        "source_id": "u24",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 9,
+        "gap_turns": 14,
+        "gap_bucket": "long_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "三楼",
+              "3楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！周六14:00在南馆三楼开始，请自带纸质书；若忘带，可两人共读，不必为难。期待参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/048-S1_strip_cot_overlapping-notices_t24.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t01",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 1,
+      "elapsed_ms": 4048,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 430,
+        "completion_tokens": 286,
+        "total_tokens": 716,
+        "reasoning_tokens": 249
+      },
+      "header_stripped_changed": true,
+      "grade": {
+        "turn": 1,
+        "source_id": "u1",
+        "task_key": "south-confirmation",
+        "kind": "birth",
+        "birth_turn": 1,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "纸质书"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【云栖读书会】报名成功！活动将于周六14:00在南馆三楼开始，请自带纸质书，准时参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/049-S2_strip_cot_and_header_overlapping-notices_t01.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t02",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 2,
+      "elapsed_ms": 3704,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 500,
+        "completion_tokens": 253,
+        "total_tokens": 753,
+        "reasoning_tokens": 216
+      },
+      "header_stripped_changed": true,
+      "grade": {
+        "turn": 2,
+        "source_id": "u2",
+        "task_key": "north-confirmation",
+        "kind": "birth",
+        "birth_turn": 2,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "铅笔"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功！云溪读书会将于周日10:00在北馆二楼举行，请自带铅笔用于阅读批注，准时参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/050-S2_strip_cot_and_header_overlapping-notices_t02.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t03",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 3,
+      "elapsed_ms": 4538,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 569,
+        "completion_tokens": 379,
+        "total_tokens": 948,
+        "reasoning_tokens": 338
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 3,
+        "source_id": "u3",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 1,
+        "gap_turns": 1,
+        "gap_bucket": "short_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功！周六14:00南馆三楼见～请带上纸质书；如果忘带也没关系，两人共读一本也轻松开读！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/051-S2_strip_cot_and_header_overlapping-notices_t03.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t04",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 4,
+      "elapsed_ms": 4014,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 657,
+        "completion_tokens": 251,
+        "total_tokens": 908,
+        "reasoning_tokens": 210
+      },
+      "header_stripped_changed": true,
+      "grade": {
+        "turn": 4,
+        "source_id": "u4",
+        "task_key": "paid-receipt",
+        "kind": "birth",
+        "birth_turn": 4,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "谢"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：云栖读书会报名费收款确认\n\n您好，您支付的68元报名费已到账。感谢您对云栖读书会的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/052-S2_strip_cot_and_header_overlapping-notices_t04.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t05",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 5,
+      "elapsed_ms": 5802,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 740,
+        "completion_tokens": 437,
+        "total_tokens": 1177,
+        "reasoning_tokens": 393
+      },
+      "header_stripped_changed": true,
+      "grade": {
+        "turn": 5,
+        "source_id": "u5",
+        "task_key": "unpaid-reminder",
+        "kind": "birth",
+        "birth_turn": 5,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "您好，温馨提醒：云溪读书会报名费48元尚未支付，请于周五18:00前完成缴费。若已支付请忽略，感谢配合！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/053-S2_strip_cot_and_header_overlapping-notices_t05.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t06",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 6,
+      "elapsed_ms": 3515,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 817,
+        "completion_tokens": 210,
+        "total_tokens": 1027,
+        "reasoning_tokens": 169
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 6,
+        "source_id": "u6",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 2,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "铅笔"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功！活动将于周日10:00在北馆二楼开始，请自带普通铅笔做阅读批注即可，无需另外购买文具，准时参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/054-S2_strip_cot_and_header_overlapping-notices_t06.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t07",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 7,
+      "elapsed_ms": 2917,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 907,
+        "completion_tokens": 211,
+        "total_tokens": 1118,
+        "reasoning_tokens": 175
+      },
+      "header_stripped_changed": true,
+      "grade": {
+        "turn": 7,
+        "source_id": "u7",
+        "task_key": "pickup-notice",
+        "kind": "birth",
+        "birth_turn": 7,
+        "previous_visit_turn": null,
+        "gap_turns": 0,
+        "gap_bucket": "birth_or_continue",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "【溪岸书店】您的订单P52图书已备好，请于周一19:00前到柜B3领取。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/055-S2_strip_cot_and_header_overlapping-notices_t07.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t08",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 8,
+      "elapsed_ms": 2899,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 973,
+        "completion_tokens": 178,
+        "total_tokens": 1151,
+        "reasoning_tokens": 143
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 8,
+        "source_id": "u8",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 4,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "谢"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：68元报名费已到账\n\n您好！您支付的68元报名费已到账，感谢您的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/056-S2_strip_cot_and_header_overlapping-notices_t08.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t09",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 9,
+      "elapsed_ms": 6570,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1050,
+        "completion_tokens": 649,
+        "total_tokens": 1699,
+        "reasoning_tokens": 602
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 9,
+        "source_id": "u9",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 3,
+        "gap_turns": 5,
+        "gap_bucket": "long_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "袋"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功！周六14:00南馆三楼见～请带纸质书；如果忘带，也可以两人共读。书直接拿在手里就行，不用另外准备袋子。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/057-S2_strip_cot_and_header_overlapping-notices_t09.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t10",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 10,
+      "elapsed_ms": 4598,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1130,
+        "completion_tokens": 287,
+        "total_tokens": 1417,
+        "reasoning_tokens": 247
+      },
+      "header_stripped_changed": true,
+      "grade": {
+        "turn": 10,
+        "source_id": "u10",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 5,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "温馨提醒：云溪读书会报名费48元尚未支付，缴费截止时间为周五18:00。若已缴费请忽略，感谢配合！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/058-S2_strip_cot_and_header_overlapping-notices_t10.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t11",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 11,
+      "elapsed_ms": 4501,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1204,
+        "completion_tokens": 334,
+        "total_tokens": 1538,
+        "reasoning_tokens": 294
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 11,
+        "source_id": "u11",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 7,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "您的订单P52图书已备好，请于周一19:00前到柜B3领取；无需打印单，出示订单号即可。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/059-S2_strip_cot_and_header_overlapping-notices_t11.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t12",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 12,
+      "elapsed_ms": 6460,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1275,
+        "completion_tokens": 332,
+        "total_tokens": 1607,
+        "reasoning_tokens": 295
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 12,
+        "source_id": "u12",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 6,
+        "gap_turns": 5,
+        "gap_bucket": "long_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "10[:：]00",
+              "十点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功！活动周日10:00在北馆二楼开始，批注时可以先用铅笔轻轻标记，请自带铅笔，准时参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/060-S2_strip_cot_and_header_overlapping-notices_t12.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t13",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 13,
+      "elapsed_ms": 3298,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1347,
+        "completion_tokens": 188,
+        "total_tokens": 1535,
+        "reasoning_tokens": 154
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 13,
+        "source_id": "u13",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 8,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫",
+              "收款"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：68元报名费收款确认\n\n您好，您支付的68元报名费已到账，感谢您的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/061-S2_strip_cot_and_header_overlapping-notices_t13.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t14",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 14,
+      "elapsed_ms": 3731,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1418,
+        "completion_tokens": 288,
+        "total_tokens": 1706,
+        "reasoning_tokens": 231
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 14,
+        "source_id": "u14",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 11,
+        "gap_turns": 2,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "代领",
+              "朋友"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "您的订单P52图书已备好，请于周一19:00前到柜B3领取；无需打印单，出示订单号即可。如需朋友代领，提供订单号和柜号B3即可，无需身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/062-S2_strip_cot_and_header_overlapping-notices_t14.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t15",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 15,
+      "elapsed_ms": 2926,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1509,
+        "completion_tokens": 206,
+        "total_tokens": 1715,
+        "reasoning_tokens": 170
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 15,
+        "source_id": "u15",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 10,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00",
+              "六点",
+              "六时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "温馨提醒：您的活动报名费48元尚未支付，最晚请于周五18:00前完成缴费，感谢配合！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/063-S2_strip_cot_and_header_overlapping-notices_t15.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t16",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 16,
+      "elapsed_ms": 3234,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1578,
+        "completion_tokens": 163,
+        "total_tokens": 1741,
+        "reasoning_tokens": 117
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 16,
+        "source_id": "u16",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 12,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "借"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功！活动周日10:00在北馆二楼开始，请自带铅笔做批注；没带也没关系，可以向同伴借，别因文具缺席，准时参加。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/064-S2_strip_cot_and_header_overlapping-notices_t16.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t17",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 17,
+      "elapsed_ms": 3942,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1657,
+        "completion_tokens": 236,
+        "total_tokens": 1893,
+        "reasoning_tokens": 194
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 17,
+        "source_id": "u17",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 15,
+        "gap_turns": 1,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "温馨提醒：您的活动报名费48元尚未支付，最晚请于周五18:00前完成缴费；如已转账，请忽略这条提醒。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/065-S2_strip_cot_and_header_overlapping-notices_t17.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t18",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 18,
+      "elapsed_ms": 2528,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1736,
+        "completion_tokens": 155,
+        "total_tokens": 1891,
+        "reasoning_tokens": 122
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 18,
+        "source_id": "u18",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 13,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：报名费已收到\n\n您好，您支付的68元报名费已确认到账，感谢您的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/066-S2_strip_cot_and_header_overlapping-notices_t18.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t19",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 19,
+      "elapsed_ms": 4596,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1802,
+        "completion_tokens": 425,
+        "total_tokens": 2227,
+        "reasoning_tokens": 363
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 19,
+        "source_id": "u19",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 14,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "您的订单P52图书已备好，请于周一19:00前领取。到店后出示订单号，再到柜B3取书，无需打印单；如需朋友代领，提供订单号和柜号B3即可，无需身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/067-S2_strip_cot_and_header_overlapping-notices_t19.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t20",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 20,
+      "elapsed_ms": 3897,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1901,
+        "completion_tokens": 263,
+        "total_tokens": 2164,
+        "reasoning_tokens": 209
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 20,
+        "source_id": "u20",
+        "task_key": "north-confirmation",
+        "kind": "return",
+        "birth_turn": 2,
+        "previous_visit_turn": 16,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "2",
+        "observed": "2",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周日"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "北馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "二楼",
+              "2楼"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功啦！周日10:00，我们在北馆二楼等你。记得带支普通铅笔，批注时可以先轻轻标记；忘带也没关系，向同伴借一支就好，别因文具缺席哦！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/068-S2_strip_cot_and_header_overlapping-notices_t20.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t21",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 21,
+      "elapsed_ms": 4429,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 1988,
+        "completion_tokens": 204,
+        "total_tokens": 2192,
+        "reasoning_tokens": 170
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 21,
+        "source_id": "u21",
+        "task_key": "paid-receipt",
+        "kind": "return",
+        "birth_turn": 4,
+        "previous_visit_turn": 18,
+        "gap_turns": 2,
+        "gap_bucket": "short_return",
+        "expected": "3",
+        "observed": "3",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "68",
+              "六十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "收到",
+              "到账",
+              "收讫"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "主题：68元报名费收款确认\n\n您好，您支付的68元报名费已到账，感谢您的支持！",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/069-S2_strip_cot_and_header_overlapping-notices_t21.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t22",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 22,
+      "elapsed_ms": 2933,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2056,
+        "completion_tokens": 159,
+        "total_tokens": 2215,
+        "reasoning_tokens": 116
+      },
+      "header_stripped_changed": true,
+      "grade": {
+        "turn": 22,
+        "source_id": "u22",
+        "task_key": "unpaid-reminder",
+        "kind": "return",
+        "birth_turn": 5,
+        "previous_visit_turn": 17,
+        "gap_turns": 4,
+        "gap_bucket": "short_return",
+        "expected": "4",
+        "observed": "4",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "48",
+              "四十八"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周五"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "18[:：]00"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "忽略",
+              "无需",
+              "不用"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "温馨提醒：您的云溪读书会报名费48元尚未支付，请于周五18:00前完成缴费；如已支付，请忽略本提醒。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/070-S2_strip_cot_and_header_overlapping-notices_t22.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t23",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 23,
+      "elapsed_ms": 3439,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2132,
+        "completion_tokens": 318,
+        "total_tokens": 2450,
+        "reasoning_tokens": 260
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 23,
+        "source_id": "u23",
+        "task_key": "pickup-notice",
+        "kind": "return",
+        "birth_turn": 7,
+        "previous_visit_turn": 19,
+        "gap_turns": 3,
+        "gap_bucket": "short_return",
+        "expected": "5",
+        "observed": "5",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "P52"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "B3"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "周一"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "19[:：]00",
+              "七点",
+              "七时"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "您的订单P52图书已备好，请您于周一19:00前领取。到店时出示订单号，再到柜B3取书，无需打印任何材料；朋友代领也只需提供订单号，无需身份证。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/071-S2_strip_cot_and_header_overlapping-notices_t23.json"
+    },
+    {
+      "task_id": "S2_strip_cot_and_header_overlapping-notices_t24",
+      "condition_id": "S2_strip_cot_and_header",
+      "condition_short_id": "S2",
+      "include_reasoning_history": false,
+      "strip_headers": true,
+      "story_id": "overlapping-notices",
+      "turn": 24,
+      "elapsed_ms": 4913,
+      "transport_retries": 0,
+      "wire_assistant_reasoning_mode": "empty_string_per_pi_ai_schema",
+      "usage": {
+        "prompt_tokens": 2227,
+        "completion_tokens": 183,
+        "total_tokens": 2410,
+        "reasoning_tokens": 143
+      },
+      "header_stripped_changed": false,
+      "grade": {
+        "turn": 24,
+        "source_id": "u24",
+        "task_key": "south-confirmation",
+        "kind": "return",
+        "birth_turn": 1,
+        "previous_visit_turn": 9,
+        "gap_turns": 14,
+        "gap_bucket": "long_return",
+        "expected": "1",
+        "observed": "1",
+        "strict_valid": true,
+        "protocol_error": null,
+        "canonical_exact": true,
+        "answer_minimal": true,
+        "full_pass": true,
+        "answer_checks": [
+          {
+            "options": [
+              "周六"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "14[:：]00",
+              "两点",
+              "二点"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "南馆"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "三楼",
+              "3楼"
+            ],
+            "pass": true
+          },
+          {
+            "options": [
+              "共读",
+              "一起读",
+              "一起阅读"
+            ],
+            "pass": true
+          }
+        ],
+        "answer": "报名成功！活动周六14:00在南馆三楼开始。请携带纸质书；如果忘带，也不用为难，两人一起共读即可。",
+        "closed_fence_detached_marker": false,
+        "detached_marker": null
+      },
+      "raw_file": "raw/072-S2_strip_cot_and_header_overlapping-notices_t24.json"
+    }
+  ]
+}

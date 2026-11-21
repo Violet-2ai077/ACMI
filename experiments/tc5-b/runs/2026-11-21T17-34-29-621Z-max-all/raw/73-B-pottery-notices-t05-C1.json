@@ -1,0 +1,132 @@
+{
+  "task_id": "B-pottery-notices-t05-C1",
+  "ordinal": 73,
+  "exp": "B",
+  "contract": "C1",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:39:44.226Z",
+  "completed_at": "2026-11-21T17:39:47.104Z",
+  "latency_ms": 2878.3126000000047,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:39:44.226Z",
+      "completed_at": "2026-11-21T17:39:47.104Z",
+      "latency_ms": 2878.1807000000263,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "108b455cd3d2f8042e66ea583d1729232eaacd8c48873135be24ca1f9e34285c",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-B-pottery-notices-C1",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。\n补充归属契约：当用户当前请求仅匹配多个已有任务的共享特征、缺乏唯一区分证据（且并非紧接上一轮同一任务的直接省略延续）时，严禁按最近活跃或最近修改任务（Recency）、首次出现编号顺序（Primacy）或微弱措辞联想做默认归属，必须标记<|task:UNRESOLVED|>并在回答中简要列出所有匹配的候选任务请用户澄清；若存在能够唯一区分某一个既有任务的内容线索，则必须直接归属到该任务的原编号并正常交付，不得无故反问。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u5\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\",\"a4\",\"u5\"]}"
+        },
+        {
+          "role": "user",
+          "content": "给成人陶艺课写一份独立的报名确认短信：周六10:00在南楼A室，请带围裙和湿巾。"
+        },
+        {
+          "role": "assistant",
+          "content": "【陶艺课】您好，您已成功报名成人陶艺课。上课时间：周六10:00；地点：南楼A室。请携带围裙和湿巾，建议提前10分钟到场。期待您的到来！\n\n<|task:1|>",
+          "reasoning_content": "We need answer in Chinese, concise <=200字, direct. Need task marker. Need determine task identity from conversation. There is only one user message/current request, no prior tasks apparently. So task 1. Write independent registration confirmation SMS for adult pottery class: Saturday 10:00, South Building Room A, bring apron and wet wipes. Need \"独立的报名确认短信\" means standalone SMS. Include confirmation, details, perhaps ask reply. Must not claim actions. Under 200 chars. Need exactly at end marker. Could say:\n\n您好，您已成功报名成人陶艺课。课程时间：周六10:00；地点：南楼A室。请携带围裙和湿巾，建议提前10分钟到场。期待与您相见！\n\nNeed \"报名确认短信\" perhaps \"【陶艺课】\". Length fine. Marker task 1. Ensure no extra after marker."
+        },
+        {
+          "role": "user",
+          "content": "另写亲子陶艺课的独立报名确认短信：周六15:00在北楼B室，也请带围裙和湿巾。不要合成两场的总通知。"
+        },
+        {
+          "role": "assistant",
+          "content": "【亲子陶艺课】您好，您已成功报名亲子陶艺课。上课时间：周六15:00；地点：北楼B室。请携带围裙和湿巾，建议提前10分钟到场。期待您和孩子的到来！\n\n<|task:2|>",
+          "reasoning_content": "We need need answer current request. Need identify task identity. Previous task 1 adult pottery confirmation SMS. New request \"另写亲子陶艺课的独立报名确认短信...\" likely same broader work? They explicitly say separate independent confirmation, not combined. Is this a new task or continuation same task? Need apply marking rules. Task identity is work objective. First task: write independent registration confirmation SMS for adult pottery class. Now second asks additionally write independent confirmation for parent-child pottery class, explicitly not combine into total notice. Is this same task? Hmm \"接着\" maybe they are distinct client? In conversation, likely task tracks? We need determine. The mark tagging instruction says different clients separately asked handling work, even same capability/vocab may be different tasks. Here two classes, two SMSs, explicitly \"独立\" and \"不要合成两场的总通知.\" Could be one ongoing task to write separate notices for two classes? The second request is a different artifact/class, likely a new task? Need infer from original dialogue and prior markings. There is only task 1 prior. New request \"另写...\" separate parent-child class. This is likely a new distinct task because explicitly independent SMS and not combined. If same task objective was perhaps \"write adult confirmation SMS\" only, now asked a separate one. The new request doesn't continue editing adult SMS, but produces a second independent SMS. Should use task 2. However maybe overall request is class registration SMS copywriting for pottery courses; but first only adult, now asks another independent. The rule: same task new evidence/modification/rewrite/translation doesn't change identity; different clients separately require handling work may be different tasks. Here classes are distinct events and explicitly separate. So likely task 2. Need answer under 200 Chinese chars, direct. Then marker <|task:2|>. No claim unsupported. Compose: 【亲子陶艺课】您好，您已成功报名亲子陶艺课... time Saturday 15:00, north building B, bring apron and wet wipes. Could mention one parent-child pair? Not given, don't invent. Good. Ensure independent not combined. Marker at end exactly."
+        },
+        {
+          "role": "user",
+          "content": "独自来体验的成年学员可能是第一次接触泥巴，语气放轻松些，时间地点和用品保留。"
+        },
+        {
+          "role": "assistant",
+          "content": "【成人陶艺体验课】您好，您的报名已确认！本周六10:00，我们在南楼A室等您。第一次接触泥巴也不用紧张，放松体验就好。请记得携带围裙和湿巾，期待与您见面！\n\n<|task:1|>",
+          "reasoning_content": "We need answer identify task. Need determine which existing task current refers to. User says \"独自来体验的成年学员可能是第一次接触泥巴，语气放轻松些，时间地点和用品保留。\" This is about adult students coming alone, first time with clay, lighter tone, preserve time/location/supplies. This clearly maps task 1 adult pottery class, not task 2 parent-child. Need write revised independent confirmation SMS, relaxed tone, preserve Saturday 10:00 South Building Room A, apron and wipes. Under 200 Chinese chars. End task marker 1. Need no extra."
+        },
+        {
+          "role": "user",
+          "content": "还有一个独立工作：写一份场地设备检查清单，只查水龙头和照明，不是发给学员的报名短信。"
+        },
+        {
+          "role": "assistant",
+          "content": "**场地设备检查清单**\n\n检查日期：________ 检查区域：________ 检查人：________\n\n| 检查项目 | 检查内容 | 正常 | 异常 | 备注 |\n|---|---|---|---|---|\n| 水龙头 | 开关灵活、无漏水、出水及关闭正常 | □ | □ | |\n| 照明 | 灯具正常点亮、无闪烁，开关有效 | □ | □ | |\n\n异常处理记录：________________________\n\n<|task:3|>",
+          "reasoning_content": "We need answer. Need task marker. New independent task: facility equipment checklist only faucets and lighting, not student SMS. This is new task 3 likely. Need produce checklist under 200 Chinese chars? \"正常、直接回答...通常不超过200字\". Need output normal answer and marker at end. Must be independent task. Need avoid merging with prior. Write concise checklist clearly not SMS. Include fields perhaps 检查日期/区域/检查人; 水龙头：开关、漏水、水压、排水? Only check faucets and lighting. \"只查水龙头和照明\" means checklist should only include those. Could have 水龙头: 是否漏水/出水正常/关紧; 照明: 灯具是否点亮/闪烁/开关正常. But \"场地设备检查清单\" could include location etc not additional equipment. Need concise. Let's craft with title, check items, result, remarks. Ensure not SMS. ~150 chars. Marker <|task:3|>."
+        },
+        {
+          "role": "user",
+          "content": "再简短一点，只保留需要检查的两项。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-2bc4e6b84a45-2cc37a5",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 951,
+      "completion_tokens": 166,
+      "total_tokens": 1117,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 129
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0001858,
+        "allowance": 0.00011148,
+        "tokens": {
+          "input": 567,
+          "output": 166,
+          "reasoning": 129,
+          "cache_read": 384,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "We need answer user. Need determine task. Current request: \"再简短一点，只保留需要检查的两项。\" This refers immediately previous assistant output checklist task 3, asking shorten to two items. Same task 3. Need output concise checklist only two items, Chinese, under 200 chars. Append marker <|task:3|>. Need \"正常直接\" answer. Could just bullet:\n\n场地设备检查：\n1. 水龙头：开关灵活、无漏水。\n2. 照明：灯具正常点亮、开关有效。\n\nMaybe include checkboxes. No need more. Ensure no extraneous. Marker exactly at end.",
+    "content": "场地设备检查：\n1. 水龙头：开关灵活，无漏水。\n2. 照明：灯具正常点亮，开关有效。\n\n<|task:3|>",
+    "wire_bytes": 12119,
+    "wire_sha256": "da2d244f1d00ff7469bfe58b46ea38ff8b9cc489d4c1a6c90b837b10f3e43003",
+    "event_count": 55,
+    "raw_wire_text": "data: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"We\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" need answer user. Need determine\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task. Current request: \\\"\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"再简短一点，只保留\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"需要检查的两项。\\\" This\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" refers immediately\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" previous assistant\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" output\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" checklist\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" \"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"3,\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" asking\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" shorten to two items. Same\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task 3. Need output\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" concise checklist only\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" two\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" items, Chinese\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\",\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" under\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 200 chars. Append\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" marker\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" \"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"<|task:3|>.\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Need \\\"正常\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"直接\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"\\\" answer\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Could just\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" bullet:\\n\\n\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"场地\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"设备检查：\\n\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"1. 水\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"龙头：开关\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"灵活\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"、无漏水。\\n\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"2. 照明\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"：灯具\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"正常点亮、\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"开关有效\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"。\\n\\nMaybe\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" include check\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"boxes.\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" No need\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" more. Ensure no ext\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"raneous. Marker exactly at\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" end.\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"场地设备检查\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"：\\n1. 水龙头\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"：开关灵活，\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"无漏水。\\n2. \"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"照明：灯具正常点亮，\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"开关有效。\\n\\n<|task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\":3|>\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc37a5\",\"object\":\"chat.completion.chunk\",\"created\":1795282785,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":951,\"completion_tokens\":166,\"total_tokens\":1117,\"prompt_tokens_details\":{\"cached_tokens\":384},\"completion_tokens_details\":{\"reasoning_tokens\":129},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.0001858,\"allowance\":0.00011148,\"tokens\":{\"input\":567,\"output\":166,\"reasoning\":129,\"cache_read\":384,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "task_id": "A-V6-compact_P0-C0",
+  "ordinal": 53,
+  "exp": "A",
+  "scenario_id": "V6",
+  "condition": "compact_P0_C0",
+  "role": "receiver",
+  "started_at": "2026-11-21T16:58:24.686Z",
+  "completed_at": "2026-11-21T16:58:25.980Z",
+  "latency_ms": 1294.008400000006,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T16:58:24.686Z",
+      "completed_at": "2026-11-21T16:58:25.980Z",
+      "latency_ms": 1293.9472999999998,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "9bd90cd321b7f70f873a2036f01f68f9b59a5a2d431a8edf41a829e0de4c8144",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-th1-b/1.0",
+      "x-opencode-session": "th1b-A-V6-compact_P0-C0",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 4096,
+      "thinking": {
+        "type": "disabled"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use only the supplied evidence to fulfill the job. Output only JSON {\"trail\":[\"code1\",\"code2\"],\"print_line\":\"latestCode/seal/footer\"}. trail lists the actual print code changes from first to last, no duplicate acknowledgements. print_line is a single label ready to print, literal values separated by slash without spaces. Use UNKNOWN for each unavailable value. Distinguish global footer updates from job-local rules."
+        },
+        {
+          "role": "user",
+          "content": "Deliver the Alder print label. Evidence:\n{\"note\":\"Alder print job handoff:\\n- Print code revisions, in order: B23 → E67 (current: E67, replacing B23).\\n- Job seal: S44, job-only for Alder; retained (distractor note: Birch's later turn-5 local seal S99 and code X88 belong only to Birch).\\n- Workspace-wide standing footer on every job: M35.\\n- Latest operative decision: Alder uses print code E67 with job-only seal S44 retained.\",\"memory\":[{\"key\":\"footer\",\"value\":\"M81\",\"source\":4}]}"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-2a538a5c39f0-3738340",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 233,
+      "completion_tokens": 23,
+      "total_tokens": 256,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00004875,
+        "allowance": 0.00002925,
+        "tokens": {
+          "input": 233,
+          "output": 23,
+          "reasoning": 0,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "",
+    "content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M35\"}",
+    "wire_bytes": 1786,
+    "wire_sha256": "7e04404c04d8f6ef0485b215cdfda2d161bd00c336a16fadc7acd064b625d4b9",
+    "event_count": 7,
+    "raw_wire_text": "data: {\"id\":\"gw-2a538a5c39f0-3738340\",\"object\":\"chat.completion.chunk\",\"created\":1795280305,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-3738340\",\"object\":\"chat.completion.chunk\",\"created\":1795280305,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"{\\\"\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-3738340\",\"object\":\"chat.completion.chunk\",\"created\":1795280305,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"trail\\\":[\\\"B\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-3738340\",\"object\":\"chat.completion.chunk\",\"created\":1795280305,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"23\\\",\\\"E67\\\"],\\\"\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-3738340\",\"object\":\"chat.completion.chunk\",\"created\":1795280305,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"print_line\\\":\\\"E67/S\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-3738340\",\"object\":\"chat.completion.chunk\",\"created\":1795280305,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"44/M35\\\"}\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-3738340\",\"object\":\"chat.completion.chunk\",\"created\":1795280305,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":233,\"completion_tokens\":23,\"total_tokens\":256,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00004875,\"allowance\":0.00002925,\"tokens\":{\"input\":233,\"output\":23,\"reasoning\":0,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "task_id": "A-pottery-notices-unambig-e1-r2-C1",
+  "ordinal": 28,
+  "exp": "A",
+  "contract": "C1",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:36:53.181Z",
+  "completed_at": "2026-11-21T17:36:56.240Z",
+  "latency_ms": 3059.028900000005,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:36:53.181Z",
+      "completed_at": "2026-11-21T17:36:56.240Z",
+      "latency_ms": 3058.8862999999837,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "45954aedb82a5e3439e5edf308ec1e8703182a8a0fb4ebe9efe46158cbc9976c",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-A-pottery-notices-unambig-e1-r2-C1",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。\n补充归属契约：当用户当前请求仅匹配多个已有任务的共享特征、缺乏唯一区分证据（且并非紧接上一轮同一任务的直接省略延续）时，严禁按最近活跃或最近修改任务（Recency）、首次出现编号顺序（Primacy）或微弱措辞联想做默认归属，必须标记<|task:UNRESOLVED|>并在回答中简要列出所有匹配的候选任务请用户澄清；若存在能够唯一区分某一个既有任务的内容线索，则必须直接归属到该任务的原编号并正常交付，不得无故反问。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u6\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\",\"a4\",\"u5\",\"a5\",\"u6\"]}"
+        },
+        {
+          "role": "user",
+          "content": "给成人陶艺课写一份独立的报名确认短信：周六10:00在南楼A室，请带围裙和湿巾。"
+        },
+        {
+          "role": "assistant",
+          "content": "【陶艺课报名确认】您好，您已成功报名成人陶艺课。上课时间为周六10:00，地点在南楼A室。请携带围裙和湿巾，准时参加。祝您体验愉快！<|task:1|>",
+          "reasoning_content": "First task: standalone registration confirmation SMS for adult pottery class (Sat 10:00, South Building Room A). Assign marker 1."
+        },
+        {
+          "role": "user",
+          "content": "另写亲子陶艺课的独立报名确认短信：周六15:00在北楼B室，也请带围裙和湿巾。不要合成两场的总通知。"
+        },
+        {
+          "role": "assistant",
+          "content": "【亲子陶艺课报名确认】您好，您已成功报名亲子陶艺课。上课时间为周六15:00，地点在北楼B室。请携带围裙和湿巾，准时参加。祝您和孩子体验愉快！<|task:2|>",
+          "reasoning_content": "Second independent task: registration confirmation SMS for family pottery class (Sat 15:00, North Building Room B). Assign marker 2."
+        },
+        {
+          "role": "user",
+          "content": "带小朋友一起来玩泥巴的家长，短信语气改得更活泼温馨些，时间地点和用品保留。"
+        },
+        {
+          "role": "assistant",
+          "content": "【亲子陶艺课报名确认】您好！周六15:00在北楼B室，期待您和小朋友一起来开心玩泥巴！请记得带上围裙和湿巾，我们不见不散！<|task:2|>",
+          "reasoning_content": "Parents bringing children uniquely identify the family pottery confirmation (task 2). Make tone livelier and keep marker 2."
+        },
+        {
+          "role": "user",
+          "content": "还有一个独立工作：写一份场地设备检查清单，只查水龙头和照明，不是发给学员的报名短信。"
+        },
+        {
+          "role": "assistant",
+          "content": "**场地设备检查清单（内部使用）**\n1. 水龙头：逐个开启，检查出水、关闭及是否漏水。\n2. 照明：逐区开启，检查灯具是否正常点亮、闪烁或损坏。<|task:3|>",
+          "reasoning_content": "Third independent task: internal facility equipment checklist for faucets and lighting. Assign marker 3."
+        },
+        {
+          "role": "user",
+          "content": "再简短一点，只保留需要检查的两项。"
+        },
+        {
+          "role": "assistant",
+          "content": "场地设备检查清单：\n1. 水龙头：检查出水、关闭是否正常，有无漏水。\n2. 照明：检查灯具是否正常点亮，有无闪烁或损坏。<|task:3|>",
+          "reasoning_content": "Immediate continuation of facility equipment checklist (task 3). Keep marker 3."
+        },
+        {
+          "role": "user",
+          "content": "不带孩子、自己来体验做陶器的成年学员，确认文案里补充“提供免费储物柜”，保留原本的时间地点和用品。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-2bc4e6b84a45-2cc1061",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 971,
+      "completion_tokens": 245,
+      "total_tokens": 1216,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 182
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00029265,
+        "allowance": 0.00017559,
+        "tokens": {
+          "input": 971,
+          "output": 245,
+          "reasoning": 182,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "We need answer current request. Need identify task. History: task1 adult pottery class confirmation SMS Sat 10:00 South Building A, bring apron and wipes. Task2 parent-child pottery class independent confirmation Sat 15:00 North Building B, also apron/wipes; then revised tone for task2. Task3 facilities checklist. Current: \"不带孩子、自己来体验做陶器的成年学员，确认文案里补充“提供免费储物柜”，保留原本的时间地点和用品。\" This uniquely refers adult students no kids, own experience pottery, preserve original time/place/supplies. That's task1 adult class confirmation. Need update SMS adding free locker, retaining Saturday 10:00 South A, apron and wipes. Independent? likely. Need concise. Then task marker 1. Ensure not merge. Normal answer in Chinese under 200 chars. Exactly one marker at end.",
+    "content": "【成人陶艺课报名确认】您好，您已成功报名成人陶艺课。上课时间为周六10:00，地点在南楼A室，现场提供免费储物柜。请携带围裙和湿巾，准时参加。祝您体验愉快！<|task:1|>",
+    "wire_bytes": 17261,
+    "wire_sha256": "6d81cf5dd823c79c59f701866cad93f5cd8d9818fec02694e36b00a95535acd5",
+    "event_count": 79,
+    "raw_wire_text": "data: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"We\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" need answer current\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" request\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Need identify\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task. History\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\": task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"1 adult pottery\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" class confirmation SMS\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Sat 10:00 South\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Building\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" A, bring\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" apron and w\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"ipes. Task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"2 parent-child\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" pottery class independent\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" confirmation Sat 15:00\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" North Building B, also\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" apron/wipes\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"; then\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" revised tone for\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"2. Task3 facilities\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" checklist\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Current\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\": \\\"不带\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"孩子、自己来体验\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"做陶器的\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"成年学员，确认文案\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"里补充“\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"提供免费储物柜”，保留\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"原本的时间地点和用品。\\\"\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" This uniquely\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" refers\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" adult\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" students\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" no\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" kids\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\", own\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" experience\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" pottery, preserve\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" original time/\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"place/s\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"upplies. That's task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"1 adult class\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" confirmation. Need update\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" SMS\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" adding free locker,\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" retaining\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Saturday 10:00 South\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" A\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\", apron\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" and wipes. Independent\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"? likely. Need concise.\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Then task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" marker\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 1. Ensure not merge\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Normal\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" answer\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" in Chinese under\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 200 chars. Exactly\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" one\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" marker at end.\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"【\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"成人\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"陶艺课报名确认】\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"您好，您\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"已成功报名成人陶艺\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"课。上课\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"时间为周六10:00，\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"地点在南楼A室\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"，现场\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"提供免费储物柜。请\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"携带围裙和湿巾\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"，准时参加\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"。祝您体验\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"愉快！<|task\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\":1|>\"}}]}\n\ndata: {\"id\":\"gw-2bc4e6b84a45-2cc1061\",\"object\":\"chat.completion.chunk\",\"created\":1795282614,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":971,\"completion_tokens\":245,\"total_tokens\":1216,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":182},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00029265,\"allowance\":0.00017559,\"tokens\":{\"input\":971,\"output\":245,\"reasoning\":182,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

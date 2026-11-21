@@ -1,0 +1,92 @@
+{
+  "task_id": "B-V0-compact_strict-C1",
+  "ordinal": 67,
+  "exp": "B",
+  "scenario_id": "V0",
+  "condition": "compact_strict_C1",
+  "role": "receiver",
+  "started_at": "2026-11-21T16:58:44.471Z",
+  "completed_at": "2026-11-21T16:58:45.915Z",
+  "latency_ms": 1444.0430000000051,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T16:58:44.471Z",
+      "completed_at": "2026-11-21T16:58:45.915Z",
+      "latency_ms": 1443.9756000000052,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "afc4c7961d3de6d7622575efe370ebe4b898d0a3d8c2ed44f9f79ff54978f733",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-th1-b/1.0",
+      "x-opencode-session": "th1b-B-V0-compact_strict-C1",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 4096,
+      "thinking": {
+        "type": "disabled"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use only the supplied evidence to fulfill the job. Output only JSON {\"trail\":[\"code1\",\"code2\"],\"print_line\":\"latestCode/seal/footer\"}. trail lists the actual print code changes from first to last, no duplicate acknowledgements. print_line is a single label ready to print, literal values separated by slash without spaces. Use UNKNOWN for each unavailable value. Distinguish global footer updates from job-local rules. Authority contract: `memory` is the workspace's latest authoritative global state, and `source` is the global conversation turn number. If any global rule (such as `footer`) in `transcript` or `note` conflicts with `memory` (including when `memory.source` is later than the transcript turn, when later local turns occur after `memory.source`, or when a summary `note` omits turn numbers), unconditionally follow `memory`. Task-local fields (`trail`, `seal`) must never be overridden by `memory` or by another job's local state."
+        },
+        {
+          "role": "user",
+          "content": "Deliver the Alder print label. Evidence:\n{\"note\":\"Alder print job handoff:\\n\\n- Print code revisions, in order: K14 → N72 (N72 is the latest, replacing K14).\\n- Job-only seal: S58 (retained; applies only to the Alder job).\\n- Latest operative decision: Alder uses print code N72 with seal S58.\",\"memory\":[{\"key\":\"footer\",\"value\":\"M94\",\"source\":4}]}"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-c7c7dc0be7ca-11951f5",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 23,
+      "total_tokens": 342,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00006165,
+        "allowance": 0.00003699,
+        "tokens": {
+          "input": 319,
+          "output": 23,
+          "reasoning": 0,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "",
+    "content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+    "wire_bytes": 2170,
+    "wire_sha256": "6ab606a54f452ad5bbb8693b9508f5af6a73532826979a7928288843420596b9",
+    "event_count": 9,
+    "raw_wire_text": "data: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"{\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"trail\\\":[\\\"K\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"14\\\",\\\"N72\\\"],\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"print\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"_line\\\":\\\"N\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"72/S58\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"/M94\\\"}\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-11951f5\",\"object\":\"chat.completion.chunk\",\"created\":1795280325,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":319,\"completion_tokens\":23,\"total_tokens\":342,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00006165,\"allowance\":0.00003699,\"tokens\":{\"input\":319,\"output\":23,\"reasoning\":0,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

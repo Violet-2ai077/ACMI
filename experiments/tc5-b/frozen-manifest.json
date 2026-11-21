@@ -1,0 +1,31 @@
+{
+  "protocol": "TC5-B-implicit-ambiguity-ablation-20261122",
+  "frozen_at": "2026-11-21T17:23:44.844Z",
+  "integrity": {
+    "probes_count": 32,
+    "ambiguous_probes": 16,
+    "unambiguous_probes": 16,
+    "stories_count": 2,
+    "story_turns": 24,
+    "total_tasks": 88,
+    "exp_a_tasks": 64,
+    "exp_b_tasks": 24,
+    "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+    "valid": true
+  },
+  "digests": {
+    "probes_sha256": "cc229e2ef019f4d1abfc43499d457bff101e9b348dfd38cbb275889e22f5a120",
+    "stories_sha256": "6ac18bc2b42eaa9661fbb96cacdcaf3b1bee902902677b23e56e689019c9960b",
+    "prompts_sha256": "09fac1341a2f9423be0e126083b071b57114cc9b1e4e69c51db5014414d717d5",
+    "task_matrix_sha256": "78fe84bba8a78c1421b8984d887eedc2637c8feb661be448b645a5e92879d173",
+    "files": {
+      "prompts.mjs": "b2be52bf23d443ded135d3ccb379df1e2a4b05e0cf069234d457853aaf9fe5b9",
+      "probes.mjs": "78f029b32fc31790feb97798e0b7fe85bd3acaf0a4ec8bbacda87e0b6ad0dd7e",
+      "stories.mjs": "b75067b8701553fa754ce08a8aded6b076f9b31be9ac437ee57c8c496ab55aa2",
+      "evaluate.mjs": "4473d5047648dbe32d19b164ffb5a99ea9e8f96c9ae67c2bae06b2bbddb3f508",
+      "client.mjs": "155db9fdb276cdd84bb4758e4a3403b59a9deec5a69bcc2d7a32253fa2db74c6",
+      "run.mjs": "dbd73f62711404d9bb375edb22db8cafb87845beab98b797d0ef8f2d80b1f967",
+      "tc5-b.node-test.mjs": "6f7b438533d20918653d90963be9a52db868908f6185bd2b56e127ce893201a0"
+    }
+  }
+}

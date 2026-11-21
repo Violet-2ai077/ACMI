@@ -1,0 +1,141 @@
+{
+  "task_id": "A-pottery-notices-unambig-e2-r1-C1",
+  "ordinal": 30,
+  "exp": "A",
+  "contract": "C1",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:37:00.169Z",
+  "completed_at": "2026-11-21T17:37:02.990Z",
+  "latency_ms": 2821.6187999999966,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:37:00.169Z",
+      "completed_at": "2026-11-21T17:37:02.990Z",
+      "latency_ms": 2821.5094999999856,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "f788cf264401c26c358e32515d4a9db17ae3544dda4db14dd1b29c9bbbe0ab88",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-A-pottery-notices-unambig-e2-r1-C1",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。\n补充归属契约：当用户当前请求仅匹配多个已有任务的共享特征、缺乏唯一区分证据（且并非紧接上一轮同一任务的直接省略延续）时，严禁按最近活跃或最近修改任务（Recency）、首次出现编号顺序（Primacy）或微弱措辞联想做默认归属，必须标记<|task:UNRESOLVED|>并在回答中简要列出所有匹配的候选任务请用户澄清；若存在能够唯一区分某一个既有任务的内容线索，则必须直接归属到该任务的原编号并正常交付，不得无故反问。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u6\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\",\"a4\",\"u5\",\"a5\",\"u6\"]}"
+        },
+        {
+          "role": "user",
+          "content": "给成人陶艺课写一份独立的报名确认短信：周六10:00在南楼A室，请带围裙和湿巾。"
+        },
+        {
+          "role": "assistant",
+          "content": "【陶艺课报名确认】您好，您已成功报名成人陶艺课。上课时间为周六10:00，地点在南楼A室。请携带围裙和湿巾，准时参加。祝您体验愉快！<|task:1|>",
+          "reasoning_content": "First task: standalone registration confirmation SMS for adult pottery class (Sat 10:00, South Building Room A). Assign marker 1."
+        },
+        {
+          "role": "user",
+          "content": "另写亲子陶艺课的独立报名确认短信：周六15:00在北楼B室，也请带围裙和湿巾。不要合成两场的总通知。"
+        },
+        {
+          "role": "assistant",
+          "content": "【亲子陶艺课报名确认】您好，您已成功报名亲子陶艺课。上课时间为周六15:00，地点在北楼B室。请携带围裙和湿巾，准时参加。祝您和孩子体验愉快！<|task:2|>",
+          "reasoning_content": "Second independent task: registration confirmation SMS for family pottery class (Sat 15:00, North Building Room B). Assign marker 2."
+        },
+        {
+          "role": "user",
+          "content": "独自来体验的成年学员可能是第一次接触泥巴，语气放轻松些，时间地点和用品保留。"
+        },
+        {
+          "role": "assistant",
+          "content": "【成人陶艺课报名确认】您好！您报名的成人陶艺课已确认：周六10:00在南楼A室。一个人来、第一次接触泥巴都没关系，放轻松就好；记得带上围裙和湿巾，期待和您见面！<|task:1|>",
+          "reasoning_content": "Solo adult learners uniquely identify the adult pottery confirmation (task 1). Soften tone and keep marker 1."
+        },
+        {
+          "role": "user",
+          "content": "还有一个独立工作：写一份场地设备检查清单，只查水龙头和照明，不是发给学员的报名短信。"
+        },
+        {
+          "role": "assistant",
+          "content": "**场地设备检查清单（内部使用）**\n1. 水龙头：逐个开启，检查出水、关闭及是否漏水。\n2. 照明：逐区开启，检查灯具是否正常点亮、闪烁或损坏。<|task:3|>",
+          "reasoning_content": "Third independent task: internal facility equipment checklist for faucets and lighting. Assign marker 3."
+        },
+        {
+          "role": "user",
+          "content": "再简短一点，只保留需要检查的两项。"
+        },
+        {
+          "role": "assistant",
+          "content": "场地设备检查清单：\n1. 水龙头：检查出水、关闭是否正常，有无漏水。\n2. 照明：检查灯具是否正常点亮，有无闪烁或损坏。<|task:3|>",
+          "reasoning_content": "Immediate continuation of facility equipment checklist (task 3). Keep marker 3."
+        },
+        {
+          "role": "user",
+          "content": "家长带小朋友一起动手做陶器的那场，确认文案里补充“提供儿童洗手液”，保留原本的时间地点和用品。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-e9d2aa256059-11b8d8f",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 983,
+      "completion_tokens": 151,
+      "total_tokens": 1134,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 90
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00010634,
+        "allowance": 0.0000638,
+        "tokens": {
+          "input": 87,
+          "output": 151,
+          "reasoning": 90,
+          "cache_read": 896,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "We need answer in Chinese. Need identify task. User refers to parent-child pottery session confirmation copy, add \"提供儿童洗手液\", retain original time location supplies. This is task 2 (亲子陶艺课报名确认短信). Need output updated independent confirmation SMS, not merge adult. Keep Sat 15:00 North Building B, apron and wet wipes, add children's hand sanitizer. Concise. End task 2 marker.",
+    "content": "【亲子陶艺课报名确认】您好，您已成功报名亲子陶艺课。上课时间为周六15:00，地点在北楼B室。请携带围裙和湿巾；现场提供儿童洗手液，祝您和孩子体验愉快！<|task:2|>",
+    "wire_bytes": 10947,
+    "wire_sha256": "0f1126aab4990f3091d26b784f35fb9b2e83bf04d439ca292d656e826373d036",
+    "event_count": 50,
+    "raw_wire_text": "data: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"We\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" need answer in Chinese. Need\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" identify task. User refers\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" to parent\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"-child pottery\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" session\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" confirmation\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" copy\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\", add \\\"\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"提供儿童洗手液\\\", retain\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" original\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" time location supplies\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". This is task \"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"2 (亲子陶\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"艺课报名\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"确认短信). Need output updated\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" independent confirmation SMS\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\", not merge\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" adult\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Keep\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Sat\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 15:00 North\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Building\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" B, apron\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" and wet w\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"ipes, add children\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"'s hand\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" sanit\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"izer. Conc\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"ise. End task\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" \"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"2 marker.\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"【\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"亲子陶艺课报名\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"确认】您好\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"，\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"您已成功\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"报名亲子陶艺课。\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"上课\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"时间为周六15:00，\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"地点在北楼B室\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"。请携带围裙和\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"湿巾；现场提供儿童\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"洗手液，\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"祝\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"您和孩子体验\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"愉快！<|\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"task:2|>\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b8d8f\",\"object\":\"chat.completion.chunk\",\"created\":1795282621,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":983,\"completion_tokens\":151,\"total_tokens\":1134,\"prompt_tokens_details\":{\"cached_tokens\":896},\"completion_tokens_details\":{\"reasoning_tokens\":90},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00010634,\"allowance\":0.0000638,\"tokens\":{\"input\":87,\"output\":151,\"reasoning\":90,\"cache_read\":896,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

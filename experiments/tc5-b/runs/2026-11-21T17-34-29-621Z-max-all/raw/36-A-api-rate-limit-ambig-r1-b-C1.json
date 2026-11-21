@@ -1,0 +1,141 @@
+{
+  "task_id": "A-api-rate-limit-ambig-r1-b-C1",
+  "ordinal": 36,
+  "exp": "A",
+  "contract": "C1",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:37:24.030Z",
+  "completed_at": "2026-11-21T17:37:27.547Z",
+  "latency_ms": 3517.4732999999833,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:37:24.030Z",
+      "completed_at": "2026-11-21T17:37:27.547Z",
+      "latency_ms": 3517.3433000000077,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "91c774c34603e3e391c5061b78adaefadca4207148ea648cec350de70c4d7d0b",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-A-api-rate-limit-ambig-r1-b-C1",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。\n补充归属契约：当用户当前请求仅匹配多个已有任务的共享特征、缺乏唯一区分证据（且并非紧接上一轮同一任务的直接省略延续）时，严禁按最近活跃或最近修改任务（Recency）、首次出现编号顺序（Primacy）或微弱措辞联想做默认归属，必须标记<|task:UNRESOLVED|>并在回答中简要列出所有匹配的候选任务请用户澄清；若存在能够唯一区分某一个既有任务的内容线索，则必须直接归属到该任务的原编号并正常交付，不得无故反问。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u6\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\",\"a4\",\"u5\",\"a5\",\"u6\"]}"
+        },
+        {
+          "role": "user",
+          "content": "为付费商业版租户单独写一份网关限流配置：策略名pro_tier，按api_key统计60秒滑动窗口，上限1200次请求，超限返回HTTP 429。请给出YAML格式配置。"
+        },
+        {
+          "role": "assistant",
+          "content": "```yaml\npolicy: pro_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 1200\nreject_status: 429\n```\n\n这是付费商业版租户 `pro_tier` 的独立限流配置。<|task:1|>",
+          "reasoning_content": "First task: rate-limit YAML config for paid commercial tenants (pro_tier, 1200 req / 60s sliding window by api_key). Assign marker 1."
+        },
+        {
+          "role": "user",
+          "content": "免费体验版租户也需要一份独立的网关限流配置：策略名free_tier，同样按api_key统计60秒滑动窗口，上限60次请求，超限返回HTTP 429。给独立YAML配置，不要和付费版合并。"
+        },
+        {
+          "role": "assistant",
+          "content": "```yaml\npolicy: free_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 60\nreject_status: 429\n```\n\n这是免费体验版租户 `free_tier` 的独立限流配置。<|task:2|>",
+          "reasoning_content": "Second independent task: rate-limit YAML config for free trial tenants (free_tier, 60 req / 60s sliding window by api_key). Assign marker 2."
+        },
+        {
+          "role": "user",
+          "content": "已签约购买商业套餐的客户，限流配置里增加retry_after_header: true，其余窗口和配额保持不变，给更新后的YAML。"
+        },
+        {
+          "role": "assistant",
+          "content": "```yaml\npolicy: pro_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 1200\nreject_status: 429\nretry_after_header: true\n```\n\n付费商业版 `pro_tier` 已开启 `retry_after_header: true`。<|task:1|>",
+          "reasoning_content": "Paid commercial package customers uniquely match pro_tier (task 1). Add retry_after_header: true and keep marker 1."
+        },
+        {
+          "role": "user",
+          "content": "另外处理一个独立需求：写一条校验运维告警接收邮箱后缀必须为@ops.example.com的正则表达式，与网关限流无关。"
+        },
+        {
+          "role": "assistant",
+          "content": "校验正则：`^[a-zA-Z0-9._%+-]+@ops\\.example\\.com$`<|task:3|>",
+          "reasoning_content": "Third independent task: regex validation for alert email suffix @ops.example.com. Assign marker 3."
+        },
+        {
+          "role": "user",
+          "content": "邮箱前缀只允许小写字母、数字和点号，更新这条正则。"
+        },
+        {
+          "role": "assistant",
+          "content": "更新后的校验正则：`^[a-z0-9.]+@ops\\.example\\.com$`<|task:3|>",
+          "reasoning_content": "Immediate continuation of alert email regex validation (task 3). Keep marker 3."
+        },
+        {
+          "role": "user",
+          "content": "超限返回HTTP 429的那套按api_key限流策略，写成一句给值班研发看的规则摘要。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-eddc15bb85d0-175e59b",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1045,
+      "completion_tokens": 221,
+      "total_tokens": 1266,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 120
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00028935,
+        "allowance": 0.00017361,
+        "tokens": {
+          "input": 1045,
+          "output": 221,
+          "reasoning": 120,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "用户要求把\"超限返回HTTP 429的那套按api_key限流策略\"写成一句话给值班研发看的规则摘要。现在有两套策略都符合：pro_tier（1200次，429）和free_tier（60次，429），都是按api_key、60秒滑动窗口、超限返回429。共享特征匹配多个任务，缺乏唯一区分证据。这不是紧接上一轮同一任务的直接省略延续（上一轮是task 3邮箱正则）。\n\n按归属契约，必须标记UNRESOLVED并简要列出候选任务请用户澄清。",
+    "content": "现有两套策略都符合“按 api_key 统计、60 秒滑动窗口、超限返回 HTTP 429”，无法唯一确定指哪一套：\n\n- `pro_tier`：上限 1200 次/60 秒（付费商业版）\n- `free_tier`：上限 60 次/60 秒（免费体验版）\n\n请指明要摘要的是哪一套，我再给出对应的一句话规则。<|task:UNRESOLVED|>",
+    "wire_bytes": 14299,
+    "wire_sha256": "9059ad52a69be51cf13a9cc039bdf3b9b0667407e150cfd16b7ae90b62ade4e2",
+    "event_count": 66,
+    "raw_wire_text": "data: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"用户\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"要求把\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"\\\"\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"超限返回HTTP\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 429的那套按api\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_key限流策略\\\"写成\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"一句话给值班\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"研发看的规则摘要。现在\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"有两\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"套策略都\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"符合：pro\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_tier（120\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"0次，429\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"）和free\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_tier（60次，\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"429），\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"都是按api_key、60\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"秒滑动窗口、超\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"限返回429。共享特征\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"匹配\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"多个\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"任务，缺乏\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"唯一区分证据。这不是\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"紧\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"接上一轮同一\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"任务的直接省略\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"延续（上一轮是task\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" \"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"3邮箱\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"正则）。\\n\\n按\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"归属\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"契约，\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"必须标记UN\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"RESOLVED并简要\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"列出候选任务\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"请\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"用户澄清。\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"现有\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"两\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"套策略都符合\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"“按 api\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"_key 统计\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"、60 秒滑动\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"窗口、超限返回 HTTP\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" 429”，\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"无法唯一确定\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"指\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"哪一套：\\n\\n- `pro\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"_tier`：上限\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" 1200 次/\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"60\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" 秒（付费\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"商业版）\\n- `free\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"_tier`：上限 \"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"60 次/60 \"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"秒（免费体验\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"版）\\n\\n请指明\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"要摘要\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"的是\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"哪一套，我再\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"给出对应的一句话\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"规则。<|task\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\":UNRESOLVED|\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\">\"}}]}\n\ndata: {\"id\":\"gw-eddc15bb85d0-175e59b\",\"object\":\"chat.completion.chunk\",\"created\":1795282645,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":1045,\"completion_tokens\":221,\"total_tokens\":1266,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":120},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00028935,\"allowance\":0.00017361,\"tokens\":{\"input\":1045,\"output\":221,\"reasoning\":120,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

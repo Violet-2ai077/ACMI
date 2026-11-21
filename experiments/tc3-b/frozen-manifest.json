@@ -1,0 +1,27 @@
+{
+  "experiment": "TC3-B",
+  "title": "24-Turn De-Greenhouse Task Continuity Stress Test (Strip CoT & Strip Explicit Headers)",
+  "protocol_version": "TC3-B-de-greenhouse-strip-ablation-20261122",
+  "story_id": "overlapping-notices",
+  "system_prompt_variant": "SYSTEM_C0 (Verbatim original TC1-TC3 prompt)",
+  "frozen_at": "2026-11-21T17:58:55.725Z",
+  "conditions_count": 3,
+  "turns_per_condition": 24,
+  "total_planned_calls": 72,
+  "frozen_proper_nouns": [
+    "云栖读书会",
+    "云溪读书会",
+    "溪岸书店",
+    "云栖",
+    "云溪",
+    "溪岸"
+  ],
+  "files": {
+    "story.mjs": "7dd5581107530c9e402fac2299fe179b54394bdc58e89503fe56741b5e884e08",
+    "stripper.mjs": "f24c49fd444161313a13ccdb5d3d58713f4786c1ceedf691ba26bbf7bd47b3a8",
+    "evaluate.mjs": "a9b49ef5ada8866e2c0e753cfecddc94ec7ee27748cec0e77c5a4a2bf79e3056",
+    "client.mjs": "5d07b66d0e7a68ca5a597fc1e24a89756bae25027bb943d2df1ecba884beebce",
+    "run.mjs": "2068e71a3d1636a2309d5b015b2031bb91d5f178cdf2ab88e1f149395f72a293",
+    "tc3-b.node-test.mjs": "aa2b679173a6cf1f0f1e9a132ff20df21dc10239b1db6e419cd7616afea6c68c"
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "protocol": "TH1-B-STALE-RULE-RESURRECTION-ABLATION-v1",
+  "frozen_at": "2026-11-21T13:05:47.744Z",
+  "integrity": {
+    "scenarios_count": 8,
+    "total_tasks": 88,
+    "exp_a_tasks": 64,
+    "exp_b_tasks": 24,
+    "valid": true
+  },
+  "digests": {
+    "scenarios_sha256": "2d606ba926500de1cb1ba9403dd8a3ee3c61c8da70db52b0fdaca90776738b96",
+    "prompts_sha256": "cc075c4adcc556498bdafacda505d144dedc6a52f6b16adb5f700d2789f4e7ed",
+    "task_matrix_sha256": "aaf01431e27a67d345b8c21cc70a361de1b5813880716ebd79ce6c3a56548a35",
+    "files": {
+      "scenarios.mjs": "ef73852416c954587347751fa3616c9adcc5f17e7ef3924b09ec0c8fe2eadf02",
+      "prompts.mjs": "fb49841d3767c1d5a7bafded2c2e49961177809ec11160d14540796eea3ff952",
+      "evaluate.mjs": "665cde4bbceab1ccb3cf5c4dcbe21f7939eb67d7fbad90a103598fb65f807d1e",
+      "client.mjs": "66c399c864c9e862b4823d870238fbbc6716e0ce979345e60a62e1ac89aeaf00",
+      "run.mjs": "cbbe0c1fda4961fea51f73d8035e0aab3a3534b0265de58110d9c2b95b4d3dc0",
+      "th1-b.node-test.mjs": "8e10bb026b4253a8267a57747625397e728e5ed50653ce0ce7d37ec230ea3ad9"
+    }
+  },
+  "scenarios_summary": [
+    {
+      "id": "V0",
+      "family": "th1-original",
+      "local_turns": [
+        1,
+        3
+      ],
+      "memory_source_turn": 4,
+      "stale_footers": [
+        "M16"
+      ],
+      "expected": {
+        "trail": [
+          "K14",
+          "N72"
+        ],
+        "latest_code": "N72",
+        "seal": "S58",
+        "footer": "M94",
+        "print_line": "N72/S58/M94"
+      }
+    },
+    {
+      "id": "V1",
+      "family": "th1-original",
+      "local_turns": [
+        2,
+        4
+      ],
+      "memory_source_turn": 3,
+      "stale_footers": [
+        "M94"
+      ],
+      "expected": {
+        "trail": [
+          "P83",
+          "J26"
+        ],
+        "latest_code": "J26",
+        "seal": "S31",
+        "footer": "M16",
+        "print_line": "J26/S31/M16"
+      }
+    },
+    {
+      "id": "V2",
+      "family": "sandwich-counterbalanced",
+      "local_turns": [
+        1,
+        4
+      ],
+      "memory_source_turn": 3,
+      "stale_footers": [
+        "F28"
+      ],
+      "expected": {
+        "trail": [
+          "R41",
+          "T95"
+        ],
+        "latest_code": "T95",
+        "seal": "S62",
+        "footer": "F73",
+        "print_line": "T95/S62/F73"
+      }
+    },
+    {
+      "id": "V3",
+      "family": "sandwich-counterbalanced",
+      "local_turns": [
+        2,
+        5
+      ],
+      "memory_source_turn": 3,
+      "stale_footers": [
+        "F73"
+      ],
+      "expected": {
+        "trail": [
+          "W19",
+          "C64"
+        ],
+        "latest_code": "C64",
+        "seal": "S85",
+        "footer": "F28",
+        "print_line": "C64/S85/F28"
+      }
+    },
+    {
+      "id": "V4",
+      "family": "two-hop-override",
+      "local_turns": [
+        1,
+        3
+      ],
+      "memory_source_turn": 5,
+      "stale_footers": [
+        "G12",
+        "G45"
+      ],
+      "expected": {
+        "trail": [
+          "D34",
+          "H89"
+        ],
+        "latest_code": "H89",
+        "seal": "S71",
+        "footer": "G98",
+        "print_line": "H89/S71/G98"
+      }
+    },
+    {
+      "id": "V5",
+      "family": "two-hop-override",
+      "local_turns": [
+        2,
+        4
+      ],
+      "memory_source_turn": 5,
+      "stale_footers": [
+        "G98",
+        "G45"
+      ],
+      "expected": {
+        "trail": [
+          "L52",
+          "Q17"
+        ],
+        "latest_code": "Q17",
+        "seal": "S24",
+        "footer": "G12",
+        "print_line": "Q17/S24/G12"
+      }
+    },
+    {
+      "id": "V6",
+      "family": "negative-anti-overcorrection",
+      "local_turns": [
+        1,
+        3
+      ],
+      "memory_source_turn": 4,
+      "stale_footers": [
+        "M35"
+      ],
+      "expected": {
+        "trail": [
+          "B23",
+          "E67"
+        ],
+        "latest_code": "E67",
+        "seal": "S44",
+        "footer": "M81",
+        "print_line": "E67/S44/M81"
+      }
+    },
+    {
+      "id": "V7",
+      "family": "negative-anti-overcorrection",
+      "local_turns": [
+        2,
+        4
+      ],
+      "memory_source_turn": 3,
+      "stale_footers": [
+        "M81"
+      ],
+      "expected": {
+        "trail": [
+          "V54",
+          "Z76"
+        ],
+        "latest_code": "Z76",
+        "seal": "S19",
+        "footer": "M35",
+        "print_line": "Z76/S19/M35"
+      }
+    }
+  ]
+}

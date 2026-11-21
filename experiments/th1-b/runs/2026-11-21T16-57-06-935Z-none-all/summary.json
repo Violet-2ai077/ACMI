@@ -1,0 +1,5549 @@
+{
+  "run_id": "2026-11-21T16-57-06-935Z-none-all",
+  "completed_at": "2026-11-21T16:59:24.772Z",
+  "config": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "model": "deepseek-v4.1-flash",
+    "reasoning_effort": "none",
+    "only": "all"
+  },
+  "frozen_manifest_digests": {
+    "scenarios_sha256": "2d606ba926500de1cb1ba9403dd8a3ee3c61c8da70db52b0fdaca90776738b96",
+    "prompts_sha256": "cc075c4adcc556498bdafacda505d144dedc6a52f6b16adb5f700d2789f4e7ed",
+    "task_matrix_sha256": "aaf01431e27a67d345b8c21cc70a361de1b5813880716ebd79ce6c3a56548a35",
+    "files": {
+      "scenarios.mjs": "ef73852416c954587347751fa3616c9adcc5f17e7ef3924b09ec0c8fe2eadf02",
+      "prompts.mjs": "fb49841d3767c1d5a7bafded2c2e49961177809ec11160d14540796eea3ff952",
+      "evaluate.mjs": "665cde4bbceab1ccb3cf5c4dcbe21f7939eb67d7fbad90a103598fb65f807d1e",
+      "client.mjs": "66c399c864c9e862b4823d870238fbbc6716e0ce979345e60a62e1ac89aeaf00",
+      "run.mjs": "cbbe0c1fda4961fea51f73d8035e0aab3a3534b0265de58110d9c2b95b4d3dc0",
+      "th1-b.node-test.mjs": "8e10bb026b4253a8267a57747625397e728e5ed50653ce0ce7d37ec230ea3ad9"
+    }
+  },
+  "stats": {
+    "total_records": 88,
+    "total_transport_retries": 0,
+    "experiment_A": {
+      "total_tasks": 64,
+      "cells": {
+        "filtered_P0_C0": {
+          "total": 8,
+          "pass_count": 3,
+          "pass_rate": 0.375,
+          "stale_resurrection_count": 5,
+          "stale_resurrection_rate": 0.625,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "filtered_P0_C1": {
+          "total": 8,
+          "pass_count": 8,
+          "pass_rate": 1,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "filtered_P1_C0": {
+          "total": 8,
+          "pass_count": 8,
+          "pass_rate": 1,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "filtered_P1_C1": {
+          "total": 8,
+          "pass_count": 8,
+          "pass_rate": 1,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "compact_P0_C0": {
+          "total": 8,
+          "pass_count": 0,
+          "pass_rate": 0,
+          "stale_resurrection_count": 8,
+          "stale_resurrection_rate": 1,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "compact_P0_C1": {
+          "total": 8,
+          "pass_count": 8,
+          "pass_rate": 1,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "compact_P1_C0": {
+          "total": 8,
+          "pass_count": 5,
+          "pass_rate": 0.625,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "compact_P1_C1": {
+          "total": 8,
+          "pass_count": 8,
+          "pass_rate": 1,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        }
+      },
+      "marginals": {
+        "P0": {
+          "total": 32,
+          "pass_count": 19,
+          "pass_rate": 0.59375,
+          "stale_resurrection_count": 13,
+          "stale_resurrection_rate": 0.40625,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 32,
+          "json_valid_rate": 1
+        },
+        "P1": {
+          "total": 32,
+          "pass_count": 29,
+          "pass_rate": 0.90625,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 32,
+          "json_valid_rate": 1
+        },
+        "C0": {
+          "total": 32,
+          "pass_count": 16,
+          "pass_rate": 0.5,
+          "stale_resurrection_count": 13,
+          "stale_resurrection_rate": 0.40625,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 32,
+          "json_valid_rate": 1
+        },
+        "C1": {
+          "total": 32,
+          "pass_count": 32,
+          "pass_rate": 1,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 32,
+          "json_valid_rate": 1
+        },
+        "filtered": {
+          "total": 32,
+          "pass_count": 27,
+          "pass_rate": 0.84375,
+          "stale_resurrection_count": 5,
+          "stale_resurrection_rate": 0.15625,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 32,
+          "json_valid_rate": 1
+        },
+        "compact": {
+          "total": 32,
+          "pass_count": 21,
+          "pass_rate": 0.65625,
+          "stale_resurrection_count": 8,
+          "stale_resurrection_rate": 0.25,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 32,
+          "json_valid_rate": 1
+        }
+      }
+    },
+    "experiment_B": {
+      "total_tasks": 24,
+      "compressor": {
+        "total": 8,
+        "pass_count": 8,
+        "pass_rate": 1,
+        "compressor_leak_count": 0,
+        "compressor_leak_rate": 0,
+        "any_footer_leak_count": 0,
+        "any_footer_leak_rate": 0,
+        "local_preserved_count": 8,
+        "local_preserved_rate": 1
+      },
+      "compressor_leak_rate": 0,
+      "receivers": {
+        "compact_strict_C0": {
+          "total": 8,
+          "pass_count": 7,
+          "pass_rate": 0.875,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        },
+        "compact_strict_C1": {
+          "total": 8,
+          "pass_count": 8,
+          "pass_rate": 1,
+          "stale_resurrection_count": 0,
+          "stale_resurrection_rate": 0,
+          "local_corruption_count": 0,
+          "local_corruption_rate": 0,
+          "json_valid_count": 8,
+          "json_valid_rate": 1
+        }
+      }
+    }
+  },
+  "records": [
+    {
+      "ordinal": 1,
+      "task_id": "A-V0-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2012.5225999999998,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 259,
+        "completion_tokens": 23,
+        "total_tokens": 282,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005265,
+          "allowance": 0.00003159,
+          "tokens": {
+            "input": 259,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 2,
+      "task_id": "A-V0-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1513.1879,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 379,
+        "completion_tokens": 23,
+        "total_tokens": 402,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00007065,
+          "allowance": 0.00004239,
+          "tokens": {
+            "input": 379,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 3,
+      "task_id": "A-V0-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1349.7662,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 237,
+        "completion_tokens": 23,
+        "total_tokens": 260,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004935,
+          "allowance": 0.00002961,
+          "tokens": {
+            "input": 237,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 4,
+      "task_id": "A-V0-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1637.4111999999996,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 357,
+        "completion_tokens": 23,
+        "total_tokens": 380,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006735,
+          "allowance": 0.00004041,
+          "tokens": {
+            "input": 357,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 5,
+      "task_id": "A-V0-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1023.0946999999996,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 204,
+        "completion_tokens": 23,
+        "total_tokens": 227,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000444,
+          "allowance": 0.00002664,
+          "tokens": {
+            "input": 204,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "M16",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 6,
+      "task_id": "A-V0-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1069.9889999999996,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 23,
+        "total_tokens": 347,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000624,
+          "allowance": 0.00003744,
+          "tokens": {
+            "input": 324,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 7,
+      "task_id": "A-V0-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1567.9361999999983,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 24,
+        "total_tokens": 214,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000429,
+          "allowance": 0.00002574,
+          "tokens": {
+            "input": 190,
+            "output": 24,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/UNKNOWN\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/UNKNOWN"
+        }
+      }
+    },
+    {
+      "ordinal": 8,
+      "task_id": "A-V0-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2329.0933999999997,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 23,
+        "total_tokens": 333,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000603,
+          "allowance": 0.00003618,
+          "tokens": {
+            "input": 310,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 9,
+      "task_id": "A-V1-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1186.5827000000008,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 269,
+        "completion_tokens": 23,
+        "total_tokens": 292,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005415,
+          "allowance": 0.00003249,
+          "tokens": {
+            "input": 269,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "M94",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 10,
+      "task_id": "A-V1-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1218.930400000001,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 389,
+        "completion_tokens": 23,
+        "total_tokens": 412,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00007215,
+          "allowance": 0.00004329,
+          "tokens": {
+            "input": 389,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 11,
+      "task_id": "A-V1-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2679.2878999999994,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 245,
+        "completion_tokens": 23,
+        "total_tokens": 268,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005055,
+          "allowance": 0.00003033,
+          "tokens": {
+            "input": 245,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 12,
+      "task_id": "A-V1-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1558.113300000001,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 365,
+        "completion_tokens": 23,
+        "total_tokens": 388,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006855,
+          "allowance": 0.00004113,
+          "tokens": {
+            "input": 365,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 13,
+      "task_id": "A-V1-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 994.788700000001,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 187,
+        "completion_tokens": 23,
+        "total_tokens": 210,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004185,
+          "allowance": 0.00002511,
+          "tokens": {
+            "input": 187,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "M94",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 14,
+      "task_id": "A-V1-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1117.767499999998,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 307,
+        "completion_tokens": 23,
+        "total_tokens": 330,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005985,
+          "allowance": 0.00003591,
+          "tokens": {
+            "input": 307,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 15,
+      "task_id": "A-V1-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1629.3588999999993,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 173,
+        "completion_tokens": 23,
+        "total_tokens": 196,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00003975,
+          "allowance": 0.00002385,
+          "tokens": {
+            "input": 173,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 16,
+      "task_id": "A-V1-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1465.7821000000004,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 293,
+        "completion_tokens": 23,
+        "total_tokens": 316,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005775,
+          "allowance": 0.00003465,
+          "tokens": {
+            "input": 293,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 17,
+      "task_id": "A-V2-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1683.7088000000003,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 261,
+        "completion_tokens": 23,
+        "total_tokens": 284,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005295,
+          "allowance": 0.00003177,
+          "tokens": {
+            "input": 261,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 18,
+      "task_id": "A-V2-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1039.1926999999996,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 381,
+        "completion_tokens": 23,
+        "total_tokens": 404,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00007095,
+          "allowance": 0.00004257,
+          "tokens": {
+            "input": 381,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 19,
+      "task_id": "A-V2-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1692.2203000000009,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 237,
+        "completion_tokens": 23,
+        "total_tokens": 260,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004935,
+          "allowance": 0.00002961,
+          "tokens": {
+            "input": 237,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 20,
+      "task_id": "A-V2-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1776.7191999999995,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 357,
+        "completion_tokens": 23,
+        "total_tokens": 380,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006735,
+          "allowance": 0.00004041,
+          "tokens": {
+            "input": 357,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 21,
+      "task_id": "A-V2-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1125.3731000000007,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 204,
+        "completion_tokens": 23,
+        "total_tokens": 227,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000444,
+          "allowance": 0.00002664,
+          "tokens": {
+            "input": 204,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "F28",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 22,
+      "task_id": "A-V2-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1286.185800000003,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 23,
+        "total_tokens": 347,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000624,
+          "allowance": 0.00003744,
+          "tokens": {
+            "input": 324,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 23,
+      "task_id": "A-V2-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1763.880799999999,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 23,
+        "total_tokens": 213,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000423,
+          "allowance": 0.00002538,
+          "tokens": {
+            "input": 190,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 24,
+      "task_id": "A-V2-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1560.5288,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 23,
+        "total_tokens": 333,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000603,
+          "allowance": 0.00003618,
+          "tokens": {
+            "input": 310,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 25,
+      "task_id": "A-V3-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1134.1287000000011,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 267,
+        "completion_tokens": 23,
+        "total_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005385,
+          "allowance": 0.00003231,
+          "tokens": {
+            "input": 267,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "F73",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 26,
+      "task_id": "A-V3-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 993.2307000000001,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 387,
+        "completion_tokens": 23,
+        "total_tokens": 410,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00007185,
+          "allowance": 0.00004311,
+          "tokens": {
+            "input": 387,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 27,
+      "task_id": "A-V3-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1950.0665999999983,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 244,
+        "completion_tokens": 23,
+        "total_tokens": 267,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000504,
+          "allowance": 0.00003024,
+          "tokens": {
+            "input": 244,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 28,
+      "task_id": "A-V3-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1464.0662999999986,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 364,
+        "completion_tokens": 23,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000684,
+          "allowance": 0.00004104,
+          "tokens": {
+            "input": 364,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 29,
+      "task_id": "A-V3-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1612.6394,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 206,
+        "completion_tokens": 23,
+        "total_tokens": 229,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000447,
+          "allowance": 0.00002682,
+          "tokens": {
+            "input": 206,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "F73",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 30,
+      "task_id": "A-V3-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1477.5892999999996,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 23,
+        "total_tokens": 349,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000627,
+          "allowance": 0.00003762,
+          "tokens": {
+            "input": 326,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 31,
+      "task_id": "A-V3-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1523.3551999999981,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 192,
+        "completion_tokens": 23,
+        "total_tokens": 215,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000426,
+          "allowance": 0.00002556,
+          "tokens": {
+            "input": 192,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 32,
+      "task_id": "A-V3-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1231.763500000001,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 23,
+        "total_tokens": 335,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000606,
+          "allowance": 0.00003636,
+          "tokens": {
+            "input": 312,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 33,
+      "task_id": "A-V4-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 975.379399999998,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 289,
+        "completion_tokens": 23,
+        "total_tokens": 312,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005715,
+          "allowance": 0.00003429,
+          "tokens": {
+            "input": 289,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G45\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "G45",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G45"
+        }
+      }
+    },
+    {
+      "ordinal": 34,
+      "task_id": "A-V4-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1173.5520000000033,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 409,
+        "completion_tokens": 23,
+        "total_tokens": 432,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00007515,
+          "allowance": 0.00004509,
+          "tokens": {
+            "input": 409,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 35,
+      "task_id": "A-V4-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2092.4212000000043,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 231,
+        "completion_tokens": 23,
+        "total_tokens": 254,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004845,
+          "allowance": 0.00002907,
+          "tokens": {
+            "input": 231,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 36,
+      "task_id": "A-V4-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2556.3165999999983,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 351,
+        "completion_tokens": 23,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006645,
+          "allowance": 0.00003987,
+          "tokens": {
+            "input": 351,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 37,
+      "task_id": "A-V4-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1618.1132999999973,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 23,
+        "total_tokens": 241,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000465,
+          "allowance": 0.0000279,
+          "tokens": {
+            "input": 218,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G45\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "G45",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G45"
+        }
+      }
+    },
+    {
+      "ordinal": 38,
+      "task_id": "A-V4-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1375.3375000000015,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 23,
+        "total_tokens": 361,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000645,
+          "allowance": 0.0000387,
+          "tokens": {
+            "input": 338,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 39,
+      "task_id": "A-V4-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1972.3467999999993,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 23,
+        "total_tokens": 213,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000423,
+          "allowance": 0.00002538,
+          "tokens": {
+            "input": 190,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 40,
+      "task_id": "A-V4-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1218.9292999999961,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 23,
+        "total_tokens": 333,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000603,
+          "allowance": 0.00003618,
+          "tokens": {
+            "input": 310,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 41,
+      "task_id": "A-V5-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1330.5983999999953,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 294,
+        "completion_tokens": 23,
+        "total_tokens": 317,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000579,
+          "allowance": 0.00003474,
+          "tokens": {
+            "input": 294,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G45\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "G45",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G45"
+        }
+      }
+    },
+    {
+      "ordinal": 42,
+      "task_id": "A-V5-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1212.5625999999975,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 414,
+        "completion_tokens": 23,
+        "total_tokens": 437,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000759,
+          "allowance": 0.00004554,
+          "tokens": {
+            "input": 414,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G12\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G12"
+        }
+      }
+    },
+    {
+      "ordinal": 43,
+      "task_id": "A-V5-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1592.785800000005,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 235,
+        "completion_tokens": 23,
+        "total_tokens": 258,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004905,
+          "allowance": 0.00002943,
+          "tokens": {
+            "input": 235,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G12\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G12"
+        }
+      }
+    },
+    {
+      "ordinal": 44,
+      "task_id": "A-V5-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1493.0739999999932,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 355,
+        "completion_tokens": 23,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006705,
+          "allowance": 0.00004023,
+          "tokens": {
+            "input": 355,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G12\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G12"
+        }
+      }
+    },
+    {
+      "ordinal": 45,
+      "task_id": "A-V5-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1344.7514999999985,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 215,
+        "completion_tokens": 23,
+        "total_tokens": 238,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004605,
+          "allowance": 0.00002763,
+          "tokens": {
+            "input": 215,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G45\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "G45",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G45"
+        }
+      }
+    },
+    {
+      "ordinal": 46,
+      "task_id": "A-V5-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1338.6380000000063,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 23,
+        "total_tokens": 358,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006405,
+          "allowance": 0.00003843,
+          "tokens": {
+            "input": 335,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G12\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G12"
+        }
+      }
+    },
+    {
+      "ordinal": 47,
+      "task_id": "A-V5-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1267.4827000000078,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 192,
+        "completion_tokens": 24,
+        "total_tokens": 216,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000432,
+          "allowance": 0.00002592,
+          "tokens": {
+            "input": 192,
+            "output": 24,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/UNKNOWN\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/UNKNOWN"
+        }
+      }
+    },
+    {
+      "ordinal": 48,
+      "task_id": "A-V5-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1667.5520000000106,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 23,
+        "total_tokens": 335,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000606,
+          "allowance": 0.00003636,
+          "tokens": {
+            "input": 312,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G12\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G12"
+        }
+      }
+    },
+    {
+      "ordinal": 49,
+      "task_id": "A-V6-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1258.0167000000074,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 23,
+        "total_tokens": 347,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000624,
+          "allowance": 0.00003744,
+          "tokens": {
+            "input": 324,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 50,
+      "task_id": "A-V6-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 999.6573000000062,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 444,
+        "completion_tokens": 23,
+        "total_tokens": 467,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000804,
+          "allowance": 0.00004824,
+          "tokens": {
+            "input": 444,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 51,
+      "task_id": "A-V6-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2239.0976999999984,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 300,
+        "completion_tokens": 23,
+        "total_tokens": 323,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000588,
+          "allowance": 0.00003528,
+          "tokens": {
+            "input": 300,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 52,
+      "task_id": "A-V6-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1303.2044999999925,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 23,
+        "total_tokens": 443,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000768,
+          "allowance": 0.00004608,
+          "tokens": {
+            "input": 420,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 53,
+      "task_id": "A-V6-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1294.008400000006,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 233,
+        "completion_tokens": 23,
+        "total_tokens": 256,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004875,
+          "allowance": 0.00002925,
+          "tokens": {
+            "input": 233,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "M35",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 54,
+      "task_id": "A-V6-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1040.0451999999932,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 353,
+        "completion_tokens": 23,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006675,
+          "allowance": 0.00004005,
+          "tokens": {
+            "input": 353,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 55,
+      "task_id": "A-V6-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1252.7169999999896,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 219,
+        "completion_tokens": 24,
+        "total_tokens": 243,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004725,
+          "allowance": 0.00002835,
+          "tokens": {
+            "input": 219,
+            "output": 24,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/UNKNOWN\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/UNKNOWN"
+        }
+      }
+    },
+    {
+      "ordinal": 56,
+      "task_id": "A-V6-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1495.0040000000008,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 339,
+        "completion_tokens": 23,
+        "total_tokens": 362,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006465,
+          "allowance": 0.00003879,
+          "tokens": {
+            "input": 339,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 57,
+      "task_id": "A-V7-filtered_P0-C0",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "filtered_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1347.4186000000045,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 23,
+        "total_tokens": 336,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006075,
+          "allowance": 0.00003645,
+          "tokens": {
+            "input": 313,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "M81",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 58,
+      "task_id": "A-V7-filtered_P0-C1",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "filtered_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1174.6238000000012,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 433,
+        "completion_tokens": 23,
+        "total_tokens": 456,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00007875,
+          "allowance": 0.00004725,
+          "tokens": {
+            "input": 433,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 59,
+      "task_id": "A-V7-filtered_P1-C0",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "filtered_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1579.6568999999872,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 289,
+        "completion_tokens": 23,
+        "total_tokens": 312,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005715,
+          "allowance": 0.00003429,
+          "tokens": {
+            "input": 289,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 60,
+      "task_id": "A-V7-filtered_P1-C1",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "filtered",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "filtered_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1590.2731000000058,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 409,
+        "completion_tokens": 23,
+        "total_tokens": 432,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00007515,
+          "allowance": 0.00004509,
+          "tokens": {
+            "input": 409,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 61,
+      "task_id": "A-V7-compact_P0-C0",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C0",
+      "condition": "compact_P0_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1154.2662999999884,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 229,
+        "completion_tokens": 23,
+        "total_tokens": 252,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004815,
+          "allowance": 0.00002889,
+          "tokens": {
+            "input": 229,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": true,
+        "resurrected_value": "M81",
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 62,
+      "task_id": "A-V7-compact_P0-C1",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P0",
+      "contract": "C1",
+      "condition": "compact_P0_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1516.175500000012,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 349,
+        "completion_tokens": 23,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006615,
+          "allowance": 0.00003969,
+          "tokens": {
+            "input": 349,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 63,
+      "task_id": "A-V7-compact_P1-C0",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C0",
+      "condition": "compact_P1_C0",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1563.3261999999959,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 215,
+        "completion_tokens": 23,
+        "total_tokens": 238,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004605,
+          "allowance": 0.00002763,
+          "tokens": {
+            "input": 215,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 64,
+      "task_id": "A-V7-compact_P1-C1",
+      "exp": "A",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact",
+      "pollution": "P1",
+      "contract": "C1",
+      "condition": "compact_P1_C1",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1329.2599999999948,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 23,
+        "total_tokens": 358,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006405,
+          "allowance": 0.00003843,
+          "tokens": {
+            "input": 335,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 65,
+      "task_id": "B-V0-compress_strict",
+      "exp": "B",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1983.7657999999938,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 240,
+        "completion_tokens": 68,
+        "total_tokens": 308,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000768,
+          "allowance": 0.00004608,
+          "tokens": {
+            "input": 240,
+            "output": 68,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder print job handoff:\n\n- Print code revisions, in order: K14 → N72 (N72 is the latest, replacing K14).\n- Job-only seal: S58 (retained; applies only to the Alder job).\n- Latest operative decision: Alder uses print code N72 with seal S58.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 66,
+      "task_id": "B-V0-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V0-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1450.727600000013,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 199,
+        "completion_tokens": 23,
+        "total_tokens": 222,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004365,
+          "allowance": 0.00002619,
+          "tokens": {
+            "input": 199,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 67,
+      "task_id": "B-V0-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V0",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V0-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1444.0430000000051,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 23,
+        "total_tokens": 342,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006165,
+          "allowance": 0.00003699,
+          "tokens": {
+            "input": 319,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"K14\",\"N72\"],\"print_line\":\"N72/S58/M94\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "K14",
+            "N72"
+          ],
+          "print_line": "N72/S58/M94"
+        }
+      }
+    },
+    {
+      "ordinal": 68,
+      "task_id": "B-V1-compress_strict",
+      "exp": "B",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1813.8505999999907,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 250,
+        "completion_tokens": 61,
+        "total_tokens": 311,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000741,
+          "allowance": 0.00004446,
+          "tokens": {
+            "input": 250,
+            "output": 61,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder print job handoff:\n\n- Initial local print code: P83; job-only seal: S31.\n- Revision: earlier print code replaced with J26; seal S31 retained.\n- Latest operative decision: Alder proof print code is J26, seal S31 remains job-only.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 69,
+      "task_id": "B-V1-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V1-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1736.2756999999983,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 23,
+        "total_tokens": 213,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000423,
+          "allowance": 0.00002538,
+          "tokens": {
+            "input": 190,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 70,
+      "task_id": "B-V1-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V1",
+      "family": "th1-original",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V1-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1842.448199999999,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 23,
+        "total_tokens": 333,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000603,
+          "allowance": 0.00003618,
+          "tokens": {
+            "input": 310,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"P83\",\"J26\"],\"print_line\":\"J26/S31/M16\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "P83",
+            "J26"
+          ],
+          "print_line": "J26/S31/M16"
+        }
+      }
+    },
+    {
+      "ordinal": 71,
+      "task_id": "B-V2-compress_strict",
+      "exp": "B",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2046.0897000000114,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 242,
+        "completion_tokens": 40,
+        "total_tokens": 282,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000603,
+          "allowance": 0.00003618,
+          "tokens": {
+            "input": 242,
+            "output": 40,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder print job: print code revisions in order — R41 initially, then replaced by T95 (latest operative: T95). Job-only seal: S62, retained through the revision.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 72,
+      "task_id": "B-V2-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V2-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1949.5819999999949,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 165,
+        "completion_tokens": 23,
+        "total_tokens": 188,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00003855,
+          "allowance": 0.00002313,
+          "tokens": {
+            "input": 165,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 73,
+      "task_id": "B-V2-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V2",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V2-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1304.0639999999985,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 285,
+        "completion_tokens": 23,
+        "total_tokens": 308,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00005655,
+          "allowance": 0.00003393,
+          "tokens": {
+            "input": 285,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "R41",
+            "T95"
+          ],
+          "print_line": "T95/S62/F73"
+        }
+      }
+    },
+    {
+      "ordinal": 74,
+      "task_id": "B-V3-compress_strict",
+      "exp": "B",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1975.499800000005,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 248,
+        "completion_tokens": 35,
+        "total_tokens": 283,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000582,
+          "allowance": 0.00003492,
+          "tokens": {
+            "input": 248,
+            "output": 35,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder print job: print code revised W19 → C64; job-only seal S85 retained. Latest operative decision: print code C64 with seal S85.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 75,
+      "task_id": "B-V3-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V3-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1558.257099999988,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 160,
+        "completion_tokens": 23,
+        "total_tokens": 183,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000378,
+          "allowance": 0.00002268,
+          "tokens": {
+            "input": 160,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 76,
+      "task_id": "B-V3-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V3",
+      "family": "sandwich-counterbalanced",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V3-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1329.6695999999938,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 280,
+        "completion_tokens": 23,
+        "total_tokens": 303,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000558,
+          "allowance": 0.00003348,
+          "tokens": {
+            "input": 280,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "W19",
+            "C64"
+          ],
+          "print_line": "C64/S85/F28"
+        }
+      }
+    },
+    {
+      "ordinal": 77,
+      "task_id": "B-V4-compress_strict",
+      "exp": "B",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 1718.7822000000015,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 62,
+        "total_tokens": 332,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000777,
+          "allowance": 0.00004662,
+          "tokens": {
+            "input": 270,
+            "output": 62,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder print job handoff:\n\n- Print code revisions, in order: D34 (initial) → H89 (latest; replaced D34).\n- Job-only seal: S71 (retained through the revision).\n- Latest operative decision for Alder: print code H89 with seal S71.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 78,
+      "task_id": "B-V4-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V4-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1972.392200000002,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 193,
+        "completion_tokens": 23,
+        "total_tokens": 216,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004275,
+          "allowance": 0.00002565,
+          "tokens": {
+            "input": 193,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 79,
+      "task_id": "B-V4-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V4",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V4-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1967.4434000000037,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 23,
+        "total_tokens": 336,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006075,
+          "allowance": 0.00003645,
+          "tokens": {
+            "input": 313,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "D34",
+            "H89"
+          ],
+          "print_line": "H89/S71/G98"
+        }
+      }
+    },
+    {
+      "ordinal": 80,
+      "task_id": "B-V5-compress_strict",
+      "exp": "B",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2649.7232000000076,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 275,
+        "completion_tokens": 85,
+        "total_tokens": 360,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00009225,
+          "allowance": 0.00005535,
+          "tokens": {
+            "input": 275,
+            "output": 85,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder print job handoff:\n- Print code revisions in order: L52 (initial) → Q17 (replaces L52; latest operative code).\n- Job-only seal: S24 (retained across revisions; Alder job only).\n- Latest operative decision: use print code Q17 with seal S24 for the Alder job.\n\nNote: Workspace-wide footer settings intentionally omitted per handoff scope.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 81,
+      "task_id": "B-V5-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V5-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1487.3408000000054,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 217,
+        "completion_tokens": 24,
+        "total_tokens": 241,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004695,
+          "allowance": 0.00002817,
+          "tokens": {
+            "input": 217,
+            "output": 24,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/UNKNOWN\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": false,
+        "pass": false,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/UNKNOWN"
+        }
+      }
+    },
+    {
+      "ordinal": 82,
+      "task_id": "B-V5-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V5",
+      "family": "two-hop-override",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V5-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1337.5089000000007,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 337,
+        "completion_tokens": 23,
+        "total_tokens": 360,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006435,
+          "allowance": 0.00003861,
+          "tokens": {
+            "input": 337,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"L52\",\"Q17\"],\"print_line\":\"Q17/S24/G12\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "L52",
+            "Q17"
+          ],
+          "print_line": "Q17/S24/G12"
+        }
+      }
+    },
+    {
+      "ordinal": 83,
+      "task_id": "B-V6-compress_strict",
+      "exp": "B",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 2389.2406000000046,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 306,
+        "completion_tokens": 83,
+        "total_tokens": 389,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.0000957,
+          "allowance": 0.00005742,
+          "tokens": {
+            "input": 306,
+            "output": 83,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder job handoff:\n- Print code revision order: B23 (initial) → E67 (replaced B23; latest).\n- Job-only seal: S44 (retained, Alder only).\n- Latest operative decision: Alder's print code is E67; seal S44 retained. Birch's later local values (S99/X88) apply only to Birch, not Alder.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 84,
+      "task_id": "B-V6-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V6-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1686.1315000000031,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 213,
+        "completion_tokens": 23,
+        "total_tokens": 236,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004575,
+          "allowance": 0.00002745,
+          "tokens": {
+            "input": 213,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 85,
+      "task_id": "B-V6-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V6",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V6-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1511.9348000000027,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 23,
+        "total_tokens": 356,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006375,
+          "allowance": 0.00003825,
+          "tokens": {
+            "input": 333,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"B23\",\"E67\"],\"print_line\":\"E67/S44/M81\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "B23",
+            "E67"
+          ],
+          "print_line": "E67/S44/M81"
+        }
+      }
+    },
+    {
+      "ordinal": 86,
+      "task_id": "B-V7-compress_strict",
+      "exp": "B",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "compressor",
+      "representation": "filtered_transcript",
+      "pollution": "P0",
+      "contract": "STRICT",
+      "condition": "compress_strict",
+      "depends_on": null,
+      "transport_retries": 0,
+      "latency_ms": 3078.5488000000187,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 295,
+        "completion_tokens": 92,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00009945,
+          "allowance": 0.00005967,
+          "tokens": {
+            "input": 295,
+            "output": 92,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "Alder print job handoff:\n\n- Print code revisions, in order: V54 → Z76 (Z76 is the latest operative print code).\n- Job-only seal: S19 (retained; applies only to the Alder job).\n- Do not apply Birch's turn-5 local changes (seal S63 / code Y11) to Alder.\n\nLatest operative decision: Alder print code Z76 with job-only seal S19.",
+      "grade": {
+        "non_empty": true,
+        "leaked_stale_footer": false,
+        "leaked_stale_values": [],
+        "leaked_global_footer": false,
+        "leaked_any_footer": false,
+        "trail_codes_present": true,
+        "trail_order_preserved": true,
+        "seal_present": true,
+        "local_preserved": true,
+        "pass": true
+      }
+    },
+    {
+      "ordinal": 87,
+      "task_id": "B-V7-compact_strict-C0",
+      "exp": "B",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C0",
+      "condition": "compact_strict_C0",
+      "depends_on": "B-V7-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1900.4082000000053,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 225,
+        "completion_tokens": 23,
+        "total_tokens": 248,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00004755,
+          "allowance": 0.00002853,
+          "tokens": {
+            "input": 225,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    },
+    {
+      "ordinal": 88,
+      "task_id": "B-V7-compact_strict-C1",
+      "exp": "B",
+      "scenario_id": "V7",
+      "family": "negative-anti-overcorrection",
+      "role": "receiver",
+      "representation": "compact_strict",
+      "pollution": "dynamic",
+      "contract": "C1",
+      "condition": "compact_strict_C1",
+      "depends_on": "B-V7-compress_strict",
+      "transport_retries": 0,
+      "latency_ms": 1575.511999999988,
+      "model": "deepseek-v4.1-flash",
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 345,
+        "completion_tokens": 23,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "opencode": {
+          "billing_source": "go",
+          "list_cost": 0.00006555,
+          "allowance": 0.00003933,
+          "tokens": {
+            "input": 345,
+            "output": 23,
+            "reasoning": 0,
+            "cache_read": 0,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0
+          }
+        }
+      },
+      "raw_content": "{\"trail\":[\"V54\",\"Z76\"],\"print_line\":\"Z76/S19/M35\"}",
+      "grade": {
+        "json_valid": true,
+        "schema_valid": true,
+        "trail_exact": true,
+        "seal_exact": true,
+        "footer_exact": true,
+        "pass": true,
+        "stale_resurrected": false,
+        "resurrected_value": null,
+        "local_corrupted": false,
+        "parsed": {
+          "trail": [
+            "V54",
+            "Z76"
+          ],
+          "print_line": "Z76/S19/M35"
+        }
+      }
+    }
+  ]
+}

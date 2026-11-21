@@ -1,0 +1,92 @@
+{
+  "task_id": "B-V4-compact_strict-C0",
+  "ordinal": 78,
+  "exp": "B",
+  "scenario_id": "V4",
+  "condition": "compact_strict_C0",
+  "role": "receiver",
+  "started_at": "2026-11-21T16:59:03.199Z",
+  "completed_at": "2026-11-21T16:59:05.172Z",
+  "latency_ms": 1972.392200000002,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T16:59:03.199Z",
+      "completed_at": "2026-11-21T16:59:05.172Z",
+      "latency_ms": 1972.3239999999932,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "ac1be8eb300042f8013c8e239a421cbea037edbb6f3c0645b23763801cbc27cd",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-th1-b/1.0",
+      "x-opencode-session": "th1b-B-V4-compact_strict-C0",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 4096,
+      "thinking": {
+        "type": "disabled"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use only the supplied evidence to fulfill the job. Output only JSON {\"trail\":[\"code1\",\"code2\"],\"print_line\":\"latestCode/seal/footer\"}. trail lists the actual print code changes from first to last, no duplicate acknowledgements. print_line is a single label ready to print, literal values separated by slash without spaces. Use UNKNOWN for each unavailable value. Distinguish global footer updates from job-local rules."
+        },
+        {
+          "role": "user",
+          "content": "Deliver the Alder print label. Evidence:\n{\"note\":\"Alder print job handoff:\\n\\n- Print code revisions, in order: D34 (initial) → H89 (latest; replaced D34).\\n- Job-only seal: S71 (retained through the revision).\\n- Latest operative decision for Alder: print code H89 with seal S71.\",\"memory\":[{\"key\":\"footer\",\"value\":\"G98\",\"source\":5}]}"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-c7c454bf54df-11aeab5",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 193,
+      "completion_tokens": 23,
+      "total_tokens": 216,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00004275,
+        "allowance": 0.00002565,
+        "tokens": {
+          "input": 193,
+          "output": 23,
+          "reasoning": 0,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "",
+    "content": "{\"trail\":[\"D34\",\"H89\"],\"print_line\":\"H89/S71/G98\"}",
+    "wire_bytes": 2170,
+    "wire_sha256": "5257635437e32e6bf50b3a9f3983137a4b1a1fb2ab8bfbaf3134ce5bbb0a026d",
+    "event_count": 9,
+    "raw_wire_text": "data: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"{\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"trail\\\":\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"[\\\"D\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"34\\\",\\\"H89\\\"],\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"print_line\\\":\\\"H89/S\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"71/G\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"98\\\"}\"}}]}\n\ndata: {\"id\":\"gw-c7c454bf54df-11aeab5\",\"object\":\"chat.completion.chunk\",\"created\":1795280344,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":193,\"completion_tokens\":23,\"total_tokens\":216,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00004275,\"allowance\":0.00002565,\"tokens\":{\"input\":193,\"output\":23,\"reasoning\":0,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

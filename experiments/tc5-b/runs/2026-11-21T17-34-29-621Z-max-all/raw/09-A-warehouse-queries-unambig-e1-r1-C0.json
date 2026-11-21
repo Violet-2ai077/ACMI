@@ -1,0 +1,141 @@
+{
+  "task_id": "A-warehouse-queries-unambig-e1-r1-C0",
+  "ordinal": 9,
+  "exp": "A",
+  "contract": "C0",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:35:08.622Z",
+  "completed_at": "2026-11-21T17:35:11.814Z",
+  "latency_ms": 3192.713299999996,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:35:08.622Z",
+      "completed_at": "2026-11-21T17:35:11.814Z",
+      "latency_ms": 3192.5129000000015,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "54538a685292d1fd2b051f704caccfaf0470245f22a6332cf2646565a1596c94",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-A-warehouse-queries-unambig-e1-r1-C0",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u6\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\",\"a4\",\"u5\",\"a5\",\"u6\"]}"
+        },
+        {
+          "role": "user",
+          "content": "为冷库库存单独写去重查询：表cold_stock，按sku分组，保留updated_at最新的记录。给一段完整SQL。"
+        },
+        {
+          "role": "assistant",
+          "content": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n这条查询针对冷库 `cold_stock`，按 `sku` 分组并保留每组 `updated_at` 最新的一条记录。<|task:1|>",
+          "reasoning_content": "First task in conversation: cold_stock deduplication SQL grouped by sku keeping latest updated_at. Assign marker 1."
+        },
+        {
+          "role": "user",
+          "content": "常温仓也需要独立的库存去重查询：表ambient_stock，同样按sku分组、保留updated_at最新记录。给完整SQL，不和冷库合并。"
+        },
+        {
+          "role": "assistant",
+          "content": "```sql\nSELECT *\nFROM (\n    SELECT\n        a.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC\n        ) AS rn\n    FROM ambient_stock a\n) t\nWHERE rn = 1;\n```\n\n这条查询独立针对常温仓 `ambient_stock`，按 `sku` 分组并保留 `updated_at` 最新的一条记录。<|task:2|>",
+          "reasoning_content": "Independent second task: ambient_stock deduplication SQL, explicitly separate from cold_stock. Assign marker 2."
+        },
+        {
+          "role": "user",
+          "content": "需要低温保存的那批商品，时间相同时再按row_id倒序选择一条，给更新后的查询。"
+        },
+        {
+          "role": "assistant",
+          "content": "```sql\nSELECT *\nFROM (\n    SELECT\n        cs.*,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC, row_id DESC\n        ) AS rn\n    FROM cold_stock cs\n) t\nWHERE rn = 1;\n```\n\n低温冷库 `cold_stock` 查询已加上 `updated_at` 相同时按 `row_id DESC` 排序。<|task:1|>",
+          "reasoning_content": "Low-temperature goods uniquely identify cold_stock (task 1). Update ORDER BY with row_id DESC and keep marker 1."
+        },
+        {
+          "role": "user",
+          "content": "另外算一笔独立的配送费用：运费48元、搬运费32元，只给费用合计。"
+        },
+        {
+          "role": "assistant",
+          "content": "费用合计：80元。<|task:3|>",
+          "reasoning_content": "Independent third task: delivery fee arithmetic (48 + 32 = 80). Assign marker 3."
+        },
+        {
+          "role": "user",
+          "content": "再加5元包装费，现在合计多少？"
+        },
+        {
+          "role": "assistant",
+          "content": "合计：85元。<|task:3|>",
+          "reasoning_content": "Immediate continuation of delivery fee calculation (80 + 5 = 85). Keep marker 3."
+        },
+        {
+          "role": "user",
+          "content": "需要低温保存的那批商品，把它的库存去重查询改成只查询sku和updated_at两列，给出完整SQL。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-e9d2aa256059-11b7178",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 904,
+      "completion_tokens": 200,
+      "total_tokens": 1104,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 119
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0002556,
+        "allowance": 0.00015336,
+        "tokens": {
+          "input": 904,
+          "output": 200,
+          "reasoning": 119,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "We need answer. Need identify task. Low-temp goods corresponds cold_stock task 1, previously modified tie-break. User asks change query to only sku and updated_at columns. Need complete SQL. Should retain dedup by sku latest updated_at, tie row_id desc likely. Output columns only sku, updated_at, cannot select row_id? Use ROW_NUMBER in subquery with row_id order then outer select sku, updated_at. Need concise under 200 Chinese chars likely SQL counts maybe okay. End task 1. Ensure no extra after marker.",
+    "content": "```sql\nSELECT sku, updated_at\nFROM (\n    SELECT\n        sku,\n        updated_at,\n        ROW_NUMBER() OVER (\n            PARTITION BY sku\n            ORDER BY updated_at DESC, row_id DESC\n        ) AS rn\n    FROM cold_stock\n) t\nWHERE rn = 1;\n```\n\n<|task:1|>",
+    "wire_bytes": 13926,
+    "wire_sha256": "208650f54b5851650afbe5aa4be987c99b1f5576554ceef48b4ce67255f2e7e2",
+    "event_count": 64,
+    "raw_wire_text": "data: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"We\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" need answer.\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Need identify task\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Low\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"-t\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"emp goods\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" corresponds\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" cold_st\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"ock task 1,\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" previously modified\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" tie\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"-break. User asks change\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" query to only\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" sku and updated_at columns\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\".\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Need complete\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" SQL. Should retain\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" ded\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"up by\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" sku latest\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" updated_at, tie row\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_id desc likely\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Output columns only sku\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\",\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" updated_at, cannot\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" select\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" row\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_id?\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Use R\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"OW_NUMBER in\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" subquery with\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" row_id order\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" then\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" outer\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" select sk\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"u, updated_at. Need\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" concise\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" under 200 Chinese chars likely\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" SQL\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" counts\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" maybe okay\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". End\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" \"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"1.\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Ensure no extra after\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" marker.\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"```sql\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"SELECT sk\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"u, updated_at\\nFROM\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" (\\n    SELECT\\n        sk\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"u,\\n        updated_at,\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"        ROW_NUMBER()\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" OVER (\\n            PARTITION BY\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" sku\\n            ORDER BY\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" updated_at DESC, row_id\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" DESC\\n        ) AS r\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"n\\n    FROM cold_st\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"ock\\n) t\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"WHERE rn = 1\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\";\\n```\\n\\n<|\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"task:1|>\"}}]}\n\ndata: {\"id\":\"gw-e9d2aa256059-11b7178\",\"object\":\"chat.completion.chunk\",\"created\":1795282509,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":904,\"completion_tokens\":200,\"total_tokens\":1104,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":119},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.0002556,\"allowance\":0.00015336,\"tokens\":{\"input\":904,\"output\":200,\"reasoning\":119,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

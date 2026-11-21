@@ -1,0 +1,123 @@
+{
+  "task_id": "B-warehouse-queries-t04-C1",
+  "ordinal": 72,
+  "exp": "B",
+  "contract": "C1",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:39:41.654Z",
+  "completed_at": "2026-11-21T17:39:44.225Z",
+  "latency_ms": 2570.589399999997,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:39:41.654Z",
+      "completed_at": "2026-11-21T17:39:44.225Z",
+      "latency_ms": 2570.4574999999604,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "da5fdc17d4b4a75b468300bdece6eeba7534acaebfc84a8b3dfec65613925dcb",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-B-warehouse-queries-C1",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。\n补充归属契约：当用户当前请求仅匹配多个已有任务的共享特征、缺乏唯一区分证据（且并非紧接上一轮同一任务的直接省略延续）时，严禁按最近活跃或最近修改任务（Recency）、首次出现编号顺序（Primacy）或微弱措辞联想做默认归属，必须标记<|task:UNRESOLVED|>并在回答中简要列出所有匹配的候选任务请用户澄清；若存在能够唯一区分某一个既有任务的内容线索，则必须直接归属到该任务的原编号并正常交付，不得无故反问。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u4\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\"]}"
+        },
+        {
+          "role": "user",
+          "content": "为冷库库存单独写去重查询：表cold_stock，按sku分组，保留updated_at最新的记录。给一段完整SQL。"
+        },
+        {
+          "role": "assistant",
+          "content": "```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY sku\n           ORDER BY updated_at DESC\n         ) AS rn\n  FROM cold_stock\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n适用于 MySQL 8.0+/PostgreSQL。如果 `updated_at` 可能重复，建议在排序规则中加入唯一列（例如 `id DESC`），以保证结果稳定。\n\n<|task:1|>",
+          "reasoning_content": "We need answer in Chinese likely. Need provide SQL complete query for dedup cold_stock grouped sku keep latest updated_at. Need decide tie-break perhaps mention. No task marker prior? This is first task? System says mark task. Need output normal answer <=200 chars and task marker at end. Need ensure complete SQL. Simple. Use ROW_NUMBER window. If exact ties maybe deterministic id? User didn't give id. Could use updated_at only, ties unspecified. Provide complete SQL.\n\nNeed marker N=1 because first task. Chinese concise under 200 chars maybe SQL counts? \"字\" likely text. Need complete. We can use ROW_NUMBER() OVER (PARTITION BY sku ORDER BY updated_at DESC) AS rn. MySQL 8+ / PostgreSQL. Complete SELECT all cols from CTE where rn=1. Mention MySQL 8.0+ or PostgreSQL. Tie issue maybe if updated_at duplicate all tied retained? Row_number arbitrarily picks one. Need maybe ROW_NUMBER and note ties arbitrary; if need stable add id. User asks \"按sku分组，保留updated_at最新的记录\". SQL.\n\nLet's craft:\n\n```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY sku\n           ORDER BY updated_at DESC\n         ) AS rn\n  FROM cold_stock\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n适用于 MySQL 8.0+/PostgreSQL；若 updated_at 可能相同，需再加唯一列（如 id DESC）保证结果稳定。 marker exactly end. No code fence around marker. Need ensure normal answer and marker after all. That's fine. Under 200 chars? Chinese plus SQL maybe no. Desired says usually no over 200 Chinese characters, but complete SQL can be concise. This is likely okay. Ensure marker no appended explanation after."
+        },
+        {
+          "role": "user",
+          "content": "常温仓也需要独立的库存去重查询：表ambient_stock，同样按sku分组、保留updated_at最新记录。给完整SQL，不和冷库合并。"
+        },
+        {
+          "role": "assistant",
+          "content": "```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY sku\n           ORDER BY updated_at DESC\n         ) AS rn\n  FROM ambient_stock\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n该查询独立用于 `ambient_stock`，不与冷库查询合并。\n\n<|task:2|>",
+          "reasoning_content": "We need answer. Need task identity. Prior task was cold storage query. New request ambient warehouse independent, not merge. Is this same task? Rules: distinct client requirements? The original task: \"为冷库库存单独写去重查询...\" Then user asks \"常温仓也需要独立的库存去重查询... 不和冷库合并\". Is this a new task or same task? \"同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作...可能不同\". Here it's a parallel independent query for a different table, explicitly not merged. Likely a truly different task? Need decide. First task was cold stock. This is ambient stock independent. It may be same broader goal? The user says \"也需要独立的库存去重查询\" and \"不和冷库合并\", indicating separate work item. The task identity perhaps should be new task 2 because it's a distinct deliverable for a different inventory domain, even though same capability/pattern. The rule says project name or topic same doesn't automatically mean same goal. \"不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务.\" Here same user, but distinct warehouse stock. Could be same task if continuing a request for inventory dedup queries? But original task limited cold storage; new request explicitly independent and not merge, suggests a separate task, perhaps task 2. Need output SQL and marker task:2. But let's inspect conversation source IDs maybe u1, a1, u2. u1 cold request, a1 answer, u2 ambient. There's no prior marker in history except our a1 marked task 1. So current likely task 2. Need only normal answer under 200 Chinese chars? \"通常不超过200字\" but SQL counts? We can give concise. No need mention prior. Provide complete SQL for ambient_stock. Similar CTE. Ensure no merge. Maybe say standalone SQL. Use ROW_NUMBER partition by sku order updated_at desc. Tie breaker id desc. Marker at end exactly. Need no code fences? Fine. Under 200 Chinese chars excluding SQL? We can produce code. Need answer direct. End with <|task:2|>. No explanation after marker. Let's craft:\n\n```sql\nWITH ranked AS (\n SELECT *,\n ROW_NUMBER() OVER(PARTITION BY sku ORDER BY updated_at DESC, id DESC) rn\n FROM ambient_stock\n)\nSELECT * FROM ranked WHERE rn=1;\n```\n\nIf no id? Use updated_at only. They didn't mention id. To avoid assumption, use updated_at DESC only. Complete. Could include tie note? Keep brief. Maybe final marker only. Need marker task:2. Ensure no second marker."
+        },
+        {
+          "role": "user",
+          "content": "需要低温保存的那批商品，时间相同时再按row_id倒序选择一条，给更新后的查询。"
+        },
+        {
+          "role": "assistant",
+          "content": "```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (\n           PARTITION BY sku\n           ORDER BY updated_at DESC, row_id DESC\n         ) AS rn\n  FROM cold_stock\n)\nSELECT *\nFROM ranked\nWHERE rn = 1;\n```\n\n<|task:1|>",
+          "reasoning_content": "We need answer. Need determine task identity. Conversation: task1 cold_stock. task2 ambient_stock independent. User now \"需要低温保存的那批商品，时间相同时再按row_id倒序选择一条，给更新后的查询。\" This refers low temperature products = cold storage, likely task1 cold_stock. Need provide updated SQL adding row_id DESC tiebreaker. Need not confuse with ambient. We must attach task:1. Need concise. \"低温保存的那批商品\" clearly uniquely refers cold_stock task 1, not ambient. We can quote updated query. Need maybe mention row_id. Ensure no claims. Final answer with SQL. Mark task 1. Chinese. ≤200 chars? SQL itself perhaps counts? \"通常不超过200字\" we can be concise. Need exact marker at end no extra. Let's craft."
+        },
+        {
+          "role": "user",
+          "content": "另外算一笔独立的配送费用：运费48元、搬运费32元，只给费用合计。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-2a538a5c39f0-376f099",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 909,
+      "completion_tokens": 136,
+      "total_tokens": 1045,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 124
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0001615,
+        "allowance": 0.0000969,
+        "tokens": {
+          "input": 525,
+          "output": 136,
+          "reasoning": 124,
+          "cache_read": 384,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "我们需要回答用户当前请求：独立配送费用，运费48、搬运费32，只给费用合计。这是新任务，编号应为3。需要正常直接回答，不超过200字。只给费用合计。不能声称执行未执行操作。末尾标记 <|task:3|>。注意“只给费用合计”意味着不要解释，只输出合计？ 用户说只给费用合计。我们可以输出 80元。 末尾标记。 确保标记后只有空白。 回答正常，末尾恰好附一个标记。可以写“80元”。 标记。 不要额外。",
+    "content": "80元\n\n<|task:3|>",
+    "wire_bytes": 12202,
+    "wire_sha256": "37dea0ea01443cb17da7611f1c564ec07c8c70465719ac8fdbf7667502a0cde7",
+    "event_count": 56,
+    "raw_wire_text": "data: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"我们需要\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"回答用户当前\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"请求：独立\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"配送\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"费用，运费48、\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"搬运费\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"32，只\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"给费用合计。这是新\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"任务，编号\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"应为\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"3。需要正常\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"直接\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"回答，不超过\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"200字。只\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"给费用\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"合计。不能\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"声称\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"执行未\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"执行操作。末尾\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"标记 \"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"<|task:3|>\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"。注意“\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"只给费用合计”意味着\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"不要\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"解释，\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"只输出\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"合计\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"？\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 用户\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"说\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"只\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"给费用合计。我们可以输出\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" \"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"80元。 \"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"末尾标记\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"。 \"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"确保标记\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"后\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"只有\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"空白。 \"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"回答\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"正常\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"，\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"末尾\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"恰好\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"附\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"一个标记。可以写“\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"80元”。 标记\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"。 \"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"不要额外。\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"80\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"元\\n\\n\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"<|task:3|\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\">\"}}]}\n\ndata: {\"id\":\"gw-2a538a5c39f0-376f099\",\"object\":\"chat.completion.chunk\",\"created\":1795282782,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":909,\"completion_tokens\":136,\"total_tokens\":1045,\"prompt_tokens_details\":{\"cached_tokens\":384},\"completion_tokens_details\":{\"reasoning_tokens\":124},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.0001615,\"allowance\":0.0000969,\"tokens\":{\"input\":525,\"output\":136,\"reasoning\":124,\"cache_read\":384,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

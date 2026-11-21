@@ -1,0 +1,141 @@
+{
+  "task_id": "A-api-rate-limit-unambig-e1-r1-C0",
+  "ordinal": 41,
+  "exp": "A",
+  "contract": "C0",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:37:48.402Z",
+  "completed_at": "2026-11-21T17:37:51.971Z",
+  "latency_ms": 3569.4282999999996,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:37:48.402Z",
+      "completed_at": "2026-11-21T17:37:51.971Z",
+      "latency_ms": 3569.3004000000074,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "6120dd692fe10278a70c4eb00d911b331c49ca3072444ce4c5bcc1f288738f22",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-A-api-rate-limit-unambig-e1-r1-C0",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u6\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\",\"a4\",\"u5\",\"a5\",\"u6\"]}"
+        },
+        {
+          "role": "user",
+          "content": "为付费商业版租户单独写一份网关限流配置：策略名pro_tier，按api_key统计60秒滑动窗口，上限1200次请求，超限返回HTTP 429。请给出YAML格式配置。"
+        },
+        {
+          "role": "assistant",
+          "content": "```yaml\npolicy: pro_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 1200\nreject_status: 429\n```\n\n这是付费商业版租户 `pro_tier` 的独立限流配置。<|task:1|>",
+          "reasoning_content": "First task: rate-limit YAML config for paid commercial tenants (pro_tier, 1200 req / 60s sliding window by api_key). Assign marker 1."
+        },
+        {
+          "role": "user",
+          "content": "免费体验版租户也需要一份独立的网关限流配置：策略名free_tier，同样按api_key统计60秒滑动窗口，上限60次请求，超限返回HTTP 429。给独立YAML配置，不要和付费版合并。"
+        },
+        {
+          "role": "assistant",
+          "content": "```yaml\npolicy: free_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 60\nreject_status: 429\n```\n\n这是免费体验版租户 `free_tier` 的独立限流配置。<|task:2|>",
+          "reasoning_content": "Second independent task: rate-limit YAML config for free trial tenants (free_tier, 60 req / 60s sliding window by api_key). Assign marker 2."
+        },
+        {
+          "role": "user",
+          "content": "已签约购买商业套餐的客户，限流配置里增加retry_after_header: true，其余窗口和配额保持不变，给更新后的YAML。"
+        },
+        {
+          "role": "assistant",
+          "content": "```yaml\npolicy: pro_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 1200\nreject_status: 429\nretry_after_header: true\n```\n\n付费商业版 `pro_tier` 已开启 `retry_after_header: true`。<|task:1|>",
+          "reasoning_content": "Paid commercial package customers uniquely match pro_tier (task 1). Add retry_after_header: true and keep marker 1."
+        },
+        {
+          "role": "user",
+          "content": "另外处理一个独立需求：写一条校验运维告警接收邮箱后缀必须为@ops.example.com的正则表达式，与网关限流无关。"
+        },
+        {
+          "role": "assistant",
+          "content": "校验正则：`^[a-zA-Z0-9._%+-]+@ops\\.example\\.com$`<|task:3|>",
+          "reasoning_content": "Third independent task: regex validation for alert email suffix @ops.example.com. Assign marker 3."
+        },
+        {
+          "role": "user",
+          "content": "邮箱前缀只允许小写字母、数字和点号，更新这条正则。"
+        },
+        {
+          "role": "assistant",
+          "content": "更新后的校验正则：`^[a-z0-9.]+@ops\\.example\\.com$`<|task:3|>",
+          "reasoning_content": "Immediate continuation of alert email regex validation (task 3). Keep marker 3."
+        },
+        {
+          "role": "user",
+          "content": "已签约付费的商业客户那套网关限流配置，把burst_allowance设为200，保留原有的60秒滑窗和请求上限，给出完整YAML。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-e9d3f13f2c11-117d59d",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 938,
+      "completion_tokens": 245,
+      "total_tokens": 1183,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 176
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0002877,
+        "allowance": 0.00017262,
+        "tokens": {
+          "input": 938,
+          "output": 245,
+          "reasoning": 176,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "We need answer with YAML for pro_tier, add burst_allowance 200, retain 60s sliding window, 1200, retry_after_header true. Task identity: earlier task 1 was paid commercial gateway config. User asks update same config. Need mark task 1. Need concise, YAML only plus maybe brief. Ensure exactly one marker at end. No confusion with task 2 or 3. Let's craft YAML.\n\npolicy: pro_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 1200\nreject_status: 429\nretry_after_header: true\nburst_allowance: 200\n\nMaybe burst allowance semantics unclear but follow. Use full YAML. Normal direct answer under 200 Chinese chars perhaps. End marker.",
+    "content": "```yaml\npolicy: pro_tier\nkey_by: api_key\nwindow_seconds: 60\nwindow_type: sliding\nmax_requests: 1200\nreject_status: 429\nretry_after_header: true\nburst_allowance: 200\n```\n\n<|task:1|>",
+    "wire_bytes": 14222,
+    "wire_sha256": "fa02a379501fb6bb6c3dbb49d908d5ebe0bc389ad694ad79f9155f2894241e91",
+    "event_count": 65,
+    "raw_wire_text": "data: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"We\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" need answer with\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" YAML for\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" pro_tier,\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" add burst\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_allowance 200,\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" retain \"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"60s sliding window, \"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"1200, retry_\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"after_header true. Task identity\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\":\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" earlier task 1 was\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" paid commercial\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" gateway\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" config. User asks update\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" same config\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Need mark\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task \"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"1. Need concise, Y\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"AML only\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" plus\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" maybe\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" brief\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Ensure exactly\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" one\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" marker at end. No\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" confusion\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" with\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" task 2 or\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 3. Let's craft\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Y\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"AML.\\n\\npolicy\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\": pro_tier\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"key_by: api_key\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"window_seconds: 60\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"\\nwindow_type: sliding\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"max_requests: 120\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"0\\nre\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"ject_status: 429\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"retry_after_header:\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" true\\nburst_allowance\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\": 200\\n\\nMaybe burst\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" allowance semantics unclear\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" but follow\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Use full\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Y\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"AML. Normal direct\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" answer under 200 Chinese\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" chars perhaps.\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" End marker.\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"```y\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"aml\\npolicy: pro_t\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"ier\\nkey_by: api\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"_key\\nwindow_seconds:\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" 60\\nwindow_type:\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" sliding\\nmax_requests:\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" 1200\\nre\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"ject_status: 429\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"retry_after_header:\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" true\\nburst_allowance\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\": 200\\n```\\n\\n\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"<|task:\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"1|>\"}}]}\n\ndata: {\"id\":\"gw-e9d3f13f2c11-117d59d\",\"object\":\"chat.completion.chunk\",\"created\":1795282670,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":938,\"completion_tokens\":245,\"total_tokens\":1183,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":176},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.0002877,\"allowance\":0.00017262,\"tokens\":{\"input\":938,\"output\":245,\"reasoning\":176,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

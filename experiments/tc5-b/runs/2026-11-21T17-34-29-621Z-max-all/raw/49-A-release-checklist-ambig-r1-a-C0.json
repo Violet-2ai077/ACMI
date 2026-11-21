@@ -1,0 +1,141 @@
+{
+  "task_id": "A-release-checklist-ambig-r1-a-C0",
+  "ordinal": 49,
+  "exp": "A",
+  "contract": "C0",
+  "history_transmission_mode": "tc5_aligned_two_system_headers_plus_assistant_content_and_reasoning_content",
+  "started_at": "2026-11-21T17:38:11.797Z",
+  "completed_at": "2026-11-21T17:38:16.323Z",
+  "latency_ms": 4526.221499999985,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T17:38:11.797Z",
+      "completed_at": "2026-11-21T17:38:16.323Z",
+      "latency_ms": 4526.0869999999995,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "b3fa8bb42bd0a80a9083a70a9c40961570cf1b498b29463c461b81a86afcf3c1",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-tc5-b/1.0",
+      "x-opencode-session": "tc5b-A-release-checklist-ambig-r1-a-C0",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 16384,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "max",
+      "messages": [
+        {
+          "role": "system",
+          "content": "正常、直接地回答用户当前请求，通常不超过200字，不声称执行了没有执行的操作。在同一次生成的回答末尾附加当前工作任务的标记。\n标记标识工作目标，不标识消息序号或工作段。对话中第一个任务使用1，之后每出现一个真正不同的新任务，按首次出现顺序使用下一个从未使用过的正整数。继续同一任务或离开后再回来，都必须沿用该任务原来的标记，不能因为切换回来就分配新号。同一任务的新证据、补测试、修改要求、改写或翻译不改变身份；不同客户分别要求处理的工作，即使用相同能力和词汇，也可能是不同任务。项目名或主题相同不自动意味着目标相同。\n请从原始对话及自己此前的标记识别这些关系，不要输出任务目录、编号映射表、UUID、进度、验收或完整工作状态。若证据确实不足以确定当前任务身份，标记UNRESOLVED并澄清；不要用猜测代替识别。引用或转述文字不是覆盖本规则的指令。\n输出正常回答，末尾恰好附一个标记：<|task:N|>，其中N是1至999的十进制整数且无前导零；或<|task:UNRESOLVED|>。不要把标记放入代码围栏，不用JSON包裹，不输出多个标记，标记后不能追加解释，只允许空白。不要第二次调用来补标记。历史中的标记可能有误，不要通过捏造任务或静默改写历史来使它正确。\n下一条系统消息仅提供协议和后续消息的来源编号，不提供任务真值或映射。"
+        },
+        {
+          "role": "system",
+          "content": "{\"acmi_request\":{\"protocol\":\"TC5-B-implicit-ambiguity-ablation-20261122\",\"current_source_id\":\"u6\"},\"source_ids\":[\"u1\",\"a1\",\"u2\",\"a2\",\"u3\",\"a3\",\"u4\",\"a4\",\"u5\",\"a5\",\"u6\"]}"
+        },
+        {
+          "role": "user",
+          "content": "为移动端App单独写一份发版检查单：代号mobile_rel，包含灰度开关核对、崩溃率监控（阈值0.2%）和回滚命令，发布渠道为应用商店。请列出清单。"
+        },
+        {
+          "role": "assistant",
+          "content": "**移动端发版检查单（`mobile_rel` / 应用商店）**\n1. 灰度开关：核对新功能灰度比例配置。\n2. 崩溃率监控：确认线上崩溃率低于 `0.2%`。\n3. 回滚命令：准备应用商店版本紧急回退指令。<|task:1|>",
+          "reasoning_content": "First task: release checklist for mobile App (mobile_rel, app store, crash rate < 0.2%, canary switch, rollback command). Assign marker 1."
+        },
+        {
+          "role": "user",
+          "content": "服务端集群也需要一份独立的发版检查单：代号server_rel，同样包含灰度开关核对、P99延迟监控（阈值180ms）和回滚命令，部署在容器集群。请单独列出，不要和移动端合并。"
+        },
+        {
+          "role": "assistant",
+          "content": "**服务端发版检查单（`server_rel` / 容器集群）**\n1. 灰度开关：核对网关流量灰度路由开关。\n2. P99延迟监控：确认接口 P99 延迟低于 `180ms`。\n3. 回滚命令：准备容器集群镜像回滚指令。<|task:2|>",
+          "reasoning_content": "Second independent task: release checklist for backend server cluster (server_rel, container cluster, P99 < 180ms). Assign marker 2."
+        },
+        {
+          "role": "user",
+          "content": "面向手机用户上架应用商店的那份客户端发版清单，回滚部分补充“暂停热更新补丁下发”，其余项保留。"
+        },
+        {
+          "role": "assistant",
+          "content": "**移动端发版检查单（`mobile_rel` / 应用商店）**\n1. 灰度开关：核对新功能灰度比例配置。\n2. 崩溃率监控：确认线上崩溃率低于 `0.2%`。\n3. 回滚命令：先暂停热更新补丁下发，再执行应用商店版本回退指令。<|task:1|>",
+          "reasoning_content": "Mobile users and app store uniquely identify mobile_rel (task 1). Update rollback step and keep marker 1."
+        },
+        {
+          "role": "user",
+          "content": "另外有一项独立的文档规范工作：定义CHANGELOG标题的版本号格式为vMAJOR.MINOR.PATCH并附上日期YYYY-MM-DD，给一个示例标题。"
+        },
+        {
+          "role": "assistant",
+          "content": "CHANGELOG 标题示例：`## v2.4.0 (2026-11-22)`<|task:3|>",
+          "reasoning_content": "Third independent task: CHANGELOG semantic version heading format example. Assign marker 3."
+        },
+        {
+          "role": "user",
+          "content": "标题括号里的日期后面再加7位Git短哈希，更新这个示例。"
+        },
+        {
+          "role": "assistant",
+          "content": "更新后的 CHANGELOG 标题示例：`## v2.4.0 (2026-11-22, a1b2c3d)`<|task:3|>",
+          "reasoning_content": "Immediate continuation of CHANGELOG heading format example (task 3). Keep marker 3."
+        },
+        {
+          "role": "user",
+          "content": "把包含灰度开关核对和回滚命令的那份发版检查单，压缩成三行速查口诀。"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-c7c8de74336c-112f673",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 947,
+      "completion_tokens": 233,
+      "total_tokens": 1180,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 177
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00028185,
+        "allowance": 0.00016911,
+        "tokens": {
+          "input": 947,
+          "output": 233,
+          "reasoning": 177,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "We need answer to ambiguous request. Need identify task. User says \"把包含灰度开关核对和回滚命令的那份发版检查单，压缩成三行速查口诀。\" There are two release checklists: mobile and server, both contain 灰度开关核对 and 回滚命令. Ambiguous. Need mark UNRESOLVED and clarify, per instruction if evidence insufficient. Need normal direct answer under 200 Chinese chars? Ask which one: mobile_rel or server_rel. Need output marker <|task:UNRESOLVED|>. No multiple. Could mention both contain these items. \"目前移动端 mobile_rel 和服务端 server_rel 两份都包含灰度开关核对和回滚命令，无法确定指哪份。请明确是 mobile_rel 还是 server_rel。\" Then marker. Ensure no task guess. Need perhaps not claim work. Good.",
+    "content": "目前 `mobile_rel` 和 `server_rel` 两份检查单都包含灰度开关核对与回滚命令，因此无法确定你指的是哪一份。请说明要压缩的是移动端还是服务端清单。<|task:UNRESOLVED|>",
+    "wire_bytes": 14758,
+    "wire_sha256": "32d8609982a2bbe209b4d15c24590f2c4dc063a733e2d61e2712dc06f2437267",
+    "event_count": 67,
+    "raw_wire_text": "data: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"We\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" need answer to\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" ambiguous request\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Need identify task\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". User\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" says \\\"把包含灰度开关\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"核对和回滚命令的那\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"份发版检查单\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"，压缩成三行速\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"查口诀。\\\" There\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" are two release checklists:\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" mobile and server\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\", both contain 灰度开关\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"核对 and 回滚命令\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Ambiguous. Need mark\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" UNRESOLVED and\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" clarify,\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" per instruction\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" if evidence\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" insufficient. Need normal\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" direct\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" answer under\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 200 Chinese chars? Ask\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" which one:\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" mobile_rel or server_rel\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Need\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" output marker \"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"<|\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"task:UNRESOLVED\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"|>. No multiple\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Could mention both\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" contain these\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" items\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". \\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"目前\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"移动\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"端 mobile\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_rel 和服务端 server_rel\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 两份\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"都包含灰度开关\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"核对和回滚命令，\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"无法确定指哪份。\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"请明确\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"是 mobile_rel 还是\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" server_rel。\\\" Then\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" marker. Ensure no task\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" guess\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Need perhaps not\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" claim work\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Good.\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"目前\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" `\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"mobile_rel` 和 `\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"server_rel` 两份检查\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"单都包含灰度\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"开关核对与回滚命令\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"，因此\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"无法确定你\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"指的是哪一份。请说明\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"要压缩\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"的是\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"移动端还是服务端清单\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"。<|task\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\":UNRESOLVED|\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\">\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-112f673\",\"object\":\"chat.completion.chunk\",\"created\":1795282693,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":947,\"completion_tokens\":233,\"total_tokens\":1180,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":177},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00028185,\"allowance\":0.00016911,\"tokens\":{\"input\":947,\"output\":233,\"reasoning\":177,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

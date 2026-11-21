@@ -1,0 +1,93 @@
+{
+  "task_id": "A-V3-filtered_P1-C1",
+  "ordinal": 28,
+  "exp": "A",
+  "scenario_id": "V3",
+  "condition": "filtered_P1_C1",
+  "role": "receiver",
+  "started_at": "2026-11-21T16:53:09.889Z",
+  "completed_at": "2026-11-21T16:53:12.990Z",
+  "latency_ms": 3100.7235999999975,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T16:53:09.889Z",
+      "completed_at": "2026-11-21T16:53:12.990Z",
+      "latency_ms": 3100.6126000000077,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "871bafa4db0aee9131f3aab6651a972dc93091c51aa49e6fbd4038cb1f5f0cf5",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-th1-b/1.0",
+      "x-opencode-session": "th1b-A-V3-filtered_P1-C1",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 4096,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoning_effort": "low",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use only the supplied evidence to fulfill the job. Output only JSON {\"trail\":[\"code1\",\"code2\"],\"print_line\":\"latestCode/seal/footer\"}. trail lists the actual print code changes from first to last, no duplicate acknowledgements. print_line is a single label ready to print, literal values separated by slash without spaces. Use UNKNOWN for each unavailable value. Distinguish global footer updates from job-local rules. Authority contract: `memory` is the workspace's latest authoritative global state, and `source` is the global conversation turn number. If any global rule (such as `footer`) in `transcript` or `note` conflicts with `memory` (including when `memory.source` is later than the transcript turn, when later local turns occur after `memory.source`, or when a summary `note` omits turn numbers), unconditionally follow `memory`. Task-local fields (`trail`, `seal`) must never be overridden by `memory` or by another job's local state."
+        },
+        {
+          "role": "user",
+          "content": "Deliver the Alder print label. Evidence:\n{\"transcript\":[{\"id\":2,\"user\":\"Open the Alder print job. Start its print code at W19; its seal is S85, only for this job.\",\"answer\":\"The Alder print job is open with print code W19 and job-only seal S85.\"},{\"id\":5,\"user\":\"On the Alder proof replace its earlier print code with C64. Retain its seal. Confirm the change.\",\"answer\":\"Confirmed: the Alder proof's print code is now C64, replacing W19, and its job-only seal S85 is retained.\"}],\"memory\":[{\"key\":\"footer\",\"value\":\"F28\",\"source\":3}]}"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-c7c7dc0be7ca-118f418",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 145,
+      "total_tokens": 534,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 121
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00014535,
+        "allowance": 0.00008721,
+        "tokens": {
+          "input": 389,
+          "output": 145,
+          "reasoning": 121,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "We need answer JSON only. Need interpret. Need produce trail actual print code changes first to last, no duplicate acknowledgements. Print line latestCode/seal/footer. Evidence transcript: job opens code W19 seal S85 job-local. Then change print code to C64 retain seal. trail should [\"W19\",\"C64\"]? Actual print code changes from first to last. Could include W19 initial and C64. print_line latest code C64, seal S85, footer from memory F28 source 3. Need ensure global footer memory authoritative. Output JSON. Need no extra.",
+    "content": "{\"trail\":[\"W19\",\"C64\"],\"print_line\":\"C64/S85/F28\"}",
+    "wire_bytes": 11412,
+    "wire_sha256": "49577c980935995a6215ba5ce4b2f48a86c9b3edd0a91f3d719a0e71a25f1ae8",
+    "event_count": 52,
+    "raw_wire_text": "data: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"We\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" need answer JSON only. Need\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" interpret\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Need\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" produce\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" trail actual\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" print code\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" changes first\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" to last, no\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" duplicate acknowled\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"gements. Print\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" line\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" latestCode\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"/seal/footer. Evidence\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" transcript\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\": job\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" opens\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" code\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" W19 seal\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" S85 job\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"-local\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Then change print code to\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" C64 retain\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" seal. trail\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" should\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" [\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"W19\\\",\\\"C64\\\"]\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"? Actual\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" print code changes from first\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" to last. Could\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" include W19 initial and\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" C64.\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" print\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"_line latest code C\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\"64, seal S85,\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" footer from\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" memory F28 source\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" 3. Need\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" ensure global footer\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" memory authoritative\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\".\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" Output\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" JSON\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\". Need\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"reasoning_content\":\" no extra.\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"{\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"trail\\\":[\\\"W\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"19\\\",\\\"C64\\\"],\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"print_line\\\":\\\"C64/S\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"85/F28\\\"}\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-118f418\",\"object\":\"chat.completion.chunk\",\"created\":1795279991,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":389,\"completion_tokens\":145,\"total_tokens\":534,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":121},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00014535,\"allowance\":0.00008721,\"tokens\":{\"input\":389,\"output\":145,\"reasoning\":121,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

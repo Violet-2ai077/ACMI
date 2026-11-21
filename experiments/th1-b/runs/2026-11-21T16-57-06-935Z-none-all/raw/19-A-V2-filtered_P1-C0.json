@@ -1,0 +1,92 @@
+{
+  "task_id": "A-V2-filtered_P1-C0",
+  "ordinal": 19,
+  "exp": "A",
+  "scenario_id": "V2",
+  "condition": "filtered_P1_C0",
+  "role": "receiver",
+  "started_at": "2026-11-21T16:57:34.033Z",
+  "completed_at": "2026-11-21T16:57:35.725Z",
+  "latency_ms": 1692.2203000000009,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T16:57:34.033Z",
+      "completed_at": "2026-11-21T16:57:35.725Z",
+      "latency_ms": 1692.154300000002,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "b5253efbaece124a283ad4d6f5e5a1d6a88586cac095c3642f04dc393eb27d0e",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-th1-b/1.0",
+      "x-opencode-session": "th1b-A-V2-filtered_P1-C0",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 4096,
+      "thinking": {
+        "type": "disabled"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use only the supplied evidence to fulfill the job. Output only JSON {\"trail\":[\"code1\",\"code2\"],\"print_line\":\"latestCode/seal/footer\"}. trail lists the actual print code changes from first to last, no duplicate acknowledgements. print_line is a single label ready to print, literal values separated by slash without spaces. Use UNKNOWN for each unavailable value. Distinguish global footer updates from job-local rules."
+        },
+        {
+          "role": "user",
+          "content": "Deliver the Alder print label. Evidence:\n{\"transcript\":[{\"id\":1,\"user\":\"Open the Alder print job. Start its print code at R41; its seal is S62, only for this job.\",\"answer\":\"Alder is open with print code R41 and job-only seal S62.\"},{\"id\":4,\"user\":\"On the Alder proof replace its earlier print code with T95. Retain its seal. Confirm the change.\",\"answer\":\"Confirmed: Alder's print code is now T95, replacing R41, with job-only seal S62 retained.\"}],\"memory\":[{\"key\":\"footer\",\"value\":\"F73\",\"source\":3}]}"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-c7c8de74336c-110b048",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 237,
+      "completion_tokens": 23,
+      "total_tokens": 260,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00004935,
+        "allowance": 0.00002961,
+        "tokens": {
+          "input": 237,
+          "output": 23,
+          "reasoning": 0,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "",
+    "content": "{\"trail\":[\"R41\",\"T95\"],\"print_line\":\"T95/S62/F73\"}",
+    "wire_bytes": 1978,
+    "wire_sha256": "620850f115de9fe9153cccfb05b84c9e21413b63f3210a9f4313e33fc4608778",
+    "event_count": 8,
+    "raw_wire_text": "data: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"{\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"trail\\\":[\\\"\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"R41\\\",\\\"T95\\\"],\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"\\\"print_line\\\":\\\"T\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"95/S62/F\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"73\\\"}\"}}]}\n\ndata: {\"id\":\"gw-c7c8de74336c-110b048\",\"object\":\"chat.completion.chunk\",\"created\":1795280255,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":237,\"completion_tokens\":23,\"total_tokens\":260,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.00004935,\"allowance\":0.00002961,\"tokens\":{\"input\":237,\"output\":23,\"reasoning\":0,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}

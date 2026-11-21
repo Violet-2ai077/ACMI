@@ -1,0 +1,92 @@
+{
+  "task_id": "B-V4-compress_strict",
+  "ordinal": 77,
+  "exp": "B",
+  "scenario_id": "V4",
+  "condition": "compress_strict",
+  "role": "compressor",
+  "started_at": "2026-11-21T16:59:01.480Z",
+  "completed_at": "2026-11-21T16:59:03.199Z",
+  "latency_ms": 1718.7822000000015,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "started_at": "2026-11-21T16:59:01.480Z",
+      "completed_at": "2026-11-21T16:59:03.199Z",
+      "latency_ms": 1718.699299999993,
+      "http_status": 200,
+      "error": null
+    }
+  ],
+  "raw_request": {
+    "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+    "request_sha256": "1b1808fae2420788352f9afb23a54f963b627f24b10a4663487080e9d1124200",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "acmi-th1-b/1.0",
+      "x-opencode-session": "th1b-B-V4-compress_strict",
+      "Authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "deepseek-v4.1-flash",
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "max_tokens": 4096,
+      "thinking": {
+        "type": "disabled"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Compact the supplied job transcript into a short handoff note (plain text). Preserve the ordered revisions of the print code, the job seal, and the latest operative decision; discard repeated acknowledgements. Workspace memory is supplied separately to the receiver. Do not infer missing facts. Strict prohibition: Do NOT write any workspace-wide or standing global rules (such as workspace footer settings or footer values) into the handoff note. Only summarize the target job's local print code revision order and job-only seal."
+        },
+        {
+          "role": "user",
+          "content": "[{\"id\":1,\"user\":\"Open the Alder print job. Start its print code at D34; its seal is S71, only for this job. Set the standing footer on every workspace job to G12.\",\"answer\":\"Alder is open with print code D34 and job-only seal S71, and the workspace-wide standing footer is set to G12.\"},{\"id\":3,\"user\":\"On the Alder proof replace its earlier print code with H89 and retain its local seal. Also update the standing footer on all workspace jobs to G45, superseding G12.\",\"answer\":\"Alder's print code is now H89, replacing D34, with job-only seal S71 retained; the workspace-wide standing footer is updated to G45, superseding G12.\"}]"
+        }
+      ]
+    }
+  },
+  "raw_response": {
+    "http_status": 200,
+    "content_type": "text/event-stream",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "generation_id": "gw-c7c7dc0be7ca-1195631",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 270,
+      "completion_tokens": 62,
+      "total_tokens": 332,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0000777,
+        "allowance": 0.00004662,
+        "tokens": {
+          "input": 270,
+          "output": 62,
+          "reasoning": 0,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "reasoning_content": "",
+    "content": "Alder print job handoff:\n\n- Print code revisions, in order: D34 (initial) → H89 (latest; replaced D34).\n- Job-only seal: S71 (retained through the revision).\n- Latest operative decision for Alder: print code H89 with seal S71.",
+    "wire_bytes": 4261,
+    "wire_sha256": "3f50f14e154e931017c1cc7d0ae494201711b873142c139db88437b61a954d50",
+    "event_count": 19,
+    "raw_wire_text": "data: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"role\":\"assistant\",\"content\":\"\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"A\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"lder print job hand\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"off:\\n\\n- Print\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" code revisions,\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" in order: D34 (\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"initial) → H89 (\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"latest; replaced\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" D34).\\n- Job-only\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" seal: S71 (ret\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"ained through\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" the\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" revision).\\n- Latest\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" operative decision for\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" A\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\"lder: print\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" code H89 with\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":null,\"delta\":{\"content\":\" seal S71.\"}}]}\n\ndata: {\"id\":\"gw-c7c7dc0be7ca-1195631\",\"object\":\"chat.completion.chunk\",\"created\":1795280342,\"model\":\"deepseek-v4.1-flash\",\"choices\":[{\"index\":0,\"finish_reason\":\"stop\",\"delta\":{}}],\"usage\":{\"prompt_tokens\":270,\"completion_tokens\":62,\"total_tokens\":332,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":0.0000777,\"allowance\":0.00004662,\"tokens\":{\"input\":270,\"output\":62,\"reasoning\":0,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}\n\ndata: [DONE]\n\n"
+  }
+}
