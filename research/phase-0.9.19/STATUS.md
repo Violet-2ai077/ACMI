@@ -4,6 +4,48 @@ Updated: 2026-11-21. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
+## Path 1 mechanism validation closure - 2026-11-21
+
+The open mechanism questions exposed by `FM1`, `TC3`, `TC5`, and `TH1` below have
+been closed via **424 pre-frozen, zero-retry, single-factor ablation API calls**
+on `deepseek-v4.1-flash`, tracked directly on `main` under `experiments/` and
+synthesized in **[Path 1 Mechanism Validation Synthesis](../../docs/research/path1-mechanism-validation-synthesis-20261121.md)**:
+
+- **[`experiments/th1-b/`](../../experiments/th1-b/REPORT.md) (264 calls across `{max, low, none}`)**:
+  Isolates and resolves the `TH1` stale-footer resurrection failure. Without an
+  authority contract (`C0`), `compact_P0_C0` resurrected superseded footers in
+  **8/8 (100%)** scenarios across all reasoning tiers, while `filtered_P0_C0`
+  passed only **4/8 (50%)** at `max` (with 3/8 trapped in a 4,096-token CoT loop)
+  and **3/8 (37.5%)** at `none`. Adding the Authoritative Override Contract
+  (`RECEIVER_C1`) achieved **120/120 (100%) pass, 0% stale resurrection, and 0%
+  local corruption** across all three tiers, cutting `max`-tier reasoning tokens
+  on polluted inputs by **90.5% (`1708.6 -> 162.9`)** and latency by **4.0x
+  (`18.12s -> 4.56s`)**. Upstream hard global/local boundary compaction
+  (`COMPRESSOR_STRICT`) achieved **24/24 (100%) pass and 0% global-rule leak**
+  across all tiers.
+- **[`experiments/tc5-b/`](../../experiments/tc5-b/REPORT.md) (88 calls at `max`)**:
+  Decouples Recency from Primacy across 32 counterbalanced prefix probes ×
+  `{C0, C1}` (Experiment A, 64 calls) and reruns the 24-turn `TC5` closed loop
+  under `SYSTEM_C1` (Experiment B, 24 calls). Under `C0`, **4/4 (100%)** default
+  guesses hit `recent_relevant` (`0/16` older), proving a **100% Recency bias**
+  rather than Primacy. Adding the single-factor Anti-Default Attribution Contract
+  (`SYSTEM_C1`) achieved **16/16 (100%) ambiguity clarification, 0/16 (0%)
+  over-abstention, and 16/16 (100%) unambiguous returns** in Experiment A, and
+  **4/4 (100%) implicit ambiguity clarification** (plus elimination of `t7`
+  cross-task contamination and **24/24** semantic marker identity) in Experiment B.
+- **[`experiments/tc3-b/`](../../experiments/tc3-b/REPORT.md) (72 calls at `max`)**:
+  De-greenhouse stress test of the 24-turn `TC3` `overlapping-notices` story
+  across `S0_baseline` (full `content` + `reasoning_content`), `S1_strip_cot`
+  (historical `reasoning_content` stripped to `""`), and `S2_strip_cot_and_header`
+  (historical `reasoning_content` stripped + all `【...】` headers and 6 client
+  proper nouns scrubbed from history). All three conditions achieved **24/24
+  (100%) full pass** (including `t24` after 14 intervening turns), falsifying the
+  CoT/header greenhouse hypothesis while quantifying the long-gap online CoT
+  re-scan tax (`long_return` mean reasoning tokens `151.7 [S0] -> 295.3 [S1] -> 346.7 [S2]`).
+- **Raw Phase 0.9.19 Evidence Archive**: The 573k-line raw evidence archive on
+  `origin/research/th1-handoff-20261120` is preserved under the immutable tag
+  [`archive/phase-0.9.19-raw-evidence`](https://github.com/Violet-2ai077/ACMI/tree/archive/phase-0.9.19-raw-evidence) (`25c25c6`).
+
 ## Published research since the initial checkpoint
 
 Main includes the findings and links, not the experimental runners, model

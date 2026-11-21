@@ -4,7 +4,7 @@ This is the research record, not the release changelog. `main` preserves
 the ACMI experiment commits in order; the published Alpha tag is unchanged.
 Each row describes what was actually tested and what was not established.
 
-这里区分三类证据：离线合成数据和脚本、隔离的 dsh 原生运行验证、真实本地模型推理。通过其中一项，不等于通过端到端语义资格或生产验收。下表链接到原始阶段报告，保留历史时点的结论与停止原因。
+这里区分三类证据：离线合成数据和脚本、隔离的 dsh 原生运行验证、真实模型推理与单因素消融。通过其中一项，不等于通过端到端生产验收。下表链接到原始阶段报告与第一条研究路线（机制验证）终结汇总，保留历史时点的结论与停止原因。
 
 | Phase | What was tested / 验证问题 | Observed outcome / 实测结论 |
 | --- | --- | --- |
@@ -30,27 +30,25 @@ Each row describes what was actually tested and what was not established.
 | [0.9.14](phase-0.9.14-work-anchor-report.md) | Trusted request-scoped WorkAnchor | Explicit continuation rose 0/4 → 4/4; User and Assistant each reached 8/12 with anchors, below the 9/12 model gate. |
 | [0.9.15](phase-0.9.15-relative-proposals-report.md) | Relative proposals with identical anchors in both arms | User 8/12 → 10/12; Assistant 7/12 → 9/12. Both explicitly new-goal cases improved; ambiguous identity did not qualify. |
 | [0.9.16](phase-0.9.16-unresolved-link-report.md) | Optional Assistant reference to the current unresolved User subject | New option selected 0 times; Assistant stayed 7/12 and User fell 11/12 → 9/12. In both arms, User identity was correctly unresolved in all 5 clarification cases, but Assistant was wrong in all 5. |
+| [0.9.19 (`FM1`, `BS1`, `TC1–TC5`, `TH1`)](../../research/phase-0.9.19/STATUS.md) | Heavy state JSON (`FM1`) vs inline tail markers (`BS1`, `TC1–TC5`) and task compaction handoff (`TH1`) | `FM1` falsified heavy same-generation state JSON (4/6 decision reversals, UUID drift). `TC1–TC4` passed 86/86 inline marker turns. `TC5` exposed 3/4 implicit-ambiguity default guesses; `TH1` exposed 0/2 compact handoff stale-footer resurrection. |
+| [Path 1 `TH1-B`](../../experiments/th1-b/REPORT.md) | Stale-rule resurrection single-factor ablation across 8 scenarios × `{max, low, none}` (264 calls) | Uncontracted `compact_P0_C0` resurrected stale footers 8/8 (100%) in all tiers. `RECEIVER_C1` achieved **120/120 (100%) pass, 0% resurrection, 0% local corruption**, cutting `max` `P0` reasoning tokens by **90.5% (`1708.6 -> 162.9`)**. `COMPRESSOR_STRICT` achieved **24/24 (100%) pass, 0% leak**. |
+| [Path 1 `TC5-B`](../../experiments/tc5-b/REPORT.md) | Implicit ambiguity Recency vs Primacy counterbalance (64 probe calls) + 24-turn closed-loop regression (88 calls) | Exp A `C0` proved **100% Recency bias** (`4/4` default guesses on `recent_relevant`, `0/16` older). `SYSTEM_C1` achieved **16/16 (100%) ambiguity clarify, 0/16 over-abstention, 16/16 unambiguous return** in Exp A, and **4/4 (100%) implicit ambiguity clarify** + `t7` cross-task fix in Exp B. |
+| [Path 1 `TC3-B`](../../experiments/tc3-b/REPORT.md) | De-greenhouse 24-turn continuity stress test stripping historical CoT (`S1`) and client headers/proper nouns (`S2`) (72 calls) | `S0`, `S1`, and `S2` all achieved **24/24 (100%) full pass** (including `t24` at `gap=14`), falsifying the CoT/header greenhouse hypothesis. Long-gap (`gap=5..14`) mean CoT tokens rose **151.7 (`S0`) → 295.3 (`S1`) → 346.7 (`S2`)**. |
+| [Path 1 Synthesis](../research/path1-mechanism-validation-synthesis-20261121.md) | Full Path 1 Mechanism Validation synthesis and Path 2 architectural primitives | Permanently retires model-maintained structured state JSON; freezes 4 validated lightweight primitives for Path 2 MVP tooling. |
 
 ## How to audit or replay / 如何核查与复放
 
-### Latest research checkpoint
+### Path 1 synthesis and Phase 0.9.19 checkpoint
 
-[Phase 0.9.19](../../research/phase-0.9.19/STATUS.md) returns to same-generation
-task attribution and ongoing state maintenance, with separate C1/C2/C3 conditions
-and a development-only D diagnostic. R4 stopped after 35 requests at the frozen
-wire limit; the later offline transaction/audit implementation passed its covered
-correctness checks, but capacity is not closed and performance acceptance has not
-run. These are separate evidence types, not a model GO or a completed benchmark.
-The checkpoint links the complete design, all batch reports and local evidence
-indexes. Raw runtime archives remain outside Git; do not treat the indexes as a
-self-contained replay dataset or pool these results with earlier experiments.
+- **[Path 1 Mechanism Validation Synthesis](../research/path1-mechanism-validation-synthesis-20261121.md)** consolidates all historical baselines (`FM1`, `BS1`, `TC1–TC5`, `TH1`, `Phase 0.9.14 WorkAnchor`) and the 424 controlled single-factor ablation calls in [`experiments/th1-b/`](../../experiments/th1-b/REPORT.md), [`experiments/tc5-b/`](../../experiments/tc5-b/REPORT.md), and [`experiments/tc3-b/`](../../experiments/tc3-b/REPORT.md). Each ablation directory includes its pre-frozen `frozen-manifest.json`, unit tests (`node --test`), `summary.json`, and complete per-call `runs/<run-id>/raw/*.json` files.
+- **[Phase 0.9.19](../../research/phase-0.9.19/STATUS.md)** records the earlier same-generation attribution harness, J1/S1/S2 reviews, and the links to `FM1`, `BS1`, `TC1–TC5`, and `TH1`. The 573k-line raw Phase 0.9.19 evidence archive is preserved on `origin/research/th1-handoff-20261120` under the immutable tag [`archive/phase-0.9.19-raw-evidence`](https://github.com/Violet-2ai077/ACMI/tree/archive/phase-0.9.19-raw-evidence) (`25c25c6`).
 
 - Each phase report records its evidence type and limits; recent phases link
   frozen preregistrations and identify the source commit. The paired studies
   use synthetic ground truth and deterministic scorers, not another model
   judge. Do not pool their different datasets or compare them as one leaderboard.
 - [Replay evidence](evidence/README.md) preserves the inputs and outputs needed
-  to recompute the nine real-model reports. Replaying a score does not rerun a
+  to recompute the nine earlier local-model reports (Phases 0.9.8–0.9.16). Replaying a score does not rerun a
   model or independently re-observe the original inference.
 - Earlier offline work is documented in the tracked scripts, fixtures, and
   phase-specific reports. The replay archive does not import private holdouts,
@@ -73,8 +71,11 @@ self-contained replay dataset or pool these results with earlier experiments.
 
 ## Current decision / 当前判断
 
-Keep explicit Host-validated continuation and causal Tool Result attribution.
-Treat model metadata as a proposal, not authority; neither an anchor nor a
-parsed envelope grants execution permission. For ambiguous work identity,
-prefer explicit user confirmation. No production automatic routing, Binding,
-Graph mutation, child-result acceptance, or Join follows from these experiments.
+Path 1 (Mechanism Validation) is closed:
+1. **Permanently retire** same-generation heavy structured work-state JSON maintenance (`FM1` / `0.9.10`).
+2. **Adopt the four validated lightweight primitives** for Path 2 MVP tooling:
+   - Minimal inline tail marker (`<|task:N|>` / `<|task:UNRESOLVED|>`) + Anti-Recency Attribution Contract (`SYSTEM_C1`) + host-compiled read-only light task catalog / `WorkAnchor` fallback;
+   - Host-authoritative Workspace State Ledger (monotonic turn provenance + explicit supersession tombstones);
+   - Hard global/local boundary compressor (`COMPRESSOR_STRICT`);
+   - Authoritative override handoff contract (`RECEIVER_C1`).
+3. Keep explicit Host validation and causal Tool Result attribution. Model markers remain proposals validated by the Host; neither an anchor nor a parsed marker grants autonomous tool execution permission.
