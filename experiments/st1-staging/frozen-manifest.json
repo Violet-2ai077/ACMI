@@ -1,0 +1,22 @@
+{
+  "experiment": "ST1",
+  "title": "Asynchronous Staging State Operator Extraction, Host Deterministic Folding & Cross-Worker Tombstone Anti-Regression",
+  "protocol_version": "ST1-async-staging-host-fold-tombstone-20261122",
+  "frozen_at": "2026-11-22T04:16:42.074Z",
+  "counts": {
+    "scenarios": 6,
+    "part_a1_steps": 24,
+    "part_a2_traps": 12,
+    "part_b_handoffs": 24,
+    "total_planned_calls": 60
+  },
+  "files": {
+    "ledger.mjs": "94d66ebffc1d8dacbfa91d0294c6882656bbd471561cf9da7d173964a2fa8ea4",
+    "scenarios.mjs": "6f1383de941878246ea0fa1d8c09212bb9287dfc63157c53aa74e98a21fd011d",
+    "prompts.mjs": "e01449467e16c1d5d50d9e9cde6331166dc1aebb2cb3f19403d42c0139ad8920",
+    "evaluate.mjs": "e0fa3a2bb23ed6a35026ff7f57784279eb6def4ce30167ad3a11d741459b222c",
+    "client.mjs": "69cb5ba6cd9c28185c1e2e4717597b480f8deb90bae541c665f3ecba6d00ea9d",
+    "run.mjs": "16047638f39c45be3e3feed99732d6d9d2f535597e79d16ad1f76b451eb07224",
+    "st1-staging.node-test.mjs": "d3f72f6778b3ae2b99f42aaba2bcdd34b2a1027117c52d27050692ed4c88db43"
+  }
+}

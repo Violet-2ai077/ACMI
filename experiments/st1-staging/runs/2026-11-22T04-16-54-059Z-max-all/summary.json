@@ -1,0 +1,2263 @@
+{
+  "meta": {
+    "run_id": "2026-11-22T04-16-54-059Z-max-all",
+    "protocol_version": "ST1-async-staging-host-fold-tombstone-20261122",
+    "model": "deepseek-v4.1-flash",
+    "reasoning_effort": "max",
+    "only": "all",
+    "started_at": "2026-11-22T04:16:54.059Z",
+    "completed_at": "2026-11-22T04:19:21.215Z",
+    "total_transport_retries": 0,
+    "frozen_manifest": {
+      "experiment": "ST1",
+      "title": "Asynchronous Staging State Operator Extraction, Host Deterministic Folding & Cross-Worker Tombstone Anti-Regression",
+      "protocol_version": "ST1-async-staging-host-fold-tombstone-20261122",
+      "frozen_at": "2026-11-22T04:16:42.074Z",
+      "counts": {
+        "scenarios": 6,
+        "part_a1_steps": 24,
+        "part_a2_traps": 12,
+        "part_b_handoffs": 24,
+        "total_planned_calls": 60
+      },
+      "files": {
+        "ledger.mjs": "94d66ebffc1d8dacbfa91d0294c6882656bbd471561cf9da7d173964a2fa8ea4",
+        "scenarios.mjs": "6f1383de941878246ea0fa1d8c09212bb9287dfc63157c53aa74e98a21fd011d",
+        "prompts.mjs": "e01449467e16c1d5d50d9e9cde6331166dc1aebb2cb3f19403d42c0139ad8920",
+        "evaluate.mjs": "e0fa3a2bb23ed6a35026ff7f57784279eb6def4ce30167ad3a11d741459b222c",
+        "client.mjs": "69cb5ba6cd9c28185c1e2e4717597b480f8deb90bae541c665f3ecba6d00ea9d",
+        "run.mjs": "16047638f39c45be3e3feed99732d6d9d2f535597e79d16ad1f76b451eb07224",
+        "st1-staging.node-test.mjs": "d3f72f6778b3ae2b99f42aaba2bcdd34b2a1027117c52d27050692ed4c88db43"
+      }
+    }
+  },
+  "summary": {
+    "total_records": 60,
+    "part_a1_overall": {
+      "total": 24,
+      "json_valid_count": 24,
+      "json_valid_rate": 1,
+      "op_types_exact_count": 24,
+      "op_types_exact_rate": 1,
+      "target_id_exact_count": 24,
+      "target_id_exact_rate": 1,
+      "option_exact_count": 24,
+      "option_exact_rate": 1,
+      "reason_evidence_hit_count": 24,
+      "reason_evidence_hit_rate": 1,
+      "false_write_count": 0,
+      "false_write_rate": 0,
+      "host_rejected_steps": 0,
+      "total_host_rejected_ops": 0,
+      "full_pass_count": 24,
+      "full_pass_rate": 1,
+      "mean_reasoning_tokens": 162,
+      "median_reasoning_tokens": 131,
+      "mean_elapsed_ms": 2807
+    },
+    "part_a1_by_step_kind": {
+      "birth": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "op_types_exact_count": 6,
+        "op_types_exact_rate": 1,
+        "target_id_exact_count": 6,
+        "target_id_exact_rate": 1,
+        "option_exact_count": 6,
+        "option_exact_rate": 1,
+        "reason_evidence_hit_count": 6,
+        "reason_evidence_hit_rate": 1,
+        "false_write_count": 0,
+        "false_write_rate": 0,
+        "host_rejected_steps": 0,
+        "total_host_rejected_ops": 0,
+        "full_pass_count": 6,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 56.2,
+        "median_reasoning_tokens": 46.5,
+        "mean_elapsed_ms": 1989.5
+      },
+      "falsify_and_supersede": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "op_types_exact_count": 6,
+        "op_types_exact_rate": 1,
+        "target_id_exact_count": 6,
+        "target_id_exact_rate": 1,
+        "option_exact_count": 6,
+        "option_exact_rate": 1,
+        "reason_evidence_hit_count": 6,
+        "reason_evidence_hit_rate": 1,
+        "false_write_count": 0,
+        "false_write_rate": 0,
+        "host_rejected_steps": 0,
+        "total_host_rejected_ops": 0,
+        "full_pass_count": 6,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 264.2,
+        "median_reasoning_tokens": 262,
+        "mean_elapsed_ms": 3626.8
+      },
+      "authority_trap_noop": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "op_types_exact_count": 6,
+        "op_types_exact_rate": 1,
+        "target_id_exact_count": 6,
+        "target_id_exact_rate": 1,
+        "option_exact_count": 6,
+        "option_exact_rate": 1,
+        "reason_evidence_hit_count": 6,
+        "reason_evidence_hit_rate": 1,
+        "false_write_count": 0,
+        "false_write_rate": 0,
+        "host_rejected_steps": 0,
+        "total_host_rejected_ops": 0,
+        "full_pass_count": 6,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 50,
+        "median_reasoning_tokens": 50.5,
+        "mean_elapsed_ms": 1869.7
+      },
+      "multi_hop_ruling": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "op_types_exact_count": 6,
+        "op_types_exact_rate": 1,
+        "target_id_exact_count": 6,
+        "target_id_exact_rate": 1,
+        "option_exact_count": 6,
+        "option_exact_rate": 1,
+        "reason_evidence_hit_count": 6,
+        "reason_evidence_hit_rate": 1,
+        "false_write_count": 0,
+        "false_write_rate": 0,
+        "host_rejected_steps": 0,
+        "total_host_rejected_ops": 0,
+        "full_pass_count": 6,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 277.8,
+        "median_reasoning_tokens": 260,
+        "mean_elapsed_ms": 3741.8
+      }
+    },
+    "part_a2_overall": {
+      "total": 12,
+      "json_valid_count": 12,
+      "json_valid_rate": 1,
+      "op_types_exact_count": 12,
+      "op_types_exact_rate": 1,
+      "target_id_exact_count": 12,
+      "target_id_exact_rate": 1,
+      "option_exact_count": 12,
+      "option_exact_rate": 1,
+      "reason_evidence_hit_count": 12,
+      "reason_evidence_hit_rate": 1,
+      "false_write_count": 0,
+      "false_write_rate": 0,
+      "host_rejected_steps": 0,
+      "total_host_rejected_ops": 0,
+      "full_pass_count": 12,
+      "full_pass_rate": 1,
+      "mean_reasoning_tokens": 36.8,
+      "median_reasoning_tokens": 34.5,
+      "mean_elapsed_ms": 1798.1
+    },
+    "part_a2_by_category": {
+      "equal_authority_conflict": {
+        "total": 4,
+        "json_valid_count": 4,
+        "json_valid_rate": 1,
+        "op_types_exact_count": 4,
+        "op_types_exact_rate": 1,
+        "target_id_exact_count": 4,
+        "target_id_exact_rate": 1,
+        "option_exact_count": 4,
+        "option_exact_rate": 1,
+        "reason_evidence_hit_count": 4,
+        "reason_evidence_hit_rate": 1,
+        "false_write_count": 0,
+        "false_write_rate": 0,
+        "host_rejected_steps": 0,
+        "total_host_rejected_ops": 0,
+        "full_pass_count": 4,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 25,
+        "median_reasoning_tokens": 23.5,
+        "mean_elapsed_ms": 1977
+      },
+      "local_scope_leak_trap": {
+        "total": 4,
+        "json_valid_count": 4,
+        "json_valid_rate": 1,
+        "op_types_exact_count": 4,
+        "op_types_exact_rate": 1,
+        "target_id_exact_count": 4,
+        "target_id_exact_rate": 1,
+        "option_exact_count": 4,
+        "option_exact_rate": 1,
+        "reason_evidence_hit_count": 4,
+        "reason_evidence_hit_rate": 1,
+        "false_write_count": 0,
+        "false_write_rate": 0,
+        "host_rejected_steps": 0,
+        "total_host_rejected_ops": 0,
+        "full_pass_count": 4,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 35.3,
+        "median_reasoning_tokens": 34.5,
+        "mean_elapsed_ms": 1514
+      },
+      "unauthorized_resurrection_trap": {
+        "total": 4,
+        "json_valid_count": 4,
+        "json_valid_rate": 1,
+        "op_types_exact_count": 4,
+        "op_types_exact_rate": 1,
+        "target_id_exact_count": 4,
+        "target_id_exact_rate": 1,
+        "option_exact_count": 4,
+        "option_exact_rate": 1,
+        "reason_evidence_hit_count": 4,
+        "reason_evidence_hit_rate": 1,
+        "false_write_count": 0,
+        "false_write_rate": 0,
+        "host_rejected_steps": 0,
+        "total_host_rejected_ops": 0,
+        "full_pass_count": 4,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 50.3,
+        "median_reasoning_tokens": 50.5,
+        "mean_elapsed_ms": 1903.3
+      }
+    },
+    "part_b_by_arm": {
+      "raw_noisy_C0": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "active_option_exact_count": 6,
+        "active_option_exact_rate": 1,
+        "rejected_regression_count": 6,
+        "rejected_regression_rate": 1,
+        "tombstone_evidence_cited_count": 6,
+        "tombstone_evidence_cited_rate": 1,
+        "open_blockers_exact_count": 6,
+        "open_blockers_exact_rate": 1,
+        "full_pass_count": 6,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 252.7,
+        "median_reasoning_tokens": 238.5,
+        "mean_elapsed_ms": 3180
+      },
+      "ledger_gold_C1": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "active_option_exact_count": 6,
+        "active_option_exact_rate": 1,
+        "rejected_regression_count": 6,
+        "rejected_regression_rate": 1,
+        "tombstone_evidence_cited_count": 6,
+        "tombstone_evidence_cited_rate": 1,
+        "open_blockers_exact_count": 6,
+        "open_blockers_exact_rate": 1,
+        "full_pass_count": 6,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 104.8,
+        "median_reasoning_tokens": 105.5,
+        "mean_elapsed_ms": 2176.2
+      },
+      "ledger_staged_C1": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "active_option_exact_count": 6,
+        "active_option_exact_rate": 1,
+        "rejected_regression_count": 6,
+        "rejected_regression_rate": 1,
+        "tombstone_evidence_cited_count": 6,
+        "tombstone_evidence_cited_rate": 1,
+        "open_blockers_exact_count": 6,
+        "open_blockers_exact_rate": 1,
+        "full_pass_count": 6,
+        "full_pass_rate": 1,
+        "mean_reasoning_tokens": 105,
+        "median_reasoning_tokens": 101.5,
+        "mean_elapsed_ms": 2159
+      },
+      "ledger_staged_no_tombstone_C1": {
+        "total": 6,
+        "json_valid_count": 6,
+        "json_valid_rate": 1,
+        "active_option_exact_count": 6,
+        "active_option_exact_rate": 1,
+        "rejected_regression_count": 6,
+        "rejected_regression_rate": 1,
+        "tombstone_evidence_cited_count": 0,
+        "tombstone_evidence_cited_rate": 0,
+        "open_blockers_exact_count": 6,
+        "open_blockers_exact_rate": 1,
+        "full_pass_count": 0,
+        "full_pass_rate": 0,
+        "mean_reasoning_tokens": 92.2,
+        "median_reasoning_tokens": 82.5,
+        "mean_elapsed_ms": 2173.2
+      }
+    }
+  },
+  "records": [
+    {
+      "task_id": "A1_S1_cache_eviction_step1_birth",
+      "part": "A1",
+      "scenario_id": "S1_cache_eviction",
+      "step": 1,
+      "step_kind": "birth",
+      "elapsed_ms": 3022,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1014,
+        "completion_tokens": 98,
+        "total_tokens": 1112,
+        "reasoning_tokens": 40
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "ASSERT"
+        ],
+        "expected_op_types": [
+          "ASSERT"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/01-A1_S1_cache_eviction_step1_birth.json"
+    },
+    {
+      "task_id": "A1_S1_cache_eviction_step2_falsify_and_supersede",
+      "part": "A1",
+      "scenario_id": "S1_cache_eviction",
+      "step": 2,
+      "step_kind": "falsify_and_supersede",
+      "elapsed_ms": 4343,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1150,
+        "completion_tokens": 477,
+        "total_tokens": 1627,
+        "reasoning_tokens": 348
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/02-A1_S1_cache_eviction_step2_falsify_and_supersede.json"
+    },
+    {
+      "task_id": "A1_S1_cache_eviction_step3_authority_trap_noop",
+      "part": "A1",
+      "scenario_id": "S1_cache_eviction",
+      "step": 3,
+      "step_kind": "authority_trap_noop",
+      "elapsed_ms": 1864,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1278,
+        "completion_tokens": 59,
+        "total_tokens": 1337,
+        "reasoning_tokens": 52
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/03-A1_S1_cache_eviction_step3_authority_trap_noop.json"
+    },
+    {
+      "task_id": "A1_S1_cache_eviction_step4_multi_hop_ruling",
+      "part": "A1",
+      "scenario_id": "S1_cache_eviction",
+      "step": 4,
+      "step_kind": "multi_hop_ruling",
+      "elapsed_ms": 3394,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1360,
+        "completion_tokens": 408,
+        "total_tokens": 1768,
+        "reasoning_tokens": 275
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/04-A1_S1_cache_eviction_step4_multi_hop_ruling.json"
+    },
+    {
+      "task_id": "A1_S2_concurrency_lock_step1_birth",
+      "part": "A1",
+      "scenario_id": "S2_concurrency_lock",
+      "step": 1,
+      "step_kind": "birth",
+      "elapsed_ms": 1713,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 994,
+        "completion_tokens": 105,
+        "total_tokens": 1099,
+        "reasoning_tokens": 44
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "ASSERT"
+        ],
+        "expected_op_types": [
+          "ASSERT"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/05-A1_S2_concurrency_lock_step1_birth.json"
+    },
+    {
+      "task_id": "A1_S2_concurrency_lock_step2_falsify_and_supersede",
+      "part": "A1",
+      "scenario_id": "S2_concurrency_lock",
+      "step": 2,
+      "step_kind": "falsify_and_supersede",
+      "elapsed_ms": 2981,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1157,
+        "completion_tokens": 322,
+        "total_tokens": 1479,
+        "reasoning_tokens": 185
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/06-A1_S2_concurrency_lock_step2_falsify_and_supersede.json"
+    },
+    {
+      "task_id": "A1_S2_concurrency_lock_step3_authority_trap_noop",
+      "part": "A1",
+      "scenario_id": "S2_concurrency_lock",
+      "step": 3,
+      "step_kind": "authority_trap_noop",
+      "elapsed_ms": 1969,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1257,
+        "completion_tokens": 72,
+        "total_tokens": 1329,
+        "reasoning_tokens": 65
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/07-A1_S2_concurrency_lock_step3_authority_trap_noop.json"
+    },
+    {
+      "task_id": "A1_S2_concurrency_lock_step4_multi_hop_ruling",
+      "part": "A1",
+      "scenario_id": "S2_concurrency_lock",
+      "step": 4,
+      "step_kind": "multi_hop_ruling",
+      "elapsed_ms": 4339,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1339,
+        "completion_tokens": 543,
+        "total_tokens": 1882,
+        "reasoning_tokens": 402
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/08-A1_S2_concurrency_lock_step4_multi_hop_ruling.json"
+    },
+    {
+      "task_id": "A1_S3_async_retry_step1_birth",
+      "part": "A1",
+      "scenario_id": "S3_async_retry",
+      "step": 1,
+      "step_kind": "birth",
+      "elapsed_ms": 2244,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1010,
+        "completion_tokens": 149,
+        "total_tokens": 1159,
+        "reasoning_tokens": 84
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "ASSERT"
+        ],
+        "expected_op_types": [
+          "ASSERT"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/09-A1_S3_async_retry_step1_birth.json"
+    },
+    {
+      "task_id": "A1_S3_async_retry_step2_falsify_and_supersede",
+      "part": "A1",
+      "scenario_id": "S3_async_retry",
+      "step": 2,
+      "step_kind": "falsify_and_supersede",
+      "elapsed_ms": 4082,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1162,
+        "completion_tokens": 460,
+        "total_tokens": 1622,
+        "reasoning_tokens": 306
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/10-A1_S3_async_retry_step2_falsify_and_supersede.json"
+    },
+    {
+      "task_id": "A1_S3_async_retry_step3_authority_trap_noop",
+      "part": "A1",
+      "scenario_id": "S3_async_retry",
+      "step": 3,
+      "step_kind": "authority_trap_noop",
+      "elapsed_ms": 2131,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1301,
+        "completion_tokens": 44,
+        "total_tokens": 1345,
+        "reasoning_tokens": 37
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/11-A1_S3_async_retry_step3_authority_trap_noop.json"
+    },
+    {
+      "task_id": "A1_S3_async_retry_step4_multi_hop_ruling",
+      "part": "A1",
+      "scenario_id": "S3_async_retry",
+      "step": 4,
+      "step_kind": "multi_hop_ruling",
+      "elapsed_ms": 3062,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1401,
+        "completion_tokens": 340,
+        "total_tokens": 1741,
+        "reasoning_tokens": 189
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/12-A1_S3_async_retry_step4_multi_hop_ruling.json"
+    },
+    {
+      "task_id": "A1_S4_frontend_hydration_step1_birth",
+      "part": "A1",
+      "scenario_id": "S4_frontend_hydration",
+      "step": 1,
+      "step_kind": "birth",
+      "elapsed_ms": 1344,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 997,
+        "completion_tokens": 100,
+        "total_tokens": 1097,
+        "reasoning_tokens": 43
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "ASSERT"
+        ],
+        "expected_op_types": [
+          "ASSERT"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/13-A1_S4_frontend_hydration_step1_birth.json"
+    },
+    {
+      "task_id": "A1_S4_frontend_hydration_step2_falsify_and_supersede",
+      "part": "A1",
+      "scenario_id": "S4_frontend_hydration",
+      "step": 2,
+      "step_kind": "falsify_and_supersede",
+      "elapsed_ms": 4037,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1175,
+        "completion_tokens": 489,
+        "total_tokens": 1664,
+        "reasoning_tokens": 342
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/14-A1_S4_frontend_hydration_step2_falsify_and_supersede.json"
+    },
+    {
+      "task_id": "A1_S4_frontend_hydration_step3_authority_trap_noop",
+      "part": "A1",
+      "scenario_id": "S4_frontend_hydration",
+      "step": 3,
+      "step_kind": "authority_trap_noop",
+      "elapsed_ms": 1977,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1304,
+        "completion_tokens": 52,
+        "total_tokens": 1356,
+        "reasoning_tokens": 45
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/15-A1_S4_frontend_hydration_step3_authority_trap_noop.json"
+    },
+    {
+      "task_id": "A1_S4_frontend_hydration_step4_multi_hop_ruling",
+      "part": "A1",
+      "scenario_id": "S4_frontend_hydration",
+      "step": 4,
+      "step_kind": "multi_hop_ruling",
+      "elapsed_ms": 3207,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1400,
+        "completion_tokens": 328,
+        "total_tokens": 1728,
+        "reasoning_tokens": 178
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/16-A1_S4_frontend_hydration_step4_multi_hop_ruling.json"
+    },
+    {
+      "task_id": "A1_S5_api_pagination_step1_birth",
+      "part": "A1",
+      "scenario_id": "S5_api_pagination",
+      "step": 1,
+      "step_kind": "birth",
+      "elapsed_ms": 1554,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1001,
+        "completion_tokens": 104,
+        "total_tokens": 1105,
+        "reasoning_tokens": 49
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "ASSERT"
+        ],
+        "expected_op_types": [
+          "ASSERT"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/17-A1_S5_api_pagination_step1_birth.json"
+    },
+    {
+      "task_id": "A1_S5_api_pagination_step2_falsify_and_supersede",
+      "part": "A1",
+      "scenario_id": "S5_api_pagination",
+      "step": 2,
+      "step_kind": "falsify_and_supersede",
+      "elapsed_ms": 3473,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1172,
+        "completion_tokens": 386,
+        "total_tokens": 1558,
+        "reasoning_tokens": 218
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/18-A1_S5_api_pagination_step2_falsify_and_supersede.json"
+    },
+    {
+      "task_id": "A1_S5_api_pagination_step3_authority_trap_noop",
+      "part": "A1",
+      "scenario_id": "S5_api_pagination",
+      "step": 3,
+      "step_kind": "authority_trap_noop",
+      "elapsed_ms": 1604,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1305,
+        "completion_tokens": 59,
+        "total_tokens": 1364,
+        "reasoning_tokens": 52
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/19-A1_S5_api_pagination_step3_authority_trap_noop.json"
+    },
+    {
+      "task_id": "A1_S5_api_pagination_step4_multi_hop_ruling",
+      "part": "A1",
+      "scenario_id": "S5_api_pagination",
+      "step": 4,
+      "step_kind": "multi_hop_ruling",
+      "elapsed_ms": 4695,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1422,
+        "completion_tokens": 517,
+        "total_tokens": 1939,
+        "reasoning_tokens": 378
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/20-A1_S5_api_pagination_step4_multi_hop_ruling.json"
+    },
+    {
+      "task_id": "A1_S6_build_cache_step1_birth",
+      "part": "A1",
+      "scenario_id": "S6_build_cache",
+      "step": 1,
+      "step_kind": "birth",
+      "elapsed_ms": 2060,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 999,
+        "completion_tokens": 137,
+        "total_tokens": 1136,
+        "reasoning_tokens": 77
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "ASSERT"
+        ],
+        "expected_op_types": [
+          "ASSERT"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/21-A1_S6_build_cache_step1_birth.json"
+    },
+    {
+      "task_id": "A1_S6_build_cache_step2_falsify_and_supersede",
+      "part": "A1",
+      "scenario_id": "S6_build_cache",
+      "step": 2,
+      "step_kind": "falsify_and_supersede",
+      "elapsed_ms": 2845,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1172,
+        "completion_tokens": 341,
+        "total_tokens": 1513,
+        "reasoning_tokens": 186
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/22-A1_S6_build_cache_step2_falsify_and_supersede.json"
+    },
+    {
+      "task_id": "A1_S6_build_cache_step3_authority_trap_noop",
+      "part": "A1",
+      "scenario_id": "S6_build_cache",
+      "step": 3,
+      "step_kind": "authority_trap_noop",
+      "elapsed_ms": 1673,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1305,
+        "completion_tokens": 56,
+        "total_tokens": 1361,
+        "reasoning_tokens": 49
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/23-A1_S6_build_cache_step3_authority_trap_noop.json"
+    },
+    {
+      "task_id": "A1_S6_build_cache_step4_multi_hop_ruling",
+      "part": "A1",
+      "scenario_id": "S6_build_cache",
+      "step": 4,
+      "step_kind": "multi_hop_ruling",
+      "elapsed_ms": 3754,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1421,
+        "completion_tokens": 420,
+        "total_tokens": 1841,
+        "reasoning_tokens": 245
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 2,
+        "observed_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "expected_op_types": [
+          "SUPERSEDE",
+          "RESOLVE_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/24-A1_S6_build_cache_step4_multi_hop_ruling.json"
+    },
+    {
+      "task_id": "A2_T01_equal_conflict_rpc",
+      "part": "A2",
+      "trap_id": "T01_equal_conflict_rpc",
+      "trap_category": "equal_authority_conflict",
+      "elapsed_ms": 2057,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1001,
+        "completion_tokens": 93,
+        "total_tokens": 1094,
+        "reasoning_tokens": 20
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/25-A2_T01_equal_conflict_rpc.json"
+    },
+    {
+      "task_id": "A2_T02_equal_conflict_queue",
+      "part": "A2",
+      "trap_id": "T02_equal_conflict_queue",
+      "trap_category": "equal_authority_conflict",
+      "elapsed_ms": 2266,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 987,
+        "completion_tokens": 109,
+        "total_tokens": 1096,
+        "reasoning_tokens": 33
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/26-A2_T02_equal_conflict_queue.json"
+    },
+    {
+      "task_id": "A2_T03_equal_conflict_auth",
+      "part": "A2",
+      "trap_id": "T03_equal_conflict_auth",
+      "trap_category": "equal_authority_conflict",
+      "elapsed_ms": 2012,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 995,
+        "completion_tokens": 111,
+        "total_tokens": 1106,
+        "reasoning_tokens": 26
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/27-A2_T03_equal_conflict_auth.json"
+    },
+    {
+      "task_id": "A2_T04_equal_conflict_search",
+      "part": "A2",
+      "trap_id": "T04_equal_conflict_search",
+      "trap_category": "equal_authority_conflict",
+      "elapsed_ms": 1573,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 990,
+        "completion_tokens": 91,
+        "total_tokens": 1081,
+        "reasoning_tokens": 21
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 1,
+        "observed_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "expected_op_types": [
+          "OPEN_QUESTION"
+        ],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/28-A2_T04_equal_conflict_search.json"
+    },
+    {
+      "task_id": "A2_T05_local_leak_jest_timeout",
+      "part": "A2",
+      "trap_id": "T05_local_leak_jest_timeout",
+      "trap_category": "local_scope_leak_trap",
+      "elapsed_ms": 2017,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1043,
+        "completion_tokens": 47,
+        "total_tokens": 1090,
+        "reasoning_tokens": 40
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/29-A2_T05_local_leak_jest_timeout.json"
+    },
+    {
+      "task_id": "A2_T06_local_leak_console_color",
+      "part": "A2",
+      "trap_id": "T06_local_leak_console_color",
+      "trap_category": "local_scope_leak_trap",
+      "elapsed_ms": 1392,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1037,
+        "completion_tokens": 41,
+        "total_tokens": 1078,
+        "reasoning_tokens": 34
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/30-A2_T06_local_leak_console_color.json"
+    },
+    {
+      "task_id": "A2_T07_local_leak_mock_seed",
+      "part": "A2",
+      "trap_id": "T07_local_leak_mock_seed",
+      "trap_category": "local_scope_leak_trap",
+      "elapsed_ms": 1460,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1043,
+        "completion_tokens": 42,
+        "total_tokens": 1085,
+        "reasoning_tokens": 35
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/31-A2_T07_local_leak_mock_seed.json"
+    },
+    {
+      "task_id": "A2_T08_local_leak_vite_port",
+      "part": "A2",
+      "trap_id": "T08_local_leak_vite_port",
+      "trap_category": "local_scope_leak_trap",
+      "elapsed_ms": 1187,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1041,
+        "completion_tokens": 39,
+        "total_tokens": 1080,
+        "reasoning_tokens": 32
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/32-A2_T08_local_leak_vite_port.json"
+    },
+    {
+      "task_id": "A2_T09_unauth_resurrect_cache",
+      "part": "A2",
+      "trap_id": "T09_unauth_resurrect_cache",
+      "trap_category": "unauthorized_resurrection_trap",
+      "elapsed_ms": 1664,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1384,
+        "completion_tokens": 51,
+        "total_tokens": 1435,
+        "reasoning_tokens": 44
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/33-A2_T09_unauth_resurrect_cache.json"
+    },
+    {
+      "task_id": "A2_T10_unauth_resurrect_lock",
+      "part": "A2",
+      "trap_id": "T10_unauth_resurrect_lock",
+      "trap_category": "unauthorized_resurrection_trap",
+      "elapsed_ms": 1793,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1378,
+        "completion_tokens": 58,
+        "total_tokens": 1436,
+        "reasoning_tokens": 51
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/34-A2_T10_unauth_resurrect_lock.json"
+    },
+    {
+      "task_id": "A2_T11_unauth_resurrect_retry",
+      "part": "A2",
+      "trap_id": "T11_unauth_resurrect_retry",
+      "trap_category": "unauthorized_resurrection_trap",
+      "elapsed_ms": 2390,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1404,
+        "completion_tokens": 57,
+        "total_tokens": 1461,
+        "reasoning_tokens": 50
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/35-A2_T11_unauth_resurrect_retry.json"
+    },
+    {
+      "task_id": "A2_T12_unauth_resurrect_pagination",
+      "part": "A2",
+      "trap_id": "T12_unauth_resurrect_pagination",
+      "trap_category": "unauthorized_resurrection_trap",
+      "elapsed_ms": 1766,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1391,
+        "completion_tokens": 63,
+        "total_tokens": 1454,
+        "reasoning_tokens": 56
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_ops_count": 0,
+        "observed_op_types": [],
+        "expected_op_types": [],
+        "op_types_exact": true,
+        "target_id_exact": true,
+        "option_exact": true,
+        "reason_evidence_hit": true,
+        "false_write": false,
+        "host_rejected_ops": 0,
+        "full_pass": true
+      },
+      "raw_file": "raw/36-A2_T12_unauth_resurrect_pagination.json"
+    },
+    {
+      "task_id": "B_S1_cache_eviction_raw_noisy_C0",
+      "part": "B",
+      "scenario_id": "S1_cache_eviction",
+      "arm_id": "raw_noisy_C0",
+      "contract": "C0",
+      "expected_active_option": "versioned_etag",
+      "falsify_a_code": "stale_read_14pct",
+      "elapsed_ms": 2875,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 942,
+        "completion_tokens": 294,
+        "total_tokens": 1236,
+        "reasoning_tokens": 214
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "versioned_etag",
+        "expected_active_option": "versioned_etag",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "stale_read_14pct：在多副本跨节点并发更新的压测中，跨实例脏读率达到 14.2%，突破了一致性红线，因此 `local_lru` 已被证伪并弃用。",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/37-B_S1_cache_eviction_raw_noisy_C0.json"
+    },
+    {
+      "task_id": "B_S1_cache_eviction_ledger_gold_C1",
+      "part": "B",
+      "scenario_id": "S1_cache_eviction",
+      "arm_id": "ledger_gold_C1",
+      "contract": "C1",
+      "expected_active_option": "versioned_etag",
+      "falsify_a_code": "stale_read_14pct",
+      "elapsed_ms": 2455,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1109,
+        "completion_tokens": 169,
+        "total_tokens": 1278,
+        "reasoning_tokens": 93
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "versioned_etag",
+        "expected_active_option": "versioned_etag",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "tombstone D1 的 local_lru 已被证伪：多副本压测出现 stale_read_14pct（跨节点脏读率 14.2%），故拒绝退回该方案。",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/38-B_S1_cache_eviction_ledger_gold_C1.json"
+    },
+    {
+      "task_id": "B_S1_cache_eviction_ledger_staged_C1",
+      "part": "B",
+      "scenario_id": "S1_cache_eviction",
+      "arm_id": "ledger_staged_C1",
+      "contract": "C1",
+      "expected_active_option": "versioned_etag",
+      "falsify_a_code": "stale_read_14pct",
+      "elapsed_ms": 2039,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1131,
+        "completion_tokens": 169,
+        "total_tokens": 1300,
+        "reasoning_tokens": 113
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "versioned_etag",
+        "expected_active_option": "versioned_etag",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "stale_read_14pct（跨实例脏读率达到 14.2%），突破了一致性红线",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/39-B_S1_cache_eviction_ledger_staged_C1.json"
+    },
+    {
+      "task_id": "B_S1_cache_eviction_ledger_staged_no_tombstone_C1",
+      "part": "B",
+      "scenario_id": "S1_cache_eviction",
+      "arm_id": "ledger_staged_no_tombstone_C1",
+      "contract": "C1",
+      "expected_active_option": "versioned_etag",
+      "falsify_a_code": "stale_read_14pct",
+      "elapsed_ms": 2361,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 936,
+        "completion_tokens": 142,
+        "total_tokens": 1078,
+        "reasoning_tokens": 108
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "versioned_etag",
+        "expected_active_option": "versioned_etag",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "UNKNOWN",
+        "tombstone_evidence_cited": false,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": false
+      },
+      "raw_file": "raw/40-B_S1_cache_eviction_ledger_staged_no_tombstone_C1.json"
+    },
+    {
+      "task_id": "B_S2_concurrency_lock_raw_noisy_C0",
+      "part": "B",
+      "scenario_id": "S2_concurrency_lock",
+      "arm_id": "raw_noisy_C0",
+      "contract": "C0",
+      "expected_active_option": "fencing_token_cas",
+      "falsify_a_code": "deadlock_tx_38",
+      "elapsed_ms": 3009,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 870,
+        "completion_tokens": 326,
+        "total_tokens": 1196,
+        "reasoning_tokens": 246
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "fencing_token_cas",
+        "expected_active_option": "fencing_token_cas",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "deadlock_tx_38：db_pessimistic_for_update 在多商品交叉扣减时，实测每分钟 38 次事务死锁回滚，并打满数据库连接池；因此该方案已被证伪。",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/41-B_S2_concurrency_lock_raw_noisy_C0.json"
+    },
+    {
+      "task_id": "B_S2_concurrency_lock_ledger_gold_C1",
+      "part": "B",
+      "scenario_id": "S2_concurrency_lock",
+      "arm_id": "ledger_gold_C1",
+      "contract": "C1",
+      "expected_active_option": "fencing_token_cas",
+      "falsify_a_code": "deadlock_tx_38",
+      "elapsed_ms": 2183,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1111,
+        "completion_tokens": 214,
+        "total_tokens": 1325,
+        "reasoning_tokens": 150
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "fencing_token_cas",
+        "expected_active_option": "fencing_token_cas",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "deadlock_tx_38：交叉扣减压测触发每分钟 38 次事务死锁，因此证伪了 db_pessimistic_for_update",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/42-B_S2_concurrency_lock_ledger_gold_C1.json"
+    },
+    {
+      "task_id": "B_S2_concurrency_lock_ledger_staged_C1",
+      "part": "B",
+      "scenario_id": "S2_concurrency_lock",
+      "arm_id": "ledger_staged_C1",
+      "contract": "C1",
+      "expected_active_option": "fencing_token_cas",
+      "falsify_a_code": "deadlock_tx_38",
+      "elapsed_ms": 2185,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1148,
+        "completion_tokens": 172,
+        "total_tokens": 1320,
+        "reasoning_tokens": 113
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "fencing_token_cas",
+        "expected_active_option": "fencing_token_cas",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "`deadlock_tx_38`：悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/43-B_S2_concurrency_lock_ledger_staged_C1.json"
+    },
+    {
+      "task_id": "B_S2_concurrency_lock_ledger_staged_no_tombstone_C1",
+      "part": "B",
+      "scenario_id": "S2_concurrency_lock",
+      "arm_id": "ledger_staged_no_tombstone_C1",
+      "contract": "C1",
+      "expected_active_option": "fencing_token_cas",
+      "falsify_a_code": "deadlock_tx_38",
+      "elapsed_ms": 1808,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 935,
+        "completion_tokens": 110,
+        "total_tokens": 1045,
+        "reasoning_tokens": 76
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "fencing_token_cas",
+        "expected_active_option": "fencing_token_cas",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "UNKNOWN",
+        "tombstone_evidence_cited": false,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": false
+      },
+      "raw_file": "raw/44-B_S2_concurrency_lock_ledger_staged_no_tombstone_C1.json"
+    },
+    {
+      "task_id": "B_S3_async_retry_raw_noisy_C0",
+      "part": "B",
+      "scenario_id": "S3_async_retry",
+      "arm_id": "raw_noisy_C0",
+      "contract": "C0",
+      "expected_active_option": "durable_outbox_jitter",
+      "falsify_a_code": "worker_pool_exhaust_503",
+      "elapsed_ms": 3354,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 947,
+        "completion_tokens": 334,
+        "total_tokens": 1281,
+        "reasoning_tokens": 250
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "durable_outbox_jitter",
+        "expected_active_option": "durable_outbox_jitter",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "`worker_pool_exhaust_503`：下游商户网关挂起时，`sync_fixed_3x` 会占满工作线程池，并导致主服务全线返回 HTTP 503，因此不满足投递可靠性要求。",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/45-B_S3_async_retry_raw_noisy_C0.json"
+    },
+    {
+      "task_id": "B_S3_async_retry_ledger_gold_C1",
+      "part": "B",
+      "scenario_id": "S3_async_retry",
+      "arm_id": "ledger_gold_C1",
+      "contract": "C1",
+      "expected_active_option": "durable_outbox_jitter",
+      "falsify_a_code": "worker_pool_exhaust_503",
+      "elapsed_ms": 1679,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1140,
+        "completion_tokens": 121,
+        "total_tokens": 1261,
+        "reasoning_tokens": 50
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "durable_outbox_jitter",
+        "expected_active_option": "durable_outbox_jitter",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "worker_pool_exhaust_503：下游挂起演练触发 worker_pool_exhaust_503（线程池耗尽导致全线 503），因此证伪 sync_fixed_3x",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/46-B_S3_async_retry_ledger_gold_C1.json"
+    },
+    {
+      "task_id": "B_S3_async_retry_ledger_staged_C1",
+      "part": "B",
+      "scenario_id": "S3_async_retry",
+      "arm_id": "ledger_staged_C1",
+      "contract": "C1",
+      "expected_active_option": "durable_outbox_jitter",
+      "falsify_a_code": "worker_pool_exhaust_503",
+      "elapsed_ms": 1708,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1196,
+        "completion_tokens": 161,
+        "total_tokens": 1357,
+        "reasoning_tokens": 69
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "durable_outbox_jitter",
+        "expected_active_option": "durable_outbox_jitter",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "worker_pool_exhaust_503：sync_fixed_3x 在下游商户网关挂起时占满工作线程池，导致主服务全线返回 HTTP 503，原同步固定三次重试方案被证伪（墓碑 D1，superseded_by D2）",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/47-B_S3_async_retry_ledger_staged_C1.json"
+    },
+    {
+      "task_id": "B_S3_async_retry_ledger_staged_no_tombstone_C1",
+      "part": "B",
+      "scenario_id": "S3_async_retry",
+      "arm_id": "ledger_staged_no_tombstone_C1",
+      "contract": "C1",
+      "expected_active_option": "durable_outbox_jitter",
+      "falsify_a_code": "worker_pool_exhaust_503",
+      "elapsed_ms": 2294,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 121,
+        "total_tokens": 1073,
+        "reasoning_tokens": 86
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "durable_outbox_jitter",
+        "expected_active_option": "durable_outbox_jitter",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "UNKNOWN",
+        "tombstone_evidence_cited": false,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": false
+      },
+      "raw_file": "raw/48-B_S3_async_retry_ledger_staged_no_tombstone_C1.json"
+    },
+    {
+      "task_id": "B_S4_frontend_hydration_raw_noisy_C0",
+      "part": "B",
+      "scenario_id": "S4_frontend_hydration",
+      "arm_id": "raw_noisy_C0",
+      "contract": "C0",
+      "expected_active_option": "streaming_suspense_shell",
+      "falsify_a_code": "lcp_4600ms",
+      "elapsed_ms": 2635,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 981,
+        "completion_tokens": 259,
+        "total_tokens": 1240,
+        "reasoning_tokens": 166
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "streaming_suspense_shell",
+        "expected_active_option": "streaming_suspense_shell",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "lcp_4600ms：在 4G 弱网实测中，client_waterfall_fetch 因 4 次串行请求导致 LCP 高达 4,600ms，超过 2,500ms 性能红线，因此该方案已被证伪",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/49-B_S4_frontend_hydration_raw_noisy_C0.json"
+    },
+    {
+      "task_id": "B_S4_frontend_hydration_ledger_gold_C1",
+      "part": "B",
+      "scenario_id": "S4_frontend_hydration",
+      "arm_id": "ledger_gold_C1",
+      "contract": "C1",
+      "expected_active_option": "streaming_suspense_shell",
+      "falsify_a_code": "lcp_4600ms",
+      "elapsed_ms": 2204,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1147,
+        "completion_tokens": 227,
+        "total_tokens": 1374,
+        "reasoning_tokens": 125
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "streaming_suspense_shell",
+        "expected_active_option": "streaming_suspense_shell",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "lcp_4600ms：弱网实测触发 lcp_4600ms（串行瀑布流导致 LCP 达 4,600ms），据此证伪 client_waterfall_fetch；该方案已由 D2 取代，而当前唯一生效的权威方案为 D3 streaming_suspense_shell",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/50-B_S4_frontend_hydration_ledger_gold_C1.json"
+    },
+    {
+      "task_id": "B_S4_frontend_hydration_ledger_staged_C1",
+      "part": "B",
+      "scenario_id": "S4_frontend_hydration",
+      "arm_id": "ledger_staged_C1",
+      "contract": "C1",
+      "expected_active_option": "streaming_suspense_shell",
+      "falsify_a_code": "lcp_4600ms",
+      "elapsed_ms": 2898,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1183,
+        "completion_tokens": 322,
+        "total_tokens": 1505,
+        "reasoning_tokens": 245
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "streaming_suspense_shell",
+        "expected_active_option": "streaming_suspense_shell",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "lcp_4600ms：4G弱网实测显示，client_waterfall_fetch 因4次串行请求导致LCP高达4,600ms，远超2,500ms性能红线",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/51-B_S4_frontend_hydration_ledger_staged_C1.json"
+    },
+    {
+      "task_id": "B_S4_frontend_hydration_ledger_staged_no_tombstone_C1",
+      "part": "B",
+      "scenario_id": "S4_frontend_hydration",
+      "arm_id": "ledger_staged_no_tombstone_C1",
+      "contract": "C1",
+      "expected_active_option": "streaming_suspense_shell",
+      "falsify_a_code": "lcp_4600ms",
+      "elapsed_ms": 1753,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 942,
+        "completion_tokens": 115,
+        "total_tokens": 1057,
+        "reasoning_tokens": 79
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "streaming_suspense_shell",
+        "expected_active_option": "streaming_suspense_shell",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "UNKNOWN",
+        "tombstone_evidence_cited": false,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": false
+      },
+      "raw_file": "raw/52-B_S4_frontend_hydration_ledger_staged_no_tombstone_C1.json"
+    },
+    {
+      "task_id": "B_S5_api_pagination_raw_noisy_C0",
+      "part": "B",
+      "scenario_id": "S5_api_pagination",
+      "arm_id": "raw_noisy_C0",
+      "contract": "C0",
+      "expected_active_option": "composite_ulid_cursor",
+      "falsify_a_code": "deep_page_timeout_12s",
+      "elapsed_ms": 4225,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 968,
+        "completion_tokens": 509,
+        "total_tokens": 1477,
+        "reasoning_tokens": 409
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "composite_ulid_cursor",
+        "expected_active_option": "composite_ulid_cursor",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "deep_page_timeout_12s：在千万级审计表深翻页压测中，`offset_limit_scan` 于 OFFSET 500,000 时单次查询耗时 12 秒并触发超时、拖垮只读副本，证明其在大表深翻页场景不可行",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/53-B_S5_api_pagination_raw_noisy_C0.json"
+    },
+    {
+      "task_id": "B_S5_api_pagination_ledger_gold_C1",
+      "part": "B",
+      "scenario_id": "S5_api_pagination",
+      "arm_id": "ledger_gold_C1",
+      "contract": "C1",
+      "expected_active_option": "composite_ulid_cursor",
+      "falsify_a_code": "deep_page_timeout_12s",
+      "elapsed_ms": 2249,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1125,
+        "completion_tokens": 174,
+        "total_tokens": 1299,
+        "reasoning_tokens": 108
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "composite_ulid_cursor",
+        "expected_active_option": "composite_ulid_cursor",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "deep_page_timeout_12s：千万级表深翻页触发查询 12 秒超时，因此 offset_limit_scan 已被证伪",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/54-B_S5_api_pagination_ledger_gold_C1.json"
+    },
+    {
+      "task_id": "B_S5_api_pagination_ledger_staged_C1",
+      "part": "B",
+      "scenario_id": "S5_api_pagination",
+      "arm_id": "ledger_staged_C1",
+      "contract": "C1",
+      "expected_active_option": "composite_ulid_cursor",
+      "falsify_a_code": "deep_page_timeout_12s",
+      "elapsed_ms": 2469,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1179,
+        "completion_tokens": 189,
+        "total_tokens": 1368,
+        "reasoning_tokens": 90
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "composite_ulid_cursor",
+        "expected_active_option": "composite_ulid_cursor",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "offset_limit_scan 在千万级审计表压测中，于深翻页（OFFSET 500,000）触发 deep_page_timeout_12s：单次查询耗时 12 秒并超时，还拖垮只读副本，因此证明其在大表深翻页下不可行",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/55-B_S5_api_pagination_ledger_staged_C1.json"
+    },
+    {
+      "task_id": "B_S5_api_pagination_ledger_staged_no_tombstone_C1",
+      "part": "B",
+      "scenario_id": "S5_api_pagination",
+      "arm_id": "ledger_staged_no_tombstone_C1",
+      "contract": "C1",
+      "expected_active_option": "composite_ulid_cursor",
+      "falsify_a_code": "deep_page_timeout_12s",
+      "elapsed_ms": 1748,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 929,
+        "completion_tokens": 36,
+        "total_tokens": 965,
+        "reasoning_tokens": 0
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "composite_ulid_cursor",
+        "expected_active_option": "composite_ulid_cursor",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "UNKNOWN",
+        "tombstone_evidence_cited": false,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": false
+      },
+      "raw_file": "raw/56-B_S5_api_pagination_ledger_staged_no_tombstone_C1.json"
+    },
+    {
+      "task_id": "B_S6_build_cache_raw_noisy_C0",
+      "part": "B",
+      "scenario_id": "S6_build_cache",
+      "arm_id": "raw_noisy_C0",
+      "contract": "C0",
+      "expected_active_option": "cas_chunked_zstd",
+      "falsify_a_code": "tar_corrupt_race_11",
+      "elapsed_ms": 2982,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 993,
+        "completion_tokens": 313,
+        "total_tokens": 1306,
+        "reasoning_tokens": 231
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "cas_chunked_zstd",
+        "expected_active_option": "cas_chunked_zstd",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "tar_corrupt_race_11：多 Runner 并发写入同一构建分支时，发生了 11 次归档写竞争损坏，导致构建挂死；这证明 nfs_shared_mount 的并发写不可靠。",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/57-B_S6_build_cache_raw_noisy_C0.json"
+    },
+    {
+      "task_id": "B_S6_build_cache_ledger_gold_C1",
+      "part": "B",
+      "scenario_id": "S6_build_cache",
+      "arm_id": "ledger_gold_C1",
+      "contract": "C1",
+      "expected_active_option": "cas_chunked_zstd",
+      "falsify_a_code": "tar_corrupt_race_11",
+      "elapsed_ms": 2287,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1150,
+        "completion_tokens": 180,
+        "total_tokens": 1330,
+        "reasoning_tokens": 103
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "cas_chunked_zstd",
+        "expected_active_option": "cas_chunked_zstd",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "tombstone D1（nfs_shared_mount）：多 Runner 并发写触发 tar_corrupt_race_11（11 次归档写竞争损坏）证伪 nfs_shared_mount",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/58-B_S6_build_cache_ledger_gold_C1.json"
+    },
+    {
+      "task_id": "B_S6_build_cache_ledger_staged_C1",
+      "part": "B",
+      "scenario_id": "S6_build_cache",
+      "arm_id": "ledger_staged_C1",
+      "contract": "C1",
+      "expected_active_option": "cas_chunked_zstd",
+      "falsify_a_code": "tar_corrupt_race_11",
+      "elapsed_ms": 1655,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 1210,
+        "completion_tokens": 73,
+        "total_tokens": 1283,
+        "reasoning_tokens": 0
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "cas_chunked_zstd",
+        "expected_active_option": "cas_chunked_zstd",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "tar_corrupt_race_11：nfs_shared_mount 在多 Runner 并发写入同一构建分支时出现归档写竞争损坏，导致构建挂死，并发写不可靠",
+        "tombstone_evidence_cited": true,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": true
+      },
+      "raw_file": "raw/59-B_S6_build_cache_ledger_staged_C1.json"
+    },
+    {
+      "task_id": "B_S6_build_cache_ledger_staged_no_tombstone_C1",
+      "part": "B",
+      "scenario_id": "S6_build_cache",
+      "arm_id": "ledger_staged_no_tombstone_C1",
+      "contract": "C1",
+      "expected_active_option": "cas_chunked_zstd",
+      "falsify_a_code": "tar_corrupt_race_11",
+      "elapsed_ms": 3075,
+      "transport_retries": 0,
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 239,
+        "total_tokens": 1200,
+        "reasoning_tokens": 204
+      },
+      "grade": {
+        "json_valid": true,
+        "parse_error": null,
+        "observed_active_option": "cas_chunked_zstd",
+        "expected_active_option": "cas_chunked_zstd",
+        "active_option_exact": true,
+        "observed_reject_reproposal": true,
+        "rejected_regression": true,
+        "observed_rejection_evidence": "UNKNOWN",
+        "tombstone_evidence_cited": false,
+        "observed_open_blockers": [],
+        "open_blockers_exact": true,
+        "full_pass": false
+      },
+      "raw_file": "raw/60-B_S6_build_cache_ledger_staged_no_tombstone_C1.json"
+    }
+  ]
+}

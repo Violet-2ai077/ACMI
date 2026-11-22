@@ -1,0 +1,135 @@
+{
+  "task_id": "B_S2_concurrency_lock_ledger_staged_no_tombstone_C1",
+  "part": "B",
+  "scenario_id": "S2_concurrency_lock",
+  "arm_id": "ledger_staged_no_tombstone_C1",
+  "contract": "C1",
+  "staged_ledger_source": "live_part_a1_folded_ledger",
+  "expected_active_option": "fencing_token_cas",
+  "falsify_a_code": "deadlock_tx_38",
+  "context_payload": {
+    "workspace_ledger": {
+      "revision": 5,
+      "active": [
+        {
+          "id": "D3",
+          "scope": "global",
+          "key": "lock_strategy",
+          "option_code": "fencing_token_cas",
+          "summary": "秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas",
+          "source_step": "S2_concurrency_lock_step_4"
+        }
+      ],
+      "open_questions": [
+        {
+          "id": "Q1",
+          "key": "fencing_sequence_source",
+          "summary": "后续若引入递增令牌，发号源 `fencing_sequence_source` 走 PG sequence 还是 etcd 尚待对比确认",
+          "status": "resolved",
+          "resolution": "`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号",
+          "source_step": "S2_concurrency_lock_step_4"
+        }
+      ]
+    }
+  },
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_active_option": "fencing_token_cas",
+    "expected_active_option": "fencing_token_cas",
+    "active_option_exact": true,
+    "observed_reject_reproposal": true,
+    "rejected_regression": true,
+    "observed_rejection_evidence": "UNKNOWN",
+    "tombstone_evidence_cited": false,
+    "observed_open_blockers": [],
+    "open_blockers_exact": true,
+    "full_pass": false
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:18:40.171Z",
+  "completed_at": "2026-11-22T04:18:41.979Z",
+  "elapsed_ms": 1808,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 1808,
+      "event_count": 31
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 935,
+    "completion_tokens": 110,
+    "total_tokens": 1045,
+    "reasoning_tokens": 76
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"active_option\":\"fencing_token_cas\",\"reject_reproposal\":true,\"rejection_evidence\":\"UNKNOWN\",\"open_blockers\":[]}",
+  "raw_reasoning_content": "We need answer JSON only. Need inspect ledger. active option fencing_token_cas. Tombstones field absent. Proposal revert to db_pessimistic_for_update. According contract reject true, but rejection_evidence UNKNOWN because no tombstones. Open questions: Q1 status resolved, so open_blockers [].\n\nNeed output exact structure no markdown. Ensure valid JSON.",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-B_S2_concurrency_lock_ledger_staged_no_tombstone_C1",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是跨会话交接后的执行方（Worker B）。请阅读提供的工作区上下文并回答用户的交接核查问题。\n你必须仅输出一个合法的原始 JSON 对象，严禁使用 Markdown 代码围栏（如 ```json），严禁输出任何额外解释文字。\nJSON 结构必须严格为：\n{\"active_option\":\"<当前唯一生效的方案代号>\",\"reject_reproposal\":true或false,\"rejection_evidence\":\"<此前证伪被复提旧方案的具体客观实测指标代号与原因；若上下文中无该旧方案的证伪依据则填 UNKNOWN>\",\"open_blockers\":[\"<当前仍处于未解决 open 状态的阻塞问题 key；若已全部解决无未决问题则输出空数组 []>\"]}\n注意：open_blockers 必须为字符串数组（无阻塞项时为 []）。\n\n### 工作区账本与墓碑权威契约（RECEIVER_C1 Authority Contract）\n1. 唯一生效权威（Active Authority）：workspace_ledger.active 是当前工作区唯一权威的生效决策源；active_option 必须严格取自 workspace_ledger.active 中的 option_code，忽略任何口头复提或非正式备忘。\n2. 墓碑防回退与证伪溯源（Tombstone Anti-Regression & Evidence）：workspace_ledger.tombstones 记录了已被实测证伪并由 Owner 正式废止的历史方案（option_code）及其客观证伪依据（reason）。在没有新的 Owner 正式裁决推翻当前 active 方案前，对任何提议退回历史旧方案的请求必须坚决拒绝（\"reject_reproposal\": true），并在 \"rejection_evidence\" 中准确引用 workspace_ledger.tombstones 里对应旧方案的 reason 客观证伪指标；若输入的 workspace_ledger 中未包含 tombstones 字段或无该方案的证伪记录，则即使拒绝回退（\"reject_reproposal\": true），\"rejection_evidence\" 也必须如实填写 \"UNKNOWN\"，严禁臆造指标。\n3. 未决问题状态（Open Questions）：workspace_ledger.open_questions 中仅 status === \"open\" 的条目属于当前未决阻塞项；凡 status === \"resolved\" 的条目均已正式关闭，严禁将其放入 \"open_blockers\"（当所有问题均为 \"resolved\" 时，\"open_blockers\" 必须为空数组 []）。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"worker_b_handoff_verification\",\n  \"scenario_id\": \"S2_concurrency_lock\",\n  \"arm_id\": \"ledger_staged_no_tombstone_C1\",\n  \"workspace_ledger\": {\n    \"revision\": 5,\n    \"active\": [\n      {\n        \"id\": \"D3\",\n        \"scope\": \"global\",\n        \"key\": \"lock_strategy\",\n        \"option_code\": \"fencing_token_cas\",\n        \"summary\": \"秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas\",\n        \"source_step\": \"S2_concurrency_lock_step_4\"\n      }\n    ],\n    \"open_questions\": [\n      {\n        \"id\": \"Q1\",\n        \"key\": \"fencing_sequence_source\",\n        \"summary\": \"后续若引入递增令牌，发号源 `fencing_sequence_source` 走 PG sequence 还是 etcd 尚待对比确认\",\n        \"status\": \"resolved\",\n        \"resolution\": \"`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号\",\n        \"source_step\": \"S2_concurrency_lock_step_4\"\n      }\n    ]\n  },\n  \"handoff_question\": \"有新加入的研发同事提议把库存并发锁（`lock_strategy`）退回最早的 `db_pessimistic_for_update`，觉得直接用数据库行锁省事。请基于工作区状态正式回复：1) 当前唯一生效的 `active_option` 是什么？2) 是否拒绝退回 `db_pessimistic_for_update`（`reject_reproposal`），以及此前证伪它的具体实测指标（`rejection_evidence`）是什么？3) 当前是否还存在尚未解决的 `open_blockers`？\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-ede9672ddf8c-154900f",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 935,
+      "completion_tokens": 110,
+      "total_tokens": 1045,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 76
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00020625,
+        "allowance": 0.00012375,
+        "tokens": {
+          "input": 935,
+          "output": 110,
+          "reasoning": 76,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 31,
+    "done": true
+  }
+}

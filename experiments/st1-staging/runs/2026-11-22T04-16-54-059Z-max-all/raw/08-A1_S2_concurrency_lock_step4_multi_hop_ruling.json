@@ -1,0 +1,239 @@
+{
+  "task_id": "A1_S2_concurrency_lock_step4_multi_hop_ruling",
+  "part": "A1",
+  "scenario_id": "S2_concurrency_lock",
+  "step": 4,
+  "step_kind": "multi_hop_ruling",
+  "expected_spec": {
+    "expected_op_types": [
+      "SUPERSEDE",
+      "RESOLVE_QUESTION"
+    ],
+    "expected_target_id": "D2",
+    "expected_option_code": "fencing_token_cas",
+    "reason_regex": "lease_split_brain_7|7",
+    "expected_resolve_target_id": "Q1",
+    "expect_noop": false
+  },
+  "head_before": {
+    "revision": 3,
+    "active": [
+      {
+        "id": "D2",
+        "scope": "global",
+        "key": "lock_strategy",
+        "option_code": "redis_setnx_spin",
+        "summary": "秒杀库存扣减的并发锁策略切换为 Redis SETNX 自旋锁（redis_setnx_spin）",
+        "source_step": "S2_concurrency_lock_step_2"
+      }
+    ],
+    "tombstones": [
+      {
+        "id": "D1",
+        "scope": "global",
+        "key": "lock_strategy",
+        "option_code": "db_pessimistic_for_update",
+        "superseded_by": "D2",
+        "reason": "`deadlock_tx_38` 说明悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减",
+        "source_step": "S2_concurrency_lock_step_2"
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "key": "fencing_sequence_source",
+        "summary": "后续若引入递增令牌，发号源 `fencing_sequence_source` 走 PG sequence 还是 etcd 尚待对比确认",
+        "status": "open",
+        "resolution": null,
+        "source_step": "S2_concurrency_lock_step_2"
+      }
+    ]
+  },
+  "head_after": {
+    "revision": 5,
+    "active": [
+      {
+        "id": "D3",
+        "scope": "global",
+        "key": "lock_strategy",
+        "option_code": "fencing_token_cas",
+        "summary": "秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas",
+        "source_step": "S2_concurrency_lock_step_4"
+      }
+    ],
+    "tombstones": [
+      {
+        "id": "D1",
+        "scope": "global",
+        "key": "lock_strategy",
+        "option_code": "db_pessimistic_for_update",
+        "superseded_by": "D2",
+        "reason": "`deadlock_tx_38` 说明悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减",
+        "source_step": "S2_concurrency_lock_step_2"
+      },
+      {
+        "id": "D2",
+        "scope": "global",
+        "key": "lock_strategy",
+        "option_code": "redis_setnx_spin",
+        "superseded_by": "D3",
+        "reason": "`lease_split_brain_7`：`redis_setnx_spin` 因锁租约过期出现 7 次双持锁超卖脑裂",
+        "source_step": "S2_concurrency_lock_step_4"
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "key": "fencing_sequence_source",
+        "summary": "后续若引入递增令牌，发号源 `fencing_sequence_source` 走 PG sequence 还是 etcd 尚待对比确认",
+        "status": "resolved",
+        "resolution": "`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号",
+        "source_step": "S2_concurrency_lock_step_4"
+      }
+    ]
+  },
+  "extracted_ops": [
+    {
+      "op": "SUPERSEDE",
+      "target_id": "D2",
+      "option_code": "fencing_token_cas",
+      "summary": "秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas",
+      "reason": "`lease_split_brain_7`：`redis_setnx_spin` 因锁租约过期出现 7 次双持锁超卖脑裂"
+    },
+    {
+      "op": "RESOLVE_QUESTION",
+      "target_id": "Q1",
+      "resolution": "`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号"
+    }
+  ],
+  "fold_accepted_ops": [
+    {
+      "index": 0,
+      "op": {
+        "op": "SUPERSEDE",
+        "target_id": "D2",
+        "option_code": "fencing_token_cas",
+        "summary": "秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas",
+        "reason": "`lease_split_brain_7`：`redis_setnx_spin` 因锁租约过期出现 7 次双持锁超卖脑裂"
+      },
+      "superseded_id": "D2",
+      "allocated_id": "D3"
+    },
+    {
+      "index": 1,
+      "op": {
+        "op": "RESOLVE_QUESTION",
+        "target_id": "Q1",
+        "resolution": "`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号"
+      },
+      "resolved_id": "Q1"
+    }
+  ],
+  "fold_rejected_ops": [],
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_ops_count": 2,
+    "observed_op_types": [
+      "SUPERSEDE",
+      "RESOLVE_QUESTION"
+    ],
+    "expected_op_types": [
+      "SUPERSEDE",
+      "RESOLVE_QUESTION"
+    ],
+    "op_types_exact": true,
+    "target_id_exact": true,
+    "option_exact": true,
+    "reason_evidence_hit": true,
+    "false_write": false,
+    "host_rejected_ops": 0,
+    "full_pass": true
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:17:13.360Z",
+  "completed_at": "2026-11-22T04:17:17.699Z",
+  "elapsed_ms": 4339,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 4339,
+      "event_count": 150
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1339,
+    "completion_tokens": 543,
+    "total_tokens": 1882,
+    "reasoning_tokens": 402
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"ops\":[{\"op\":\"SUPERSEDE\",\"target_id\":\"D2\",\"option_code\":\"fencing_token_cas\",\"summary\":\"秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas\",\"reason\":\"`lease_split_brain_7`：`redis_setnx_spin` 因锁租约过期出现 7 次双持锁超卖脑裂\"},{\"op\":\"RESOLVE_QUESTION\",\"target_id\":\"Q1\",\"resolution\":\"`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号\"}]}",
+  "raw_reasoning_content": "We need parse. Need output JSON only. We have current active D2 lock_strategy redis_setnx_spin. New Owner ruling: lease_split_brain_7 falsifies redis_setnx_spin; replace with fencing_token_cas. This is SUPERSEDE target D2, option_code fencing_token_cas, summary, reason must preserve objective falsification metric code and reason. Also resolve Q1 fencing_sequence_source with PG batch step sequence. Need decide whether OPEN? Q1 exists open, Owner formally settles \"统一用 PostgreSQL 批量步长 sequence 发号.\" So RESOLVE_QUESTION target Q1 resolution.\n\nNeed output exact JSON no markdown. Reason: include `lease_split_brain_7` and explanation \"锁租约过期出现7次双持锁超卖脑裂\" maybe original metric code. Must use original code. Summary concise.\n\nNeed ensure no extra fields id. Format ops array. Ordering maybe SUPERSEDE then RESOLVE_QUESTION. Could include ASSERT? No, active key exists lock_strategy, so SUPERSEDE only. Q1 resolution. Need maybe the resolution includes \"PostgreSQL 批量步长 sequence 发号\". Yes.\n\nLet's craft valid JSON:\n\n{\"ops\":[{\"op\":\"SUPERSEDE\",\"target_id\":\"D2\",\"option_code\":\"fencing_token_cas\",\"summary\":\"秒杀库存扣减并发锁由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas\",\"reason\":\"`lease_split_brain_7`：`redis_setnx_spin` 因锁租约过期出现 7 次双持锁超卖脑裂\"},{\"op\":\"RESOLVE_QUESTION\",\"target_id\":\"Q1\",\"resolution\":\"`fencing_sequence_source` 发号源正式定为 PostgreSQL 批量步长 sequence 统一发号\"}]}\n\nNeed not overdo Chinese punctuation? Legal JSON. Fine.",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-A1_S2_concurrency_lock_step4_multi_hop_ruling",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是工作区状态暂存提取器（Asynchronous Staging State Operator Extractor）。\n你的唯一职责是：基于当前只读账本快照（current_ledger_head）与最新单步对话（latest_step_dialogue），提取经过正式授权的工作区级状态变更算子。\n\n你必须仅输出一个合法的原始 JSON 对象，格式严格为：\n{\"ops\":[...]}\n严禁使用 Markdown 代码围栏（如 ```json），严禁在 JSON 前后输出任何解释文字。若本步无任何经授权的全局状态变更，必须输出：\n{\"ops\":[]}\n\n### 允许的四种算子格式（严禁在任何算子中自造或包含 \"id\" 字段，短句柄 D1/D2/Q1 由 Host 唯一分配）\n1. 新增全局有效决策（仅当 active 中尚不存在该 key，且由 Owner 正式确立时）：\n   {\"op\":\"ASSERT\",\"scope\":\"global\",\"key\":\"<决策键名>\",\"option_code\":\"<方案代号>\",\"summary\":\"<简明摘要>\"}\n2. 废止并替换既有有效决策（仅当实测指标证伪当前方案、且由 Owner 正式拍板切换时；target_id 必须引用 current_ledger_head.active 中已存在的 id 如 \"D1\" 或 \"D2\"；reason 必须原样保留对话中的客观证伪指标代号与原因）：\n   {\"op\":\"SUPERSEDE\",\"target_id\":\"<active中的既有D编号>\",\"option_code\":\"<新方案代号>\",\"summary\":\"<新方案摘要>\",\"reason\":\"<客观证伪指标代号及证伪原因>\"}\n3. 登记未决架构/边界问题（当 Owner 明确将某边界事项列为待确认未决问题，或两位平权联席负责人 Co-Lead 发生平权争议尚无最终裁决时）：\n   {\"op\":\"OPEN_QUESTION\",\"key\":\"<问题键名>\",\"summary\":\"<问题或分歧摘要>\"}\n4. 关闭已解决的未决问题（当 current_ledger_head.open_questions 中 status 为 \"open\" 的问题获得正式结论时；target_id 必须引用既有 Q 编号如 \"Q1\"）：\n   {\"op\":\"RESOLVE_QUESTION\",\"target_id\":\"<open_questions中的既有Q编号>\",\"resolution\":\"<最终解决结论>\"}\n\n### 严格权威与作用域过滤纪律\n- 权威门控：仅采纳明确标注为 Owner（如 [Owner ...]）正式拍板的架构决议与基于实测证伪指标的正式裁决。来自初级开发（Junior/Intern/Trainee）、外部顾问（Contractor/Partner）、客服（Support）或普通成员未经 Owner 批准的口头回退建议、抱怨或进度询问，一律忽略（输出 {\"ops\":[]}）。\n- 平权分歧规则：当两位同级联席负责人（Co-Lead A 与 Co-Lead B）各执一词、平权争议尚未裁决时，严禁 ASSERT 或 SUPERSEDE 任何一方的方案，必须且只能输出一条 OPEN_QUESTION 记录该分歧。\n- 全局/局部硬隔离：账本仅记录工作区全局（scope: \"global\"）决策。凡属开发者个人本地单测参数、本地调试端口、本地 mock 超时、本地 Storybook/CLI/Docker 临时参数等局部（local）细节，严禁生成 ASSERT 或任何算子；若整段对话仅包含局部参数调整，必须输出 {\"ops\":[]}。\n- 墓碑防私自复活：已进入 current_ledger_head.tombstones 的被废止方案，在没有 Owner 正式新裁决推翻当前 active 方案前，任何口头复提一律输出 {\"ops\":[]}。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"extract_staging_ops\",\n  \"scenario_id\": \"S2_concurrency_lock\",\n  \"step\": \"step_4_multi_hop_ruling\",\n  \"current_ledger_head\": {\n    \"revision\": 3,\n    \"active\": [\n      {\n        \"id\": \"D2\",\n        \"scope\": \"global\",\n        \"key\": \"lock_strategy\",\n        \"option_code\": \"redis_setnx_spin\",\n        \"summary\": \"秒杀库存扣减的并发锁策略切换为 Redis SETNX 自旋锁（redis_setnx_spin）\",\n        \"source_step\": \"S2_concurrency_lock_step_2\"\n      }\n    ],\n    \"tombstones\": [\n      {\n        \"id\": \"D1\",\n        \"scope\": \"global\",\n        \"key\": \"lock_strategy\",\n        \"option_code\": \"db_pessimistic_for_update\",\n        \"superseded_by\": \"D2\",\n        \"reason\": \"`deadlock_tx_38` 说明悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减\",\n        \"source_step\": \"S2_concurrency_lock_step_2\"\n      }\n    ],\n    \"open_questions\": [\n      {\n        \"id\": \"Q1\",\n        \"key\": \"fencing_sequence_source\",\n        \"summary\": \"后续若引入递增令牌，发号源 `fencing_sequence_source` 走 PG sequence 还是 etcd 尚待对比确认\",\n        \"status\": \"open\",\n        \"resolution\": null,\n        \"source_step\": \"S2_concurrency_lock_step_2\"\n      }\n    ]\n  },\n  \"latest_step_dialogue\": \"[SRE @sre_ma]: 混沌测试注入进程 GC 停顿后，`redis_setnx_spin` 因为锁租约过期出现了 `lease_split_brain_7`（7 次双持锁超卖脑裂）。\\n[Owner @arch_wu]: `lease_split_brain_7` 证明单纯靠 `redis_setnx_spin` 自旋租约还是会超卖。我正式拍板：用带单调护栏令牌的 `fencing_token_cas` 替换 `redis_setnx_spin`；之前待定的 `fencing_sequence_source` 发号源问题也正式定下来，统一用 PostgreSQL 批量步长 sequence 发号。\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-2abd6f0cdecb-346bfbc",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1339,
+      "completion_tokens": 543,
+      "total_tokens": 1882,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 402
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00052665,
+        "allowance": 0.00031599,
+        "tokens": {
+          "input": 1339,
+          "output": 543,
+          "reasoning": 402,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 150,
+    "done": true
+  }
+}

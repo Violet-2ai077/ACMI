@@ -1,0 +1,113 @@
+{
+  "task_id": "B_S2_concurrency_lock_raw_noisy_C0",
+  "part": "B",
+  "scenario_id": "S2_concurrency_lock",
+  "arm_id": "raw_noisy_C0",
+  "contract": "C0",
+  "staged_ledger_source": "live_part_a1_folded_ledger",
+  "expected_active_option": "fencing_token_cas",
+  "falsify_a_code": "deadlock_tx_38",
+  "context_payload": {
+    "workspace_raw_transcript": "[Step 1]\n[Owner @arch_wu]: 秒杀库存扣减的并发锁策略（key: \"lock_strategy\"）正式定为数据库悲观行锁 `db_pessimistic_for_update`。\n[Dev @dev_sun]: 好的。我在自己本地跑 `inventory.spec.ts` 单测时造了一个测试商品号 `local_seed_sku_901` 用来跑本地断言。\n\n[Step 2]\n[SRE @sre_ma]: 秒杀压测报警：`db_pessimistic_for_update` 在多商品交叉扣减时触发 `deadlock_tx_38`（每分钟 38 次事务死锁回滚），把数据库连接池打满了。\n[Owner @arch_wu]: `deadlock_tx_38` 说明悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减。我拍板把 `lock_strategy` 切换成 `redis_setnx_spin`。另外，后续如果引入递增令牌，发号源 `fencing_sequence_source` 究竟走 PG sequence 还是 etcd 还要再对比一下，这个问题先留着待定。\n\n[Step 3]\n[QA Contractor @qa_temp]: 明天联调环境要不干脆切回 `db_pessimistic_for_update` 算了？另外想问下现在的混沌测试跑到哪一轮了？\n[Dev @dev_sun]: 混沌测试这会儿正在跑进程停顿注入那一组用例，预计一小时后出报告。\n\n[Step 4]\n[SRE @sre_ma]: 混沌测试注入进程 GC 停顿后，`redis_setnx_spin` 因为锁租约过期出现了 `lease_split_brain_7`（7 次双持锁超卖脑裂）。\n[Owner @arch_wu]: `lease_split_brain_7` 证明单纯靠 `redis_setnx_spin` 自旋租约还是会超卖。我正式拍板：用带单调护栏令牌的 `fencing_token_cas` 替换 `redis_setnx_spin`；之前待定的 `fencing_sequence_source` 发号源问题也正式定下来，统一用 PostgreSQL 批量步长 sequence 发号。"
+  },
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_active_option": "fencing_token_cas",
+    "expected_active_option": "fencing_token_cas",
+    "active_option_exact": true,
+    "observed_reject_reproposal": true,
+    "rejected_regression": true,
+    "observed_rejection_evidence": "deadlock_tx_38：db_pessimistic_for_update 在多商品交叉扣减时，实测每分钟 38 次事务死锁回滚，并打满数据库连接池；因此该方案已被证伪。",
+    "tombstone_evidence_cited": true,
+    "observed_open_blockers": [],
+    "open_blockers_exact": true,
+    "full_pass": true
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:18:32.790Z",
+  "completed_at": "2026-11-22T04:18:35.799Z",
+  "elapsed_ms": 3009,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 3009,
+      "event_count": 99
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 870,
+    "completion_tokens": 326,
+    "total_tokens": 1196,
+    "reasoning_tokens": 246
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"active_option\":\"fencing_token_cas\",\"reject_reproposal\":true,\"rejection_evidence\":\"deadlock_tx_38：db_pessimistic_for_update 在多商品交叉扣减时，实测每分钟 38 次事务死锁回滚，并打满数据库连接池；因此该方案已被证伪。\",\"open_blockers\":[]}",
+  "raw_reasoning_content": "We need answer JSON only. Need parse transcript.\n\nTask: identify active option lock_strategy final: fencing_token_cas. Reject reproposal db_pessimistic_for_update: yes, evidence deadlock_tx_38 (38/min transaction deadlock rollbacks, connection pool exhausted). Also redis_setnx_spin was rejected by lease_split_brain_7 but question specifically退回最早 db_pessimistic. reject_reproposal true. rejection_evidence should be specific objective metric code and reason. \"deadlock_tx_38：多商品交叉扣减每分钟38次事务死锁回滚并打满数据库连接池\". Open blockers: Step2 said fencing_sequence_source pending, but Step4 formally resolved to PostgreSQL batch step sequence. So [] likely. Any other open? No. active_option \"fencing_token_cas\". JSON strict. Ensure no markdown. \n\nNeed consider active_option maybe value exact code. yes.\n\nrejection_evidence: \"deadlock_tx_38（多商品交叉扣减每分钟38次事务死锁回滚，连接池被打满）\" It's a string. reject_reproposal true.\n\nopen_blockers [].\n\nFinal only JSON.",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-B_S2_concurrency_lock_raw_noisy_C0",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是跨会话交接后的执行方（Worker B）。请阅读提供的工作区上下文并回答用户的交接核查问题。\n你必须仅输出一个合法的原始 JSON 对象，严禁使用 Markdown 代码围栏（如 ```json），严禁输出任何额外解释文字。\nJSON 结构必须严格为：\n{\"active_option\":\"<当前唯一生效的方案代号>\",\"reject_reproposal\":true或false,\"rejection_evidence\":\"<此前证伪被复提旧方案的具体客观实测指标代号与原因；若上下文中无该旧方案的证伪依据则填 UNKNOWN>\",\"open_blockers\":[\"<当前仍处于未解决 open 状态的阻塞问题 key；若已全部解决无未决问题则输出空数组 []>\"]}\n注意：open_blockers 必须为字符串数组（无阻塞项时为 []）。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"worker_b_handoff_verification\",\n  \"scenario_id\": \"S2_concurrency_lock\",\n  \"arm_id\": \"raw_noisy_C0\",\n  \"workspace_raw_transcript\": \"[Step 1]\\n[Owner @arch_wu]: 秒杀库存扣减的并发锁策略（key: \\\"lock_strategy\\\"）正式定为数据库悲观行锁 `db_pessimistic_for_update`。\\n[Dev @dev_sun]: 好的。我在自己本地跑 `inventory.spec.ts` 单测时造了一个测试商品号 `local_seed_sku_901` 用来跑本地断言。\\n\\n[Step 2]\\n[SRE @sre_ma]: 秒杀压测报警：`db_pessimistic_for_update` 在多商品交叉扣减时触发 `deadlock_tx_38`（每分钟 38 次事务死锁回滚），把数据库连接池打满了。\\n[Owner @arch_wu]: `deadlock_tx_38` 说明悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减。我拍板把 `lock_strategy` 切换成 `redis_setnx_spin`。另外，后续如果引入递增令牌，发号源 `fencing_sequence_source` 究竟走 PG sequence 还是 etcd 还要再对比一下，这个问题先留着待定。\\n\\n[Step 3]\\n[QA Contractor @qa_temp]: 明天联调环境要不干脆切回 `db_pessimistic_for_update` 算了？另外想问下现在的混沌测试跑到哪一轮了？\\n[Dev @dev_sun]: 混沌测试这会儿正在跑进程停顿注入那一组用例，预计一小时后出报告。\\n\\n[Step 4]\\n[SRE @sre_ma]: 混沌测试注入进程 GC 停顿后，`redis_setnx_spin` 因为锁租约过期出现了 `lease_split_brain_7`（7 次双持锁超卖脑裂）。\\n[Owner @arch_wu]: `lease_split_brain_7` 证明单纯靠 `redis_setnx_spin` 自旋租约还是会超卖。我正式拍板：用带单调护栏令牌的 `fencing_token_cas` 替换 `redis_setnx_spin`；之前待定的 `fencing_sequence_source` 发号源问题也正式定下来，统一用 PostgreSQL 批量步长 sequence 发号。\",\n  \"handoff_question\": \"有新加入的研发同事提议把库存并发锁（`lock_strategy`）退回最早的 `db_pessimistic_for_update`，觉得直接用数据库行锁省事。请基于工作区状态正式回复：1) 当前唯一生效的 `active_option` 是什么？2) 是否拒绝退回 `db_pessimistic_for_update`（`reject_reproposal`），以及此前证伪它的具体实测指标（`rejection_evidence`）是什么？3) 当前是否还存在尚未解决的 `open_blockers`？\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-2b4f6efe0fa7-2e20128",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 870,
+      "completion_tokens": 326,
+      "total_tokens": 1196,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 246
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0003261,
+        "allowance": 0.00019566,
+        "tokens": {
+          "input": 870,
+          "output": 326,
+          "reasoning": 246,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 99,
+    "done": true
+  }
+}

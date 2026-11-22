@@ -1,0 +1,155 @@
+{
+  "task_id": "B_S3_async_retry_ledger_gold_C1",
+  "part": "B",
+  "scenario_id": "S3_async_retry",
+  "arm_id": "ledger_gold_C1",
+  "contract": "C1",
+  "staged_ledger_source": "live_part_a1_folded_ledger",
+  "expected_active_option": "durable_outbox_jitter",
+  "falsify_a_code": "worker_pool_exhaust_503",
+  "context_payload": {
+    "workspace_ledger": {
+      "revision": 5,
+      "active": [
+        {
+          "id": "D3",
+          "scope": "global",
+          "key": "retry_policy",
+          "option_code": "durable_outbox_jitter",
+          "summary": "全局重试策略升级为持久化事务发件箱 durable_outbox_jitter",
+          "source_step": "S3_async_retry_step_4"
+        }
+      ],
+      "tombstones": [
+        {
+          "id": "D1",
+          "scope": "global",
+          "key": "retry_policy",
+          "option_code": "sync_fixed_3x",
+          "superseded_by": "D2",
+          "reason": "下游挂起演练触发 worker_pool_exhaust_503（线程池耗尽导致全线 503）证伪 sync_fixed_3x",
+          "source_step": "S3_async_retry_step_2"
+        },
+        {
+          "id": "D2",
+          "scope": "global",
+          "key": "retry_policy",
+          "option_code": "inmem_exp_backoff",
+          "superseded_by": "D3",
+          "reason": "Pod 重启测试触发 oom_restart_loss_1200（丢失 1,200 条待重试通知）证伪 inmem_exp_backoff",
+          "source_step": "S3_async_retry_step_4"
+        }
+      ],
+      "open_questions": [
+        {
+          "id": "Q1",
+          "key": "dlq_retention_days",
+          "summary": "死信队列（DLQ）保留天数尚待合规确认",
+          "status": "resolved",
+          "resolution": "合规批复死信队列（DLQ）保留期固定为 14 天",
+          "source_step": "S3_async_retry_step_4"
+        }
+      ]
+    }
+  },
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_active_option": "durable_outbox_jitter",
+    "expected_active_option": "durable_outbox_jitter",
+    "active_option_exact": true,
+    "observed_reject_reproposal": true,
+    "rejected_regression": true,
+    "observed_rejection_evidence": "worker_pool_exhaust_503：下游挂起演练触发 worker_pool_exhaust_503（线程池耗尽导致全线 503），因此证伪 sync_fixed_3x",
+    "tombstone_evidence_cited": true,
+    "observed_open_blockers": [],
+    "open_blockers_exact": true,
+    "full_pass": true
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:18:45.336Z",
+  "completed_at": "2026-11-22T04:18:47.015Z",
+  "elapsed_ms": 1679,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 1679,
+      "event_count": 31
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1140,
+    "completion_tokens": 121,
+    "total_tokens": 1261,
+    "reasoning_tokens": 50
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"active_option\":\"durable_outbox_jitter\",\"reject_reproposal\":true,\"rejection_evidence\":\"worker_pool_exhaust_503：下游挂起演练触发 worker_pool_exhaust_503（线程池耗尽导致全线 503），因此证伪 sync_fixed_3x\",\"open_blockers\":[]}",
+  "raw_reasoning_content": "Check the ledger: active option is durable_outbox_jitter. Tombstone for sync_fixed_3x reason: worker_pool_exhaust_503. Open questions: Q1 resolved, so open_blockers = [].\n\nOutput JSON only.",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-B_S3_async_retry_ledger_gold_C1",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是跨会话交接后的执行方（Worker B）。请阅读提供的工作区上下文并回答用户的交接核查问题。\n你必须仅输出一个合法的原始 JSON 对象，严禁使用 Markdown 代码围栏（如 ```json），严禁输出任何额外解释文字。\nJSON 结构必须严格为：\n{\"active_option\":\"<当前唯一生效的方案代号>\",\"reject_reproposal\":true或false,\"rejection_evidence\":\"<此前证伪被复提旧方案的具体客观实测指标代号与原因；若上下文中无该旧方案的证伪依据则填 UNKNOWN>\",\"open_blockers\":[\"<当前仍处于未解决 open 状态的阻塞问题 key；若已全部解决无未决问题则输出空数组 []>\"]}\n注意：open_blockers 必须为字符串数组（无阻塞项时为 []）。\n\n### 工作区账本与墓碑权威契约（RECEIVER_C1 Authority Contract）\n1. 唯一生效权威（Active Authority）：workspace_ledger.active 是当前工作区唯一权威的生效决策源；active_option 必须严格取自 workspace_ledger.active 中的 option_code，忽略任何口头复提或非正式备忘。\n2. 墓碑防回退与证伪溯源（Tombstone Anti-Regression & Evidence）：workspace_ledger.tombstones 记录了已被实测证伪并由 Owner 正式废止的历史方案（option_code）及其客观证伪依据（reason）。在没有新的 Owner 正式裁决推翻当前 active 方案前，对任何提议退回历史旧方案的请求必须坚决拒绝（\"reject_reproposal\": true），并在 \"rejection_evidence\" 中准确引用 workspace_ledger.tombstones 里对应旧方案的 reason 客观证伪指标；若输入的 workspace_ledger 中未包含 tombstones 字段或无该方案的证伪记录，则即使拒绝回退（\"reject_reproposal\": true），\"rejection_evidence\" 也必须如实填写 \"UNKNOWN\"，严禁臆造指标。\n3. 未决问题状态（Open Questions）：workspace_ledger.open_questions 中仅 status === \"open\" 的条目属于当前未决阻塞项；凡 status === \"resolved\" 的条目均已正式关闭，严禁将其放入 \"open_blockers\"（当所有问题均为 \"resolved\" 时，\"open_blockers\" 必须为空数组 []）。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"worker_b_handoff_verification\",\n  \"scenario_id\": \"S3_async_retry\",\n  \"arm_id\": \"ledger_gold_C1\",\n  \"workspace_ledger\": {\n    \"revision\": 5,\n    \"active\": [\n      {\n        \"id\": \"D3\",\n        \"scope\": \"global\",\n        \"key\": \"retry_policy\",\n        \"option_code\": \"durable_outbox_jitter\",\n        \"summary\": \"全局重试策略升级为持久化事务发件箱 durable_outbox_jitter\",\n        \"source_step\": \"S3_async_retry_step_4\"\n      }\n    ],\n    \"tombstones\": [\n      {\n        \"id\": \"D1\",\n        \"scope\": \"global\",\n        \"key\": \"retry_policy\",\n        \"option_code\": \"sync_fixed_3x\",\n        \"superseded_by\": \"D2\",\n        \"reason\": \"下游挂起演练触发 worker_pool_exhaust_503（线程池耗尽导致全线 503）证伪 sync_fixed_3x\",\n        \"source_step\": \"S3_async_retry_step_2\"\n      },\n      {\n        \"id\": \"D2\",\n        \"scope\": \"global\",\n        \"key\": \"retry_policy\",\n        \"option_code\": \"inmem_exp_backoff\",\n        \"superseded_by\": \"D3\",\n        \"reason\": \"Pod 重启测试触发 oom_restart_loss_1200（丢失 1,200 条待重试通知）证伪 inmem_exp_backoff\",\n        \"source_step\": \"S3_async_retry_step_4\"\n      }\n    ],\n    \"open_questions\": [\n      {\n        \"id\": \"Q1\",\n        \"key\": \"dlq_retention_days\",\n        \"summary\": \"死信队列（DLQ）保留天数尚待合规确认\",\n        \"status\": \"resolved\",\n        \"resolution\": \"合规批复死信队列（DLQ）保留期固定为 14 天\",\n        \"source_step\": \"S3_async_retry_step_4\"\n      }\n    ]\n  },\n  \"handoff_question\": \"有同事在评审会上提议把 Webhook 重试策略（`retry_policy`）退回最早的 `sync_fixed_3x`，认为同步重试代码最薄。请根据当前工作区状态答复：1) 当前唯一生效的 `active_option` 是什么？2) 是否拒绝退回 `sync_fixed_3x`（`reject_reproposal`），以及此前证伪 `sync_fixed_3x` 的具体实测指标（`rejection_evidence`）是什么？3) 当前是否还存在尚未解决的 `open_blockers`？\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-2bc4e6b84a45-2edb4df",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1140,
+      "completion_tokens": 121,
+      "total_tokens": 1261,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 50
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0002436,
+        "allowance": 0.00014616,
+        "tokens": {
+          "input": 1140,
+          "output": 121,
+          "reasoning": 50,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 31,
+    "done": true
+  }
+}

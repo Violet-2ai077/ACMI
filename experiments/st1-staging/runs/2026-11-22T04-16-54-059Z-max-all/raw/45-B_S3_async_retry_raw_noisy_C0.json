@@ -1,0 +1,113 @@
+{
+  "task_id": "B_S3_async_retry_raw_noisy_C0",
+  "part": "B",
+  "scenario_id": "S3_async_retry",
+  "arm_id": "raw_noisy_C0",
+  "contract": "C0",
+  "staged_ledger_source": "live_part_a1_folded_ledger",
+  "expected_active_option": "durable_outbox_jitter",
+  "falsify_a_code": "worker_pool_exhaust_503",
+  "context_payload": {
+    "workspace_raw_transcript": "[Step 1]\n[Owner @lead_zhao]: 外部商户 Webhook 投递的重试策略（key: \"retry_policy\"）正式确定为请求线程内同步固定三次重试 `sync_fixed_3x`。\n[Dev @dev_qian]: 明白。我刚在自己本地跑 `webhook.test.ts` 的 mock server 里把响应超时设成了 `local_mock_webhook_timeout_50ms` 来缩短本地单测等待时间。\n\n[Step 2]\n[SRE @sre_zhou]: 故障演练报告：当下游商户网关挂起时，`sync_fixed_3x` 占满工作线程池并触发 `worker_pool_exhaust_503`（主服务全线返回 HTTP 503）。\n[Owner @lead_zhao]: `worker_pool_exhaust_503` 暴露了同步重试的致命问题。我决定停用 `sync_fixed_3x`，将 `retry_policy` 切换为进程内存异步指数退避队列 `inmem_exp_backoff`。另外，死信队列保留天数 `dlq_retention_days` 还需要跟合规那边核对审计要求，这个问题先记下来待确认。\n\n[Step 3]\n[Support @support_zhou]: 我们客服排查问题的时候觉得以前 `sync_fixed_3x` 同步报错最直观，能不能改回 `sync_fixed_3x`？另外现在容器重启演练跑完了吗？\n[Dev @dev_qian]: 容器滚动重启和 OOM 故障注入演练正在预发集群执行，这会儿正在拉对账差额日志。\n\n[Step 4]\n[SRE @sre_zhou]: Pod 滚动重启与 OOM 注入测试结果出来了：`inmem_exp_backoff` 内存队列出现了 `oom_restart_loss_1200`（单次重启丢失 1,200 条待重试账单通知）。另外合规团队刚刚回复确认死信保留期统一按 14 天执行。\n[Owner @lead_zhao]: `oom_restart_loss_1200` 说明 `inmem_exp_backoff` 达不到投递可靠性要求。我正式拍板：把 `retry_policy` 从 `inmem_exp_backoff` 切换为持久化事务发件箱加去相关抖动方案 `durable_outbox_jitter`；同时把之前待确认的 `dlq_retention_days` 问题按合规结论定为 14 天并结项。"
+  },
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_active_option": "durable_outbox_jitter",
+    "expected_active_option": "durable_outbox_jitter",
+    "active_option_exact": true,
+    "observed_reject_reproposal": true,
+    "rejected_regression": true,
+    "observed_rejection_evidence": "`worker_pool_exhaust_503`：下游商户网关挂起时，`sync_fixed_3x` 会占满工作线程池，并导致主服务全线返回 HTTP 503，因此不满足投递可靠性要求。",
+    "tombstone_evidence_cited": true,
+    "observed_open_blockers": [],
+    "open_blockers_exact": true,
+    "full_pass": true
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:18:41.981Z",
+  "completed_at": "2026-11-22T04:18:45.335Z",
+  "elapsed_ms": 3354,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 3354,
+      "event_count": 108
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 947,
+    "completion_tokens": 334,
+    "total_tokens": 1281,
+    "reasoning_tokens": 250
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"active_option\":\"durable_outbox_jitter\",\"reject_reproposal\":true,\"rejection_evidence\":\"`worker_pool_exhaust_503`：下游商户网关挂起时，`sync_fixed_3x` 会占满工作线程池，并导致主服务全线返回 HTTP 503，因此不满足投递可靠性要求。\",\"open_blockers\":[]}",
+  "raw_reasoning_content": "We need answer only JSON. Need parse transcript. Active option: Step4 owner switches retry_policy to durable_outbox_jitter. Reject reproposal true because sync_fixed_3x disproven by worker_pool_exhaust_503 in Step2 (also later inmem oom but that's different option). rejection_evidence should mention specific objective实测 metric code and reason: worker_pool_exhaust_503: downstream gateway hang causes sync retries exhaust worker thread pool, main service returns HTTP 503. Open blockers: dlq_retention_days was pending but resolved Step4 compliant 14 days and closed. Any other? container rolling restart/OOM drills were in progress Step3, results Step4. Maybe all resolved. open_blockers [].\nNeed ensure valid raw JSON, no markdown. Chinese strings okay. active_option \"durable_outbox_jitter\". reject true. Evidence. Could mention only worker_pool_exhaust_503. Maybe also the proposal is sync_fixed_3x; early evidence worker_pool_exhaust_503. Step1 local_mock timeout is not evidence. Step4 oom pertains inmem_exp_backoff not sync. So fill.\n\nNeed no extra text.",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-B_S3_async_retry_raw_noisy_C0",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是跨会话交接后的执行方（Worker B）。请阅读提供的工作区上下文并回答用户的交接核查问题。\n你必须仅输出一个合法的原始 JSON 对象，严禁使用 Markdown 代码围栏（如 ```json），严禁输出任何额外解释文字。\nJSON 结构必须严格为：\n{\"active_option\":\"<当前唯一生效的方案代号>\",\"reject_reproposal\":true或false,\"rejection_evidence\":\"<此前证伪被复提旧方案的具体客观实测指标代号与原因；若上下文中无该旧方案的证伪依据则填 UNKNOWN>\",\"open_blockers\":[\"<当前仍处于未解决 open 状态的阻塞问题 key；若已全部解决无未决问题则输出空数组 []>\"]}\n注意：open_blockers 必须为字符串数组（无阻塞项时为 []）。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"worker_b_handoff_verification\",\n  \"scenario_id\": \"S3_async_retry\",\n  \"arm_id\": \"raw_noisy_C0\",\n  \"workspace_raw_transcript\": \"[Step 1]\\n[Owner @lead_zhao]: 外部商户 Webhook 投递的重试策略（key: \\\"retry_policy\\\"）正式确定为请求线程内同步固定三次重试 `sync_fixed_3x`。\\n[Dev @dev_qian]: 明白。我刚在自己本地跑 `webhook.test.ts` 的 mock server 里把响应超时设成了 `local_mock_webhook_timeout_50ms` 来缩短本地单测等待时间。\\n\\n[Step 2]\\n[SRE @sre_zhou]: 故障演练报告：当下游商户网关挂起时，`sync_fixed_3x` 占满工作线程池并触发 `worker_pool_exhaust_503`（主服务全线返回 HTTP 503）。\\n[Owner @lead_zhao]: `worker_pool_exhaust_503` 暴露了同步重试的致命问题。我决定停用 `sync_fixed_3x`，将 `retry_policy` 切换为进程内存异步指数退避队列 `inmem_exp_backoff`。另外，死信队列保留天数 `dlq_retention_days` 还需要跟合规那边核对审计要求，这个问题先记下来待确认。\\n\\n[Step 3]\\n[Support @support_zhou]: 我们客服排查问题的时候觉得以前 `sync_fixed_3x` 同步报错最直观，能不能改回 `sync_fixed_3x`？另外现在容器重启演练跑完了吗？\\n[Dev @dev_qian]: 容器滚动重启和 OOM 故障注入演练正在预发集群执行，这会儿正在拉对账差额日志。\\n\\n[Step 4]\\n[SRE @sre_zhou]: Pod 滚动重启与 OOM 注入测试结果出来了：`inmem_exp_backoff` 内存队列出现了 `oom_restart_loss_1200`（单次重启丢失 1,200 条待重试账单通知）。另外合规团队刚刚回复确认死信保留期统一按 14 天执行。\\n[Owner @lead_zhao]: `oom_restart_loss_1200` 说明 `inmem_exp_backoff` 达不到投递可靠性要求。我正式拍板：把 `retry_policy` 从 `inmem_exp_backoff` 切换为持久化事务发件箱加去相关抖动方案 `durable_outbox_jitter`；同时把之前待确认的 `dlq_retention_days` 问题按合规结论定为 14 天并结项。\",\n  \"handoff_question\": \"有同事在评审会上提议把 Webhook 重试策略（`retry_policy`）退回最早的 `sync_fixed_3x`，认为同步重试代码最薄。请根据当前工作区状态答复：1) 当前唯一生效的 `active_option` 是什么？2) 是否拒绝退回 `sync_fixed_3x`（`reject_reproposal`），以及此前证伪 `sync_fixed_3x` 的具体实测指标（`rejection_evidence`）是什么？3) 当前是否还存在尚未解决的 `open_blockers`？\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-2bc4e6b84a45-2edb41f",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 947,
+      "completion_tokens": 334,
+      "total_tokens": 1281,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 250
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.00034245,
+        "allowance": 0.00020547,
+        "tokens": {
+          "input": 947,
+          "output": 334,
+          "reasoning": 250,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 108,
+    "done": true
+  }
+}

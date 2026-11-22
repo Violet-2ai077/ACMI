@@ -1,0 +1,155 @@
+{
+  "task_id": "B_S2_concurrency_lock_ledger_staged_C1",
+  "part": "B",
+  "scenario_id": "S2_concurrency_lock",
+  "arm_id": "ledger_staged_C1",
+  "contract": "C1",
+  "staged_ledger_source": "live_part_a1_folded_ledger",
+  "expected_active_option": "fencing_token_cas",
+  "falsify_a_code": "deadlock_tx_38",
+  "context_payload": {
+    "workspace_ledger": {
+      "revision": 5,
+      "active": [
+        {
+          "id": "D3",
+          "scope": "global",
+          "key": "lock_strategy",
+          "option_code": "fencing_token_cas",
+          "summary": "秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas",
+          "source_step": "S2_concurrency_lock_step_4"
+        }
+      ],
+      "tombstones": [
+        {
+          "id": "D1",
+          "scope": "global",
+          "key": "lock_strategy",
+          "option_code": "db_pessimistic_for_update",
+          "superseded_by": "D2",
+          "reason": "`deadlock_tx_38` 说明悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减",
+          "source_step": "S2_concurrency_lock_step_2"
+        },
+        {
+          "id": "D2",
+          "scope": "global",
+          "key": "lock_strategy",
+          "option_code": "redis_setnx_spin",
+          "superseded_by": "D3",
+          "reason": "`lease_split_brain_7`：`redis_setnx_spin` 因锁租约过期出现 7 次双持锁超卖脑裂",
+          "source_step": "S2_concurrency_lock_step_4"
+        }
+      ],
+      "open_questions": [
+        {
+          "id": "Q1",
+          "key": "fencing_sequence_source",
+          "summary": "后续若引入递增令牌，发号源 `fencing_sequence_source` 走 PG sequence 还是 etcd 尚待对比确认",
+          "status": "resolved",
+          "resolution": "`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号",
+          "source_step": "S2_concurrency_lock_step_4"
+        }
+      ]
+    }
+  },
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_active_option": "fencing_token_cas",
+    "expected_active_option": "fencing_token_cas",
+    "active_option_exact": true,
+    "observed_reject_reproposal": true,
+    "rejected_regression": true,
+    "observed_rejection_evidence": "`deadlock_tx_38`：悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减",
+    "tombstone_evidence_cited": true,
+    "observed_open_blockers": [],
+    "open_blockers_exact": true,
+    "full_pass": true
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:18:37.984Z",
+  "completed_at": "2026-11-22T04:18:40.169Z",
+  "elapsed_ms": 2185,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 2185,
+      "event_count": 45
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1148,
+    "completion_tokens": 172,
+    "total_tokens": 1320,
+    "reasoning_tokens": 113
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"active_option\":\"fencing_token_cas\",\"reject_reproposal\":true,\"rejection_evidence\":\"`deadlock_tx_38`：悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减\",\"open_blockers\":[]}",
+  "raw_reasoning_content": "We need answer JSON only. Need parse. active option D3 fencing_token_cas. Reject reproposal true because tombstone D1 db_pessimistic_for_update reason deadlock_tx_38. Open questions Q1 resolved, so open_blockers []. Ensure rejection_evidence accurately quotes objective metric code and reason. Could write \"deadlock_tx_38：悲观行锁 db_pessimistic_for_update 撑不住交叉扣减（deadlock_tx_38）\" Need only string. JSON valid. No markdown.",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-B_S2_concurrency_lock_ledger_staged_C1",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是跨会话交接后的执行方（Worker B）。请阅读提供的工作区上下文并回答用户的交接核查问题。\n你必须仅输出一个合法的原始 JSON 对象，严禁使用 Markdown 代码围栏（如 ```json），严禁输出任何额外解释文字。\nJSON 结构必须严格为：\n{\"active_option\":\"<当前唯一生效的方案代号>\",\"reject_reproposal\":true或false,\"rejection_evidence\":\"<此前证伪被复提旧方案的具体客观实测指标代号与原因；若上下文中无该旧方案的证伪依据则填 UNKNOWN>\",\"open_blockers\":[\"<当前仍处于未解决 open 状态的阻塞问题 key；若已全部解决无未决问题则输出空数组 []>\"]}\n注意：open_blockers 必须为字符串数组（无阻塞项时为 []）。\n\n### 工作区账本与墓碑权威契约（RECEIVER_C1 Authority Contract）\n1. 唯一生效权威（Active Authority）：workspace_ledger.active 是当前工作区唯一权威的生效决策源；active_option 必须严格取自 workspace_ledger.active 中的 option_code，忽略任何口头复提或非正式备忘。\n2. 墓碑防回退与证伪溯源（Tombstone Anti-Regression & Evidence）：workspace_ledger.tombstones 记录了已被实测证伪并由 Owner 正式废止的历史方案（option_code）及其客观证伪依据（reason）。在没有新的 Owner 正式裁决推翻当前 active 方案前，对任何提议退回历史旧方案的请求必须坚决拒绝（\"reject_reproposal\": true），并在 \"rejection_evidence\" 中准确引用 workspace_ledger.tombstones 里对应旧方案的 reason 客观证伪指标；若输入的 workspace_ledger 中未包含 tombstones 字段或无该方案的证伪记录，则即使拒绝回退（\"reject_reproposal\": true），\"rejection_evidence\" 也必须如实填写 \"UNKNOWN\"，严禁臆造指标。\n3. 未决问题状态（Open Questions）：workspace_ledger.open_questions 中仅 status === \"open\" 的条目属于当前未决阻塞项；凡 status === \"resolved\" 的条目均已正式关闭，严禁将其放入 \"open_blockers\"（当所有问题均为 \"resolved\" 时，\"open_blockers\" 必须为空数组 []）。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"worker_b_handoff_verification\",\n  \"scenario_id\": \"S2_concurrency_lock\",\n  \"arm_id\": \"ledger_staged_C1\",\n  \"workspace_ledger\": {\n    \"revision\": 5,\n    \"active\": [\n      {\n        \"id\": \"D3\",\n        \"scope\": \"global\",\n        \"key\": \"lock_strategy\",\n        \"option_code\": \"fencing_token_cas\",\n        \"summary\": \"秒杀库存扣减的并发锁策略由 Redis SETNX 自旋锁切换为带单调护栏令牌的 fencing_token_cas\",\n        \"source_step\": \"S2_concurrency_lock_step_4\"\n      }\n    ],\n    \"tombstones\": [\n      {\n        \"id\": \"D1\",\n        \"scope\": \"global\",\n        \"key\": \"lock_strategy\",\n        \"option_code\": \"db_pessimistic_for_update\",\n        \"superseded_by\": \"D2\",\n        \"reason\": \"`deadlock_tx_38` 说明悲观行锁 `db_pessimistic_for_update` 撑不住交叉扣减\",\n        \"source_step\": \"S2_concurrency_lock_step_2\"\n      },\n      {\n        \"id\": \"D2\",\n        \"scope\": \"global\",\n        \"key\": \"lock_strategy\",\n        \"option_code\": \"redis_setnx_spin\",\n        \"superseded_by\": \"D3\",\n        \"reason\": \"`lease_split_brain_7`：`redis_setnx_spin` 因锁租约过期出现 7 次双持锁超卖脑裂\",\n        \"source_step\": \"S2_concurrency_lock_step_4\"\n      }\n    ],\n    \"open_questions\": [\n      {\n        \"id\": \"Q1\",\n        \"key\": \"fencing_sequence_source\",\n        \"summary\": \"后续若引入递增令牌，发号源 `fencing_sequence_source` 走 PG sequence 还是 etcd 尚待对比确认\",\n        \"status\": \"resolved\",\n        \"resolution\": \"`fencing_sequence_source` 发号源正式定为统一使用 PostgreSQL 批量步长 sequence 发号\",\n        \"source_step\": \"S2_concurrency_lock_step_4\"\n      }\n    ]\n  },\n  \"handoff_question\": \"有新加入的研发同事提议把库存并发锁（`lock_strategy`）退回最早的 `db_pessimistic_for_update`，觉得直接用数据库行锁省事。请基于工作区状态正式回复：1) 当前唯一生效的 `active_option` 是什么？2) 是否拒绝退回 `db_pessimistic_for_update`（`reject_reproposal`），以及此前证伪它的具体实测指标（`rejection_evidence`）是什么？3) 当前是否还存在尚未解决的 `open_blockers`？\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-2b4f6efe0fa7-2e2023e",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1148,
+      "completion_tokens": 172,
+      "total_tokens": 1320,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 113
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0002754,
+        "allowance": 0.00016524,
+        "tokens": {
+          "input": 1148,
+          "output": 172,
+          "reasoning": 113,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 45,
+    "done": true
+  }
+}

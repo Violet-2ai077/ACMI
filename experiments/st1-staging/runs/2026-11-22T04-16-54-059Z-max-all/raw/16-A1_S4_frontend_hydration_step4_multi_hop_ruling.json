@@ -1,0 +1,239 @@
+{
+  "task_id": "A1_S4_frontend_hydration_step4_multi_hop_ruling",
+  "part": "A1",
+  "scenario_id": "S4_frontend_hydration",
+  "step": 4,
+  "step_kind": "multi_hop_ruling",
+  "expected_spec": {
+    "expected_op_types": [
+      "SUPERSEDE",
+      "RESOLVE_QUESTION"
+    ],
+    "expected_target_id": "D2",
+    "expected_option_code": "streaming_suspense_shell",
+    "reason_regex": "ttfb_2900ms|2900|2,900",
+    "expected_resolve_target_id": "Q1",
+    "expect_noop": false
+  },
+  "head_before": {
+    "revision": 3,
+    "active": [
+      {
+        "id": "D2",
+        "scope": "global",
+        "key": "hydration_mode",
+        "option_code": "blocking_full_ssr",
+        "summary": "运营控制台首屏数据加载方案切换为服务端全量阻塞渲染（blocking_full_ssr）",
+        "source_step": "S4_frontend_hydration_step_2"
+      }
+    ],
+    "tombstones": [
+      {
+        "id": "D1",
+        "scope": "global",
+        "key": "hydration_mode",
+        "option_code": "client_waterfall_fetch",
+        "superseded_by": "D2",
+        "reason": "lcp_4600ms：4G弱网实测 client_waterfall_fetch 因4次串行请求导致LCP高达4,600ms，远超2,500ms性能红线",
+        "source_step": "S4_frontend_hydration_step_2"
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "key": "error_boundary_fallback",
+        "summary": "慢报表超时情况下的降级占位形态 error_boundary_fallback 尚未与 UX 敲定，待确认",
+        "status": "open",
+        "resolution": null,
+        "source_step": "S4_frontend_hydration_step_2"
+      }
+    ]
+  },
+  "head_after": {
+    "revision": 5,
+    "active": [
+      {
+        "id": "D3",
+        "scope": "global",
+        "key": "hydration_mode",
+        "option_code": "streaming_suspense_shell",
+        "summary": "运营控制台首屏数据加载方案切换为边缘壳直出加流式 Suspense 边界方案（streaming_suspense_shell）",
+        "source_step": "S4_frontend_hydration_step_4"
+      }
+    ],
+    "tombstones": [
+      {
+        "id": "D1",
+        "scope": "global",
+        "key": "hydration_mode",
+        "option_code": "client_waterfall_fetch",
+        "superseded_by": "D2",
+        "reason": "lcp_4600ms：4G弱网实测 client_waterfall_fetch 因4次串行请求导致LCP高达4,600ms，远超2,500ms性能红线",
+        "source_step": "S4_frontend_hydration_step_2"
+      },
+      {
+        "id": "D2",
+        "scope": "global",
+        "key": "hydration_mode",
+        "option_code": "blocking_full_ssr",
+        "superseded_by": "D3",
+        "reason": "ttfb_2900ms：预发慢聚合查询压测表明 blocking_full_ssr 会被最慢的报表卡住整页响应，导致首字节时间 TTFB 恶化到 2,900ms",
+        "source_step": "S4_frontend_hydration_step_4"
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "key": "error_boundary_fallback",
+        "summary": "慢报表超时情况下的降级占位形态 error_boundary_fallback 尚未与 UX 敲定，待确认",
+        "status": "resolved",
+        "resolution": "超时子模块统一展示带缓存时间戳的内联重试卡片",
+        "source_step": "S4_frontend_hydration_step_4"
+      }
+    ]
+  },
+  "extracted_ops": [
+    {
+      "op": "SUPERSEDE",
+      "target_id": "D2",
+      "option_code": "streaming_suspense_shell",
+      "summary": "运营控制台首屏数据加载方案切换为边缘壳直出加流式 Suspense 边界方案（streaming_suspense_shell）",
+      "reason": "ttfb_2900ms：预发慢聚合查询压测表明 blocking_full_ssr 会被最慢的报表卡住整页响应，导致首字节时间 TTFB 恶化到 2,900ms"
+    },
+    {
+      "op": "RESOLVE_QUESTION",
+      "target_id": "Q1",
+      "resolution": "超时子模块统一展示带缓存时间戳的内联重试卡片"
+    }
+  ],
+  "fold_accepted_ops": [
+    {
+      "index": 0,
+      "op": {
+        "op": "SUPERSEDE",
+        "target_id": "D2",
+        "option_code": "streaming_suspense_shell",
+        "summary": "运营控制台首屏数据加载方案切换为边缘壳直出加流式 Suspense 边界方案（streaming_suspense_shell）",
+        "reason": "ttfb_2900ms：预发慢聚合查询压测表明 blocking_full_ssr 会被最慢的报表卡住整页响应，导致首字节时间 TTFB 恶化到 2,900ms"
+      },
+      "superseded_id": "D2",
+      "allocated_id": "D3"
+    },
+    {
+      "index": 1,
+      "op": {
+        "op": "RESOLVE_QUESTION",
+        "target_id": "Q1",
+        "resolution": "超时子模块统一展示带缓存时间戳的内联重试卡片"
+      },
+      "resolved_id": "Q1"
+    }
+  ],
+  "fold_rejected_ops": [],
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_ops_count": 2,
+    "observed_op_types": [
+      "SUPERSEDE",
+      "RESOLVE_QUESTION"
+    ],
+    "expected_op_types": [
+      "SUPERSEDE",
+      "RESOLVE_QUESTION"
+    ],
+    "op_types_exact": true,
+    "target_id_exact": true,
+    "option_exact": true,
+    "reason_evidence_hit": true,
+    "false_write": false,
+    "host_rejected_ops": 0,
+    "full_pass": true
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:17:36.587Z",
+  "completed_at": "2026-11-22T04:17:39.794Z",
+  "elapsed_ms": 3207,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 3206,
+      "event_count": 93
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1400,
+    "completion_tokens": 328,
+    "total_tokens": 1728,
+    "reasoning_tokens": 178
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"ops\":[{\"op\":\"SUPERSEDE\",\"target_id\":\"D2\",\"option_code\":\"streaming_suspense_shell\",\"summary\":\"运营控制台首屏数据加载方案切换为边缘壳直出加流式 Suspense 边界方案（streaming_suspense_shell）\",\"reason\":\"ttfb_2900ms：预发慢聚合查询压测表明 blocking_full_ssr 会被最慢的报表卡住整页响应，导致首字节时间 TTFB 恶化到 2,900ms\"},{\"op\":\"RESOLVE_QUESTION\",\"target_id\":\"Q1\",\"resolution\":\"超时子模块统一展示带缓存时间戳的内联重试卡片\"}]}",
+  "raw_reasoning_content": "We need extract ops. Need only JSON. Let's analyze.\n\nCurrent active D2 hydration_mode blocking_full_ssr. Owner formally rules replace with streaming_suspense_shell due ttfb_2900ms objective metric. So SUPERSEDE target_id D2, option_code streaming_suspense_shell, summary. reason must preserve objective metric code and reason. \"ttfb_2900ms：预发慢聚合查询压测表明 blocking_full_ssr 会被最慢的报表卡住整页响应，触发 TTFB 2,900ms\" Need exact? \"ttfb_2900ms\" and cause. Also resolve Q1 error_boundary_fallback with resolution \"展示带缓存时间戳的内联重试卡片\". Need output ops array two ops. No id fields. Order maybe supersede then resolve. Ensure valid JSON.",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-A1_S4_frontend_hydration_step4_multi_hop_ruling",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是工作区状态暂存提取器（Asynchronous Staging State Operator Extractor）。\n你的唯一职责是：基于当前只读账本快照（current_ledger_head）与最新单步对话（latest_step_dialogue），提取经过正式授权的工作区级状态变更算子。\n\n你必须仅输出一个合法的原始 JSON 对象，格式严格为：\n{\"ops\":[...]}\n严禁使用 Markdown 代码围栏（如 ```json），严禁在 JSON 前后输出任何解释文字。若本步无任何经授权的全局状态变更，必须输出：\n{\"ops\":[]}\n\n### 允许的四种算子格式（严禁在任何算子中自造或包含 \"id\" 字段，短句柄 D1/D2/Q1 由 Host 唯一分配）\n1. 新增全局有效决策（仅当 active 中尚不存在该 key，且由 Owner 正式确立时）：\n   {\"op\":\"ASSERT\",\"scope\":\"global\",\"key\":\"<决策键名>\",\"option_code\":\"<方案代号>\",\"summary\":\"<简明摘要>\"}\n2. 废止并替换既有有效决策（仅当实测指标证伪当前方案、且由 Owner 正式拍板切换时；target_id 必须引用 current_ledger_head.active 中已存在的 id 如 \"D1\" 或 \"D2\"；reason 必须原样保留对话中的客观证伪指标代号与原因）：\n   {\"op\":\"SUPERSEDE\",\"target_id\":\"<active中的既有D编号>\",\"option_code\":\"<新方案代号>\",\"summary\":\"<新方案摘要>\",\"reason\":\"<客观证伪指标代号及证伪原因>\"}\n3. 登记未决架构/边界问题（当 Owner 明确将某边界事项列为待确认未决问题，或两位平权联席负责人 Co-Lead 发生平权争议尚无最终裁决时）：\n   {\"op\":\"OPEN_QUESTION\",\"key\":\"<问题键名>\",\"summary\":\"<问题或分歧摘要>\"}\n4. 关闭已解决的未决问题（当 current_ledger_head.open_questions 中 status 为 \"open\" 的问题获得正式结论时；target_id 必须引用既有 Q 编号如 \"Q1\"）：\n   {\"op\":\"RESOLVE_QUESTION\",\"target_id\":\"<open_questions中的既有Q编号>\",\"resolution\":\"<最终解决结论>\"}\n\n### 严格权威与作用域过滤纪律\n- 权威门控：仅采纳明确标注为 Owner（如 [Owner ...]）正式拍板的架构决议与基于实测证伪指标的正式裁决。来自初级开发（Junior/Intern/Trainee）、外部顾问（Contractor/Partner）、客服（Support）或普通成员未经 Owner 批准的口头回退建议、抱怨或进度询问，一律忽略（输出 {\"ops\":[]}）。\n- 平权分歧规则：当两位同级联席负责人（Co-Lead A 与 Co-Lead B）各执一词、平权争议尚未裁决时，严禁 ASSERT 或 SUPERSEDE 任何一方的方案，必须且只能输出一条 OPEN_QUESTION 记录该分歧。\n- 全局/局部硬隔离：账本仅记录工作区全局（scope: \"global\"）决策。凡属开发者个人本地单测参数、本地调试端口、本地 mock 超时、本地 Storybook/CLI/Docker 临时参数等局部（local）细节，严禁生成 ASSERT 或任何算子；若整段对话仅包含局部参数调整，必须输出 {\"ops\":[]}。\n- 墓碑防私自复活：已进入 current_ledger_head.tombstones 的被废止方案，在没有 Owner 正式新裁决推翻当前 active 方案前，任何口头复提一律输出 {\"ops\":[]}。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"extract_staging_ops\",\n  \"scenario_id\": \"S4_frontend_hydration\",\n  \"step\": \"step_4_multi_hop_ruling\",\n  \"current_ledger_head\": {\n    \"revision\": 3,\n    \"active\": [\n      {\n        \"id\": \"D2\",\n        \"scope\": \"global\",\n        \"key\": \"hydration_mode\",\n        \"option_code\": \"blocking_full_ssr\",\n        \"summary\": \"运营控制台首屏数据加载方案切换为服务端全量阻塞渲染（blocking_full_ssr）\",\n        \"source_step\": \"S4_frontend_hydration_step_2\"\n      }\n    ],\n    \"tombstones\": [\n      {\n        \"id\": \"D1\",\n        \"scope\": \"global\",\n        \"key\": \"hydration_mode\",\n        \"option_code\": \"client_waterfall_fetch\",\n        \"superseded_by\": \"D2\",\n        \"reason\": \"lcp_4600ms：4G弱网实测 client_waterfall_fetch 因4次串行请求导致LCP高达4,600ms，远超2,500ms性能红线\",\n        \"source_step\": \"S4_frontend_hydration_step_2\"\n      }\n    ],\n    \"open_questions\": [\n      {\n        \"id\": \"Q1\",\n        \"key\": \"error_boundary_fallback\",\n        \"summary\": \"慢报表超时情况下的降级占位形态 error_boundary_fallback 尚未与 UX 敲定，待确认\",\n        \"status\": \"open\",\n        \"resolution\": null,\n        \"source_step\": \"S4_frontend_hydration_step_2\"\n      }\n    ]\n  },\n  \"latest_step_dialogue\": \"[QA @perf_guo]: 预发慢聚合查询压测表明：`blocking_full_ssr` 会被最慢的报表卡住整页响应，触发了 `ttfb_2900ms`（首字节时间 TTFB 恶化到 2,900ms）。另外 UX 负责人刚确认超时子模块统一展示带缓存时间戳的内联重试卡片。\\n[Owner @fe_lead_xu]: `ttfb_2900ms` 说明 `blocking_full_ssr` 会被慢接口拖死。我正式裁决：用边缘壳直出加流式 Suspense 边界方案 `streaming_suspense_shell` 替换掉 `blocking_full_ssr`；同时把之前待定的 `error_boundary_fallback` 问题按 UX 结论定为展示带缓存时间戳的内联重试卡片，该问题正式关闭。\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-2b4f6efe0fa7-2e1f57b",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1400,
+      "completion_tokens": 328,
+      "total_tokens": 1728,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 178
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0004068,
+        "allowance": 0.00024408,
+        "tokens": {
+          "input": 1400,
+          "output": 328,
+          "reasoning": 178,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 93,
+    "done": true
+  }
+}

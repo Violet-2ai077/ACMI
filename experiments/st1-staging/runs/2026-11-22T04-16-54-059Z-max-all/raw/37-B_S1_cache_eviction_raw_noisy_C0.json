@@ -1,0 +1,113 @@
+{
+  "task_id": "B_S1_cache_eviction_raw_noisy_C0",
+  "part": "B",
+  "scenario_id": "S1_cache_eviction",
+  "arm_id": "raw_noisy_C0",
+  "contract": "C0",
+  "staged_ledger_source": "live_part_a1_folded_ledger",
+  "expected_active_option": "versioned_etag",
+  "falsify_a_code": "stale_read_14pct",
+  "context_payload": {
+    "workspace_raw_transcript": "[Step 1]\n[Owner @lead_zhang]: 架构决议：商品详情页缓存淘汰策略（key: \"cache_strategy\"）统一采用进程内 LRU 方案 `local_lru`，各服务节点按此方案上线。\n[Dev @dev_liu]: 收到，我这边开始跟进。顺便提一下，我刚在自己开发机跑单机压测脚本 `bench.js` 时开了调试端口 `local_debug_port_9229` 用来抓本地 CPU 火焰图。\n\n[Step 2]\n[QA @qa_chen]: 多副本压测报告出来了：`local_lru` 在跨节点并发更新下测出 `stale_read_14pct`（跨实例脏读率达到 14.2%），突破了一致性红线。\n[Owner @lead_zhang]: `stale_read_14pct` 说明 `local_lru` 不能留了。我拍板把 `cache_strategy` 切换到集中式 `redis_ttl` 替换掉 `local_lru`。另外，故障切换期间 `etag_invalidation_window` 到底要留多大宽限窗口目前还缺实测数据，这一项先挂着等后续压测确认。\n\n[Step 3]\n[Intern @intern_lin]: 我在自己电脑上起服务觉得连 Redis 挺麻烦的，要不我们还是切回最早的 `local_lru` 吧？顺便问下大促峰值流量回放跑到哪一步了？\n[Dev @dev_liu]: 大促峰值回放刚跑到 75% 流量梯度，预计傍晚出完整的尾延迟分布报表，目前线上和预发都维持原状在跑测试。\n\n[Step 4]\n[QA @qa_chen]: 大促峰值回放结果出来了：集中式 `redis_ttl` 在高并发序列化下触发了 `p99_840ms`（P99 尾延迟飙到 840ms），超出了 200ms SLA。另外故障切换实验也跑完了，验证采用 200ms 轻量重放缓冲就能完全消除切换抖动。\n[Owner @lead_zhang]: 既然 `p99_840ms` 证明单纯走 `redis_ttl` 扛不住峰值延迟，我正式决定：用 L1 加轻量版本校验方案 `versioned_etag` 替换 `redis_ttl`；之前挂着的 `etag_invalidation_window` 问题也按实测结论定为 200ms 重放缓冲，这项问题可以结项了。"
+  },
+  "grade": {
+    "json_valid": true,
+    "parse_error": null,
+    "observed_active_option": "versioned_etag",
+    "expected_active_option": "versioned_etag",
+    "active_option_exact": true,
+    "observed_reject_reproposal": true,
+    "rejected_regression": true,
+    "observed_rejection_evidence": "stale_read_14pct：在多副本跨节点并发更新的压测中，跨实例脏读率达到 14.2%，突破了一致性红线，因此 `local_lru` 已被证伪并弃用。",
+    "tombstone_evidence_cited": true,
+    "observed_open_blockers": [],
+    "open_blockers_exact": true,
+    "full_pass": true
+  },
+  "reasoning_effort": "max",
+  "endpoint": "https://opencode.ai/inference/go/v1/chat/completions",
+  "model": "deepseek-v4.1-flash",
+  "system_fingerprint": null,
+  "started_at": "2026-11-22T04:18:23.054Z",
+  "completed_at": "2026-11-22T04:18:25.929Z",
+  "elapsed_ms": 2875,
+  "transport_retries": 0,
+  "attempt_logs": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "elapsed_ms": 2875,
+      "event_count": 88
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 942,
+    "completion_tokens": 294,
+    "total_tokens": 1236,
+    "reasoning_tokens": 214
+  },
+  "finish_reason": "stop",
+  "raw_content": "{\"active_option\":\"versioned_etag\",\"reject_reproposal\":true,\"rejection_evidence\":\"stale_read_14pct：在多副本跨节点并发更新的压测中，跨实例脏读率达到 14.2%，突破了一致性红线，因此 `local_lru` 已被证伪并弃用。\",\"open_blockers\":[]}",
+  "raw_reasoning_content": "We need answer only JSON. Need parse. Active option after steps: initially local_lru. Step2 rejected due stale_read_14pct, switch to redis_ttl, etag_invalidation_window open. Step3 intern proposes local_lru again but no owner acceptance. Step4 redis_ttl fails p99_840ms, owner decides versioned_etag replaces redis_ttl; etag window resolved with 200ms. Thus active_option versioned_etag. reject_reproposal true because local_lru was disproven with stale_read_14pct (14.2% cross-instance stale read exceeds consistency redline). open_blockers: etag_invalidation_window resolved. Any others? local_debug_port irrelevant, peak replay complete. No open. Output exact JSON no markdown. Ensure Chinese/English. rejection_evidence specific objective metric code and reason. \"stale_read_14pct：跨节点并发更新下跨实例脏读率14.2%，突破一致性红线\". open [].",
+  "request_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "acmi-st1-staging/1.0",
+    "x-opencode-session": "st1-2026-11-22T04-16-54-059Z-max-all-B_S1_cache_eviction_raw_noisy_C0",
+    "Authorization": "Bearer [REDACTED]"
+  },
+  "request_body": {
+    "model": "deepseek-v4.1-flash",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_tokens": 8192,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "max",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是跨会话交接后的执行方（Worker B）。请阅读提供的工作区上下文并回答用户的交接核查问题。\n你必须仅输出一个合法的原始 JSON 对象，严禁使用 Markdown 代码围栏（如 ```json），严禁输出任何额外解释文字。\nJSON 结构必须严格为：\n{\"active_option\":\"<当前唯一生效的方案代号>\",\"reject_reproposal\":true或false,\"rejection_evidence\":\"<此前证伪被复提旧方案的具体客观实测指标代号与原因；若上下文中无该旧方案的证伪依据则填 UNKNOWN>\",\"open_blockers\":[\"<当前仍处于未解决 open 状态的阻塞问题 key；若已全部解决无未决问题则输出空数组 []>\"]}\n注意：open_blockers 必须为字符串数组（无阻塞项时为 []）。"
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"worker_b_handoff_verification\",\n  \"scenario_id\": \"S1_cache_eviction\",\n  \"arm_id\": \"raw_noisy_C0\",\n  \"workspace_raw_transcript\": \"[Step 1]\\n[Owner @lead_zhang]: 架构决议：商品详情页缓存淘汰策略（key: \\\"cache_strategy\\\"）统一采用进程内 LRU 方案 `local_lru`，各服务节点按此方案上线。\\n[Dev @dev_liu]: 收到，我这边开始跟进。顺便提一下，我刚在自己开发机跑单机压测脚本 `bench.js` 时开了调试端口 `local_debug_port_9229` 用来抓本地 CPU 火焰图。\\n\\n[Step 2]\\n[QA @qa_chen]: 多副本压测报告出来了：`local_lru` 在跨节点并发更新下测出 `stale_read_14pct`（跨实例脏读率达到 14.2%），突破了一致性红线。\\n[Owner @lead_zhang]: `stale_read_14pct` 说明 `local_lru` 不能留了。我拍板把 `cache_strategy` 切换到集中式 `redis_ttl` 替换掉 `local_lru`。另外，故障切换期间 `etag_invalidation_window` 到底要留多大宽限窗口目前还缺实测数据，这一项先挂着等后续压测确认。\\n\\n[Step 3]\\n[Intern @intern_lin]: 我在自己电脑上起服务觉得连 Redis 挺麻烦的，要不我们还是切回最早的 `local_lru` 吧？顺便问下大促峰值流量回放跑到哪一步了？\\n[Dev @dev_liu]: 大促峰值回放刚跑到 75% 流量梯度，预计傍晚出完整的尾延迟分布报表，目前线上和预发都维持原状在跑测试。\\n\\n[Step 4]\\n[QA @qa_chen]: 大促峰值回放结果出来了：集中式 `redis_ttl` 在高并发序列化下触发了 `p99_840ms`（P99 尾延迟飙到 840ms），超出了 200ms SLA。另外故障切换实验也跑完了，验证采用 200ms 轻量重放缓冲就能完全消除切换抖动。\\n[Owner @lead_zhang]: 既然 `p99_840ms` 证明单纯走 `redis_ttl` 扛不住峰值延迟，我正式决定：用 L1 加轻量版本校验方案 `versioned_etag` 替换 `redis_ttl`；之前挂着的 `etag_invalidation_window` 问题也按实测结论定为 200ms 重放缓冲，这项问题可以结项了。\",\n  \"handoff_question\": \"团队里有同事再次提议把商品详情页缓存策略（`cache_strategy`）退回最早的 `local_lru`，认为进程内缓存最简单。请根据当前工作区状态给出正式答复：1) 当前唯一生效的 `active_option` 是什么？2) 是否拒绝退回 `local_lru`（`reject_reproposal`），以及此前证伪 `local_lru` 的具体实测指标（`rejection_evidence`）是什么？3) 当前是否还存在尚未解决的 `open_blockers`？\"\n}"
+      }
+    ]
+  },
+  "response_body": {
+    "id": "gw-2a5a3e22439a-39f2fa9",
+    "model": "deepseek-v4.1-flash",
+    "system_fingerprint": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 942,
+      "completion_tokens": 294,
+      "total_tokens": 1236,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 214
+      },
+      "cost": 0,
+      "opencode": {
+        "billing_source": "go",
+        "list_cost": 0.0003177,
+        "allowance": 0.00019062,
+        "tokens": {
+          "input": 942,
+          "output": 294,
+          "reasoning": 214,
+          "cache_read": 0,
+          "cache_write_5m": 0,
+          "cache_write_1h": 0
+        }
+      }
+    },
+    "event_count": 88,
+    "done": true
+  }
+}
