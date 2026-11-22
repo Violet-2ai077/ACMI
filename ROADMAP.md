@@ -11,11 +11,12 @@
 
 ## Conditional or experimental
 
-- **Path 1 Mechanism Validation (Closed 2026-11-21)**:
+- **Path 1 Mechanism Validation (Closed & Sealed 2026-11-22 — 484 Controlled Ablation Calls)**:
   Full synthesis: [Path 1 Mechanism Validation Synthesis](docs/research/path1-mechanism-validation-synthesis-20261121.md).
   Same-generation heavy structured work-state JSON maintenance (`FM1` / `0.9.10`)
-  is falsified and permanently retired. Four lightweight mechanism primitives
-  have been positively closed across 424 single-factor ablation calls on
+  is falsified and permanently retired. Five closed-loop mechanism primitives
+  covering the entire **write-fold-compress-handoff** lifecycle have been
+  positively validated across 484 single-factor ablation calls on
   `deepseek-v4.1-flash`:
   1. Minimal inline identity tail marker (`<|task:N|>` / `<|task:UNRESOLVED|>`)
      with de-greenhouse 24-turn invariance ([`TC3-B`](experiments/tc3-b/REPORT.md):
@@ -24,19 +25,26 @@
      ([`TC5-B`](experiments/tc5-b/REPORT.md): **16/16 [100%]** ambiguity clarify,
      **0/16 [0%]** over-abstention, **16/16 [100%]** unambiguous return, plus
      **4/4 [100%]** closed-loop implicit ambiguity resolution);
-  3. Hard global/local boundary compaction (`COMPRESSOR_STRICT`)
-     ([`TH1-B`](experiments/th1-b/REPORT.md): **24/24 [100%]** pass, **0%**
-     global-rule leak across `max`, `low`, `none`);
-  4. Authoritative override handoff contract (`RECEIVER_C1`)
-     ([`TH1-B`](experiments/th1-b/REPORT.md): **120/120 [100%]** pass, **0%**
-     stale resurrection, **0%** local corruption across `max`, `low`, `none`,
-     with **90.5%** `max`-tier reasoning token reduction on polluted histories).
-  **Next Stage (Path 2 — Lightweight Practical MVP)**: Package these four
-  validated primitives into a practical, low-overhead developer tool (closed-fence-aware
-  tail-marker parser, host-compiled 1-line-per-task read-only catalog +
-  `WorkAnchor`, host-authoritative Workspace State Ledger with turn provenance
-  and supersession tombstones, and paired `COMPRESSOR_STRICT` + `RECEIVER_C1`
-  handoff pipeline).
+  3. Independent asynchronous staging restricted state operator extraction
+     (`STAGING_EXTRACTOR_PROMPT` -> `ASSERT` / `SUPERSEDE` / `OPEN_QUESTION` /
+     `RESOLVE_QUESTION` / `NO_OP`) ([`ST1`](experiments/st1-staging/REPORT.md):
+     **24/24 [100%]** multi-hop steps without handle leaks + **12/12 [100%]**
+     boundary traps, **0/36** false writes, **0** Host rejections);
+  4. Host deterministic `foldLedger` Workspace State Ledger (`Active HEAD` +
+     `Tombstones` + `Open Questions`, Host-allocated short handles `D1../Q1..`)
+     ([`ST1`](experiments/st1-staging/REPORT.md) Part B: `ledger_staged_C1` &
+     `ledger_gold_C1` **6/6 [100%]**, **-58.4%** reasoning tokens vs raw
+     dialogue; stripping `tombstones` dropped evidence citation to **0/6 [0%]**);
+  5. Hard global/local boundary compaction (`COMPRESSOR_STRICT`) + Authoritative
+     override handoff contract (`RECEIVER_C1`)
+     ([`TH1-B`](experiments/th1-b/REPORT.md): `COMPRESSOR_STRICT` **24/24
+     [100%]** pass, **0%** global-rule leak; `RECEIVER_C1` **120/120 [100%]**
+     pass, **0%** stale resurrection, **0%** local corruption across `max`,
+     `low`, `none`, with **90.5%** `max`-tier reasoning token reduction on
+     polluted histories).
+  **Repository Seal & Decoupled Path 2**: This repository is sealed as an
+  independent Path 1 research and benchmark asset; subsequent Path 2 lightweight
+  practical MVP tooling built on these five primitives proceeds decoupled.
 
 - Phase 0.9.19: isolated [model-native task attribution research](research/phase-0.9.19/STATUS.md).
   A/B same-generation markers and state maintenance remain unqualified. The last

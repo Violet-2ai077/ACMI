@@ -34,13 +34,14 @@ Each row describes what was actually tested and what was not established.
 | [Path 1 `TH1-B`](../../experiments/th1-b/REPORT.md) | Stale-rule resurrection single-factor ablation across 8 scenarios × `{max, low, none}` (264 calls) | Uncontracted `compact_P0_C0` resurrected stale footers 8/8 (100%) in all tiers. `RECEIVER_C1` achieved **120/120 (100%) pass, 0% resurrection, 0% local corruption**, cutting `max` `P0` reasoning tokens by **90.5% (`1708.6 -> 162.9`)**. `COMPRESSOR_STRICT` achieved **24/24 (100%) pass, 0% leak**. |
 | [Path 1 `TC5-B`](../../experiments/tc5-b/REPORT.md) | Implicit ambiguity Recency vs Primacy counterbalance (64 probe calls) + 24-turn closed-loop regression (88 calls) | Exp A `C0` proved **100% Recency bias** (`4/4` default guesses on `recent_relevant`, `0/16` older). `SYSTEM_C1` achieved **16/16 (100%) ambiguity clarify, 0/16 over-abstention, 16/16 unambiguous return** in Exp A, and **4/4 (100%) implicit ambiguity clarify** + `t7` cross-task fix in Exp B. |
 | [Path 1 `TC3-B`](../../experiments/tc3-b/REPORT.md) | De-greenhouse 24-turn continuity stress test stripping historical CoT (`S1`) and client headers/proper nouns (`S2`) (72 calls) | `S0`, `S1`, and `S2` all achieved **24/24 (100%) full pass** (including `t24` at `gap=14`), falsifying the CoT/header greenhouse hypothesis. Long-gap (`gap=5..14`) mean CoT tokens rose **151.7 (`S0`) → 295.3 (`S1`) → 346.7 (`S2`)**. |
-| [Path 1 Synthesis](../research/path1-mechanism-validation-synthesis-20261121.md) | Full Path 1 Mechanism Validation synthesis and Path 2 architectural primitives | Permanently retires model-maintained structured state JSON; freezes 4 validated lightweight primitives for Path 2 MVP tooling. |
+| [Path 1 `ST1`](../../experiments/st1-staging/REPORT.md) | Asynchronous staging state operator extraction (24 multi-hop steps + 12 boundary traps) + Host `foldLedger` + 4-Arm cross-worker tombstone handoff (60 calls) | Part A1 **24/24 (100%)** exact ops & `target_id` (zero handle leaks in dialogue), **0/24** false writes, **0** Host rejections. Part A2 **12/12 (100%)** trap immunity, **0/12** false writes. Part B `ledger_staged_C1` & `ledger_gold_C1` **6/6 (100%)** (**-58.4%** CoT tokens vs `raw_noisy_C0`); stripping `tombstones` dropped evidence citation to **0/6 (0%)**. |
+| [Path 1 Synthesis](../research/path1-mechanism-validation-synthesis-20261121.md) | Full Path 1 Mechanism Validation synthesis (484 controlled ablation calls) and 5 closed-loop architectural primitives | Permanently retires model-maintained structured state JSON; freezes 5 validated closed-loop primitives for Path 2 MVP tooling and seals Path 1 in this repository. |
 
 ## How to audit or replay / 如何核查与复放
 
 ### Path 1 synthesis and Phase 0.9.19 checkpoint
 
-- **[Path 1 Mechanism Validation Synthesis](../research/path1-mechanism-validation-synthesis-20261121.md)** consolidates all historical baselines (`FM1`, `BS1`, `TC1–TC5`, `TH1`, `Phase 0.9.14 WorkAnchor`) and the 424 controlled single-factor ablation calls in [`experiments/th1-b/`](../../experiments/th1-b/REPORT.md), [`experiments/tc5-b/`](../../experiments/tc5-b/REPORT.md), and [`experiments/tc3-b/`](../../experiments/tc3-b/REPORT.md). Each ablation directory includes its pre-frozen `frozen-manifest.json`, unit tests (`node --test`), `summary.json`, and complete per-call `runs/<run-id>/raw/*.json` files.
+- **[Path 1 Mechanism Validation Synthesis](../research/path1-mechanism-validation-synthesis-20261121.md)** consolidates all historical baselines (`FM1`, `BS1`, `TC1–TC5`, `TH1`, `Phase 0.9.14 WorkAnchor`) and the 484 controlled single-factor ablation calls in [`experiments/th1-b/`](../../experiments/th1-b/REPORT.md), [`experiments/tc5-b/`](../../experiments/tc5-b/REPORT.md), [`experiments/tc3-b/`](../../experiments/tc3-b/REPORT.md), and [`experiments/st1-staging/`](../../experiments/st1-staging/REPORT.md). Each ablation directory includes its pre-frozen `frozen-manifest.json`, unit tests (`node --test`), `summary.json`, and complete per-call `runs/<run-id>/raw/*.json` files.
 - **[Phase 0.9.19](../../research/phase-0.9.19/STATUS.md)** records the earlier same-generation attribution harness, J1/S1/S2 reviews, and the links to `FM1`, `BS1`, `TC1–TC5`, and `TH1`. The 573k-line raw Phase 0.9.19 evidence archive is preserved on `origin/research/th1-handoff-20261120` under the immutable tag [`archive/phase-0.9.19-raw-evidence`](https://github.com/Violet-2ai077/ACMI/tree/archive/phase-0.9.19-raw-evidence) (`25c25c6`).
 
 - Each phase report records its evidence type and limits; recent phases link
@@ -71,11 +72,12 @@ Each row describes what was actually tested and what was not established.
 
 ## Current decision / 当前判断
 
-Path 1 (Mechanism Validation) is closed:
+Path 1 (Mechanism Validation) is closed and sealed across all 484 controlled ablation calls:
 1. **Permanently retire** same-generation heavy structured work-state JSON maintenance (`FM1` / `0.9.10`).
-2. **Adopt the four validated lightweight primitives** for Path 2 MVP tooling:
+2. **Adopt the five validated closed-loop primitives** for decoupled Path 2 MVP tooling:
    - Minimal inline tail marker (`<|task:N|>` / `<|task:UNRESOLVED|>`) + Anti-Recency Attribution Contract (`SYSTEM_C1`) + host-compiled read-only light task catalog / `WorkAnchor` fallback;
-   - Host-authoritative Workspace State Ledger (monotonic turn provenance + explicit supersession tombstones);
+   - Independent asynchronous staging restricted state operator extraction (`STAGING_EXTRACTOR_PROMPT` -> `ASSERT` / `SUPERSEDE` / `OPEN_QUESTION` / `RESOLVE_QUESTION` / `NO_OP`);
+   - Host deterministic `foldLedger` Workspace State Ledger (`Active HEAD` + `Tombstones` + `Open Questions`, Host-allocated handles `D1../Q1..`);
    - Hard global/local boundary compressor (`COMPRESSOR_STRICT`);
    - Authoritative override handoff contract (`RECEIVER_C1`).
-3. Keep explicit Host validation and causal Tool Result attribution. Model markers remain proposals validated by the Host; neither an anchor nor a parsed marker grants autonomous tool execution permission.
+3. Keep explicit Host validation and causal Tool Result attribution. Model markers and staged operators remain proposals validated by the Host; neither an anchor nor a parsed marker grants autonomous tool execution permission.

@@ -1,14 +1,15 @@
 # Phase 0.9.19 - current research checkpoint
 
-Updated: 2026-11-21. This checkpoint supersedes historical "not yet run" or
+Updated: 2026-11-22. This checkpoint supersedes historical "not yet run" or
 "main unchanged" statements only as a description of the current stage; it does
 not rewrite the evidence or authorizations recorded at those earlier times.
 
-## Path 1 mechanism validation closure - 2026-11-21
+## Path 1 mechanism validation closure - 2026-11-22
 
 The open mechanism questions exposed by `FM1`, `TC3`, `TC5`, and `TH1` below have
-been closed via **424 pre-frozen, zero-retry, single-factor ablation API calls**
-on `deepseek-v4.1-flash`, tracked directly on `main` under `experiments/` and
+been closed across the complete **write-fold-compress-handoff** lifecycle via
+**484 pre-frozen, zero-retry, single-factor ablation API calls** on
+`deepseek-v4.1-flash`, tracked directly on `main` under `experiments/` and
 synthesized in **[Path 1 Mechanism Validation Synthesis](../../docs/research/path1-mechanism-validation-synthesis-20261121.md)**:
 
 - **[`experiments/th1-b/`](../../experiments/th1-b/REPORT.md) (264 calls across `{max, low, none}`)**:
@@ -42,6 +43,23 @@ synthesized in **[Path 1 Mechanism Validation Synthesis](../../docs/research/pat
   (100%) full pass** (including `t24` after 14 intervening turns), falsifying the
   CoT/header greenhouse hypothesis while quantifying the long-gap online CoT
   re-scan tax (`long_return` mean reasoning tokens `151.7 [S0] -> 295.3 [S1] -> 346.7 [S2]`).
+- **[`experiments/st1-staging/`](../../experiments/st1-staging/REPORT.md) (60 calls at `max`)**:
+  Replaces the falsified `FM1` same-generation heavy state JSON tree with
+  **asynchronous single-step state operator extraction (`ASSERT`, `SUPERSEDE`,
+  `OPEN_QUESTION`, `RESOLVE_QUESTION`, `NO_OP`) + pure-function Host deterministic
+  folding (`foldLedger` with Host-allocated handles `D1../Q1..`) + cross-worker
+  `tombstones` anti-regression handoff**. Across 24 multi-hop evolution steps
+  (Part A1, with all internal handles `D1/D2/Q1` removed from dialogue text) and
+  12 boundary traps (Part A2: equal-authority conflict, local scope leak,
+  unauthorized resurrection), the extractor achieved **36/36 (100%) full pass,
+  0/36 false writes, and 0 Host-rejected ops** (`162.0` CoT tokens / `2.81s` on
+  A1; `36.8` CoT tokens / `1.80s` on A2). In Part B (24 cross-worker handoffs),
+  both `ledger_staged_C1` and `ledger_gold_C1` achieved **6/6 (100%) full pass**
+  at **`105.0` CoT tokens / `2.16s`** (**-58.4%** CoT tokens compared to
+  re-reading the raw dialogue in `raw_noisy_C0` at `252.7` CoT tokens / `3.18s`),
+  while stripping `tombstones` (`ledger_staged_no_tombstone_C1`) caused
+  falsification-evidence citation to drop from **6/6 (100%) to 0/6 (0%)**,
+  causally proving the necessity of explicit tombstones.
 - **Raw Phase 0.9.19 Evidence Archive**: The 573k-line raw evidence archive on
   `origin/research/th1-handoff-20261120` is preserved under the immutable tag
   [`archive/phase-0.9.19-raw-evidence`](https://github.com/Violet-2ai077/ACMI/tree/archive/phase-0.9.19-raw-evidence) (`25c25c6`).

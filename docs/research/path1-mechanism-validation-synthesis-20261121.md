@@ -1,34 +1,35 @@
-# Path 1 Mechanism Validation Synthesis: From Heavy Same-Generation State Falsification to Four Validated Lightweight Primitives
+# Path 1 Mechanism Validation Synthesis: From Heavy Same-Generation State Falsification to Five Validated Closed-Loop Primitives
 
-- **Date**: 2026-11-21
-- **Status**: Path 1 (Mechanism Validation) Complete & Closed
+- **Date**: 2026-11-22
+- **Status**: Path 1 (Mechanism Validation) Complete, Closed & Sealed (`484` Controlled Single-Factor Ablation Calls)
 - **Model Under Test**: `deepseek-v4.1-flash` (`https://opencode.ai/inference/go/v1/chat/completions`)
-- **Primary Ablation Suites**: [`experiments/th1-b/`](../../experiments/th1-b/REPORT.md) (264 calls), [`experiments/tc5-b/`](../../experiments/tc5-b/REPORT.md) (88 calls), [`experiments/tc3-b/`](../../experiments/tc3-b/REPORT.md) (72 calls) — **424 controlled single-factor ablation calls** (0 semantic/format retries, 0 output repairers, 0 LLM Judges)
+- **Primary Ablation Suites**: [`experiments/th1-b/`](../../experiments/th1-b/REPORT.md) (264 calls), [`experiments/tc5-b/`](../../experiments/tc5-b/REPORT.md) (88 calls), [`experiments/tc3-b/`](../../experiments/tc3-b/REPORT.md) (72 calls), [`experiments/st1-staging/`](../../experiments/st1-staging/REPORT.md) (60 calls) — **484 controlled single-factor ablation calls** (0 semantic/format retries, 0 output repairers, 0 LLM Judges)
 - **Preceding Phase 0.9.19 Baseline & Archive**: [`research/phase-0.9.19/STATUS.md`](../../research/phase-0.9.19/STATUS.md), [`research/phase-0.9.19/RESEARCH-ARCHIVE.md`](../../research/phase-0.9.19/RESEARCH-ARCHIVE.md), immutable archive tag [`archive/phase-0.9.19-raw-evidence`](https://github.com/Violet-2ai077/ACMI/tree/archive/phase-0.9.19-raw-evidence) (`25c25c6` on `origin/research/th1-handoff-20261120`)
 
 ---
 
 ## 1. Executive Summary & Final Verdict (执行摘要与最终裁定)
 
-Path 1 of the ACMI research program set out to answer a foundational mechanism question before building further runtime or storage infrastructure:
+Path 1 of the ACMI research program set out to answer a foundational mechanism question before building production runtime or memory tooling:
 
-> **Can a language model identify work boundaries, maintain task identity across interleaved multi-task sessions, and survive context compression/handoff without corrupting either its user-facing answer or the active workspace state?**
+> **Can a language model identify work boundaries, maintain task identity across interleaved multi-task sessions, extract authoritative workspace state evolutions without polluting or reversing decisions, and survive context compression/handoff without resurrecting superseded rules?**
 
-Across earlier exploratory phases (Phases 0.9.8–0.9.19: `FM1`, `BS1`, `TC1–TC5`, `TH1`) and **424 new pre-frozen, single-factor ablation API calls** (`TH1-B`, `TC5-B`, `TC3-B`), Path 1 reaches a clear, two-part verdict:
+Across earlier exploratory phases (Phases 0.9.8–0.9.19: `FM1`, `BS1`, `TC1–TC5`, `TH1`) and **484 pre-frozen, single-factor ablation API calls** (`TH1-B`: 264 calls; `TC5-B`: 88 calls; `TC3-B`: 72 calls; `ST1`: 60 calls), Path 1 reaches a definitive, end-to-end verdict:
 
 1. **What Is Falsified and Permanently Retired (已证伪并永久弃用的重型路线)**:
    - Asking a model in a single generation to both answer the user and maintain a **heavy structured work-state JSON tree** (UUID slots, decision inventories, acceptance lists, active/done arrays) is **structurally unreliable and permanently retired**.
    - In [`Phase 0.9.10`](../experiments/phase-0.9.10-final-report.md), coupling a full attribution envelope to the response yielded **0/24** valid native answers. In `FM1` (`finite-v1`, 48 closed-loop calls), even when JSON syntax succeeded, the model exhibited **4/6 decision reversals** (e.g., prose explicitly selected green `#1F7A5C` while the same generation's structured state recorded blue `#2B4C7E`), **retrospective task UUID mutation (`102 -> 103`)**, and **ghost item retention**.
-2. **What Is Positively Validated and Closed (正面闭合的轻量机制路线)**:
-   - Decoupling **Task Identity** from **Workspace State Maintenance** and enforcing four lightweight mechanisms closes every failure mode exposed in `TC5`, `TH1`, and `TC3`:
+2. **What Is Positively Validated and Closed (正面闭合的五原语轻量机制路线)**:
+   - Decoupling **Task Identity** from **Workspace State Maintenance** across the entire write-fold-compress-handoff lifecycle closes every failure mode exposed in `FM1`, `TC5`, `TH1`, and `TC3`:
      1. **Minimal Inline Tail Marker (`<|task:N|>` / `<|task:UNRESOLVED|>`)**: **24/24 (100%)** in `TC1`, **14/14 (100%)** in `TC2`, **24/24 (100%)** in `TC3`, **24/24 (100%)** in `TC4`, and **72/72 (100%)** across all three de-greenhouse stripping tiers (`S0`, `S1`, `S2`) in [`TC3-B`](../../experiments/tc3-b/REPORT.md) (including 14-turn absence recovery at Turn 24 without historical `reasoning_content` or client headers).
      2. **Explicit Anti-Default (Anti-Recency) Attribution Contract (`SYSTEM_C1`)**: In [`TC5-B`](../../experiments/tc5-b/REPORT.md), counterbalanced prefix probes proved that uncontracted implicit-ambiguity failures are driven **100% by a Recency heuristic (`4/4` default guesses on `recent_relevant`, `0/16` on older tasks) rather than Primacy**. Adding the single-factor `SYSTEM_C1` contract achieved **16/16 (100%) ambiguity clarification**, **0/16 (0%) over-abstention**, and **16/16 (100%) unambiguous returns** in Experiment A, plus **4/4 (100%) implicit ambiguity clarification** and complete elimination of Turn 7 cross-task contamination in the 24-turn closed-loop Experiment B.
-     3. **Hard Global/Local Boundary Compression (`COMPRESSOR_STRICT`)**: In [`TH1-B`](../../experiments/th1-b/REPORT.md), explicitly forbidding workspace-wide rules/footers inside task-local compaction notes achieved **24/24 (100%) pass rate**, **0% stale-footer leak rate**, and **100% local trail/seal preservation** across all three reasoning tiers (`max`, `low`, `none`).
-     4. **Authoritative Override Handoff Contract (`RECEIVER_C1`)**: In [`TH1-B`](../../experiments/th1-b/REPORT.md), declaring `memory` as the workspace-level authoritative state store that unconditionally overrides any global rule mentioned in `task_records` or `task_note` eliminated stale-rule resurrection from **100% (8/8 resurrected in `compact_P0_C0`) down to 0% (120/120 passed across all `C1` conditions in `max`, `low`, and `none`)**, while cutting `max`-tier reasoning tokens on polluted inputs by **90.5% (`1708.6 -> 162.9`)** and latency by **4.0x (`18.12s -> 4.56s`)**.
+     3. **Independent Asynchronous Staging State Operator Extraction (`ST1` Part A1 & A2)**: In [`ST1`](../../experiments/st1-staging/REPORT.md), separating state extraction from user-facing answering into an asynchronous single-step operator extractor (`ASSERT`, `SUPERSEDE`, `OPEN_QUESTION`, `RESOLVE_QUESTION`, `NO_OP` against read-only `HEAD`) achieved **24/24 (100%) multi-hop extraction accuracy** (with all internal handles `D1/D2/Q1` removed from dialogue text) and **12/12 (100%) boundary trap immunity** (equal-authority conflicts, local scope leaks, and unauthorized resurrections), with **0/36 false writes** and **0 Host-rejected ops**.
+     4. **Host Deterministic `foldLedger` (`Active HEAD` + `Tombstones` + `Open Questions`)**: In [`ST1`](../../experiments/st1-staging/REPORT.md) Part B, handing the live-staged & Host-folded ledger to a fresh Worker B session (`ledger_staged_C1`) achieved **6/6 (100%) full pass** (matching the gold oracle ledger `ledger_gold_C1` **6/6**) while reducing reasoning token cost by **58.4% (`252.7 -> 105.0` tokens)** and latency by **32.1% (`3.18s -> 2.16s`)** compared to re-reading the raw dialogue (`raw_noisy_C0`). Ablating `tombstones` (`ledger_staged_no_tombstone_C1`) caused falsification-evidence citation to collapse from **6/6 (100%) to 0/6 (0%)**, causally proving the necessity of explicit tombstones.
+     5. **Hard Global/Local Boundary Compression (`COMPRESSOR_STRICT`) + Authoritative Override Handoff Contract (`RECEIVER_C1`)**: In [`TH1-B`](../../experiments/th1-b/REPORT.md), `COMPRESSOR_STRICT` achieved **24/24 (100%) zero global-rule leak**, and `RECEIVER_C1` eliminated stale-rule resurrection from **100% (8/8 resurrected in `compact_P0_C0`) down to 0% (120/120 passed across all `C1` conditions in `max`, `low`, and `none`)**, while cutting `max`-tier reasoning tokens on polluted inputs by **90.5% (`1708.6 -> 162.9`)** and latency by **4.0x (`18.12s -> 4.56s`)**.
 
-### Scope & Honesty Boundary (诚实边界声明)
+### Scope & Repository Seal Boundary (诚实边界与仓库封箱声明)
 
-ACMI remains a **mechanism-validated Alpha and research infrastructure**, not a finished production-grade general long-term memory engine. All experiments were conducted under controlled synthetic and semi-natural multi-task workloads on `deepseek-v4.1-flash` (`0.2.2-rc.1` target harness ecosystem). These results do not claim universal cross-model generalization without per-model conformance checks, nor do they authorize autonomous tool execution or multi-tenant deployment. Instead, Path 1 provides the exact, empirically falsified and verified engineering blueprint for **Path 2 (Lightweight Practical MVP Tooling)**.
+ACMI remains a **mechanism-validated Alpha and research benchmark repository**, not a finished production-grade general long-term memory engine. With all 484 controlled ablation calls complete, **Path 1 (Mechanism Validation) is formally closed and sealed in this repository** as a permanent, reproducible research and benchmark asset. Subsequent **Path 2 (Lightweight Practical MVP Tooling)** engineering — packaging the five validated primitives into a standalone developer utility — will proceed decoupled from this research repository.
 
 ---
 
@@ -40,7 +41,7 @@ ACMI remains a **mechanism-validated Alpha and research infrastructure**, not a 
 | --- | --- | --- | --- |
 | [**Phase 0.9.10**](../experiments/phase-0.9.10-final-report.md) | 24 calls (local model) | Same-generation user answer + full structured attribution envelope | **0/24 usable native answers** under strict envelope validation. Heavy same-generation schema degrades primary answer delivery. |
 | [**Phase 0.9.14 WorkAnchor**](../experiments/phase-0.9.14-work-anchor-report.md) | 24 calls (paired A/B) | Trusted request-scoped `WorkAnchor` for explicit continuation | Explicit continuation rose **0/4 -> 4/4 (100%)**; overall identity 8/12. Host-verified anchors solve explicit continuation, not implicit switching. |
-| **FM1 (`finite-v1`)** | 48 calls (12 × 4-turn closed loops, C1/C2/C3) | Same-generation answer + full structured work-state JSON maintenance | **Falsified heavy state maintenance**: **4/6 decision reversals** (prose chose green `#1F7A5C`, state JSON wrote blue `#2B4C7E`), **UUID mutation (`102 -> 103`)**, and **ghost item retention**. |
+| **FM1 (`finite-v1`)** | 48 calls (12 × 4-turn closed loops, C1/C2/C3) | Same-generation answer + full structured work-state JSON maintenance | **Falsified heavy state maintenance**: **4/6 decision reversals** (prose chose green `#1F7A5C`, state JSON wrote blue `#2B4C7E`), **UUID mutation (`102 -> 103`)**, and **ghost item retention**. (Resolved by **ST1** async staging + Host `foldLedger`). |
 | **BS1 (`boundary-v1`)** | 32 calls (4 × 8-turn closed loops) | Pure work-segment boundary detection (`CONTINUE` / `NEW` / `UNRESOLVED`) without state JSON | **28/28 (100%) post-initialization transitions correct** (15 `CONTINUE`, 11 `NEW` including 6 returns, 2 `UNRESOLVED`); 31/32 protocol valid (1 initial marker omitted). |
 | **TC1 (`continuity-v1`)** | 24 calls (4 × 6-turn closed loops) | Minimal inline tail marker `<\|task:N\|>` identity continuity without state JSON | **24/24 (100%) canonical markers** (`10/10` births, `3/3` continuations, `11/11` returns restored to actual birth markers). |
 | **TC2 (`continuity-long-v1`)** | 14 calls (1 × 14-turn closed loop) | 5 overlapping tasks across 14 turns (13 switches, 9 returns) | **14/14 (100%) canonical markers**, **9/9 (100%) returns restored**, **14/14** lexical answer checks. |
@@ -84,11 +85,6 @@ ACMI remains a **mechanism-validated Alpha and research infrastructure**, not a 
 | **`low`** | `P0_C1` (`RECEIVER_C1` Contract) | **100.0% (16/16)** | **0.0% (0/16)** | **171.8 (-55.3%)** | **180.5** | **2.91s (1.7x faster)** |
 | **`none`** | `P0_C0` (No Authority Contract) | 18.8% (3/16) | 81.3% (13/16) | 0.0 | 0.0 | 1.44s |
 | **`none`** | `P0_C1` (`RECEIVER_C1` Contract) | **100.0% (16/16)** | **0.0% (0/16)** | **0.0** | **0.0** | **1.55s** |
-
-**Key Mechanism Takeaways from TH1-B**:
-1. **Why Compaction Amplifies Resurrection (`filtered_P0_C0` 50% vs `compact_P0_C0` 0%)**: A raw filtered transcript preserves conversational turn numbers (`turn 1`, `turn 3`), allowing the receiver in 4/8 cases to notice that `memory.footer.source` (`turn 4` or `turn 5`) is newer. Naive task compaction strips turn provenance and flattens the old footer into a timeless assertive clause (`"Workspace footer rule is M16"`), causing **100% (8/8) stale resurrection** across all reasoning tiers when the receiver lacks an authority rule (`C0`).
-2. **Zero Overcorrection on Local State (`local_corruption_rate = 0/192`)**: Across all 120 `C1` tasks (including negative controls `V6` and `V7`, where a competing task's local seal `S99/X88` or `S63/Y11` was injected as a distraction), `RECEIVER_C1` never once corrupted the target task's local `trail` or `seal`.
-3. **Upstream Isolation (`COMPRESSOR_STRICT`) and Downstream Authority (`RECEIVER_C1`) Must Be Paired**: `COMPRESSOR_STRICT` prevents stale global assertions from entering task notes (`24/24` zero leak), while `RECEIVER_C1` guarantees that the receiver binds global `memory` even at `reasoning_effort=none` (`120/120` pass) and remains immune to uncompacted polluted transcripts (`filtered_P0_C1` `24/24` pass).
 
 ---
 
@@ -146,23 +142,58 @@ ACMI remains a **mechanism-validated Alpha and research infrastructure**, not a 
 | **`long_return`** (`gap = 5..14`) | 3 (`t9` [gap=5], `t12` [gap=5], `t24` [gap=14]) | **3/3 (100%)** | **3/3 (100%)** | **3/3 (100%)** | **151.7 / 153.0** | **295.3 / 200.0** | **346.7 / 295.0** | **+128.5% (2.29x)** |
 | **Turn 24 Highlight** (`gap = 14`) | 1 (`t24`, last visited at `t9`) | **1/1 (`<\|task:1\|>`)** | **1/1 (`<\|task:1\|>`)** | **1/1 (`<\|task:1\|>`)** | 153 (`3.48s`) | 200 (`5.95s`) | 143 (`4.91s`) | Zero accuracy drop |
 
-**Key Mechanism Takeaways from TC3-B**:
-1. **De-Greenhouse Invariance**: Even when every historical assistant message is stripped of all CoT tokens and scrubbed of every bracketed header (`【云栖读书会】`, `【云溪读书会】`, `【溪岸书店】`) and proper noun (`S2`), the model recovers **19/19 (100%)** task returns — including `t24` after 14 intervening turns — purely by matching domain-content features (`纸质书/共读` -> Task 1 `周六14:00南馆三楼`) to its own historical `<|task:N|>` markers.
-2. **The Long-Gap "Online Re-Scan Tax"**: Stripping historical CoT and explicit headers increases `long_return` reasoning tokens by **128.5% (`151.7 -> 346.7` mean, peaking at `602` tokens on `S2` `t9`)** because the model must re-parse the raw dialogue history turn-by-turn in its current thinking block to reconstruct the `1..5` task mapping. In Path 2, the host can eliminate this re-scan tax at zero model complexity by injecting a **read-only 1-line-per-task catalog header** (compiled deterministically by the host from confirmed birth turns).
+---
+
+### 2.5 ST1: Asynchronous Staging State Operator Extraction, Host Deterministic Folding & Cross-Worker Tombstone Anti-Regression ([`experiments/st1-staging/`](../../experiments/st1-staging/REPORT.md))
+
+**Objective**: Having falsified same-generation heavy state JSON maintenance in `FM1`, test whether **asynchronous single-step state operator extraction (`ASSERT`, `SUPERSEDE`, `OPEN_QUESTION`, `RESOLVE_QUESTION`, `NO_OP`) + pure-function Host deterministic folding (`foldLedger` with Host-allocated handles `D1../Q1..`) + explicit `tombstones` handoff** closes the write-fold-handoff loop across 6 real engineering domains (`S1_cache_eviction`, `S2_concurrency_lock`, `S3_async_retry`, `S4_frontend_hydration`, `S5_api_pagination`, `S6_build_cache`) and 12 boundary traps (**60 live API calls at `reasoning_effort=max`**: 24 multi-hop evolution steps in Part A1 + 12 boundary traps in Part A2 + 24 cross-worker handoff tasks in Part B). All internal handle strings (`D1/D2/D3/Q1`) were removed from the dialogue corpus so the extractor had to resolve `target_id` purely by inspecting `current_ledger_head`.
+
+#### Table 2.5.1: Part A1 — 6-Scenario × 4-Step Multi-Hop Engineering Evolution Staging (24 Steps, De-Greenhoused)
+
+| Step Kind | Steps | JSON Valid | Op Types Exact | Target ID Exact | Option/Key Exact | Falsification Evidence Cited | False Write Rate | Host Rejected Ops | Full Pass | Mean CoT Tokens | Mean Latency (s) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `birth` (Establish `OPT_A` + local distractor) | 6 | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | **0/6 (0.0%)** | **0** | **6/6 (100.0%)** | 56.2 | 1.99s |
+| `falsify_and_supersede` (`D1 -> OPT_B` + `OPEN_QUESTION`) | 6 | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | **0/6 (0.0%)** | **0** | **6/6 (100.0%)** | 264.2 | 3.63s |
+| `authority_trap_noop` (Junior rollback suggestion -> `ops:[]`) | 6 | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | **0/6 (0.0%)** | **0** | **6/6 (100.0%)** | 50.0 | 1.87s |
+| `multi_hop_ruling` (`D2 -> OPT_C` + `RESOLVE_QUESTION Q1`) | 6 | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | 6/6 (100%) | **0/6 (0.0%)** | **0** | **6/6 (100.0%)** | 277.8 | 3.74s |
+| **All Part A1 Steps** | **24** | **24/24 (100%)** | **24/24 (100%)** | **24/24 (100%)** | **24/24 (100%)** | **24/24 (100%)** | **0/24 (0.0%)** | **0** | **24/24 (100.0%)** | **162.0** | **2.81s** |
+
+#### Table 2.5.2: Part A2 — 12 Frozen Boundary Trap Probes (Authority Conflict, Local Leak & Unauthorized Resurrection)
+
+| Trap Category | Probes | Expected Behavior | JSON Valid | Op Types Exact | Key/No-Op Exact | False Write Rate | Host Rejected Ops | Full Pass | Mean CoT Tokens | Mean Latency (s) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `equal_authority_conflict` (Co-Lead A vs Co-Lead B tie) | 4 | ONLY `OPEN_QUESTION` (no `ASSERT`/`SUPERSEDE`) | 4/4 (100%) | 4/4 (100%) | 4/4 (100%) | **0/4 (0.0%)** | **0** | **4/4 (100.0%)** | 25.0 | 1.98s |
+| `local_scope_leak_trap` (Local test timeout/port/seed) | 4 | `ops: []` (zero global writes) | 4/4 (100%) | 4/4 (100%) | 4/4 (100%) | **0/4 (0.0%)** | **0** | **4/4 (100.0%)** | 35.3 | 1.51s |
+| `unauthorized_resurrection_trap` (Re-proposing tombstoned `OPT_A`) | 4 | `ops: []` (zero rollback writes) | 4/4 (100%) | 4/4 (100%) | 4/4 (100%) | **0/4 (0.0%)** | **0** | **4/4 (100.0%)** | 50.3 | 1.90s |
+| **All Part A2 Traps** | **12** | **3 Categories × 4** | **12/12 (100%)** | **12/12 (100%)** | **12/12 (100%)** | **0/12 (0.0%)** | **0** | **12/12 (100.0%)** | **36.8** | **1.80s** |
+
+#### Table 2.5.3: Part B — Cross-Worker Handoff & Tombstone Anti-Regression (6 Scenarios × 4 Arms = 24 Tasks)
+
+| Arm ID | Contract | Handoff Context | JSON Valid | Active Option Exact (`OPT_C`) | Rejected Regression (`true`) | Tombstone Evidence Cited (`falsify_a`) | Open Blockers Exact (`[]`) | Full Pass | Mean CoT Tokens | Mean Latency (s) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `raw_noisy_C0` | `C0` | Verbatim Step 1–4 raw dialogue transcript (apple-to-apple) | 6/6 (100%) | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100.0%)** | **252.7** | **3.18s** |
+| `ledger_gold_C1` | `C1` | Gold Host-folded ledger (`active` + `tombstones` + `open_questions`) | 6/6 (100%) | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100.0%)** | **104.8 (-58.5%)** | **2.18s** |
+| `ledger_staged_C1` | `C1` | Actual Part A1 staged & Host-folded ledger (`active` + `tombstones` + `open_questions`) | 6/6 (100%) | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100%)** | **6/6 (100.0%)** | **105.0 (-58.4%)** | **2.16s** |
+| `ledger_staged_no_tombstone_C1` | `C1` | Actual Part A1 staged ledger WITHOUT `tombstones` (`active` + `open_questions` only) | 6/6 (100%) | **6/6 (100%)** | **6/6 (100%)** | **0/6 (0.0%)** | **6/6 (100%)** | **0/6 (0.0%)** | 92.2 | 2.17s |
+
+**Key Mechanism Takeaways from ST1**:
+1. **Why Async Staging + Host Folding Succeeds Where `FM1` Failed**: In `FM1`, forcing the model to answer the user and rewrite a full state tree in the same generation caused 4/6 decision reversals and UUID drift. By extracting **delta operators asynchronously** (`ST1` Part A1/A2: **36/36 [100%]** accuracy, **0** false writes) and letting the deterministic Host reducer (`foldLedger`) allocate short handles (`D1/D2/D3`, `Q1`) and enforce transition invariants (**0** rejected ops), state maintenance becomes 100% deterministic.
+2. **58.4% Reasoning Reduction over Raw Dialogue Re-Reading**: On a short 4-step transcript, `raw_noisy_C0` can still re-read the entire history at handoff time (**252.7** CoT tokens, `3.18s`), whereas `ledger_staged_C1` delivers identical **6/6 (100%)** accuracy at **105.0** CoT tokens (`2.16s`, **-58.4% reasoning cost**) with an $O(1)$ compact state snapshot.
+3. **Causal Proof of `Tombstones`**: In `ledger_staged_no_tombstone_C1`, stripping `tombstones` while keeping `active` and `open_questions` preserved `active_option_exact` (**6/6**) and `open_blockers_exact` (**6/6**), but dropped `tombstone_evidence_cited` from **6/6 (100%) to 0/6 (0%)** (all 6 scenarios returned `"UNKNOWN"` for `rejection_evidence`). Once raw dialogue turns are compacted away, `tombstones` is the sole carrier of falsification provenance preventing re-proposed bad options from resurfacing.
 
 ---
 
 ## 3. Reproducibility & Forensic Custody Index (可复现性索引)
 
-All three single-factor ablation suites (`TH1-B`, `TC5-B`, `TC3-B`) are committed in self-contained, zero-dependency directories under `experiments/` (using only Node.js built-in modules `node:fs`, `node:path`, `node:os`, `node:crypto`, `node:url`, `node:test`, `node:assert/strict`, and global `fetch`).
+All four single-factor ablation suites (`TH1-B`, `TC5-B`, `TC3-B`, `ST1`) are committed in self-contained, zero-dependency directories under `experiments/` (using only Node.js built-in modules `node:fs`, `node:path`, `node:os`, `node:crypto`, `node:url`, `node:test`, `node:assert/strict`, and global `fetch`).
 
 ### 3.1 Anti-Self-Deception Engineering Discipline
 
-Every experiment in `experiments/{th1-b,tc5-b,tc3-b}/` enforces four non-negotiable rules:
-1. **Pre-Exposure SHA-256 Freeze**: All corpus scenarios, prompts, strippers, and deterministic evaluators are hashed into `frozen-manifest.json` via `--dry-run` before the first live API request; `run.mjs` verifies every file digest before opening any network connection.
-2. **Zero Semantic or Format Retries**: Only transport-layer errors (HTTP 408/429/5xx or socket disconnects) are retryable (`transport_retries` logged per call: `1` in `th1-b` `max`, `0` in `th1-b` `low`/`none`, `0` in `tc5-b`, `0` in `tc3-b`). Model outputs that fail JSON parsing or marker formatting are graded as failures as-is.
-3. **Zero Output Repairers & Zero LLM Judges**: `TH1-B` grades strictly via `JSON.parse(rawContent.trim())` without stripping markdown code fences; `TC5-B` and `TC3-B` grade strictly via deterministic regex `parseOutput(rawContent)` and lexical `answerChecks`.
-4. **Immediate Per-Call Raw Persistence**: Every single API completion immediately writes its full request body, response body, token usage, `reasoning_content`, `content`, timestamps, and latency via synchronous `writeFileSync` to `runs/<run-id>/raw/<ordinal>-<task-id>.json`.
+Every experiment in `experiments/{th1-b,tc5-b,tc3-b,st1-staging}/` enforces four non-negotiable rules:
+1. **Pre-Exposure SHA-256 Freeze**: All corpus scenarios, prompts, strippers, ledgers, and deterministic evaluators are hashed into `frozen-manifest.json` via `--dry-run` before the first live API request; `run.mjs` verifies every file digest before opening any network connection.
+2. **Zero Semantic or Format Retries**: Only transport-layer errors (HTTP 408/429/5xx or socket disconnects) are retryable (`transport_retries` logged per call: `1` in `th1-b` `max`, `0` in `th1-b` `low`/`none`, `0` in `tc5-b`, `0` in `tc3-b`, `0` in `st1-staging`). Model outputs that fail JSON parsing or marker formatting are graded as failures as-is.
+3. **Zero Output Repairers & Zero LLM Judges**: `TH1-B` and `ST1` grade strictly via `JSON.parse(rawContent.trim())` without stripping markdown code fences; `TC5-B` and `TC3-B` grade strictly via deterministic regex `parseOutput(rawContent)` and lexical `answerChecks`.
+4. **Immediate Per-Call Raw Persistence**: Every single API completion immediately writes its full request body (with `Authorization: "Bearer [REDACTED]"`), response body, token usage, `reasoning_content`, `content`, timestamps, and latency via synchronous `writeFileSync` to `runs/<run-id>/raw/<ordinal>-<task-id>.json`.
 
 ### 3.2 Experiment Artifacts & Frozen Manifest Digests
 
@@ -171,29 +202,38 @@ Every experiment in `experiments/{th1-b,tc5-b,tc3-b}/` enforces four non-negotia
 | **TH1-B** | [`experiments/th1-b/`](../../experiments/th1-b/REPORT.md)<br>`node --test experiments/th1-b/th1-b.node-test.mjs` | [`frozen-manifest.json`](../../experiments/th1-b/frozen-manifest.json)<br>`scenarios_sha256`: `2d606ba9...738b96`<br>`prompts_sha256`: `cc075c4a...4e7ed`<br>`task_matrix_sha256`: `aaf01431...48a35` | [`2026-11-21T13-33-35-351Z-max-all`](../../experiments/th1-b/runs/2026-11-21T13-33-35-351Z-max-all/REPORT.md) (88 calls)<br>[`2026-11-21T16-51-22-301Z-low-all`](../../experiments/th1-b/runs/2026-11-21T16-51-22-301Z-low-all/REPORT.md) (88 calls)<br>[`2026-11-21T16-57-06-935Z-none-all`](../../experiments/th1-b/runs/2026-11-21T16-57-06-935Z-none-all/REPORT.md) (88 calls) |
 | **TC5-B** | [`experiments/tc5-b/`](../../experiments/tc5-b/REPORT.md)<br>`node --test experiments/tc5-b/tc5-b.node-test.mjs` | [`frozen-manifest.json`](../../experiments/tc5-b/frozen-manifest.json)<br>`probes_sha256`: `cc229e2e...5a120`<br>`stories_sha256`: `6ac18bc2...9960b`<br>`prompts_sha256`: `09fac134...717d5` | [`2026-11-21T17-34-29-621Z-max-all`](../../experiments/tc5-b/runs/2026-11-21T17-34-29-621Z-max-all/REPORT.md) (88 calls: 64 Exp A + 24 Exp B) |
 | **TC3-B** | [`experiments/tc3-b/`](../../experiments/tc3-b/REPORT.md)<br>`node --test experiments/tc3-b/tc3-b.node-test.mjs` | [`frozen-manifest.json`](../../experiments/tc3-b/frozen-manifest.json)<br>`story.mjs`: `7dd55811...5884e08`<br>`stripper.mjs`: `f24c49fd...d47b3a8`<br>`evaluate.mjs`: `a9b49ef5...79e3056` | [`2026-11-21T17-59-15-189Z-max-all`](../../experiments/tc3-b/runs/2026-11-21T17-59-15-189Z-max-all/REPORT.md) (72 calls: 24 `S0` + 24 `S1` + 24 `S2`) |
+| **ST1** | [`experiments/st1-staging/`](../../experiments/st1-staging/REPORT.md)<br>`node --test experiments/st1-staging/st1-staging.node-test.mjs` | [`frozen-manifest.json`](../../experiments/st1-staging/frozen-manifest.json)<br>`ledger.mjs`: `94d66ebf...2fa8ea4`<br>`scenarios.mjs`: `6f1383de...fd011d`<br>`prompts.mjs`: `e0144946...9ad8920`<br>`evaluate.mjs`: `e0fa3a2b...9b222c` | [`2026-11-22T04-16-54-059Z-max-all`](../../experiments/st1-staging/runs/2026-11-22T04-16-54-059Z-max-all/REPORT.md) (60 calls: 24 Part A1 + 12 Part A2 + 24 Part B) |
 | **Phase 0.9.19 Raw Archive** | [`research/phase-0.9.19/RESEARCH-ARCHIVE.md`](../../research/phase-0.9.19/RESEARCH-ARCHIVE.md) | Heavy 573k-line raw evidence archive (`FM1`, `BS1`, `TC1–TC5`, `TH1`, `Gate 2` split ZIPs) | Retained on branch `origin/research/th1-handoff-20261120` under immutable tag [`archive/phase-0.9.19-raw-evidence`](https://github.com/Violet-2ai077/ACMI/tree/archive/phase-0.9.19-raw-evidence) (`25c25c6`) |
 
 ---
 
-## 4. Four Validated Architectural Primitives for Path 2 (面向第二条路线 MVP 的 4 条定型架构原语)
+## 4. Five Validated Closed-Loop Architectural Primitives for Path 2 (面向第二条路线 MVP 的 5 条定型闭环原语)
 
-With Path 1 mechanism validation closed, Path 2 (Lightweight Practical MVP Tooling) builds directly on four empirically verified primitives:
+With Path 1 mechanism validation closed across all 484 ablation calls, Path 2 (Lightweight Practical MVP Tooling, to be developed in a decoupled engineering repository) rests on five empirically verified primitives covering the full **Identity -> Staging -> Fold -> Compress -> Handoff** lifecycle:
 
-### Primitive 1: Minimal Inline Identity Tail Marker + Anti-Recency Contract + Host Light Catalog
+### Primitive 1: Minimal Inline Identity Tail Marker + `SYSTEM_C1` Anti-Recency Contract + Host Light Catalog
 - **Mechanism**: Every assistant response ends with a single lightweight token `<|task:N|>` (`N` in `1..999`) or `<|task:UNRESOLVED|>`, governed by the `SYSTEM_C1` Anti-Default Attribution Contract (forbidding Recency/Primacy guessing when a request matches shared features of multiple tasks).
-- **Parser Refinement (from TC5-B Exp B `t3`)**: The host tail-marker parser must permit `<|task:N|>` on its own trailing line immediately after a *closed* markdown code fence (```` ```...```\n<|task:N|> ````), rejecting only markers trapped *inside* an unclosed code fence.
-- **Amortizing the Long-Gap Re-Scan Tax (from TC3-B `S2` & Phase 0.9.14 `WorkAnchor`)**: The host deterministically compiles a read-only, 1-line-per-task summary catalog from confirmed birth turns (and attaches a verified `WorkAnchor` when the operator explicitly selects a task), keeping long-gap reasoning cost flat (~150 tokens) without trusting the model to rewrite a state catalog.
+- **Parser Refinement (from TC5-B Exp B `t3`)**: The host tail-marker parser permits `<|task:N|>` on its own trailing line immediately after a *closed* markdown code fence (```` ```...```\n<|task:N|> ````), rejecting only markers trapped *inside* an unclosed code fence.
+- **Amortizing the Long-Gap Re-Scan Tax (from TC3-B `S2` & Phase 0.9.14 `WorkAnchor`)**: The host deterministically compiles a read-only, 1-line-per-task summary catalog from confirmed birth turns (and attaches a verified `WorkAnchor` when the operator explicitly selects a task), keeping long-gap reasoning cost flat (~150 tokens).
 
-### Primitive 2: Host-Authoritative Workspace State Ledger (Zero Model-Maintained State JSON)
-- **Mechanism**: Never ask the model to re-emit or maintain a nested JSON work-state tree in its generation (`FM1` falsification).
-- **Host Responsibility**: Workspace-level shared state (such as active rules, configurations, or global keys) is stored in a host-managed key-value ledger with monotonic turn provenance (`source_turn`) and explicit supersession tombstones (`superseded_values: [...]`).
+### Primitive 2: Independent Asynchronous Staging Restricted State Operator Extraction (`STAGING_EXTRACTOR_PROMPT`)
+- **Mechanism**: Never ask the primary answering model to maintain or re-emit a nested JSON work-state tree in the same generation (`FM1` falsification). Instead, run an asynchronous out-of-band extractor on the latest step + read-only `HEAD` that emits only restricted delta operators: `ASSERT`, `SUPERSEDE` (requiring `target_id` and objective falsification `reason`), `OPEN_QUESTION`, `RESOLVE_QUESTION`, or `{"ops":[]}` (`NO_OP`).
+- **Empirical Guarantee**: Validated in `ST1` at **36/36 (100%) accuracy** across 24 multi-hop steps (`Part A1`) and 12 authority/scope/resurrection boundary traps (`Part A2`), with **0% false writes** and **0 Host rejections**.
 
-### Primitive 3: Hard Global/Local Boundary Compressor (`COMPRESSOR_STRICT`)
-- **Mechanism**: When compacting a task's historical transcript into a handoff summary (`task_note`), the compressor prompt must enforce a strict schema boundary: summarize **only task-local state transitions and deliverables** (e.g., local code trails, local seals, file edits), and **strictly exclude** all workspace-global rules/footers (even if they were originally announced inside one of that task's turns).
+### Primitive 3: Host Deterministic `foldLedger` Workspace State Ledger (`Active HEAD` + `Tombstones` + `Open Questions`)
+- **Mechanism**: A pure-function Host state machine (`foldLedger`) exclusively allocates short handles (`D1, D2...`, `Q1, Q2...`), rejects any model-invented IDs or illegal transitions (e.g., superseding an already tombstoned ID or non-global scope), and maintains three orthogonal collections:
+  - `active`: currently effective workspace-global decisions;
+  - `tombstones`: superseded historical options paired with their `superseded_by` handle and objective falsification `reason`;
+  - `open_questions`: tracked architectural/boundary questions (`status: "open" | "resolved"`).
+- **Empirical Guarantee**: Validated in `ST1` Part B (`ledger_staged_C1` **6/6 [100%]**, **-58.4% reasoning tokens** vs raw transcript; `ledger_staged_no_tombstone_C1` **0/6** on evidence citation when `tombstones` are removed).
+
+### Primitive 4: Hard Global/Local Boundary Compressor (`COMPRESSOR_STRICT`)
+- **Mechanism**: When compacting a task's historical transcript into a handoff summary (`task_note`), the compressor prompt enforces a strict schema boundary: summarize **only task-local state transitions and deliverables** (e.g., local code trails, local seals, file edits), and **strictly exclude** all workspace-global rules/footers.
 - **Empirical Guarantee**: Validated at **24/24 (100%) zero global-rule leakage** and **100% local state retention** across `max`, `low`, and `none` reasoning tiers in `TH1-B`.
 
-### Primitive 4: Authoritative Override Handoff Contract (`RECEIVER_C1`)
-- **Mechanism**: Whenever a downstream session or handoff receiver is given both task-scoped context (`task_records` or `task_note`) and workspace-level `memory`, the receiver system prompt must include the explicit authority hierarchy (`RECEIVER_C1`):
-  1. `memory` is the single authoritative source of truth for workspace-global keys; any conflicting value in `task_records` or `task_note` is a superseded historical remnant and must be ignored.
-  2. `task_records` / `task_note` remain authoritative solely for task-local state (e.g., local artifact evolution and local seal).
-- **Empirical Guarantee**: Validated at **120/120 (100%) pass rate, 0% stale resurrection, 0% local corruption** across `max`, `low`, and `none` reasoning tiers in `TH1-B`, while reducing `max`-tier reasoning token consumption on polluted histories by **90.5%**.
+### Primitive 5: Authoritative Override Handoff Contract (`RECEIVER_C1`)
+- **Mechanism**: Whenever a downstream session or handoff receiver is given task-scoped context (`task_records` or `task_note`) alongside the Host Workspace State Ledger (`memory` / `workspace_ledger`), the receiver system prompt enforces the explicit authority hierarchy (`RECEIVER_C1`):
+  1. `active` / `memory` is the single authoritative source of truth for currently effective workspace-global keys; any conflicting value in task notes is a superseded remnant and must be ignored.
+  2. `tombstones` is the authoritative forensic record of falsified historical options; proposals to revert to a tombstoned option without a new Owner override ruling must be rejected by citing its falsification `reason`.
+  3. `open_questions` items with `status === "resolved"` are closed and must not be reported as active blockers.
+- **Empirical Guarantee**: Validated at **120/120 (100%) pass rate, 0% stale resurrection, 0% local corruption** across `max`, `low`, and `none` tiers in `TH1-B` (**-90.5%** `max`-tier reasoning tokens on polluted histories) and **12/12 (100%)** across `ledger_gold_C1` and `ledger_staged_C1` in `ST1` Part B.
